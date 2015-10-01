@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C571FE8-5D05-481D-A79F-1D77B16D944A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Midway.ObjectModel</RootNamespace>
+    <AssemblyName>Midway.ObjectModel</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Midway.ObjectModel.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Midway.Common\Properties\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Address.cs" />
+    <Compile Include="AddressType.cs" />
+    <Compile Include="BoxCertificate.cs" />
+    <Compile Include="BoxInfo.cs" />
+    <Compile Include="Certificate.cs" />
+    <Compile Include="CertificateFieldValidationResult.cs" />
+    <Compile Include="CertificateValidationResult.cs" />
+    <Compile Include="CertificateValidationStatus.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="ContactAuthType.cs" />
+    <Compile Include="ContactSearchItem.cs" />
+    <Compile Include="ContactSearchOptions.cs" />
+    <Compile Include="ContactSearchResult.cs" />
+    <Compile Include="ContactStatus.cs" />
+    <Compile Include="ContactStatusExtensions.cs" />
+    <Compile Include="DocumentEntry.cs" />
+    <Compile Include="DocumentEntryItem.cs" />
+    <Compile Include="DocumentEntryList.cs" />
+    <Compile Include="DocumentEntryOptions.cs" />
+    <Compile Include="DocumentFlow.cs" />
+    <Compile Include="DocumentFlowResultMode.cs" />
+    <Compile Include="DocumentFlowType.cs" />
+    <Compile Include="DraftForwardDocument.cs" />
+    <Compile Include="DraftForwardDocumentRelation.cs" />
+    <Compile Include="DraftMessageSendMode.cs" />
+    <Compile Include="FlowDocumentInfo.cs" />
+    <Compile Include="FlowDocumentInfoRequestParams.cs" />
+    <Compile Include="FlowType.cs" />
+    <Compile Include="FormatControlError.cs" />
+    <Compile Include="Extensions\FilterOperatorTypeExtensions.cs" />
+    <Compile Include="Extensions\PageSettingsExtensions.cs" />
+    <Compile Include="Common\FilterCondition.cs" />
+    <Compile Include="Common\FilterOperatorType.cs" />
+    <Compile Include="Common\FetchingSettings.cs" />
+    <Compile Include="ForwardDocument.cs" />
+    <Compile Include="ForwardMessage.cs" />
+    <Compile Include="InternalListOptions.cs" />
+    <Compile Include="InternalMessage.cs" />
+    <Compile Include="InternalMessageRecipient.cs" />
+    <Compile Include="RecipientFlowStatus.cs" />
+    <Compile Include="RegisterResult.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="DocumentAdditionalStatus.cs" />
+    <Compile Include="DocumentDeliveryStatus.cs" />
+    <Compile Include="DocumentFlowStatus.cs" />
+    <Compile Include="DocumentList.cs" />
+    <Compile Include="DocumentListEntry.cs" />
+    <Compile Include="DocumentListOptions.cs" />
+    <Compile Include="DocumentMultiDeliveryStatus.cs" />
+    <Compile Include="DocumentMultiSignStatus.cs" />
+    <Compile Include="DocumentInfo.cs" />
+    <Compile Include="DocumentServiceType.cs" />
+    <Compile Include="DocumentSignStatus.cs" />
+    <Compile Include="DocumentType.cs" />
+    <Compile Include="DraftDocument.cs" />
+    <Compile Include="DraftMessage.cs" />
+    <Compile Include="DraftMessageRelation.cs" />
+    <Compile Include="DraftMessageSearchResult.cs" />
+    <Compile Include="EncryptedTokenInfo.cs" />
+    <Compile Include="EnhancedSign.cs" />
+    <Compile Include="Exceptions\DocumentValidationException.cs" />
+    <Compile Include="Exceptions\ServerException.cs" />
+    <Compile Include="Exceptions\ServiceErrorCode.cs" />
+    <Compile Include="Exceptions\ServiceErrorFaultContract.cs" />
+    <Compile Include="Exceptions\ServiceErrorType.cs" />
+    <Compile Include="Exceptions\ServiceException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Extensions\DocumentMultiDeliveryStatusExtensions.cs" />
+    <Compile Include="Extensions\DocumentMultiSignStatusExtensions.cs" />
+    <Compile Include="Extensions\DocumentTypeExtensions.cs" />
+    <Compile Include="Extensions\MessageExtensions.cs" />
+    <Compile Include="Extensions\OrganizationExtensions.cs" />
+    <Compile Include="Extensions\ServiceErrorCodeExtensions.cs" />
+    <Compile Include="RegisterModel.cs" />
+    <Compile Include="ForeignAddress.cs" />
+    <Compile Include="FormatControlResult.cs" />
+    <Compile Include="FullDocumentInfo.cs" />
+    <Compile Include="FullDocumentInfoRequestParams.cs" />
+    <Compile Include="InnKppName.cs" />
+    <Compile Include="InvoiceDocumentFlowStatus.cs" />
+    <Compile Include="InvoiceFlowStatus.cs" />
+    <Compile Include="InvoiceModificationStatus.cs" />
+    <Compile Include="InvoiceInfo.cs" />
+    <Compile Include="LocalServerId.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessageInfo.cs" />
+    <Compile Include="MessageRecipient.cs" />
+    <Compile Include="MessageRecipientWithStatus.cs" />
+    <Compile Include="MessageStatus.cs" />
+    <Compile Include="NamedContent.cs" />
+    <Compile Include="NonLegitimateReason.cs" />
+    <Compile Include="NumberDateSum.cs" />
+    <Compile Include="Organization.cs" />
+    <Compile Include="OrganizationAddress.cs" />
+    <Compile Include="OrganizationByCriteria.cs" />
+    <Compile Include="OrganizationByCriteriaValues.cs" />
+    <Compile Include="OrganizationListEntry.cs" />
+    <Compile Include="OrganizationStatus.cs" />
+    <Compile Include="OrganizationStructureElement.cs" />
+    <Compile Include="OrganizationType.cs" />
+    <Compile Include="OutdatedDocumentListEntry.cs" />
+    <Compile Include="Common\PageSettings.cs" />
+    <Compile Include="PersonInfo.cs" />
+    <Compile Include="ProcurationInfo.cs" />
+    <Compile Include="Common\SearchSettings.cs" />
+    <Compile Include="RejectSign.cs" />
+    <Compile Include="SenderFlowStatus.cs" />
+    <Compile Include="SentMessage.cs" />
+    <Compile Include="ServiceBoxUser.cs" />
+    <Compile Include="ServiceDocument.cs" />
+    <Compile Include="ServiceNotice.cs" />
+    <Compile Include="Sign.cs" />
+    <Compile Include="SignerInfo.cs" />
+    <Compile Include="Common\SortingSetting.cs" />
+    <Compile Include="SubjectInfo.cs" />
+    <Compile Include="TitleBuyer.cs" />
+    <Compile Include="TitleType.cs" />
+    <Compile Include="UnsignedMessage.cs" />
+    <Compile Include="UntypedDocumentFlowStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UntypedKind.cs" />
+    <Compile Include="UntypedDocumentMultiFlowStatus.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="ValidationStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Midway.ObjectModel.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
