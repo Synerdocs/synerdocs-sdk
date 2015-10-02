@@ -30,7 +30,7 @@ namespace Midway.ConsoleClient
             Console.Out.WriteLine("Использование:");
             Console.Out.WriteLine("mclient <service-url>");
             Console.Out.WriteLine("Пример: ");
-            Console.Out.WriteLine("mclient http://localhost:5001/ExchangeService.svc");
+            Console.Out.WriteLine("mclient.exe https://service.synerdocs.ru/ExchangeService.svc");
         }
 
     }

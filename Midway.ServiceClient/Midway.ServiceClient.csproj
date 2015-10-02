@@ -53,9 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Midway.Common\Properties\SharedAssemblyInfo.cs">
-      <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="BaseClient.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientAutorizedEventArgs.cs" />
