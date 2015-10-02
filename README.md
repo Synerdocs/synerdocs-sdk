@@ -11,6 +11,6 @@ SDK включает в себя примеры кода работы с сер�
 Как запустить пример:
  * Открыть Mdway.SDK.sln в Visual Studio
  * Запустить сборку
- * Запустить из комндной строки Midway.ConsoleClient\bin\Debug\mclient.exe https://service.synerdocs.ru/ExchangeService.svc
+ * Запустить из командной строки Midway.ConsoleClient\bin\Debug\mclient.exe https://service.synerdocs.ru/ExchangeService.svc
 
 
