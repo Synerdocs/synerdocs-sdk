@@ -131,5 +131,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public bool NeedReceipt { get; set; }
+
+        /// <summary>
+        /// Текстовое описание полного текущего статуса документооборота относительно абонента
+        /// </summary>
+        [DataMember]
+        public DocumentFlowStatusDescription DocumentFlowStatusDescription { get; set; }
     }
 }

@@ -73,6 +73,7 @@
     <Compile Include="DocumentEntryOptions.cs" />
     <Compile Include="DocumentFlow.cs" />
     <Compile Include="DocumentFlowResultMode.cs" />
+    <Compile Include="DocumentFlowStatusDescription.cs" />
     <Compile Include="DocumentFlowType.cs" />
     <Compile Include="DraftForwardDocument.cs" />
     <Compile Include="DraftForwardDocumentRelation.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Common\FetchingSettings.cs" />
     <Compile Include="ForwardDocument.cs" />
     <Compile Include="ForwardMessage.cs" />
+    <Compile Include="InfoField.cs" />
     <Compile Include="InternalListOptions.cs" />
     <Compile Include="InternalMessage.cs" />
     <Compile Include="InternalMessageRecipient.cs" />

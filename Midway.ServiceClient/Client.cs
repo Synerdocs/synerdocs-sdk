@@ -73,6 +73,23 @@ namespace Midway.ServiceClient
         }
 
         /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="serviceUrl">адрес веб-сервиса</param>
+        /// <param name="enableTracing">включить счетчики производительнтсти</param>
+        /// <param name="useStreamRequest">использовать потоковую передачу данных</param>
+        ///  <param name="applicationVersionValue">Приложение-версия которые будут вставлены в заголовок</param>
+        /// <param name="configEndpointName">использовать другое имя конечной точки при конфига</param>
+        public Client(string serviceUrl, bool enableTracing, bool useStreamRequest, string applicationVersionValue, string configEndpointName = "WSHttpBinding_IExchangeService")
+        {
+            if (serviceUrl == null)
+                throw new ArgumentNullException();
+            this.serviceUrl = serviceUrl;
+            this.client = new ExchangeServiceClient(configEndpointName, serviceUrl);
+            client.Endpoint.Behaviors.Add(new ApplicationVersionEndpointBehavior(applicationVersionValue));
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="serviceUrl">игнорируется, оставлен чтобы не было совпадения сигнатуры</param>

@@ -49,7 +49,7 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public byte[] Card { get; set; }
-
+        
         /// <summary>
         /// Комментарий
         /// </summary>
@@ -67,5 +67,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public bool NeedReceipt { get; set; }
+
+        /// <summary>
+        /// Идентификатор родительского документа в цепочке служебных документов
+        /// </summary>
+        [DataMember]
+        public string ParentDocumentId { get; set; }
     }
 }

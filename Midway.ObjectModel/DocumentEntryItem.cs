@@ -143,5 +143,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DocumentFlow[] Flows { get; set; }
+        
+        /// <summary>
+        /// Текстовое описание полного текущего статуса документооборота относительно абонента
+        /// </summary>
+        [DataMember]
+        public DocumentFlowStatusDescription DocumentFlowStatusDescription { get; set; }
     }
 }
