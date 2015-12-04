@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -53,9 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationVersionEndpointBehavior.cs" />
     <Compile Include="BaseClient.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientAutorizedEventArgs.cs" />
+    <Compile Include="ClientMessageInspector.cs" />
     <Compile Include="CryptoApiHelper.cs" />
     <Compile Include="IExchangeServiceClient.cs" />
     <Compile Include="MessageFactory.cs" />

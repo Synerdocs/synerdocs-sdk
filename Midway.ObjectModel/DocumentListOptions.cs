@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -44,6 +45,36 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public int Max { get; set; }
+
+        /// <summary>
+        /// Типы документов
+        /// </summary>
+        [DataMember]
+        public DocumentType[] DocumentTypes { get; set; }
+
+        /// <summary>
+        /// Ящики контрагентов
+        /// </summary>
+        [DataMember]
+        public string[] ContragentBoxIds { get; set; }
+
+        /// <summary>
+        /// Статусы ЭСФ
+        /// </summary>
+        [DataMember]
+        public InvoiceFlowStatus[] InvoiceFlowStatuses { get; set; }
+
+        /// <summary>
+        /// Статусы подписания документов 
+        /// </summary>
+        [DataMember]
+        public DocumentSignStatus[] DocumentSignStatuses { get; set; }
+
+        /// <summary>
+        /// Требуется подтверждение получения
+        /// </summary>
+        [DataMember]
+        public bool? NeedReceipt { get; set; }
 
         /// <summary>
         /// Получить параметры поиска/фильтрации в виде строки
