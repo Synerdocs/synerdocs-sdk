@@ -23,8 +23,8 @@ Midway.ConsoleClient\bin\Debug\mclient.exe https://service.synerdocs.ru/Exchange
 
  * Выбрать для проекта ```Midway.ConsoleClient``` в контекстном меню Properties -> Debug 
  * убедиться, что настроен параметр запуска в режиме отладки из командной строки:
-    Start Options \ Command line arguments 
-    https://client.synerdocs.ru/exchangeservice.svc
+    Start Options \ Command line arguments     
+	https://testservice.synerdocs.ru/exchangeservice.svc
  * Запустить проект в режиме отладки Debug -> Start Debugging, использовать отладку при необходимости
 
 ### для запуска консольных приложений - примеров использования библиотек:
