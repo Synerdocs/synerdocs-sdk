@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midway.ObjectModel", "Midway.ObjectModel\Midway.ObjectModel.csproj", "{9C571FE8-5D05-481D-A79F-1D77B16D944A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midway.ConsoleClient", "Midway.ConsoleClient\Midway.ConsoleClient.csproj", "{8DC1AF9D-506E-4517-876B-382FB91551B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midway.ServiceClient", "Midway.ServiceClient\Midway.ServiceClient.csproj", "{4714FAB4-D0A8-424B-A056-2D9FD113C29F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{965D6E34-FE53-4741-BF49-B1744E8C25D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,5 +54,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C571FE8-5D05-481D-A79F-1D77B16D944A} = {965D6E34-FE53-4741-BF49-B1744E8C25D0}
+		{4714FAB4-D0A8-424B-A056-2D9FD113C29F} = {965D6E34-FE53-4741-BF49-B1744E8C25D0}
 	EndGlobalSection
 EndGlobal
