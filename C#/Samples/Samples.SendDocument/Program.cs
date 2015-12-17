@@ -185,15 +185,16 @@ namespace Samples.SendDocument
                               "Пароль на контейнер при установке сертификата - 1, " +
                               "При установке выбирать параметры по умолчанию" +
                               "Инструкция - /Certficates/manual.pdf \n" +
+                              "После успешной установки перезапуститет пример" +
                               "Или проверьте установленное ПО для подписания (КриптоПро)" +
                               "\n" +
-                              "Нажмите Y для запуска /Certficates/Alice/install_certificate.pfx"
+                              "Нажмите Y для запуска /Certficates/Alice/install_certificate.pfx\n" 
                 );
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
                 // запуск pfx установщика сертификат
-                var certificatesDir = "../../../Certificates";
-                var pfxInstaller = certificatesDir + @"/Certificates/Alice/install_certificate.pfx";
+                var filesDir = "../../../../../ExamplesOfUserFiles";
+                var pfxInstaller = filesDir + @"/Certificates/Alice/install_certificate.pfx";
 
                 if (!File.Exists(pfxInstaller))
                 {
