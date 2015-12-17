@@ -6,7 +6,7 @@ SDK включает в себя примеры работы с сервисом
     
 ## Описание API (объекты данных, методы, классы)
 
- CHM версия описания есть в репозитории (```/Synerdocs X.X.X. Описание API (...) (DD-MM-YYY).chm```)
+ CHM версия описания есть в репозитории (```/Synerdocs X.X.X. Описание API (...) (DD-MM-YYYY).chm```)
 
  [Версия CHM описания API Synerdocs на сайте www.synerdocs.ru](http://www.synerdocs.ru/Web_Service_2.12.zip)
 
