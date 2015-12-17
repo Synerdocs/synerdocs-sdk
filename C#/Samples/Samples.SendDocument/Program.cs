@@ -193,8 +193,15 @@ namespace Samples.SendDocument
             {
                 // запуск pfx установщика сертификат
                 var certificatesDir = "../../../Certificates";
+                var pfxInstaller = certificatesDir + @"/Certificates/Alice/install_certificate.pfx";
+
+                if (!File.Exists(pfxInstaller))
+                {
+                    Console.WriteLine("Установочный pfx файл сертификата не найден");
+                    return;
+                }
                 System.Diagnostics.Process.Start(
-                    Path.Combine(Environment.CurrentDirectory, certificatesDir + @"/Certificates/Alice/install_certificate.pfx")
+                    Path.Combine(Environment.CurrentDirectory, pfxInstaller)
                     );
             }
         }
