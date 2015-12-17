@@ -253,3 +253,7 @@ FakesAssemblies/
 *.opt
 # *20150713*
 # Source/Midway/Midway.Web/logs/
+
+Samples/Certificates/*
+Samples/Certificates/*/*
+Samples/Certificates/*.pdf
