@@ -254,6 +254,5 @@ FakesAssemblies/
 # *20150713*
 # Source/Midway/Midway.Web/logs/
 
-ExamplesOfUserFiles/Certificates/*
 ExamplesOfUserFiles/Certificates/*/*
 ExamplesOfUserFiles/Certificates/*.pdf
