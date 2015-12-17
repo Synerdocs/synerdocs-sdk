@@ -46,10 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Certificates\Alice\certificate.crt" />
-    <None Include="Certificates\Alice\install_certificate.pfx" />
-    <None Include="Certificates\manual.pdf" />
-    <None Include="Certificates\_README.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Midway.ObjectModel\Midway.ObjectModel.csproj">

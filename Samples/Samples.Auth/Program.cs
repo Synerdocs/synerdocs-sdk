@@ -33,7 +33,8 @@ namespace Samples.Auth
             }
 
             // сертификат для входа по сертификату БЕЗ возможности подписания
-            var certificateBytes = File.ReadAllBytes("../../Certificates/Alice/certificate.crt");
+            var certificatesDir = "../../../Certificates";
+            var certificateBytes = File.ReadAllBytes(certificatesDir + "/Alice/certificate.crt");
             var certificate = new X509Certificate2(certificateBytes);
 
             // авторизуемся по сертификату

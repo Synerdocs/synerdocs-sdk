@@ -15,57 +15,6 @@ namespace Samples.SendDocument
     internal class Program
     {
         /// <summary>
-        /// Получение сертификата С ЗАКРЫТЫМ КЛЮЧОМ - для возможности подписания
-        /// Необходимо наличие КриптоПро на локальном компьютере нужной версии
-        /// 
-        /// Для установки на локальный компьютер использовать 
-        /// "../../Certificates/Alice/install_certificate.pfx"
-        /// 
-        /// Пароль на контейнер  - "1"
-        /// </summary>
-        /// <returns></returns>
-        private static X509Certificate2 GetCertificate()
-        {
-            // Отпечаток сертификата "../../Certificates/Alice/certificate.crt"
-            var thumbprint = "2A7758BA286F826A964699E834A77194C351780F";
-
-            Func<X509Certificate2, bool> certCondition =
-                x => x.Thumbprint != null
-                     && x.Thumbprint.Equals(thumbprint, StringComparison.InvariantCultureIgnoreCase);
-
-            // открываем хранилище сертификатов на локальном компьютере
-            var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-            store.Open(OpenFlags.ReadOnly);
-
-            // разрешенные значения поля "алгоритм подписи" сертификатов (алгоритм ГОСТ)
-            var validGostAlgorithms = new[]
-            {
-                "1.2.643.2.2.4",
-                "1.2.643.2.2.3"
-            };
-
-            var validCertificates = store.Certificates.Cast<X509Certificate2>()
-                // использующие алгоритм ГОСТ
-                .Where(x => validGostAlgorithms.Contains(x.SignatureAlgorithm.Value));
-
-            var allowed = validCertificates.Where(certCondition).ToArray();
-            if (allowed.Count() > 1)
-                throw new InvalidOperationException("Найдено более одного сертификата, удовлетворяющего" +
-                                                    " условию поиска");
-
-            var cert = allowed.FirstOrDefault();
-            if (cert == null)
-                throw new InvalidOperationException("Не найдено ни одного сертификата, удовлетворяющего" +
-                                                    " условию поиска и подходящего для работы в сервисе");
-
-            if (!cert.HasPrivateKey)
-                throw new InvalidOperationException(string.Format(
-                    "Не найден закрытый ключ для сертификата с отпечатком {0}", cert.Thumbprint));
-
-            return cert;
-        }
-
-        /// <summary>
         /// Пример авторизации по сертификату
         /// получение данных по ИНН об организации-получателе
         /// отправка документа с подписью сертификатом пользователя
@@ -87,11 +36,11 @@ namespace Samples.SendDocument
             }
             catch (Exception)
             {
-                OnCertificateError();
+                OnGetCertificateError();
                 Console.ReadLine();
                 return;
             }
-            
+
             // авторизуемся по сертификату
             if (client.AuthenticateWithCertificate(certificate.Thumbprint, appId))
             {
@@ -173,13 +122,64 @@ namespace Samples.SendDocument
         }
 
         /// <summary>
+        /// Получение сертификата С ЗАКРЫТЫМ КЛЮЧОМ - для возможности подписания
+        /// Необходимо наличие КриптоПро на локальном компьютере нужной версии
+        /// 
+        /// Для установки на локальный компьютер использовать 
+        /// "../../Certificates/Alice/install_certificate.pfx"
+        /// 
+        /// Пароль на контейнер  - "1"
+        /// </summary>
+        /// <returns></returns>
+        private static X509Certificate2 GetCertificate()
+        {
+            // Отпечаток сертификата, который должен быть установлен в системе
+            var thumbprint = "2A7758BA286F826A964699E834A77194C351780F";
+
+            Func<X509Certificate2, bool> certCondition =
+                x => x.Thumbprint != null
+                     && x.Thumbprint.Equals(thumbprint, StringComparison.InvariantCultureIgnoreCase);
+
+            // открываем хранилище сертификатов на локальном компьютере
+            var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+            store.Open(OpenFlags.ReadOnly);
+
+            // разрешенные значения поля "алгоритм подписи" сертификатов (алгоритм ГОСТ)
+            var validGostAlgorithms = new[]
+            {
+                "1.2.643.2.2.4",
+                "1.2.643.2.2.3"
+            };
+
+            var validCertificates = store.Certificates.Cast<X509Certificate2>()
+                // использующие алгоритм ГОСТ
+                .Where(x => validGostAlgorithms.Contains(x.SignatureAlgorithm.Value));
+
+            var allowed = validCertificates.Where(certCondition).ToArray();
+            if (allowed.Count() > 1)
+                throw new InvalidOperationException("Найдено более одного сертификата, удовлетворяющего" +
+                                                    " условию поиска");
+
+            var cert = allowed.FirstOrDefault();
+            if (cert == null)
+                throw new InvalidOperationException("Не найдено ни одного сертификата, удовлетворяющего" +
+                                                    " условию поиска и подходящего для работы в сервисе");
+
+            if (!cert.HasPrivateKey)
+                throw new InvalidOperationException(string.Format(
+                    "Не найден закрытый ключ для сертификата с отпечатком {0}", cert.Thumbprint));
+
+            return cert;
+        }
+
+        /// <summary>
         /// Обработка ошибки получения установленного сертификата с закрытым ключом
         /// </summary>
-        private static void OnCertificateError()
+        private static void OnGetCertificateError()
         {
             Console.WriteLine("Тестовый сертификат не найден на локальном компьютере " +
                               "или произошла ошибка при получении сертификата. " +
-                              "Установите сертификат (если он не установлен) из файла \n" +
+                              "Установите сертификат (если он не установлен) из файла, пример пути до файла установки сертификата: \n" +
                               "/Certficates/Alice/install_certificate.pfx \n" +
                               "Пароль на контейнер при установке сертификата - 1, " +
                               "При установке выбирать параметры по умолчанию" +
@@ -191,8 +191,9 @@ namespace Samples.SendDocument
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
                 // запуск pfx установщика сертификат
+                var certificatesDir = "../../../Certificates";
                 System.Diagnostics.Process.Start(
-                    Path.Combine(Environment.CurrentDirectory, @"../../Certificates/Alice/install_certificate.pfx")
+                    Path.Combine(Environment.CurrentDirectory, certificatesDir + @"/Certificates/Alice/install_certificate.pfx")
                     );
             }
         }
