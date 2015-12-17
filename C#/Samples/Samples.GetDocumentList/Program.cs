@@ -16,7 +16,7 @@ namespace Samples.GetDocumentList
         {
             var url = "https://service.synerdocs.ru/exchangeservice.svc";
             var appId = new Guid().ToString();
-            var login = "alice-synerdocs-test-user1449839904";
+            var login = "alice1449839904";
             var password = "1449839904";
 
             var client = new Client(url, enableTracing: false, useStreamRequest: false, applicationVersionValue: "", configEndpointName: "WSHttpsBinding_IExchangeService");
