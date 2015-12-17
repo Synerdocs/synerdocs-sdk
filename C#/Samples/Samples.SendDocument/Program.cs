@@ -23,7 +23,7 @@ namespace Samples.SendDocument
         /// <param name="args"></param>
         private static void Main(string[] args)
         {
-            var url = "https://testservice.synerdocs.ru/exchangeservice.svc";
+            var url = "https://service.synerdocs.ru/exchangeservice.svc";
             var appId = new Guid().ToString();
 
             var client = new Client(url, false, false, "", "WSHttpsBinding_IExchangeService");

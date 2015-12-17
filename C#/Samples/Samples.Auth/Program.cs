@@ -14,7 +14,7 @@ namespace Samples.Auth
     {
         static void Main(string[] args)
         {
-            var url = "https://testservice.synerdocs.ru/exchangeservice.svc";
+            var url = "https://service.synerdocs.ru/exchangeservice.svc";
             var appId = new Guid().ToString();
             var login = "alice-synerdocs-test-user1449839904";
             var password = "1449839904";
