@@ -63,7 +63,8 @@ namespace Samples.SendDocument
                 Console.WriteLine(organization.Name);
 
             // содержимое неформализованного документа из файла на локальном компьютере
-            var filePath = "../../Documents/simple_text_document.txt";
+            var filesDir = "../../../../../ExamplesOfUserFiles";
+            var filePath = filesDir + "/Documents/Неформализованный текстовый документ.txt";
             var fileBytes = File.ReadAllBytes(filePath);
             // создание подписи к бинарному содержимому файла
             var signature = CryptoApiHelper.Sign(certificate, fileBytes, true);
