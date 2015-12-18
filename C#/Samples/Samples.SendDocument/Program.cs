@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -29,17 +30,9 @@ namespace Samples.SendDocument
             var client = new Client(url, false, false, "", "WSHttpsBinding_IExchangeService");
 
             // сертификат для входа по сертификату и подписания
-            X509Certificate2 certificate;
-            try
-            {
-                certificate = GetCertificate();
-            }
-            catch (Exception)
-            {
-                OnGetCertificateError();
-                Console.ReadLine();
+            X509Certificate2 certificate= TryInstallOrGetCertificate();
+            if (certificate == null)
                 return;
-            }
 
             // авторизуемся по сертификату
             if (client.AuthenticateWithCertificate(certificate.Thumbprint, appId))
@@ -174,37 +167,80 @@ namespace Samples.SendDocument
         }
 
         /// <summary>
+        /// Запуск установки при необходимости и(или) получение сертификата с закрытым ключом)
+        /// </summary>
+        /// <returns></returns>
+        private static X509Certificate2 TryInstallOrGetCertificate()
+        {
+            // сертификат для входа по сертификату и подписания
+            X509Certificate2 certificate;
+            try
+            {
+                certificate = GetCertificate();
+            }
+            catch (Exception)
+            {
+                var successPfxInstalled = OnGetCertificateError();
+                // если была успешно запущена установка сертификта из хранилища
+                if (successPfxInstalled)
+                {
+                    try
+                    {
+                        certificate = GetCertificate();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Ошибка при получении сертификата с закрытым ключом. Возможно установка сертификата прошла с ошибками");
+                        Console.ReadLine();
+                        return null;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка при получении сертификата с закрытым ключом");
+                    Console.ReadLine();
+                    return null;
+                }
+            }
+            return certificate;
+        }
+
+        /// <summary>
         /// Обработка ошибки получения установленного сертификата с закрытым ключом
         /// </summary>
-        private static void OnGetCertificateError()
+        private static bool OnGetCertificateError()
         {
             Console.WriteLine("Тестовый сертификат не найден на локальном компьютере " +
-                              "или произошла ошибка при получении сертификата. " +
+                              "или произошла ошибка при получении сертификата. \n" +
                               "Установите сертификат (если он не установлен) из файла, пример пути до файла установки сертификата: \n" +
                               "/Certficates/Alice/install_certificate.pfx \n" +
-                              "Пароль на контейнер при установке сертификата - 1, " +
-                              "При установке выбирать параметры по умолчанию" +
+                              "Пароль на контейнер при установке сертификата - 1,  \n" +
+                              "При установке выбирать параметры по умолчанию  \n" +
                               "Инструкция - /Certficates/manual.pdf \n" +
                               "После успешной установки перезапуститет пример" +
                               "Или проверьте установленное ПО для подписания (КриптоПро)" +
                               "\n" +
-                              "Нажмите Y для запуска /Certficates/Alice/install_certificate.pfx\n" 
+                              "Нажмите Y для запуска /Certficates/Alice/install_certificate.pfx \n"
                 );
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
-                // запуск pfx установщика сертификат
                 var filesDir = "../../../../../ExamplesOfUserFiles";
                 var pfxInstaller = filesDir + @"/Certificates/Alice/install_certificate.pfx";
 
                 if (!File.Exists(pfxInstaller))
                 {
-                    Console.WriteLine("Установочный pfx файл сертификата не найден");
-                    return;
+                    Console.WriteLine("Установочный pfx файл сертификата не найден, обратитесь в службу поддержки для получения тестового сертификата");
+                    return false;
                 }
-                System.Diagnostics.Process.Start(
+                // запуск файла pfx - установщика сертификата с закрытым ключом в Windows
+                Process.Start(
                     Path.Combine(Environment.CurrentDirectory, pfxInstaller)
                     );
+                Console.WriteLine("Нажмите любую клавишу для проложения");
+                Console.ReadKey();
+                return true;
             }
+            return false;
         }
     }
 }
