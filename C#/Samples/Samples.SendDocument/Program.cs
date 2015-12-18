@@ -30,7 +30,7 @@ namespace Samples.SendDocument
             var client = new Client(url, false, false, "", "WSHttpsBinding_IExchangeService");
 
             // сертификат для входа по сертификату и подписания
-            X509Certificate2 certificate= TryInstallOrGetCertificate();
+            X509Certificate2 certificate = TryInstallOrGetCertificate();
             if (certificate == null)
                 return;
 
@@ -58,9 +58,12 @@ namespace Samples.SendDocument
             // содержимое неформализованного документа из файла на локальном компьютере
             var filesDir = "../../../../../ExamplesOfUserFiles";
             var filePath = filesDir + "/Documents/Неформализованный текстовый документ.txt";
+            var filePath2 = filesDir + "/Documents/Первый неформализованный документ1.png";
             var fileBytes = File.ReadAllBytes(filePath);
-            // создание подписи к бинарному содержимому файла
+            var fileBytes2 = File.ReadAllBytes(filePath2);
+            // создание подписей к бинарному содержимому файла
             var signature = CryptoApiHelper.Sign(certificate, fileBytes, true);
+            var signature2 = CryptoApiHelper.Sign(certificate, fileBytes2, true);
 
             // получение текущего ящика
             var boxInfo = client.GetBoxes().FirstOrDefault();
@@ -82,6 +85,17 @@ namespace Samples.SendDocument
                 Card = null,
                 NeedSign = false
             };
+            // создание еще одного документа (опционально)
+            var document2 = new Document
+            {
+                Id = Guid.NewGuid().ToString(),
+                DocumentType = DocumentType.Untyped,
+                UntypedKind = null,
+                FileName = Path.GetFileName(filePath2),
+                Content = fileBytes2,
+                Card = null,
+                NeedSign = false
+            };
 
             // создаем сообщение для отправки
             var message = new Message
@@ -89,7 +103,11 @@ namespace Samples.SendDocument
                 Id = Guid.NewGuid().ToString(),
                 From = currentBox,
                 // документы
-                Documents = new[] { document },
+                Documents = new[]
+                {
+                    document,
+                    document2
+                },
                 // получатели
                 Recipients = organizations.Select(x =>
                     new MessageRecipient
@@ -104,11 +122,27 @@ namespace Samples.SendDocument
                         Id = Guid.NewGuid().ToString(),
                         DocumentId = document.Id,
                         Raw = signature
-                    }
+                    },
+                    new Sign
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        DocumentId = document2.Id,
+                        Raw = signature2
+                    },
+
                 }
             };
-            var result = client.SendMessage(message);
-
+            SentMessage result;
+            try
+            {
+                result = client.SendMessage(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ошибка при отправке документов: " + ex.Message);
+                Console.ReadKey();
+                return;
+            }
             Console.WriteLine("Успешно отправлено исходящее сообщение MessageId = {0}", result.MessageId);
 
             Console.WriteLine("Для выхода нажмите enter");
