@@ -27,13 +27,8 @@ namespace Samples.SendUnsignedDocument
 
             var client = new Client(url, false, false, "", "WSHttpsBinding_IExchangeService");
 
-            //// сертификат для входа по сертификату и подписания
-            //X509Certificate2 certificate = TryInstallOrGetCertificate();
-            //if (certificate == null)
-            //    return;
-
-            //// авторизуемся по сертификату
-            //if (client.AuthenticateWithCertificate(certificate.Thumbprint, appId))
+            // авторизация по логину и паролю (тут возможно использовать также 
+            // авторизацию по сертификату при необходимости)
             var login = "alice1449839904";
             var password = "1449839904";
             if (client.Authenticate(login, password))
@@ -55,15 +50,21 @@ namespace Samples.SendUnsignedDocument
                 Console.WriteLine("Ошибка при получении ящиков");
                 return;
             }
+            // выбор текущего ящика - от него будем отправлять документы
+            // в простом случае - у пользователя доступен только один ящик
+            // а если пользователь состоит в нескольких организациях - ящиков может быть несколько
             var currentBox = currentBoxInfo.Address;
 
             // ИНН организации-получателя
             var inn = "1839839970";
-            // не знаем КПП, при пустом значении - должно найти головное подразделение организации
+            // пусть не знаем КПП, при пустом значении - должно автоматически быть получено головное 
+            // при получении списка организации
             var kpp = "";
 
             // поиск организации получателя по атрибутам
             var organizations = client.GetOrganizationListByInnKpp(inn, kpp);
+
+            // отладочный вывод некоторой информации о найденных организациях
             Console.WriteLine("Организации - получатели:");
             foreach (var organization in organizations)
                 Console.WriteLine(organization.Name);
@@ -72,13 +73,16 @@ namespace Samples.SendUnsignedDocument
             var messageRecipients = organizations.Select(x =>
                 new MessageRecipient
                 {
+                    // ящик получателя
                     OrganizationBoxId = x.BoxAddress
                 }).ToList();
 
-            // добавление еще одного получателя
+            // добавление еще одного получателя:
             // выбор по определенному КПП подразделения организации - получателя
             var moreRecipientKpp = "243456789";
             var moreRecipient = client.GetOrganizationByInnKpp("1839840035", null);
+
+            // вывод некоторой инфомрации о найденном получателе:
             Console.WriteLine("Организация - дополнительный получатель:");
             Console.WriteLine(moreRecipient.Name);
 
@@ -92,8 +96,15 @@ namespace Samples.SendUnsignedDocument
                                   moreRecipientKpp);
                 return;
             }
+
+            // ! т.к. Отправка документов без подписи нескольким контрагентам невозможна каждый из списков получателей содержим только одного получателя
+            // Но при отправке документов с подписью возможно отправлять документы сразу нескольких получателям
+
+            // Пример указания определенного подразделения организации - получателя:
+
             // добавим полученную информацию о получателе в список получателей - c указанием подразделений
-            // по этому списку будет отдельная отправка. т.к. нельзя смешивать получатели с указанием подразделений и без
+            // по этому списку будет отдельная отправка, т.к. нельзя смешивать получателей с указанием 
+            // подразделений и без указания подразделений
             var messageRecipientsWithDepartments = new List<MessageRecipient>
             {
                 new MessageRecipient
@@ -110,7 +121,9 @@ namespace Samples.SendUnsignedDocument
             var filePath = filesDir + "/Documents/Неформализованный текстовый документ.txt";
             var fileBytes = File.ReadAllBytes(filePath);
 
-            // создание 1го документа
+            // Пример создание документов:
+            // созданный объект - документ можно использовать при отправке в сообщениях 
+            // только 1 раз, т.к. поля должны быть уникальными
             var document1 = new Document
             {
                 Id = Guid.NewGuid().ToString(),
@@ -187,6 +200,7 @@ namespace Samples.SendUnsignedDocument
             SentMessage result2;
             try
             {
+                // пример отправки двух сообщений с разными наборами получателей
                 result1 = client.SendUnsignedMessage(unsignedMessage);
                 Console.WriteLine("Успешно отправлено исходящее сообщение с документами без подписи 1");
                 result2 = client.SendUnsignedMessage(unsignedMessage2);

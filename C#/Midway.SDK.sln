@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.GetDocumentList", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.SendUnsignedDocument", "Samples\Samples.SendUnsignedDocument\Samples.SendUnsignedDocument.csproj", "{69425D9D-43B2-4895-88A6-729B891ACDAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.GetDocumentInfo", "Samples\Samples.GetDocumentInfo\Samples.GetDocumentInfo.csproj", "{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,16 @@ Global
 		{69425D9D-43B2-4895-88A6-729B891ACDAD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{69425D9D-43B2-4895-88A6-729B891ACDAD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{69425D9D-43B2-4895-88A6-729B891ACDAD}.Release|x86.ActiveCfg = Release|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,5 +124,6 @@ Global
 		{AD26805E-8A35-4FD3-B49A-AA756D2B2B92} = {22A93E1D-3911-4CDC-A624-E384250A6797}
 		{AB4B622A-CC93-4EC1-82AD-1816FA4DC358} = {22A93E1D-3911-4CDC-A624-E384250A6797}
 		{69425D9D-43B2-4895-88A6-729B891ACDAD} = {22A93E1D-3911-4CDC-A624-E384250A6797}
+		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C} = {22A93E1D-3911-4CDC-A624-E384250A6797}
 	EndGlobalSection
 EndGlobal
