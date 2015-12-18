@@ -150,7 +150,6 @@ namespace Midway.Crypto
             }
         }
 
-
         /// <summary>
         /// Сформировать ЭП
         /// </summary>
