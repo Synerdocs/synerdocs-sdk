@@ -1,13 +1,13 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Midway.ObjectModel;
 using Midway.ServiceClient;
 
 #endregion
+
+/* Пример использовани API Synerdocs, подробнее на http://www.synerdocs.ru/kis */
 
 namespace Samples.GetDocumentInfo
 {
@@ -66,15 +66,16 @@ namespace Samples.GetDocumentInfo
                 Console.WriteLine("Получено содержимое документа NBytes=" + documentContent.Length);
 
                 // запрос информации о документе с указаним того, какую информацию необходимо получить
-                var docInfo = client.GetFullDocumentInfo(currentBox, documentId, new FullDocumentInfoRequestParams()
+                var docInfo = client.GetFullDocumentInfo(currentBox, documentId, new FullDocumentInfoRequestParams
                 {
                     GetCard = true,
                     GetContent = false,
                     GetRelatedDocuments = true,
                     GetServiceDocuments = true,
-                    GetSigns = true,
+                    GetSigns = true
                 });
-                if (docInfo != null){
+                if (docInfo != null)
+                {
                     Console.WriteLine("Получена информация о документе");
 
                     // получении информации о сообщении документооборота, в которое входит документ
@@ -85,16 +86,16 @@ namespace Samples.GetDocumentInfo
                 }
 
                 // получение полной информации о документе включая информацию документооборотам и вхождениям, с указаним того, какую информацию необходимо получить
-                var flowDocumentInfo = client.GetFlowDocumentInfo(currentBox, documentId, new FlowDocumentInfoRequestParams()
-                {
-                    GetSigns = true,
-                    GetServiceDocuments = true,
-                    GetRelatedDocuments = true,
-                    FlowResult = DocumentFlowResultMode.FullInfo
-                });
+                var flowDocumentInfo = client.GetFlowDocumentInfo(currentBox, documentId,
+                    new FlowDocumentInfoRequestParams
+                    {
+                        GetSigns = true,
+                        GetServiceDocuments = true,
+                        GetRelatedDocuments = true,
+                        FlowResult = DocumentFlowResultMode.FullInfo
+                    });
                 if (flowDocumentInfo != null)
                     Console.WriteLine("Получена информация о документе с докуметооборотами");
-
             }
             catch (Exception ex)
             {

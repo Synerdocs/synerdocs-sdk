@@ -1,25 +1,31 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using Midway.ServiceClient;
+
+#endregion
+
+/* Пример использовани API Synerdocs, подробнее на http://www.synerdocs.ru/kis */
 
 namespace Samples.Auth
 {
     /// <summary>
     /// Примеры авторизации
-    ///  по логину и паролю
-    ///  по сертификату
+    /// по логину и паролю
+    /// по сертификату
     /// </summary>
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var url = "https://service.synerdocs.ru/exchangeservice.svc";
             var appId = new Guid().ToString();
             var login = "alice1449839904";
             var password = "1449839904";
 
-            var client = new Client(url, enableTracing: false, useStreamRequest: false, applicationVersionValue: "", configEndpointName: "WSHttpsBinding_IExchangeService");
+            var client = new Client(url, false, false, "", "WSHttpsBinding_IExchangeService");
 
             // авторизуемся по логину и паролю, получаем токен
             if (client.Authenticate(login, password, appId))

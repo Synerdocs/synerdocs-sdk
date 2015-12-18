@@ -9,6 +9,8 @@ using Midway.ServiceClient;
 
 #endregion
 
+/* Пример использовани API Synerdocs, подробнее на http://www.synerdocs.ru/kis */
+
 namespace Samples.SendUnsignedDocument
 {
     internal class Program

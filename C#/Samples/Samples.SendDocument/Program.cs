@@ -11,6 +11,8 @@ using Midway.ServiceClient;
 
 #endregion
 
+/* Пример использовани API Synerdocs, подробнее на http://www.synerdocs.ru/kis */
+
 namespace Samples.SendDocument
 {
     internal class Program
@@ -30,7 +32,7 @@ namespace Samples.SendDocument
             var client = new Client(url, false, false, "", "WSHttpsBinding_IExchangeService");
 
             // сертификат для входа по сертификату и подписания
-            X509Certificate2 certificate = TryInstallOrGetCertificate();
+            var certificate = TryInstallOrGetCertificate();
             if (certificate == null)
                 return;
 
@@ -128,8 +130,7 @@ namespace Samples.SendDocument
                         Id = Guid.NewGuid().ToString(),
                         DocumentId = document2.Id,
                         Raw = signature2
-                    },
-
+                    }
                 }
             };
             SentMessage result;
@@ -152,10 +153,8 @@ namespace Samples.SendDocument
         /// <summary>
         /// Получение сертификата С ЗАКРЫТЫМ КЛЮЧОМ - для возможности подписания
         /// Необходимо наличие КриптоПро на локальном компьютере нужной версии
-        /// 
-        /// Для установки на локальный компьютер использовать 
+        /// Для установки на локальный компьютер использовать
         /// "../../Certificates/Alice/install_certificate.pfx"
-        /// 
         /// Пароль на контейнер  - "1"
         /// </summary>
         /// <returns></returns>
@@ -224,7 +223,8 @@ namespace Samples.SendDocument
                     }
                     catch (Exception)
                     {
-                        Console.WriteLine("Ошибка при получении сертификата с закрытым ключом. Возможно установка сертификата прошла с ошибками");
+                        Console.WriteLine(
+                            "Ошибка при получении сертификата с закрытым ключом. Возможно установка сертификата прошла с ошибками");
                         Console.ReadLine();
                         return null;
                     }
@@ -263,7 +263,8 @@ namespace Samples.SendDocument
 
                 if (!File.Exists(pfxInstaller))
                 {
-                    Console.WriteLine("Установочный pfx файл сертификата не найден, обратитесь в службу поддержки для получения тестового сертификата");
+                    Console.WriteLine(
+                        "Установочный pfx файл сертификата не найден, обратитесь в службу поддержки для получения тестового сертификата");
                     return false;
                 }
                 // запуск файла pfx - установщика сертификата с закрытым ключом в Windows
