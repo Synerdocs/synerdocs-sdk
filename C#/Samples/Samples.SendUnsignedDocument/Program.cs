@@ -119,7 +119,7 @@ namespace Samples.SendUnsignedDocument
             };
 
             // содержимое неформализованного документа из файла на локальном компьютере
-            var filesDir = "../../../../../ExamplesOfUserFiles";
+            var filesDir = "../../../../..";
             var filePath = filesDir + "/Documents/Неформализованный текстовый документ.txt";
             var fileBytes = File.ReadAllBytes(filePath);
 

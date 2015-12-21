@@ -38,9 +38,14 @@ namespace Samples.Auth
                 Console.WriteLine("Ошибка авторизации, неверный логин или пароль?");
             }
 
-            // сертификат для входа по сертификату БЕЗ возможности подписания
-            var filesDir = "../../../../../ExamplesOfUserFiles";
-            var certificateBytes = File.ReadAllBytes(filesDir + "/Certificates/Alice/certificate.crt");
+            // сертификат для входа по сертификату БЕЗ возможности подписания, т.к. в certificate при таком способе
+            // получения сертификата нет закрытого ключа, необходимого для подписания
+            var filesDir = "../../../../..";
+            // путь до файла сертификата
+            var certificatePath = filesDir + "/Certificates/certificate.crt";
+            // бинарное содержимое сертификата
+            var certificateBytes = File.ReadAllBytes(certificatePath);
+            // структура данных с отобржаением свойств сертификата
             var certificate = new X509Certificate2(certificateBytes);
 
             // авторизуемся по сертификату

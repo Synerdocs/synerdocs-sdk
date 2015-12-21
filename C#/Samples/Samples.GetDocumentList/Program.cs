@@ -44,6 +44,7 @@ namespace Samples.GetDocumentList
                 Console.WriteLine("Ошибка при получении ящиков");
                 return;
             }
+            // текущий ящик == наш ящик
             var currentBox = boxInfo.Address;
 
             Console.WriteLine(currentBox);
@@ -51,10 +52,13 @@ namespace Samples.GetDocumentList
             // получаем список исходящих документов
             var docs = client.GetDocumentList(new DocumentListOptions
             {
+                // ! для того, чтобы выбрать входящие документы, необходимо указать в поле BoxTo - наш ящик
                 BoxTo = null,
-                // отправленных от нашего ящика
+                // отправленных от нашего ящика 
                 BoxFrom = currentBox,
+                // начать с этого индекса для постраничной выборки элементов
                 First = 0,
+                // кол-во элементов на странице
                 Max = 10
             });
 

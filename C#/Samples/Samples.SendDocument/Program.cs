@@ -58,7 +58,7 @@ namespace Samples.SendDocument
                 Console.WriteLine(organization.Name);
 
             // содержимое неформализованного документа из файла на локальном компьютере
-            var filesDir = "../../../../../ExamplesOfUserFiles";
+            var filesDir = "../../../../..";
             var filePath = filesDir + "/Documents/Неформализованный текстовый документ.txt";
             var filePath2 = filesDir + "/Documents/Первый неформализованный документ1.png";
             var fileBytes = File.ReadAllBytes(filePath);
@@ -258,7 +258,7 @@ namespace Samples.SendDocument
                 );
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
-                var filesDir = "../../../../../ExamplesOfUserFiles";
+                var filesDir = "../../../../..";
                 var pfxInstaller = filesDir + @"/Certificates/Alice/install_certificate.pfx";
 
                 if (!File.Exists(pfxInstaller))
