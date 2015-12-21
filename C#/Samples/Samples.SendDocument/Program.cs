@@ -36,6 +36,8 @@ namespace Samples.SendDocument
             if (certificate == null)
                 return;
 
+            Console.WriteLine("Успешно получен сертификат с отпечатком: " + certificate.Thumbprint);
+
             // авторизуемся по сертификату
             if (client.AuthenticateWithCertificate(certificate.Thumbprint, appId))
             {
@@ -57,13 +59,14 @@ namespace Samples.SendDocument
             foreach (var organization in organizations)
                 Console.WriteLine(organization.Name);
 
-            // содержимое неформализованного документа из файла на локальном компьютере
+            // получаем содержимое неформализованного документа из файла на локальном компьютере
             var filesDir = "../../../../..";
+            // пример подписи файлов с локального компьютера
             var filePath = filesDir + "/Documents/Неформализованный текстовый документ.txt";
             var filePath2 = filesDir + "/Documents/Первый неформализованный документ1.png";
             var fileBytes = File.ReadAllBytes(filePath);
             var fileBytes2 = File.ReadAllBytes(filePath2);
-            // создание подписей к бинарному содержимому файла
+            // создание подписей к бинарному содержимому файлов, подписание с помощью выбранного ранее сертификата
             var signature = CryptoApiHelper.Sign(certificate, fileBytes, true);
             var signature2 = CryptoApiHelper.Sign(certificate, fileBytes2, true);
 
@@ -102,7 +105,9 @@ namespace Samples.SendDocument
             // создаем сообщение для отправки
             var message = new Message
             {
+                // генерируем уникальный идентификатор для сообщения
                 Id = Guid.NewGuid().ToString(),
+                // указываем свой текущий ящик (ящик отправителя)
                 From = currentBox,
                 // документы
                 Documents = new[]
@@ -158,11 +163,9 @@ namespace Samples.SendDocument
         /// Пароль на контейнер  - "1"
         /// </summary>
         /// <returns></returns>
-        private static X509Certificate2 GetCertificate()
+        private static X509Certificate2 GetCertificate(string thumbprint)
         {
-            // Отпечаток сертификата, который должен быть установлен в системе
-            var thumbprint = "2A7758BA286F826A964699E834A77194C351780F";
-
+            // тут может быть любое другое выражение для поиска сертификтов в локальном хранилище
             Func<X509Certificate2, bool> certCondition =
                 x => x.Thumbprint != null
                      && x.Thumbprint.Equals(thumbprint, StringComparison.InvariantCultureIgnoreCase);
@@ -205,21 +208,42 @@ namespace Samples.SendDocument
         /// <returns></returns>
         private static X509Certificate2 TryInstallOrGetCertificate()
         {
+            // получаем отпечаток сертификата или из файла cer(==crt) или из другого места
+            // Отпечаток сертификата, который должен быть установлен в системе например:
+            // "2A7758BA286F826A964699E834A77194C351780F"
+            // ! При копировании строки отпечатка сертификата из окна "Свойства" сертификата в  ОС Windows в начало строки
+            // может добавляться непечатаемый символ, не видимый в Visual Studio: примерно так: "`2A7758BA286F826A964699E834A77194C351780F"
+            // его необходимо убирать ! 
+
+            var filesDir = "../../../../..";
+            var certificatePath = filesDir + "/Certificates/certificate.crt";
+            if (!File.Exists(certificatePath))
+            {
+                Console.WriteLine("Файл сертификата не был найден по пути: \n {0} \n. " +
+                                  "Для работы необходимо наличие файла сертификата по указанному пути.\n" +
+                                  "Для получения сертификата обратитесь в техническую поддержку", certificatePath);
+                Console.ReadLine();
+                return null;
+            }
+
+            var thumbprint = new X509Certificate2(File.ReadAllBytes(certificatePath)).Thumbprint;
+
             // сертификат для входа по сертификату и подписания
             X509Certificate2 certificate;
             try
             {
-                certificate = GetCertificate();
+                certificate = GetCertificate(thumbprint);
             }
             catch (Exception)
             {
                 var successPfxInstalled = OnGetCertificateError();
                 // если была успешно запущена установка сертификта из хранилища
+                // попробует загрузить сертификат еще раз
                 if (successPfxInstalled)
                 {
                     try
                     {
-                        certificate = GetCertificate();
+                        certificate = GetCertificate(thumbprint);
                     }
                     catch (Exception)
                     {
@@ -247,7 +271,7 @@ namespace Samples.SendDocument
             Console.WriteLine("Тестовый сертификат не найден на локальном компьютере " +
                               "или произошла ошибка при получении сертификата. \n" +
                               "Установите сертификат (если он не установлен) из файла, пример пути до файла установки сертификата: \n" +
-                              "/Certficates/Alice/install_certificate.pfx \n" +
+                              "/Certficates/install_certificate.pfx \n" +
                               "Пароль на контейнер при установке сертификата - 1,  \n" +
                               "При установке выбирать параметры по умолчанию  \n" +
                               "Инструкция - /Certficates/manual.pdf \n" +
@@ -259,7 +283,7 @@ namespace Samples.SendDocument
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
                 var filesDir = "../../../../..";
-                var pfxInstaller = filesDir + @"/Certificates/Alice/install_certificate.pfx";
+                var pfxInstaller = filesDir + @"/Certificates/install_certificate.pfx";
 
                 if (!File.Exists(pfxInstaller))
                 {

@@ -19,14 +19,18 @@ namespace Samples.SendUnsignedDocument
         /// Пример авторизации по сертификату
         /// получение данных по ИНН об организации-получателе
         /// отправка документа с подписью сертификатом пользователя
-        /// отправка документ без подписания
+        /// отправка документов без подписания
+        /// 
+        /// отправка идет так:
+        /// 
+        /// сообщение1 - получателю1 без указания подразления
+        ///   документ1
+        ///   документ2
         /// </summary>
         /// <param name="args"></param>
         private static void Main(string[] args)
         {
             var url = "https://service.synerdocs.ru/exchangeservice.svc";
-            var appId = new Guid().ToString();
-
             var client = new Client(url, false, false, "", "WSHttpsBinding_IExchangeService");
 
             // авторизация по логину и паролю (тут возможно использовать также 
@@ -75,7 +79,8 @@ namespace Samples.SendUnsignedDocument
             var messageRecipients = organizations.Select(x =>
                 new MessageRecipient
                 {
-                    // ящик получателя
+                    // ящик получателя, при этом автоматически будет выбрано головное подразделение,
+                    // т.к. явно не указали подразделение
                     OrganizationBoxId = x.BoxAddress
                 }).ToList();
 
@@ -99,21 +104,20 @@ namespace Samples.SendUnsignedDocument
                 return;
             }
 
-            // ! т.к. Отправка документов без подписи нескольким контрагентам невозможна каждый из списков получателей содержим только одного получателя
-            // Но при отправке документов с подписью возможно отправлять документы сразу нескольких получателям
+            // ! т.к. Отправка документов без подписи нескольким контрагентам невозможна,
+            // поэтому каждый из списков получателей содержим только одного получателя
+
+            // Но например при отправке документов с подписью возможно отправлять документы сразу нескольких получателям
 
             // Пример указания определенного подразделения организации - получателя:
-
-            // добавим полученную информацию о получателе в список получателей - c указанием подразделений
-            // по этому списку будет отдельная отправка, т.к. нельзя смешивать получателей с указанием 
-            // подразделений и без указания подразделений
+            // добавим полученную информацию о подразделении получателя в нужный список получателей
             var messageRecipientsWithDepartments = new List<MessageRecipient>
             {
                 new MessageRecipient
                 {
                     // ящик организации - получателя
                     OrganizationBoxId = moreRecipient.BoxAddress,
-                    // ИД подразделения организации - получателя
+                    // ИД подразделения организации - получателя (необязательный параметр)
                     DepartmentId = moreRecipientDepartment.Id
                 }
             };
@@ -161,11 +165,13 @@ namespace Samples.SendUnsignedDocument
                 // получатели
                 Recipients = messageRecipients.ToArray()
             };
-            // создаем сообщение для отправки по второму списку получателей - c указанием подразделений
-            // для исключения дублирования ID документов создаем новые 
+
+
+            // создаем сообщение для отправки по второму списку получателей - для примера c указанием подразделений
             // создание 3го документа
             var document3 = new Document
             {
+                // для исключения дублирования ID документов - всегда необходимо создание уникальных идентификаторов документов
                 Id = Guid.NewGuid().ToString(),
                 DocumentType = DocumentType.Untyped,
                 UntypedKind = null,
@@ -198,23 +204,33 @@ namespace Samples.SendUnsignedDocument
                 // получатели
                 Recipients = messageRecipientsWithDepartments.ToArray()
             };
+            // пример отправки двух сообщений с разными наборами получателей
+            // отправляем сообщение 1
             SentMessage result1;
+            try
+            {
+                result1 = client.SendUnsignedMessage(unsignedMessage);
+                Console.WriteLine("Успешно отправлено исходящее сообщение с документами без подписи 1");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ошибка при отправке сообщения 1" + ex.Message);
+                Console.ReadKey();
+                return;
+            }
+            // отправляем сообщение 2
             SentMessage result2;
             try
             {
-                // пример отправки двух сообщений с разными наборами получателей
-                result1 = client.SendUnsignedMessage(unsignedMessage);
-                Console.WriteLine("Успешно отправлено исходящее сообщение с документами без подписи 1");
                 result2 = client.SendUnsignedMessage(unsignedMessage2);
                 Console.WriteLine("Успешно отправлено исходящее сообщение с документами без подписи 2");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Ошибка при отправке сообщения 2" + ex.Message);
                 Console.ReadKey();
                 return;
             }
-
             Console.WriteLine("Успешно отправлено исходящее сообщения");
 
             Console.WriteLine("Для выхода нажмите enter");

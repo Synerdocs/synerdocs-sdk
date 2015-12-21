@@ -62,6 +62,7 @@ namespace Samples.GetDocumentInfo
 
             try
             {
+                // получение тела (бинарного содержимого) документа
                 var documentContent = client.GetDocumentContent(currentBox, documentId);
                 Console.WriteLine("Получено содержимое документа NBytes=" + documentContent.Length);
 
@@ -85,7 +86,10 @@ namespace Samples.GetDocumentInfo
                         Console.WriteLine("Получена информации о сообщении документооборота");
                 }
 
-                // получение полной информации о документе включая информацию документооборотам и вхождениям, с указаним того, какую информацию необходимо получить
+                // получение полной информации о документе включая информацию документооборотам и вхождениям,
+                // с указаним того, какую информацию необходимо получить
+                // результат метода дублирует информацию, которую можно получать из других методов API
+                // например информацию о подписях и т.д.
                 var flowDocumentInfo = client.GetFlowDocumentInfo(currentBox, documentId,
                     new FlowDocumentInfoRequestParams
                     {
