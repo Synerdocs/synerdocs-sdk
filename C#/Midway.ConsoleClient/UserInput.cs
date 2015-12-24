@@ -5,41 +5,49 @@ using System.Text;
 
 namespace Midway.ConsoleClient
 {
+    /// <summary>
+    /// Работа с пользовательским консольным вводов\выводом 
+    /// </summary>
     public class UserInput
     {
+        /// <summary>
+        /// Опция пользовательского выбора одного значения
+        /// из некого списка показаных пользователю значений: например выбор Организации из показаного 
+        /// списка организаций
+        /// </summary>
         public class Option
         {
-            private readonly string id;
-            private readonly string name;
-            readonly bool isDefault;
-            private readonly object data;
+            private readonly string _id;
+            private readonly string _name;
+            readonly bool _isDefault;
+            private readonly object _data;
 
             public Option(string id, string name, bool isDefault, object data = null)
             {
-                this.id = id;
-                this.name = name;
-                this.isDefault = isDefault;
-                this.data = data;
+                _id = id;
+                _name = name;
+                _isDefault = isDefault;
+                _data = data;
             }
 
             public string Id
             {
-                get { return id; }
+                get { return _id; }
             }
 
             public string Name
             {
-                get { return name; }
+                get { return _name; }
             }
 
             public bool IsDefault
             {
-                get { return isDefault; }
+                get { return _isDefault; }
             }
 
             public object Data
             {
-                get { return data; }
+                get { return _data; }
             }
         }
 
@@ -206,6 +214,9 @@ namespace Midway.ConsoleClient
         }
     }
 
+    /// <summary>
+    /// Исключение выбрасывется при отмене пользователем начатой операции
+    /// </summary>
     public class InputCanceledException : Exception
     {
     }

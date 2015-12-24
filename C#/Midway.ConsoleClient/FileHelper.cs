@@ -1,7 +1,6 @@
-﻿using System;
+﻿using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.IO;
 
 namespace Midway.ConsoleClient
 {
@@ -10,9 +9,9 @@ namespace Midway.ConsoleClient
     /// </summary>
     public static class FileHelper
     {
-        private static readonly Regex InvalidFilePathRegex;
-        private static readonly Regex InvalidFileNameRegex;
-        private static readonly Regex InvalidFullPathRegex;
+        private static readonly Regex _invalidFilePathRegex;
+        private static readonly Regex _invalidFileNameRegex;
+        private static readonly Regex _invalidFullPathRegex;
 
         static FileHelper()
         {
@@ -23,9 +22,9 @@ namespace Midway.ConsoleClient
                 .Distinct()
                 .ToArray();
 
-            InvalidFilePathRegex = CreateInvalidRegex(invalidFilePathChars);
-            InvalidFileNameRegex = CreateInvalidRegex(invalidFileNameChars);
-            InvalidFullPathRegex = CreateInvalidRegex(invalidFullPathChars);
+            _invalidFilePathRegex = CreateInvalidRegex(invalidFilePathChars);
+            _invalidFileNameRegex = CreateInvalidRegex(invalidFileNameChars);
+            _invalidFullPathRegex = CreateInvalidRegex(invalidFullPathChars);
         }
 
         /// <summary>
@@ -35,10 +34,10 @@ namespace Midway.ConsoleClient
         /// <returns>Регулярное выражение</returns>
         private static Regex CreateInvalidRegex(char[] invalidChars)
         {
-            var invalidString = new String(invalidChars);
+            var invalidString = new string(invalidChars);
             invalidString = Regex.Escape(invalidString);
-            invalidString = String.Format("[{0}]", invalidString);
-            return new Regex(invalidString); 
+            invalidString = string.Format("[{0}]", invalidString);
+            return new Regex(invalidString);
         }
 
         /// <summary>
@@ -48,7 +47,7 @@ namespace Midway.ConsoleClient
         /// <returns>Путь к файлу с удаленными запрещенными символами</returns>
         public static string RemoveInvalidPathNameChars(string filePath)
         {
-            return InvalidFilePathRegex.Replace(filePath, String.Empty);
+            return _invalidFilePathRegex.Replace(filePath, string.Empty);
         }
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace Midway.ConsoleClient
         /// <returns>Имя файла с удаленными запрещенными символами</returns>
         public static string RemoveInvalidFileNameChars(string fileName)
         {
-            return InvalidFileNameRegex.Replace(fileName, String.Empty);
+            return _invalidFileNameRegex.Replace(fileName, string.Empty);
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace Midway.ConsoleClient
         /// <returns>Полный путь с удаленными запрещенными символами</returns>
         public static string RemoveInvalidFullPathChars(string fullPath)
         {
-            return InvalidFullPathRegex.Replace(fullPath, String.Empty);
+            return _invalidFullPathRegex.Replace(fullPath, string.Empty);
         }
 
         /// <summary>

@@ -53,7 +53,6 @@
   <ItemGroup>
     <Compile Include="ClientContext.cs" />
     <Compile Include="FileHelper.cs" />
-    <Compile Include="PasswordHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Shell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

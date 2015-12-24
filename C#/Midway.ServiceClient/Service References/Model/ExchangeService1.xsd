@@ -212,6 +212,13 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="SignerCertificateIsDemo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="NonLegitimateReason" nillable="true" type="tns:NonLegitimateReason" />
@@ -304,6 +311,7 @@
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NeedReceipt" type="xs:boolean" />
       <xs:element minOccurs="0" name="NeedSign" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ParentDocumentId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DraftDocument" nillable="true" type="tns:DraftDocument" />
@@ -393,6 +401,7 @@
       <xs:element minOccurs="0" name="DateBuyer" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DocumentNumDateInfo" nillable="true" type="tns:DocumentInfo" />
       <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InfoField" nillable="true" type="tns:InfoField" />
       <xs:element minOccurs="0" name="Procuration" nillable="true" type="tns:ProcurationInfo" />
       <xs:element minOccurs="0" name="ReceptorInfo" nillable="true" type="tns:PersonInfo" />
       <xs:element minOccurs="0" name="RecipientInfo" nillable="true" type="tns:PersonInfo" />
@@ -415,6 +424,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DocumentInfo" nillable="true" type="tns:DocumentInfo" />
+  <xs:complexType name="InfoField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InfoField" nillable="true" type="tns:InfoField" />
   <xs:complexType name="ProcurationInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Confidant" nillable="true" type="tns:PersonInfo" />
@@ -513,6 +529,7 @@
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CountRelatedDocuments" type="xs:int" />
       <xs:element minOccurs="0" name="Document" nillable="true" type="tns:Document" />
+      <xs:element minOccurs="0" name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MessageId" nillable="true" type="xs:string" />
@@ -528,6 +545,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FullDocumentInfo" nillable="true" type="tns:FullDocumentInfo" />
+  <xs:complexType name="DocumentFlowStatusDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
   <xs:complexType name="UntypedDocumentMultiFlowStatus">
     <xs:sequence>
       <xs:element minOccurs="0" name="DeliveredCount" type="xs:int" />
@@ -578,36 +602,6 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="DocumentFlowStatus" nillable="true" type="tns:DocumentFlowStatus" />
-  <xs:complexType name="UntypedDocumentFlowStatus">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DocumentFlowStatus">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DeliveryStatus" type="tns:DocumentDeliveryStatus" />
-          <xs:element minOccurs="0" name="SignStatus" type="tns:DocumentSignStatus" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="UntypedDocumentFlowStatus" nillable="true" type="tns:UntypedDocumentFlowStatus" />
-  <xs:simpleType name="DocumentDeliveryStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="RecievedByService" />
-      <xs:enumeration value="SentToRecipient" />
-      <xs:enumeration value="DeliveredToRecipient" />
-      <xs:enumeration value="NotDeliveredToRecipient" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="DocumentDeliveryStatus" nillable="true" type="tns:DocumentDeliveryStatus" />
-  <xs:simpleType name="DocumentSignStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="NoSignNeeded" />
-      <xs:enumeration value="WaitingForSign" />
-      <xs:enumeration value="Signed" />
-      <xs:enumeration value="SignRejected" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="DocumentSignStatus" nillable="true" type="tns:DocumentSignStatus" />
   <xs:complexType name="InvoiceDocumentFlowStatus">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:DocumentFlowStatus">
@@ -641,6 +635,36 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="InvoiceModificationStatus" nillable="true" type="tns:InvoiceModificationStatus" />
+  <xs:complexType name="UntypedDocumentFlowStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DocumentFlowStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryStatus" type="tns:DocumentDeliveryStatus" />
+          <xs:element minOccurs="0" name="SignStatus" type="tns:DocumentSignStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UntypedDocumentFlowStatus" nillable="true" type="tns:UntypedDocumentFlowStatus" />
+  <xs:simpleType name="DocumentDeliveryStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecievedByService" />
+      <xs:enumeration value="SentToRecipient" />
+      <xs:enumeration value="DeliveredToRecipient" />
+      <xs:enumeration value="NotDeliveredToRecipient" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentDeliveryStatus" nillable="true" type="tns:DocumentDeliveryStatus" />
+  <xs:simpleType name="DocumentSignStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoSignNeeded" />
+      <xs:enumeration value="WaitingForSign" />
+      <xs:enumeration value="Signed" />
+      <xs:enumeration value="SignRejected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentSignStatus" nillable="true" type="tns:DocumentSignStatus" />
   <xs:complexType name="ArrayOfServiceDocument">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceDocument" nillable="true" type="tns:ServiceDocument" />
@@ -670,13 +694,36 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="BoxFrom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BoxTo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContragentBoxIds" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="DocumentSignStatuses" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
+      <xs:element minOccurs="0" name="DocumentTypes" nillable="true" type="tns:ArrayOfDocumentType" />
       <xs:element minOccurs="0" name="First" type="xs:int" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceFlowStatuses" nillable="true" type="tns:ArrayOfInvoiceFlowStatus" />
       <xs:element minOccurs="0" name="Max" type="xs:int" />
+      <xs:element minOccurs="0" name="NeedReceipt" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DocumentListOptions" nillable="true" type="tns:DocumentListOptions" />
+  <xs:complexType name="ArrayOfDocumentSignStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentSignStatus" type="tns:DocumentSignStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentSignStatus" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
+  <xs:complexType name="ArrayOfDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentType" type="tns:DocumentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentType" nillable="true" type="tns:ArrayOfDocumentType" />
+  <xs:complexType name="ArrayOfInvoiceFlowStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceFlowStatus" type="tns:InvoiceFlowStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceFlowStatus" nillable="true" type="tns:ArrayOfInvoiceFlowStatus" />
   <xs:complexType name="DocumentList">
     <xs:sequence>
       <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfDocumentListEntry" />
@@ -694,6 +741,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
       <xs:element minOccurs="0" name="DocumentType" type="tns:DocumentType" />
       <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromOrganizationName" nillable="true" type="xs:string" />
@@ -1239,8 +1287,8 @@
   <xs:element name="RegisterModel" nillable="true" type="tns:RegisterModel" />
   <xs:complexType name="RegisterResult">
     <xs:sequence>
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q4:ArrayOfstring" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q6:ArrayOfstring" />
       <xs:element minOccurs="0" name="RegisterModel" nillable="true" type="tns:RegisterModel" />
       <xs:element minOccurs="0" name="Success" type="xs:boolean" />
     </xs:sequence>
@@ -1339,6 +1387,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
       <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DocumentType" type="tns:DocumentType" />
       <xs:element minOccurs="0" name="FlowType" type="tns:FlowType" />
@@ -1447,6 +1496,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
       <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FlowType" type="tns:FlowType" />
       <xs:element minOccurs="0" name="Flows" nillable="true" type="tns:ArrayOfDocumentFlow" />
@@ -1477,19 +1527,13 @@
       <xs:element minOccurs="0" name="First" type="xs:int" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Max" type="xs:int" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q6:ArrayOfstring" />
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q7:ArrayOfstring" />
-      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q8:ArrayOfstring" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q8:ArrayOfstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q9:ArrayOfstring" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InternalListOptions" nillable="true" type="tns:InternalListOptions" />
-  <xs:complexType name="ArrayOfDocumentSignStatus">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentSignStatus" type="tns:DocumentSignStatus" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDocumentSignStatus" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
   <xs:complexType name="ArrayOfUser">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />

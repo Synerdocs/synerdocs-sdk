@@ -4,28 +4,37 @@ using Midway.ServiceClient;
 
 namespace Midway.ConsoleClient
 {
+    /// <summary>
+    /// Контекст клиентского подключения к сервису обмена Synerdocs
+    /// для хранения текущего ящика, выбранной после авторизации организации
+    /// </summary>
     public class ClientContext
     {
         /// <summary>
         /// текущий выбранный сертификат
         /// </summary>
         public X509Certificate2 Certificate { get; set; }
+
         /// <summary>
         /// Клиент веб-сервиса
         /// </summary>
         public Client ServiceClient { get; set; }
+
         /// <summary>
         /// Генератор служебных документов
         /// </summary>
         public MessageFactory MessageFactory { get; set; }
+
         /// <summary>
         /// Текущий ящик
         /// </summary>
         public string CurrentBox { get; set; }
+
         /// <summary>
         /// ID текущей организации
         /// </summary>
         public int CurrentOrganizationId { get; set; }
+
         /// <summary>
         /// Последнее обработанное сообщение
         /// </summary>
@@ -38,7 +47,7 @@ namespace Midway.ConsoleClient
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var keyValueConfigurationElement = config.AppSettings.Settings[LastProcessedMessageIdKey()];
-            if(keyValueConfigurationElement != null)
+            if (keyValueConfigurationElement != null)
             {
                 LastProcessedMessageId = keyValueConfigurationElement.Value;
             }
@@ -63,6 +72,5 @@ namespace Midway.ConsoleClient
         {
             return "LastProcessedMessageId:" + CurrentBox;
         }
-
     }
 }
