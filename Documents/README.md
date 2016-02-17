@@ -39,4 +39,4 @@
 Неформализованные документы использутся в примерах кода
 
 ## Полезные ссылки:
- * [online валидатор](http://www.utilities-online.info/xsdvalidation/) XML документов по XSD схемам
+ * [Online валидатор](http://www.utilities-online.info/xsdvalidation/) XML документов по XSD схемам
