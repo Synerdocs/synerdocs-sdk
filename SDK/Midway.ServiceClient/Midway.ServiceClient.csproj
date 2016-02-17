@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4714FAB4-D0A8-424B-A056-2D9FD113C29F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Midway.ServiceClient</RootNamespace>
+    <AssemblyName>Midway.ServiceClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationVersionEndpointBehavior.cs" />
+    <Compile Include="BaseClient.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ClientAutorizedEventArgs.cs" />
+    <Compile Include="ClientMessageInspector.cs" />
+    <Compile Include="CryptoApiHelper.cs" />
+    <Compile Include="IExchangeServiceClient.cs" />
+    <Compile Include="MessageFactory.cs" />
+    <Compile Include="EnumUtils.cs" />
+    <Compile Include="Performance\PerformanceCounterInterceptor.cs" />
+    <Compile Include="Performance\PerformanceCounterInterceptorInserter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Model\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.BoxCertificate.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.BoxInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.BoxInfo1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.CertificateCheckInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.CertificateValidationResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Contact.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Contact1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.ContactSearchResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.ContactSearchResult1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentEntryList3.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentList.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessageSearchResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.EnhancedSign.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.FlowDocumentInfo3.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.FormatControlResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Message.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Message1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.MessageInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.MessageInfo1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.NamedContent.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.NamedContent1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Organization.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Organization1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationPromoCode.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationStructureElement.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.PromoCode.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.RegisterResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SentMessage.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SentMessage1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.User.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.UserInfoExternal.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.UserPermission.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.ServiceNotice.datasource" />
+    <None Include="Service References\Model\ExchangeService.wsdl">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Midway.ObjectModel\Midway.ObjectModel.csproj">
+      <Project>{9C571FE8-5D05-481D-A79F-1D77B16D944A}</Project>
+      <Name>Midway.ObjectModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\ExchangeService.wsdl" />
+    <None Include="Service References\Model\ExchangeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService.wsdl" />
+    <None Include="Service References\Model\ExchangeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService1.wsdl" />
+    <None Include="Service References\Model\ExchangeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\ExchangeService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\ExchangeService1.wsdl" />
+    <None Include="Service References\Model\ExchangeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\ExchangeService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\ExchangeService.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

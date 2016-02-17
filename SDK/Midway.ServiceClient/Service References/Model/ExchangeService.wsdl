@@ -1,0 +1,2351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://synerdocs.ru" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExchangeService" targetNamespace="http://synerdocs.ru" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBindingSecure_IExchangeService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://synerdocs.ru/Imports">
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd0" namespace="http://synerdocs.ru" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExchangeService_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AuthenticateWithCertificate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateWithCertificate" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AuthenticateWithCertificate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateWithCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AuthenticateWithCertificate2_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateWithCertificate2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AuthenticateWithCertificate2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateWithCertificate2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessages" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateDraftMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDraftMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateDraftMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDraftMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateDraftMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDraftMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateDraftMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDraftMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteDraftMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDraftMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteDraftMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDraftMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftMessageList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftMessageList" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftMessageList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftMessageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftMessageCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftMessageCount" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftMessageCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftMessageCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftDocumentContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftDocumentContent" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftDocumentContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftDocumentContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftDocumentCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftDocumentCard" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDraftDocumentCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftDocumentCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceReceipt_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceReceipt" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceReceipt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceReceiptV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceReceiptV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceReceiptV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceReceiptV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceAmendmentRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceAmendmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceAmendmentRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceAmendmentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceAmendmentRequestV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceAmendmentRequestV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateInvoiceAmendmentRequestV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateInvoiceAmendmentRequestV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateDeliveryConfirmation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDeliveryConfirmation" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateDeliveryConfirmation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDeliveryConfirmationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateDeliveryConfirmationV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDeliveryConfirmationV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateDeliveryConfirmationV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateDeliveryConfirmationV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateAmendmentRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAmendmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateAmendmentRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAmendmentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateAmendmentRequestV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAmendmentRequestV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateAmendmentRequestV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAmendmentRequestV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTitleBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTitleBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTitleBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTitleBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentContent" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetFullDocumentInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDocumentInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetFullDocumentInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDocumentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentList" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetInnKppNameByBoxId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInnKppNameByBoxId" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetInnKppNameByBoxId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInnKppNameByBoxIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SearchContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContacts" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SearchContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContact" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptAuthorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptAuthorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RejectAuthorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectAuthorization" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RejectAuthorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectAuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendAuthRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendAuthRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendAuthRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendAuthRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CancelAuthRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAuthRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CancelAuthRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAuthRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptAuthRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptAuthRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptAuthRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptAuthRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RejectAuthRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectAuthRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RejectAuthRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectAuthRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationByInnKpp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationByInnKpp" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationByInnKpp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationByInnKppResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationBy" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetErrorText_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorText" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetErrorText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetBoxes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBoxes" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetBoxes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBoxesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetSubjectInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubjectInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetSubjectInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubjectInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetSpecialOperatorInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialOperatorInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetSpecialOperatorInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialOperatorInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AddOrganizationStructureElement_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationStructureElement" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AddOrganizationStructureElement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationStructureElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteOrganizationStructureElement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationStructureElement" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteOrganizationStructureElement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationStructureElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ModifyOrganizationStructureElement_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyOrganizationStructureElement" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ModifyOrganizationStructureElement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyOrganizationStructureElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationStructure_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationStructure" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationStructure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationStructureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_OrganizationStructureHasSingleElement_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrganizationStructureHasSingleElement" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_OrganizationStructureHasSingleElement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrganizationStructureHasSingleElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationStructureElementChildren_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationStructureElementChildren" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationStructureElementChildren_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationStructureElementChildrenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CanSendInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanSendInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CanSendInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanSendInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckQualifiedCertificate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckQualifiedCertificate" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckQualifiedCertificate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckQualifiedCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetBoxCertificates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBoxCertificates" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetBoxCertificates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBoxCertificatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetRequiredNotices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequiredNotices" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetRequiredNotices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequiredNoticesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEnhancedSign_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnhancedSign" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEnhancedSign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnhancedSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEnhancedSignById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnhancedSignById" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEnhancedSignById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnhancedSignByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DownloadDocumentFlowArchive_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDocumentFlowArchive" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DownloadDocumentFlowArchive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDocumentFlowArchiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationListByInnKpp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationListByInnKpp" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationListByInnKpp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationListByInnKppResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckCertificates_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCertificates" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckCertificates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCertificatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptRegulation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptRegulation" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptRegulation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptRegulationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_HasQualifiedCertificate_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasQualifiedCertificate" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_HasQualifiedCertificate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasQualifiedCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendUnsignedMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendUnsignedMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendUnsignedMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendUnsignedMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendForwardMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendForwardMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendForwardMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendForwardMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SignDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocument" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SignDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RejectSign_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectSign" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RejectSign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentEntries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentEntries" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentEntries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentEntriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetFlowDocumentInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDocumentInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetFlowDocumentInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFlowDocumentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendInternalMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendInternalMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendInternalMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendInternalMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetInternalDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInternalDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetInternalDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInternalDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDocumentToDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDocumentToDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDocumentToDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDocumentToDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDocumentsToDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDocumentsToDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDocumentsToDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDocumentsToDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDepartmentEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDepartmentEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateDocumentTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentTag" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateDocumentTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteDocumentTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocumentTag" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteDocumentTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocumentTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTag" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentTagList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTagList" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentTagList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTagListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AddOrganizationPromoCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationPromoCode" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AddOrganizationPromoCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationPromoCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationPromoCodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationPromoCodeList" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetOrganizationPromoCodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationPromoCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetPromoCodeByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromoCodeByName" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetPromoCodeByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPromoCodeByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCode" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckCertificateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCertificateList" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckCertificateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCertificateListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IExchangeService">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateResponse" message="tns:IExchangeService_Authenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWithCertificate">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate" message="tns:IExchangeService_AuthenticateWithCertificate_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateResponse" message="tns:IExchangeService_AuthenticateWithCertificate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWithCertificate2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2" message="tns:IExchangeService_AuthenticateWithCertificate2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2Response" message="tns:IExchangeService_AuthenticateWithCertificate2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessages" message="tns:IExchangeService_GetMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessagesResponse" message="tns:IExchangeService_GetMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessage" message="tns:IExchangeService_GetMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessageResponse" message="tns:IExchangeService_GetMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendMessage" message="tns:IExchangeService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendMessageResponse" message="tns:IExchangeService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDraftMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateDraftMessage" message="tns:IExchangeService_CreateDraftMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateDraftMessageResponse" message="tns:IExchangeService_CreateDraftMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDraftMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateDraftMessage" message="tns:IExchangeService_UpdateDraftMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateDraftMessageResponse" message="tns:IExchangeService_UpdateDraftMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDraftMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteDraftMessage" message="tns:IExchangeService_DeleteDraftMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteDraftMessageResponse" message="tns:IExchangeService_DeleteDraftMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftMessage" message="tns:IExchangeService_GetDraftMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftMessageResponse" message="tns:IExchangeService_GetDraftMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageList">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftMessageList" message="tns:IExchangeService_GetDraftMessageList_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftMessageListResponse" message="tns:IExchangeService_GetDraftMessageList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageCount">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftMessageCount" message="tns:IExchangeService_GetDraftMessageCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftMessageCountResponse" message="tns:IExchangeService_GetDraftMessageCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftDocumentContent">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentContent" message="tns:IExchangeService_GetDraftDocumentContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentContentResponse" message="tns:IExchangeService_GetDraftDocumentContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftDocumentCard">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentCard" message="tns:IExchangeService_GetDraftDocumentCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentCardResponse" message="tns:IExchangeService_GetDraftDocumentCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceReceipt">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceipt" message="tns:IExchangeService_GenerateInvoiceReceipt_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptResponse" message="tns:IExchangeService_GenerateInvoiceReceipt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceReceiptV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2" message="tns:IExchangeService_GenerateInvoiceReceiptV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2Response" message="tns:IExchangeService_GenerateInvoiceReceiptV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceAmendmentRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequest" message="tns:IExchangeService_GenerateInvoiceAmendmentRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestResponse" message="tns:IExchangeService_GenerateInvoiceAmendmentRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceAmendmentRequestV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2" message="tns:IExchangeService_GenerateInvoiceAmendmentRequestV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2Response" message="tns:IExchangeService_GenerateInvoiceAmendmentRequestV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDeliveryConfirmation">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmation" message="tns:IExchangeService_GenerateDeliveryConfirmation_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationResponse" message="tns:IExchangeService_GenerateDeliveryConfirmation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDeliveryConfirmationV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2" message="tns:IExchangeService_GenerateDeliveryConfirmationV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2Response" message="tns:IExchangeService_GenerateDeliveryConfirmationV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAmendmentRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequest" message="tns:IExchangeService_GenerateAmendmentRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestResponse" message="tns:IExchangeService_GenerateAmendmentRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAmendmentRequestV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2" message="tns:IExchangeService_GenerateAmendmentRequestV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2Response" message="tns:IExchangeService_GenerateAmendmentRequestV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTitleBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer" message="tns:IExchangeService_GenerateTitleBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTitleBuyerResponse" message="tns:IExchangeService_GenerateTitleBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentContent">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentContent" message="tns:IExchangeService_GetDocumentContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentContentResponse" message="tns:IExchangeService_GetDocumentContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDocumentInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetFullDocumentInfo" message="tns:IExchangeService_GetFullDocumentInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetFullDocumentInfoResponse" message="tns:IExchangeService_GetFullDocumentInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentList" message="tns:IExchangeService_GetDocumentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentListResponse" message="tns:IExchangeService_GetDocumentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInnKppNameByBoxId">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxId" message="tns:IExchangeService_GetInnKppNameByBoxId_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxIdResponse" message="tns:IExchangeService_GetInnKppNameByBoxId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchContacts">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SearchContacts" message="tns:IExchangeService_SearchContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SearchContactsResponse" message="tns:IExchangeService_SearchContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetContact" message="tns:IExchangeService_GetContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetContactResponse" message="tns:IExchangeService_GetContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptAuthorization">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptAuthorization" message="tns:IExchangeService_AcceptAuthorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptAuthorizationResponse" message="tns:IExchangeService_AcceptAuthorization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectAuthorization">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/RejectAuthorization" message="tns:IExchangeService_RejectAuthorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RejectAuthorizationResponse" message="tns:IExchangeService_RejectAuthorization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAuthRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendAuthRequest" message="tns:IExchangeService_SendAuthRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendAuthRequestResponse" message="tns:IExchangeService_SendAuthRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAuthRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CancelAuthRequest" message="tns:IExchangeService_CancelAuthRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CancelAuthRequestResponse" message="tns:IExchangeService_CancelAuthRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptAuthRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptAuthRequest" message="tns:IExchangeService_AcceptAuthRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptAuthRequestResponse" message="tns:IExchangeService_AcceptAuthRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectAuthRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/RejectAuthRequest" message="tns:IExchangeService_RejectAuthRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RejectAuthRequestResponse" message="tns:IExchangeService_RejectAuthRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteContact" message="tns:IExchangeService_DeleteContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteContactResponse" message="tns:IExchangeService_DeleteContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationByInnKpp">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKpp" message="tns:IExchangeService_GetOrganizationByInnKpp_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKppResponse" message="tns:IExchangeService_GetOrganizationByInnKpp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationBy">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationBy" message="tns:IExchangeService_GetOrganizationBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationByResponse" message="tns:IExchangeService_GetOrganizationBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorText">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetErrorText" message="tns:IExchangeService_GetErrorText_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetErrorTextResponse" message="tns:IExchangeService_GetErrorText_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxes">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetBoxes" message="tns:IExchangeService_GetBoxes_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetBoxesResponse" message="tns:IExchangeService_GetBoxes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjectInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetSubjectInfo" message="tns:IExchangeService_GetSubjectInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetSubjectInfoResponse" message="tns:IExchangeService_GetSubjectInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialOperatorInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfo" message="tns:IExchangeService_GetSpecialOperatorInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfoResponse" message="tns:IExchangeService_GetSpecialOperatorInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationStructureElement">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElement" message="tns:IExchangeService_AddOrganizationStructureElement_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElementResponse" message="tns:IExchangeService_AddOrganizationStructureElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationStructureElement">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElement" message="tns:IExchangeService_DeleteOrganizationStructureElement_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElementResponse" message="tns:IExchangeService_DeleteOrganizationStructureElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOrganizationStructureElement">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElement" message="tns:IExchangeService_ModifyOrganizationStructureElement_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElementResponse" message="tns:IExchangeService_ModifyOrganizationStructureElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationStructure">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructure" message="tns:IExchangeService_GetOrganizationStructure_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructureResponse" message="tns:IExchangeService_GetOrganizationStructure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrganizationStructureHasSingleElement">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElement" message="tns:IExchangeService_OrganizationStructureHasSingleElement_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElementResponse" message="tns:IExchangeService_OrganizationStructureHasSingleElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationStructureElementChildren">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildren" message="tns:IExchangeService_GetOrganizationStructureElementChildren_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildrenResponse" message="tns:IExchangeService_GetOrganizationStructureElementChildren_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetVersion" message="tns:IExchangeService_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetVersionResponse" message="tns:IExchangeService_GetVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanSendInvoice">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CanSendInvoice" message="tns:IExchangeService_CanSendInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CanSendInvoiceResponse" message="tns:IExchangeService_CanSendInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckQualifiedCertificate">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificate" message="tns:IExchangeService_CheckQualifiedCertificate_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificateResponse" message="tns:IExchangeService_CheckQualifiedCertificate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxCertificates">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetBoxCertificates" message="tns:IExchangeService_GetBoxCertificates_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetBoxCertificatesResponse" message="tns:IExchangeService_GetBoxCertificates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequiredNotices">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetRequiredNotices" message="tns:IExchangeService_GetRequiredNotices_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetRequiredNoticesResponse" message="tns:IExchangeService_GetRequiredNotices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedSign">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnhancedSign" message="tns:IExchangeService_GetEnhancedSign_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnhancedSignResponse" message="tns:IExchangeService_GetEnhancedSign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedSignById">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnhancedSignById" message="tns:IExchangeService_GetEnhancedSignById_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnhancedSignByIdResponse" message="tns:IExchangeService_GetEnhancedSignById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocumentFlowArchive">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchive" message="tns:IExchangeService_DownloadDocumentFlowArchive_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchiveResponse" message="tns:IExchangeService_DownloadDocumentFlowArchive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationListByInnKpp">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKpp" message="tns:IExchangeService_GetOrganizationListByInnKpp_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKppResponse" message="tns:IExchangeService_GetOrganizationListByInnKpp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificates">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificates" message="tns:IExchangeService_CheckCertificates_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificatesResponse" message="tns:IExchangeService_CheckCertificates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetUserInfo" message="tns:IExchangeService_GetUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetUserInfoResponse" message="tns:IExchangeService_GetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Register" message="tns:IExchangeService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RegisterResponse" message="tns:IExchangeService_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptRegulation">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptRegulation" message="tns:IExchangeService_AcceptRegulation_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptRegulationResponse" message="tns:IExchangeService_AcceptRegulation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasQualifiedCertificate">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/HasQualifiedCertificate" message="tns:IExchangeService_HasQualifiedCertificate_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/HasQualifiedCertificateResponse" message="tns:IExchangeService_HasQualifiedCertificate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUnsignedMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendUnsignedMessage" message="tns:IExchangeService_SendUnsignedMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendUnsignedMessageResponse" message="tns:IExchangeService_SendUnsignedMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendForwardMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendForwardMessage" message="tns:IExchangeService_SendForwardMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendForwardMessageResponse" message="tns:IExchangeService_SendForwardMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignDocument">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SignDocument" message="tns:IExchangeService_SignDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SignDocumentResponse" message="tns:IExchangeService_SignDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectSign">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/RejectSign" message="tns:IExchangeService_RejectSign_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RejectSignResponse" message="tns:IExchangeService_RejectSign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentEntries">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentEntries" message="tns:IExchangeService_GetDocumentEntries_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentEntriesResponse" message="tns:IExchangeService_GetDocumentEntries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDocumentInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfo" message="tns:IExchangeService_GetFlowDocumentInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfoResponse" message="tns:IExchangeService_GetFlowDocumentInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInternalMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendInternalMessage" message="tns:IExchangeService_SendInternalMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendInternalMessageResponse" message="tns:IExchangeService_SendInternalMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInternalDocuments">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetInternalDocuments" message="tns:IExchangeService_GetInternalDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetInternalDocumentsResponse" message="tns:IExchangeService_GetInternalDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocumentToDepartment">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartment" message="tns:IExchangeService_MoveDocumentToDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartmentResponse" message="tns:IExchangeService_MoveDocumentToDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocumentsToDepartment">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartment" message="tns:IExchangeService_MoveDocumentsToDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartmentResponse" message="tns:IExchangeService_MoveDocumentsToDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentEmployees">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDepartmentEmployees" message="tns:IExchangeService_GetDepartmentEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDepartmentEmployeesResponse" message="tns:IExchangeService_GetDepartmentEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentTag">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateDocumentTag" message="tns:IExchangeService_CreateDocumentTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateDocumentTagResponse" message="tns:IExchangeService_CreateDocumentTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocumentTag">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteDocumentTag" message="tns:IExchangeService_DeleteDocumentTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteDocumentTagResponse" message="tns:IExchangeService_DeleteDocumentTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTag">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentTag" message="tns:IExchangeService_GetDocumentTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentTagResponse" message="tns:IExchangeService_GetDocumentTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTagList">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentTagList" message="tns:IExchangeService_GetDocumentTagList_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentTagListResponse" message="tns:IExchangeService_GetDocumentTagList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationPromoCode">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCode" message="tns:IExchangeService_AddOrganizationPromoCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCodeResponse" message="tns:IExchangeService_AddOrganizationPromoCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationPromoCodeList">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList" message="tns:IExchangeService_GetOrganizationPromoCodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListResponse" message="tns:IExchangeService_GetOrganizationPromoCodeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPromoCodeByName">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" message="tns:IExchangeService_GetPromoCodeByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByNameResponse" message="tns:IExchangeService_GetPromoCodeByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" message="tns:IExchangeService_DeleteOrganizationPromoCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse" message="tns:IExchangeService_DeleteOrganizationPromoCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificateList">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateList" message="tns:IExchangeService_CheckCertificateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse" message="tns:IExchangeService_CheckCertificateList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IExchangeService" type="tns:IExchangeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWithCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWithCertificate2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftMessageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageCount">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftMessageCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftDocumentContent">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftDocumentCard">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceReceipt">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceReceiptV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceAmendmentRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceAmendmentRequestV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDeliveryConfirmation">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDeliveryConfirmationV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAmendmentRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAmendmentRequestV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTitleBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentContent">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDocumentInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetFullDocumentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInnKppNameByBoxId">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchContacts">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SearchContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptAuthorization">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptAuthorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectAuthorization">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectAuthorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CancelAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationByInnKpp">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKpp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationBy">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorText">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetErrorText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxes">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetBoxes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjectInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetSubjectInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialOperatorInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationStructureElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationStructureElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOrganizationStructureElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationStructure">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrganizationStructureHasSingleElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationStructureElementChildren">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildren" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanSendInvoice">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CanSendInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckQualifiedCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxCertificates">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetBoxCertificates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequiredNotices">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetRequiredNotices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedSign">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEnhancedSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedSignById">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEnhancedSignById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocumentFlowArchive">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationListByInnKpp">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKpp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificates">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptRegulation">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptRegulation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasQualifiedCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/HasQualifiedCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnsignedMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendUnsignedMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendForwardMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendForwardMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignDocument">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SignDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectSign">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentEntries">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDocumentInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInternalMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendInternalMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInternalDocuments">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetInternalDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocumentToDepartment">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocumentsToDepartment">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentEmployees">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDepartmentEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentTag">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateDocumentTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocumentTag">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteDocumentTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTag">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTagList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentTagList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationPromoCodeList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromoCodeByName">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificateList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBindingSecure_IExchangeService" type="tns:IExchangeService">
+    <wsp:PolicyReference URI="#BasicHttpBindingSecure_IExchangeService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWithCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateWithCertificate2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftMessageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftMessageCount">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftMessageCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftDocumentContent">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftDocumentCard">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceReceipt">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceReceiptV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceAmendmentRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateInvoiceAmendmentRequestV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDeliveryConfirmation">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDeliveryConfirmationV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAmendmentRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAmendmentRequestV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTitleBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentContent">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDocumentInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetFullDocumentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInnKppNameByBoxId">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchContacts">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SearchContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptAuthorization">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptAuthorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectAuthorization">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectAuthorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CancelAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectAuthRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectAuthRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationByInnKpp">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKpp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationBy">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorText">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetErrorText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxes">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetBoxes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjectInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetSubjectInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialOperatorInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationStructureElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationStructureElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOrganizationStructureElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationStructure">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrganizationStructureHasSingleElement">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationStructureElementChildren">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildren" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanSendInvoice">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CanSendInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckQualifiedCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxCertificates">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetBoxCertificates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequiredNotices">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetRequiredNotices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedSign">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEnhancedSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedSignById">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEnhancedSignById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocumentFlowArchive">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationListByInnKpp">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKpp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificates">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptRegulation">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptRegulation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasQualifiedCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/HasQualifiedCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUnsignedMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendUnsignedMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendForwardMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendForwardMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignDocument">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SignDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectSign">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentEntries">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowDocumentInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInternalMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendInternalMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInternalDocuments">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetInternalDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocumentToDepartment">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDocumentsToDepartment">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentEmployees">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDepartmentEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentTag">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateDocumentTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocumentTag">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteDocumentTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTag">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTagList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentTagList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationPromoCodeList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromoCodeByName">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificateList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExchangeService">
+    <wsdl:port name="BasicHttpBinding_IExchangeService" binding="tns:BasicHttpBinding_IExchangeService">
+      <soap:address location="http://localhost:5001/ExchangeService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBindingSecure_IExchangeService" binding="tns:BasicHttpBindingSecure_IExchangeService">
+      <soap:address location="https://w728s12.comp.npo:5002/ExchangeService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

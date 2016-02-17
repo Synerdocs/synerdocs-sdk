@@ -1,57 +1,17 @@
 # Synerdocs SDK
 
-SDK включает в себя примеры работы с сервисом обмена электронными документами через SOAP API Synerdocs
- * на языке C# - примеры клиентских библиотек и примеры использования, консольный клиент
+Программный интерфейс [сервиса обмена электронными документами Synerdocs](http://www.synerdocs.ru) позволяет интегрироваться с учетными системами через API Synerdocs на платформах, поддерживающих работу с протоколом [SOAP](https://ru.wikipedia.org/wiki/SOAP).
 
-API Synerdocs позволяет выполнять операции по приёму, отправке и обработке электронных документов, подробнее на http://www.synerdocs.ru
+WSDL доступна по адресу [https://service.synerdocs.ru/ExchangeService.svc?wsdl](https://service.synerdocs.ru/ExchangeService.svc?wsdl).
 
-## Для запуска примеров использования и консольного клиента на языке C#:
+SDK предназначено для разработчиков интеграционных решений и включает в себя:
 
-1. Скачать и распаковать содержимое репозитория (Download ZIP) или нужного Release c https://github.com/Synerdocs/synerdocs-sdk
-2. Открыть в Visual Studio решение (solution) Midway.SDK.sln
-3. Выбрать нужный проект для запуска в Visual Studio (Set as StartUp Project), запустить отладку проекта (Debug -> Start Debugging)
+* примеры на языке C# клиентских библиотек, примеры использования, консольный клиент ([SDK](https://github.com/Synerdocs/synerdocs-sdk/tree/master/SDK));
+* примеры и форматы документов, передаваемых через Synerdocs ([Documents](https://github.com/Synerdocs/synerdocs-sdk/tree/master/Documents));
+* информацию по использованию СКЗИ и сертификатов ([Certificates](https://github.com/Synerdocs/synerdocs-sdk/tree/master/Certificates));
+* описание API Synerdocs в формате CHM в разделе [Downloads](https://github.com/Synerdocs/synerdocs-sdk/releases).
 
-**Для запуска примеров кода, использующих сертификаты:**
-
-[4] Требуется [Крипто Про CSP](https://www.cryptopro.ru/products/csp), поэтому при необходимости проверить правильность установки\установить КриптоПро. 
-Скопировать сертификат* пользователя Synerdocs в ```/Certificates```. Так например, если использовать полученные тестовые сертификаты, в итоге должно быть так:
-```
-\C#\...                     - примеры кода
-...
-\Certificates\           	- сертификаты
-    certificate.crt         - сертификат БЕЗ закрытого ключа, ! в коде примеров путь указан до этого файла
-    install_certificate.pfx - установочный файл сертификата с закрытым ключом в ОС Windows
-    manual.pdf              - инструкция по уставовке сертификатов
-...
-\Documents\...              - примеры документов для отправки в Synerdocs
-
-*Для получения тестовых сертификатов обратитесь в техподдержку.
-При получении тестового сертификата можно запустить установку сертификата из pfx (install_certificate.pfx), при установке использовать параметры по умолчанию, пароль "1"
-также пример запуск установки из pfx есть в примерах кода 
-```
-
-[5]. При необходимости изменить код в примерах кода, например использовать свой тестовый логин и пароль и т.д.
-    
-## Описание API (объекты данных, методы, классы)
-
- CHM версия описания есть в репозитории (```/Synerdocs X.X.X. Описание API (...) (DD-MM-YYYY).chm```)
-
- [Версия CHM описания API Synerdocs на сайте www.synerdocs.ru](http://www.synerdocs.ru/Web_Service_2.12.zip)
-
- [Интеграция с использованием API на сайте www.synerdocs.ru - http://www.synerdocs.ru/kis](http://www.synerdocs.ru/kis)
-
-## Ссылки 
-
-Форматы документов, используемых в сервисе:
-
-#### Cчета-фактуры (ИСФ, КСФ и ИКСФ):
-
- * [Приказ от 04.03.2015 № ММВ-7-6/93](https://www.nalog.ru/rn18/about_fts/docs/5433729/)  Об утверждении форматов счета-фактуры, журнала учета полученных и выставленных счетов-фактур, книги покупок и книги продаж, дополнительных листов книги покупок и книги продаж в электронной форме
-
-#### ТН и акты:
-
- * [Приказ от 21.03.2012 № ММВ-7-6/172](https://www.nalog.ru/rn18/about_fts/docs/3908415/) Об утверждении форматов первичных учетных документов
- * и [изменения к приказу и акутальные схемы](https://www.nalog.ru/rn18/about_fts/docs/5330915/)
-
-#### Прочее:
- * [online валидатор](http://www.utilities-online.info/xsdvalidation/) XML документов по XSD схемам
+Также полезную информацию можно найти на сайте [www.synerdocs.ru](http://www.synerdocs.ru):
+* [Инструкции, руководства, XSD-схемы](http://www.synerdocs.ru/support);
+* [Интеграция с КИС](http://www.synerdocs.ru/kis);
+* [Интеграция с 1С](http://www.synerdocs.ru/1c).
