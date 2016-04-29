@@ -255,6 +255,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Sign" nillable="true" type="tns:Sign" />
+  <xs:complexType name="MessageRequestParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GetDocumentContent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GetSignContent" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageRequestParams" nillable="true" type="tns:MessageRequestParams" />
   <xs:complexType name="SentMessage">
     <xs:sequence>
       <xs:element minOccurs="0" name="DocumentIds" nillable="true" type="tns:ArrayOfLocalServerId" />
@@ -604,36 +611,6 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="DocumentFlowStatus" nillable="true" type="tns:DocumentFlowStatus" />
-  <xs:complexType name="UntypedDocumentFlowStatus">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DocumentFlowStatus">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DeliveryStatus" type="tns:DocumentDeliveryStatus" />
-          <xs:element minOccurs="0" name="SignStatus" type="tns:DocumentSignStatus" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="UntypedDocumentFlowStatus" nillable="true" type="tns:UntypedDocumentFlowStatus" />
-  <xs:simpleType name="DocumentDeliveryStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="RecievedByService" />
-      <xs:enumeration value="SentToRecipient" />
-      <xs:enumeration value="DeliveredToRecipient" />
-      <xs:enumeration value="NotDeliveredToRecipient" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="DocumentDeliveryStatus" nillable="true" type="tns:DocumentDeliveryStatus" />
-  <xs:simpleType name="DocumentSignStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="NoSignNeeded" />
-      <xs:enumeration value="WaitingForSign" />
-      <xs:enumeration value="Signed" />
-      <xs:enumeration value="SignRejected" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="DocumentSignStatus" nillable="true" type="tns:DocumentSignStatus" />
   <xs:complexType name="InvoiceDocumentFlowStatus">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:DocumentFlowStatus">
@@ -667,6 +644,36 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="InvoiceModificationStatus" nillable="true" type="tns:InvoiceModificationStatus" />
+  <xs:complexType name="UntypedDocumentFlowStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DocumentFlowStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryStatus" type="tns:DocumentDeliveryStatus" />
+          <xs:element minOccurs="0" name="SignStatus" type="tns:DocumentSignStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UntypedDocumentFlowStatus" nillable="true" type="tns:UntypedDocumentFlowStatus" />
+  <xs:simpleType name="DocumentDeliveryStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecievedByService" />
+      <xs:enumeration value="SentToRecipient" />
+      <xs:enumeration value="DeliveredToRecipient" />
+      <xs:enumeration value="NotDeliveredToRecipient" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentDeliveryStatus" nillable="true" type="tns:DocumentDeliveryStatus" />
+  <xs:simpleType name="DocumentSignStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoSignNeeded" />
+      <xs:enumeration value="WaitingForSign" />
+      <xs:enumeration value="Signed" />
+      <xs:enumeration value="SignRejected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentSignStatus" nillable="true" type="tns:DocumentSignStatus" />
   <xs:complexType name="ArrayOfServiceDocument">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceDocument" nillable="true" type="tns:ServiceDocument" />

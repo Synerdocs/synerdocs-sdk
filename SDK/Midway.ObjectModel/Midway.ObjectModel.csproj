@@ -68,6 +68,7 @@
     <Compile Include="ContactSearchResult.cs" />
     <Compile Include="ContactStatus.cs" />
     <Compile Include="ContactStatusExtensions.cs" />
+    <Compile Include="MessageRequestParams.cs" />
     <Compile Include="OrganizationPromoCode.cs" />
     <Compile Include="PromoCode.cs" />
     <Compile Include="DocumentEntry.cs" />

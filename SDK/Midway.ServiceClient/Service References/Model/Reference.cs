@@ -55,6 +55,14 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.Message EndGetMessage(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptions", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptionsResponse")]
+        Midway.ObjectModel.Message GetMessageWithLoadOptions(string authToken, string boxId, string messageId, Midway.ObjectModel.MessageRequestParams requestParams);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptions", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptionsResponse")]
+        System.IAsyncResult BeginGetMessageWithLoadOptions(string authToken, string boxId, string messageId, Midway.ObjectModel.MessageRequestParams requestParams, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.Message EndGetMessageWithLoadOptions(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendMessageResponse")]
         Midway.ObjectModel.SentMessage SendMessage(string authToken, Midway.ObjectModel.Message message);
         
@@ -211,8 +219,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfoRequestParams))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UntypedDocumentFlowStatus))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.InvoiceDocumentFlowStatus))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UntypedDocumentFlowStatus))]
         Midway.ObjectModel.FullDocumentInfo GetFullDocumentInfo(string authToken, string boxId, string documentId, Midway.ObjectModel.FullDocumentInfoRequestParams requestParams);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetFullDocumentInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetFullDocumentInfoResponse")]
@@ -772,6 +780,25 @@ namespace Midway.ServiceClient.Model {
         private object[] results;
         
         public GetMessageCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.Message Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.Message)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetMessageWithLoadOptionsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetMessageWithLoadOptionsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2015,6 +2042,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onGetMessageCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetMessageWithLoadOptionsDelegate;
+        
+        private EndOperationDelegate onEndGetMessageWithLoadOptionsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetMessageWithLoadOptionsCompletedDelegate;
+        
         private BeginOperationDelegate onBeginSendMessageDelegate;
         
         private EndOperationDelegate onEndSendMessageDelegate;
@@ -2506,6 +2539,8 @@ namespace Midway.ServiceClient.Model {
         
         public event System.EventHandler<GetMessageCompletedEventArgs> GetMessageCompleted;
         
+        public event System.EventHandler<GetMessageWithLoadOptionsCompletedEventArgs> GetMessageWithLoadOptionsCompleted;
+        
         public event System.EventHandler<SendMessageCompletedEventArgs> SendMessageCompleted;
         
         public event System.EventHandler<CreateDraftMessageCompletedEventArgs> CreateDraftMessageCompleted;
@@ -2926,6 +2961,62 @@ namespace Midway.ServiceClient.Model {
                         authToken,
                         boxId,
                         messageId}, this.onEndGetMessageDelegate, this.onGetMessageCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.Message GetMessageWithLoadOptions(string authToken, string boxId, string messageId, Midway.ObjectModel.MessageRequestParams requestParams) {
+            return base.Channel.GetMessageWithLoadOptions(authToken, boxId, messageId, requestParams);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetMessageWithLoadOptions(string authToken, string boxId, string messageId, Midway.ObjectModel.MessageRequestParams requestParams, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetMessageWithLoadOptions(authToken, boxId, messageId, requestParams, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.Message EndGetMessageWithLoadOptions(System.IAsyncResult result) {
+            return base.Channel.EndGetMessageWithLoadOptions(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetMessageWithLoadOptions(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string messageId = ((string)(inValues[2]));
+            Midway.ObjectModel.MessageRequestParams requestParams = ((Midway.ObjectModel.MessageRequestParams)(inValues[3]));
+            return this.BeginGetMessageWithLoadOptions(authToken, boxId, messageId, requestParams, callback, asyncState);
+        }
+        
+        private object[] OnEndGetMessageWithLoadOptions(System.IAsyncResult result) {
+            Midway.ObjectModel.Message retVal = this.EndGetMessageWithLoadOptions(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetMessageWithLoadOptionsCompleted(object state) {
+            if ((this.GetMessageWithLoadOptionsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetMessageWithLoadOptionsCompleted(this, new GetMessageWithLoadOptionsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetMessageWithLoadOptionsAsync(string authToken, string boxId, string messageId, Midway.ObjectModel.MessageRequestParams requestParams) {
+            this.GetMessageWithLoadOptionsAsync(authToken, boxId, messageId, requestParams, null);
+        }
+        
+        public void GetMessageWithLoadOptionsAsync(string authToken, string boxId, string messageId, Midway.ObjectModel.MessageRequestParams requestParams, object userState) {
+            if ((this.onBeginGetMessageWithLoadOptionsDelegate == null)) {
+                this.onBeginGetMessageWithLoadOptionsDelegate = new BeginOperationDelegate(this.OnBeginGetMessageWithLoadOptions);
+            }
+            if ((this.onEndGetMessageWithLoadOptionsDelegate == null)) {
+                this.onEndGetMessageWithLoadOptionsDelegate = new EndOperationDelegate(this.OnEndGetMessageWithLoadOptions);
+            }
+            if ((this.onGetMessageWithLoadOptionsCompletedDelegate == null)) {
+                this.onGetMessageWithLoadOptionsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetMessageWithLoadOptionsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetMessageWithLoadOptionsDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        messageId,
+                        requestParams}, this.onEndGetMessageWithLoadOptionsDelegate, this.onGetMessageWithLoadOptionsCompletedDelegate, userState);
         }
         
         public Midway.ObjectModel.SentMessage SendMessage(string authToken, Midway.ObjectModel.Message message) {
