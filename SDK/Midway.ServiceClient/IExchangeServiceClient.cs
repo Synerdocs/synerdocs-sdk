@@ -61,6 +61,14 @@ namespace Midway.ServiceClient
         /// <param name="messageId">ID сообщения</param>
         Message GetMessage(string boxId, string messageId);
 
+        /// <summary>
+        /// Возвращает информацию по сообщению c возможностью не загружать контент подписей и документов
+        /// </summary>
+        /// <param name="boxId">ящик</param>
+        /// <param name="messageId">ID сообщения</param>
+        /// <param name="requestParams">Параметры загрузки сообщения</param>
+        Message GetMessageWithLoadOptions(string boxId, string messageId, MessageRequestParams requestParams);
+
         //IAsyncResult BeginGetMessage(string boxId, string messageId, AsyncCallback asyncCallback);
 
         //Message EndGetMessage(IAsyncResult asyncResult);

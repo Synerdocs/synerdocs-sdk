@@ -136,7 +136,9 @@ namespace Midway.ConsoleClient
                     {"get-promocode-list", Tuple.Create<Action,string>(GetOrganizationPromoCodeList, "Список промокодов организации")},
                     {"get-promocode", Tuple.Create<Action,string>(GetPromoCodeByName, "Получить промокод")},
                     {"del-promocode", Tuple.Create<Action,string>(DeleteOrganizationPromoCode, "Удалить промокод")},
-   
+                    {"get-messages-without-content", Tuple.Create<Action,string>(GetMessagesWithoutDocumentsSignsContent, 
+                                            "Загрузить входящие сообщения без содержимого документов и подписей")}
+
                     // {"outmsg", OuntgoingMessages},
                 };
 
@@ -1446,6 +1448,56 @@ namespace Midway.ConsoleClient
                     ProcessMessage(message, _context);
                     _context.LastProcessedMessageId = message.Id;
                     _context.SaveLastProcessedMessageId();
+                }
+
+                count += messages.Length;
+            }
+            while (messages.Length > 0);
+
+            Console.Out.WriteLine("Загружено {0} сообщений из ящика {1}", count, _context.CurrentBox);
+        }
+
+        /// <summary>
+        /// Загрузка входящих сообщений без содержимого документов и подписей
+        /// </summary>
+        private void GetMessagesWithoutDocumentsSignsContent()
+        {
+            if (_context.Certificate == null)
+            {
+                ChooseCertificate();
+            }
+
+            MessageInfo[] messages;
+            var count = 0;
+            string lastMessageId = null;
+            do
+            {
+                messages = _context.ServiceClient.GetMessages(lastMessageId, null, _context.CurrentBox);
+
+                foreach (var messageInfo in messages)
+                {
+                    UserInput.Separator();
+
+                    var messageRequestParam = new MessageRequestParams()
+                    {
+                        GetDocumentContent = false,
+                        GetSignContent = false
+                    };
+
+                    var message = _context.ServiceClient.GetMessageWithLoadOptions(_context.CurrentBox, messageInfo.Id, messageRequestParam);
+                    var organization = _context.ServiceClient.GetOrganizationBy(_context.CurrentBox,
+                        OrganizationByCriteria.ByBoxAddress,
+                        new OrganizationByCriteriaValues { BoxAddress = messageInfo.From });
+                    var department =
+                        _context.ServiceClient.GetOrganizationStructure(_context.CurrentBox, organization.OrganizationId)
+                            .First(d => d.Id == message.FromDepartment);
+                    PrintProperty("Id", messageInfo.Id);
+                    PrintProperty("From", messageInfo.From);
+                    PrintProperty("FromDepartment", department.Name);
+                    PrintProperty("Дата", message.SentDate);
+                    PrintProperty("Документы", message.Documents.Length);
+                    PrintProperty("Подписи", message.Signs.Length);
+                    lastMessageId = message.Id;
                 }
 
                 count += messages.Length;

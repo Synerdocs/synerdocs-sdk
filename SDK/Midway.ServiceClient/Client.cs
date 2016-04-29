@@ -181,8 +181,6 @@ namespace Midway.ServiceClient
             return EndInvoke(client.EndGetBoxes, asyncResult);
         }
 
-        
-
         /// <summary>
         /// Получить список сообщений из ящика
         /// </summary>
@@ -224,6 +222,17 @@ namespace Midway.ServiceClient
         public Message EndGetMessage(IAsyncResult asyncResult)
         {
             return EndInvoke(client.EndGetMessage, asyncResult);
+        }
+
+        /// <summary>
+        /// Возвращает информацию по сообщению c возможностью не загружать контент подписей и документов
+        /// </summary>
+        /// <param name="boxId">ящик</param>
+        /// <param name="messageId">ID сообщения</param>
+        /// <param name="requestParams">Параметры загружки сообщения</param>
+        public Message GetMessageWithLoadOptions(string boxId, string messageId, MessageRequestParams requestParams)
+        {
+            return CheckAutorizedInvoke(() => client.GetMessageWithLoadOptions(Token, boxId, messageId, requestParams));
         }
 
         /// <summary>

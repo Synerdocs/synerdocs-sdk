@@ -65,6 +65,12 @@
   <wsdl:message name="IExchangeService_GetMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_GetMessageWithLoadOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageWithLoadOptions" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetMessageWithLoadOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageWithLoadOptionsResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_SendMessage_InputMessage">
     <wsdl:part name="parameters" element="tns:SendMessage" />
   </wsdl:message>
@@ -548,6 +554,10 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessage" message="tns:IExchangeService_GetMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessageResponse" message="tns:IExchangeService_GetMessage_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetMessageWithLoadOptions">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptions" message="tns:IExchangeService_GetMessageWithLoadOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptionsResponse" message="tns:IExchangeService_GetMessageWithLoadOptions_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SendMessage">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendMessage" message="tns:IExchangeService_SendMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendMessageResponse" message="tns:IExchangeService_SendMessage_OutputMessage" />
@@ -897,6 +907,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMessage">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageWithLoadOptions">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1639,6 +1658,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMessage">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageWithLoadOptions">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
