@@ -31,6 +31,6 @@ namespace Midway.ObjectModel
         /// ЭСФ недействителен (в течении 3х суток не высланы все необходимые СД)
         /// </summary>
         [EnumMember]
-        InvoiceNotValid = 0x3
+        InvoiceNotValid = 0x3,
     }
 }

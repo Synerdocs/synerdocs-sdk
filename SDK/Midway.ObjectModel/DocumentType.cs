@@ -14,111 +14,118 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Неформализованный")]
-        Untyped = 0x0,
+        Untyped = 0,
 
         /// <summary>
         /// Счет-фактура
         /// </summary>
         [EnumMember]
         [Description("Счет-фактура")]
-        Invoice = 0x1,
+        Invoice = 1,
 
         /// <summary>
         /// Служебный документ: подтверждение (регламент ЭСФ)
         /// </summary>
         [EnumMember]
         [Description("Служебный: подтверждение (регламент ЭСФ)")]
-        ServiceInvoiceConfirmation = 0x2,
+        ServiceInvoiceConfirmation = 2,
 
         /// <summary>
         /// Служебный документ: извещение (регламент ЭСФ)
         /// </summary>
         [EnumMember]
         [Description("Служебный: извещение (регламент ЭСФ)")]
-        ServiceInvoiceReceipt = 0x4,
+        ServiceInvoiceReceipt = 4,
 
         /// <summary>
         /// Служебный документ: уведомление об уточнении (регламент ЭСФ)
         /// </summary>
         [EnumMember]
         [Description("Служебный: уведомление об уточнении (регламент ЭСФ)")]
-        ServiceInvoiceAmendmentRequest = 0x5,
+        ServiceInvoiceAmendmentRequest = 5,
 
         /// <summary>
         /// Уведомление об уточнении, отказ от подписи (общий регламент)
         /// </summary>
         [EnumMember]
         [Description("Служебный: уведомление об уточнении, отказ от подписи (общий регламент)")]
-        ServiceAmendmentRequest = 0x6,
+        ServiceAmendmentRequest = 6,
 
         /// <summary>
         /// Комментарий к документу (не используется)
         /// </summary>
         [EnumMember]
         [Description("")]
-        Comment = 0x7,
+        Comment = 7,
 
         /// <summary>
         /// Служебный документ: извещение о получении (общий регламент)
         /// </summary>
         [EnumMember]
         [Description("Служебный: извещение о получении (общий регламент)")]
-        ServiceReceipt = 0x8,
+        ServiceReceipt = 8,
 
         /// <summary>
-        /// Измененный счет-фактура
+        /// Исправленный счет-фактура
         /// </summary>
         [EnumMember]
-        [Description("Измененный счет-фактура")]
-        InvoiceRevision = 0x09,
+        [Description("Исправленный счет-фактура")]
+        InvoiceRevision = 9,
 
         /// <summary>
         /// Корректировочный счет-фактура
         /// </summary>
         [EnumMember]
         [Description("Корректировочный счет-фактура")]
-        InvoiceCorrection = 0x0A,
+        InvoiceCorrection = 10,
 
         /// <summary>
-        /// Измененный корректировочный счет-фактура
+        /// Исправленный корректировочный счет-фактура
         /// </summary>
         [EnumMember]
-        [Description("Измененный корректировочный счет-фактура")]
-        InvoiceCorrectionRevision = 0x0B,
+        [Description("Исправленный корректировочный счет-фактура")]
+        InvoiceCorrectionRevision = 11,
 
         /// <summary>
         /// Товарная накладная (титул продавца)
         /// </summary>
         [EnumMember]
         [Description("Товарная накладная")]
-        WaybillSeller = 0x0C,
+        WaybillSeller = 12,
 
         /// <summary>
         /// Товарная накладная (титул покупателя)
         /// </summary>
         [EnumMember]
         [Description("Служебный: товарная накладная (титул покупателя)")]
-        WaybillBuyer = 0x0D,
+        WaybillBuyer = 13,
 
         /// <summary>
         /// Акт о выполнении работ (титул исполнителя)
         /// </summary>
         [EnumMember]
         [Description("Акт о выполнении работ")]
-        ActOfWorkSeller = 0x0E,
+        ActOfWorkSeller = 14,
 
         /// <summary>
         /// Акт о выполнении работ (титул заказчика)
         /// </summary>
         [EnumMember]
         [Description("Служебный: акт о выполнении работ (титул заказчика)")]
-        ActOfWorkBuyer = 0x0F,
+        ActOfWorkBuyer = 15,
 
         /// <summary>
         /// Служебный документ: квитанция об ошибке
         /// </summary>
         [EnumMember]
         [Description("Служебный: квитанция об ошибке")]
-        ErrorReceipt = 0x10
+        ErrorReceipt = 16,
+
+        /// <summary>
+        /// Предложение об аннулировании
+        /// </summary>
+        [EnumMember]
+        [Description("Соглашение об аннулировании")]
+        RevocationOffer = 17
     }
 }

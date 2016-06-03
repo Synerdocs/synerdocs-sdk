@@ -388,6 +388,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GenerateRevocationOffer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="boxId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="documentId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="signerInfo" nillable="true" type="q23:SignerInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateRevocationOfferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GenerateRevocationOfferResult" nillable="true" type="q24:NamedContent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetDocumentContent">
     <xs:complexType>
       <xs:sequence>
@@ -410,14 +428,14 @@
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="boxId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="documentId" nillable="true" type="xs:string" />
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="requestParams" nillable="true" type="q23:FullDocumentInfoRequestParams" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="requestParams" nillable="true" type="q25:FullDocumentInfoRequestParams" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFullDocumentInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetFullDocumentInfoResult" nillable="true" type="q24:FullDocumentInfo" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetFullDocumentInfoResult" nillable="true" type="q26:FullDocumentInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -425,14 +443,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="options" nillable="true" type="q25:DocumentListOptions" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="options" nillable="true" type="q27:DocumentListOptions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDocumentListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentListResult" nillable="true" type="q26:DocumentList" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentListResult" nillable="true" type="q28:DocumentList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -447,7 +465,7 @@
   <xs:element name="GetInnKppNameByBoxIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetInnKppNameByBoxIdResult" nillable="true" type="q27:InnKppName" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetInnKppNameByBoxIdResult" nillable="true" type="q29:InnKppName" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -455,14 +473,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="contactSearchOptions" nillable="true" type="q28:ContactSearchOptions" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="contactSearchOptions" nillable="true" type="q30:ContactSearchOptions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SearchContactsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SearchContactsResult" nillable="true" type="q29:ContactSearchResult" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SearchContactsResult" nillable="true" type="q31:ContactSearchResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -478,7 +496,7 @@
   <xs:element name="GetContactResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetContactResult" nillable="true" type="q30:Contact" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetContactResult" nillable="true" type="q32:Contact" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -495,7 +513,7 @@
   <xs:element name="AcceptAuthorizationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AcceptAuthorizationResult" type="q31:ContactStatus" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AcceptAuthorizationResult" type="q33:ContactStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -512,7 +530,7 @@
   <xs:element name="RejectAuthorizationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RejectAuthorizationResult" type="q32:ContactStatus" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RejectAuthorizationResult" type="q34:ContactStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -603,7 +621,7 @@
   <xs:element name="GetOrganizationByInnKppResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationByInnKppResult" nillable="true" type="q33:Organization" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationByInnKppResult" nillable="true" type="q35:Organization" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -612,22 +630,22 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="boxId" nillable="true" type="xs:string" />
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="criteria" type="q34:OrganizationByCriteria" />
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="values" nillable="true" type="q35:OrganizationByCriteriaValues" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="criteria" type="q36:OrganizationByCriteria" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="values" nillable="true" type="q37:OrganizationByCriteriaValues" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetOrganizationByResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationByResult" nillable="true" type="q36:Organization" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationByResult" nillable="true" type="q38:Organization" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetErrorText">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" minOccurs="0" name="code" type="q37:ServiceErrorCode" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" minOccurs="0" name="code" type="q39:ServiceErrorCode" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -648,7 +666,7 @@
   <xs:element name="GetBoxesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetBoxesResult" nillable="true" type="q38:ArrayOfBoxInfo" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetBoxesResult" nillable="true" type="q40:ArrayOfBoxInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -663,7 +681,7 @@
   <xs:element name="GetSubjectInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetSubjectInfoResult" nillable="true" type="q39:SubjectInfo" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetSubjectInfoResult" nillable="true" type="q41:SubjectInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -677,7 +695,7 @@
   <xs:element name="GetSpecialOperatorInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetSpecialOperatorInfoResult" nillable="true" type="q40:SubjectInfo" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetSpecialOperatorInfoResult" nillable="true" type="q42:SubjectInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -685,7 +703,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="element" nillable="true" type="q41:OrganizationStructureElement" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="element" nillable="true" type="q43:OrganizationStructureElement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -714,7 +732,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="element" nillable="true" type="q42:OrganizationStructureElement" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="element" nillable="true" type="q44:OrganizationStructureElement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -735,7 +753,7 @@
   <xs:element name="GetOrganizationStructureResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationStructureResult" nillable="true" type="q43:ArrayOfOrganizationStructureElement" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationStructureResult" nillable="true" type="q45:ArrayOfOrganizationStructureElement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -766,7 +784,7 @@
   <xs:element name="GetOrganizationStructureElementChildrenResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationStructureElementChildrenResult" nillable="true" type="q44:ArrayOfOrganizationStructureElement" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationStructureElementChildrenResult" nillable="true" type="q46:ArrayOfOrganizationStructureElement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -807,7 +825,7 @@
   <xs:element name="CheckQualifiedCertificateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CheckQualifiedCertificateResult" nillable="true" type="q45:CertificateValidationResult" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CheckQualifiedCertificateResult" nillable="true" type="q47:CertificateValidationResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -821,7 +839,7 @@
   <xs:element name="GetBoxCertificatesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetBoxCertificatesResult" nillable="true" type="q46:ArrayOfBoxCertificate" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetBoxCertificatesResult" nillable="true" type="q48:ArrayOfBoxCertificate" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -837,7 +855,7 @@
   <xs:element name="GetRequiredNoticesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetRequiredNoticesResult" nillable="true" type="q47:ArrayOfServiceNotice" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetRequiredNoticesResult" nillable="true" type="q49:ArrayOfServiceNotice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -853,7 +871,7 @@
   <xs:element name="GetEnhancedSignResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetEnhancedSignResult" nillable="true" type="q48:EnhancedSign" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetEnhancedSignResult" nillable="true" type="q50:EnhancedSign" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -869,7 +887,7 @@
   <xs:element name="GetEnhancedSignByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetEnhancedSignByIdResult" nillable="true" type="q49:EnhancedSign" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetEnhancedSignByIdResult" nillable="true" type="q51:EnhancedSign" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -885,7 +903,7 @@
   <xs:element name="DownloadDocumentFlowArchiveResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DownloadDocumentFlowArchiveResult" nillable="true" type="q50:NamedContent" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DownloadDocumentFlowArchiveResult" nillable="true" type="q52:NamedContent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -901,21 +919,21 @@
   <xs:element name="GetOrganizationListByInnKppResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationListByInnKppResult" nillable="true" type="q51:ArrayOfOrganization" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationListByInnKppResult" nillable="true" type="q53:ArrayOfOrganization" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CheckCertificates">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thumbprints" nillable="true" type="q52:ArrayOfstring" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thumbprints" nillable="true" type="q54:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CheckCertificatesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CheckCertificatesResult" nillable="true" type="q53:ArrayOfstring" />
+        <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CheckCertificatesResult" nillable="true" type="q55:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -930,14 +948,14 @@
   <xs:element name="GetUserInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetUserInfoResult" nillable="true" type="q54:User" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetUserInfoResult" nillable="true" type="q56:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Register">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="registerModel" nillable="true" type="q55:RegisterModel" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="registerModel" nillable="true" type="q57:RegisterModel" />
         <xs:element minOccurs="0" name="certificate" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
@@ -945,7 +963,7 @@
   <xs:element name="RegisterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RegisterResult" nillable="true" type="q56:RegisterResult" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RegisterResult" nillable="true" type="q58:RegisterResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -984,14 +1002,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="message" nillable="true" type="q57:UnsignedMessage" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="message" nillable="true" type="q59:UnsignedMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SendUnsignedMessageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SendUnsignedMessageResult" nillable="true" type="q58:SentMessage" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SendUnsignedMessageResult" nillable="true" type="q60:SentMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -999,14 +1017,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="message" nillable="true" type="q59:ForwardMessage" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="message" nillable="true" type="q61:ForwardMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SendForwardMessageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SendForwardMessageResult" nillable="true" type="q60:SentMessage" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SendForwardMessageResult" nillable="true" type="q62:SentMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1014,8 +1032,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="flowType" type="q61:FlowType" />
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="sign" nillable="true" type="q62:Sign" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="flowType" type="q63:FlowType" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="sign" nillable="true" type="q64:Sign" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1028,8 +1046,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="flowType" type="q63:FlowType" />
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="rejectSign" nillable="true" type="q64:RejectSign" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="flowType" type="q65:FlowType" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="rejectSign" nillable="true" type="q66:RejectSign" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1042,14 +1060,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="options" nillable="true" type="q65:DocumentEntryOptions" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="options" nillable="true" type="q67:DocumentEntryOptions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDocumentEntriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentEntriesResult" nillable="true" type="q66:DocumentEntryList" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentEntriesResult" nillable="true" type="q68:DocumentEntryList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1059,14 +1077,14 @@
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="boxId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="documentId" nillable="true" type="xs:string" />
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="requestParams" nillable="true" type="q67:FlowDocumentInfoRequestParams" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="requestParams" nillable="true" type="q69:FlowDocumentInfoRequestParams" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFlowDocumentInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetFlowDocumentInfoResult" nillable="true" type="q68:FlowDocumentInfo" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetFlowDocumentInfoResult" nillable="true" type="q70:FlowDocumentInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1074,14 +1092,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="message" nillable="true" type="q69:InternalMessage" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="message" nillable="true" type="q71:InternalMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SendInternalMessageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SendInternalMessageResult" nillable="true" type="q70:SentMessage" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SendInternalMessageResult" nillable="true" type="q72:SentMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1089,14 +1107,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="options" nillable="true" type="q71:InternalListOptions" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="options" nillable="true" type="q73:InternalListOptions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetInternalDocumentsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetInternalDocumentsResult" nillable="true" type="q72:DocumentEntryList" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetInternalDocumentsResult" nillable="true" type="q74:DocumentEntryList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1122,7 +1140,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="boxId" nillable="true" type="xs:string" />
-        <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="documentIds" nillable="true" type="q73:ArrayOfstring" />
+        <xs:element xmlns:q75="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="documentIds" nillable="true" type="q75:ArrayOfstring" />
         <xs:element minOccurs="0" name="departmentId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1130,7 +1148,7 @@
   <xs:element name="MoveDocumentsToDepartmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q74="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MoveDocumentsToDepartmentResult" nillable="true" type="q74:ArrayOfstring" />
+        <xs:element xmlns:q76="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MoveDocumentsToDepartmentResult" nillable="true" type="q76:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1146,7 +1164,7 @@
   <xs:element name="GetDepartmentEmployeesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDepartmentEmployeesResult" nillable="true" type="q75:ArrayOfUser" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDepartmentEmployeesResult" nillable="true" type="q77:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1154,7 +1172,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="documentTag" nillable="true" type="q76:DocumentTag" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="documentTag" nillable="true" type="q78:DocumentTag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1189,7 +1207,7 @@
   <xs:element name="GetDocumentTagResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentTagResult" nillable="true" type="q77:DocumentTag" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentTagResult" nillable="true" type="q79:DocumentTag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1205,7 +1223,7 @@
   <xs:element name="GetDocumentTagListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentTagListResult" nillable="true" type="q78:ArrayOfDocumentTag" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetDocumentTagListResult" nillable="true" type="q80:ArrayOfDocumentTag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1234,7 +1252,7 @@
   <xs:element name="GetOrganizationPromoCodeListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationPromoCodeListResult" nillable="true" type="q79:ArrayOfOrganizationPromoCode" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetOrganizationPromoCodeListResult" nillable="true" type="q81:ArrayOfOrganizationPromoCode" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1249,7 +1267,7 @@
   <xs:element name="GetPromoCodeByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetPromoCodeByNameResult" nillable="true" type="q80:PromoCode" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GetPromoCodeByNameResult" nillable="true" type="q82:PromoCode" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1270,14 +1288,14 @@
   <xs:element name="CheckCertificateList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thumbprints" nillable="true" type="q81:ArrayOfstring" />
+        <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thumbprints" nillable="true" type="q83:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CheckCertificateListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CheckCertificateListResult" nillable="true" type="q82:ArrayOfCertificateCheckInfo" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CheckCertificateListResult" nillable="true" type="q84:ArrayOfCertificateCheckInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -6,10 +6,15 @@ using System.Text;
 namespace Midway.ConsoleClient
 {
     /// <summary>
-    /// Работа с пользовательским консольным вводов\выводом 
+    /// Работа с пользовательским консольным вводом-выводом 
     /// </summary>
     public class UserInput
     {
+        /// <summary>
+        /// Размер буфера для ввода текста
+        /// </summary>
+        private const int ReadlineBufferSize = 8192;
+
         /// <summary>
         /// Опция пользовательского выбора одного значения
         /// из некого списка показаных пользователю значений: например выбор Организации из показаного 
@@ -129,11 +134,15 @@ namespace Midway.ConsoleClient
 
         public static string ReadLine()
         {
-            var line = Console.ReadLine();
-            if (line == null)
-                throw new InputCanceledException();
-            line = line.Trim();
-            return line;
+            using (var inputStream = Console.OpenStandardInput(ReadlineBufferSize))
+            {
+                var bytes = new byte[ReadlineBufferSize];
+                var outputLength = inputStream.Read(bytes, 0, ReadlineBufferSize);
+                var chars = Encoding.UTF7.GetChars(bytes, 0, outputLength);
+                var line = new String(chars);
+                line = line.Trim();
+                return line;
+            }
         }
 
         public static void Error(string text, params object [] args)

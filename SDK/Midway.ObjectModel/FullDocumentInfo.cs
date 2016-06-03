@@ -73,6 +73,12 @@ namespace Midway.ObjectModel
         public UntypedDocumentMultiFlowStatus MultiStatus { get; set; }
 
         /// <summary>
+        /// Статус аннулирования документа
+        /// </summary>
+        [DataMember]
+        public DocumentRevocationStatus RevocationStatus { get; set; }
+
+        /// <summary>
         /// Служебные документы, относящиеся к данному документу
         /// </summary>
         [DataMember]
@@ -105,6 +111,12 @@ namespace Midway.ObjectModel
         public int CountRelatedDocuments { get; set; }
 
         /// <summary>
+        /// Доступные операции над документом в виде битовой маски
+        /// </summary>
+        [DataMember]
+        public int AvailableOperations { get; set; }
+
+        /// <summary>
         /// Текстовое описание полного текущего статуса документооборота относительно абонента
         /// </summary>
         [DataMember]
@@ -115,5 +127,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DocumentTag[] Tags { get; set; }
+
+        /// <summary>
+        /// Список предложений об аннулировании
+        /// </summary>
+        [DataMember]
+        public FullDocumentInfo[] RevocationOffers { get; set; }
     }
 }

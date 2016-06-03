@@ -14,27 +14,27 @@ namespace Midway.ObjectModel
         /// </summary>
         [Description("Подпись не требуется")]
         [EnumMember]
-        NoSignNeeded = 0x00,
+        NoSignNeeded = 0,
 
         /// <summary>
         /// Ожидается подпись получателя
         /// </summary>
         [Description("Требуется подпись")]
         [EnumMember]
-        WaitingForSign = 0x01,
+        WaitingForSign = 1,
 
         /// <summary>
         /// Документ подписан получателем
         /// </summary>
         [Description("Подписан")]
         [EnumMember]
-        Signed = 0x02,
+        Signed = 2,
 
         /// <summary>
         /// Получатель отказался подписывать документ
         /// </summary>
         [Description("Отказано")]
         [EnumMember]
-        SignRejected = 0x03,
+        SignRejected = 3,
     }
 }

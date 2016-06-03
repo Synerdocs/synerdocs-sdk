@@ -18,7 +18,8 @@ namespace Midway.ObjectModel.Extensions
                    && documentType != DocumentType.InvoiceRevision
                    && documentType != DocumentType.InvoiceCorrectionRevision
                    && documentType != DocumentType.WaybillSeller
-                   && documentType != DocumentType.ActOfWorkSeller;
+                   && documentType != DocumentType.ActOfWorkSeller
+                   && documentType != DocumentType.RevocationOffer;
         }
 
         /// <summary>
@@ -73,7 +74,8 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.InvoiceRevision
                 || documentType == DocumentType.InvoiceCorrectionRevision
                 || (documentType == DocumentType.Untyped && untypedKind == UntypedKind.ActOfVariance)
-                || (documentType == DocumentType.Untyped && untypedKind == UntypedKind.FormalizedData);
+                || (documentType == DocumentType.Untyped && untypedKind == UntypedKind.FormalizedData)
+                || (documentType == DocumentType.RevocationOffer);
         }
 
         /// <summary>
