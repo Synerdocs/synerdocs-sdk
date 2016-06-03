@@ -1110,5 +1110,18 @@ namespace Midway.ServiceClient
         {
             return Invoke(() => client.CheckCertificateList(thumbprints));
         }
+
+        /// <summary>
+        /// Сгенерировать ПОА
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">ИД документа</param>
+        /// <param name="comment">Комментарий к ПОА</param>
+        /// <param name="signerInfo">Информация о подписанте</param>
+        /// <returns></returns>
+        public NamedContent GenerateRevocationOffer(string boxId, string documentId, string comment, SignerInfo signerInfo)
+        {
+            return client.GenerateRevocationOffer(Token, boxId, documentId, comment, signerInfo);
+        }
     }
 }

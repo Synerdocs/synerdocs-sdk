@@ -5,7 +5,7 @@ namespace Midway.ObjectModel
 {
     /// <summary>
     /// Параметры поиска/фильтрации внутренних документов
-    /// Параметры объединяются в уловие оператором 'И' ('AND')
+    /// Параметры объединяются в уcловие оператором 'И' ('AND')
     /// </summary>
     [DataContract]
     public class InternalListOptions

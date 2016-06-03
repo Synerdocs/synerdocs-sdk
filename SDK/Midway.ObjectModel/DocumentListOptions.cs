@@ -53,6 +53,12 @@ namespace Midway.ObjectModel
         public DocumentType[] DocumentTypes { get; set; }
 
         /// <summary>
+        /// Типы документов в виде EnumValue
+        /// </summary>
+        [DataMember]
+        public EnumValue[] DocumentTypeEnums { get; set; }
+
+        /// <summary>
         /// Ящики контрагентов
         /// </summary>
         [DataMember]
@@ -69,6 +75,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DocumentSignStatus[] DocumentSignStatuses { get; set; }
+        
+        /// <summary>
+        /// Статусы аннулирования документов 
+        /// </summary>
+        [DataMember]
+        public DocumentRevocationStatus[] DocumentRevocationStatuses { get; set; }
 
         /// <summary>
         /// Требуется подтверждение получения

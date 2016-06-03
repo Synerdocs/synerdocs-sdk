@@ -16,7 +16,7 @@
         public static readonly string Accounts = "Акт сверки";
         public static readonly string TransportWaybill = "Товарно-транспортная накладная";
         public static readonly string Order = "Заказ";
-        public static readonly string RevocationOffer = "Предложение об аннулировании";
+        public static readonly string RevocationOffer = "Соглашение об аннулировании";
         public static readonly string FormalizedData = "Структурированные данные";
         public static readonly string SignFailure = "Отказ от подписи";
     }

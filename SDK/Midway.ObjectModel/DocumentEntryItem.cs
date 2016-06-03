@@ -37,6 +37,12 @@ namespace Midway.ObjectModel
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
+        /// Тип документа в виде EnumValue
+        /// </summary>
+        [DataMember]
+        public EnumValue DocumentTypeEnum { get; set; }
+
+        /// <summary>
         /// Идентификатор сообщения, в котором был загружен документ
         /// </summary>
         [DataMember]
@@ -77,6 +83,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public UntypedDocumentMultiFlowStatus MultiStatus { get; set; }
+
+        /// <summary>
+        /// Статус аннулирования документа
+        /// </summary>
+        [DataMember]
+        public DocumentRevocationStatus RevocationStatus { get; set; }
 
         /// <summary>
         /// Дата отправки
@@ -143,6 +155,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public FlowType FlowType { get; set; }
+
+        /// <summary>
+        /// Доступные операции над документом в виде битовой маски
+        /// </summary>
+        [DataMember]
+        public int AvailableOperations { get; set; }
 
         /// <summary>
         /// Документооборот

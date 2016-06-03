@@ -207,6 +207,14 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.NamedContent EndGenerateTitleBuyer(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateRevocationOffer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateRevocationOfferResponse")]
+        Midway.ObjectModel.NamedContent GenerateRevocationOffer(string authToken, string boxId, string documentId, string comment, Midway.ObjectModel.SignerInfo signerInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateRevocationOffer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateRevocationOfferResponse")]
+        System.IAsyncResult BeginGenerateRevocationOffer(string authToken, string boxId, string documentId, string comment, Midway.ObjectModel.SignerInfo signerInfo, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.NamedContent EndGenerateRevocationOffer(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentContent", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentContentResponse")]
         byte[] GetDocumentContent(string authToken, string boxId, string documentId);
         
@@ -1103,6 +1111,25 @@ namespace Midway.ServiceClient.Model {
         private object[] results;
         
         public GenerateTitleBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.NamedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.NamedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateRevocationOfferCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateRevocationOfferCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2156,6 +2183,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onGenerateTitleBuyerCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGenerateRevocationOfferDelegate;
+        
+        private EndOperationDelegate onEndGenerateRevocationOfferDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateRevocationOfferCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetDocumentContentDelegate;
         
         private EndOperationDelegate onEndGetDocumentContentDelegate;
@@ -2576,6 +2609,8 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<GenerateAmendmentRequestV2CompletedEventArgs> GenerateAmendmentRequestV2Completed;
         
         public event System.EventHandler<GenerateTitleBuyerCompletedEventArgs> GenerateTitleBuyerCompleted;
+        
+        public event System.EventHandler<GenerateRevocationOfferCompletedEventArgs> GenerateRevocationOfferCompleted;
         
         public event System.EventHandler<GetDocumentContentCompletedEventArgs> GetDocumentContentCompleted;
         
@@ -3995,6 +4030,64 @@ namespace Midway.ServiceClient.Model {
                         documentId,
                         text,
                         signerInfo}, this.onEndGenerateTitleBuyerDelegate, this.onGenerateTitleBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.NamedContent GenerateRevocationOffer(string authToken, string boxId, string documentId, string comment, Midway.ObjectModel.SignerInfo signerInfo) {
+            return base.Channel.GenerateRevocationOffer(authToken, boxId, documentId, comment, signerInfo);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateRevocationOffer(string authToken, string boxId, string documentId, string comment, Midway.ObjectModel.SignerInfo signerInfo, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateRevocationOffer(authToken, boxId, documentId, comment, signerInfo, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.NamedContent EndGenerateRevocationOffer(System.IAsyncResult result) {
+            return base.Channel.EndGenerateRevocationOffer(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateRevocationOffer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            string comment = ((string)(inValues[3]));
+            Midway.ObjectModel.SignerInfo signerInfo = ((Midway.ObjectModel.SignerInfo)(inValues[4]));
+            return this.BeginGenerateRevocationOffer(authToken, boxId, documentId, comment, signerInfo, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateRevocationOffer(System.IAsyncResult result) {
+            Midway.ObjectModel.NamedContent retVal = this.EndGenerateRevocationOffer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateRevocationOfferCompleted(object state) {
+            if ((this.GenerateRevocationOfferCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateRevocationOfferCompleted(this, new GenerateRevocationOfferCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateRevocationOfferAsync(string authToken, string boxId, string documentId, string comment, Midway.ObjectModel.SignerInfo signerInfo) {
+            this.GenerateRevocationOfferAsync(authToken, boxId, documentId, comment, signerInfo, null);
+        }
+        
+        public void GenerateRevocationOfferAsync(string authToken, string boxId, string documentId, string comment, Midway.ObjectModel.SignerInfo signerInfo, object userState) {
+            if ((this.onBeginGenerateRevocationOfferDelegate == null)) {
+                this.onBeginGenerateRevocationOfferDelegate = new BeginOperationDelegate(this.OnBeginGenerateRevocationOffer);
+            }
+            if ((this.onEndGenerateRevocationOfferDelegate == null)) {
+                this.onEndGenerateRevocationOfferDelegate = new EndOperationDelegate(this.OnEndGenerateRevocationOffer);
+            }
+            if ((this.onGenerateRevocationOfferCompletedDelegate == null)) {
+                this.onGenerateRevocationOfferCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateRevocationOfferCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateRevocationOfferDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId,
+                        comment,
+                        signerInfo}, this.onEndGenerateRevocationOfferDelegate, this.onGenerateRevocationOfferCompletedDelegate, userState);
         }
         
         public byte[] GetDocumentContent(string authToken, string boxId, string documentId) {

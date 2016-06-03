@@ -29,6 +29,13 @@ namespace Midway.ObjectModel
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
+        /// Тип документа в виде EnumValue
+        /// Не используется при отправке
+        /// </summary>
+        [DataMember]
+        public EnumValue DocumentTypeEnum { get; set; }
+
+        /// <summary>
         /// Содержимое документа
         /// </summary>
         [DataMember]

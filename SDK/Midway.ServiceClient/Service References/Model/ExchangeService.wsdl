@@ -179,6 +179,12 @@
   <wsdl:message name="IExchangeService_GenerateTitleBuyer_OutputMessage">
     <wsdl:part name="parameters" element="tns:GenerateTitleBuyerResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateRevocationOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateRevocationOffer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateRevocationOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateRevocationOfferResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_GetDocumentContent_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDocumentContent" />
   </wsdl:message>
@@ -630,6 +636,10 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer" message="tns:IExchangeService_GenerateTitleBuyer_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTitleBuyerResponse" message="tns:IExchangeService_GenerateTitleBuyer_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GenerateRevocationOffer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateRevocationOffer" message="tns:IExchangeService_GenerateRevocationOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateRevocationOfferResponse" message="tns:IExchangeService_GenerateRevocationOffer_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetDocumentContent">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentContent" message="tns:IExchangeService_GetDocumentContent_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentContentResponse" message="tns:IExchangeService_GetDocumentContent_OutputMessage" />
@@ -1078,6 +1088,15 @@
     </wsdl:operation>
     <wsdl:operation name="GenerateTitleBuyer">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateRevocationOffer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateRevocationOffer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1829,6 +1848,15 @@
     </wsdl:operation>
     <wsdl:operation name="GenerateTitleBuyer">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateRevocationOffer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateRevocationOffer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

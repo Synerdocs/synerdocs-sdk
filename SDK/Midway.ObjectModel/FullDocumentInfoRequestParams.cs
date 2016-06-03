@@ -51,6 +51,12 @@ namespace Midway.ObjectModel
         public bool GetRelatedDocuments { get; set; }
 
         /// <summary>
+        /// Загружать предложения об аннулировании?
+        /// </summary>
+        [DataMember]
+        public bool GetRevocationOffers { get; set; }
+
+        /// <summary>
         /// Фильтрация прав для пользователя сервиса по логину через проверку доступа:
         /// TODO - перенести эту проверку в веб клиент?
         /// </summary>
