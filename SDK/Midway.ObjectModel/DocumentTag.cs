@@ -50,5 +50,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DateTime CreateDate { get; set; }
+
+        /// <summary>
+        /// Информация о пользователе
+        /// </summary>
+        [DataMember]
+        public TagUser User { get; set; }
     }
 }

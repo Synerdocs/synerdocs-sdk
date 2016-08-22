@@ -2,41 +2,30 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ArrayOfMessageInfo">
+  <xs:complexType name="MessageOfStatement">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+      <xs:element minOccurs="0" name="FromBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="tns:Sign" />
+      <xs:element minOccurs="0" name="Statement" nillable="true" type="tns:Document" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfMessageInfo" nillable="true" type="tns:ArrayOfMessageInfo" />
-  <xs:complexType name="MessageInfo">
+  <xs:element name="MessageOfStatement" nillable="true" type="tns:MessageOfStatement" />
+  <xs:complexType name="Sign">
     <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Recipients" nillable="true" type="q1:ArrayOfstring" />
-      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MessageInfo" nillable="true" type="tns:MessageInfo" />
-  <xs:complexType name="Message">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfDocument" />
-      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FromDepartment" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Recipients" nillable="true" type="tns:ArrayOfMessageRecipient" />
+      <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Raw" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Signs" nillable="true" type="tns:ArrayOfSign" />
-      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ToDepartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Message" nillable="true" type="tns:Message" />
-  <xs:complexType name="ArrayOfDocument">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDocument" nillable="true" type="tns:ArrayOfDocument" />
+  <xs:element name="Sign" nillable="true" type="tns:Sign" />
   <xs:complexType name="Document">
     <xs:sequence>
       <xs:element minOccurs="0" name="Card" nillable="true" type="xs:base64Binary" />
@@ -59,7 +48,7 @@
       <xs:element minOccurs="0" name="NoticeRequired" type="xs:boolean" />
       <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ParentDocumentId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RelatedDocumentIds" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RelatedDocumentIds" nillable="true" type="q1:ArrayOfstring" />
       <xs:element minOccurs="0" name="RootDocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SentDate" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="SourceDocumentId" nillable="true" type="xs:string" />
@@ -238,50 +227,10 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="NonLegitimateReason" nillable="true" type="tns:NonLegitimateReason" />
-  <xs:complexType name="ArrayOfMessageRecipient">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfMessageRecipient" nillable="true" type="tns:ArrayOfMessageRecipient" />
-  <xs:complexType name="MessageRecipient">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
-  <xs:complexType name="ArrayOfSign">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Sign" nillable="true" type="tns:Sign" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfSign" nillable="true" type="tns:ArrayOfSign" />
-  <xs:complexType name="Sign">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Raw" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Sign" nillable="true" type="tns:Sign" />
-  <xs:complexType name="MessageRequestParams">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="GetDocumentContent" type="xs:boolean" />
-      <xs:element minOccurs="0" name="GetSignContent" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MessageRequestParams" nillable="true" type="tns:MessageRequestParams" />
   <xs:complexType name="SentMessage">
     <xs:sequence>
       <xs:element minOccurs="0" name="DocumentIds" nillable="true" type="tns:ArrayOfLocalServerId" />
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Log" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Log" nillable="true" type="q2:ArrayOfstring" />
       <xs:element minOccurs="0" name="MessageId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="SignIds" nillable="true" type="tns:ArrayOfLocalServerId" />
@@ -301,6 +250,67 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LocalServerId" nillable="true" type="tns:LocalServerId" />
+  <xs:complexType name="ArrayOfMessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageInfo" nillable="true" type="tns:ArrayOfMessageInfo" />
+  <xs:complexType name="MessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Recipients" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+  <xs:complexType name="Message">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfDocument" />
+      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recipients" nillable="true" type="tns:ArrayOfMessageRecipient" />
+      <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Signs" nillable="true" type="tns:ArrayOfSign" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToDepartment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="ArrayOfDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocument" nillable="true" type="tns:ArrayOfDocument" />
+  <xs:complexType name="ArrayOfMessageRecipient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageRecipient" nillable="true" type="tns:ArrayOfMessageRecipient" />
+  <xs:complexType name="MessageRecipient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
+  <xs:complexType name="ArrayOfSign">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Sign" nillable="true" type="tns:Sign" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSign" nillable="true" type="tns:ArrayOfSign" />
+  <xs:complexType name="MessageRequestParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GetDocumentContent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GetSignContent" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageRequestParams" nillable="true" type="tns:MessageRequestParams" />
   <xs:complexType name="DraftMessage">
     <xs:sequence>
       <xs:element minOccurs="0" name="BindDocuments" type="xs:boolean" />
@@ -632,6 +642,36 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="DocumentFlowStatus" nillable="true" type="tns:DocumentFlowStatus" />
+  <xs:complexType name="UntypedDocumentFlowStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DocumentFlowStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryStatus" type="tns:DocumentDeliveryStatus" />
+          <xs:element minOccurs="0" name="SignStatus" type="tns:DocumentSignStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UntypedDocumentFlowStatus" nillable="true" type="tns:UntypedDocumentFlowStatus" />
+  <xs:simpleType name="DocumentDeliveryStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecievedByService" />
+      <xs:enumeration value="SentToRecipient" />
+      <xs:enumeration value="DeliveredToRecipient" />
+      <xs:enumeration value="NotDeliveredToRecipient" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentDeliveryStatus" nillable="true" type="tns:DocumentDeliveryStatus" />
+  <xs:simpleType name="DocumentSignStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoSignNeeded" />
+      <xs:enumeration value="WaitingForSign" />
+      <xs:enumeration value="Signed" />
+      <xs:enumeration value="SignRejected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentSignStatus" nillable="true" type="tns:DocumentSignStatus" />
   <xs:complexType name="InvoiceDocumentFlowStatus">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:DocumentFlowStatus">
@@ -665,36 +705,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="InvoiceModificationStatus" nillable="true" type="tns:InvoiceModificationStatus" />
-  <xs:complexType name="UntypedDocumentFlowStatus">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DocumentFlowStatus">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DeliveryStatus" type="tns:DocumentDeliveryStatus" />
-          <xs:element minOccurs="0" name="SignStatus" type="tns:DocumentSignStatus" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="UntypedDocumentFlowStatus" nillable="true" type="tns:UntypedDocumentFlowStatus" />
-  <xs:simpleType name="DocumentDeliveryStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="RecievedByService" />
-      <xs:enumeration value="SentToRecipient" />
-      <xs:enumeration value="DeliveredToRecipient" />
-      <xs:enumeration value="NotDeliveredToRecipient" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="DocumentDeliveryStatus" nillable="true" type="tns:DocumentDeliveryStatus" />
-  <xs:simpleType name="DocumentSignStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="NoSignNeeded" />
-      <xs:enumeration value="WaitingForSign" />
-      <xs:enumeration value="Signed" />
-      <xs:enumeration value="SignRejected" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="DocumentSignStatus" nillable="true" type="tns:DocumentSignStatus" />
   <xs:complexType name="ArrayOfFullDocumentInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="FullDocumentInfo" nillable="true" type="tns:FullDocumentInfo" />
@@ -751,6 +761,7 @@
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TagType" type="tns:DocumentTagType" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:TagUser" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DocumentTag" nillable="true" type="tns:DocumentTag" />
@@ -773,6 +784,16 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="DocumentTagType" nillable="true" type="tns:DocumentTagType" />
+  <xs:complexType name="TagUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagUser" nillable="true" type="tns:TagUser" />
   <xs:complexType name="DocumentListOptions">
     <xs:sequence>
       <xs:element minOccurs="0" name="BoxFrom" nillable="true" type="xs:string" />

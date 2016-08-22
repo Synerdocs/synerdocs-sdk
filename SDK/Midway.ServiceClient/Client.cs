@@ -866,11 +866,11 @@ namespace Midway.ServiceClient
         }
 
         /// <summary>
-        /// Принятие регламента организацией
+        /// Принятие Правил работы в Synerdocs организацией
         /// </summary>
         /// <param name="boxId">Ящик организации</param>
         /// <param name="acceptRegulation">Признак принятия регламента организацией</param>
-        /// <returns>Возвращает true, если регламент принят, инче вернёт false</returns>
+        /// <returns>Возвращает true, если Правила работы в Synerdocs приняты, инче вернёт false</returns>
         public bool AcceptRegulation(string boxId, bool acceptRegulation)
         {
             return Invoke(() => client.AcceptRegulation(Token, boxId, acceptRegulation));
@@ -1122,6 +1122,36 @@ namespace Midway.ServiceClient
         public NamedContent GenerateRevocationOffer(string boxId, string documentId, string comment, SignerInfo signerInfo)
         {
             return client.GenerateRevocationOffer(Token, boxId, documentId, comment, signerInfo);
+        }
+
+        /// <summary>
+        /// Генерирует заявление об участии в ЭДО СФ 
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <returns></returns>
+        public NamedContent GenerateStatementOfInvoiceReglament(string boxId)
+        {
+            return client.GenerateStatementOfInvoiceReglament(Token, boxId);
+        }
+
+        /// <summary>
+        /// Отправляет сообщение с заявлением об участии в ЭДО СФ
+        /// </summary>
+        /// <param name="message">Сообщение с заявлением об участии в ЭДО СФ</param>
+        /// <returns>Отправленное сообщение</returns>
+        public SentMessage SendStatementOfInvoiceReglament(MessageOfStatement message)
+        {
+            return CheckAutorizedInvoke(() => client.SendStatementOfInvoiceReglament(Token, message));
+        }
+
+        /// <summary>
+        /// Проверяет необходимость отправки заявления об участии в ЭДО СФ
+        /// </summary>
+        /// <param name="boxId"></param>
+        /// <returns></returns>
+        public bool CheckNeedToStatementOfInvoiceReglament(string boxId)
+        {
+            return client.CheckNeedToStatementOfInvoiceReglament(Token, boxId);
         }
     }
 }

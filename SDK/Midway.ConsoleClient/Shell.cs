@@ -13,6 +13,7 @@ using Midway.ObjectModel.Common;
 using Midway.ObjectModel.Exceptions;
 using Midway.ObjectModel.Extensions;
 using Midway.ServiceClient;
+using Midway.ServiceClient.Model;
 
 /* 
  * Консольное приложение (Консольный клиент) как пример кода демонстрирует возможности*:
@@ -138,7 +139,8 @@ namespace Midway.ConsoleClient
                     {"del-promocode", Tuple.Create<Action,string>(DeleteOrganizationPromoCode, "Удалить промокод")},
                     {"get-messages-without-content", Tuple.Create<Action,string>(GetMessagesWithoutDocumentsSignsContent, 
                                             "Загрузить входящие сообщения без содержимого документов и подписей")},
-                    {"send-revocation-offer", Tuple.Create<Action,string>(SendRevocationOffer, "Отправить ПОА")}
+                    {"send-revocation-offer", Tuple.Create<Action,string>(SendRevocationOffer, "Отправить ПОА")},
+                    {"send-statement", Tuple.Create<Action,string>(SendStatementOfInvoiceReglament, "Отправить заявление об участии в ЭДО СФ")}
                 };
 
                 PrintAvailableCommnads(commandsMap);
@@ -3236,6 +3238,13 @@ namespace Midway.ConsoleClient
             }
 
             PrintProperty("Логин", documentTag.Login);
+            if (documentTag.User != null)
+            {
+                PrintProperty("Должность", documentTag.User.Position);
+                PrintProperty("ФИО",
+                    string.Format("{0} {1} {2}", documentTag.User.LastName, documentTag.User.FirstName,
+                        documentTag.User.MiddleName));
+            }
             PrintProperty("Ящик организации", documentTag.OrganizationBoxId);
             PrintProperty("ИД документа", documentTag.DocumentId);
             PrintProperty("Тип тэга", documentTag.TagType);
@@ -3345,6 +3354,63 @@ namespace Midway.ConsoleClient
             }
 
             return sign;
+        }
+
+        /// <summary>
+        /// Отправка заявления об участии в ЭДО СФ
+        /// </summary>
+        public void SendStatementOfInvoiceReglament()
+        {
+            var certificate = _context.Certificate;
+            var boxId = _context.CurrentBox;
+
+            // требуется авторизация по сертификату
+            if (certificate == null)
+                ChooseCertificate();
+
+            try
+            {
+                // создадим заявление
+                var statement = _context.ServiceClient.GenerateStatementOfInvoiceReglament(boxId);
+
+                // подпишем заявление
+                var sign = Sign(statement.Content);
+                if (sign == null)
+                {
+                    UserInput.Error("Не удалось подписать заявление об участии в ЭДО СФ");
+                    return;
+                }
+
+                var document = new Document
+                               {
+                                   Id = Guid.NewGuid().ToString(),
+                                   DocumentType = DocumentType.Untyped,
+                                   UntypedKind = UntypedKind.StatementOfInvoiceReglament,
+                                   FileName = statement.Name,
+                                   Content = statement.Content
+                               };
+                // отправим сообщение с заявлением
+                var message = new MessageOfStatement
+                              {
+                                  Id = Guid.NewGuid().ToString(),
+                                  FromBoxId = _context.CurrentBox,
+                                  Statement = document,
+                                  Sign = new Sign
+                                         {
+                                             Id = Guid.NewGuid().ToString(),
+                                             DocumentId = document.Id,
+                                             Raw = sign
+                                         }
+                              };
+
+                _context.ServiceClient.SendStatementOfInvoiceReglament(message);
+                UserInput.Success("Заявление об участии в ЭДО СФ успешно отправлено!");
+            }
+            catch (ServerException ex)
+            {
+                UserInput.Error(ex.Message);
+                return;
+            }
         }
     }
 }

@@ -517,11 +517,11 @@ namespace Midway.ServiceClient
         RegisterResult Register(RegisterModel registerModel, byte[] certificate = null);
 
         /// <summary>
-        /// Принятие регламента организацией
+        /// Принятие Правил работы в Synerdocs организацией
         /// </summary>
         /// <param name="boxId">Ящик организации</param>
         /// <param name="acceptRegulation">Признак принятия регламента организацией</param>
-        /// <returns>Возвращает true, если регламент принят, инче вернёт false</returns>
+        /// <returns>Возвращает true, если Правила работы в Synerdocs приняты, инче вернёт false</returns>
         bool AcceptRegulation(string boxId, bool acceptRegulation);
 
         /// <summary>
@@ -593,5 +593,26 @@ namespace Midway.ServiceClient
         /// </summary>
         /// <param name="thumbprints">Массив отпечатков сертификатов</param>
         CertificateCheckInfo[] CheckCertificateList(string[] thumbprints);
+
+        /// <summary>
+        /// Генерирует заявление об участии в ЭДО СФ 
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <returns></returns>
+        NamedContent GenerateStatementOfInvoiceReglament(string boxId);
+
+        /// <summary>
+        /// Отправляет сообщение с заявлением об участии в ЭДО СФ
+        /// </summary>
+        /// <param name="message">Сообщение с заявлением об участии в ЭДО СФ</param>
+        /// <returns>Отправленное сообщение</returns>
+        SentMessage SendStatementOfInvoiceReglament(MessageOfStatement message);
+
+        /// <summary>
+        /// Проверяет необходимость отправки заявления об участии в ЭДО СФ
+        /// </summary>
+        /// <param name="boxId"></param>
+        /// <returns></returns>
+        bool CheckNeedToStatementOfInvoiceReglament(string boxId);
     }
 }
