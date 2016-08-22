@@ -89,7 +89,7 @@ namespace Midway.ObjectModel
         public string ContragentServiceCode { get; set; }
 
         /// <summary>
-        /// Контрагент принял регламент сервиса
+        /// Контрагент принял Правила работы в сервисе
         /// </summary>
         [DataMember]
         public bool ServiceReglamentAccepted { get; set; }

@@ -239,7 +239,13 @@ namespace Midway.ObjectModel
         [DataMember]
         [Obsolete("Для обеспечения обратной совместимости")]
         public bool ExchangeWithIndividualEnabled { get; set; }
-        
+
+        /// <summary>
+        /// Идентификатор получателя пакетов в роуминге
+        /// </summary>
+        [DataMember]
+        public int? RoamingPackageRecipientId { get; set; }
+
         public override string ToString()
         {
             return Name;

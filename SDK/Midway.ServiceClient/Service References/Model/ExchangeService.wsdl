@@ -35,6 +35,18 @@
       <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IExchangeService_SendStatementOfInvoiceReglament_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatementOfInvoiceReglament" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendStatementOfInvoiceReglament_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatementOfInvoiceReglamentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckNeedToStatementOfInvoiceReglament_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckNeedToStatementOfInvoiceReglament" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckNeedToStatementOfInvoiceReglament_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckNeedToStatementOfInvoiceReglamentResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
   </wsdl:message>
@@ -539,7 +551,21 @@
   <wsdl:message name="IExchangeService_CheckCertificateList_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckCertificateListResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateStatementOfInvoiceReglament_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateStatementOfInvoiceReglament" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateStatementOfInvoiceReglament_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateStatementOfInvoiceReglamentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IExchangeService">
+    <wsdl:operation name="SendStatementOfInvoiceReglament">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" message="tns:IExchangeService_SendStatementOfInvoiceReglament_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_SendStatementOfInvoiceReglament_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" message="tns:IExchangeService_CheckNeedToStatementOfInvoiceReglament_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_CheckNeedToStatementOfInvoiceReglament_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateResponse" message="tns:IExchangeService_Authenticate_OutputMessage" />
@@ -876,9 +902,31 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateList" message="tns:IExchangeService_CheckCertificateList_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse" message="tns:IExchangeService_CheckCertificateList_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" message="tns:IExchangeService_GenerateStatementOfInvoiceReglament_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_GenerateStatementOfInvoiceReglament_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IExchangeService" type="tns:IExchangeService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Authenticate" style="document" />
       <wsdl:input>
@@ -1628,6 +1676,15 @@
     </wsdl:operation>
     <wsdl:operation name="CheckCertificateList">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1639,6 +1696,24 @@
   <wsdl:binding name="BasicHttpBindingSecure_IExchangeService" type="tns:IExchangeService">
     <wsp:PolicyReference URI="#BasicHttpBindingSecure_IExchangeService_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Authenticate" style="document" />
       <wsdl:input>
@@ -2388,6 +2463,15 @@
     </wsdl:operation>
     <wsdl:operation name="CheckCertificateList">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

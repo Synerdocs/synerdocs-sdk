@@ -70,6 +70,7 @@
     <Compile Include="ContactStatusExtensions.cs" />
     <Compile Include="DocumentRevocationStatus.cs" />
     <Compile Include="EnumValue.cs" />
+    <Compile Include="MessageOfStatement.cs" />
     <Compile Include="MessageRequestParams.cs" />
     <Compile Include="OrganizationPromoCode.cs" />
     <Compile Include="PromoCode.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="SignerInfo.cs" />
     <Compile Include="Common\SortingSetting.cs" />
     <Compile Include="SubjectInfo.cs" />
+    <Compile Include="TagUser.cs" />
     <Compile Include="TitleBuyer.cs" />
     <Compile Include="TitleType.cs" />
     <Compile Include="UnsignedMessage.cs" />

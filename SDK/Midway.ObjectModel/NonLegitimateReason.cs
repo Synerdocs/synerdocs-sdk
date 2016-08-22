@@ -14,9 +14,9 @@ namespace Midway.ObjectModel
         NoReason = 0x00000000,
 
         /// <summary>
-        /// Отправитель не принял регламент сервиса
+        /// Отправитель не принял Правила работы в сервисе
         /// </summary>
-        [Description("Отправитель не принял регламент сервиса")]
+        [Description("Отправитель не принял Правила работы в сервисе")]
         SenderNotAccepted = 0x00000001,
 
         /// <summary>
@@ -26,9 +26,9 @@ namespace Midway.ObjectModel
         SenderNotAcceptedInvoice = 0x00000002,
 
         /// <summary>
-        /// Получатель не принял регламент сервиса
+        /// Получатель не принял Правила работы в сервисе
         /// </summary>
-        [Description("Получатель не принял регламент сервиса")]
+        [Description("Получатель не принял Правила работы в сервисе")]
         ReceiverNotAccepted = 0x00000004,
 
         /// <summary>

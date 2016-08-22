@@ -15,6 +15,25 @@ namespace Midway.ServiceClient.Model {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://synerdocs.ru", ConfigurationName="Model.IExchangeService")]
     public interface IExchangeService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
+        Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
+        System.IAsyncResult BeginSendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SentMessage EndSendStatementOfInvoiceReglament(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
+            "se")]
+        bool CheckNeedToStatementOfInvoiceReglament(string authToken, string boxId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
+            "se")]
+        System.IAsyncResult BeginCheckNeedToStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
+        
+        bool EndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
         string Authenticate(string login, string password, string applicationId);
         
@@ -227,8 +246,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfoRequestParams))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.InvoiceDocumentFlowStatus))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UntypedDocumentFlowStatus))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.InvoiceDocumentFlowStatus))]
         Midway.ObjectModel.FullDocumentInfo GetFullDocumentInfo(string authToken, string boxId, string documentId, Midway.ObjectModel.FullDocumentInfoRequestParams requestParams);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetFullDocumentInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetFullDocumentInfoResponse")]
@@ -699,10 +718,56 @@ namespace Midway.ServiceClient.Model {
         System.IAsyncResult BeginCheckCertificateList(string[] thumbprints, System.AsyncCallback callback, object asyncState);
         
         Midway.ObjectModel.CertificateCheckInfo[] EndCheckCertificateList(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
+        Midway.ObjectModel.NamedContent GenerateStatementOfInvoiceReglament(string authToken, string boxId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
+        System.IAsyncResult BeginGenerateStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IExchangeServiceChannel : Midway.ServiceClient.Model.IExchangeService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SendStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SendStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SentMessage Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SentMessage)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2037,7 +2102,38 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.NamedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.NamedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ExchangeServiceClient : System.ServiceModel.ClientBase<Midway.ServiceClient.Model.IExchangeService>, Midway.ServiceClient.Model.IExchangeService {
+        
+        private BeginOperationDelegate onBeginSendStatementOfInvoiceReglamentDelegate;
+        
+        private EndOperationDelegate onEndSendStatementOfInvoiceReglamentDelegate;
+        
+        private System.Threading.SendOrPostCallback onSendStatementOfInvoiceReglamentCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCheckNeedToStatementOfInvoiceReglamentDelegate;
+        
+        private EndOperationDelegate onEndCheckNeedToStatementOfInvoiceReglamentDelegate;
+        
+        private System.Threading.SendOrPostCallback onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate;
         
         private BeginOperationDelegate onBeginAuthenticateDelegate;
         
@@ -2543,6 +2639,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onCheckCertificateListCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGenerateStatementOfInvoiceReglamentDelegate;
+        
+        private EndOperationDelegate onEndGenerateStatementOfInvoiceReglamentDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateStatementOfInvoiceReglamentCompletedDelegate;
+        
         public ExchangeServiceClient() {
         }
         
@@ -2561,6 +2663,10 @@ namespace Midway.ServiceClient.Model {
         public ExchangeServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
+        
+        public event System.EventHandler<SendStatementOfInvoiceReglamentCompletedEventArgs> SendStatementOfInvoiceReglamentCompleted;
+        
+        public event System.EventHandler<CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs> CheckNeedToStatementOfInvoiceReglamentCompleted;
         
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
         
@@ -2729,6 +2835,112 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteOrganizationPromoCodeCompleted;
         
         public event System.EventHandler<CheckCertificateListCompletedEventArgs> CheckCertificateListCompleted;
+        
+        public event System.EventHandler<GenerateStatementOfInvoiceReglamentCompletedEventArgs> GenerateStatementOfInvoiceReglamentCompleted;
+        
+        public Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message) {
+            return base.Channel.SendStatementOfInvoiceReglament(authToken, message);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSendStatementOfInvoiceReglament(authToken, message, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SentMessage EndSendStatementOfInvoiceReglament(System.IAsyncResult result) {
+            return base.Channel.EndSendStatementOfInvoiceReglament(result);
+        }
+        
+        private System.IAsyncResult OnBeginSendStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.MessageOfStatement message = ((Midway.ObjectModel.MessageOfStatement)(inValues[1]));
+            return this.BeginSendStatementOfInvoiceReglament(authToken, message, callback, asyncState);
+        }
+        
+        private object[] OnEndSendStatementOfInvoiceReglament(System.IAsyncResult result) {
+            Midway.ObjectModel.SentMessage retVal = this.EndSendStatementOfInvoiceReglament(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSendStatementOfInvoiceReglamentCompleted(object state) {
+            if ((this.SendStatementOfInvoiceReglamentCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SendStatementOfInvoiceReglamentCompleted(this, new SendStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SendStatementOfInvoiceReglamentAsync(string authToken, Midway.ObjectModel.MessageOfStatement message) {
+            this.SendStatementOfInvoiceReglamentAsync(authToken, message, null);
+        }
+        
+        public void SendStatementOfInvoiceReglamentAsync(string authToken, Midway.ObjectModel.MessageOfStatement message, object userState) {
+            if ((this.onBeginSendStatementOfInvoiceReglamentDelegate == null)) {
+                this.onBeginSendStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginSendStatementOfInvoiceReglament);
+            }
+            if ((this.onEndSendStatementOfInvoiceReglamentDelegate == null)) {
+                this.onEndSendStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndSendStatementOfInvoiceReglament);
+            }
+            if ((this.onSendStatementOfInvoiceReglamentCompletedDelegate == null)) {
+                this.onSendStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSendStatementOfInvoiceReglamentCompleted);
+            }
+            base.InvokeAsync(this.onBeginSendStatementOfInvoiceReglamentDelegate, new object[] {
+                        authToken,
+                        message}, this.onEndSendStatementOfInvoiceReglamentDelegate, this.onSendStatementOfInvoiceReglamentCompletedDelegate, userState);
+        }
+        
+        public bool CheckNeedToStatementOfInvoiceReglament(string authToken, string boxId) {
+            return base.Channel.CheckNeedToStatementOfInvoiceReglament(authToken, boxId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCheckNeedToStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCheckNeedToStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public bool EndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result) {
+            return base.Channel.EndCheckNeedToStatementOfInvoiceReglament(result);
+        }
+        
+        private System.IAsyncResult OnBeginCheckNeedToStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            return this.BeginCheckNeedToStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        private object[] OnEndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result) {
+            bool retVal = this.EndCheckNeedToStatementOfInvoiceReglament(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCheckNeedToStatementOfInvoiceReglamentCompleted(object state) {
+            if ((this.CheckNeedToStatementOfInvoiceReglamentCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CheckNeedToStatementOfInvoiceReglamentCompleted(this, new CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CheckNeedToStatementOfInvoiceReglamentAsync(string authToken, string boxId) {
+            this.CheckNeedToStatementOfInvoiceReglamentAsync(authToken, boxId, null);
+        }
+        
+        public void CheckNeedToStatementOfInvoiceReglamentAsync(string authToken, string boxId, object userState) {
+            if ((this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate == null)) {
+                this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginCheckNeedToStatementOfInvoiceReglament);
+            }
+            if ((this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate == null)) {
+                this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndCheckNeedToStatementOfInvoiceReglament);
+            }
+            if ((this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate == null)) {
+                this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckNeedToStatementOfInvoiceReglamentCompleted);
+            }
+            base.InvokeAsync(this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate, new object[] {
+                        authToken,
+                        boxId}, this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate, this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate, userState);
+        }
         
         public string Authenticate(string login, string password, string applicationId) {
             return base.Channel.Authenticate(login, password, applicationId);
@@ -7210,6 +7422,58 @@ namespace Midway.ServiceClient.Model {
             }
             base.InvokeAsync(this.onBeginCheckCertificateListDelegate, new object[] {
                         thumbprints}, this.onEndCheckCertificateListDelegate, this.onCheckCertificateListCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.NamedContent GenerateStatementOfInvoiceReglament(string authToken, string boxId) {
+            return base.Channel.GenerateStatementOfInvoiceReglament(authToken, boxId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result) {
+            return base.Channel.EndGenerateStatementOfInvoiceReglament(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            return this.BeginGenerateStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateStatementOfInvoiceReglament(System.IAsyncResult result) {
+            Midway.ObjectModel.NamedContent retVal = this.EndGenerateStatementOfInvoiceReglament(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateStatementOfInvoiceReglamentCompleted(object state) {
+            if ((this.GenerateStatementOfInvoiceReglamentCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateStatementOfInvoiceReglamentCompleted(this, new GenerateStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateStatementOfInvoiceReglamentAsync(string authToken, string boxId) {
+            this.GenerateStatementOfInvoiceReglamentAsync(authToken, boxId, null);
+        }
+        
+        public void GenerateStatementOfInvoiceReglamentAsync(string authToken, string boxId, object userState) {
+            if ((this.onBeginGenerateStatementOfInvoiceReglamentDelegate == null)) {
+                this.onBeginGenerateStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginGenerateStatementOfInvoiceReglament);
+            }
+            if ((this.onEndGenerateStatementOfInvoiceReglamentDelegate == null)) {
+                this.onEndGenerateStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndGenerateStatementOfInvoiceReglament);
+            }
+            if ((this.onGenerateStatementOfInvoiceReglamentCompletedDelegate == null)) {
+                this.onGenerateStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateStatementOfInvoiceReglamentCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateStatementOfInvoiceReglamentDelegate, new object[] {
+                        authToken,
+                        boxId}, this.onEndGenerateStatementOfInvoiceReglamentDelegate, this.onGenerateStatementOfInvoiceReglamentCompletedDelegate, userState);
         }
     }
 }
