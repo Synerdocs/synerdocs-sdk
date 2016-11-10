@@ -19,7 +19,15 @@ namespace Midway.ObjectModel.Extensions
                    && documentType != DocumentType.InvoiceCorrectionRevision
                    && documentType != DocumentType.WaybillSeller
                    && documentType != DocumentType.ActOfWorkSeller
-                   && documentType != DocumentType.RevocationOffer;
+                   && documentType != DocumentType.RevocationOffer
+                   && documentType != DocumentType.GoodsTransferSeller
+                   && documentType != DocumentType.WorksTransferSeller
+                   && documentType != DocumentType.GoodsTransferRevisionSeller
+                   && documentType != DocumentType.WorksTransferRevisionSeller
+                   && documentType != DocumentType.GeneralTransferSeller
+                   && documentType != DocumentType.GeneralTransferCorrectionSeller
+                   && documentType != DocumentType.GeneralTransferRevisionSeller
+                   && documentType != DocumentType.GeneralTransferCorrectionRevisionSeller;
         }
 
         /// <summary>
@@ -87,7 +95,11 @@ namespace Midway.ObjectModel.Extensions
         {
             return documentType == DocumentType.Untyped
                    || documentType == DocumentType.WaybillSeller
-                   || documentType == DocumentType.ActOfWorkSeller;
+                   || documentType == DocumentType.ActOfWorkSeller
+                   || documentType == DocumentType.GoodsTransferSeller
+                   || documentType == DocumentType.WorksTransferSeller
+                   || documentType == DocumentType.GoodsTransferRevisionSeller
+                   || documentType == DocumentType.WorksTransferRevisionSeller;
         }
 
         /// <summary>
@@ -126,7 +138,9 @@ namespace Midway.ObjectModel.Extensions
         public static bool IsSign(this DocumentType documentType)
         {
             return documentType == DocumentType.WaybillBuyer
-                   || documentType == DocumentType.ActOfWorkBuyer;
+                   || documentType == DocumentType.ActOfWorkBuyer
+                   || documentType == DocumentType.GoodsTransferBuyer
+                   || documentType == DocumentType.WorksTransferBuyer;
         }
 
         public static DocumentType[] NoServiceTypes()
@@ -142,6 +156,28 @@ namespace Midway.ObjectModel.Extensions
         private static IEnumerable<DocumentType> Types()
         {
             return Enum.GetValues(typeof(DocumentType)).Cast<DocumentType>();
+        }
+
+        /// <summary>
+        /// Проверка: является ли документ исправлением документа о передаче товара, результатов работ (об оказании услуг), УПД, УКД
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsTransferDocumentRevision(this DocumentType documentType)
+        {
+            return documentType == DocumentType.WorksTransferRevisionSeller
+                   || documentType == DocumentType.GoodsTransferRevisionSeller
+                   || documentType.IsGeneralTransferRevision();
+        }
+
+        /// <summary>
+        /// Проверка: является ли документ исправлением УПД, УКД
+        /// </summary>
+        /// <param name="documentType"></param>
+        /// <returns></returns>
+        public static bool IsGeneralTransferRevision(this DocumentType documentType)
+        {
+            return documentType == DocumentType.GeneralTransferRevisionSeller
+                   || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
         }
     }
 }

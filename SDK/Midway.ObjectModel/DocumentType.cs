@@ -126,6 +126,90 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Соглашение об аннулировании")]
-        RevocationOffer = 17
+        RevocationOffer = 17,
+
+        /// <summary>
+        /// Документ о передаче результатов работ (титул исполнителя)
+        /// </summary>
+        [EnumMember]
+        [Description("Документ о передаче результатов работ")]
+        WorksTransferSeller = 18,
+
+        /// <summary>
+        /// Служебный: документ передачи результатов работ (титул заказчика)
+        /// </summary>
+        [EnumMember]
+        [Description("Служебный: документ передачи результатов работ (титул заказчика)")]
+        WorksTransferBuyer = 19,
+
+        /// <summary>
+        /// Документ о передаче товаров (титул продавца)
+        /// </summary>
+        [EnumMember]
+        [Description("Документ о передаче товаров")]
+        GoodsTransferSeller = 20,
+
+        /// <summary>
+        /// Служебный: документ о передаче товаров (титул покупателя)
+        /// </summary>
+        [EnumMember]
+        [Description("Служебный: документ о передаче товаров (титул покупателя)")]
+        GoodsTransferBuyer = 21,
+
+        /// <summary>
+        /// Исправленный документ о передаче результатов работ (титул исполнителя)
+        /// </summary>
+        [EnumMember]
+        [Description("Исправленный документ о передаче результатов работ")]
+        WorksTransferRevisionSeller = 22,
+
+        /// <summary>
+        /// Исправленный документ о передаче товаров (титул продавца)
+        /// </summary>
+        [EnumMember]
+        [Description("Исправленный документ о передаче товаров")]
+        GoodsTransferRevisionSeller = 23,
+
+        /// <summary>
+        /// Универсальный передаточный документ (титул продавца)
+        /// </summary>
+        [EnumMember]
+        [Description("Универсальный передаточный документ")]
+        GeneralTransferSeller = 24,
+
+        /// <summary>
+        /// Служебный: универсальный передаточный документ (титул покупателя)
+        /// </summary>
+        [EnumMember]
+        [Description("Служебный: универсальный передаточный документ (титул покупателя)")]
+        GeneralTransferBuyer = 25,
+
+        /// <summary>
+        /// Исправленный универсальный передаточный документ (титул продавца)
+        /// </summary>
+        [EnumMember]
+        [Description("Исправленный универсальный передаточный документ")]
+        GeneralTransferRevisionSeller = 26,
+
+        /// <summary>
+        /// Универсальный корректировочный документ (титул продавца)
+        /// </summary>
+        [EnumMember]
+        [Description("Универсальный корректировочный документ")]
+        GeneralTransferCorrectionSeller = 27,
+
+        /// <summary>
+        /// Служебный: универсальный корректировочный документ (титул покупателя)
+        /// </summary>
+        [EnumMember]
+        [Description("Служебный: универсальный корректировочный документ (титул покупателя)")]
+        GeneralTransferCorrectionBuyer = 28,
+
+        /// <summary>
+        /// Исправленный универсальный корректировочный документ (титул продавца)
+        /// </summary>
+        [EnumMember]
+        [Description("Исправленный универсальный корректировочный документ")]
+        GeneralTransferCorrectionRevisionSeller = 29
     }
 }

@@ -13,7 +13,6 @@ using Midway.ObjectModel.Common;
 using Midway.ObjectModel.Exceptions;
 using Midway.ObjectModel.Extensions;
 using Midway.ServiceClient;
-using Midway.ServiceClient.Model;
 
 /* 
  * Консольное приложение (Консольный клиент) как пример кода демонстрирует возможности*:
@@ -140,7 +139,10 @@ namespace Midway.ConsoleClient
                     {"get-messages-without-content", Tuple.Create<Action,string>(GetMessagesWithoutDocumentsSignsContent, 
                                             "Загрузить входящие сообщения без содержимого документов и подписей")},
                     {"send-revocation-offer", Tuple.Create<Action,string>(SendRevocationOffer, "Отправить ПОА")},
-                    {"send-statement", Tuple.Create<Action,string>(SendStatementOfInvoiceReglament, "Отправить заявление об участии в ЭДО СФ")}
+                    {"send-statement", Tuple.Create<Action,string>(SendStatementOfInvoiceReglament, "Отправить заявление об участии в ЭДО СФ")},
+                    {"download-flow", Tuple.Create<Action,string>(DownloadDocumentFlowArchive, "Скачать документооборот в архиве")},
+                    {"parse-document", Tuple.Create<Action,string>(TryParseDocumentContentFromFile, "Распарсить документ")},
+                    {"download-pdf", Tuple.Create<Action,string>(DownloadPdfDocument, "Скачать документ в формате pdf")},
                 };
 
                 PrintAvailableCommnads(commandsMap);
@@ -863,6 +865,40 @@ namespace Midway.ConsoleClient
             Console.Out.Write("Загружен ");
             PrintDocumentFlow(flowDocumentInfo);
             SaveDocumentFlow(flowDocumentInfo);
+        }
+        
+        private void PrintDocumentFlowArchive(NamedContent flowArchive)
+        {
+            Console.Out.WriteLine("Архив документооборота: \n {0}\n {1} байт", flowArchive.Name, flowArchive.Content.Length);
+        }
+
+        private void SaveDocumentFlowArchive(NamedContent flowArchive)
+        {
+            if (!UserInput.ChooseYesNo("Сохранить архив документооборота?"))
+                return;
+
+            var directoryPath = ChooseDirectory();
+
+            if (!Directory.Exists(directoryPath))
+                Directory.CreateDirectory(directoryPath);
+
+            Console.Out.WriteLine("Сохранение архива '{0}'", flowArchive.Name);
+            FileHelper.WriteAllBytes(directoryPath, flowArchive.Name, flowArchive.Content);
+        }
+
+        private void DownloadDocumentFlowArchive()
+        {
+            var documentId = UserInput.ReadParameter("Id документа");
+            var documentFlowArchive = _context.ServiceClient.DownloadDocumentFlowArchive(_context.CurrentBox, documentId);
+            if (documentFlowArchive == null)
+            {
+                UserInput.Error("Неправильный идентификатор документа");
+                return;
+            }
+
+            Console.Out.Write("Получен архив документооборота ");
+            PrintDocumentFlowArchive(documentFlowArchive);
+            SaveDocumentFlowArchive(documentFlowArchive);
         }
 
         private void GetDocumentInfo()
@@ -1769,7 +1805,7 @@ namespace Midway.ConsoleClient
             // сохраняем основной документ
             Console.Out.WriteLine("Сохранение документа '{0}'", fullDocumentInfo.Document.FileName);
             FileHelper.WriteAllBytes(directoryPath, fullDocumentInfo.Document.FileName,
-                GetDocuemntContent(fullDocumentInfo.Document));
+                GetDocumentContent(fullDocumentInfo.Document));
 
             // сохраняем карточку, если есть
             if (fullDocumentInfo.Document.Card != null)
@@ -1914,10 +1950,10 @@ namespace Midway.ConsoleClient
         private void EnsureDocumentContentLoaded(Document document)
         {
             if (document.Content == null)
-                GetDocuemntContent(document);
+                GetDocumentContent(document);
         }
 
-        private byte[] GetDocuemntContent(Document document)
+        private byte[] GetDocumentContent(Document document)
         {
             return document.Content ??
                    (document.Content = _context.ServiceClient.GetDocumentContent(_context.CurrentBox, document.Id));
@@ -1931,7 +1967,7 @@ namespace Midway.ConsoleClient
                 UserInput.Warning("Не удалось проверить подпись документа т.к. на него запрошено УОП");
                 return null;
             }
-            var contentInfo = new ContentInfo(GetDocuemntContent(document));
+            var contentInfo = new ContentInfo(GetDocumentContent(document));
             var signedCms = new SignedCms(contentInfo, true);
             try
             {
@@ -3411,6 +3447,102 @@ namespace Midway.ConsoleClient
                 UserInput.Error(ex.Message);
                 return;
             }
+        }
+
+        private void ParseDocumentContentFromFile(UserInput.Option choise, byte[] content)
+        {
+            object model = null;
+            if (choise.Id == "1")
+                model = _context.ServiceClient.ParseGeneralTransferSeller(content);
+            else if (choise.Id == "2")
+                model = _context.ServiceClient.ParseGeneralTransferBuyer(content);
+            else if (choise.Id == "3")
+                model = _context.ServiceClient.ParseGeneralTransferCorrectionSeller(content);
+            else if (choise.Id == "4")
+                model = _context.ServiceClient.ParseGeneralTransferCorrectionBuyer(content);
+            else if (choise.Id == "5")
+                model = _context.ServiceClient.ParseGoodsTransferSeller(content);
+            else if (choise.Id == "6")
+                model = _context.ServiceClient.ParseGoodsTransferBuyer(content);
+            else if (choise.Id == "7")
+                model = _context.ServiceClient.ParseWorksTransferSeller(content);
+            else if (choise.Id == "8")
+                model = _context.ServiceClient.ParseWorksTransferBuyer(content);
+            UserInput.FormatAndOutputObjectFields(model);
+        }
+
+        private void TryParseDocumentContentFromFile()
+        {
+            var cancel = new UserInput.Option("9", "Отмена", false);
+
+            var userChoice = UserInput.ChooseOption("Выберите тип документа", new[]
+            {
+                new UserInput.Option("1", "Титул продавца УПД", true),
+                new UserInput.Option("2", "Титул покупателя УДП", false),
+                new UserInput.Option("3", "Титул продавца УКД", false),
+                new UserInput.Option("4", "Титул покупателя УКД", false),
+                new UserInput.Option("5", "Титул продавца ДПТ", false),
+                new UserInput.Option("6", "Титул покупателя ДПТ", false),
+                new UserInput.Option("7", "Титул продавца ДПРР", false),
+                new UserInput.Option("8", "Титул покупателя ДПРР", false),
+                cancel
+            });
+
+            if (userChoice == cancel)
+                return;
+
+            var filePath = UserInput.ReadParameter("полный путь к файлу с документом, включая имя файла и расширение");
+
+            if (!FileHelper.FileExists(filePath))
+            {
+                UserInput.Error("Файла по указанному пути не существует");
+                return;
+            }
+
+            var content = FileHelper.GetFileContent(filePath);
+            if (content.Length == 0)
+            {
+                UserInput.Error("Не удалось считать данные файла");
+                return;
+            }
+
+            try
+            {
+                ParseDocumentContentFromFile(userChoice, content);
+            }
+            catch (Exception ex)
+            {
+                UserInput.Error("Произошла ошибка");
+                UserInput.Error(ex.ToString());
+            }
+        }
+
+        private void DownloadPdfDocument()
+        {
+            var documentId = UserInput.ReadParameter("Id документа");
+            var pdfDocument = _context.ServiceClient.DownloadPdfDocument(_context.CurrentBox, documentId);
+            if (pdfDocument == null)
+            {
+                UserInput.Error("Неправильный идентификатор документа");
+                return;
+            }
+
+            Console.Out.Write("Получен документ в формате pdf. ");
+            SaveFile(pdfDocument);
+        }
+
+        private void SaveFile(NamedContent namedContent)
+        {
+            if (!UserInput.ChooseYesNo("Сохранить файл?"))
+                return;
+
+            var directoryPath = ChooseDirectory();
+
+            if (!Directory.Exists(directoryPath))
+                Directory.CreateDirectory(directoryPath);
+
+            Console.Out.WriteLine("Сохранение файла: '{0}'", namedContent.Name);
+            FileHelper.WriteAllBytes(directoryPath, namedContent.Name, namedContent.Content);
         }
     }
 }

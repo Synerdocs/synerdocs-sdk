@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -52,8 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptanceInfo.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="AddressType.cs" />
+    <Compile Include="AmountChange.cs" />
+    <Compile Include="ApprovalArea.cs" />
+    <Compile Include="ApprovalInfo.cs" />
+    <Compile Include="Bank.cs" />
+    <Compile Include="BankAccount.cs" />
+    <Compile Include="BasisDocument.cs" />
     <Compile Include="BoxCertificate.cs" />
     <Compile Include="BoxInfo.cs" />
     <Compile Include="Certificate.cs" />
@@ -68,11 +77,51 @@
     <Compile Include="ContactSearchResult.cs" />
     <Compile Include="ContactStatus.cs" />
     <Compile Include="ContactStatusExtensions.cs" />
+    <Compile Include="ContentValidationResult.cs" />
+    <Compile Include="Contragent.cs" />
+    <Compile Include="ContragentBase.cs" />
+    <Compile Include="ContragentContactInfo.cs" />
+    <Compile Include="CurrencyInfo.cs" />
+    <Compile Include="CustomsDeclaration.cs" />
+    <Compile Include="DocumentGenerationOptions.cs" />
     <Compile Include="DocumentRevocationStatus.cs" />
+    <Compile Include="DocumentShortInfo.cs" />
+    <Compile Include="Drafter.cs" />
     <Compile Include="EnumValue.cs" />
+    <Compile Include="Factor.cs" />
+    <Compile Include="FullName.cs" />
+    <Compile Include="GeneralTransferBuyer.cs" />
+    <Compile Include="GeneralTransferCorrectionBuyer.cs" />
+    <Compile Include="GeneralTransferCorrectionItem.cs" />
+    <Compile Include="GeneralTransferCorrectionSeller.cs" />
+    <Compile Include="GeneralTransferCorrectionTotal.cs" />
+    <Compile Include="GeneralTransferItemChange.cs" />
+    <Compile Include="GeneralTransferSeller.cs" />
+    <Compile Include="GeneralTransferTotal.cs" />
+    <Compile Include="GeneratedContent.cs" />
+    <Compile Include="GoodsTransferArea.cs" />
+    <Compile Include="AmountTotal.cs" />
+    <Compile Include="GoodsTransferItem.cs" />
+    <Compile Include="GoodsTransferBuyer.cs" />
+    <Compile Include="GoodsTransferSeller.cs" />
+    <Compile Include="GoodsTransferTotal.cs" />
+    <Compile Include="InfoFieldFull.cs" />
+    <Compile Include="GeneralTransferItemData.cs" />
+    <Compile Include="OperationInfo.cs" />
+    <Compile Include="ParticipantsServiceInfo.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="ProductBase.cs" />
+    <Compile Include="ItemAmountChange.cs" />
+    <Compile Include="ItemAmount.cs" />
+    <Compile Include="NumberDate.cs" />
     <Compile Include="MessageOfStatement.cs" />
     <Compile Include="MessageRequestParams.cs" />
+    <Compile Include="NameCodeObject.cs" />
     <Compile Include="OrganizationPromoCode.cs" />
+    <Compile Include="GeneralTransferItem.cs" />
+    <Compile Include="ProductAttribute.cs" />
+    <Compile Include="GeneralTransferCorrectionArea.cs" />
+    <Compile Include="GeneralTransferArea.cs" />
     <Compile Include="PromoCode.cs" />
     <Compile Include="DocumentEntry.cs" />
     <Compile Include="DocumentEntryItem.cs" />
@@ -137,7 +186,6 @@
     <Compile Include="Extensions\OrganizationExtensions.cs" />
     <Compile Include="Extensions\ServiceErrorCodeExtensions.cs" />
     <Compile Include="RegisterModel.cs" />
-    <Compile Include="ForeignAddress.cs" />
     <Compile Include="FormatControlResult.cs" />
     <Compile Include="FullDocumentInfo.cs" />
     <Compile Include="FullDocumentInfoRequestParams.cs" />
@@ -169,25 +217,36 @@
     <Compile Include="ProcurationInfo.cs" />
     <Compile Include="Common\SearchSettings.cs" />
     <Compile Include="RejectSign.cs" />
+    <Compile Include="SellerTitleIdentification.cs" />
     <Compile Include="SenderFlowStatus.cs" />
     <Compile Include="SentMessage.cs" />
     <Compile Include="ServiceBoxUser.cs" />
     <Compile Include="ServiceDocument.cs" />
     <Compile Include="ServiceNotice.cs" />
     <Compile Include="Sign.cs" />
+    <Compile Include="Signer.cs" />
     <Compile Include="SignerInfo.cs" />
     <Compile Include="Common\SortingSetting.cs" />
+    <Compile Include="SpecialOperatorInfo.cs" />
     <Compile Include="SubjectInfo.cs" />
     <Compile Include="TagUser.cs" />
     <Compile Include="TitleBuyer.cs" />
     <Compile Include="TitleType.cs" />
+    <Compile Include="TransferArea.cs" />
+    <Compile Include="TransferInfo.cs" />
     <Compile Include="UnsignedMessage.cs" />
     <Compile Include="UntypedDocumentFlowStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UntypedKind.cs" />
     <Compile Include="UntypedDocumentMultiFlowStatus.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="ValidationError.cs" />
     <Compile Include="ValidationStatus.cs" />
+    <Compile Include="WorksTransferItem.cs" />
+    <Compile Include="WorksTransferArea.cs" />
+    <Compile Include="WorksTransferBuyer.cs" />
+    <Compile Include="WorksTransferSeller.cs" />
+    <Compile Include="WorksTransferTotal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Midway.ObjectModel.snk" />
