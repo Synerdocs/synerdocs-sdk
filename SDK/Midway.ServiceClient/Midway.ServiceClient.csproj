@@ -99,6 +99,13 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.FormatControlResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferBuyer.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionBuyer.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionSeller.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferSeller.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneratedContent.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferBuyer.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferSeller.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Message.datasource" />
@@ -121,6 +128,8 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.UserInfoExternal.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.UserPermission.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.ServiceNotice.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.WorksTransferBuyer.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.WorksTransferSeller.datasource" />
     <None Include="Service References\Model\ExchangeService.wsdl">
       <SubType>Designer</SubType>
     </None>

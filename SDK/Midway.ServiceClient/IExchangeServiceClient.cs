@@ -11,7 +11,7 @@ namespace Midway.ServiceClient
         EventHandler<ClientAutorizedEventArgs> Authorized { get; set; }
 
         string Token { get; set; }
-        
+
         string EncryptedToken { get; }
 
         System.ServiceModel.Description.ServiceEndpoint Endpoint { get; }
@@ -216,7 +216,8 @@ namespace Midway.ServiceClient
         /// <param name="documentId">идентификатор счета-фактуры</param>
         /// <param name="certThumbprint">отпечаток сертификата</param>
         /// <returns>контент документа коррекции</returns>
-        NamedContent GenerateInvoiceAmendmentRequestV2(string boxId, string documentId, string certThumbprint, string text);
+        NamedContent GenerateInvoiceAmendmentRequestV2(string boxId, string documentId, string certThumbprint,
+            string text);
 
         //IAsyncResult BeginGenerateInvoiceAmendmentRequestV2(string boxId, string documentId, string certThumbprint, string text, AsyncCallback asyncCallback);
 
@@ -279,7 +280,7 @@ namespace Midway.ServiceClient
         /// </summary>
         /// <returns></returns>
         FullDocumentInfo GetFullDocumentInfo(string boxId, string documentId,
-                                             FullDocumentInfoRequestParams requestParams = null);
+            FullDocumentInfoRequestParams requestParams = null);
 
         //IAsyncResult BeginGetFullDocumentInfo(string boxId, string documentId,
         //                                      FullDocumentInfoRequestParams requestParams, AsyncCallback asyncCallback);
@@ -377,7 +378,7 @@ namespace Midway.ServiceClient
         /// <param name="criteria">критерии для выборки информации по организации</param>
         /// <param name="values">параметры поиска по критерию</param>
         Organization GetOrganizationBy(string boxId, OrganizationByCriteria criteria,
-                                       OrganizationByCriteriaValues values);
+            OrganizationByCriteriaValues values);
 
         /// <summary>
         /// Возвращает информацию о субъекте документооборота
@@ -430,7 +431,8 @@ namespace Midway.ServiceClient
         /// <param name="organizationId">ИД организации</param>
         /// <param name="orgStructureElementId">ИД элемента оргструктуры</param>
         /// <returns>массив элементов орг. структуры</returns>
-        OrganizationStructureElement[] GetOrganizationStructureElementChildren(string organizationId, string orgStructureElementId);
+        OrganizationStructureElement[] GetOrganizationStructureElementChildren(string organizationId,
+            string orgStructureElementId);
 
         /// <summary>
         /// Получение токена при авторизации по сертификату
@@ -517,11 +519,11 @@ namespace Midway.ServiceClient
         RegisterResult Register(RegisterModel registerModel, byte[] certificate = null);
 
         /// <summary>
-        /// Принятие Правил работы в Synerdocs организацией
+        /// Принятие правил работы в Synerdocs организацией
         /// </summary>
         /// <param name="boxId">Ящик организации</param>
         /// <param name="acceptRegulation">Признак принятия регламента организацией</param>
-        /// <returns>Возвращает true, если Правила работы в Synerdocs приняты, инче вернёт false</returns>
+        /// <returns>Возвращает true, если правила работы в Synerdocs приняты, иначе вернёт false</returns>
         bool AcceptRegulation(string boxId, bool acceptRegulation);
 
         /// <summary>
@@ -573,7 +575,7 @@ namespace Midway.ServiceClient
         /// <param name="boxId">Ящик организации</param>
         /// <returns>Список промокодов организации</returns>
         OrganizationPromoCode[] GetOrganizationPromoCodeList(string boxId);
-    
+
         /// <summary>
         /// Возвращает промокод по наименованию
         /// </summary>
@@ -614,5 +616,147 @@ namespace Midway.ServiceClient
         /// <param name="boxId"></param>
         /// <returns></returns>
         bool CheckNeedToStatementOfInvoiceReglament(string boxId);
+
+        /// <summary>
+        /// Получить модель титула продавца УПД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        GeneralTransferSeller ParseGeneralTransferSeller(byte[] content);
+
+        /// <summary>
+        /// Получить модель титула покупателя УПД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        GeneralTransferBuyer ParseGeneralTransferBuyer(byte[] content);
+
+        /// <summary>
+        /// Получить модель титула продавца ДПРР из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        WorksTransferSeller ParseWorksTransferSeller(byte[] content);
+
+        /// <summary>
+        /// Получить модель титула покупателя ДПРР из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        WorksTransferBuyer ParseWorksTransferBuyer(byte[] content);
+
+        /// <summary>
+        /// Получить модель титула продавца ДПТ из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        GoodsTransferSeller ParseGoodsTransferSeller(byte[] content);
+
+        /// <summary>
+        /// Получить модель титула покупателя ДПТ из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        GoodsTransferBuyer ParseGoodsTransferBuyer(byte[] content);
+
+        /// <summary>
+        /// Получить модель титула продавца УКД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        GeneralTransferCorrectionSeller ParseGeneralTransferCorrectionSeller(byte[] content);
+
+        /// <summary>
+        /// Получить модель титула покупателя УКД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(byte[] content);
+
+        /// <summary>
+        /// Сгенерировать контент титула продавца универсального корректировочного документа
+        /// </summary>
+        /// <param name="model">Модель титула продавца</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateGeneralTransferCorrectionSeller(GeneralTransferCorrectionSeller model,
+            DocumentGenerationOptions options);
+
+
+        /// <summary>
+        /// Сгенерировать контент титула продавца универсального передаточного документа
+        /// </summary>
+        /// <param name="model">Модель титула продавца</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateGeneralTransferSeller(GeneralTransferSeller model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Сгенерировать контент титула продавца документа передачи товаров
+        /// </summary>
+        /// <param name="model">Модель титула продавца</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateGoodsTransferSeller(GoodsTransferSeller model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Сгенерировать контент титула исполнителя документа передачи результатов работ (услуг)
+        /// </summary>
+        /// <param name="model">Модель титула исполнителя</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateWorksTransferSeller(WorksTransferSeller model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Сгенерировать контент титула заказчика документа передачи результатов работ (услуг)
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула заказчика</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateWorksTransferBuyer(string boxId, string documentId,
+            WorksTransferBuyer model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Сгенерировать контент титула покупателя документа передачи товаров
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула покупателя</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateGoodsTransferBuyer(string boxId, string documentId,
+            GoodsTransferBuyer model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Сгенерировать контент титула покупателя универсального передаточного документа
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула покупателя</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateGeneralTransferBuyer(string boxId, string documentId,
+            GeneralTransferBuyer model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Сгенерировать контент титула покупателя универсального корректировочного документа
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула покупателя</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        GeneratedContent GenerateGeneralTransferCorrectionBuyer(string boxId, string documentId,
+            GeneralTransferCorrectionBuyer model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Скачать документ в формате pdf 
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">ИД документа</param>
+        /// <returns></returns>
+        NamedContent DownloadPdfDocument(string boxId, string documentId);
     }
 }

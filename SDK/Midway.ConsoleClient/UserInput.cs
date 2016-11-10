@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Midway.ConsoleClient
@@ -14,6 +16,7 @@ namespace Midway.ConsoleClient
         /// Размер буфера для ввода текста
         /// </summary>
         private const int ReadlineBufferSize = 8192;
+        private static string nodePrefix = "*---";
 
         /// <summary>
         /// Опция пользовательского выбора одного значения
@@ -220,6 +223,96 @@ namespace Midway.ConsoleClient
             }
 
             return sb.ToString();
+        }
+
+        private static string GetFormattedFieldValue<T>(string prefix, string name, T value)
+        {
+            return $"{prefix}{name} : {value}";
+        }
+
+        private static bool IsHaveInnerFields(Type type)
+        {
+            if (type.IsPrimitive
+                || type == typeof(System.String)
+                || type == typeof(System.DateTime)
+                || (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>)))
+                return false;
+
+            var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            return props.Count() > 0;
+        }
+
+        private static List<string> GetFormattedField(Type propType, string prefix, string propName, object propValue)
+        {
+            var result = new List<string>();
+
+            if (IsHaveInnerFields(propType))
+            {
+                result.Add(GetFormattedFieldValue(prefix, propName, propValue));
+                var nextLevelPrefix = prefix + nodePrefix;
+                result.AddRange(GetFormattedObjectFields(propValue, nextLevelPrefix));
+            }
+            else
+            {
+                result.Add(GetFormattedFieldValue(prefix, propName, propValue));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Получить строковые представления модели
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="prefix"></param>
+        /// <returns></returns>
+         public static List<string> GetFormattedObjectFields(object model, string prefix = "")
+         {
+                var type = model.GetType();
+                var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+                var result = new List<string>();
+
+                foreach (var prop in props)
+                {
+                    var propName = prop.Name;
+                    var propValue = prop.GetValue(model, null);
+
+                    if (propValue == null)
+                    {
+                        result.Add(GetFormattedFieldValue(prefix, propName, "null"));
+                    }
+                    else
+                    {
+                        var propType = propValue.GetType();
+                        if (propType.IsArray)
+                        {
+                            var arr = (Array)propValue;
+                            for (int i = 0; i < arr.Length; i++)
+                            {
+                                var arrPropName = $"{propName}[{i}]";
+                                var value = arr.GetValue(i);
+                                var arrPropType = value.GetType();
+                                result.AddRange(GetFormattedField(arrPropType, prefix, arrPropName, value));
+                            }
+                        }
+                        else result.AddRange(GetFormattedField(propType, prefix, propName, propValue));
+                    }
+                }
+                return result;
+           }
+          
+        /// <summary>
+        /// Получить строковые представления данных объекта и вывести их в консоль
+        /// </summary>
+        /// <param name="model"></param>
+        public static void FormatAndOutputObjectFields(object model)
+        {
+            var formattedFields = GetFormattedObjectFields(model);
+            Console.Out.WriteLine();
+            foreach (var item in formattedFields)
+                Console.Out.WriteLine(item);
         }
     }
 

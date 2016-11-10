@@ -19,5 +19,9 @@
         public static readonly string RevocationOffer = "Соглашение об аннулировании";
         public static readonly string FormalizedData = "Структурированные данные";
         public static readonly string SignFailure = "Отказ от подписи";
+        public static readonly string KS11 = "КС-11";
+        public static readonly string KS2 = "КС-2";
+        public static readonly string KS3 = "КС-3";
+        public static readonly string Sheet= "Ведомость";
     }
 }

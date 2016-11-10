@@ -93,5 +93,17 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string ForeignStreetAddress { get; set; }
+
+        /// <summary>
+        /// Уникальный номер адреса объекта в государственном реестре
+        /// </summary>
+        [DataMember]
+        public string StateRegistryCode { get; set; }
+
+        /// <summary>
+        /// Тип записи Адреса
+        /// </summary>
+        [DataMember]
+        public EnumValue AddressLocationType { get; set; }
     }
 }

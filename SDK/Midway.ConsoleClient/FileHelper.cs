@@ -83,5 +83,27 @@ namespace Midway.ConsoleClient
             var fullPath = Path.Combine(validPath, validName);
             File.WriteAllBytes(fullPath, fileData);
         }
+
+        /// <summary>
+        /// Получить контент файла
+        /// </summary>
+        /// <param name="fullFilePath">Полный путь к файлу (включая наименование)</param>
+        /// <returns></returns>
+        public static byte[] GetFileContent(string fullFilePath)
+        {
+            var validPath = RemoveInvalidPathNameChars(fullFilePath);
+            return File.ReadAllBytes(validPath);
+        }
+
+        /// <summary>
+        /// Проверить существование файла
+        /// </summary>
+        /// <param name="fullFilePath">Полный путь к файлу (включая наименование)</param>
+        /// <returns></returns>
+        public static bool FileExists(string fullFilePath)
+        {
+            var validPath = RemoveInvalidPathNameChars(fullFilePath);
+            return File.Exists(validPath);
+        }
     }
 }

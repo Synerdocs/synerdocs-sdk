@@ -866,11 +866,11 @@ namespace Midway.ServiceClient
         }
 
         /// <summary>
-        /// Принятие Правил работы в Synerdocs организацией
+        /// Принятие правил работы в Synerdocs организацией
         /// </summary>
         /// <param name="boxId">Ящик организации</param>
         /// <param name="acceptRegulation">Признак принятия регламента организацией</param>
-        /// <returns>Возвращает true, если Правила работы в Synerdocs приняты, инче вернёт false</returns>
+        /// <returns>Возвращает true, если правила работы в Synerdocs приняты, иначе вернёт false</returns>
         public bool AcceptRegulation(string boxId, bool acceptRegulation)
         {
             return Invoke(() => client.AcceptRegulation(Token, boxId, acceptRegulation));
@@ -1152,6 +1152,201 @@ namespace Midway.ServiceClient
         public bool CheckNeedToStatementOfInvoiceReglament(string boxId)
         {
             return client.CheckNeedToStatementOfInvoiceReglament(Token, boxId);
+        }
+
+        /// <summary>
+        /// Получить модель титула продавца УПД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public GeneralTransferSeller ParseGeneralTransferSeller(byte[] content)
+        {
+            return client.ParseGeneralTransferSeller(Token, content);
+        }
+
+        /// <summary>
+        /// Получить модель титула покупателя УПД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public GeneralTransferBuyer ParseGeneralTransferBuyer(byte[] content)
+        {
+            return client.ParseGeneralTransferBuyer(Token, content);
+        }
+
+        /// <summary>
+        /// Получить модель титула продавца ДПРР из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public WorksTransferSeller ParseWorksTransferSeller(byte[] content)
+        {
+            return client.ParseWorksTransferSeller(Token, content);
+        }
+
+        /// <summary>
+        /// Получить модель титула покупателя ДПРР из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public WorksTransferBuyer ParseWorksTransferBuyer(byte[] content)
+        {
+            return client.ParseWorksTransferBuyer(Token, content);
+        }
+
+        /// <summary>
+        /// Получить модель титула продавца ДПТ из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public GoodsTransferSeller ParseGoodsTransferSeller(byte[] content)
+        {
+            return client.ParseGoodsTransferSeller(Token, content);
+        }
+
+        /// <summary>
+        /// Получить модель титула покупателя ДПТ из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public GoodsTransferBuyer ParseGoodsTransferBuyer(byte[] content)
+        {
+            return client.ParseGoodsTransferBuyer(Token, content);
+        }
+
+        /// <summary>
+        /// Получить модель титула продавца УКД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public GeneralTransferCorrectionSeller ParseGeneralTransferCorrectionSeller(byte[] content)
+        {
+            return client.ParseGeneralTransferCorrectionSeller(Token, content);
+        }
+
+        /// <summary>
+        /// Получить модель титула покупателя УКД из контента
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(byte[] content)
+        {
+            return client.ParseGeneralTransferCorrectionBuyer(Token, content);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула продавца универсального корректировочного документа
+        /// </summary>
+        /// <param name="model">Модель титула продавца</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateGeneralTransferCorrectionSeller(
+            GeneralTransferCorrectionSeller model,
+            DocumentGenerationOptions options)
+        {
+            return client.GenerateGeneralTransferCorrectionSeller(Token, model, options);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула продавца универсального передаточного документа
+        /// </summary>
+        /// <param name="model">Модель титула покупателя</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateGeneralTransferSeller(GeneralTransferSeller model, DocumentGenerationOptions options)
+        {
+            return client.GenerateGeneralTransferSeller(Token, model, options);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула продавца документа передачи товаров
+        /// </summary>
+        /// <param name="model">Модель титула продавца</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateGoodsTransferSeller(GoodsTransferSeller model, DocumentGenerationOptions options)
+        {
+            return client.GenerateGoodsTransferSeller(Token, model, options);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула исполнителя документа передачи результатов работ (услуг)
+        /// </summary>
+        /// <param name="model">Модель титула исполнителя</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateWorksTransferSeller(WorksTransferSeller model, DocumentGenerationOptions options)
+        {
+            return client.GenerateWorksTransferSeller(Token, model, options);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула заказчика документа передачи результатов работ (услуг)
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула заказчика</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateWorksTransferBuyer(string boxId,
+                                                    string documentId,
+                                                    ObjectModel.WorksTransferBuyer model,
+                                                    DocumentGenerationOptions options)
+        {
+            return client.GenerateWorksTransferBuyer(Token, boxId, documentId, model, options);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула покупателя документа передачи товаров
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула покупателя</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateGoodsTransferBuyer(string boxId,
+                                                    string documentId,
+                                                    ObjectModel.GoodsTransferBuyer model,
+                                                    DocumentGenerationOptions options)
+        {
+            return client.GenerateGoodsTransferBuyer(Token, boxId, documentId, model, options);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула покупателя универсального передаточного документа
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула покупателя</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateGeneralTransferBuyer(string boxId,
+                                                    string documentId,
+                                                    ObjectModel.GeneralTransferBuyer model,
+                                                    DocumentGenerationOptions options)
+        {
+            return client.GenerateGeneralTransferBuyer(Token, boxId, documentId, model, options);
+        }
+
+        /// <summary>
+        /// Сгенерировать контент титула покупателя универсального корректировочного документа
+        /// </summary>
+        /// <param name="boxId">Ящик организации</param>
+        /// <param name="documentId">Ид титула покупателя</param>
+        /// <param name="model">Модель</param>
+        /// <param name="options">Опции генерации</param>
+        /// <returns></returns>
+        public GeneratedContent GenerateGeneralTransferCorrectionBuyer(string boxId,
+                                                    string documentId,
+                                                    ObjectModel.GeneralTransferCorrectionBuyer model,
+                                                    DocumentGenerationOptions options)
+        {
+            return client.GenerateGeneralTransferCorrectionBuyer(Token, boxId, documentId, model, options);
+        }
+
+        public NamedContent DownloadPdfDocument(string boxId, string documentId)
+        {
+            return CheckAutorizedInvoke(() => client.DownloadPdfDocument(Token, boxId, documentId));
         }
     }
 }
