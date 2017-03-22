@@ -7,7 +7,7 @@ namespace Midway.ObjectModel
     /// Используется только при отправке
     /// </summary>
     [DataContract]
-    public class ForwardMessage
+    public class ForwardMessage : IMessage
     {
         /// <summary>
         /// Ящик отправителя.

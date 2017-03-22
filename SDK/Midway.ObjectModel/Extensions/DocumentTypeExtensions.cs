@@ -137,10 +137,22 @@ namespace Midway.ObjectModel.Extensions
         /// <returns></returns>
         public static bool IsSign(this DocumentType documentType)
         {
+            return IsBuyerTitle(documentType);
+        }
+
+        /// <summary>
+        /// Является ли документ тем или иным видом титула покупателя
+        /// </summary>
+        /// <param name="documentType">Тип документа</param>
+        /// <returns><c>true</c>, если документ является титулом покупателя</returns>
+        public static bool IsBuyerTitle(this DocumentType documentType)
+        {
             return documentType == DocumentType.WaybillBuyer
-                   || documentType == DocumentType.ActOfWorkBuyer
-                   || documentType == DocumentType.GoodsTransferBuyer
-                   || documentType == DocumentType.WorksTransferBuyer;
+                || documentType == DocumentType.ActOfWorkBuyer
+                || documentType == DocumentType.GoodsTransferBuyer
+                || documentType == DocumentType.WorksTransferBuyer
+                || documentType == DocumentType.GeneralTransferBuyer
+                || documentType == DocumentType.GeneralTransferCorrectionBuyer;
         }
 
         public static DocumentType[] NoServiceTypes()
@@ -178,6 +190,36 @@ namespace Midway.ObjectModel.Extensions
         {
             return documentType == DocumentType.GeneralTransferRevisionSeller
                    || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
+        }
+
+        /// <summary>
+        /// Есть ли возможность выбора требования ответной подписи
+        /// </summary>
+        /// <param name="documentType">Тип документа</param>
+        /// <returns><c>true</c>, если есть возможность выбора требования ответной подписи</returns>
+        public static bool IsNeedSignOptional(this DocumentType documentType)
+        {
+            return documentType == DocumentType.Untyped
+                || documentType == DocumentType.WorksTransferSeller
+                || documentType == DocumentType.WorksTransferRevisionSeller
+                || documentType == DocumentType.GeneralTransferSeller
+                || documentType == DocumentType.GeneralTransferRevisionSeller
+                || documentType == DocumentType.GeneralTransferCorrectionSeller
+                || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
+        }
+
+        /// <summary>
+        /// Является ли документ EDI-документом
+        /// </summary>
+        /// <param name="documentType">Тип документа</param>
+        /// <returns><c>true</c>, если документ является EDI-документом</returns>
+        public static bool IsEdiDocument(this DocumentType documentType)
+        {
+            return documentType == DocumentType.EdiGeneral
+                || documentType == DocumentType.EdiOrders
+                || documentType == DocumentType.EdiOrdrsp
+                || documentType == DocumentType.EdiDesadv
+                || documentType == DocumentType.EdiRecadv;
         }
     }
 }

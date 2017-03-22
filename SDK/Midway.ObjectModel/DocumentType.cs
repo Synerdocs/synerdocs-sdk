@@ -210,6 +210,46 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Исправленный универсальный корректировочный документ")]
-        GeneralTransferCorrectionRevisionSeller = 29
+        GeneralTransferCorrectionRevisionSeller = 29,
+
+        /// <summary>
+        /// Канонический EDI документ
+        /// Используется только при конвертации документов
+        /// </summary>
+        [EnumMember]
+        [Description("Канонический EDI документ")]
+        EdiGeneral = 1000,
+
+        /// <summary>
+        /// EDI документ ORDERS
+        /// Используется только при конвертации документов
+        /// </summary>
+        [EnumMember]
+        [Description("EDI документ ORDERS")]
+        EdiOrders = 1001,
+
+        /// <summary>
+        /// EDI документ ORDRSP
+        /// Используется только при конвертации документов
+        /// </summary>
+        [EnumMember]
+        [Description("EDI документ ORDRSP")]
+        EdiOrdrsp = 1002,
+
+        /// <summary>
+        /// EDI документ DESADV
+        /// Используется только при конвертации документов
+        /// </summary>
+        [EnumMember]
+        [Description("EDI документ DESADV")]
+        EdiDesadv = 1003,
+
+        /// <summary>
+        /// EDI документ RECADV
+        /// Используется только при конвертации документов
+        /// </summary>
+        [EnumMember]
+        [Description("EDI документ RECADV")]
+        EdiRecadv = 1004,
     }
 }

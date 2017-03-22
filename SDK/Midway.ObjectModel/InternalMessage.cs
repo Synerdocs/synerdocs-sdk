@@ -6,7 +6,7 @@ namespace Midway.ObjectModel
     /// Внутреннее сообщение, используется для отправки
     /// </summary>
     [DataContract]
-    public class InternalMessage
+    public class InternalMessage : IMessage
     {
         /// <summary>
         /// Идентификатор сообщения

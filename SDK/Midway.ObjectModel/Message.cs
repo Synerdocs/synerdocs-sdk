@@ -7,7 +7,7 @@ namespace Midway.ObjectModel
     /// Сообщения, используется для отправки и чтения.
     /// </summary>
     [DataContract]
-    public class Message
+    public class Message : IMessage
     {
         public Message()
         {

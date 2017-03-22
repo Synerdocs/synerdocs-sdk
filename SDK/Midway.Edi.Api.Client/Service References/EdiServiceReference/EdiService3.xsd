@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5011/EdiService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:5011/EdiService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Errors" />
+  <xs:import schemaLocation="http://localhost:5011/EdiService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Common" />
+  <xs:import schemaLocation="http://localhost:5011/EdiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="GetFileListRequest">
+    <xs:sequence>
+      <xs:element name="Credentials" nillable="true" type="tns:RequestCredentials" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFileListRequest" nillable="true" type="tns:GetFileListRequest" />
+  <xs:complexType name="RequestCredentials">
+    <xs:sequence>
+      <xs:element name="AuthToken" nillable="true" type="xs:string" />
+      <xs:element name="BoxAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestCredentials" nillable="true" type="tns:RequestCredentials" />
+  <xs:complexType name="GetFileListResponse">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Files" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ResponseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFileListResponse" nillable="true" type="tns:GetFileListResponse" />
+  <xs:complexType name="ResponseResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorTitle" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Errors" minOccurs="0" name="ErrorValue" nillable="true" type="q2:ServiceErrorCode" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Errors" minOccurs="0" name="ValidationResult" nillable="true" type="q3:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseResult" nillable="true" type="tns:ResponseResult" />
+  <xs:complexType name="GetDocumentRequest">
+    <xs:sequence>
+      <xs:element name="Credentials" nillable="true" type="tns:RequestCredentials" />
+      <xs:element name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDocumentRequest" nillable="true" type="tns:GetDocumentRequest" />
+  <xs:complexType name="GetDocumentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Document" nillable="true" type="tns:DocumentData" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ResponseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDocumentResponse" nillable="true" type="tns:GetDocumentResponse" />
+  <xs:complexType name="DocumentData">
+    <xs:sequence>
+      <xs:element name="Content" nillable="true" type="xs:base64Binary" />
+      <xs:element name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentData" nillable="true" type="tns:DocumentData" />
+  <xs:complexType name="SendDocumentRequest">
+    <xs:sequence>
+      <xs:element name="Credentials" nillable="true" type="tns:RequestCredentials" />
+      <xs:element name="Document" nillable="true" type="tns:DocumentData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendDocumentRequest" nillable="true" type="tns:SendDocumentRequest" />
+  <xs:complexType name="SendDocumentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ResponseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendDocumentResponse" nillable="true" type="tns:SendDocumentResponse" />
+  <xs:complexType name="ArchiveDocumentRequest">
+    <xs:sequence>
+      <xs:element name="Credentials" nillable="true" type="tns:RequestCredentials" />
+      <xs:element name="FileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArchiveDocumentRequest" nillable="true" type="tns:ArchiveDocumentRequest" />
+  <xs:complexType name="ArchiveDocumentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ResponseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArchiveDocumentResponse" nillable="true" type="tns:ArchiveDocumentResponse" />
+  <xs:complexType name="RequestParameters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Credentials" nillable="true" type="tns:RequestCredentials" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Errors" minOccurs="0" name="Validation" nillable="true" type="q4:ModelValidationOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestParameters" nillable="true" type="tns:RequestParameters" />
+  <xs:complexType name="EdiLocationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:EdiLocation" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ResponseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EdiLocationResponse" nillable="true" type="tns:EdiLocationResponse" />
+  <xs:complexType name="EdiLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressInfo" />
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="tns:ContactInfo" />
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Gln" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifyDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationBox" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestStatus" nillable="true" type="tns:EdiRequestStatusEnum" />
+      <xs:element minOccurs="0" name="Requisites" nillable="true" type="tns:RequisitesInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EdiLocation" nillable="true" type="tns:EdiLocation" />
+  <xs:complexType name="AddressInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Building" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Common" minOccurs="0" name="Country" nillable="true" type="q5:CodeName" />
+      <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ForeignAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="House" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsForeign" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Locality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Common" minOccurs="0" name="Region" nillable="true" type="q6:CodeName" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressInfo" nillable="true" type="tns:AddressInfo" />
+  <xs:complexType name="ContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactInfo" nillable="true" type="tns:ContactInfo" />
+  <xs:complexType name="EdiRequestStatusEnum">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Common" base="q7:EnumValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="tns:EdiRequestStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EdiRequestStatusEnum" nillable="true" type="tns:EdiRequestStatusEnum" />
+  <xs:simpleType name="EdiRequestStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RequestSent" />
+      <xs:enumeration value="DataRegistered" />
+      <xs:enumeration value="PendingUpdate" />
+      <xs:enumeration value="RequestCanceled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EdiRequestStatus" nillable="true" type="tns:EdiRequestStatus" />
+  <xs:complexType name="RequisitesInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessEntityType" nillable="true" type="tns:BusinessEntityTypeEnum" />
+      <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ogrn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequisitesInfo" nillable="true" type="tns:RequisitesInfo" />
+  <xs:complexType name="BusinessEntityTypeEnum">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Midway.Edi.Api.Common" base="q8:EnumValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="tns:BusinessEntityType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BusinessEntityTypeEnum" nillable="true" type="tns:BusinessEntityTypeEnum" />
+  <xs:simpleType name="BusinessEntityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LegalEntity">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IndividualEntrepreneur">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BusinessEntityType" nillable="true" type="tns:BusinessEntityType" />
+  <xs:complexType name="EdiLocationListOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="First" type="xs:int" />
+      <xs:element minOccurs="0" name="LocationGln" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Max" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationBox" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EdiLocationListOptions" nillable="true" type="tns:EdiLocationListOptions" />
+  <xs:complexType name="EdiLocationListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfEdiLocation" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ResponseResult" />
+      <xs:element minOccurs="0" name="Total" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EdiLocationListResponse" nillable="true" type="tns:EdiLocationListResponse" />
+  <xs:complexType name="ArrayOfEdiLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EdiLocation" nillable="true" type="tns:EdiLocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEdiLocation" nillable="true" type="tns:ArrayOfEdiLocation" />
+</xs:schema>
