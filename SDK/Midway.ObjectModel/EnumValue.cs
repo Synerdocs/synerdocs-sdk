@@ -7,7 +7,7 @@ namespace Midway.ObjectModel
     /// при добавлении нового значения в отличие от обычных перечислений
     /// </summary>
     [DataContract]
-    public class EnumValue
+    public class EnumValue : IEnumValue
     {
         /// <summary>
         /// Числовой код значения
@@ -26,5 +26,7 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string Description { get; set; }
+
+        object IEnumValue.Value => null;
     }
 }

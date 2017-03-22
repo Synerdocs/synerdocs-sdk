@@ -80,5 +80,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string ParentDocumentId { get; set; }
+
+        /// <summary>
+        /// Настройки конвертации документа при загрузке в черновик
+        /// Если свойство задано, то при загрузке в черновик будет выполнено преобразование документа
+        /// </summary>
+        [DataMember]
+        public ConversionSettings ConversionSettings { get; set; }
     }
 }

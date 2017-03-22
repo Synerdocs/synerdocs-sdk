@@ -246,6 +246,13 @@ namespace Midway.ObjectModel
         [DataMember]
         public int? RoamingPackageRecipientId { get; set; }
 
+        /// <summary>
+        /// Статус организации как абонента EDI
+        /// Не используется при отправке
+        /// </summary>
+        [DataMember]
+        public EnumValue EdiSubscriberStatus { get; set; }
+
         public override string ToString()
         {
             return Name;

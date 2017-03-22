@@ -327,7 +327,9 @@ namespace Midway.ObjectModel.Exceptions
         DraftMessageError = 101,
 
         #endregion Черновики
-        
+
+        #region Валидация (1001-1007)
+
         /// <summary>
         /// Некорректный формат документа
         /// </summary>
@@ -369,18 +371,30 @@ namespace Midway.ObjectModel.Exceptions
         /// </summary>
         [Description("Обмен документами запрещен")]
         DocumentExchangeIsDenied = 1007,
-        
+
+        #endregion
+
+        #region  Регламенты (2001-2001)
+
         /// <summary>
         /// Нарушение регламента документооборота
         /// </summary>
         [Description("Нарушение регламента документооборота")]
         WorkflowViolation = 2001,
 
+        #endregion
+
+        #region Связывание (3001-3001)
+
         /// <summary>
         /// Невозможно связать документы
         /// </summary>
         [Description("Невозможно связать документы")]
         RelationNotAllowed = 3001,
+
+        #endregion
+
+        #region Документы (4001-4004)
 
         /// TODO@Не используется
         /// <summary>
@@ -411,11 +425,17 @@ namespace Midway.ObjectModel.Exceptions
         [Description("Не найден документ, удовлетворяющий критериям поиска")]
         DocumentNotFound,
 
+        #endregion
+
+        #region Контрагенты (5001-5001)
+
         /// <summary>
         /// Ошибка авторизации контрагентов
         /// </summary>
         [Description("Ошибка авторизации контрагентов")]
         AuthorizeContragentError = 5001,
+
+        #endregion
 
         #region Документооборот (6000-6009)
 
@@ -478,6 +498,16 @@ namespace Midway.ObjectModel.Exceptions
         /// </summary>
         [Description("Недопустимый пользователь получателя")]
         InvalidRecipientUser = 6009,
+
+        #endregion
+
+        #region Конвертация (7001-7001)
+
+        /// <summary>
+        /// Ошибка конвертации документа
+        /// </summary>
+        [Description("Ошибка конвертации документа")]
+        DocumentConversionError = 7001,
 
         #endregion
     }

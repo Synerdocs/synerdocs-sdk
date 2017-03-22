@@ -56,5 +56,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string OperatorCode { get; set; }
+
+        /// <summary>
+        /// Статус организации как абонента EDI
+        /// </summary>
+        [DataMember]
+        public EnumValue EdiSubscriberStatus { get; set; }
     }
 }

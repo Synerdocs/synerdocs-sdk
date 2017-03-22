@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BC2E5C2-F328-4D3D-B72C-20096613EC34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Midway.Edi.Api</RootNamespace>
+    <AssemblyName>Midway.Edi.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotations\DictionaryValidationAttribute.cs" />
+    <Compile Include="Annotations\EnumValueValidationAttribute.cs" />
+    <Compile Include="Annotations\ValidationDictionaryKind.cs" />
+    <Compile Include="Common\IEnumValue.cs" />
+    <Compile Include="Errors\ModelValidationOptions.cs" />
+    <Compile Include="Errors\ServiceErrorCode.cs" />
+    <Compile Include="Errors\ValidationMessageStatusEnum.cs" />
+    <Compile Include="Errors\ValidationResultFormat.cs" />
+    <Compile Include="Errors\ValidationResultFormatEnum.cs" />
+    <Compile Include="Models\AddressInfo.cs" />
+    <Compile Include="Models\ArchiveDocumentRequest.cs" />
+    <Compile Include="Models\ArchiveDocumentResponse.cs" />
+    <Compile Include="Common\CodeName.cs" />
+    <Compile Include="Models\BusinessEntityType.cs" />
+    <Compile Include="Models\BusinessEntityTypeEnum.cs" />
+    <Compile Include="Models\ContactInfo.cs" />
+    <Compile Include="Models\EdiLocationListResponse.cs" />
+    <Compile Include="Models\EdiLocation.cs" />
+    <Compile Include="Models\EdiLocationListOptions.cs" />
+    <Compile Include="Models\EdiLocationResponse.cs" />
+    <Compile Include="Common\EnumValue.cs" />
+    <Compile Include="Errors\ModelValidationMessage.cs" />
+    <Compile Include="Models\EdiRequestStatus.cs" />
+    <Compile Include="Models\EdiRequestStatusEnum.cs" />
+    <Compile Include="Models\GetFileListResponse.cs" />
+    <Compile Include="Models\GetFileListRequest.cs" />
+    <Compile Include="Errors\ModelValidationResult.cs" />
+    <Compile Include="Models\RequestParameters.cs" />
+    <Compile Include="Models\RequisitesInfo.cs" />
+    <Compile Include="Models\SendDocumentResponse.cs" />
+    <Compile Include="Models\SendDocumentRequest.cs" />
+    <Compile Include="Models\DocumentData.cs" />
+    <Compile Include="Models\GetDocumentRequest.cs" />
+    <Compile Include="Models\GetDocumentResponse.cs" />
+    <Compile Include="Models\RequestCredentials.cs" />
+    <Compile Include="Models\ResponseResult.cs" />
+    <Compile Include="Errors\ValidationMessageStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Annotations\ReferenceValidationAttribute.cs" />
+    <Compile Include="Annotations\ValidationAttributeType.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

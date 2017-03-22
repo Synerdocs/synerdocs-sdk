@@ -7,7 +7,7 @@ namespace Midway.ObjectModel
     /// Используется только при отправке
     /// </summary>
     [DataContract]
-    public class UnsignedMessage
+    public class UnsignedMessage : IMessage
     {
         /// <summary>
         /// Ящик отправителя.

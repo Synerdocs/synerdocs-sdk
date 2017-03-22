@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -505,30 +506,31 @@ namespace Midway.ConsoleClient
             }
             while (true);
 
-            Message message = null;
-            UnsignedMessage unsignedMessage = null;
-            ForwardMessage forwardMessage = null;
-            InternalMessage internalMessage = null;
+            IMessage message = null;
             switch (flowType)
             {
                 case FlowType.SentSigned:
                     message = CreateMessage(externalRecipients);
                     break;
+
                 case FlowType.SentUnsigned:
-                    unsignedMessage = CreateUnsignedMessage(externalRecipients);
+                    message = CreateUnsignedMessage(externalRecipients);
                     break;
+
                 case FlowType.SentForward:
-                    forwardMessage = CreateForwardMessage(externalRecipients);
+                    message = CreateForwardMessage(externalRecipients);
                     break;
+
                 case FlowType.SentInternal:
-                    internalMessage = CreateInternalMessage(internalRecipients);
+                    message = CreateInternalMessage(internalRecipients);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(flowType));
             }
 
-            if ((message != null && message.Documents.Length == 0)
-                || (unsignedMessage != null && unsignedMessage.Documents.Length == 0)
-                || (forwardMessage != null && forwardMessage.ForwardDocuments.Length == 0)
-                || (internalMessage != null && internalMessage.Documents.Length == 0))
+            if ((message is ForwardMessage && (message as ForwardMessage).ForwardDocuments.Length == 0)
+                || (!(message is ForwardMessage) && message.Documents.Length == 0))
             {
                 UserInput.Error("Документы для отправки не выбраны");
                 return;
@@ -537,30 +539,85 @@ namespace Midway.ConsoleClient
             var sendMessageOption = new UserInput.Option("1", "Отправить сообщение", true);
             var saveToDraftOption = new UserInput.Option("2", "Сохранить как черновик", false);
 
-            while (true)
+            var chosenOption = UserInput.ChooseOption("Выберите действие", new[]
             {
-                var chosenOption = UserInput.ChooseOption("Выберите действие", new[]
+                sendMessageOption,
+                saveToDraftOption,
+            });
+
+            if (chosenOption == sendMessageOption)
+            {
+                if (message.Documents.Any(_ => _.DocumentType.IsEdiDocument()))
                 {
-                    sendMessageOption,
-                    saveToDraftOption
-                });
+                    UserInput.Information("В сообщении для отправки обнаружены EDI-документы");
+                    sendMessageOption = new UserInput.Option("1", "Исключить EDI-документы и отправить сообщение", false);
+                    saveToDraftOption = new UserInput.Option("2", "Конвертировать EDI-документы и сохранить как черновик", true);
+
+                    chosenOption = UserInput.ChooseOption("Выберите действие", new[]
+                    {
+                        sendMessageOption,
+                        saveToDraftOption,
+                    });
+
+                    if (chosenOption == sendMessageOption)
+                        message.Documents = message.Documents
+                            .Where(_ => !_.DocumentType.IsEdiDocument())
+                            .ToArray();
+
+                    if (!(message is ForwardMessage) && message.Documents.Length == 0)
+                    {
+                        UserInput.Error("ЮЗЭДО-документы для отправки не выбраны");
+                        return;
+                    }
+                }
 
                 if (chosenOption == sendMessageOption)
-                    break;
+                {
+                    try
+                    {
+                        SentMessage sentMessage = null;
+                        if (message is Message)
+                            sentMessage = _context.ServiceClient.SendMessage(message as Message);
+                        else if (message is UnsignedMessage)
+                            sentMessage = _context.ServiceClient.SendUnsignedMessage(message as UnsignedMessage);
+                        else if (message is ForwardMessage)
+                            sentMessage = _context.ServiceClient.SendForwardMessage(message as ForwardMessage);
+                        else if (message is InternalMessage)
+                            sentMessage = _context.ServiceClient.SendInternalMessage(message as InternalMessage);
+                        UserInput.Success("Сообщение отправлено Id:{0}", sentMessage.MessageId);
+                    }
+                    catch (ServerException ex)
+                    {
+                        if (ex.Code == ServiceErrorCode.ContragentIsNotAuthorized)
+                        {
+                            UserInput.Error("Контрагент не авторизован");
+                        }
+                        else if (ex.Code == ServiceErrorCode.InvalidDestinationAddress)
+                        {
+                            UserInput.Error("Неправильно указан адресат");
+                        }
+                        else if (ex.Code == ServiceErrorCode.NotFilledRequiredField)
+                        {
+                            UserInput.Error("Не заполнено обязательно поле \"{0}\"", ex.Field);
+                        }
+                        else
+                        {
+                            UserInput.Error("Ошибка отправки Code:{0} Field:{1} Message:{2}", ex.Code, ex.Field, ex.Message);
+                            // TODO обработка других ошибок, отображение текста!
+                        }
+                    }
+                    // перехват ошибки уровня транспорта
+                    catch (Exception ex)
+                    {
+                        // TODO здесь надо сделать правильную обработку ошибки
+                        UserInput.Error(ex.ToString());
+                    }
+                }
+            }
 
-                if (chosenOption != saveToDraftOption)
-                    continue;
-
-                DraftMessage draftMessage = null;
-                if (message != null)
-                    draftMessage = ConvertToDraftMessage(message);
-                else if (unsignedMessage != null)
-                    draftMessage = ConvertToDraftMessage(unsignedMessage);
-                else if (forwardMessage != null)
-                    draftMessage = ConvertToDraftMessage(forwardMessage);
-                else if (internalMessage != null)
-                    draftMessage = ConvertToDraftMessage(internalMessage);
-
+            if (chosenOption == saveToDraftOption)
+            {
+                var draftMessage = ConvertToDraftMessage(message);
                 try
                 {
                     var draftMessageId = _context.ServiceClient.CreateDraftMessage(draftMessage);
@@ -577,47 +634,6 @@ namespace Midway.ConsoleClient
                         throw;
                     }
                 }
-                return;
-            }
-
-            try
-            {
-                SentMessage sentMessage = null;
-                if (message != null)
-                    sentMessage = _context.ServiceClient.SendMessage(message);
-                else if (unsignedMessage != null)
-                    sentMessage = _context.ServiceClient.SendUnsignedMessage(unsignedMessage);
-                else if (forwardMessage != null)
-                    sentMessage = _context.ServiceClient.SendForwardMessage(forwardMessage);
-                else if (internalMessage != null)
-                    sentMessage = _context.ServiceClient.SendInternalMessage(internalMessage);
-                UserInput.Success("Сообщение отправлено Id:{0}", sentMessage.MessageId);
-            }
-            catch (ServerException ex)
-            {
-                if (ex.Code == ServiceErrorCode.ContragentIsNotAuthorized)
-                {
-                    UserInput.Error("Контрагент не авторизован");
-                }
-                else if (ex.Code == ServiceErrorCode.InvalidDestinationAddress)
-                {
-                    UserInput.Error("Неправильно указан адресат");
-                }
-                else if (ex.Code == ServiceErrorCode.NotFilledRequiredField)
-                {
-                    UserInput.Error("Не заполнено обязательно поле \"{0}\"", ex.Field);
-                }
-                else
-                {
-                    UserInput.Error("Ошибка отправки Code:{0} Field:{1} Message:{2}", ex.Code, ex.Field, ex.Message);
-                    // TODO обработка других ошибок, отображение текста!
-                }
-            }
-            // перехват ошибки уровня транспорта
-            catch (Exception ex)
-            {
-                // TODO здесь надо сделать правильную обработку ошибки
-                UserInput.Error(ex.ToString());
             }
         }
 
@@ -772,7 +788,7 @@ namespace Midway.ConsoleClient
         /// <returns></returns>
         private static DraftDocument ConvertToDraftDocument(Document document)
         {
-            return new DraftDocument
+            var draftDocument = new DraftDocument
             {
                 Id = document.Id,
                 DocumentType = document.DocumentType,
@@ -786,6 +802,76 @@ namespace Midway.ConsoleClient
                 NeedReceipt = document.NeedReceipt,
                 ParentDocumentId = document.ParentDocumentId
             };
+
+            if (!draftDocument.DocumentType.IsEdiDocument())
+                return draftDocument;
+
+            UserInput.Information(
+                $"Документ '{draftDocument.Name}' является EDI-документом. " +
+                "При загрузке в черновик он будет сконвертирован в ЮЗЭДО-документ.");
+
+            draftDocument.Name = null;
+            draftDocument.FileName = null;
+
+            draftDocument.ConversionSettings = new ConversionSettings
+            {
+                SourceFormat = new DocumentFormat
+                {
+                    DocumentTypeInfo = new DocumentTypeInfo
+                    {
+                        DocumentType = new DocumentTypeEnum
+                        {
+                            Value = draftDocument.DocumentType,
+                        },
+                    },
+                },
+            };
+            
+            draftDocument.DocumentType = ChooseDocumentType("Выберите тип ЮЗЭДО-документа для конвертации",
+                includeUntyped: false,
+                includeEdi: false);
+
+            if (!UserInput.ChooseYesNo("Выбрать дополнительные параметры конвертации?", false))
+                return draftDocument;
+
+            if (!UserInput.ChooseYesNo("Автоматически заполнить наименование документа?", true))
+            {
+                draftDocument.Name = document.Name ?? document.FileName;
+                draftDocument.FileName = document.FileName;
+            }
+
+            draftDocument.ConversionSettings.SourceFormat.ContentFormat = new ContentFormatEnum
+            {
+                Value = (ContentFormat)UserInput.ChooseOption("Выберите формат содержимого", new[]
+                {
+                    new UserInput.Option("1", "Определить автоматически", true, ContentFormat.Unknown),
+                    new UserInput.Option("2", "Формат XML", false, ContentFormat.Xml),
+                    new UserInput.Option("3", "Формат JSON", false, ContentFormat.Json),
+                }).Data,
+            };
+
+            draftDocument.ConversionSettings.SourceFormat.Encoding = ((Encoding)UserInput.ChooseOption("Выберите кодировку текста", new[]
+            {
+                new UserInput.Option("1", "Определить автоматически", true, null),
+                new UserInput.Option("2", "UTF-8", false, Encoding.UTF8),
+                new UserInput.Option("3", "Windows-1251", false, Encoding.GetEncoding(1251)),
+            }).Data)?.WebName;
+
+            return draftDocument;
+        }
+
+        private static DraftMessage ConvertToDraftMessage(IMessage message)
+        {
+            if (message is Message)
+                return ConvertToDraftMessage(message as Message);
+            else if (message is UnsignedMessage)
+                return ConvertToDraftMessage(message as UnsignedMessage);
+            else if (message is ForwardMessage)
+                return ConvertToDraftMessage(message as ForwardMessage);
+            else if (message is InternalMessage)
+                return ConvertToDraftMessage(message as InternalMessage);
+            else
+                throw new ArgumentException(nameof(message));
         }
 
         private static DraftMessage ConvertToDraftMessage(Message message)
@@ -1064,6 +1150,22 @@ namespace Midway.ConsoleClient
                     documentTypes.Add(DocumentType.InvoiceCorrectionRevision);
                 if (UserInput.ChooseYesNo("Соглашение об аннулировании"))
                     documentTypes.Add(DocumentType.RevocationOffer);
+                if (UserInput.ChooseYesNo("Документ о передаче результатов работ"))
+                    documentTypes.Add(DocumentType.WorksTransferSeller);
+                if (UserInput.ChooseYesNo("Исправленный документ о передаче результатов работ"))
+                    documentTypes.Add(DocumentType.WorksTransferRevisionSeller);
+                if (UserInput.ChooseYesNo("Документ о передаче товаров"))
+                    documentTypes.Add(DocumentType.GoodsTransferSeller);
+                if (UserInput.ChooseYesNo("Исправленный документ о передаче товаров"))
+                    documentTypes.Add(DocumentType.GoodsTransferRevisionSeller);
+                if (UserInput.ChooseYesNo("Универсальный передаточный документ"))
+                    documentTypes.Add(DocumentType.GeneralTransferSeller);
+                if (UserInput.ChooseYesNo("Исправленный универсальный передаточный документ"))
+                    documentTypes.Add(DocumentType.GeneralTransferRevisionSeller);
+                if (UserInput.ChooseYesNo("Универсальный корректировочный документ"))
+                    documentTypes.Add(DocumentType.GeneralTransferCorrectionSeller);
+                if (UserInput.ChooseYesNo("Исправленный универсальный корректировочный документ"))
+                    documentTypes.Add(DocumentType.GeneralTransferCorrectionRevisionSeller);
                 documentListOptions.DocumentTypes = documentTypes.ToArray();
             }
 
@@ -2093,6 +2195,69 @@ namespace Midway.ConsoleClient
             ProcessRequiredSign(message, documentInfo);
         }
 
+        /// <summary>
+        /// Выбрать тип документа
+        /// </summary>
+        /// <param name="includeUntyped">Включить нетипизированный</param>
+        /// <param name="includeEdi">Включить EDI-документы</param>
+        /// <returns>Выбранный тип документа</returns>
+        private static DocumentType ChooseDocumentType(string chooseTitle,
+            bool includeUntyped = true,
+            bool includeEdi = true)
+        {
+            var i = 0; 
+            var chooseOptions = new List<UserInput.Option>();
+            if (includeUntyped)
+                chooseOptions.Add(new UserInput.Option($"{++i}", "Неструктурированный",
+                    true, DocumentType.Untyped));
+
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Электронный счет-фактура",
+                true, DocumentType.Invoice));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Товарная накладная (титул продавца)",
+                true, DocumentType.WaybillSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Акт о выполнении работ (титул исполнителя)",
+                true, DocumentType.ActOfWorkSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Исправленный счет-фактура",
+                true, DocumentType.InvoiceRevision));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Корректировочный счет-фактура",
+                true, DocumentType.InvoiceCorrection));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Исправленный корректировочный счет-фактура",
+                true, DocumentType.InvoiceCorrectionRevision));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Документ о передаче результатов работ (титул исполнителя)",
+                true, DocumentType.WorksTransferSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Исправленный документ о передаче результатов работ (титул исполнителя)",
+                true, DocumentType.WorksTransferRevisionSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Документ о передаче товаров (титул продавца)",
+                true, DocumentType.GoodsTransferSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Исправленный документ о передаче товаров (титул продавца)",
+                true, DocumentType.GoodsTransferRevisionSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Универсальный передаточный документ (титул продавца)",
+                true, DocumentType.GeneralTransferSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Исправленный универсальный передаточный документ (титул продавца)",
+                true, DocumentType.GeneralTransferRevisionSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Универсальный корректировочный документ (титул продавца)",
+                true, DocumentType.GeneralTransferCorrectionSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Исправленный универсальный корректировочный документ (титул продавца)",
+                true, DocumentType.GeneralTransferCorrectionRevisionSeller));
+
+            if (includeEdi)
+            {
+                chooseOptions.Add(new UserInput.Option($"{++i}", "EDI-документ (автоматическое определение типа)",
+                    true, DocumentType.EdiGeneral));
+                chooseOptions.Add(new UserInput.Option($"{++i}", "EDI-документ (ORDERS) 'Заказ'",
+                    true, DocumentType.EdiOrders));
+                chooseOptions.Add(new UserInput.Option($"{++i}", "EDI-документ (ORDRSP) 'Подтверждение заказа'",
+                    true, DocumentType.EdiOrdrsp));
+                chooseOptions.Add(new UserInput.Option($"{++i}", "EDI-документ (DESADV) 'Уведомление об отгрузке'",
+                    true, DocumentType.EdiDesadv));
+                chooseOptions.Add(new UserInput.Option($"{++i}", "EDI-документ (RECADV) 'Уведомление о приеме'",
+                    true, DocumentType.EdiRecadv));
+            }
+
+            var documentType = (DocumentType)UserInput.ChooseOption(chooseTitle, chooseOptions).Data;
+            return documentType;
+        }
+
         private Message CreateMessage(IEnumerable<MessageRecipient> recipients, bool isActOfWorkBuyer = false,
                                       bool isWaybillBuyer = false, string parentId = null)
         {
@@ -2121,19 +2286,7 @@ namespace Midway.ConsoleClient
                 }
                 else
                 {
-                    documentType = (DocumentType)UserInput.ChooseOption("Выберите тип документа", new[]
-                    {
-                        new UserInput.Option("1", "Неструктурированный", true, DocumentType.Untyped),
-                        new UserInput.Option("2", "Электронный счет-фактура", true, DocumentType.Invoice),
-                        new UserInput.Option("3", "Товарная накладная (титул продавца)", true,
-                            DocumentType.WaybillSeller),
-                        new UserInput.Option("4", "Акт о выполнении работ (титул исполнителя)", true,
-                            DocumentType.ActOfWorkSeller),
-                        new UserInput.Option("5", "Исправленный счет-фактура", true, DocumentType.InvoiceRevision),
-                        new UserInput.Option("6", "Корректировочный счет-фактура", true, DocumentType.InvoiceCorrection),
-                        new UserInput.Option("7", "Исправленный корректировочный счет-фактура", true,
-                            DocumentType.InvoiceCorrectionRevision)
-                    }).Data;
+                    documentType = ChooseDocumentType("Выберите тип документа");
                 }
                 if (documentType != DocumentType.Invoice && documentType.IsInvoice())
                 {
@@ -2160,7 +2313,7 @@ namespace Midway.ConsoleClient
                     documentKindType = UserInput.ReadParameter("Введите подтип документа, если необходимо");
 
                 byte[] card = null;
-                if (UserInput.ChooseYesNo("Прикрепить карточку?", false))
+                if (!documentType.IsEdiDocument() && UserInput.ChooseYesNo("Прикрепить карточку?", false))
                 {
                     var cardfilePath = UserInput.ReadParameter("Введите имя файла");
                     if (!Path.IsPathRooted(cardfilePath))
@@ -2173,16 +2326,16 @@ namespace Midway.ConsoleClient
                     card = File.ReadAllBytes(cardfilePath);
                 }
 
-                var sign = Sign(content);
-                if (sign == null) 
-                    continue;
-
+                var sign = new byte[0];
                 var needSign = false;
-                // для СФ, Товарной накладной (титул покупателя), Акта о выполнении работ (титул заказчика) подпись не запрашивается
-                if (documentType != DocumentType.Invoice && documentType != DocumentType.WaybillBuyer &&
-                    documentType != DocumentType.ActOfWorkBuyer)
+                if (!documentType.IsEdiDocument())
                 {
-                    needSign = UserInput.ChooseYesNo("Запросить подпись под документом?");
+                    sign = Sign(content);
+                    if (sign == null)
+                        continue;
+
+                    if (documentType.IsNeedSignOptional())
+                        needSign = UserInput.ChooseYesNo("Запросить подпись под документом?");
                 }
 
                 AddDocumentToNewMessage(message, new Document
@@ -2199,7 +2352,7 @@ namespace Midway.ConsoleClient
                     }, sign);
 
                 // при отправке титула покупателя(заказчика) отправляется только один документ
-                if (documentType != DocumentType.WaybillBuyer && documentType != DocumentType.ActOfWorkBuyer)
+                if (!documentType.IsBuyerTitle())
                 {
                     if (!UserInput.ChooseYesNo("Добавить еще один документ для отправки?", false))
                         break;

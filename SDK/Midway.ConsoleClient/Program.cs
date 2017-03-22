@@ -28,6 +28,7 @@ namespace Midway.ConsoleClient
             Console.Out.WriteLine("mclient <service-url>");
             Console.Out.WriteLine("Пример: ");
             Console.Out.WriteLine("mclient https://service.synerdocs.ru/ExchangeService.svc");
+            Console.ReadKey();
         }
 
     }
