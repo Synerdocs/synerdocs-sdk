@@ -161,6 +161,30 @@
   <wsdl:message name="IExchangeService_DownloadPdfDocument_OutputMessage">
     <wsdl:part name="parameters" element="tns:DownloadPdfDocumentResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_RegisterSubscriber_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterSubscriber" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RegisterSubscriber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterSubscriberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateNonActiveSubscriber_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNonActiveSubscriber" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateNonActiveSubscriber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNonActiveSubscriberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateSubjectInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateSubjectInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateSubjectInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateSubjectInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentExecutedFunction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentExecutedFunction" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentExecutedFunction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentExecutedFunctionResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
   </wsdl:message>
@@ -756,6 +780,22 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" message="tns:IExchangeService_DownloadPdfDocument_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse" message="tns:IExchangeService_DownloadPdfDocument_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber" message="tns:IExchangeService_RegisterSubscriber_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse" message="tns:IExchangeService_RegisterSubscriber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNonActiveSubscriber">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" message="tns:IExchangeService_CreateNonActiveSubscriber_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse" message="tns:IExchangeService_CreateNonActiveSubscriber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSubjectInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" message="tns:IExchangeService_GetCertificateSubjectInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse" message="tns:IExchangeService_GetCertificateSubjectInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentExecutedFunction">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" message="tns:IExchangeService_GetDocumentExecutedFunction_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse" message="tns:IExchangeService_GetDocumentExecutedFunction_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateResponse" message="tns:IExchangeService_Authenticate_OutputMessage" />
@@ -1281,6 +1321,42 @@
     </wsdl:operation>
     <wsdl:operation name="DownloadPdfDocument">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RegisterSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNonActiveSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSubjectInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentExecutedFunction">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2246,6 +2322,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RegisterSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNonActiveSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSubjectInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentExecutedFunction">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Authenticate" style="document" />
       <wsdl:input>
@@ -3017,7 +3129,7 @@
       <soap:address location="http://localhost:5001/ExchangeService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBindingSecure_IExchangeService" binding="tns:BasicHttpBindingSecure_IExchangeService">
-      <soap:address location="https://w781w7.comp.npo/ExchangeService.svc" />
+      <soap:address location="https://w777w7.comp.npo:447/ExchangeService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -232,6 +232,47 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.NamedContent EndDownloadPdfDocument(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        Midway.ObjectModel.RegistrationResponse RegisterSubscriber(Midway.ObjectModel.RegistrationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
+        System.IAsyncResult BeginRegisterSubscriber(Midway.ObjectModel.RegistrationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
+        System.IAsyncResult BeginCreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
+        System.IAsyncResult BeginGetCertificateSubjectInfo(byte[] certificate, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
+        System.IAsyncResult BeginGetDocumentExecutedFunction(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
         string Authenticate(string login, string password, string applicationId);
         
@@ -1333,6 +1374,82 @@ namespace Midway.ServiceClient.Model {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((Midway.ObjectModel.NamedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RegisterSubscriberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RegisterSubscriberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.RegistrationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.RegistrationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateNonActiveSubscriberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateNonActiveSubscriberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.NonActiveSubscriberCreationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.NonActiveSubscriberCreationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetCertificateSubjectInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetCertificateSubjectInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.QualifiedX509Name Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.QualifiedX509Name)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetDocumentExecutedFunctionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetDocumentExecutedFunctionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.EnumValue Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.EnumValue)(this.results[0]));
             }
         }
     }
@@ -2816,6 +2933,30 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onDownloadPdfDocumentCompletedDelegate;
         
+        private BeginOperationDelegate onBeginRegisterSubscriberDelegate;
+        
+        private EndOperationDelegate onEndRegisterSubscriberDelegate;
+        
+        private System.Threading.SendOrPostCallback onRegisterSubscriberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCreateNonActiveSubscriberDelegate;
+        
+        private EndOperationDelegate onEndCreateNonActiveSubscriberDelegate;
+        
+        private System.Threading.SendOrPostCallback onCreateNonActiveSubscriberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetCertificateSubjectInfoDelegate;
+        
+        private EndOperationDelegate onEndGetCertificateSubjectInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetCertificateSubjectInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetDocumentExecutedFunctionDelegate;
+        
+        private EndOperationDelegate onEndGetDocumentExecutedFunctionDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetDocumentExecutedFunctionCompletedDelegate;
+        
         private BeginOperationDelegate onBeginAuthenticateDelegate;
         
         private EndOperationDelegate onEndAuthenticateDelegate;
@@ -3386,6 +3527,14 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<GenerateGeneralTransferCorrectionBuyerCompletedEventArgs> GenerateGeneralTransferCorrectionBuyerCompleted;
         
         public event System.EventHandler<DownloadPdfDocumentCompletedEventArgs> DownloadPdfDocumentCompleted;
+        
+        public event System.EventHandler<RegisterSubscriberCompletedEventArgs> RegisterSubscriberCompleted;
+        
+        public event System.EventHandler<CreateNonActiveSubscriberCompletedEventArgs> CreateNonActiveSubscriberCompleted;
+        
+        public event System.EventHandler<GetCertificateSubjectInfoCompletedEventArgs> GetCertificateSubjectInfoCompleted;
+        
+        public event System.EventHandler<GetDocumentExecutedFunctionCompletedEventArgs> GetDocumentExecutedFunctionCompleted;
         
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
         
@@ -4679,6 +4828,212 @@ namespace Midway.ServiceClient.Model {
                         authToken,
                         boxId,
                         documentId}, this.onEndDownloadPdfDocumentDelegate, this.onDownloadPdfDocumentCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.RegistrationResponse RegisterSubscriber(Midway.ObjectModel.RegistrationRequest request) {
+            return base.Channel.RegisterSubscriber(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginRegisterSubscriber(Midway.ObjectModel.RegistrationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRegisterSubscriber(request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result) {
+            return base.Channel.EndRegisterSubscriber(result);
+        }
+        
+        private System.IAsyncResult OnBeginRegisterSubscriber(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.RegistrationRequest request = ((Midway.ObjectModel.RegistrationRequest)(inValues[0]));
+            return this.BeginRegisterSubscriber(request, callback, asyncState);
+        }
+        
+        private object[] OnEndRegisterSubscriber(System.IAsyncResult result) {
+            Midway.ObjectModel.RegistrationResponse retVal = this.EndRegisterSubscriber(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRegisterSubscriberCompleted(object state) {
+            if ((this.RegisterSubscriberCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RegisterSubscriberCompleted(this, new RegisterSubscriberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RegisterSubscriberAsync(Midway.ObjectModel.RegistrationRequest request) {
+            this.RegisterSubscriberAsync(request, null);
+        }
+        
+        public void RegisterSubscriberAsync(Midway.ObjectModel.RegistrationRequest request, object userState) {
+            if ((this.onBeginRegisterSubscriberDelegate == null)) {
+                this.onBeginRegisterSubscriberDelegate = new BeginOperationDelegate(this.OnBeginRegisterSubscriber);
+            }
+            if ((this.onEndRegisterSubscriberDelegate == null)) {
+                this.onEndRegisterSubscriberDelegate = new EndOperationDelegate(this.OnEndRegisterSubscriber);
+            }
+            if ((this.onRegisterSubscriberCompletedDelegate == null)) {
+                this.onRegisterSubscriberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRegisterSubscriberCompleted);
+            }
+            base.InvokeAsync(this.onBeginRegisterSubscriberDelegate, new object[] {
+                        request}, this.onEndRegisterSubscriberDelegate, this.onRegisterSubscriberCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request) {
+            return base.Channel.CreateNonActiveSubscriber(authToken, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateNonActiveSubscriber(authToken, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result) {
+            return base.Channel.EndCreateNonActiveSubscriber(result);
+        }
+        
+        private System.IAsyncResult OnBeginCreateNonActiveSubscriber(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.NonActiveSubscriberCreationRequest request = ((Midway.ObjectModel.NonActiveSubscriberCreationRequest)(inValues[1]));
+            return this.BeginCreateNonActiveSubscriber(authToken, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCreateNonActiveSubscriber(System.IAsyncResult result) {
+            Midway.ObjectModel.NonActiveSubscriberCreationResponse retVal = this.EndCreateNonActiveSubscriber(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCreateNonActiveSubscriberCompleted(object state) {
+            if ((this.CreateNonActiveSubscriberCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CreateNonActiveSubscriberCompleted(this, new CreateNonActiveSubscriberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CreateNonActiveSubscriberAsync(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request) {
+            this.CreateNonActiveSubscriberAsync(authToken, request, null);
+        }
+        
+        public void CreateNonActiveSubscriberAsync(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, object userState) {
+            if ((this.onBeginCreateNonActiveSubscriberDelegate == null)) {
+                this.onBeginCreateNonActiveSubscriberDelegate = new BeginOperationDelegate(this.OnBeginCreateNonActiveSubscriber);
+            }
+            if ((this.onEndCreateNonActiveSubscriberDelegate == null)) {
+                this.onEndCreateNonActiveSubscriberDelegate = new EndOperationDelegate(this.OnEndCreateNonActiveSubscriber);
+            }
+            if ((this.onCreateNonActiveSubscriberCompletedDelegate == null)) {
+                this.onCreateNonActiveSubscriberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateNonActiveSubscriberCompleted);
+            }
+            base.InvokeAsync(this.onBeginCreateNonActiveSubscriberDelegate, new object[] {
+                        authToken,
+                        request}, this.onEndCreateNonActiveSubscriberDelegate, this.onCreateNonActiveSubscriberCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate) {
+            return base.Channel.GetCertificateSubjectInfo(certificate);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetCertificateSubjectInfo(byte[] certificate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetCertificateSubjectInfo(certificate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result) {
+            return base.Channel.EndGetCertificateSubjectInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetCertificateSubjectInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            byte[] certificate = ((byte[])(inValues[0]));
+            return this.BeginGetCertificateSubjectInfo(certificate, callback, asyncState);
+        }
+        
+        private object[] OnEndGetCertificateSubjectInfo(System.IAsyncResult result) {
+            Midway.ObjectModel.QualifiedX509Name retVal = this.EndGetCertificateSubjectInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetCertificateSubjectInfoCompleted(object state) {
+            if ((this.GetCertificateSubjectInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetCertificateSubjectInfoCompleted(this, new GetCertificateSubjectInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetCertificateSubjectInfoAsync(byte[] certificate) {
+            this.GetCertificateSubjectInfoAsync(certificate, null);
+        }
+        
+        public void GetCertificateSubjectInfoAsync(byte[] certificate, object userState) {
+            if ((this.onBeginGetCertificateSubjectInfoDelegate == null)) {
+                this.onBeginGetCertificateSubjectInfoDelegate = new BeginOperationDelegate(this.OnBeginGetCertificateSubjectInfo);
+            }
+            if ((this.onEndGetCertificateSubjectInfoDelegate == null)) {
+                this.onEndGetCertificateSubjectInfoDelegate = new EndOperationDelegate(this.OnEndGetCertificateSubjectInfo);
+            }
+            if ((this.onGetCertificateSubjectInfoCompletedDelegate == null)) {
+                this.onGetCertificateSubjectInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCertificateSubjectInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetCertificateSubjectInfoDelegate, new object[] {
+                        certificate}, this.onEndGetCertificateSubjectInfoDelegate, this.onGetCertificateSubjectInfoCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId) {
+            return base.Channel.GetDocumentExecutedFunction(authToken, boxId, documentId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetDocumentExecutedFunction(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetDocumentExecutedFunction(authToken, boxId, documentId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result) {
+            return base.Channel.EndGetDocumentExecutedFunction(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetDocumentExecutedFunction(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            return this.BeginGetDocumentExecutedFunction(authToken, boxId, documentId, callback, asyncState);
+        }
+        
+        private object[] OnEndGetDocumentExecutedFunction(System.IAsyncResult result) {
+            Midway.ObjectModel.EnumValue retVal = this.EndGetDocumentExecutedFunction(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetDocumentExecutedFunctionCompleted(object state) {
+            if ((this.GetDocumentExecutedFunctionCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetDocumentExecutedFunctionCompleted(this, new GetDocumentExecutedFunctionCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetDocumentExecutedFunctionAsync(string authToken, string boxId, string documentId) {
+            this.GetDocumentExecutedFunctionAsync(authToken, boxId, documentId, null);
+        }
+        
+        public void GetDocumentExecutedFunctionAsync(string authToken, string boxId, string documentId, object userState) {
+            if ((this.onBeginGetDocumentExecutedFunctionDelegate == null)) {
+                this.onBeginGetDocumentExecutedFunctionDelegate = new BeginOperationDelegate(this.OnBeginGetDocumentExecutedFunction);
+            }
+            if ((this.onEndGetDocumentExecutedFunctionDelegate == null)) {
+                this.onEndGetDocumentExecutedFunctionDelegate = new EndOperationDelegate(this.OnEndGetDocumentExecutedFunction);
+            }
+            if ((this.onGetDocumentExecutedFunctionCompletedDelegate == null)) {
+                this.onGetDocumentExecutedFunctionCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDocumentExecutedFunctionCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetDocumentExecutedFunctionDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId}, this.onEndGetDocumentExecutedFunctionDelegate, this.onGetDocumentExecutedFunctionCompletedDelegate, userState);
         }
         
         public string Authenticate(string login, string password, string applicationId) {

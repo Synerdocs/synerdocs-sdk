@@ -1348,5 +1348,25 @@ namespace Midway.ServiceClient
         {
             return CheckAutorizedInvoke(() => client.DownloadPdfDocument(Token, boxId, documentId));
         }
+
+        public RegistrationResponse RegisterSubscriber(RegistrationRequest request)
+        {
+            return Invoke(() => client.RegisterSubscriber(request));
+        }
+
+        public NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(NonActiveSubscriberCreationRequest request)
+        {
+            return CheckAutorizedInvoke(() => client.CreateNonActiveSubscriber(Token, request));
+        }
+
+        public QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate)
+        {
+            return Invoke(() => client.GetCertificateSubjectInfo(certificate));
+        }
+
+        public EnumValue GetDocumentExecutedFunction(string boxId, string documentId)
+        {
+            return CheckAutorizedInvoke(() => client.GetDocumentExecutedFunction(Token, boxId, documentId));
+        }
     }
 }

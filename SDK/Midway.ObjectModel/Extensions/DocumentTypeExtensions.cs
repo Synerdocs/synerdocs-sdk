@@ -171,6 +171,21 @@ namespace Midway.ObjectModel.Extensions
         }
 
         /// <summary>
+        /// Является ли документ УПД или УКД.
+        /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является УПД или УКД; иначе <c>false</c>.</returns>
+        public static bool IsGeneralTransfer(this DocumentType documentType)
+        {
+            return documentType == DocumentType.GeneralTransferSeller
+                || documentType == DocumentType.GeneralTransferRevisionSeller
+                || documentType == DocumentType.GeneralTransferBuyer
+                || documentType == DocumentType.GeneralTransferCorrectionSeller
+                || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller
+                || documentType == DocumentType.GeneralTransferCorrectionBuyer;
+        }
+
+        /// <summary>
         /// Проверка: является ли документ исправлением документа о передаче товара, результатов работ (об оказании услуг), УПД, УКД
         /// </summary>
         /// <returns></returns>

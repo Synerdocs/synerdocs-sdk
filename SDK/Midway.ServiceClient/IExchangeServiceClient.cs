@@ -758,5 +758,32 @@ namespace Midway.ServiceClient
         /// <param name="documentId">ИД документа</param>
         /// <returns></returns>
         NamedContent DownloadPdfDocument(string boxId, string documentId);
+
+        /// <summary>
+        /// Метод регистрации абонента
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        RegistrationResponse RegisterSubscriber(RegistrationRequest request);
+
+        /// <summary>
+        /// Создание неактивного абонента
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(NonActiveSubscriberCreationRequest request);
+
+        /// <summary>
+        /// Получить данные из поля Subject в структурированном виде
+        /// </summary>
+        QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate);
+
+        /// <summary>
+        /// Получить информацию по функции, которую выполнил документ.
+        /// </summary>
+        /// <param name="boxId">Ящик организации.</param>
+        /// <param name="documentId">ИД документа.</param>
+        /// <returns>Функция, выполняемая документом.</returns>
+        EnumValue GetDocumentExecutedFunction(string boxId, string documentId);
     }
 }
