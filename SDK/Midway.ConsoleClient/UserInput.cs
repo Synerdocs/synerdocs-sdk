@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -122,13 +121,10 @@ namespace Midway.ConsoleClient
         public static string ReadParameter(string caption, string defaultValue = null)
         {
             if(String.IsNullOrEmpty(defaultValue))
-            {
-                Write(ConsoleColor.White, "{0}:", caption);    
-            }
+                Write(ConsoleColor.White, "{0}:", caption);
             else
-            {
-                Write(ConsoleColor.White, "{0}[{1}]:", caption, defaultValue);    
-            }
+                Write(ConsoleColor.White, "{0}[{1}]:", caption, defaultValue);
+            
             var line = ReadLine();
             if (line == "" && !String.IsNullOrEmpty(defaultValue))
                 return defaultValue;
@@ -141,7 +137,7 @@ namespace Midway.ConsoleClient
             {
                 var bytes = new byte[ReadlineBufferSize];
                 var outputLength = inputStream.Read(bytes, 0, ReadlineBufferSize);
-                var chars = Encoding.UTF7.GetChars(bytes, 0, outputLength);
+                var chars = Console.InputEncoding.GetChars(bytes, 0, outputLength);
                 var line = new String(chars);
                 line = line.Trim();
                 return line;

@@ -12,8 +12,8 @@ namespace Midway.ObjectModel
         /// Наименование документа
         /// </summary>
         [DataMember]
-        public string Name { get; set; }
-
+        public string Name { get; set; }  
+        
         /// <summary>
         /// Информация об исправлении
         /// </summary>

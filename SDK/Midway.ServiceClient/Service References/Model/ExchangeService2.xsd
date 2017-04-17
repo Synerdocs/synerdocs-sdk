@@ -1116,6 +1116,464 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ValidationError" nillable="true" type="tns:ValidationError" />
+  <xs:complexType name="RegistrationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Departments" nillable="true" type="tns:ArrayOfDepartmentRegistrationData" />
+      <xs:element minOccurs="0" name="Organization" nillable="true" type="tns:OrganizationRegistrationData" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PromoCodes" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ServiceReglamentAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserRegistrationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistrationRequest" nillable="true" type="tns:RegistrationRequest" />
+  <xs:complexType name="ArrayOfDepartmentRegistrationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartmentRegistrationData" nillable="true" type="tns:DepartmentRegistrationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartmentRegistrationData" nillable="true" type="tns:ArrayOfDepartmentRegistrationData" />
+  <xs:complexType name="DepartmentRegistrationData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DepartmentShortInfo">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DepartmentRegistrationData" nillable="true" type="tns:DepartmentRegistrationData" />
+  <xs:complexType name="DepartmentShortInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepartmentShortInfo" nillable="true" type="tns:DepartmentShortInfo" />
+  <xs:complexType name="OrganizationRegistrationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfOrganizationAddress" />
+      <xs:element minOccurs="0" name="BankAccount" nillable="true" type="tns:BankAccount" />
+      <xs:element minOccurs="0" name="ContactAuthType" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ifns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsForeignCompany" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LegalName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ogrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationType" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationRegistrationData" nillable="true" type="tns:OrganizationRegistrationData" />
+  <xs:complexType name="ArrayOfOrganizationAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationAddress" nillable="true" type="tns:OrganizationAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganizationAddress" nillable="true" type="tns:ArrayOfOrganizationAddress" />
+  <xs:complexType name="OrganizationAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressType" type="tns:AddressType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrganizationAddress" nillable="true" type="tns:OrganizationAddress" />
+  <xs:simpleType name="AddressType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Legal">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Mailing">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Registration">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:complexType name="ArrayOfUserRegistrationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRegistrationData" nillable="true" type="tns:UserRegistrationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRegistrationData" nillable="true" type="tns:ArrayOfUserRegistrationData" />
+  <xs:complexType name="UserRegistrationData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UserInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Certificate" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserRegistrationData" nillable="true" type="tns:UserRegistrationData" />
+  <xs:complexType name="UserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Skype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:complexType name="RegistrationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:RegisteredData" />
+      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistrationResponse" nillable="true" type="tns:RegistrationResponse" />
+  <xs:complexType name="RegisteredData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Employees" nillable="true" type="tns:ArrayOfEmployee" />
+      <xs:element minOccurs="0" name="Organization" nillable="true" type="tns:Organization" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisteredData" nillable="true" type="tns:RegisteredData" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+  <xs:complexType name="Employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvailableDepartments" nillable="true" type="tns:ArrayOfAccessToDepartment" />
+      <xs:element minOccurs="0" name="Certificate" nillable="true" type="tns:Certificate" />
+      <xs:element minOccurs="0" name="InvoiceReglamentAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="ArrayOfAccessToDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessToDepartment" nillable="true" type="tns:AccessToDepartment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccessToDepartment" nillable="true" type="tns:ArrayOfAccessToDepartment" />
+  <xs:complexType name="AccessToDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEmployee" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubElementsAccess" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccessToDepartment" nillable="true" type="tns:AccessToDepartment" />
+  <xs:complexType name="Department">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DepartmentShortInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="Certificate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CertificateId" type="xs:int" />
+      <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsTest" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IssuerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LegalPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="QualifiedCertificate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Raw" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignatureAlgorithm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Thumbprint" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Certificate" nillable="true" type="tns:Certificate" />
+  <xs:complexType name="Organization">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfOrganizationAddress" />
+      <xs:element minOccurs="0" name="Bank" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bik" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BoxAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactAuthType" type="tns:ContactAuthType" />
+      <xs:element minOccurs="0" name="CorrespondentAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EdiSubscriberStatus" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="ExchangeWithIndividualEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FeatureConfirmReceiptEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ifns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceReglamentAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsForeignCompany" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsJuridical" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LegalAddress" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="LegalForm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LegalName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailingAddress" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ogrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatorServiceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationStatus" type="tns:OrganizationStatus" />
+      <xs:element minOccurs="0" name="OrganizationType" type="tns:OrganizationType" />
+      <xs:element minOccurs="0" name="RoamingPackageRecipientId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceReglamentAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Organization" nillable="true" type="tns:Organization" />
+  <xs:simpleType name="ContactAuthType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Manual">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Accept">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Reject">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ContactAuthType" nillable="true" type="tns:ContactAuthType" />
+  <xs:simpleType name="OrganizationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Test">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NonActive">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrganizationStatus" nillable="true" type="tns:OrganizationStatus" />
+  <xs:simpleType name="OrganizationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LegalEntity">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IndividualEntrepreneur">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Individual">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrganizationType" nillable="true" type="tns:OrganizationType" />
+  <xs:complexType name="ModelValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfModelValidationResult" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfModelValidationMessage" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
+  <xs:complexType name="ArrayOfModelValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelValidationResult" nillable="true" type="tns:ArrayOfModelValidationResult" />
+  <xs:complexType name="ArrayOfModelValidationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelValidationMessage" nillable="true" type="tns:ArrayOfModelValidationMessage" />
+  <xs:complexType name="ModelValidationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
+  <xs:complexType name="NonActiveSubscriberCreationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Emails" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationType" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NonActiveSubscriberCreationRequest" nillable="true" type="tns:NonActiveSubscriberCreationRequest" />
+  <xs:complexType name="NonActiveSubscriberCreationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:NonActiveSubscriber" />
+      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NonActiveSubscriberCreationResponse" nillable="true" type="tns:NonActiveSubscriberCreationResponse" />
+  <xs:complexType name="NonActiveSubscriber">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OrganizationShortInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Emails" nillable="true" type="q6:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NonActiveSubscriber" nillable="true" type="tns:NonActiveSubscriber" />
+  <xs:complexType name="OrganizationShortInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationType" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationShortInfo" nillable="true" type="tns:OrganizationShortInfo" />
+  <xs:complexType name="QualifiedX509Name">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:X509NameInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Apartment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Building" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="House" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ifns" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="tns:NameCodeObject" />
+          <xs:element minOccurs="0" name="Snils" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="tns:EnumValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QualifiedX509Name" nillable="true" type="tns:QualifiedX509Name" />
+  <xs:complexType name="X509NameInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CommonName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ogrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="X509NameInfo" nillable="true" type="tns:X509NameInfo" />
   <xs:complexType name="ArrayOfMessageInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
@@ -1126,7 +1584,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Recipients" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Recipients" nillable="true" type="q7:ArrayOfstring" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -1410,32 +1868,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SignerInfo" nillable="true" type="tns:SignerInfo" />
-  <xs:simpleType name="OrganizationType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="LegalEntity">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="IndividualEntrepreneur">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Individual">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="OrganizationType" nillable="true" type="tns:OrganizationType" />
   <xs:complexType name="SubjectInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
@@ -1499,7 +1931,7 @@
   <xs:complexType name="DocumentFlowStatusDescription">
     <xs:sequence>
       <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalStatuses" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalStatuses" nillable="true" type="q8:ArrayOfstring" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -1710,7 +2142,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="BoxFrom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BoxTo" nillable="true" type="xs:string" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContragentBoxIds" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContragentBoxIds" nillable="true" type="q9:ArrayOfstring" />
       <xs:element minOccurs="0" name="DocumentRevocationStatuses" nillable="true" type="tns:ArrayOfDocumentRevocationStatus" />
       <xs:element minOccurs="0" name="DocumentSignStatuses" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
       <xs:element minOccurs="0" name="DocumentTypeEnums" nillable="true" type="tns:ArrayOfEnumValue" />
@@ -1874,32 +2306,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ContactSearchItem" nillable="true" type="tns:ContactSearchItem" />
-  <xs:simpleType name="OrganizationStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Active">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Test">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NonActive">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="OrganizationStatus" nillable="true" type="tns:OrganizationStatus" />
   <xs:complexType name="Contact">
     <xs:sequence>
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
@@ -1914,127 +2320,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Contact" nillable="true" type="tns:Contact" />
-  <xs:complexType name="Organization">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfOrganizationAddress" />
-      <xs:element minOccurs="0" name="Bank" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Bik" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BoxAddress" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ContactAuthType" type="tns:ContactAuthType" />
-      <xs:element minOccurs="0" name="CorrespondentAccount" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CurrentAccount" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EdiSubscriberStatus" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="ExchangeWithIndividualEnabled" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FeatureConfirmReceiptEnabled" type="xs:boolean" />
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ifns" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="InvoiceReglamentAccepted" type="xs:boolean" />
-      <xs:element minOccurs="0" name="IsForeignCompany" type="xs:boolean" />
-      <xs:element minOccurs="0" name="IsJuridical" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LegalAddress" nillable="true" type="tns:Address" />
-      <xs:element minOccurs="0" name="LegalForm" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LegalName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MailingAddress" nillable="true" type="tns:Address" />
-      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ogrn" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OperatorCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OperatorServiceName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OrganizationStatus" type="tns:OrganizationStatus" />
-      <xs:element minOccurs="0" name="OrganizationType" type="tns:OrganizationType" />
-      <xs:element minOccurs="0" name="RoamingPackageRecipientId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ServiceReglamentAccepted" type="xs:boolean" />
-      <xs:element minOccurs="0" name="State" nillable="true" type="xs:boolean" />
-      <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tel" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Version" type="xs:long" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Organization" nillable="true" type="tns:Organization" />
-  <xs:complexType name="ArrayOfOrganizationAddress">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationAddress" nillable="true" type="tns:OrganizationAddress" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrganizationAddress" nillable="true" type="tns:ArrayOfOrganizationAddress" />
-  <xs:complexType name="OrganizationAddress">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Address">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AddressType" type="tns:AddressType" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="OrganizationAddress" nillable="true" type="tns:OrganizationAddress" />
-  <xs:simpleType name="AddressType">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Legal">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Mailing">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Registration">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
-  <xs:simpleType name="ContactAuthType">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Manual">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Accept">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Reject">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ContactAuthType" nillable="true" type="tns:ContactAuthType" />
   <xs:simpleType name="OrganizationByCriteria">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ById" />
@@ -2265,25 +2550,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
-  <xs:complexType name="Certificate">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CertificateId" type="xs:int" />
-      <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="IsTest" type="xs:boolean" />
-      <xs:element minOccurs="0" name="IssuerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LegalPerson" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OrganizationId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PublicKey" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="QualifiedCertificate" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Raw" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SignatureAlgorithm" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Thumbprint" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Certificate" nillable="true" type="tns:Certificate" />
   <xs:complexType name="RegisterModel">
     <xs:sequence>
       <xs:element minOccurs="0" name="Certificate" nillable="true" type="tns:Certificate" />
@@ -2307,8 +2573,8 @@
   <xs:element name="RegisterModel" nillable="true" type="tns:RegisterModel" />
   <xs:complexType name="RegisterResult">
     <xs:sequence>
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q7:ArrayOfstring" />
-      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q8:ArrayOfstring" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q10:ArrayOfstring" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q11:ArrayOfstring" />
       <xs:element minOccurs="0" name="RegisterModel" nillable="true" type="tns:RegisterModel" />
       <xs:element minOccurs="0" name="Success" type="xs:boolean" />
     </xs:sequence>
@@ -2552,9 +2818,9 @@
       <xs:element minOccurs="0" name="First" type="xs:int" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Max" type="xs:int" />
-      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q9:ArrayOfstring" />
-      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q10:ArrayOfstring" />
-      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q11:ArrayOfstring" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q12:ArrayOfstring" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q13:ArrayOfstring" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q14:ArrayOfstring" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

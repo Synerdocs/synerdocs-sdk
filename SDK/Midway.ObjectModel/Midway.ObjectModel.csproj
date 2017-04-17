@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcceptanceInfo.cs" />
+    <Compile Include="AccessToDepartment.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="AddressType.cs" />
     <Compile Include="AmountChange.cs" />
@@ -88,13 +89,19 @@
     <Compile Include="CurrencyInfo.cs" />
     <Compile Include="CustomsDeclaration.cs" />
     <Compile Include="DocumentFormat.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="DepartmentRegistrationData.cs" />
+    <Compile Include="DepartmentShortInfo.cs" />
     <Compile Include="DocumentGenerationOptions.cs" />
     <Compile Include="DocumentRevocationStatus.cs" />
     <Compile Include="DocumentShortInfo.cs" />
     <Compile Include="DocumentTypeInfo.cs" />
     <Compile Include="Drafter.cs" />
     <Compile Include="EdiSubscriberStatus.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="EnumValue.cs" />
+    <Compile Include="Extensions\NonActiveSubscriberExtensions.cs" />
+    <Compile Include="Extensions\OrganizationRegistrationDataExtensions.cs" />
     <Compile Include="Factor.cs" />
     <Compile Include="FullName.cs" />
     <Compile Include="GeneralTransferBuyer.cs" />
@@ -116,7 +123,15 @@
     <Compile Include="IMessage.cs" />
     <Compile Include="InfoFieldFull.cs" />
     <Compile Include="GeneralTransferItemData.cs" />
+    <Compile Include="ModelValidationMessage.cs" />
+    <Compile Include="ModelValidationOptions.cs" />
+    <Compile Include="ModelValidationResult.cs" />
+    <Compile Include="NonActiveSubscriber.cs" />
+    <Compile Include="NonActiveSubscriberCreationRequest.cs" />
+    <Compile Include="NonActiveSubscriberCreationResponse.cs" />
     <Compile Include="OperationInfo.cs" />
+    <Compile Include="OrganizationRegistrationData.cs" />
+    <Compile Include="OrganizationShortInfo.cs" />
     <Compile Include="ParticipantsServiceInfo.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="ProductBase.cs" />
@@ -160,7 +175,9 @@
     <Compile Include="InternalListOptions.cs" />
     <Compile Include="InternalMessage.cs" />
     <Compile Include="InternalMessageRecipient.cs" />
+    <Compile Include="QualifiedX509Name.cs" />
     <Compile Include="RecipientFlowStatus.cs" />
+    <Compile Include="RegisteredData.cs" />
     <Compile Include="RegisterResult.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="DocumentAdditionalStatus.cs" />
@@ -225,7 +242,11 @@
     <Compile Include="PersonInfo.cs" />
     <Compile Include="ProcurationInfo.cs" />
     <Compile Include="Common\SearchSettings.cs" />
+    <Compile Include="RegistrationRequest.cs" />
+    <Compile Include="RegistrationResponse.cs" />
+    <Compile Include="RegistrationResponseCode.cs" />
     <Compile Include="RejectSign.cs" />
+    <Compile Include="RequestParameters.cs" />
     <Compile Include="SellerTitleIdentification.cs" />
     <Compile Include="SenderFlowStatus.cs" />
     <Compile Include="SentMessage.cs" />
@@ -238,6 +259,7 @@
     <Compile Include="Common\SortingSetting.cs" />
     <Compile Include="SpecialOperatorInfo.cs" />
     <Compile Include="SubjectInfo.cs" />
+    <Compile Include="SubjectPersonType.cs" />
     <Compile Include="TagUser.cs" />
     <Compile Include="TitleBuyer.cs" />
     <Compile Include="TitleType.cs" />
@@ -249,13 +271,20 @@
     <Compile Include="UntypedKind.cs" />
     <Compile Include="UntypedDocumentMultiFlowStatus.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="UserRegistrationData.cs" />
     <Compile Include="ValidationError.cs" />
+    <Compile Include="ValidationMessageCategory.cs" />
+    <Compile Include="ValidationMessageStatus.cs" />
+    <Compile Include="ValidationResultFormat.cs" />
+    <Compile Include="ValidationResultFormatEnum.cs" />
     <Compile Include="ValidationStatus.cs" />
     <Compile Include="WorksTransferItem.cs" />
     <Compile Include="WorksTransferArea.cs" />
     <Compile Include="WorksTransferBuyer.cs" />
     <Compile Include="WorksTransferSeller.cs" />
     <Compile Include="WorksTransferTotal.cs" />
+    <Compile Include="X509NameInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Midway.ObjectModel.snk" />

@@ -95,6 +95,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessageSearchResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.EnhancedSign.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.EnumValue.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FlowDocumentInfo3.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FormatControlResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo.datasource" />
@@ -114,12 +115,15 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.MessageInfo1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.NamedContent.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.NamedContent1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.NonActiveSubscriberCreationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Organization.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Organization1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationPromoCode.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationStructureElement.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.PromoCode.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.QualifiedX509Name.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.RegisterResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.RegistrationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SentMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SentMessage1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo.datasource" />
