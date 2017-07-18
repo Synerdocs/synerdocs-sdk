@@ -3,10 +3,10 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Контрагент
+    /// Контрагент.
     /// </summary>
     [DataContract]
-    public class Contragent: ContragentBase
+    public class Contragent : ContragentBase
     {
         public Contragent()
         {
@@ -19,75 +19,81 @@ namespace Midway.ObjectModel
         }
 
         /// <summary>
-        /// Тип организации
+        /// Тип организации.
         /// </summary>
         [DataMember]
         public EnumValue OrganizationType { get; set; }
 
         /// <summary>
-        /// ОКПО
+        /// ОКПО.
         /// </summary>
         [DataMember]
         public string Okpo { get; set; }
 
         /// <summary>
-        /// Информация для участников
+        /// Информация для участников.
         /// </summary>
         [DataMember]
         public string AdditionalInfoForParticipants { get; set; }
 
         /// <summary>
-        /// ФИО
+        /// ФИО.
         /// </summary>
         [DataMember]
         public FullName FullName { get; set; }
 
         /// <summary>
-        /// Страна (для иностранных организаций)
+        /// Страна (для иностранных организаций).
         /// </summary>
         [DataMember]
         public string CountryName { get; set; }
 
         /// <summary>
-        /// Адрес
+        /// Адрес.
         /// </summary>
         [DataMember]
         public Address Address { get; set; }
 
         /// <summary>
-        /// Контакты контрагента
+        /// Контакты контрагента.
         /// </summary>
         [DataMember]
         public ContragentContactInfo ContactInfo { get; set; }
 
         /// <summary>
-        /// ОКДП
+        /// ОКДП.
         /// </summary>
         [DataMember]
         public string Okdp { get; set; }
 
         /// <summary>
-        /// ОКОПФ
+        /// ОКОПФ.
         /// </summary>
         [DataMember]
         public string Okopf { get; set; }
 
         /// <summary>
-        /// Свидетельство государственной регистрации ИП
+        /// Свидетельство государственной регистрации ИП.
         /// </summary>
         [DataMember]
         public string StateRegistrationCert { get; set; }
 
         /// <summary>
-        /// Подразделение
+        /// Подразделение.
         /// </summary>
         [DataMember]
         public string DepartmentName { get; set; }
 
         /// <summary>
-        /// Код оператора ЭДО
+        /// Код оператора ЭДО.
         /// </summary>
         [DataMember]
         public string OperatorCode { get; set; }
+
+        /// <summary>
+        /// Флаг "иностранный контрагент".
+        /// </summary>
+        [DataMember]
+        public bool IsForeign { get; set; }
     }
 }

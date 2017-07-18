@@ -424,6 +424,7 @@
           <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FullName" nillable="true" type="tns:FullName" />
+          <xs:element minOccurs="0" name="IsForeign" type="xs:boolean" />
           <xs:element minOccurs="0" name="Okdp" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Okopf" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Okpo" nillable="true" type="xs:string" />
