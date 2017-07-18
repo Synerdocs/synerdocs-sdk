@@ -3886,14 +3886,14 @@ namespace Midway.ConsoleClient
             }
 
             UserRegistrationData certUser = null;
-            var organizationType = subjectInfo?.Type?.Code;
-            if (organizationType != null && organizationType != (int) OrganizationType.LegalEntity)
+            var organizationTypeCode = subjectInfo?.Type?.Code;
+            if (organizationTypeCode != null && (OrganizationType) organizationTypeCode != OrganizationType.LegalEntity)
             {
                 if (!UserInput.ChooseYesNo(
-                    $"Корректно ли определился тип абонента: {((OrganizationType) organizationType).GetDescription()} ?"))
+                    $"Корректно ли определился тип абонента: {((OrganizationType)organizationTypeCode).GetDescription()} ?"))
                     organizationRegistrationData.OrganizationType = ChooseOrganizationType().ToEnumValue();
                 else
-                    organizationRegistrationData.OrganizationType = ((OrganizationType) organizationType).ToEnumValue();
+                    organizationRegistrationData.OrganizationType = ((OrganizationType)organizationTypeCode).ToEnumValue();
                 
                 //заполним данные из сертификата
                 FillOrganizationInfo(organizationRegistrationData, subjectInfo);
@@ -3906,7 +3906,8 @@ namespace Midway.ConsoleClient
                 organizationRegistrationData.OrganizationType = ChooseOrganizationType().ToEnumValue();
             }
 
-            if (organizationRegistrationData.OrganizationType.Code == (int)OrganizationType.LegalEntity)
+            var organizationType = (OrganizationType) organizationRegistrationData.OrganizationType.Code;
+            if (organizationType == OrganizationType.LegalEntity)
             {
                 if (subjectInfo == null || !UserInput.ChooseYesNo($"Корректно ли наименование абонента: {organizationRegistrationData.Name} ?"))
                     organizationRegistrationData.Name = UserInput.ReadParameter("Введите наименование организации");
@@ -3918,17 +3919,27 @@ namespace Midway.ConsoleClient
                 organizationRegistrationData.MiddleName = FillField(organizationRegistrationData.MiddleName, "Введите отчество");
             }
 
+            if (organizationType.In(OrganizationType.LegalEntity,
+                                    OrganizationType.IndividualEntrepreneur))
+            {
+                organizationRegistrationData.LegalName = FillField(organizationRegistrationData.LegalName, "Введите юридическое наименование");
+            }
+
             organizationRegistrationData.Inn = FillField(organizationRegistrationData.Inn, "Введите ИНН");
 
-            if (organizationRegistrationData.OrganizationType.Code == (int)OrganizationType.LegalEntity)
+            if (organizationType == OrganizationType.LegalEntity)
             {
                 if (string.IsNullOrWhiteSpace(organizationRegistrationData.Kpp) || !UserInput.ChooseYesNo($"Корректно ли КПП абонента: {organizationRegistrationData.Kpp} ?"))
                     organizationRegistrationData.Kpp = UserInput.ReadParameter("Введите КПП");
                
                 organizationRegistrationData.Ogrn = FillField(organizationRegistrationData.Ogrn, "Введите ОГРН");
             }
-            else if (organizationRegistrationData.OrganizationType.Code == (int)OrganizationType.IndividualEntrepreneur)
+            else if (organizationType == OrganizationType.IndividualEntrepreneur)
+            {
                 organizationRegistrationData.Ogrn = FillField(organizationRegistrationData.Ogrn, "Введите ОГРНИП");
+                organizationRegistrationData.StateRegistrationCert =
+                   FillField(organizationRegistrationData.StateRegistrationCert, "Введите реквизиты свидетельства о гос.регистрации ИП");
+            }
 
             //TODO synerman: хорошо бы здесь проверку сделать на существование абонента в сервисе. Пока не позволяет это сделать невозможность аутентификации приложения 
             //            var existingOrganizations =
@@ -3938,7 +3949,7 @@ namespace Midway.ConsoleClient
             //            if (existingOrganization != null)
             //                UserInput.Error("Данная организация {0} уже зарегистрирована в сервисе ", existingOrganization.GetCommonInfo());
 
-            if (organizationRegistrationData.OrganizationType.Code != (int)OrganizationType.Individual)
+            if (organizationType != OrganizationType.Individual)
                 organizationRegistrationData.Ifns = UserInput.ReadParameter("Введите код ИФНС");
 
             organizationRegistrationData.Phone = UserInput.ReadParameter("Введите телефон");
@@ -3963,7 +3974,7 @@ namespace Midway.ConsoleClient
 
             registrationRequest.Organization = organizationRegistrationData;
 
-            if (organizationRegistrationData.OrganizationType.Code != (int)OrganizationType.Individual 
+            if (organizationType != OrganizationType.Individual 
                 && UserInput.ChooseYesNo("Ввести оргструктуру?", false))
             {
                 var departments = new List<DepartmentRegistrationData>();
@@ -4423,6 +4434,8 @@ namespace Midway.ConsoleClient
                     userRegistrationData.MiddleName = organization.MiddleName;
                 }
 
+                userRegistrationData.Phone = FillField(userRegistrationData.Phone, "Введите телефон");
+                userRegistrationData.Skype = FillField(userRegistrationData.Skype, "Введите номер скайпа");
                 userRegistrationData.Email = FillField(userRegistrationData.Email, "Введите email");
                 userRegistrationData.Comment = UserInput.ReadParameter("Введите комментарий");
                 userRegistrationData.IsAdmin = organization.OrganizationType.Code == (int)OrganizationType.Individual || UserInput.ChooseYesNo("Является администратором организации?");

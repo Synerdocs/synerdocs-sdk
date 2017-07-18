@@ -5,31 +5,31 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Данные, необходимые для регистрации
+    /// Данные, необходимые для регистрации.
     /// </summary>
     [DataContract]
     public class RegistrationRequest
     {
         /// <summary>
-        /// Данные об организации
+        /// Данные об организации.
         /// </summary>
         [DataMember]
         public OrganizationRegistrationData Organization { get; set; }
 
         /// <summary>
-        /// Данные об оргструктуре
+        /// Данные об оргструктуре.
         /// </summary>
         [DataMember]
         public List<DepartmentRegistrationData> Departments { get; set; }
 
         /// <summary>
-        /// Данные о пользователях
+        /// Данные о пользователях.
         /// </summary>
         [DataMember]
         public List<UserRegistrationData> Users { get; set; }
 
         /// <summary>
-        /// Принят регламент ЭДО
+        /// Принят регламент ЭДО.
         /// </summary>
         [DataMember]
         [DisplayName("Вы принимаете доступные по адресу www.synerdocs.ru Правила Synerdocs?")]
