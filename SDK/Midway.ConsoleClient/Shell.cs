@@ -677,7 +677,8 @@ namespace Midway.ConsoleClient
 
             if (chosenOption == sendMessageOption)
             {
-                if (message.Documents.Any(_ => _.DocumentType.IsEdiDocument()))
+                if (message.Documents != null 
+                    && message.Documents.Any(_ => _.DocumentType.IsEdiDocument()))
                 {
                     UserInput.Information("В сообщении для отправки обнаружены EDI-документы");
                     sendMessageOption = new UserInput.Option("1", "Исключить EDI-документы и отправить сообщение", false);
