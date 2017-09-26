@@ -3,7 +3,7 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Получатель сообщения со статусом документооборота
+    /// Получатель сообщения со статусом документооборота.
     /// </summary>
     [DataContract]
     public class MessageRecipientWithStatus : MessageRecipient
@@ -20,9 +20,21 @@ namespace Midway.ObjectModel
         }
         
         /// <summary>
-        /// Статус документооборота c этим получателем
+        /// Статус документооборота c этим получателем.
         /// </summary>
         [DataMember]
         public DocumentFlowStatus Status { get; set; }
+
+        /// <summary>
+        /// Наименование организации.
+        /// </summary>
+        [DataMember]
+        public string OrganizationName { get; set; }
+
+        /// <summary>
+        /// Наименование подразделения.
+        /// </summary>
+        [DataMember]
+        public string DepartmentName { get; set; }
     }
 }
