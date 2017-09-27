@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Midway.ObjectModel.Extensions
 {
@@ -54,6 +53,23 @@ namespace Midway.ObjectModel.Extensions
                     ? organization.Name
                     : $"ИП {organization.LastName} {organization.FirstName[0]}.{(!string.IsNullOrEmpty(organization.MiddleName) && organization.MiddleName != " " ? organization.MiddleName[0] + "." : string.Empty)}"
                 : organization.GetFio();
+        }
+
+        /// <summary>
+        /// Получить код ИФНС из данных по организации.
+        /// </summary>
+        /// <param name="organization">Организация.</param>
+        /// <returns>Код ИФНС.</returns>
+        public static string GetIfns(this OrganizationRegistrationData organization)
+        {
+            if (organization.OrganizationType.IsLegalEntity()
+                && string.IsNullOrEmpty(organization.Kpp)
+                && !organization.Kpp.Equals(" "))
+                return organization.Kpp.Substring(0, 4);
+
+            return !organization.OrganizationType.IsIndividual()
+                ? organization.Inn.Substring(0, 4)
+                : null;
         }
     }
 }

@@ -2,64 +2,70 @@
 
 namespace Midway.ObjectModel
 {
-    /// <summary>
+    /// <summary>.
     /// Информаци о пользователе
     /// </summary>
     [DataContract]
     public class UserInfo
     {
         /// <summary>
-        /// Логин
+        /// Логин.
         /// </summary>
         [DataMember]
         public string Login { get; set; }
 
         /// <summary>
-        /// Имя
+        /// Имя.
         /// </summary>
         [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Фамилия
+        /// Фамилия.
         /// </summary>
         [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество
+        /// Отчество.
         /// </summary>
         [DataMember]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Эл.почта
+        /// Эл. почта.
         /// </summary>
         [DataMember]
         public string Email { get; set; }
 
         /// <summary>
-        /// Часовой пояс
+        /// Часовой пояс.
         /// </summary>
         [DataMember]
         public string TimeZone { get; set; }
 
         /// <summary>
-        /// Телефон
+        /// Телефон.
         /// </summary>
         [DataMember]
         public string Phone { get; set; }
 
         /// <summary>
-        /// Скайп
+        /// Логин Skype.
         /// </summary>
         [DataMember]
         public string Skype { get; set; }
 
         /// <summary>
-        /// Комментарий
+        /// Комментарий.
         /// </summary>
         [DataMember]
         public string Comment { get; set; }
+
+        /// <summary>
+        /// СНИЛС.
+        /// </summary>
+        [DataMember]
+        public string Snils { get; set; }
     }
 }

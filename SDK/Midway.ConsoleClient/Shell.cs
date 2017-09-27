@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,8 +54,8 @@ using Midway.ServiceClient;
 namespace Midway.ConsoleClient
 {
     /// <summary>
-    /// Основной объект - консольное приложение для примера использования API, использует подключение к API Synerdocs
-    /// Работа через консоль
+    /// Основной объект - консольное приложение для примера использования API, использует подключение к API Synerdocs.
+    /// Работа через консоль.
     /// </summary>
     public class Shell
     {
@@ -67,7 +67,7 @@ namespace Midway.ConsoleClient
 
         /// <summary>
         /// КОНСТРУКТОР
-        /// Основной объект - консольное приложение для примера использования API, использует подключение к API Synerdocs
+        /// Основной объект - консольное приложение для примера использования API, использует подключение к API Synerdocs.
         /// </summary>
         public Shell()
         {
@@ -77,9 +77,9 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Обработка запуска консольного приложения с параметрами командной строки
+        /// Обработка запуска консольного приложения с параметрами командной строки.
         /// </summary>
-        /// <param name="args">аргументы \ параметры запуска из командной строки</param>
+        /// <param name="args">аргументы \ параметры запуска из командной строки.</param>
         public void Run(string[] args)
         {
             var url = args[0];
@@ -95,183 +95,204 @@ namespace Midway.ConsoleClient
             try
             {
                 _context = new ClientContext
-                           {
-                               ServiceClient = client
-                           };
+                {
+                    ServiceClient = client
+                };
 
                 // аутентификация
                 Auth(client);
 
                 // следующие команды ...
                 var commandsMap = new Dictionary<string, Tuple<Action, string>>
-                                  {
-                                      {"get-boxes", Tuple.Create<Action, string>(Boxes, "Показать список ящиков")},
-                                      {"set-box", Tuple.Create<Action, string>(SetBox, "Выбрать ящик")},
-                                      {
-                                          "load-messages",
-                                          Tuple.Create<Action, string>(LoadMessages,
-                                              "Загрузить и обработать входящие сообщения")
-                                      },
-                                      {
-                                          "send-docs",
-                                          Tuple.Create<Action, string>(() => SendDocuments(FlowType.SentSigned),
-                                              "Отправить документы")
-                                      },
-                                      {
-                                          "send-unsigned",
-                                          Tuple.Create<Action, string>(() => SendDocuments(FlowType.SentUnsigned),
-                                              "Отправить документы без подписи")
-                                      },
-                                      {
-                                          "send-forward",
-                                          Tuple.Create<Action, string>(() => SendDocuments(FlowType.SentForward),
-                                              "Переслать документы")
-                                      },
-                                      {
-                                          "send-internal",
-                                          Tuple.Create<Action, string>(() => SendDocuments(FlowType.SentInternal),
-                                              "Отправить документы подразделению")
-                                      },
-                                      {
-                                          "sign-document",
-                                          Tuple.Create<Action, string>(SignDocument, "Подписать документ")
-                                      },
-                                      {
-                                          "reject-sign",
-                                          Tuple.Create<Action, string>(RejectSign, "Отказать в подписании документа")
-                                      },
-                                      {
-                                          "move-docs",
-                                          Tuple.Create<Action, string>(MoveDocuments,
-                                              "Переместить документы в подразделение")
-                                      },
-                                      {
-                                          "get-doc-entries",
-                                          Tuple.Create<Action, string>(GetDocumentEntries, "Список вхождений документов")
-                                      },
-                                      {
-                                          "get-doc-inner",
-                                          Tuple.Create<Action, string>(GetInternalDocuments,
-                                              "Список внутренних документов")
-                                      },
-                                      {
-                                          "get-doc-list",
-                                          Tuple.Create<Action, string>(GetDocumentList, "Список документов")
-                                      },
-                                      {
-                                          "get-doc-info",
-                                          Tuple.Create<Action, string>(GetDocumentInfo, "Загрузить документ")
-                                      },
-                                      {
-                                          "get-doc-flow",
-                                          Tuple.Create<Action, string>(GetDocumentFlow,
-                                              "Загрузить документ c вхождениями")
-                                      },
-                                      {
-                                          "get-draft-list",
-                                          Tuple.Create<Action, string>(GetDraftMessageList, "Список черновиков")
-                                      },
-                                      {"get-draft", Tuple.Create<Action, string>(GetDraftMessage, "Загрузить черновик")},
-                                      {
-                                          "del-draft",
-                                          Tuple.Create<Action, string>(DeleteDraftMessage, "Удалить черновик")
-                                      },
-                                      {
-                                          "get-contacts",
-                                          Tuple.Create<Action, string>(GetActiveContacts, "Список активных контактов")
-                                      },
-                                      {"del-contact", Tuple.Create<Action, string>(DeleteContact, "Удалить контакт")},
-                                      {
-                                          "get-structure",
-                                          Tuple.Create<Action, string>(GetOrganizationStructure, "Дерево орг.структуры")
-                                      },
-                                      {
-                                          "add-department",
-                                          Tuple.Create<Action, string>(AddOrganizationStructureElement,
-                                              "Добавить подразделение")
-                                      },
-                                      {
-                                          "edit-department",
-                                          Tuple.Create<Action, string>(EditOrganizationStructureElement,
-                                              "Изменить подразделение")
-                                      },
-                                      {
-                                          "del-department",
-                                          Tuple.Create<Action, string>(DeleteOrganizationStructureElement,
-                                              "Удалить подразделение")
-                                      },
-                                      {
-                                          "accept-reg",
-                                          Tuple.Create<Action, string>(AcceptRegulation, "Принять Правила Synerdocs")
-                                      },
-                                      {
-                                          "add-doc-tag",
-                                          Tuple.Create<Action, string>(AddDocumentTag,
-                                              "Создать дополнительный статус(тэг) к документу")
-                                      },
-                                      {
-                                          "del-doc-tag",
-                                          Tuple.Create<Action, string>(DeleteDocumentTag,
-                                              "Удалить дополнительный статус(тэг), прикрепленный к документу")
-                                      },
-                                      {
-                                          "get-doc-tag",
-                                          Tuple.Create<Action, string>(GetDocumentTag,
-                                              "Показать информацию по дополнительному статусу(тэгу)")
-                                      },
-                                      {
-                                          "add-promocode",
-                                          Tuple.Create<Action, string>(AddOrganizationPromoCode,
-                                              "Добавить промокод в организацию")
-                                      },
-                                      {
-                                          "get-promocode-list",
-                                          Tuple.Create<Action, string>(GetOrganizationPromoCodeList,
-                                              "Список промокодов организации")
-                                      },
-                                      {
-                                          "get-promocode",
-                                          Tuple.Create<Action, string>(GetPromoCodeByName, "Получить промокод")
-                                      },
-                                      {
-                                          "del-promocode",
-                                          Tuple.Create<Action, string>(DeleteOrganizationPromoCode, "Удалить промокод")
-                                      },
-                                      {
-                                          "get-messages-without-content",
-                                          Tuple.Create<Action, string>(GetMessagesWithoutDocumentsSignsContent,
-                                              "Загрузить входящие сообщения без содержимого документов и подписей")
-                                      },
-                                      {
-                                          "send-revocation-offer",
-                                          Tuple.Create<Action, string>(SendRevocationOffer, "Отправить ПОА")
-                                      },
-                                      {
-                                          "send-statement",
-                                          Tuple.Create<Action, string>(SendStatementOfInvoiceReglament,
-                                              "Отправить заявление об участии в ЭДО СФ")
-                                      },
-                                      {
-                                          "download-flow",
-                                          Tuple.Create<Action, string>(DownloadDocumentFlowArchive,
-                                              "Скачать документооборот в архиве")
-                                      },
-                                      {
-                                          "parse-document",
-                                          Tuple.Create<Action, string>(TryParseDocumentContentFromFile,
-                                              "Распарсить документ")
-                                      },
-                                      {
-                                          "download-pdf",
-                                          Tuple.Create<Action, string>(DownloadPdfDocument,
-                                              "Скачать документ в формате pdf")
-                                      },
-                                      {
-                                          "create-non-active-subscriber",
-                                          Tuple.Create<Action, string>(CreateNonActiveSubscriber,
-                                              " Создать неактивного абонента")
-                                      }
-                                  };
+                {
+                    {
+                        "get-boxes",
+                        Tuple.Create<Action, string>(Boxes, "Показать список ящиков")},
+                    {
+                        "set-box",
+                        Tuple.Create<Action, string>(SetBox, "Выбрать ящик")
+                    },
+                    {
+                        "load-messages",
+                        Tuple.Create<Action, string>(LoadMessages, "Загрузить и обработать входящие сообщения")
+                    },
+                    {
+                        "send-docs",
+                        Tuple.Create<Action, string>(() => SendDocuments(FlowType.SentSigned), "Отправить документы")
+                    },
+                    {
+                        "send-unsigned",
+                        Tuple.Create<Action, string>(
+                            () => SendDocuments(FlowType.SentUnsigned),
+                            "Отправить документы без подписи")
+                    },
+                    {
+                        "send-forward",
+                        Tuple.Create<Action, string>(() => SendDocuments(FlowType.SentForward), "Переслать документы")
+                    },
+                    {
+                        "send-internal",
+                        Tuple.Create<Action, string>(
+                            () => SendDocuments(FlowType.SentInternal),
+                            "Отправить документы подразделению")
+                    },
+                    {
+                        "sign-document",
+                        Tuple.Create<Action, string>(SignDocument, "Подписать документ")
+                    },
+                    {
+                        "reject-sign",
+                        Tuple.Create<Action, string>(RejectSign, "Отказать в подписании документа")
+                    },
+                    {
+                        "move-docs",
+                        Tuple.Create<Action, string>(MoveDocuments, "Переместить документы в подразделение")
+                    },
+                    {
+                        "get-doc-entries",
+                        Tuple.Create<Action, string>(GetDocumentEntries, "Список вхождений документов")
+                    },
+                    {
+                        "get-doc-inner",
+                        Tuple.Create<Action, string>(GetInternalDocuments, "Список внутренних документов")
+                    },
+                    {
+                        "get-doc-list",
+                        Tuple.Create<Action, string>(GetDocumentList, "Список документов")
+                    },
+                    {
+                        "get-doc-info",
+                        Tuple.Create<Action, string>(GetDocumentInfo, "Загрузить документ")
+                    },
+                    {
+                        "get-doc-flow",
+                        Tuple.Create<Action, string>(GetDocumentFlow, "Загрузить документ c вхождениями")
+                    },
+                    {
+                        "get-draft-list",
+                        Tuple.Create<Action, string>(GetDraftMessageList, "Список черновиков")
+                    },
+                    {
+                        "get-draft",
+                        Tuple.Create<Action, string>(GetDraftMessage, "Загрузить черновик")},
+                    {
+                        "del-draft",
+                        Tuple.Create<Action, string>(DeleteDraftMessage, "Удалить черновик")
+                    },
+                    {
+                        "get-contacts",
+                        Tuple.Create<Action, string>(GetActiveContacts, "Список активных контактов")
+                    },
+                    {
+                        "del-contact",
+                        Tuple.Create<Action, string>(DeleteContact, "Удалить контакт")},
+                    {
+                        "get-structure",
+                        Tuple.Create<Action, string>(GetOrganizationStructure, "Дерево орг.структуры")
+                    },
+                    {
+                        "add-department",
+                        Tuple.Create<Action, string>(AddOrganizationStructureElement, "Добавить подразделение")
+                    },
+                    {
+                        "edit-department",
+                        Tuple.Create<Action, string>(EditOrganizationStructureElement, "Изменить подразделение")
+                    },
+                    {
+                        "del-department",
+                        Tuple.Create<Action, string>(DeleteOrganizationStructureElement, "Удалить подразделение")
+                    },
+                    {
+                        "accept-reg",
+                        Tuple.Create<Action, string>(AcceptRegulation, "Принять Правила Synerdocs")
+                    },
+                    {
+                        "add-doc-tag",
+                        Tuple.Create<Action, string>(AddDocumentTag, "Создать дополнительный статус(тэг) к документу")
+                    },
+                    {
+                        "del-doc-tag",
+                        Tuple.Create<Action, string>(
+                            DeleteDocumentTag,
+                            "Удалить дополнительный статус(тэг), прикрепленный к документу")
+                    },
+                    {
+                        "get-doc-tag",
+                        Tuple.Create<Action, string>(
+                            GetDocumentTag,
+                            "Показать информацию по дополнительному статусу(тэгу)")
+                    },
+                    {
+                        "add-promocode",
+                        Tuple.Create<Action, string>(AddOrganizationPromoCode, "Добавить промокод в организацию")
+                    },
+                    {
+                        "get-promocode-list",
+                        Tuple.Create<Action, string>(GetOrganizationPromoCodeList, "Список промокодов организации")
+                    },
+                    {
+                        "get-promocode",
+                        Tuple.Create<Action, string>(GetPromoCodeByName, "Получить промокод")
+                    },
+                    {
+                        "del-promocode",
+                        Tuple.Create<Action, string>(DeleteOrganizationPromoCode, "Удалить промокод")
+                    },
+                    {
+                        "get-messages-without-content",
+                        Tuple.Create<Action, string>(
+                            GetMessagesWithoutDocumentsSignsContent,
+                            "Загрузить входящие сообщения без содержимого документов и подписей")
+                    },
+                    {
+                        "send-revocation-offer",
+                        Tuple.Create<Action, string>(SendRevocationOffer, "Отправить ПОА")
+                    },
+                    {
+                        "send-statement",
+                        Tuple.Create<Action, string>(
+                            SendStatementOfInvoiceReglament,
+                            "Отправить заявление об участии в ЭДО счетов-фактур")
+                    },
+                    {
+                        "download-flow",
+                        Tuple.Create<Action, string>(DownloadDocumentFlowArchive, "Скачать документооборот в архиве")
+                    },
+                    {
+                        "parse-document",
+                        Tuple.Create<Action, string>(TryParseDocumentContentFromFile, "Распарсить документ")
+                    },
+                    {
+                        "download-pdf",
+                        Tuple.Create<Action, string>(DownloadPdfDocument, "Скачать документ в формате pdf")
+                    },
+                    {
+                        "create-non-active-subscriber",
+                        Tuple.Create<Action, string>(CreateNonActiveSubscriber, "Создать неактивного абонента")
+                    },
+                    {
+                        "check-simple-sgn",
+                        Tuple.Create<Action,string>(
+                            CheckSimpleSignatureAvailability,
+                            "Проверить доступность подписания документа простой ЭП")
+                    },
+                    {
+                        "accept-simple-sgn",
+                        Tuple.Create<Action,string>(
+                            AcceptSimpleSignatureRegulation,
+                            "Принять регламент использования простой ЭП")
+                    },
+                    {
+                        "prev-simple-sgn",
+                        Tuple.Create<Action,string>(
+                            PreviewSimpleSignatureRequisites,
+                            "Предварительный просмотр реквизитов простой ЭП")
+                    },
+                    {
+                        "crt-simple-sgn",
+                        Tuple.Create<Action,string>(CreateSimpleSignature, "Подписать документ простой ЭП")
+                    },
+                };
 
                 PrintAvailableCommnads(commandsMap);
 
@@ -346,7 +367,7 @@ namespace Midway.ConsoleClient
 
         /// <summary>
         /// Выбрать контрагента (например получателя) из списка доступных для обмена или 
-        /// указать вручную - например: указав ящик конктагента
+        /// указать вручную - например: указав ящик контрагента.
         /// </summary>
         /// <returns></returns>
         private MessageRecipient ChooseExternalRecipient(List<string> selectedContactList)
@@ -387,7 +408,7 @@ namespace Midway.ConsoleClient
                             (c, i) =>
                                 new UserInput.Option((i + 1).ToString(CultureInfo.InvariantCulture), c.ContragentName,
                                     i == 0, c)));
-                var contactSearchItem = ((ContactSearchItem) contragentOption.Data);
+                var contactSearchItem = ((ContactSearchItem)contragentOption.Data);
                 organizationId = contactSearchItem.ContragentId.ToString(CultureInfo.InvariantCulture);
                 boxAddress = contactSearchItem.BoxAddress;
             }
@@ -408,7 +429,7 @@ namespace Midway.ConsoleClient
 
                 var organization = _context.ServiceClient.GetOrganizationBy(_context.CurrentBox,
                     OrganizationByCriteria.ByBoxAddress,
-                    new OrganizationByCriteriaValues {BoxAddress = address});
+                    new OrganizationByCriteriaValues { BoxAddress = address });
 
                 if (organization == null)
                 {
@@ -420,7 +441,7 @@ namespace Midway.ConsoleClient
                 boxAddress = organization.BoxAddress;
             }
 
-            var messageRecipient = new MessageRecipient {OrganizationBoxId = boxAddress};
+            var messageRecipient = new MessageRecipient { OrganizationBoxId = boxAddress };
 
             if (UserInput.ChooseYesNo("Указать подразделение"))
             {
@@ -484,7 +505,7 @@ namespace Midway.ConsoleClient
                             (c, i) =>
                                 new UserInput.Option((i + 1).ToString(CultureInfo.InvariantCulture), c.ContragentName,
                                     i == 0, c)));
-                var contactSearchItem = ((ContactSearchItem) contragentOption.Data);
+                var contactSearchItem = ((ContactSearchItem)contragentOption.Data);
                 boxAddress = contactSearchItem.BoxAddress;
             }
             else
@@ -492,7 +513,7 @@ namespace Midway.ConsoleClient
                 var address = UserInput.ReadParameter("Введите адрес контрагента");
                 var organization = _context.ServiceClient.GetOrganizationBy(_context.CurrentBox,
                     OrganizationByCriteria.ByBoxAddress,
-                    new OrganizationByCriteriaValues {BoxAddress = address});
+                    new OrganizationByCriteriaValues { BoxAddress = address });
 
                 if (organization == null)
                 {
@@ -520,7 +541,7 @@ namespace Midway.ConsoleClient
                     .ToList();
 
             var chooseOption = UserInput.ChooseOption("Выберите подразделение получателя", depInputOptions);
-            return (OrganizationStructureElement) chooseOption.Data;
+            return (OrganizationStructureElement)chooseOption.Data;
         }
 
         private User ChooseUser(string departmentId)
@@ -538,9 +559,9 @@ namespace Midway.ConsoleClient
 
             if (chooseOption != fromList)
                 return new User
-                       {
-                           Login = UserInput.ReadParameter("Укажите логин пользователя")
-                       };
+                {
+                    Login = UserInput.ReadParameter("Укажите логин пользователя")
+                };
 
             var userList = _context.ServiceClient.GetDepartmentEmployees(_context.CurrentBox, departmentId);
             if (userList.Length == 0)
@@ -555,11 +576,11 @@ namespace Midway.ConsoleClient
                     string.Format("{0} {1} {2}", u.LastName, u.FirstName, u.MiddleName),
                     i == 0,
                     u)));
-            return (User) userOption.Data;
+            return (User)userOption.Data;
         }
 
         /// <summary>
-        /// Выбрать директорию
+        /// Выбрать директорию.
         /// </summary>
         /// <returns></returns>
         private static string ChooseDirectory()
@@ -576,12 +597,12 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Запрашивает у пользователя тип документооборота
+        /// Запрашивает у пользователя тип документооборота.
         /// </summary>
-        /// <returns>Тип документооборота</returns>
+        /// <returns>Тип документооборота.</returns>
         private FlowType ChooseFlowType()
         {
-            return (FlowType) int.Parse(UserInput
+            return (FlowType)int.Parse(UserInput
                 .ChooseOption("Выберите тип документооборота", new[]
                                                                {
                                                                    new UserInput.Option(
@@ -601,14 +622,10 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Отправить документы
+        /// Отправить документы.
         /// </summary>
         private void SendDocuments(FlowType flowType)
         {
-            // нужен сертификат
-            if (flowType != FlowType.SentUnsigned && _context.Certificate == null)
-                ChooseCertificate();
-
             var externalRecipients = new List<MessageRecipient>();
             var internalRecipients = new List<InternalMessageRecipient>();
             do
@@ -677,7 +694,7 @@ namespace Midway.ConsoleClient
 
             if (chosenOption == sendMessageOption)
             {
-                if (message.Documents != null 
+                if (message.Documents != null
                     && message.Documents.Any(_ => _.DocumentType.IsEdiDocument()))
                 {
                     UserInput.Information("В сообщении для отправки обнаружены EDI-документы");
@@ -769,50 +786,19 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Подписание документа
+        /// Подписание документа.
         /// </summary>
         private void SignDocument()
         {
-            // нужен сертификат
-            if (_context.Certificate == null)
-                ChooseCertificate();
-
             var flowType = ChooseFlowType();
-            var documentId = UserInput.ReadParameter("Введите ИД документа");
-            byte[] signData;
-            if (UserInput.ChooseYesNo("Загрузить подпись из файла", false))
-            {
-                do
-                {
-                    var signPath = UserInput.ReadParameter("Введите имя файла, содержащего подпись");
-                    if (!Path.IsPathRooted(signPath))
-                        signPath = Path.Combine(Environment.CurrentDirectory, signPath);
-                    if (!File.Exists(signPath))
-                    {
-                        UserInput.Error("Файл не найден {0}", signPath);
-                        continue;
-                    }
-                    signData = File.ReadAllBytes(signPath);
-                    break;
-                } while (true);
-            }
-            else
-            {
-                signData = CryptoApiHelper.Sign(
-                    _context.Certificate,
-                    _context.ServiceClient.GetDocumentContent(_context.CurrentBox, documentId), true);
-            }
-
-            var sign = new Sign
-                       {
-                           From = _context.CurrentBox,
-                           DocumentId = documentId,
-                           Raw = signData
-                       };
+            var signature = ChooseSignature();
 
             try
             {
-                _context.ServiceClient.SignDocument(flowType, sign);
+                if (signature is Sign)
+                    _context.ServiceClient.SignDocument(flowType, (Sign)signature);
+                else
+                    _context.ServiceClient.SignDocumentWithSimpleSignature(flowType, (SimpleSignature)signature);
                 UserInput.Success("Документ был успешно подписан");
             }
             catch (Exception ex)
@@ -822,7 +808,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Отказать в подписании
+        /// Отказать в подписании.
         /// </summary>
         private void RejectSign()
         {
@@ -831,11 +817,11 @@ namespace Midway.ConsoleClient
             var comment = UserInput.ReadParameter("Введите уведомление об уточнении");
 
             var rejectSign = new RejectSign
-                             {
-                                 From = _context.CurrentBox,
-                                 DocumentId = documentId,
-                                 Comment = comment
-                             };
+            {
+                From = _context.CurrentBox,
+                DocumentId = documentId,
+                Comment = comment
+            };
 
             try
             {
@@ -903,15 +889,15 @@ namespace Midway.ConsoleClient
         private static DraftForwardDocument ConvertToDraftForwardDocument(ForwardDocument document)
         {
             return new DraftForwardDocument
-                   {
-                       OriginalDocumentId = document.OriginalDocumentId,
-                       NeedSign = document.NeedSign,
-                       Comment = document.Comment
-                   };
+            {
+                OriginalDocumentId = document.OriginalDocumentId,
+                NeedSign = document.NeedSign,
+                Comment = document.Comment
+            };
         }
 
         /// <summary>
-        /// Преобразование документа в документ черновика
+        /// Преобразование документа в документ черновика.
         /// </summary>
         /// <param name="document"></param>
         /// <returns></returns>
@@ -955,7 +941,7 @@ namespace Midway.ConsoleClient
                     },
                 },
             };
-            
+
             draftDocument.DocumentType = ChooseDocumentType("Выберите тип ЮЗЭДО-документа для конвертации",
                 includeUntyped: false,
                 includeEdi: false);
@@ -1006,65 +992,65 @@ namespace Midway.ConsoleClient
         private static DraftMessage ConvertToDraftMessage(Message message)
         {
             return new DraftMessage
-                   {
-                       Id = message.Id,
-                       SenderBoxId = message.From,
-                       Recipients = message.Recipients,
-                       Documents = message.Documents
+            {
+                Id = message.Id,
+                SenderBoxId = message.From,
+                Recipients = message.Recipients,
+                Documents = message.Documents
                            .Select(ConvertToDraftDocument)
                            .ToArray(),
-                       RelatedDocuments =
+                RelatedDocuments =
                            message.Documents.Where(x => !string.IsNullOrWhiteSpace(x.ParentDocumentId))
-                           .Select(x => new DraftMessageRelation {DocumentId = x.ParentDocumentId})
+                           .Select(x => new DraftMessageRelation { DocumentId = x.ParentDocumentId })
                            .ToArray()
-                   };
+            };
         }
 
         private static DraftMessage ConvertToDraftMessage(UnsignedMessage message)
         {
             return new DraftMessage
-                   {
-                       Id = Guid.NewGuid().ToString(),
-                       SenderBoxId = message.From,
-                       Recipients = message.Recipients,
-                       Documents = message.Documents
+            {
+                Id = Guid.NewGuid().ToString(),
+                SenderBoxId = message.From,
+                Recipients = message.Recipients,
+                Documents = message.Documents
                            .Select(ConvertToDraftDocument)
                            .ToArray()
-                   };
+            };
         }
 
         private static DraftMessage ConvertToDraftMessage(ForwardMessage message)
         {
             return new DraftMessage
-                   {
-                       Id = Guid.NewGuid().ToString(),
-                       SenderBoxId = message.From,
-                       Recipients = message.Recipients,
-                       Documents = message.Documents != null
+            {
+                Id = Guid.NewGuid().ToString(),
+                SenderBoxId = message.From,
+                Recipients = message.Recipients,
+                Documents = message.Documents != null
                            ? message.Documents
                            .Select(ConvertToDraftDocument)
                            .ToArray()
                            : null,
-                       ForwardDocuments = message.ForwardDocuments
+                ForwardDocuments = message.ForwardDocuments
                            .Select(ConvertToDraftForwardDocument)
                            .ToArray()
-                   };
+            };
         }
 
         private static DraftMessage ConvertToDraftMessage(InternalMessage message)
         {
             return new DraftMessage
-                   {
-                       Id = Guid.NewGuid().ToString(),
-                       SenderBoxId = message.BoxId,
-                       InternalRecipients = message.Recipients,
-                       Documents = message.Documents != null
+            {
+                Id = Guid.NewGuid().ToString(),
+                SenderBoxId = message.BoxId,
+                InternalRecipients = message.Recipients,
+                Documents = message.Documents != null
                            ? message.Documents
                            .Select(ConvertToDraftDocument)
                            .ToArray()
                            : null,
-                       SendMode = DraftMessageSendMode.Internal
-                   };
+                SendMode = DraftMessageSendMode.Internal
+            };
         }
 
         private void GetDocumentFlow()
@@ -1147,12 +1133,12 @@ namespace Midway.ConsoleClient
             var incoming = UserInput.ChooseYesNo("Входящие");
             var documentListOptions =
                 new DocumentListOptions
-                    {
-                        BoxTo = incoming ? _context.CurrentBox : null,
-                        BoxFrom = !incoming ? _context.CurrentBox : null,
-                        First = 0,
-                        Max = 10
-                    };
+                {
+                    BoxTo = incoming ? _context.CurrentBox : null,
+                    BoxFrom = !incoming ? _context.CurrentBox : null,
+                    First = 0,
+                    Max = 10
+                };
 
             if (UserInput.ChooseYesNo("Указать параметры фильтрации", false))
                 FillDocumentListOptions(documentListOptions);
@@ -1168,7 +1154,7 @@ namespace Midway.ConsoleClient
 
                 foreach (var documentListEntry in documentList.Items)
                 {
-                    var documentType = (DocumentType) documentListEntry.DocumentTypeEnum.Code;
+                    var documentType = (DocumentType)documentListEntry.DocumentTypeEnum.Code;
                     var executedFunction = GetDocumentExecutedFunction(documentType, documentListEntry.Id);
                     var executedFunctionText = executedFunction != null
                         ? $" ({executedFunction.Name})"
@@ -1199,12 +1185,12 @@ namespace Midway.ConsoleClient
         {
             var incoming = UserInput.ChooseYesNo("Входящие");
             var documentEntryOptions = new DocumentEntryOptions
-                                       {
-                                           BoxTo = incoming ? _context.CurrentBox : null,
-                                           BoxFrom = !incoming ? _context.CurrentBox : null,
-                                           First = 0,
-                                           Max = 10
-                                       };
+            {
+                BoxTo = incoming ? _context.CurrentBox : null,
+                BoxFrom = !incoming ? _context.CurrentBox : null,
+                First = 0,
+                Max = 10
+            };
 
             if (UserInput.ChooseYesNo("Указать параметры фильтрации", false))
             {
@@ -1234,7 +1220,7 @@ namespace Midway.ConsoleClient
 
                 foreach (var documentEntryItem in documentEntries.Items)
                 {
-                    var documentType = (DocumentType) documentEntryItem.DocumentTypeEnum.Code;
+                    var documentType = (DocumentType)documentEntryItem.DocumentTypeEnum.Code;
                     var executedFunction = GetDocumentExecutedFunction(documentType, documentEntryItem.DocumentId);
                     var executedFunctionText = executedFunction != null
                         ? $" ({executedFunction.Name})"
@@ -1330,7 +1316,7 @@ namespace Midway.ConsoleClient
                 documentListOptions.DocumentSignStatuses = signStatuses.ToArray();
             }
 
-            if (UserInput.ChooseYesNo("Фильтровать по статусам СФ?", false))
+            if (UserInput.ChooseYesNo("Фильтровать по статусам счетов-фактур?", false))
             {
                 var invoiceStatuses = new List<InvoiceFlowStatus>();
                 if (UserInput.ChooseYesNo("Отправлен"))
@@ -1347,7 +1333,7 @@ namespace Midway.ConsoleClient
             if (UserInput.ChooseYesNo("Фильтровать по статусу требования подтверждения получения?", false))
             {
                 documentListOptions.NeedReceipt =
-                    (bool?) UserInput.ChooseOption("Требуется подтверждение получения?",
+                    (bool?)UserInput.ChooseOption("Требуется подтверждение получения?",
                         new[]
                         {
                             new UserInput.Option("1", "Да", true, true),
@@ -1360,7 +1346,7 @@ namespace Midway.ConsoleClient
             {
                 var revocationStatuses = new List<DocumentRevocationStatus>();
                 foreach (var revocationStatus in Enum
-                    .GetValues(typeof (DocumentRevocationStatus))
+                    .GetValues(typeof(DocumentRevocationStatus))
                     .Cast<DocumentRevocationStatus>())
                     if (UserInput.ChooseYesNo(EnumHelper.GetDescription(revocationStatus)))
                         revocationStatuses.Add(revocationStatus);
@@ -1376,16 +1362,16 @@ namespace Midway.ConsoleClient
 
         /// <summary>
         /// Обработка консольной команды:
-        /// получение и отображение списка внутренних документов
+        /// получение и отображение списка внутренних документов.
         /// </summary>
         private void GetInternalDocuments()
         {
             var internalListOptions = new InternalListOptions
-                                      {
-                                          BoxId = _context.CurrentBox,
-                                          First = 0,
-                                          Max = 10
-                                      };
+            {
+                BoxId = _context.CurrentBox,
+                First = 0,
+                Max = 10
+            };
 
             if (UserInput.ChooseYesNo("Указать параметры фильтрации", false))
             {
@@ -1398,7 +1384,7 @@ namespace Midway.ConsoleClient
                 {
                     var senderDepartment = ChooseOrganizationStructureElement(currentOrganizationId);
                     if (senderDepartment != null)
-                        internalListOptions.SenderDepartmentIds = new[] {senderDepartment.Id};
+                        internalListOptions.SenderDepartmentIds = new[] { senderDepartment.Id };
                 }
 
                 if (UserInput.ChooseYesNo("Указать подразделение получателя"))
@@ -1406,12 +1392,12 @@ namespace Midway.ConsoleClient
                     var recipientDepartment = ChooseOrganizationStructureElement(currentOrganizationId);
                     if (recipientDepartment != null)
                     {
-                        internalListOptions.RecipientDepartmentIds = new[] {recipientDepartment.Id};
+                        internalListOptions.RecipientDepartmentIds = new[] { recipientDepartment.Id };
                         if (UserInput.ChooseYesNo("Указать пользователя получателя"))
                         {
                             var recipientUser = ChooseUser(recipientDepartment.Id);
                             if (recipientUser != null)
-                                internalListOptions.RecipientUserLogins = new[] {recipientUser.Login};
+                                internalListOptions.RecipientUserLogins = new[] { recipientUser.Login };
                         }
                     }
                 }
@@ -1471,10 +1457,10 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Получение текстового предстваления для статуса документооборота
+        /// Получение текстового предстваления для статуса документооборота.
         /// </summary>
         /// <param name="from"></param>
-        /// <param name="status">>статус документооборота</param>
+        /// <param name="status">>статус документооборота.</param>
         /// <param name="statusDescription"></param>
         /// <returns></returns>
         private string GetStatusText(string from, DocumentFlowStatus status,
@@ -1497,9 +1483,9 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Получение текстового предстваления для статуса документооборота
+        /// Получение текстового предстваления для статуса документооборота.
         /// </summary>
-        /// <param name="statusDescription">статус документооборота</param>
+        /// <param name="statusDescription">статус документооборота.</param>
         /// <returns></returns>
         private string GetStatusText(DocumentFlowStatusDescription statusDescription)
         {
@@ -1514,19 +1500,19 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Получить список черновиков
+        /// Получить список черновиков.
         /// </summary>
         private void GetDraftMessageList()
         {
             var settings = new FetchingSettings
-                           {
-                               Sorting = null, // Сортировка по умолчанию
-                               Paging = new PageSettings
-                                        {
-                                            First = 0,
-                                            PageSize = 10
-                                        }
-                           };
+            {
+                Sorting = null, // Сортировка по умолчанию
+                Paging = new PageSettings
+                {
+                    First = 0,
+                    PageSize = 10
+                }
+            };
 
             ShowDraftMessageSearchResult(
                 () => _context.ServiceClient.GetDraftMessageList(settings, _context.CurrentBox),
@@ -1534,7 +1520,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Отобразить результат поиска черновиков с постраничной паджинацией
+        /// Отобразить результат поиска черновиков с постраничной паджинацией.
         /// </summary>
         /// <param name="func"></param>
         /// <param name="pageSettings"></param>
@@ -1576,7 +1562,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Получить черновик
+        /// Получить черновик.
         /// </summary>
         private void GetDraftMessage()
         {
@@ -1625,7 +1611,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Удалить черновик
+        /// Удалить черновик.
         /// </summary>
         private void DeleteDraftMessage()
         {
@@ -1648,18 +1634,18 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Добавить документ к неотправленному сообщению
+        /// Добавить документ к неотправленному сообщению.
         /// </summary>
-        /// <param name="message">Сообщение</param>
-        /// <param name="document">Документ</param>
-        /// <param name="sign">Подпись в формате CMS</param>
-        private Message AddDocumentToNewMessage(Message message, Document document, byte[] sign)
+        /// <param name="message">Сообщение.</param>
+        /// <param name="document">Документ.</param>
+        /// <param name="sign">Подпись в формате CMS.</param>
+        private Message AddDocumentToNewMessage(Message message, Document document, ISignature signature)
         {
-            return MessageFactory.AddDocumentToNewMessage(message, document, sign);
+            return MessageFactory.AddDocumentWithSignature(message, document, signature);
         }
 
         /// <summary>
-        /// Выбрать сертификат из списка установленных
+        /// Выбрать сертификат из списка установленных.
         /// </summary>
         private void ChooseCertificate()
         {
@@ -1682,16 +1668,16 @@ namespace Midway.ConsoleClient
                     // получаем Common Name (CN) из сертификата
                     c.GetNameInfo(X509NameType.SimpleName, false),
                     i == 0, c)));
-            var certificate = (X509Certificate2) chooseOption.Data;
+            var certificate = (X509Certificate2)chooseOption.Data;
             Console.Out.WriteLine("Выбран сертификат {0}", certificate.Subject);
             _context.Certificate = certificate;
         }
 
         /// <summary>
-        /// Выбрать дату
+        /// Выбрать дату.
         /// </summary>
         /// <param name="from">Начало?</param>
-        /// <returns>Выбранная дата</returns>
+        /// <returns>Выбранная дата.</returns>
         private DateTime? ChooseDate(bool from)
         {
             do
@@ -1710,15 +1696,10 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Загрузка и обработка входящих сообщений
+        /// Загрузка и обработка входящих сообщений.
         /// </summary>
         private void LoadMessages()
         {
-            if (_context.Certificate == null)
-            {
-                ChooseCertificate();
-            }
-
             // загружаем входящие сообщения в цикле по 100 шт маскимум
             MessageInfo[] messages;
             var count = 0;
@@ -1730,19 +1711,10 @@ namespace Midway.ConsoleClient
                 {
                     UserInput.Separator();
                     var message = _context.ServiceClient.GetMessage(_context.CurrentBox, messageInfo.Id);
-                    var organization = _context.ServiceClient.GetOrganizationBy(_context.CurrentBox,
-                        OrganizationByCriteria.ByBoxAddress,
-                        new OrganizationByCriteriaValues {BoxAddress = messageInfo.From});
-                    var department =
-                        _context.ServiceClient.GetOrganizationStructure(_context.CurrentBox, organization.OrganizationId)
-                            .First(d => d.Id == message.FromDepartment);
+
                     Console.Out.WriteLine("Обрабатывается сообщение");
-                    PrintProperty("Id", messageInfo.Id);
-                    PrintProperty("From", messageInfo.From);
-                    PrintProperty("FromDepartment", department.Name);
-                    PrintProperty("Дата", message.SentDate);
-                    PrintProperty("Документы", message.Documents.Length);
-                    PrintProperty("Подписи", message.Signs.Length);
+
+                    PrintMessageProperties(messageInfo, message);
                     ProcessMessage(message, _context);
                     _context.LastProcessedMessageId = message.Id;
                     _context.SaveLastProcessedMessageId();
@@ -1755,15 +1727,33 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Загрузка входящих сообщений без содержимого документов и подписей
+        /// Вывести информацию об обрабатываемом сообщении.
+        /// </summary>
+        /// <param name="messageInfo">Информация о сообщении.</param>
+        /// <param name="message">Сообщение.</param>
+        private void PrintMessageProperties(MessageInfo messageInfo, Message message)
+        {
+            var organization = _context.ServiceClient.GetOrganizationBy(_context.CurrentBox,
+                        OrganizationByCriteria.ByBoxAddress,
+                        new OrganizationByCriteriaValues { BoxAddress = messageInfo.From });
+            var department =
+                _context.ServiceClient.GetOrganizationStructure(_context.CurrentBox, organization.OrganizationId)
+                    .First(d => d.Id == message.FromDepartment);
+
+            PrintProperty("Id", messageInfo.Id);
+            PrintProperty("From", messageInfo.From);
+            PrintProperty("FromDepartment", department.Name);
+            PrintProperty("Дата", message.SentDate);
+            PrintProperty("Документы", message.Documents.Length);
+            PrintProperty("Усиленные подписи", message.Signs.Length);
+            PrintProperty("Простые подписи", message.SimpleSignatures.Length);
+        }
+
+        /// <summary>
+        /// Загрузка входящих сообщений без содержимого документов и подписей.
         /// </summary>
         private void GetMessagesWithoutDocumentsSignsContent()
         {
-            if (_context.Certificate == null)
-            {
-                ChooseCertificate();
-            }
-
             MessageInfo[] messages;
             var count = 0;
             string lastMessageId = null;
@@ -1776,25 +1766,15 @@ namespace Midway.ConsoleClient
                     UserInput.Separator();
 
                     var messageRequestParam = new MessageRequestParams()
-                                              {
-                                                  GetDocumentContent = false,
-                                                  GetSignContent = false
-                                              };
+                    {
+                        GetDocumentContent = false,
+                        GetSignContent = false
+                    };
 
                     var message = _context.ServiceClient.GetMessageWithLoadOptions(_context.CurrentBox, messageInfo.Id,
                         messageRequestParam);
-                    var organization = _context.ServiceClient.GetOrganizationBy(_context.CurrentBox,
-                        OrganizationByCriteria.ByBoxAddress,
-                        new OrganizationByCriteriaValues {BoxAddress = messageInfo.From});
-                    var department =
-                        _context.ServiceClient.GetOrganizationStructure(_context.CurrentBox, organization.OrganizationId)
-                            .First(d => d.Id == message.FromDepartment);
-                    PrintProperty("Id", messageInfo.Id);
-                    PrintProperty("From", messageInfo.From);
-                    PrintProperty("FromDepartment", department.Name);
-                    PrintProperty("Дата", message.SentDate);
-                    PrintProperty("Документы", message.Documents.Length);
-                    PrintProperty("Подписи", message.Signs.Length);
+
+                    PrintMessageProperties(messageInfo, message);
                     lastMessageId = message.Id;
                 }
 
@@ -1810,11 +1790,11 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Обработка входящего сообщения
+        /// Обработка входящего сообщения.
         /// </summary>
         /// <param name="message"></param>
         /// <param name="ctx"></param>
-        /// <returns><c>true</c>, если сообщение было успешно обработано, иначе <c>false</c></returns>
+        /// <returns><c>true</c>, если сообщение было успешно обработано, иначе <c>false</c>.</returns>
         private bool ProcessMessage(Message message, ClientContext ctx)
         {
             var documentId = string.Empty;
@@ -1828,14 +1808,23 @@ namespace Midway.ConsoleClient
                     }
 
                 // обрабатываем подписи присланные от получателей документов
-                var signsFromRecipient =
+                var strongSignaturesFromRecipient =
                     message.Signs.Where(s => message.Documents.All(d => d.Id != s.DocumentId)).ToList();
-                foreach (var sign in signsFromRecipient)
-                    if (string.IsNullOrEmpty(sign.ParentId))
+                foreach (var signature in strongSignaturesFromRecipient)
+                    if (string.IsNullOrEmpty(signature.ParentId))
                     {
-                        documentId = sign.DocumentId;
-                        ProcessSign(sign);
+                        documentId = signature.DocumentId;
+                        ProcessSign(signature);
                     }
+
+                var simpleSignaturesFromRecipient =
+                    message.SimpleSignatures.Where(s => message.Documents.All(d => d.Id != s.DocumentId)).ToList();
+                foreach (var signature in simpleSignaturesFromRecipient)
+                {
+                    documentId = signature.DocumentId;
+                    ProcessSign(signature);
+                }
+
                 return true;
             }
             catch (ServerException ex)
@@ -1847,7 +1836,7 @@ namespace Midway.ConsoleClient
                 if (ex.Code == ServiceErrorCode.AccessDeniedError)
                 {
                     UserInput.Warning(
-                        "Не доступа к документу {0}. Загрузка сообщения {1} пропущена.",
+                        "Нет доступа к документу {0}. Загрузка сообщения {1} пропущена.",
                         documentId,
                         message.Id);
                     return false;
@@ -1856,13 +1845,13 @@ namespace Midway.ConsoleClient
             }
         }
 
-        private void ProcessSign(Sign sign)
+        private void ProcessSign(Sign signature)
         {
             UserInput.Separator();
 
-            var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, sign.DocumentId);
+            var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, signature.DocumentId);
             Console.Out.WriteLine("Обрабатывается подпись на документ {0}", DocumentShortName(documentInfo));
-            var certificate = CheckSignAndGetCertificate(documentInfo, sign);
+            var certificate = CheckSignAndGetCertificate(documentInfo, signature);
             if (certificate != null)
             {
                 UserInput.Success("Подпись корректна, контрагент подписал документ {0}",
@@ -1870,8 +1859,33 @@ namespace Midway.ConsoleClient
             }
         }
 
+        private void ProcessSign(SimpleSignature signature)
+        {
+            UserInput.Separator();
+
+            var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, signature.DocumentId);
+            Console.Out.WriteLine("Обрабатывается подпись на документ {0}", DocumentShortName(documentInfo));
+
+            var document = documentInfo.Document;
+            if (document.NeedReceipt && IsNoticeRequired(documentInfo))
+            {
+                UserInput.Warning("Не удалось проверить подпись документа т.к. на него запрошено УОП");
+                return;
+            }
+
+            if (signature.IsValid)
+            {
+                UserInput.Success("Подпись корректна, контрагент подписал документ {0}", DocumentShortName(documentInfo));
+            }
+            else
+            {
+                UserInput.Error("Подпись на документ {0} недействительна", document.Id);
+                return;
+            }
+        }
+
         /// <summary>
-        /// Обработка входящего документа
+        /// Обработка входящего документа.
         /// </summary>
         /// <param name="message"></param>
         /// <param name="document"></param>
@@ -1882,7 +1896,7 @@ namespace Midway.ConsoleClient
             // для СД это тип (по типу разное отображение), подпись, к какому документу относится
             // для НД название, подпись, ожидается ли подпись
             var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, document.Id);
-            var documentType = (DocumentType) documentInfo.Document.DocumentTypeEnum.Code;
+            var documentType = (DocumentType)documentInfo.Document.DocumentTypeEnum.Code;
             UserInput.Separator();
             Console.Out.Write("Обрабатывается ");
             PrintDocumentInfo(documentInfo);
@@ -1900,7 +1914,7 @@ namespace Midway.ConsoleClient
                 ProcessRejectSign(document);
 
             // СФ
-            else if (documentType == DocumentType.Invoice)
+            else if (documentType.IsInvoice())
                 ProcessInvoice(message, documentInfo);
 
             // СФ: подтверждение о дате отправки/приема 
@@ -1911,13 +1925,13 @@ namespace Midway.ConsoleClient
             else if (documentType == DocumentType.ServiceInvoiceAmendmentRequest)
                 ProcessServiceInvoiceAmendmentRequest(message, documentInfo);
 
-            // Товарная накладная / Акт о выполнении работ: титул продавца / титул исполнителя
-            else if (documentType.In(DocumentType.WaybillSeller, DocumentType.ActOfWorkSeller))
-                ProcessFormalizedDocument(message, documentInfo);
+            // ТН / АКТ / ДПТ / ДПРР / УПД / УКД : титул продавца / исполнителя
+            else if (documentType.IsSellerTitle())
+                ProcessSellerTitle(message, documentInfo);
 
-            // Товарная накладная / Акт о выполнении работ : титул покупателя / заказчика
-            else if (documentType.In(DocumentType.WaybillBuyer, DocumentType.ActOfWorkBuyer))
-                ProcessTitleBuyer(document);
+            // ТН / АКТ / ДПТ / ДПРР / УПД / УКД : титул покупателя / заказчика
+            else if (documentType.IsBuyerTitle())
+                ProcessBuyerTitle(document);
 
             // Предложение об аннулировании
             else if (documentType == DocumentType.RevocationOffer)
@@ -1929,7 +1943,7 @@ namespace Midway.ConsoleClient
         private void PrintDocumentInfo(FullDocumentInfo fullDocumentInfo)
         {
             var document = fullDocumentInfo.Document;
-            var documentType = (DocumentType) document.DocumentTypeEnum.Code;
+            var documentType = (DocumentType)document.DocumentTypeEnum.Code;
             Console.Out.WriteLine(DocumentShortName(fullDocumentInfo));
             PrintProperty("Id", document.Id);
             PrintProperty("Тип", documentType);
@@ -1941,11 +1955,11 @@ namespace Midway.ConsoleClient
                     DocumentType.ActOfWorkSeller,
                     DocumentType.RevocationOffer))
                 {
-                    PrintProperty("Подписание", ((UntypedDocumentFlowStatus) fullDocumentInfo.Status).SignStatus);
+                    PrintProperty("Подписание", ((UntypedDocumentFlowStatus)fullDocumentInfo.Status).SignStatus);
                 }
                 else if (documentType == DocumentType.Invoice)
                 {
-                    var invoiceDocumentFlowStatus = (InvoiceDocumentFlowStatus) fullDocumentInfo.Status;
+                    var invoiceDocumentFlowStatus = (InvoiceDocumentFlowStatus)fullDocumentInfo.Status;
                     PrintProperty("Номер", invoiceDocumentFlowStatus.Number);
                     PrintProperty("От", invoiceDocumentFlowStatus.Date);
                     PrintProperty("Сумма", invoiceDocumentFlowStatus.Total);
@@ -1972,21 +1986,28 @@ namespace Midway.ConsoleClient
             }
 
             if (fullDocumentInfo.Signs != null)
-                foreach (var sign in fullDocumentInfo.Signs)
+                foreach (var signature in fullDocumentInfo.Signs)
                 {
-                    var certificate = CheckSignAndGetCertificate(fullDocumentInfo, sign);
-                    if (certificate != null)
-                    {
-                        PrintProperty("Подпись", certificate.GetNameInfo(X509NameType.SimpleName, false));
-                        if (sign.TimeStamp != DateTime.MinValue)
-                            PrintProperty("Штамп времени", sign.TimeStamp);
-                        else
-                            PrintProperty("Штамп времени", "отсутствует");
-                    }
+                    var certificate = CheckSignAndGetCertificate(fullDocumentInfo, signature);
+                    if (certificate == null)
+                        continue;
+
+                    PrintProperty("Усиленная ЭП", certificate.GetNameInfo(X509NameType.SimpleName, false));
+                    PrintProperty("Штамп времени", signature.TimeStamp != DateTime.MinValue
+                        ? signature.TimeStamp
+                        : (object)"отсутствует");
+                }
+
+            if (fullDocumentInfo.SimpleSignatures != null)
+                foreach (var signature in fullDocumentInfo.SimpleSignatures)
+                {
+                    PrintProperty("Простая ЭП", GetSignatureSubject(signature));
+                    PrintProperty("Подписан в", signature.SignedAt);
                 }
 
             PrintProperty("Имя файла", document.FileName);
-            // PrintProperty("Размер", document.FileSize);
+            PrintProperty("Размер", document.FileSize);
+
             if (documentType.In(DocumentType.Invoice,
                 DocumentType.Untyped,
                 DocumentType.WaybillSeller,
@@ -1999,7 +2020,7 @@ namespace Midway.ConsoleClient
                     foreach (var serviceDocument in fullDocumentInfo.ServiceDocuments)
                         Console.Out.WriteLine("\t\t{0} {1}",
                             serviceDocument.FileName,
-                            (DocumentType) serviceDocument.DocumentTypeEnum.Code);
+                            (DocumentType)serviceDocument.DocumentTypeEnum.Code);
                 }
                 if (fullDocumentInfo.RelatedDocuments != null)
                 {
@@ -2007,7 +2028,7 @@ namespace Midway.ConsoleClient
                     foreach (var relatedDocument in fullDocumentInfo.RelatedDocuments)
                         Console.Out.WriteLine("\t\t{0} {1}",
                             relatedDocument.FileName,
-                            (DocumentType) relatedDocument.DocumentTypeEnum.Code);
+                            (DocumentType)relatedDocument.DocumentTypeEnum.Code);
                 }
             }
         }
@@ -2062,50 +2083,55 @@ namespace Midway.ConsoleClient
                 FileHelper.WriteAllBytes(directoryPath, cardFileName, fullDocumentInfo.Document.Card);
             }
 
+            // аггрегируем все подписи
+            var signatures = (fullDocumentInfo.Signs ?? Enumerable.Empty<ISignature>())
+                .Concat(fullDocumentInfo.SimpleSignatures ?? Enumerable.Empty<ISignature>())
+                .ToList();
+
             // сохраняем подписи, если есть
-            if (fullDocumentInfo.Signs != null)
+            foreach (var signature in signatures)
             {
-                foreach (var sign in fullDocumentInfo.Signs)
-                {
-                    var signFileName = sign.Subject + ".sig";
-
-                    Console.Out.WriteLine("Сохранение подписи '{0}'", signFileName);
-                    FileHelper.WriteAllBytes(directoryPath, signFileName, sign.Raw);
-                }
-
-                //Получение усовершенствованных подписей
-                if (!UserInput.ChooseYesNo("Получить усовершенствованные подписи?"))
-                    return;
-                foreach (var sign in fullDocumentInfo.Signs)
-                {
-                    var signFileName = sign.Subject + ".sig";
-                    Console.Out.WriteLine("Получение усовершенствованной подписи для '{0}'", signFileName);
-                    EnhancedSign enhancedSign;
-                    try
-                    {
-                        enhancedSign = _context.ServiceClient.GetEnhancedSignById(_context.CurrentBox, sign.Id);
-                    }
-                    catch (Exception exc)
-                    {
-                        Console.Error.WriteLine(exc.Message);
-                        continue;
-                    }
-                    if (enhancedSign.CreateStatus == EnhancedSignCreateStatus.Failed)
-                        Console.Out.WriteLine("Не удалось создать усовершенствованную подпись для {0}: {1}",
-                            signFileName, enhancedSign.FailedInfo.Message);
-                    else if (enhancedSign.CreateStatus == EnhancedSignCreateStatus.InProgress)
-                        Console.Out.WriteLine(
-                            "Усовершенствованная подпись для {0} еще не создана, запросите еще раз {1}", signFileName,
-                            enhancedSign.CreateTime.ToString("dd.MM.yyyy hh:mm:ss UTC"));
-                    else
-                    {
-                        var enhancedSignFileName = sign.Subject + ".enhanced.sig";
-                        Console.Out.WriteLine("Сохранение усовершенствованной подписи '{0}'", enhancedSignFileName);
-                        FileHelper.WriteAllBytes(directoryPath, enhancedSignFileName, enhancedSign.Raw);
-                    }
-                }
-                // TODO сохранить служебные документы и подписи к ним
+                var signatureFileName = GetSignatureFileName(signature);
+                Console.Out.WriteLine("Сохранение подписи '{0}'", signatureFileName);
+                FileHelper.WriteAllBytes(directoryPath, signatureFileName, signature.Raw);
             }
+
+            // требуется ли получать усовершенствованные подписи
+            if (fullDocumentInfo.Signs?.Any() != true || !UserInput.ChooseYesNo("Получить усовершенствованные подписи?"))
+                return;
+
+            // получение усовершенствованных подписей
+            foreach (var signature in fullDocumentInfo.Signs)
+            {
+                var signatureFileName = GetSignatureFileName(signature);
+                Console.Out.WriteLine("Получение усовершенствованной подписи для '{0}'", signatureFileName);
+                EnhancedSign enhancedSign;
+                try
+                {
+                    enhancedSign = _context.ServiceClient.GetEnhancedSignById(_context.CurrentBox, signature.Id);
+                }
+                catch (Exception exc)
+                {
+                    Console.Error.WriteLine(exc.Message);
+                    continue;
+                }
+                if (enhancedSign.CreateStatus == EnhancedSignCreateStatus.Failed)
+                    Console.Out.WriteLine(
+                        "Не удалось создать усовершенствованную подпись для {0}: {1}",
+                        signatureFileName, enhancedSign.FailedInfo.Message);
+                else if (enhancedSign.CreateStatus == EnhancedSignCreateStatus.InProgress)
+                    Console.Out.WriteLine(
+                        "Усовершенствованная подпись для {0} еще не создана, запросите еще раз {1}",
+                        signatureFileName, enhancedSign.CreateTime.ToString("dd.MM.yyyy hh:mm:ss UTC"));
+                else
+                {
+                    var enhancedSignFileName = GetSignatureSubject(signature) + ".enhanced.sig";
+                    Console.Out.WriteLine("Сохранение усовершенствованной подписи '{0}'", enhancedSignFileName);
+                    FileHelper.WriteAllBytes(directoryPath, enhancedSignFileName, enhancedSign.Raw);
+                }
+            }
+
+            // TODO сохранить служебные документы и подписи к ним
         }
 
         private void SaveDocumentFlow(FlowDocumentInfo flowDocumentInfo)
@@ -2151,9 +2177,12 @@ namespace Midway.ConsoleClient
             var document = documentInfo.Document;
             if (document.NoticeRequired)
             {
-                Console.Out.WriteLine("Генерируются извещения о получении УОУ");
-                var noticeMessage = _context.MessageFactory.CreateInvoiceReceipt(message, document, _context.Certificate);
-                SendServiceDocument(noticeMessage, "Отправлено извещение о получении УОУ");
+                if (UserInput.ChooseYesNo("Отправить извещение о получении УОУ?"))
+                {
+                    Console.Out.WriteLine("Генерируются извещения о получении УОУ");
+                    var noticeMessage = _context.MessageFactory.CreateInvoiceReceipt(message, document, ChooseSignature);
+                    SendServiceDocument(noticeMessage, "Отправлено извещение о получении УОУ");
+                }
             }
             else
             {
@@ -2166,9 +2195,12 @@ namespace Midway.ConsoleClient
             var document = documentInfo.Document;
             if (document.NoticeRequired)
             {
-                Console.Out.WriteLine("Генерируются извещения о получении подтверждения");
-                var noticeMessage = _context.MessageFactory.CreateInvoiceReceipt(message, document, _context.Certificate);
-                SendServiceDocument(noticeMessage, "Отправлено извещение о получении подтверждения");
+                if (UserInput.ChooseYesNo("Отправить извещение о получении подтверждения?"))
+                {
+                    Console.Out.WriteLine("Генерируются извещения о получении подтверждения");
+                    var noticeMessage = _context.MessageFactory.CreateInvoiceReceipt(message, document, ChooseSignature);
+                    SendServiceDocument(noticeMessage, "Отправлено извещение о получении подтверждения");
+                }
             }
             else
             {
@@ -2188,7 +2220,7 @@ namespace Midway.ConsoleClient
             Console.Out.WriteLine("Документ {0} дошел до получателя", DocumentShortName(documentInfo));
         }
 
-        private void ProcessTitleBuyer(Document document)
+        private void ProcessBuyerTitle(Document document)
         {
             var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, document.ParentDocumentId);
             Console.Out.WriteLine("Документ {0} подписан", DocumentShortName(documentInfo));
@@ -2231,67 +2263,101 @@ namespace Midway.ConsoleClient
             return certificate;
         }
 
-        private bool IsSignRequired(FullDocumentInfo documentInfo)
-        {
-            var untypedFlowStatus = documentInfo.Status as UntypedDocumentFlowStatus;
-            if (untypedFlowStatus == null)
-                return false;
-            return untypedFlowStatus.SignStatus == DocumentSignStatus.WaitingForSign;
-        }
-
+        /// <summary>
+        /// Требуется ли ИОП документа?
+        /// </summary>
+        /// <param name="documentInfo">Полная информация о документе.</param>
+        /// <returns><c>true</c>, если ИОП требуется; иначе - <c>false</c>.</returns>
         private bool IsNoticeRequired(FullDocumentInfo documentInfo)
         {
-            if (!documentInfo.Document.NoticeRequired)
-                return false;
             var untypedFlowStatus = documentInfo.Status as UntypedDocumentFlowStatus;
-            if (untypedFlowStatus == null)
-                return false;
-            return untypedFlowStatus.DeliveryStatus != DocumentDeliveryStatus.DeliveredToRecipient;
+            return untypedFlowStatus != null
+                ? untypedFlowStatus.DeliveryStatus != DocumentDeliveryStatus.DeliveredToRecipient
+                : documentInfo.Document.NoticeRequired;
         }
 
+        /// <summary>
+        /// Требуется ли подписание документа?
+        /// </summary>
+        /// <param name="documentInfo">Полная информация о документе.</param>
+        /// <returns><c>true</c>, если подписание требуется; иначе - <c>false</c>.</returns>
+        private bool IsSignatureRequired(FullDocumentInfo documentInfo)
+        {
+            var untypedFlowStatus = documentInfo.Status as UntypedDocumentFlowStatus;
+            if (untypedFlowStatus != null)
+                return untypedFlowStatus.SignStatus == DocumentSignStatus.WaitingForSign;
+            
+            var documentType = (DocumentType)documentInfo.Document.DocumentTypeEnum.Code;
+            if (documentType.IsGeneralTransferSeller())
+                return !documentInfo.ServiceDocuments.Any(serviceDocument =>
+                {
+                    var serviceDocumentType = (DocumentType)serviceDocument.DocumentTypeEnum.Code;
+                    return serviceDocumentType.IsGeneralTransferBuyer()
+                        || serviceDocumentType == DocumentType.ServiceInvoiceAmendmentRequest;
+                });
+
+            return false;
+        }
+
+        /// <summary>
+        /// Выполнить обработку входящего СФ/КСФ.
+        /// </summary>
+        /// <param name="message">Сообщение с документом.</param>
+        /// <param name="documentInfo">Полная информация о документе.</param>
         private void ProcessInvoice(Message message, FullDocumentInfo documentInfo)
         {
             var document = documentInfo.Document;
             if (document.NoticeRequired)
             {
-                Console.Out.WriteLine("Генерируются извещения о получении СФ");
-                var noticeMessage = _context.MessageFactory.CreateInvoiceReceipt(message, document, _context.Certificate);
-                SendServiceDocument(noticeMessage, "Отправлено извещение о получении СФ отправлено");
+                if (UserInput.ChooseYesNo("Отправить извещение о получении счета-фактуры?"))
+                {
+                    Console.Out.WriteLine("Генерируются извещения о получении счета-фактуры");
+                    var noticeMessage = _context.MessageFactory.CreateInvoiceReceipt(message, document, ChooseSignature);
+                    SendServiceDocument(noticeMessage, "Отправлено извещение о получении счета-фактуры отправлено");
+                }
             }
             else
             {
-                UserInput.Information("Извещение о получении СФ уже было отправлено");
+                UserInput.Information("Извещение о получении счета-фактуры уже было отправлено");
             }
 
-            if (((InvoiceDocumentFlowStatus) documentInfo.Status).BuyerFlow == InvoiceFlowStatus.InvoiceRejected)
+            if (((InvoiceDocumentFlowStatus)documentInfo.Status).BuyerFlow == InvoiceFlowStatus.InvoiceRejected)
             {
-                UserInput.Information("Уведомление об уточнении СФ уже было отправлено");
+                UserInput.Information("Уведомление об уточнении счета-фактуры уже было отправлено");
             }
             else if (UserInput.ChooseYesNo("Запросить уточнение на счет-фактуру?"))
             {
-                var text = UserInput.ReadParameter("Текст уточнения:", string.Empty);
-                var invoiceAmendmentRequestMessage = _context.MessageFactory.GenerateInvoiceAmendmentRequest(message,
-                    document, text, _context.Certificate);
-                SendServiceDocument(invoiceAmendmentRequestMessage, "Отправлено уведомление об уточнении СФ");
+                var text = UserInput.ReadParameter("Текст уточнения", string.Empty);
+                var invoiceAmendmentRequestMessage = _context.MessageFactory.CreateInvoiceAmendmentRequest(
+                    message, document, text, ChooseSignature);
+                SendServiceDocument(invoiceAmendmentRequestMessage, "Отправлено уведомление об уточнении счета-фактуры");
             }
         }
 
+        /// <summary>
+        /// Выполнить обработку требуемого ИОП входящего документа.
+        /// </summary>
+        /// <param name="message">Сообщение с документом.</param>
+        /// <param name="documentInfo">Полная информация о документе.</param>
         private void ProcessRequiredNotice(Message message, FullDocumentInfo documentInfo)
         {
-            // если требуется отправляем ИОП
+            // Если требуется отправляем ИОП.
             if (IsNoticeRequired(documentInfo))
             {
                 var document = documentInfo.Document;
-                var certificate = _context.Certificate;
+                var documentType = (DocumentType)document.DocumentTypeEnum.Code;
+
                 if (document.NeedReceipt)
-                {
                     UserInput.Information("Отправитель запросил подтверждение получения документа");
-                    if (!UserInput.ChooseYesNo("Отправить извещение о получении?"))
-                        return;
+
+                if (UserInput.ChooseYesNo("Отправить извещение о получении?"))
+                {
+                    Console.Out.WriteLine("Отправляется извещение о получении");
+                    var deliveryConfirmationMessage = documentType.IsInvoiceRegulationDocument()
+                        ? _context.MessageFactory.CreateInvoiceReceipt(message, document, ChooseSignature)
+                        : _context.MessageFactory.CreateReceipt(message, document, ChooseSignature);
+                    SendServiceDocument(deliveryConfirmationMessage, "Извещение о получении отправлено");
                 }
-                Console.Out.WriteLine("Отправляется извещение о получении");
-                var deliveryConfirmationMessage = _context.MessageFactory.CreateReceipt(message, document, certificate);
-                SendServiceDocument(deliveryConfirmationMessage, "Извещение о получении отправлено");
             }
             else
             {
@@ -2299,58 +2365,86 @@ namespace Midway.ConsoleClient
             }
         }
 
-        private void ProcessRequiredSign(Message message, FullDocumentInfo documentInfo)
+        /// <summary>
+        /// Выполнить обработку требуемого подписания входящего документа.
+        /// </summary>
+        /// <param name="message">Сообщение с документом.</param>
+        /// <param name="documentInfo">Полная информация о документе.</param>
+        private void ProcessRequiredSignature(Message message, FullDocumentInfo documentInfo)
         {
-            // если ожидается подпись то подписываем или отказываем в подписи
-            if (IsSignRequired(documentInfo))
+            // Если требуется подпись, то подписываем, отказываем или пропускаем документ.
+            if (IsSignatureRequired(documentInfo))
             {
                 var document = documentInfo.Document;
-                var certificate = _context.Certificate;
-                if (UserInput.ChooseYesNo("Отправитель запросил подпись под документом. Подписать документ?"))
+                var documentType = (DocumentType)document.DocumentTypeEnum.Code;
+
+                var userChoice = UserInput.ChooseOption("Требуется подписание документа. Выберите действие.", new[]
                 {
-                    // отправляем подпись под документом
-                    EnsureDocumentContentLoaded(document);
-                    var signMessage = _context.MessageFactory.CreateSign(message, document, certificate);
-                    SendServiceDocument(signMessage, "Документ продписан");
-                }
-                else
+                    new UserInput.Option("1", "Пропустить документ", true),
+                    new UserInput.Option("2", "Подписать документ", false),
+                    new UserInput.Option("3", "Отправить уведомление об уточнении", false),
+                });
+
+                switch (userChoice.Id)
                 {
-                    // генерируем СД УОУ
-                    var text = UserInput.ReadParameter("Текст уточнения:", string.Empty);
-                    var amendmentRequestMessage = _context.MessageFactory.CreateAmendmentRequest(message, document, text,
-                        certificate);
-                    SendServiceDocument(amendmentRequestMessage, "Отправлено уведомление об уточнении");
+                    case "2":
+                        // Генерируем подпись или ответный титул.
+                        var isSellerTitle = documentType.IsSellerTitle();
+                        if (!isSellerTitle)
+                            EnsureDocumentContentLoaded(document);
+                        SendServiceDocument(
+                            isSellerTitle
+                                ? CreateMessage(
+                                    message.GetRecipientListForSender(_context.CurrentBox),
+                                    documentType, document.Id)
+                                : _context.MessageFactory.CreateSignature(message, document, ChooseSignature),
+                            "Документ подписан");
+                        break;
+
+                    case "3":
+                        // Генерируем СД УОУ.
+                        var text = UserInput.ReadParameter("Текст уточнения", string.Empty);
+                        var amendmentRequestMessage = documentType.IsInvoiceRegulationDocument()
+                            ? _context.MessageFactory.CreateInvoiceAmendmentRequest(message, document, text, ChooseSignature)
+                            : _context.MessageFactory.CreateAmendmentRequest(message, document, text, ChooseSignature);
+                        SendServiceDocument(amendmentRequestMessage, "Отправлено уведомление об уточнении");
+                        break;
                 }
             }
         }
 
         /// <summary>
-        /// Обработать требуемую подпись для документа
+        /// Обработать нетипизированный документ.
         /// </summary>
-        /// <param name="message">Сообщение с докуметом</param>
-        /// <param name="documentInfo">Полная информация о документе</param>
+        /// <param name="message">Сообщение с докуметом.</param>
+        /// <param name="documentInfo">Полная информация о документе.</param>
         private void ProcessUntypedDocument(Message message, FullDocumentInfo documentInfo)
         {
             ProcessRequiredNotice(message, documentInfo);
-            ProcessRequiredSign(message, documentInfo);
-        }
-
-        private void ProcessRevocationOffer(Message message, FullDocumentInfo documentInfo)
-        {
-            ProcessRequiredSign(message, documentInfo);
+            ProcessRequiredSignature(message, documentInfo);
         }
 
         /// <summary>
-        /// Выбрать тип документа
+        /// Обработать предложение об аннулировании.
         /// </summary>
-        /// <param name="includeUntyped">Включить нетипизированный</param>
-        /// <param name="includeEdi">Включить EDI-документы</param>
-        /// <returns>Выбранный тип документа</returns>
+        /// <param name="message">Сообщение с докуметом.</param>
+        /// <param name="documentInfo">Полная информация о документе.</param>
+        private void ProcessRevocationOffer(Message message, FullDocumentInfo documentInfo)
+        {
+            ProcessRequiredSignature(message, documentInfo);
+        }
+
+        /// <summary>
+        /// Выбрать тип документа.
+        /// </summary>
+        /// <param name="includeUntyped">Включить нетипизированный.</param>
+        /// <param name="includeEdi">Включить EDI-документы.</param>
+        /// <returns>Выбранный тип документа.</returns>
         private static DocumentType ChooseDocumentType(string chooseTitle,
             bool includeUntyped = true,
             bool includeEdi = true)
         {
-            var i = 0; 
+            var i = 0;
             var chooseOptions = new List<UserInput.Option>();
             if (includeUntyped)
                 chooseOptions.Add(new UserInput.Option($"{++i}", "Неструктурированный",
@@ -2403,80 +2497,161 @@ namespace Midway.ConsoleClient
             return documentType;
         }
 
-        private Message CreateMessage(IEnumerable<MessageRecipient> recipients, bool isActOfWorkBuyer = false,
-            bool isWaybillBuyer = false, string parentId = null)
+        /// <summary>
+        /// Выбрать информацию о типе документа.
+        /// </summary>
+        /// <param name="includeUntyped">Включить нетипизированный.</param>
+        /// <param name="includeEdi">Включить EDI-документы.</param>
+        /// <returns>Выбранный тип документа.</returns>
+        private static DocumentTypeInfo ChooseDocumentTypeInfo(string chooseTitle,
+            bool includeUntyped = true,
+            bool includeEdi = true)
+        {
+            var documentType = ChooseDocumentType(chooseTitle, includeUntyped, includeEdi);
+            var untypedKind = documentType == DocumentType.Untyped
+                ? UserInput.ReadParameter("Укажите вид неформализованного документа при необходимости")
+                : null;
+
+            return new DocumentTypeInfo
+            {
+                DocumentType = new DocumentTypeEnum
+                {
+                    Value = documentType,
+                    Code = (int)documentType,
+                },
+                UntypedKind = untypedKind,
+            };
+        }
+
+        private Message CreateMessage(
+            IEnumerable<MessageRecipient> recipients,
+            DocumentType? parentFocumentType = null,
+            string parentId = null)
         {
             var message = new Message
-                          {
-                              Id = Guid.NewGuid().ToString(),
-                              From = _context.CurrentBox,
-                              //To = boxTo,
-                              Documents = new Document[0],
-                              Signs = new Sign[0],
-                              Recipients = recipients.ToArray()
-                          };
+            {
+                Id = Guid.NewGuid().ToString(),
+                From = _context.CurrentBox,
+                //To = boxTo,
+                Documents = new Document[0],
+                Signs = new Sign[0],
+                SimpleSignatures = new SimpleSignature[0],
+                Recipients = recipients.ToArray()
+            };
 
             do
             {
                 DocumentType documentType;
-                if (isActOfWorkBuyer)
+                NamedContent namedContent = null;
+
+                var generationOptions = new DocumentGenerationOptions
                 {
-                    Console.Out.WriteLine("Необходимо загрузить титул заказчика на Акт о выполнении работ");
-                    documentType = DocumentType.ActOfWorkBuyer;
-                }
-                else if (isWaybillBuyer)
+                    SenderBoxId = _context.CurrentBox,
+                    RecipientBoxId = recipients.First().OrganizationBoxId,
+                };
+
+                switch (parentFocumentType)
                 {
-                    Console.Out.WriteLine("Необходимо загрузить титул покупателя на Товарную накладную");
-                    documentType = DocumentType.WaybillBuyer;
+                    case DocumentType.WaybillSeller:
+                        Console.Out.WriteLine("Необходимо загрузить титул покупателя товарной накладной");
+                        documentType = DocumentType.WaybillBuyer;
+                        break;
+
+                    case DocumentType.ActOfWorkSeller:
+                        Console.Out.WriteLine("Необходимо загрузить титул заказчика акта о выполнении работ");
+                        documentType = DocumentType.ActOfWorkBuyer;
+                        break;
+
+                    case DocumentType.GoodsTransferSeller:
+                    case DocumentType.GoodsTransferRevisionSeller:
+                        if (UserInput.ChooseYesNo("Сгенерировать титул покупателя ДПТ?"))
+                            namedContent = _context.ServiceClient.GenerateGoodsTransferBuyer(
+                                _context.CurrentBox, parentId,
+                                CreateGoodsTransferBuyer(), generationOptions).NamedContent;
+                        else
+                            Console.Out.WriteLine("Необходимо загрузить титул покупателя ДПТ");
+                        documentType = DocumentType.GoodsTransferBuyer;
+                        break;
+
+                    case DocumentType.WorksTransferSeller:
+                    case DocumentType.WorksTransferRevisionSeller:
+                        if (UserInput.ChooseYesNo("Сгенерировать титул покупателя ДПРР?"))
+                            namedContent = _context.ServiceClient.GenerateWorksTransferBuyer(
+                                _context.CurrentBox, parentId,
+                                CreateWorksTransferBuyer(), generationOptions).NamedContent;
+                        else
+                            Console.Out.WriteLine("Необходимо загрузить титул покупателя ДПРР");
+                        documentType = DocumentType.WorksTransferBuyer;
+                        break;
+
+                    case DocumentType.GeneralTransferSeller:
+                    case DocumentType.GeneralTransferRevisionSeller:
+                        if (UserInput.ChooseYesNo("Сгенерировать титул покупателя УПД?"))
+                            namedContent = _context.ServiceClient.GenerateGeneralTransferBuyer(
+                                _context.CurrentBox, parentId,
+                                CreateGeneralTransferBuyer(), generationOptions).NamedContent;
+                        else
+                            Console.Out.WriteLine("Необходимо загрузить титул покупателя УПД");
+                        documentType = DocumentType.GeneralTransferBuyer;
+                        break;
+
+                    case DocumentType.GeneralTransferCorrectionSeller:
+                    case DocumentType.GeneralTransferCorrectionRevisionSeller:
+                        if (UserInput.ChooseYesNo("Сгенерировать титул покупателя УКД?"))
+                            namedContent = _context.ServiceClient.GenerateGeneralTransferCorrectionBuyer(
+                                _context.CurrentBox, parentId,
+                                CreateGeneralTransferCorrectionBuyer(), generationOptions).NamedContent;
+                        else
+                            Console.Out.WriteLine("Необходимо загрузить титул покупателя УКД");
+                        documentType = DocumentType.GeneralTransferCorrectionBuyer;
+                        break;
+
+                    default:
+                        documentType = ChooseDocumentType("Выберите тип документа");
+                        break;
                 }
-                else
-                {
-                    documentType = ChooseDocumentType("Выберите тип документа");
-                }
+
                 if (documentType != DocumentType.Invoice && documentType.IsInvoice())
-                {
                     parentId = UserInput.ReadParameter("Введите идентификатор родительского документа");
-                }
-                var filePath = UserInput.ReadParameter("Введите имя файла");
-                // если путь не абсолютный, то пытаемся найти файл из текущей директории
-                if (!Path.IsPathRooted(filePath))
-                    filePath = Path.Combine(Environment.CurrentDirectory, filePath);
-                if (!File.Exists(filePath))
+
+                if (namedContent == null)
                 {
-                    UserInput.Error("Файл не найден {0}", filePath);
-                    continue;
+                    var filePath = UserInput.ReadParameter("Введите имя файла");
+                    var content = TryGetFileContent(filePath);
+
+                    if (content == null)
+                        continue;
+
+                    // TODO генерация имени файла для СФ тип документа Invoice
+                    namedContent = new NamedContent
+                    {
+                        Content = content,
+                        Name = Path.GetFileName(filePath),
+                    };
                 }
-
-                byte[] content = null;
-                content = File.ReadAllBytes(filePath);
-
-                // TODO генерация имени файла для СФ тип документа Invoice
-                var fileName = Path.GetFileName(filePath);
 
                 string documentKindType = null;
                 if (documentType == DocumentType.Untyped)
-                    documentKindType = UserInput.ReadParameter("Введите подтип документа, если необходимо");
+                    documentKindType = UserInput.ReadParameter("Укажите вид неформализованного документа при необходимости");
 
                 byte[] card = null;
                 if (!documentType.IsEdiDocument() && UserInput.ChooseYesNo("Прикрепить карточку?", false))
                 {
-                    var cardfilePath = UserInput.ReadParameter("Введите имя файла");
-                    if (!Path.IsPathRooted(cardfilePath))
-                        cardfilePath = Path.Combine(Environment.CurrentDirectory, filePath);
-                    if (!File.Exists(cardfilePath))
-                    {
-                        UserInput.Error("Файл не найден {0}", cardfilePath);
+                    var cardFilePath = UserInput.ReadParameter("Введите имя файла");
+                    card = TryGetFileContent(cardFilePath);
+
+                    if (card == null)
                         continue;
-                    }
-                    card = File.ReadAllBytes(cardfilePath);
                 }
 
-                var sign = new byte[0];
+                ISignature signature = null;
+
                 var needSign = false;
                 if (!documentType.IsEdiDocument())
                 {
-                    sign = Sign(content);
-                    if (sign == null)
+                    signature = ChooseSignature(namedContent.Content, documentType, documentKindType);
+
+                    if (signature == null)
                         continue;
 
                     if (documentType.IsNeedSignOptional())
@@ -2484,17 +2659,17 @@ namespace Midway.ConsoleClient
                 }
 
                 AddDocumentToNewMessage(message, new Document
-                                                 {
-                                                     Id = Guid.NewGuid().ToString(),
-                                                     // при интеграции с КИС здесь должен быть локальный идентификатор документа
-                                                     DocumentType = documentType,
-                                                     UntypedKind = documentKindType,
-                                                     FileName = fileName,
-                                                     Content = content,
-                                                     Card = card,
-                                                     NeedSign = needSign,
-                                                     ParentDocumentId = parentId
-                                                 }, sign);
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    // при интеграции с КИС здесь должен быть локальный идентификатор документа
+                    DocumentType = documentType,
+                    UntypedKind = documentKindType,
+                    FileName = namedContent.Name,
+                    Content = namedContent.Content,
+                    Card = card,
+                    NeedSign = needSign,
+                    ParentDocumentId = parentId
+                }, signature);
 
                 // при отправке титула покупателя(заказчика) отправляется только один документ
                 if (!documentType.IsBuyerTitle())
@@ -2517,17 +2692,13 @@ namespace Midway.ConsoleClient
             do
             {
                 var filePath = UserInput.ReadParameter("Введите имя файла");
-                if (!Path.IsPathRooted(filePath))
-                    filePath = Path.Combine(Environment.CurrentDirectory, filePath);
-                if (!File.Exists(filePath))
-                {
-                    UserInput.Error("Файл не найден {0}", filePath);
-                    continue;
-                }
 
-                var content = File.ReadAllBytes(filePath);
+                var content = TryGetFileContent(filePath);
+                if (content == null)
+                    continue;
+
                 var fileName = Path.GetFileName(filePath);
-                var documentKindType = UserInput.ReadParameter("Введите подтип документа, если необходимо");
+                var documentKindType = UserInput.ReadParameter("Укажите вид неформализованного документа при необходимости");
                 var needSign = UserInput.ChooseYesNo("Запросить подпись под документом?");
 
                 byte[] card = null;
@@ -2545,26 +2716,26 @@ namespace Midway.ConsoleClient
                 }
 
                 documents.Add(new Document
-                              {
-                                  Id = Guid.NewGuid().ToString(),
-                                  DocumentType = DocumentType.Untyped,
-                                  UntypedKind = documentKindType,
-                                  FileName = fileName,
-                                  Content = content,
-                                  Card = card,
-                                  NeedSign = needSign
-                              });
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    DocumentType = DocumentType.Untyped,
+                    UntypedKind = documentKindType,
+                    FileName = fileName,
+                    Content = content,
+                    Card = card,
+                    NeedSign = needSign
+                });
 
                 if (!UserInput.ChooseYesNo("Добавить еще один документ для отправки?", false))
                     break;
             } while (true);
 
             return new UnsignedMessage
-                   {
-                       From = _context.CurrentBox,
-                       Documents = documents.ToArray(),
-                       Recipients = recipients.ToArray()
-                   };
+            {
+                From = _context.CurrentBox,
+                Documents = documents.ToArray(),
+                Recipients = recipients.ToArray()
+            };
         }
 
         private ForwardMessage CreateForwardMessage(IEnumerable<MessageRecipient> recipients)
@@ -2577,11 +2748,11 @@ namespace Midway.ConsoleClient
                 var comment = UserInput.ReadParameter("Введите комментарий для пересылаемого документа");
 
                 documents.Add(new ForwardDocument
-                              {
-                                  OriginalDocumentId = documentId,
-                                  NeedSign = needSign,
-                                  Comment = comment
-                              });
+                {
+                    OriginalDocumentId = documentId,
+                    NeedSign = needSign,
+                    Comment = comment
+                });
 
                 if (!UserInput.ChooseYesNo("Добавить еще один документ для пересылки?", false))
                     break;
@@ -2593,39 +2764,40 @@ namespace Midway.ConsoleClient
                 : null;
 
             return new ForwardMessage
-                   {
-                       From = _context.CurrentBox,
-                       ForwardDocuments = documents.ToArray(),
-                       Documents = message != null
+            {
+                From = _context.CurrentBox,
+                ForwardDocuments = documents.ToArray(),
+                Documents = message != null
                            ? message.Documents
                            : null,
-                       Recipients = message != null
+                Recipients = message != null
                            ? message.Recipients
                            : messageRecipients.ToArray(),
-                       Signs = message != null
+                Signs = message != null
                            ? message.Signs
+                           : null,
+                SimpleSignatures = message != null
+                           ? message.SimpleSignatures
                            : null
-                   };
+            };
         }
 
         private InternalMessage CreateInternalMessage(IEnumerable<InternalMessageRecipient> recipients)
         {
             var documents = new List<Document>();
-            var signs = new List<Sign>();
+            var strongSignatures = new List<Sign>();
+            var simpleSignatures = new List<SimpleSignature>();
             do
             {
+                var documentType = DocumentType.Untyped;
                 var filePath = UserInput.ReadParameter("Введите имя файла");
-                if (!Path.IsPathRooted(filePath))
-                    filePath = Path.Combine(Environment.CurrentDirectory, filePath);
-                if (!File.Exists(filePath))
-                {
-                    UserInput.Error("Файл не найден {0}", filePath);
-                    continue;
-                }
 
-                var content = File.ReadAllBytes(filePath);
+                var content = TryGetFileContent(filePath);
+                if (content == null)
+                    continue;
+
                 var fileName = Path.GetFileName(filePath);
-                var documentKindType = UserInput.ReadParameter("Введите подтип документа, если необходимо");
+                var documentKindType = UserInput.ReadParameter("Укажите вид неформализованного документа при необходимости");
                 var needSign = UserInput.ChooseYesNo("Запросить подпись под документом?");
 
                 byte[] card = null;
@@ -2642,91 +2814,49 @@ namespace Midway.ConsoleClient
                     card = File.ReadAllBytes(cardfilePath);
                 }
 
-                // подписание
-                var sign = Sign(content);
-                if (sign == null)
+                var signature = ChooseSignature(content, documentType, documentKindType);
+                if (signature == null)
                     continue;
 
                 var documentId = Guid.NewGuid().ToString();
                 documents.Add(new Document
-                              {
-                                  Id = documentId,
-                                  DocumentType = DocumentType.Untyped,
-                                  UntypedKind = documentKindType,
-                                  FileName = fileName,
-                                  Content = content,
-                                  Card = card,
-                                  NeedSign = needSign
-                              });
+                {
+                    Id = documentId,
+                    DocumentType = documentType,
+                    UntypedKind = documentKindType,
+                    FileName = fileName,
+                    Content = content,
+                    Card = card,
+                    NeedSign = needSign
+                });
 
-                signs.Add(new Sign
-                          {
-                              Id = Guid.NewGuid().ToString(),
-                              DocumentId = documentId,
-                              Raw = sign
-                          });
+                signature.DocumentId = documentId;
+                signature.Id = Guid.NewGuid().ToString();
+
+                if (signature is Sign)
+                    strongSignatures.Add(signature as Sign);
+                else
+                    simpleSignatures.Add(signature as SimpleSignature);
 
                 if (!UserInput.ChooseYesNo("Добавить еще один документ для отправки?", false))
                     break;
             } while (true);
 
             return new InternalMessage
-                   {
-                       Id = Guid.NewGuid().ToString(),
-                       BoxId = _context.CurrentBox,
-                       Documents = documents.ToArray(),
-                       Recipients = recipients.ToArray(),
-                       Signs = signs.ToArray()
-                   };
+            {
+                Id = Guid.NewGuid().ToString(),
+                BoxId = _context.CurrentBox,
+                Documents = documents.ToArray(),
+                Recipients = recipients.ToArray(),
+                Signs = strongSignatures.ToArray(),
+                SimpleSignatures = simpleSignatures.ToArray()
+            };
         }
 
-        private void ProcessFormalizedDocument(Message message, FullDocumentInfo documentInfo)
+        private void ProcessSellerTitle(Message message, FullDocumentInfo documentInfo)
         {
-            var document = documentInfo.Document;
-            var certificate = _context.Certificate;
-
-            // отправляем ИОП если требуется 
-            if (IsNoticeRequired(documentInfo))
-            {
-                if (document.NeedReceipt)
-                {
-                    UserInput.Information("Отправитель запросил подтверждение получения документа");
-                    if (!UserInput.ChooseYesNo("Отправить извещение о получении?"))
-                        return;
-                }
-                Console.Out.WriteLine("Отправляется извещение о получении");
-                var deliveryConfirmationMessage = _context.MessageFactory.CreateReceipt(message, document,
-                    _context.Certificate);
-                SendServiceDocument(deliveryConfirmationMessage, "Извещение о получении отправлено");
-            }
-            else
-            {
-                UserInput.Information("Извещение о получении уже было отправлено");
-            }
-
-            // если ожидается подпись то оформляем ответный титул и подписываем или отказываем в подписи
-            if (IsSignRequired(documentInfo))
-            {
-                if (UserInput.ChooseYesNo("Отправитель запросил подпись под документом. Подписать документ?"))
-                {
-                    var documentType = (DocumentType) document.DocumentTypeEnum.Code;
-                    SendServiceDocument(
-                        CreateMessage(
-                            message.GetRecipientListForSender(_context.CurrentBox),
-                            documentType == DocumentType.ActOfWorkSeller,
-                            documentType == DocumentType.WaybillSeller,
-                            document.Id),
-                        "Документ подписан");
-                }
-                else
-                {
-                    // генерируем СД УОУ
-                    var text = UserInput.ReadParameter("Текст уточнения:", string.Empty);
-                    var amendmentRequestMessage = _context.MessageFactory.CreateAmendmentRequest(message, document, text,
-                        certificate);
-                    SendServiceDocument(amendmentRequestMessage, "Отправлено уведомление об уточнении");
-                }
-            }
+            ProcessRequiredNotice(message, documentInfo);
+            ProcessRequiredSignature(message, documentInfo);
         }
 
         private void ProcessAuthRequest(Contact contact)
@@ -2766,11 +2896,11 @@ namespace Midway.ConsoleClient
         private string DocumentShortName(FullDocumentInfo fullDocumentInfo)
         {
             var document = fullDocumentInfo.Document;
-            var documentType = (DocumentType) document.DocumentTypeEnum.Code;
+            var documentType = (DocumentType)document.DocumentTypeEnum.Code;
             switch (documentType)
             {
                 case DocumentType.Invoice:
-                    var invoiceDocumentFlowStatus = (InvoiceDocumentFlowStatus) fullDocumentInfo.Status;
+                    var invoiceDocumentFlowStatus = (InvoiceDocumentFlowStatus)fullDocumentInfo.Status;
                     return string.Format("Счет-фактура №{0} от {1}",
                         invoiceDocumentFlowStatus.Number,
                         invoiceDocumentFlowStatus.Date.ToString("dd/MM/yyyy"));
@@ -2782,7 +2912,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Список доситупных ящиков
+        /// Список доситупных ящиков.
         /// </summary>
         private void Boxes()
         {
@@ -2796,7 +2926,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Установить текущий ящик
+        /// Установить текущий ящик.
         /// </summary>
         private void SetBox()
         {
@@ -2815,7 +2945,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Напечатать доступные команды
+        /// Напечатать доступные команды.
         /// </summary>
         /// <param name="commandsMap"></param>
         private void PrintAvailableCommnads(Dictionary<string, Tuple<Action, string>> commandsMap)
@@ -2830,12 +2960,12 @@ namespace Midway.ConsoleClient
         private void GetActiveContacts()
         {
             var contactInfos = _context.ServiceClient.SearchContacts(new ContactSearchOptions
-                                                                     {
-                                                                         From = 0,
-                                                                         Max = 100,
-                                                                         OrganizationId = _context.CurrentOrganizationId,
-                                                                         ContactStatus = ContactStatus.Active
-                                                                     }).Items;
+            {
+                From = 0,
+                Max = 100,
+                OrganizationId = _context.CurrentOrganizationId,
+                ContactStatus = ContactStatus.Active
+            }).Items;
             if (contactInfos.Length == 0)
             {
                 Console.Out.WriteLine("Активных контактов нет");
@@ -2854,12 +2984,12 @@ namespace Midway.ConsoleClient
         private void DeleteContact()
         {
             var contactInfos = _context.ServiceClient.SearchContacts(new ContactSearchOptions
-                                                                     {
-                                                                         From = 0,
-                                                                         Max = 100,
-                                                                         OrganizationId = _context.CurrentOrganizationId,
-                                                                         ContactStatus = ContactStatus.Active
-                                                                     }).Items;
+            {
+                From = 0,
+                Max = 100,
+                OrganizationId = _context.CurrentOrganizationId,
+                ContactStatus = ContactStatus.Active
+            }).Items;
             if (contactInfos.Length == 0)
             {
                 Console.Out.WriteLine("Активных контактов нет");
@@ -2871,7 +3001,7 @@ namespace Midway.ConsoleClient
                         new UserInput.Option((i + 1).ToString(CultureInfo.InvariantCulture), c.ContragentName, i == 0, c))
                     .ToList();
             var chooseOption = UserInput.ChooseOption("Выберите контакт для удаления", usrInputOptions.AsEnumerable());
-            var selectedOrganization = (ContactSearchItem) chooseOption.Data;
+            var selectedOrganization = (ContactSearchItem)chooseOption.Data;
             if (
                 !UserInput.ChooseYesNo(string.Format("Вы действительно хотите удалить контакт {0}",
                     selectedOrganization.ContragentName)))
@@ -2895,7 +3025,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Авторизоваться
+        /// Авторизоваться.
         /// </summary>
         /// <param name="client"></param>
         private void Auth(Client client)
@@ -2974,7 +3104,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Регистрация организации
+        /// Регистрация организации.
         /// </summary>
         private RegisterResult OldRegister()
         {
@@ -2997,8 +3127,8 @@ namespace Midway.ConsoleClient
                 // очистим данные о сертификате, если они там есть
                 _context.Certificate = null;
 
-                registerModel.OrganizationType = (OrganizationType) Enum
-                    .Parse(typeof (OrganizationType),
+                registerModel.OrganizationType = (OrganizationType)Enum
+                    .Parse(typeof(OrganizationType),
                         UserInput.ChooseOption("Выберите тип организации",
                             new[]
                             {
@@ -3060,18 +3190,18 @@ namespace Midway.ConsoleClient
                 UserInput.Error("Во время регистрации обнаружены ошибки: \n" +
                                 string.Join("\n", registerResult.ErrorMessages));
 
-                var externalInfoType = typeof (RegisterModel);
+                var externalInfoType = typeof(RegisterModel);
                 foreach (var errorMember in registerResult.ErrorMembers)
                 {
                     var propertyInfo = externalInfoType.GetProperty(errorMember);
                     if (propertyInfo != null)
                     {
-                        var attributes = propertyInfo.GetCustomAttributes(typeof (DisplayNameAttribute), false);
+                        var attributes = propertyInfo.GetCustomAttributes(typeof(DisplayNameAttribute), false);
                         if (attributes.Any())
                         {
-                            var displayNameAttr = ((DisplayNameAttribute) attributes[0]);
+                            var displayNameAttr = ((DisplayNameAttribute)attributes[0]);
 
-                            if (propertyInfo.PropertyType == typeof (bool))
+                            if (propertyInfo.PropertyType == typeof(bool))
                             {
                                 propertyInfo.SetValue(registerModel,
                                     Convert.ChangeType(UserInput.ChooseYesNo(displayNameAttr.DisplayName, false),
@@ -3092,7 +3222,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Принятие Правил Synerdocs
+        /// Принятие Правил Synerdocs.
         /// </summary>
         private void AcceptRegulation()
         {
@@ -3108,7 +3238,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Просмотр дерева орг.структуры
+        /// Просмотр дерева орг.структуры.
         /// </summary>
         private void GetOrganizationStructure()
         {
@@ -3136,7 +3266,7 @@ namespace Midway.ConsoleClient
                 var chooseOption =
                     UserInput.ChooseOption("Для просмотра более детальной информации выберите подразделение",
                         depInputOptions.AsEnumerable());
-                var selectedDepartment = (OrganizationStructureElement) chooseOption.Data;
+                var selectedDepartment = (OrganizationStructureElement)chooseOption.Data;
 
                 PrintProperty("Наименование", selectedDepartment.Name);
                 PrintProperty("Код", selectedDepartment.Code);
@@ -3152,7 +3282,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Удалить подразделение
+        /// Удалить подразделение.
         /// </summary>
         private void DeleteOrganizationStructureElement()
         {
@@ -3167,10 +3297,10 @@ namespace Midway.ConsoleClient
             _departmentsOptions = new List<UserInput.Option>();
             _index = 0;
             var depInputOptions = GetTreeOfOrganizationStructure(departmentInfos,
-                new[] {departmentInfos.First(d => d.ParentId == null)}, 0);
+                new[] { departmentInfos.First(d => d.ParentId == null) }, 0);
 
             var chooseOption = UserInput.ChooseOption("Выберите подразделение", depInputOptions.AsEnumerable());
-            var selectedDepartment = (OrganizationStructureElement) chooseOption.Data;
+            var selectedDepartment = (OrganizationStructureElement)chooseOption.Data;
 
             if (
                 !UserInput.ChooseYesNo(string.Format("Вы действительно хотите удалить подразделение {0}",
@@ -3191,7 +3321,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Добавить подразделение
+        /// Добавить подразделение.
         /// </summary>
         private void AddOrganizationStructureElement()
         {
@@ -3208,13 +3338,13 @@ namespace Midway.ConsoleClient
                 _departmentsOptions = new List<UserInput.Option>();
                 _index = 0;
                 var depInputOptions = GetTreeOfOrganizationStructure(departmentInfos,
-                    new[] {departmentInfos.First(d => d.ParentId == null)}, 0);
+                    new[] { departmentInfos.First(d => d.ParentId == null) }, 0);
 
                 var chooseOption = UserInput.ChooseOption("Выберите родительское подразделение",
                     depInputOptions.AsEnumerable());
                 if (chooseOption.Data == null)
                     continue;
-                var selectedDepartment = (OrganizationStructureElement) chooseOption.Data;
+                var selectedDepartment = (OrganizationStructureElement)chooseOption.Data;
 
                 var elementName = UserInput.ReadParameter("Введите наименование нового подразделения");
                 var elementCode = UserInput.ReadParameter("Введите код нового подразделения");
@@ -3225,18 +3355,18 @@ namespace Midway.ConsoleClient
                 {
                     var elementId =
                         _context.ServiceClient.AddOrganizationStructureElement(new OrganizationStructureElement
-                                                                               {
-                                                                                   Code = elementCode,
-                                                                                   AdditionalInfo =
+                        {
+                            Code = elementCode,
+                            AdditionalInfo =
                                                                                        elementAdditionalInfo,
-                                                                                   Kpp = elementKpp,
-                                                                                   Name = elementName,
-                                                                                   OrganizationId =
+                            Kpp = elementKpp,
+                            Name = elementName,
+                            OrganizationId =
                                                                                        _context.CurrentOrganizationId
                                                                                        .ToString(
                                                                                            CultureInfo.InvariantCulture),
-                                                                                   ParentId = selectedDepartment.Id
-                                                                               });
+                            ParentId = selectedDepartment.Id
+                        });
                 }
                 catch (Exception ex)
                 {
@@ -3250,7 +3380,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Редактировать подразделение
+        /// Редактировать подразделение.
         /// </summary>
         private void EditOrganizationStructureElement()
         {
@@ -3267,12 +3397,12 @@ namespace Midway.ConsoleClient
                 _departmentsOptions = new List<UserInput.Option>();
                 _index = 0;
                 var depInputOptions = GetTreeOfOrganizationStructure(departmentInfos,
-                    new[] {departmentInfos.First(d => d.ParentId == null)}, 0);
+                    new[] { departmentInfos.First(d => d.ParentId == null) }, 0);
 
                 var chooseOption = UserInput.ChooseOption("Выберите подразделение", depInputOptions.AsEnumerable());
                 if (chooseOption.Data == null)
                     continue;
-                var selectedDepartment = (OrganizationStructureElement) chooseOption.Data;
+                var selectedDepartment = (OrganizationStructureElement)chooseOption.Data;
 
 
                 if (UserInput.ChooseYesNo("Изменить наименование подразделения?", false))
@@ -3298,8 +3428,8 @@ namespace Midway.ConsoleClient
                         depInputOptions.AsEnumerable());
                     if (chooseOption.Data == null)
                         continue;
-                    if (selectedDepartment.Id != ((OrganizationStructureElement) chooseOption.Data).Id)
-                        selectedDepartment.ParentId = ((OrganizationStructureElement) chooseOption.Data).Id;
+                    if (selectedDepartment.Id != ((OrganizationStructureElement)chooseOption.Data).Id)
+                        selectedDepartment.ParentId = ((OrganizationStructureElement)chooseOption.Data).Id;
                     else
                     {
                         UserInput.Error(string.Format("Подразделение {0} не может быть родительским для самого себя",
@@ -3324,7 +3454,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// возвращает отступы для дерева орг.структуры
+        /// Возвращает отступы для дерева орг.структуры.
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
@@ -3340,7 +3470,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// возвращает дерево орг.структуры
+        /// Возвращает дерево орг.структуры.
         /// </summary>
         /// <param name="data"></param>
         /// <param name="elements"></param>
@@ -3367,7 +3497,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Добавляет промокод в организацию
+        /// Добавляет промокод в организацию.
         /// </summary>
         private void AddOrganizationPromoCode()
         {
@@ -3390,7 +3520,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Вывод данных о промокоде
+        /// Вывод данных о промокоде.
         /// </summary>
         /// <param name="organizationPromoCode"></param>
         private void PrintPromoCodeInfo(OrganizationPromoCode organizationPromoCode)
@@ -3408,7 +3538,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        ///  Возвращает список промокодов организации
+        ///  Возвращает список промокодов организации.
         /// </summary>
         private void GetOrganizationPromoCodeList()
         {
@@ -3430,7 +3560,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Возвращает промокод по наименованию
+        /// Возвращает промокод по наименованию.
         /// </summary>
         private void GetPromoCodeByName()
         {
@@ -3457,9 +3587,9 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Логическое удаление связи промокод-организация
+        /// Логическое удаление связи промокод-организация.
         /// </summary>
-        /// <param name="organizationPromoCodeId">Внешний идентификатор связи промокод-организация</param>
+        /// <param name="organizationPromoCodeId">Внешний идентификатор связи промокод-организация.</param>
         private void DeleteOrganizationPromoCode()
         {
             var boxId = _context.CurrentBox;
@@ -3481,7 +3611,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Добавить тэг
+        /// Добавить тэг.
         /// </summary>
         private void AddDocumentTag()
         {
@@ -3489,42 +3619,26 @@ namespace Midway.ConsoleClient
             {
                 var documentId = UserInput.ReadParameter("Введите идентификатор документа");
                 var tagType =
-                    (DocumentTagType) UserInput.ChooseOption("Выберите тип дополнительного статуса (тэга)", new[]
-                                                                                                            {
-                                                                                                                new UserInput
-                                                                                                                    .
-                                                                                                                    Option
-                                                                                                                    ("1",
-                                                                                                                    "Согласовать",
-                                                                                                                    true,
-                                                                                                                    DocumentTagType
-                                                                                                                    .Approved),
-                                                                                                                new UserInput
-                                                                                                                    .
-                                                                                                                    Option
-                                                                                                                    ("2",
-                                                                                                                    "Отказать в согласовании",
-                                                                                                                    true,
-                                                                                                                    DocumentTagType
-                                                                                                                    .Disapproved)
-                                                                                                            }).Data;
+                    (DocumentTagType)UserInput.ChooseOption("Выберите тип дополнительного статуса (тэга)", new[]
+                        {
+                            new UserInput.Option("1", "Согласовать", true, DocumentTagType.Approved),
+                            new UserInput.Option("2", "Отказать в согласовании", true, DocumentTagType.Disapproved)
+                        }).Data;
+
                 var comment = UserInput.ReadParameter("Введите комментарий");
 
                 string documentTagId;
                 try
                 {
-                    documentTagId = _context.ServiceClient.CreateDocumentTag(new DocumentTag
-                                                                             {
-                                                                                 DocumentId = documentId,
-                                                                                 Login =
-                                                                                     _context.Login.ToString(
-                                                                                         CultureInfo.InvariantCulture),
-                                                                                 OrganizationBoxId =
-                                                                                     _context.CurrentBox.ToString(
-                                                                                         CultureInfo.InvariantCulture),
-                                                                                 TagType = tagType,
-                                                                                 Comment = comment
-                                                                             });
+                    documentTagId = _context.ServiceClient.CreateDocumentTag(
+                        new DocumentTag
+                        {
+                            DocumentId = documentId,
+                            Login = _context.Login.ToString(CultureInfo.InvariantCulture),
+                            OrganizationBoxId = _context.CurrentBox.ToString(CultureInfo.InvariantCulture),
+                            TagType = tagType,
+                            Comment = comment
+                        });
                 }
                 catch (Exception ex)
                 {
@@ -3539,7 +3653,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Удалить тэг
+        /// Удалить тэг.
         /// </summary>
         private void DeleteDocumentTag()
         {
@@ -3560,7 +3674,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Получить тэг
+        /// Получить тэг.
         /// </summary>
         private void GetDocumentTag()
         {
@@ -3596,16 +3710,12 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Отправить ПОА
+        /// Отправить ПОА.
         /// </summary>
         private void SendRevocationOffer()
         {
             var certificate = _context.Certificate;
             var boxId = _context.CurrentBox;
-
-            // требуется авторизация по сертификату
-            if (certificate == null)
-                ChooseCertificate();
 
             // ввод данных по ПОА
             var documentId = UserInput.ReadParameter("Введите ИД документа, который предлагается аннулировать");
@@ -3626,14 +3736,15 @@ namespace Midway.ConsoleClient
                 var comment = UserInput.ReadParameter("Введите комментарий для предложения об аннулировании");
 
                 // создадим ПОА
+                var revocationOfferDocumentType = DocumentType.RevocationOffer;
                 var revocationOfferNamedContent = _context.ServiceClient.GenerateRevocationOffer(boxId, documentId,
                     comment, null);
                 byte[] revokeContent = revocationOfferNamedContent.Content;
                 var revokeRequestFileName = revocationOfferNamedContent.Name;
 
                 // подпишем ПОА
-                var sign = Sign(revocationOfferNamedContent.Content);
-                if (sign == null)
+                var signature = ChooseSignature(revocationOfferNamedContent.Content, revocationOfferDocumentType);
+                if (signature == null)
                 {
                     UserInput.Error("Не удалось подписать соглашение об аннулировании");
                     return;
@@ -3644,22 +3755,23 @@ namespace Midway.ConsoleClient
 
                 // отправим сообщение с ПОА
                 var message = new Message
-                              {
-                                  Id = Guid.NewGuid().ToString(),
-                                  From = _context.CurrentBox,
-                                  Documents = new Document[0],
-                                  Signs = new Sign[0],
-                                  Recipients = recipients.ToArray()
-                              };
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    From = _context.CurrentBox,
+                    Documents = new Document[0],
+                    Signs = new Sign[0],
+                    SimpleSignatures = new SimpleSignature[0],
+                    Recipients = recipients.ToArray()
+                };
 
                 AddDocumentToNewMessage(message, new Document
-                                                 {
-                                                     Id = Guid.NewGuid().ToString(),
-                                                     DocumentType = DocumentType.RevocationOffer,
-                                                     FileName = revokeRequestFileName,
-                                                     Content = revokeContent,
-                                                     ParentDocumentId = documentId
-                                                 }, sign);
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    DocumentType = revocationOfferDocumentType,
+                    FileName = revokeRequestFileName,
+                    Content = revokeContent,
+                    ParentDocumentId = documentId
+                }, signature);
 
                 _context.ServiceClient.SendMessage(message);
 
@@ -3673,82 +3785,50 @@ namespace Midway.ConsoleClient
 
         }
 
-        private byte[] Sign(byte[] content)
-        {
-            byte[] sign;
-            if (UserInput.ChooseYesNo("Загрузить подпись из файла", false))
-            {
-                var signPath = UserInput.ReadParameter("Введите имя файла, содержащего подпись");
-
-                // если путь не абсолютный, то пытаемся найти файл из текущей директории
-                if (!Path.IsPathRooted(signPath))
-                    signPath = Path.Combine(Environment.CurrentDirectory, signPath);
-
-                if (!File.Exists(signPath))
-                {
-                    UserInput.Error("Файл не найден {0}", signPath);
-                    return null;
-                }
-
-                sign = File.ReadAllBytes(signPath);
-            }
-            else
-            {
-                sign = CryptoApiHelper.Sign(_context.Certificate, content, true);
-            }
-
-            return sign;
-        }
-
         /// <summary>
-        /// Отправка заявления об участии в ЭДО СФ
+        /// Отправка заявления об участии в ЭДО СФ.
         /// </summary>
         public void SendStatementOfInvoiceReglament()
         {
-            var certificate = _context.Certificate;
-            var boxId = _context.CurrentBox;
-
-            // требуется авторизация по сертификату
-            if (certificate == null)
-                ChooseCertificate();
-
             try
             {
                 // создадим заявление
-                var statement = _context.ServiceClient.GenerateStatementOfInvoiceReglament(boxId);
+                var documentType = DocumentType.Untyped;
+                var statement = _context.ServiceClient.GenerateStatementOfInvoiceReglament(_context.CurrentBox);
+
+                // создадим документ
+                var document = new Document
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    DocumentType = documentType,
+                    UntypedKind = UntypedKind.StatementOfInvoiceReglament,
+                    FileName = statement.Name,
+                    Content = statement.Content
+                };
 
                 // подпишем заявление
-                var sign = Sign(statement.Content);
-                if (sign == null)
+                var signature = ChooseSignature(document);
+                if (signature == null)
                 {
-                    UserInput.Error("Не удалось подписать заявление об участии в ЭДО СФ");
+                    UserInput.Error("Не удалось подписать заявление об участии в ЭДО счетов-фактур");
                     return;
                 }
-
-                var document = new Document
-                               {
-                                   Id = Guid.NewGuid().ToString(),
-                                   DocumentType = DocumentType.Untyped,
-                                   UntypedKind = UntypedKind.StatementOfInvoiceReglament,
-                                   FileName = statement.Name,
-                                   Content = statement.Content
-                               };
                 // отправим сообщение с заявлением
                 var message = new MessageOfStatement
-                              {
-                                  Id = Guid.NewGuid().ToString(),
-                                  FromBoxId = _context.CurrentBox,
-                                  Statement = document,
-                                  Sign = new Sign
-                                         {
-                                             Id = Guid.NewGuid().ToString(),
-                                             DocumentId = document.Id,
-                                             Raw = sign
-                                         }
-                              };
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    FromBoxId = _context.CurrentBox,
+                    Statement = document,
+                    Sign = new Sign
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        DocumentId = document.Id,
+                        Raw = signature.Raw
+                    }
+                };
 
                 _context.ServiceClient.SendStatementOfInvoiceReglament(message);
-                UserInput.Success("Заявление об участии в ЭДО СФ успешно отправлено!");
+                UserInput.Success("Заявление об участии в ЭДО счетов-фактур успешно отправлено!");
             }
             catch (ServerException ex)
             {
@@ -3862,7 +3942,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Регистрация организации
+        /// Регистрация организации.
         /// </summary>
         private void Register()
         {
@@ -3871,9 +3951,9 @@ namespace Midway.ConsoleClient
             Console.Out.WriteLine("Регистрация в сервисе Synerdocs:");
 
             var registrationRequest = new RegistrationRequest
-                                      {
-                                          ApplicationId = _applicationId
-                                      };
+            {
+                ApplicationId = _applicationId
+            };
 
             var organizationRegistrationData = new OrganizationRegistrationData();
 
@@ -3888,14 +3968,14 @@ namespace Midway.ConsoleClient
 
             UserRegistrationData certUser = null;
             var organizationTypeCode = subjectInfo?.Type?.Code;
-            if (organizationTypeCode != null && (OrganizationType) organizationTypeCode != OrganizationType.LegalEntity)
+            if (organizationTypeCode != null && (OrganizationType)organizationTypeCode != OrganizationType.LegalEntity)
             {
                 if (!UserInput.ChooseYesNo(
                     $"Корректно ли определился тип абонента: {((OrganizationType)organizationTypeCode).GetDescription()} ?"))
                     organizationRegistrationData.OrganizationType = ChooseOrganizationType().ToEnumValue();
                 else
                     organizationRegistrationData.OrganizationType = ((OrganizationType)organizationTypeCode).ToEnumValue();
-                
+
                 //заполним данные из сертификата
                 FillOrganizationInfo(organizationRegistrationData, subjectInfo);
                 certUser = new UserRegistrationData();
@@ -3907,7 +3987,7 @@ namespace Midway.ConsoleClient
                 organizationRegistrationData.OrganizationType = ChooseOrganizationType().ToEnumValue();
             }
 
-            var organizationType = (OrganizationType) organizationRegistrationData.OrganizationType.Code;
+            var organizationType = (OrganizationType)organizationRegistrationData.OrganizationType.Code;
             if (organizationType == OrganizationType.LegalEntity)
             {
                 if (subjectInfo == null || !UserInput.ChooseYesNo($"Корректно ли наименование абонента: {organizationRegistrationData.Name} ?"))
@@ -3932,7 +4012,7 @@ namespace Midway.ConsoleClient
             {
                 if (string.IsNullOrWhiteSpace(organizationRegistrationData.Kpp) || !UserInput.ChooseYesNo($"Корректно ли КПП абонента: {organizationRegistrationData.Kpp} ?"))
                     organizationRegistrationData.Kpp = UserInput.ReadParameter("Введите КПП");
-               
+
                 organizationRegistrationData.Ogrn = FillField(organizationRegistrationData.Ogrn, "Введите ОГРН");
             }
             else if (organizationType == OrganizationType.IndividualEntrepreneur)
@@ -3957,14 +4037,14 @@ namespace Midway.ConsoleClient
             organizationRegistrationData.Fax = UserInput.ReadParameter("Введите факс");
 
             FillBankAccount(organizationRegistrationData);
-            
+
             var isForeign = UserInput.ChooseYesNo("Иностранная организация?", false);
             organizationRegistrationData.IsForeignCompany = isForeign;
 
             FillAddress(organizationRegistrationData, isForeign);
-            
-            organizationRegistrationData.ContactAuthType = ((ContactAuthType) Enum
-                .Parse(typeof (ContactAuthType),
+
+            organizationRegistrationData.ContactAuthType = ((ContactAuthType)Enum
+                .Parse(typeof(ContactAuthType),
                     UserInput.ChooseOption("Выберите тип авторизации контактов",
                         new[]
                         {
@@ -3975,7 +4055,7 @@ namespace Midway.ConsoleClient
 
             registrationRequest.Organization = organizationRegistrationData;
 
-            if (organizationType != OrganizationType.Individual 
+            if (organizationType != OrganizationType.Individual
                 && UserInput.ChooseYesNo("Ввести оргструктуру?", false))
             {
                 var departments = new List<DepartmentRegistrationData>();
@@ -3989,7 +4069,7 @@ namespace Midway.ConsoleClient
 
                 registrationRequest.Departments = departments;
             }
-            
+
             CreateUsers(registrationRequest, certUser);
 
             if (UserInput.ChooseYesNo("Ввести промокоды?", false))
@@ -3999,16 +4079,16 @@ namespace Midway.ConsoleClient
                 {
                     var promoCode = UserInput.ReadParameter("Введите промокод");
                     //TODO synerman: Пока не позволяет это сделать невозможность аутентификации приложения 
-//                    try
-//                    {
-//                        _context.ServiceClient.GetPromoCodeByName(promoCode);
-//                    }
-//                    catch (Exception ex)
-//                    {
-//                        UserInput.Error($"Промокода {promoCode} не существует.");
-//                        if (UserInput.ChooseYesNo("Повторить попытку?"))
-//                            promoCode = UserInput.ReadParameter("Введите промокод");
-//                    }
+                    //                    try
+                    //                    {
+                    //                        _context.ServiceClient.GetPromoCodeByName(promoCode);
+                    //                    }
+                    //                    catch (Exception ex)
+                    //                    {
+                    //                        UserInput.Error($"Промокода {promoCode} не существует.");
+                    //                        if (UserInput.ChooseYesNo("Повторить попытку?"))
+                    //                            promoCode = UserInput.ReadParameter("Введите промокод");
+                    //                    }
 
                     promoCodes.Add(promoCode);
                     if (!UserInput.ChooseYesNo("Добавить еще один промокод?", false))
@@ -4020,9 +4100,9 @@ namespace Midway.ConsoleClient
 
             registrationRequest.ServiceReglamentAccepted =
                 UserInput.ChooseYesNo("Вы принимаете Правила Synerdocs и подтверждаете, что ознакомились с Лиценционным договором (публичная оферта) по ссылке http://www.synerdocs.ru/dogovor_EDO.PDF?");
-            
+
             var registrationResponse = _context.ServiceClient.RegisterSubscriber(registrationRequest);
-            if (registrationResponse.Code.Code == (int) RegistrationResponseCode.Success)
+            if (registrationResponse.Code.Code == (int)RegistrationResponseCode.Success)
             {
                 UserInput.Success($"Регистрация {registrationResponse.Result.Organization.Name} прошла успешно");
                 var user = registrationRequest.Users.First();
@@ -4036,7 +4116,7 @@ namespace Midway.ConsoleClient
                                 string.Join("\n", flatResult.Values.SelectMany(v => v.Messages).Select(m => m.Text).ToList()));
             }
         }
-        
+
         private DepartmentRegistrationData CreateDepartment(IList<DepartmentRegistrationData> departments)
         {
             var departmentRegistrationData = new DepartmentRegistrationData();
@@ -4064,7 +4144,7 @@ namespace Midway.ConsoleClient
                     ? Guid.NewGuid().ToString()
                     : UserInput.ReadParameter("Введите идентификатор подразделения");
             }
-            
+
             departmentRegistrationData.Name = UserInput.ReadParameter("Введите наименование");
             departmentRegistrationData.Code = UserInput.ReadParameter("Введите код подразделения");
 
@@ -4167,7 +4247,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Выбрать сертификат из списка установленных
+        /// Выбрать сертификат из списка установленных.
         /// </summary>
         private X509Certificate2 ChooseCertificateFromRegister(bool excludeRegisteredCertificates = false)
         {
@@ -4197,21 +4277,21 @@ namespace Midway.ConsoleClient
                     // получаем Common Name (CN) из сертификата
                     c.GetNameInfo(X509NameType.SimpleName, false),
                     i == 0, c)));
-            return (X509Certificate2) chooseOption.Data;
+            return (X509Certificate2)chooseOption.Data;
         }
 
         private void CreateAddressRF(AddressType type, List<OrganizationAddress> addresses)
         {
             var address = new OrganizationAddress
-                          {
-                              AddressType = type,
-                              AddressLocationType = new EnumValue
-                                                    {
-                                                        Name = "AddressRF",
-                                                        Code = 0,
-                                                        Description = "Адрес в РФ"
-                                                    }
-                          };
+            {
+                AddressType = type,
+                AddressLocationType = new EnumValue
+                {
+                    Name = "AddressRF",
+                    Code = 0,
+                    Description = "Адрес в РФ"
+                }
+            };
 
             address.RegionCode = UserInput.ReadParameter("Введите код региона");
             address.PostalCode = UserInput.ReadParameter("Введите почтовый индекс");
@@ -4236,16 +4316,16 @@ namespace Midway.ConsoleClient
         private void CreateForeignAddress(AddressType type, List<OrganizationAddress> addresses)
         {
             var address = new OrganizationAddress
-                          {
-                              AddressType = type,
-                              IsForeign = true,
-                              AddressLocationType = new EnumValue
-                                                    {
-                                                        Name = "UnstructuredAddress",
-                                                        Code = 1,
-                                                        Description = "Неструктурированный адрес"
-                                                    }
-                          };
+            {
+                AddressType = type,
+                IsForeign = true,
+                AddressLocationType = new EnumValue
+                {
+                    Name = "UnstructuredAddress",
+                    Code = 1,
+                    Description = "Неструктурированный адрес"
+                }
+            };
 
             address.CountryCode = UserInput.ReadParameter("Введите код страны");
             address.ForeignStreetAddress = UserInput.ReadParameter("Введите адрес");
@@ -4271,24 +4351,24 @@ namespace Midway.ConsoleClient
             organizationRegistrationData.MiddleName = fullSubjectInfo.MiddleName;
 
             var address = new OrganizationAddress
-                          {
-                              AddressType = AddressType.Legal,
-                              City = fullSubjectInfo.Location,
-                              RegionCode = fullSubjectInfo.Region.Code,
-                              Street = fullSubjectInfo.Street,
-                              House = fullSubjectInfo.House,
-                              Building = fullSubjectInfo.Building,
-                              Apartment = fullSubjectInfo.Apartment,
-                              PostalCode = fullSubjectInfo.PostalCode,
-                              AddressLocationType = new EnumValue
-                                                    {
-                                                        Name = "AddressRF",
-                                                        Code = 0,
-                                                        Description = "Адрес в РФ"
-                                                    }
-                          };
+            {
+                AddressType = AddressType.Legal,
+                City = fullSubjectInfo.Location,
+                RegionCode = fullSubjectInfo.Region.Code,
+                Street = fullSubjectInfo.Street,
+                House = fullSubjectInfo.House,
+                Building = fullSubjectInfo.Building,
+                Apartment = fullSubjectInfo.Apartment,
+                PostalCode = fullSubjectInfo.PostalCode,
+                AddressLocationType = new EnumValue
+                {
+                    Name = "AddressRF",
+                    Code = 0,
+                    Description = "Адрес в РФ"
+                }
+            };
 
-            organizationRegistrationData.Addresses = new[] {address};
+            organizationRegistrationData.Addresses = new[] { address };
         }
 
         private void FillUserInfo(UserRegistrationData userRegistrationData, QualifiedX509Name fullSubjectInfo)
@@ -4304,7 +4384,7 @@ namespace Midway.ConsoleClient
         {
             return string.IsNullOrWhiteSpace(value) ? UserInput.ReadParameter(text) : value;
         }
-        
+
         private void FillBankAccount(OrganizationRegistrationData organizationRegistrationData)
         {
             if (UserInput.ChooseYesNo("Ввести банковские реквизиты?", false))
@@ -4325,7 +4405,7 @@ namespace Midway.ConsoleClient
         private void FillAddress(OrganizationRegistrationData organizationRegistrationData, bool isForeign = false)
         {
             var addresses = new List<OrganizationAddress>();
-            if (organizationRegistrationData.OrganizationType.Code != (int) OrganizationType.Individual)
+            if (organizationRegistrationData.OrganizationType.Code != (int)OrganizationType.Individual)
             {
                 if (organizationRegistrationData.Addresses?.Any() == true)
                 {
@@ -4337,28 +4417,28 @@ namespace Midway.ConsoleClient
                     CreateAddress(AddressType.Legal, addresses, isForeign);
                 }
 
-                if (addresses.Any(a => a.AddressType == AddressType.Legal) 
+                if (addresses.Any(a => a.AddressType == AddressType.Legal)
                     && UserInput.ChooseYesNo("Почтовый адрес тот же?"))
                 {
                     var legalAddress = addresses.First();
                     addresses.Add(new OrganizationAddress
-                                  {
-                                      AddressType = AddressType.Mailing,
-                                      AddressLocationType = legalAddress.AddressLocationType,
-                                      Apartment = legalAddress.Apartment,
-                                      Building = legalAddress.Building,
-                                      City = legalAddress.City,
-                                      CountryCode = legalAddress.CountryCode,
-                                      District = legalAddress.District,
-                                      ForeignStreetAddress = legalAddress.ForeignStreetAddress,
-                                      House = legalAddress.House,
-                                      IsForeign = legalAddress.IsForeign,
-                                      Locality = legalAddress.Locality,
-                                      PostalCode = legalAddress.PostalCode,
-                                      RegionCode = legalAddress.RegionCode,
-                                      StateRegistryCode = legalAddress.StateRegistryCode,
-                                      Street = legalAddress.Street
-                                  });
+                    {
+                        AddressType = AddressType.Mailing,
+                        AddressLocationType = legalAddress.AddressLocationType,
+                        Apartment = legalAddress.Apartment,
+                        Building = legalAddress.Building,
+                        City = legalAddress.City,
+                        CountryCode = legalAddress.CountryCode,
+                        District = legalAddress.District,
+                        ForeignStreetAddress = legalAddress.ForeignStreetAddress,
+                        House = legalAddress.House,
+                        IsForeign = legalAddress.IsForeign,
+                        Locality = legalAddress.Locality,
+                        PostalCode = legalAddress.PostalCode,
+                        RegionCode = legalAddress.RegionCode,
+                        StateRegistryCode = legalAddress.StateRegistryCode,
+                        Street = legalAddress.Street
+                    });
                 }
                 else
                 {
@@ -4389,8 +4469,7 @@ namespace Midway.ConsoleClient
         {
             return (OrganizationType)Enum
                    .Parse(typeof(OrganizationType),
-                       UserInput.ChooseOption("Выберите тип организации",
-                           new[]
+                       UserInput.ChooseOption("Выберите тип организации", new[]
                            {
                                 new UserInput.Option("1", "Юридическое лицо", true),
                                 new UserInput.Option("2", "Индивидуальный предприниматель", false),
@@ -4438,15 +4517,29 @@ namespace Midway.ConsoleClient
                 userRegistrationData.Phone = FillField(userRegistrationData.Phone, "Введите телефон");
                 userRegistrationData.Skype = FillField(userRegistrationData.Skype, "Введите номер скайпа");
                 userRegistrationData.Email = FillField(userRegistrationData.Email, "Введите email");
+                userRegistrationData.Snils = FillField(userRegistrationData.Snils, "Введите СНИЛС");
                 userRegistrationData.Comment = UserInput.ReadParameter("Введите комментарий");
                 userRegistrationData.IsAdmin = organization.OrganizationType.Code == (int)OrganizationType.Individual || UserInput.ChooseYesNo("Является администратором организации?");
 
                 if (userRegistrationData.Certificate == null && UserInput.ChooseYesNo("Указать сертификат?", false))
                     UploadCertificate(userRegistrationData);
 
-                if (registrationRequest.Departments != null 
-                    && registrationRequest.Departments.Any() 
-                    && organization.OrganizationType.Code != (int)OrganizationType.Individual 
+                var simpleSignatureEnabled = UserInput.ChooseYesNo("Включить возможность использования простой ЭП?", false);
+                userRegistrationData.Settings.Add(new SettingData
+                {
+                    SettingType = new EnumValue
+                    {
+                        Code = (int)SettingType.SimpleSignature,
+                    },
+                    Value = new SettingValue
+                    {
+                        ValueText = simpleSignatureEnabled.ToString(),
+                    }
+                });
+
+                if (registrationRequest.Departments != null
+                    && registrationRequest.Departments.Any()
+                    && organization.OrganizationType.Code != (int)OrganizationType.Individual
                     && UserInput.ChooseYesNo("Привязать пользователя к подразделению?", false))
                 {
                     var departmentOption = UserInput.ChooseOption
@@ -4456,12 +4549,12 @@ namespace Midway.ConsoleClient
                                     new UserInput.Option((i + 1).ToString(CultureInfo.InvariantCulture), c.Name,
                                         i == 0, c)));
 
-                    var department = ((DepartmentRegistrationData) departmentOption.Data);
+                    var department = ((DepartmentRegistrationData)departmentOption.Data);
                     userRegistrationData.DepartmentId = department.Id;
                 }
 
                 users.Add(userRegistrationData);
-                if (organization.OrganizationType.Code == (int)OrganizationType.Individual 
+                if (organization.OrganizationType.Code == (int)OrganizationType.Individual
                     || !UserInput.ChooseYesNo("Добавить еще одного пользователя?", false))
                     break;
 
@@ -4471,7 +4564,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Регистрация неактивного абонента
+        /// Регистрация неактивного абонента.
         /// </summary>
         private void CreateNonActiveSubscriber()
         {
@@ -4506,7 +4599,7 @@ namespace Midway.ConsoleClient
                 if (existingOrganization != null)
                     UserInput.Error("Данная организация {0} уже зарегистрирована в сервисе ", existingOrganization.GetCommonInfo());
             }
-            
+
             creationRequest.Phone = UserInput.ReadParameter("Введите телефон");
             creationRequest.ContactPerson = UserInput.ReadParameter("Введите контактное лицо");
 
@@ -4538,5 +4631,531 @@ namespace Midway.ConsoleClient
                                     flatResult.Values.SelectMany(v => v.Messages).Select(m => m.Text)));
             }
         }
+
+        /// <summary>
+        /// Проверить доступность использования простой ЭП.
+        /// </summary>
+        private void CheckSimpleSignatureAvailability()
+        {
+            try
+            {
+                var request = new SimpleSignatureAvailabilityCheckingRequest();
+
+                var userChoice = UserInput.ChooseOption("Выберите способ получения документа", new[]
+                {
+                    new UserInput.Option("1", "По ИД документа из сервиса", true),
+                    new UserInput.Option("2", "По типу документа", false),
+                    new UserInput.Option("3", "По имени файла", false),
+                    new UserInput.Option("4", "Не указывать документ", false)
+                });
+
+                switch (userChoice.Id)
+                {
+                    case "1":
+                        request.Document = new SimpleSignatureAvailabilityCheckingDocumentId
+                        {
+                            Id = UserInput.ReadParameter("Введите идентификатор документа")
+                        };
+                        break;
+
+                    case "2":
+                        var documentTypeInfo = ChooseDocumentTypeInfo("Выберите тип документа");
+                        request.Document = new SimpleSignatureAvailabilityCheckingDocumentType
+                        {
+                            DocumentTypeInfo = documentTypeInfo,
+                        };
+                        break;
+
+                    case "3":
+                        var filePath = UserInput.ReadParameter("Введите имя файла");
+                        request.Document = new SimpleSignatureAvailabilityCheckingDocumentContent
+                        {
+                            Content = TryGetFileContent(filePath)
+                        };
+                        break;
+                }
+
+                var credentials = GetCurrentCredentials();
+                var response = _context.ServiceClient.CheckSimpleSignatureAvailability(credentials, request);
+
+                Console.Out.WriteLine(response.AvailabilityStatus.Description);
+            }
+            catch (Exception ex)
+            {
+                UserInput.Error("При выполнении команды произошла ошибка");
+                UserInput.Error(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Принять регламент использования простой ЭП.
+        /// </summary>
+        private void AcceptSimpleSignatureRegulation()
+        {
+            try
+            {
+                var acceptRegulation =
+                    UserInput.ChooseYesNo("Принять регламент использования простой ЭП?", false);
+
+                if (!acceptRegulation)
+                    return;
+
+                var credentials = GetCurrentCredentials();
+                var request = new SimpleSignatureRegulationAcceptingRequest();
+
+                _context.ServiceClient.AcceptSimpleSignatureRegulation(credentials, request);
+                UserInput.Success("Регламент использования простой ЭП успешно принят");
+            }
+            catch (ServerException ex) when (ex.Code.In(ServiceErrorCode.SimpleSignatureRegulationAlreadyAccepted))
+            {
+                UserInput.Error(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                UserInput.Error("При выполнении команды произошла ошибка");
+                UserInput.Error(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Предварительный просмотр реквизитов простой ЭП.
+        /// </summary>
+        private void PreviewSimpleSignatureRequisites()
+        {
+            try
+            {
+                var request = new SimpleSignatureRequisitesPreviewingRequest();
+
+                request.Comment = UserInput.ReadParameter("Введите комментарий к подписи");
+                if (string.IsNullOrEmpty(request.Comment))
+                    request.Comment = null;
+
+                var credentials = GetCurrentCredentials();
+                var response = _context.ServiceClient.PreviewSimpleSignatureRequisites(credentials, request);
+
+                PrintSimpleSignatureRequisites(response.Requisites);
+            }
+            catch (ServerException ex) when (ex.Code.In(
+                ServiceErrorCode.SimpleSignatureDisabled,
+                ServiceErrorCode.SimpleSignatureRegulationNotAccepted,
+                ServiceErrorCode.SimpleSignatureSnilsNotSpecified))
+            {
+                UserInput.Error(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                UserInput.Error("При выполнении команды произошла ошибка");
+                UserInput.Error(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Создать простую ЭП.
+        /// </summary>
+        private void CreateSimpleSignature()
+        {
+            try
+            {
+                var signature = ChooseSimpleSignature();
+
+                PrintSimpleSignatureInfo(signature);
+
+                SaveFile(new NamedContent
+                {
+                    Name = GetSignatureFileName(signature),
+                    Content = signature.Raw,
+                });
+            }
+            catch (ServerException ex) when (ex.Code.In(
+                ServiceErrorCode.SimpleSignatureDisabled,
+                ServiceErrorCode.SimpleSignatureRegulationNotAccepted,
+                ServiceErrorCode.SimpleSignatureDocumentTypeNotAllowed,
+                ServiceErrorCode.SimpleSignatureSnilsNotSpecified))
+            {
+                UserInput.Error(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                UserInput.Error("При выполнении команды произошла ошибка");
+                UserInput.Error(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Выбрать подпись.
+        /// </summary>
+        /// <param name="document">Документ.</param>
+        /// <returns>Подпись.</returns>
+        private ISignature ChooseSignature(Document document)
+            => ChooseSignature(
+                document.Content,
+                (DocumentType)(document.DocumentTypeEnum?.Code ?? (int)document.DocumentType),
+                document.UntypedKind);
+
+        /// <summary>
+        /// Выбрать подпись.
+        /// </summary>
+        /// <param name="documentContent">Содержимое документа.</param>
+        /// <param name="documentType">Тип документа.</param>
+        /// <param name="untypedKind">Вид неформализованного документа.</param>
+        /// <returns>Подпись.</returns>
+        private ISignature ChooseSignature(byte[] documentContent, DocumentType documentType, string untypedKind = null)
+            => ChooseSignature(documentContent, new DocumentTypeInfo
+            {
+                DocumentType = new DocumentTypeEnum
+                {
+                    Value = documentType,
+                    Code = (int)documentType,
+                },
+                UntypedKind = untypedKind,
+            });
+
+        /// <summary>
+        /// Выбрать подпись.
+        /// </summary>
+        /// <param name="documentContent">Содержимое документа.</param>
+        /// <param name="documentTypeInfo">Информация о типе документа.</param>
+        /// <returns>Подпись.</returns>
+        private ISignature ChooseSignature(byte[] documentContent = null, DocumentTypeInfo documentTypeInfo = null)
+        {
+            var userChoices = new[]
+            {
+                new UserInput.Option("1", "Усиленная ЭП", true),
+                new UserInput.Option("2", "Простая ЭП", false)
+            };
+
+            do
+            {
+                byte[] signatureContent = null;
+                var userChoice = UserInput.ChooseOption("Выберите тип подписи", userChoices);
+
+                if (UserInput.ChooseYesNo("Загрузить подпись из файла", false))
+                {
+                    var filePath = UserInput.ReadParameter("Введите имя файла, содержащего подпись");
+                    signatureContent = TryGetFileContent(filePath);
+
+                    if (signatureContent == null)
+                        continue;
+                }
+
+                switch (userChoice.Id)
+                {
+                    case "1":
+                        var strongSignature =  signatureContent != null
+                            ? new Sign { Raw = signatureContent }
+                            : ChooseStrongSignature(documentContent);
+                        strongSignature.From = _context.CurrentBox;
+                        return strongSignature;
+
+                    case "2":
+                        var simpleSignature = signatureContent != null
+                            ? new SimpleSignature { Raw = signatureContent }
+                            : ChooseSimpleSignature(documentContent, documentTypeInfo);
+                        simpleSignature.SenderBoxId = _context.CurrentBox;
+                        return simpleSignature;
+                }
+            }
+            while (true);
+        }
+
+        /// <summary>
+        /// Выбрать усиленную ЭП.
+        /// </summary>
+        /// <param name="documentContent">Содержимое документа.</param>
+        /// <param name="documentTypeInfo">Информация о типе документа.</param>
+        /// <returns>Усиленная ЭП.</returns>
+        private Sign ChooseStrongSignature(byte[] documentContent = null, DocumentTypeInfo documentTypeInfo = null)
+        {
+            if (_context.Certificate == null)
+                ChooseCertificate();
+
+            string documentId = string.Empty;
+
+            if (documentContent == null)
+            {
+                documentId = UserInput.ReadParameter("Введите ИД документа");
+                documentContent = _context.ServiceClient.GetDocumentContent(_context.CurrentBox, documentId);
+            }
+
+            var signatureContent = CryptoApiHelper.Sign(_context.Certificate, documentContent, true);
+
+            return new Sign
+            {
+                Raw = signatureContent,
+                From = _context.CurrentBox,
+                DocumentId = documentId,
+            };
+        }
+
+        /// <summary>
+        /// Выбрать простую ЭП.
+        /// </summary>
+        /// <param name="documentContent">Содержимое документа.</param>
+        /// <param name="documentTypeInfo">Информация о типе документа.</param>
+        /// <returns>Простая ЭП.</returns>
+        private SimpleSignature ChooseSimpleSignature(byte[] documentContent = null, DocumentTypeInfo documentTypeInfo = null)
+        {
+            var request = new SimpleSignatureCreationRequest();
+
+            request.Comment = UserInput.ReadParameter("Введите комментарий к подписи");
+            if (string.IsNullOrEmpty(request.Comment))
+                request.Comment = null;
+
+            var userChoices = new[]
+            {
+                new UserInput.Option("1", "По ИД документа из сервиса",true),
+                new UserInput.Option("2", "По имени файла и типу", false)
+            };
+
+            do
+            {
+                var userChoice = documentContent == null
+                    ? UserInput.ChooseOption("Выберите способ подписания документа", userChoices)
+                    : userChoices[1];
+
+                switch (userChoice.Id)
+                {
+                    case "1":
+                        var documentId = UserInput.ReadParameter("Введите идентификатор документа");
+                        request.Document = new SimpleSignatureCreationDocumentId
+                        {
+                            Id = documentId
+                        };
+                        break;
+
+                    case "2":
+                        if (documentContent == null)
+                        {
+                            var filePath = UserInput.ReadParameter("Введите имя файла");
+                            documentContent = TryGetFileContent(filePath);
+
+                            if (documentContent == null)
+                                continue;
+                        }
+
+                        if (documentTypeInfo == null)
+                            documentTypeInfo = ChooseDocumentTypeInfo("Выберите тип документа");
+
+                        request.Document = new SimpleSignatureCreationDocumentData
+                        {
+                            Content = documentContent,
+                            DocumentTypeInfo = documentTypeInfo,
+                        };
+                        break;
+                }
+
+                if (request.Document != null)
+                    break;
+            }
+            while (true);
+
+            var credentials = GetCurrentCredentials();
+            var response = _context.ServiceClient.CreateSimpleSignature(credentials, request);
+            return response.Signature;
+        }
+
+        /// <summary>
+        /// Вывести информацию о простой подписи.
+        /// </summary>
+        /// <param name="signature">Простая подпись.</param>
+        private void PrintSimpleSignatureInfo(SimpleSignature signature)
+        {
+            Console.Out.WriteLine($"ИД подписи: {signature.Id}");
+            Console.Out.WriteLine($"ИД документа: {signature.DocumentId}");
+            Console.Out.WriteLine($"Дата подписания: {signature.SignedAt}");
+            Console.Out.WriteLine($"Версия подписи: {signature.Version}");
+
+            PrintSimpleSignatureRequisites(signature.Requisites);
+
+            Console.Out.WriteLine($"Хеш проверяемых атрибутов: {Convert.ToBase64String(signature.AttributesHash)}");
+            Console.Out.WriteLine($"Хеш подписанного документа: {Convert.ToBase64String(signature.DocumentHash)}");
+            Console.Out.WriteLine($"Код проверки подписи: {Convert.ToBase64String(signature.ValidationCode)}");
+            Console.Out.WriteLine($"Статус валидности: {signature.IsValid}");
+        }
+
+        /// <summary>
+        /// Вывести реквизиты простой ЭП.
+        /// </summary>
+        /// <param name="requisites">Реквизиты простой ЭП.</param>
+        private void PrintSimpleSignatureRequisites(SimpleSignatureRequisites requisites)
+        {
+            var organization = requisites.Organization;
+            Console.Out.WriteLine($"Наименования организации: {organization.Name}");
+            Console.Out.WriteLine($"ИНН: {organization.Inn}");
+            Console.Out.WriteLine($"КПП: {organization.Kpp}");
+            Console.Out.WriteLine($"ОГРН: {organization.Ogrn}");
+            Console.Out.WriteLine($"Сведения о государственной регистрации: {organization.StateRegistrationCert}");
+
+            var employee = requisites.Employee;
+            Console.Out.WriteLine($"Должность подписанта: {employee.Position}");
+            Console.Out.WriteLine($"Email: {employee.Email}");
+            Console.Out.WriteLine($"СНИЛС: {employee.Snils}");
+
+            var fullName = employee.FullName;
+            Console.Out.WriteLine($"ФИО: {fullName.FirstName} {fullName.MiddleName} {fullName.LastName}");
+
+            Console.Out.WriteLine($"Комментарий к подписи: {requisites.Comment}");
+        }
+
+        /// <summary>
+        /// Получить текущие учетные данные работника.
+        /// </summary>
+        /// <returns>Учетные данные работника.</returns>
+        private EmployeeOperationCredentials GetCurrentCredentials()
+            => new EmployeeOperationCredentials
+            {
+                BoxAddress = _context.CurrentBox
+            };
+
+        /// <summary>
+        /// Попытаться получить содержимое файла.
+        /// </summary>
+        /// <returns>Содержимое файла.</returns>
+        private static byte[] TryGetFileContent(string filePath)
+        {
+            if (!Path.IsPathRooted(filePath))
+                filePath = Path.Combine(Environment.CurrentDirectory, filePath);
+
+            if (!File.Exists(filePath))
+            {
+                UserInput.Error("Файл не найден {0}", filePath);
+                return null;
+            }
+
+            return FileHelper.GetFileContent(filePath);
+        }
+
+        /// <summary>
+        /// Получить субъект подписи.
+        /// </summary>
+        /// <param name="signature">Подпись.</param>
+        /// <returns>Субъект подписи.</returns>
+        private static string GetSignatureSubject(ISignature signature)
+        {
+            if (signature is Sign)
+                return (signature as Sign).Subject;
+
+            var fullName = ((SimpleSignature)signature).Requisites.Employee.FullName;
+            var subject = $"{fullName.LastName} {fullName.FirstName} {fullName.MiddleName}";
+            return subject.Trim();
+        }
+
+        /// <summary>
+        /// Получить имя файла подписи.
+        /// </summary>
+        /// <param name="signature">Подпись.</param>
+        /// <returns>Имя файла подписи.</returns>
+        private static string GetSignatureFileName(ISignature signature)
+        {
+            var subject = GetSignatureSubject(signature);
+            var extension = signature is Sign ? ".sig" : ".xml";
+            return subject + extension;
+        }
+
+        /// <summary>
+        /// Создать модель титула покупателя ДПТ.
+        /// </summary>
+        /// <returns>Модель титула покупателя ДПТ.</returns>
+        private static GoodsTransferBuyer CreateGoodsTransferBuyer()
+            => new GoodsTransferBuyer
+            {
+                GoodsAcceptanceInfo = new AcceptanceInfo
+                {
+                    Description = "Содержание операции",
+                },
+                Drafter = new Drafter
+                {
+                    OrganizationName = "Наименование экономического субъекта",
+                },
+                Signers = CreateTransferDocumentSigners(),
+            };
+
+        /// <summary>
+        /// Создать модель титула покупателя ДПРР.
+        /// </summary>
+        /// <returns>Модель титула покупателя ДПРР.</returns>
+        private static WorksTransferBuyer CreateWorksTransferBuyer()
+            => new WorksTransferBuyer
+            {
+                WorksAcceptanceInfo = new AcceptanceInfo
+                {
+                    Description = "Содержание операции",
+                },
+                Drafter = new Drafter
+                {
+                    OrganizationName = "Наименование экономического субъекта",
+                },
+                Signers = CreateTransferDocumentSigners(),
+            };
+
+        /// <summary>
+        /// Создать модель титула покупателя УПД.
+        /// </summary>
+        /// <returns>Модель титула покупателя УПД.</returns>
+        private static GeneralTransferBuyer CreateGeneralTransferBuyer()
+            => new GeneralTransferBuyer
+            {
+                GoodsAcceptanceInfo = new AcceptanceInfo
+                {
+                    Description = "Содержание операции",
+                },
+                Drafter = new Drafter
+                {
+                    OrganizationName = "Наименование экономического субъекта",
+                },
+                Signers = CreateTransferDocumentSigners(),
+            };
+
+        /// <summary>
+        /// Создать модель титула покупателя УКД.
+        /// </summary>
+        /// <returns>Модель титула покупателя УКД.</returns>
+        private static GeneralTransferCorrectionBuyer CreateGeneralTransferCorrectionBuyer()
+            => new GeneralTransferCorrectionBuyer
+            {
+                ApprovalInfo = new ApprovalInfo
+                {
+                    Description = "Содержание операции",
+                },
+                Drafter = new Drafter
+                {
+                    OrganizationName = "Наименование экономического субъекта",
+                },
+                Signers = CreateTransferDocumentSigners(),
+            };
+
+        /// <summary>
+        /// Создать список подписантов для документов ДПТ, ДПРР, УПД и УКД.
+        /// </summary>
+        /// <returns>Список подписантов.</returns>
+        private static Signer[] CreateTransferDocumentSigners()
+            => new[]
+            {
+                // TODO: Добавить ввод этих значений или взятие их из текущей организации.
+                new Signer
+                {
+                    Inn = "1234567890",
+                    Position = "Директор",
+                    AuthorityBase = "Основание полномочий",
+                    OrganizationName = "ООО Нефтепродукт",
+                    FullName = new FullName
+                    {
+                        LastName = "Иванов",
+                        FirstName = "Иван",
+                    },
+                    OrganizationType = new EnumValue
+                    {
+                        Code = 1,
+                    },
+                    AuthorityArea = new EnumValue
+                    {
+                        Code = 1,
+                    },
+                    SignerType = new EnumValue
+                    {
+                        Code = 1,
+                    },
+                },
+            };
     }
 }

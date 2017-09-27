@@ -15,6 +15,14 @@ namespace Midway.ServiceClient.Model {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://synerdocs.ru", ConfigurationName="Model.IExchangeService")]
     public interface IExchangeService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
+        void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
+        System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteOrganizationPromoCode(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckCertificateList", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse")]
         Midway.ObjectModel.CertificateCheckInfo[] CheckCertificateList(string[] thumbprints);
         
@@ -33,8 +41,9 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocumentWithSimpleSignature))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
@@ -54,8 +63,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneralTransferSeller ParseGeneralTransferSeller(string authToken, byte[] content);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse")]
@@ -64,8 +73,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferSeller EndParseGeneralTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneralTransferBuyer ParseGeneralTransferBuyer(string authToken, byte[] content);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse")]
@@ -75,8 +84,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.WorksTransferSeller ParseWorksTransferSeller(string authToken, byte[] content);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse")]
@@ -93,8 +102,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.WorksTransferBuyer EndParseWorksTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         Midway.ObjectModel.GoodsTransferSeller ParseGoodsTransferSeller(string authToken, byte[] content);
         
@@ -104,8 +113,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GoodsTransferSeller EndParseGoodsTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GoodsTransferBuyer ParseGoodsTransferBuyer(string authToken, byte[] content);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse")]
@@ -116,8 +125,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" +
             "")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneralTransferCorrectionSeller ParseGeneralTransferCorrectionSeller(string authToken, byte[] content);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" +
@@ -127,8 +136,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferCorrectionSeller EndParseGeneralTransferCorrectionSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(string authToken, byte[] content);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse")]
@@ -138,8 +147,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneratedContent GenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
@@ -148,8 +157,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         Midway.ObjectModel.GeneratedContent GenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
         
@@ -160,8 +169,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneratedContent GenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse")]
@@ -172,8 +181,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerRespo" +
             "nse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerRespo" +
@@ -183,8 +192,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneratedContent GenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse")]
@@ -193,8 +202,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneratedContent GenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse")]
@@ -203,8 +212,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneratedContent GenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse")]
@@ -214,8 +223,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerRespon" +
             "se")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerRespon" +
@@ -233,8 +242,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndDownloadPdfDocument(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         Midway.ObjectModel.RegistrationResponse RegisterSubscriber(Midway.ObjectModel.RegistrationRequest request);
         
@@ -244,8 +253,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
@@ -254,8 +263,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
@@ -264,14 +273,96 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
         System.IAsyncResult BeginGetDocumentExecutedFunction(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState);
         
         Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse")]
+        System.IAsyncResult BeginCreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequest(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileRespons" +
+            "e")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequestFromFile(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileRespons" +
+            "e")]
+        System.IAsyncResult BeginCreateCertificateIssueRequestFromFile(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequestFromFile(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfoResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.CertificateIssueInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.CertificateIssueShortInfo GetCertificateIssueShortInfo(string authToken, string boxId, string certificateIssueRequestId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfoResponse")]
+        System.IAsyncResult BeginGetCertificateIssueShortInfo(string authToken, string boxId, string certificateIssueRequestId, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.CertificateIssueShortInfo EndGetCertificateIssueShortInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfoResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.CertificateIssueInfo GetCertificateIssueInfo(string authToken, string boxId, string certificateIssueRequestId, Midway.ObjectModel.CertificateIssueInfoGettingSettings settings);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfoResponse")]
+        System.IAsyncResult BeginGetCertificateIssueInfo(string authToken, string boxId, string certificateIssueRequestId, Midway.ObjectModel.CertificateIssueInfoGettingSettings settings, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.CertificateIssueInfo EndGetCertificateIssueInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability", ReplyAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentId))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentContent))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse CheckSimpleSignatureAvailability(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability", ReplyAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityResponse")]
+        System.IAsyncResult BeginCheckSimpleSignatureAvailability(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse EndCheckSimpleSignatureAvailability(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulationResponse")]
+        Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse AcceptSimpleSignatureRegulation(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulationResponse")]
+        System.IAsyncResult BeginAcceptSimpleSignatureRegulation(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse EndAcceptSimpleSignatureRegulation(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisites", ReplyAction="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisitesResponse")]
+        Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse PreviewSimpleSignatureRequisites(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisites", ReplyAction="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisitesResponse")]
+        System.IAsyncResult BeginPreviewSimpleSignatureRequisites(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse EndPreviewSimpleSignatureRequisites(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureCreationDocumentId))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureCreationDocumentData))]
+        Midway.ObjectModel.SimpleSignatureCreationResponse CreateSimpleSignature(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureResponse")]
+        System.IAsyncResult BeginCreateSimpleSignature(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SimpleSignatureCreationResponse EndCreateSimpleSignature(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
         string Authenticate(string login, string password, string applicationId);
@@ -501,8 +592,9 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfoRequestParams))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocumentWithSimpleSignature))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UntypedDocumentFlowStatus))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.InvoiceDocumentFlowStatus))]
         Midway.ObjectModel.FullDocumentInfo GetFullDocumentInfo(string authToken, string boxId, string documentId, Midway.ObjectModel.FullDocumentInfoRequestParams requestParams);
@@ -538,8 +630,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.ContactSearchResult EndSearchContacts(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetContact", ReplyAction="http://synerdocs.ru/IExchangeService/GetContactResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.Contact GetContact(string authToken, int organizationId, int contragentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetContact", ReplyAction="http://synerdocs.ru/IExchangeService/GetContactResponse")]
@@ -604,8 +696,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteContact(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKpp", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKppResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         Midway.ObjectModel.Organization GetOrganizationByInnKpp(string authToken, string inn, string kpp);
         
@@ -615,8 +707,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Organization EndGetOrganizationByInnKpp(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationBy", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationByResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         Midway.ObjectModel.Organization GetOrganizationBy(string authToken, string boxId, Midway.ObjectModel.OrganizationByCriteria criteria, Midway.ObjectModel.OrganizationByCriteriaValues values);
         
@@ -845,6 +937,14 @@ namespace Midway.ServiceClient.Model {
         
         void EndSignDocument(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignatureResponse")]
+        void SignDocumentWithSimpleSignature(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignatureResponse")]
+        System.IAsyncResult BeginSignDocumentWithSimpleSignature(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature, System.AsyncCallback callback, object asyncState);
+        
+        void EndSignDocumentWithSimpleSignature(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RejectSign", ReplyAction="http://synerdocs.ru/IExchangeService/RejectSignResponse")]
         void RejectSign(string authToken, Midway.ObjectModel.FlowType flowType, [System.ServiceModel.MessageParameterAttribute(Name="rejectSign")] Midway.ObjectModel.RejectSign rejectSign1);
         
@@ -965,14 +1065,6 @@ namespace Midway.ServiceClient.Model {
         System.IAsyncResult BeginGetPromoCodeByName(string authToken, string promoCodeName, System.AsyncCallback callback, object asyncState);
         
         Midway.ObjectModel.PromoCode EndGetPromoCodeByName(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
-        void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
-        System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState);
-        
-        void EndDeleteOrganizationPromoCode(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1450,6 +1542,158 @@ namespace Midway.ServiceClient.Model {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((Midway.ObjectModel.EnumValue)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateCertificateIssueRequestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateCertificateIssueRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.CertificateIssueRequestCreationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateCertificateIssueRequestFromFileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateCertificateIssueRequestFromFileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.CertificateIssueRequestCreationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetCertificateIssueShortInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetCertificateIssueShortInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.CertificateIssueShortInfo Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.CertificateIssueShortInfo)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetCertificateIssueInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetCertificateIssueInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.CertificateIssueInfo Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.CertificateIssueInfo)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CheckSimpleSignatureAvailabilityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CheckSimpleSignatureAvailabilityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AcceptSimpleSignatureRegulationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AcceptSimpleSignatureRegulationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PreviewSimpleSignatureRequisitesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public PreviewSimpleSignatureRequisitesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateSimpleSignatureCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateSimpleSignatureCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureCreationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SimpleSignatureCreationResponse)(this.results[0]));
             }
         }
     }
@@ -2807,6 +3051,12 @@ namespace Midway.ServiceClient.Model {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ExchangeServiceClient : System.ServiceModel.ClientBase<Midway.ServiceClient.Model.IExchangeService>, Midway.ServiceClient.Model.IExchangeService {
         
+        private BeginOperationDelegate onBeginDeleteOrganizationPromoCodeDelegate;
+        
+        private EndOperationDelegate onEndDeleteOrganizationPromoCodeDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteOrganizationPromoCodeCompletedDelegate;
+        
         private BeginOperationDelegate onBeginCheckCertificateListDelegate;
         
         private EndOperationDelegate onEndCheckCertificateListDelegate;
@@ -2956,6 +3206,54 @@ namespace Midway.ServiceClient.Model {
         private EndOperationDelegate onEndGetDocumentExecutedFunctionDelegate;
         
         private System.Threading.SendOrPostCallback onGetDocumentExecutedFunctionCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCreateCertificateIssueRequestDelegate;
+        
+        private EndOperationDelegate onEndCreateCertificateIssueRequestDelegate;
+        
+        private System.Threading.SendOrPostCallback onCreateCertificateIssueRequestCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCreateCertificateIssueRequestFromFileDelegate;
+        
+        private EndOperationDelegate onEndCreateCertificateIssueRequestFromFileDelegate;
+        
+        private System.Threading.SendOrPostCallback onCreateCertificateIssueRequestFromFileCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetCertificateIssueShortInfoDelegate;
+        
+        private EndOperationDelegate onEndGetCertificateIssueShortInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetCertificateIssueShortInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetCertificateIssueInfoDelegate;
+        
+        private EndOperationDelegate onEndGetCertificateIssueInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetCertificateIssueInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCheckSimpleSignatureAvailabilityDelegate;
+        
+        private EndOperationDelegate onEndCheckSimpleSignatureAvailabilityDelegate;
+        
+        private System.Threading.SendOrPostCallback onCheckSimpleSignatureAvailabilityCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAcceptSimpleSignatureRegulationDelegate;
+        
+        private EndOperationDelegate onEndAcceptSimpleSignatureRegulationDelegate;
+        
+        private System.Threading.SendOrPostCallback onAcceptSimpleSignatureRegulationCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginPreviewSimpleSignatureRequisitesDelegate;
+        
+        private EndOperationDelegate onEndPreviewSimpleSignatureRequisitesDelegate;
+        
+        private System.Threading.SendOrPostCallback onPreviewSimpleSignatureRequisitesCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCreateSimpleSignatureDelegate;
+        
+        private EndOperationDelegate onEndCreateSimpleSignatureDelegate;
+        
+        private System.Threading.SendOrPostCallback onCreateSimpleSignatureCompletedDelegate;
         
         private BeginOperationDelegate onBeginAuthenticateDelegate;
         
@@ -3371,6 +3669,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onSignDocumentCompletedDelegate;
         
+        private BeginOperationDelegate onBeginSignDocumentWithSimpleSignatureDelegate;
+        
+        private EndOperationDelegate onEndSignDocumentWithSimpleSignatureDelegate;
+        
+        private System.Threading.SendOrPostCallback onSignDocumentWithSimpleSignatureCompletedDelegate;
+        
         private BeginOperationDelegate onBeginRejectSignDelegate;
         
         private EndOperationDelegate onEndRejectSignDelegate;
@@ -3461,12 +3765,6 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onGetPromoCodeByNameCompletedDelegate;
         
-        private BeginOperationDelegate onBeginDeleteOrganizationPromoCodeDelegate;
-        
-        private EndOperationDelegate onEndDeleteOrganizationPromoCodeDelegate;
-        
-        private System.Threading.SendOrPostCallback onDeleteOrganizationPromoCodeCompletedDelegate;
-        
         public ExchangeServiceClient() {
         }
         
@@ -3485,6 +3783,8 @@ namespace Midway.ServiceClient.Model {
         public ExchangeServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteOrganizationPromoCodeCompleted;
         
         public event System.EventHandler<CheckCertificateListCompletedEventArgs> CheckCertificateListCompleted;
         
@@ -3535,6 +3835,22 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<GetCertificateSubjectInfoCompletedEventArgs> GetCertificateSubjectInfoCompleted;
         
         public event System.EventHandler<GetDocumentExecutedFunctionCompletedEventArgs> GetDocumentExecutedFunctionCompleted;
+        
+        public event System.EventHandler<CreateCertificateIssueRequestCompletedEventArgs> CreateCertificateIssueRequestCompleted;
+        
+        public event System.EventHandler<CreateCertificateIssueRequestFromFileCompletedEventArgs> CreateCertificateIssueRequestFromFileCompleted;
+        
+        public event System.EventHandler<GetCertificateIssueShortInfoCompletedEventArgs> GetCertificateIssueShortInfoCompleted;
+        
+        public event System.EventHandler<GetCertificateIssueInfoCompletedEventArgs> GetCertificateIssueInfoCompleted;
+        
+        public event System.EventHandler<CheckSimpleSignatureAvailabilityCompletedEventArgs> CheckSimpleSignatureAvailabilityCompleted;
+        
+        public event System.EventHandler<AcceptSimpleSignatureRegulationCompletedEventArgs> AcceptSimpleSignatureRegulationCompleted;
+        
+        public event System.EventHandler<PreviewSimpleSignatureRequisitesCompletedEventArgs> PreviewSimpleSignatureRequisitesCompleted;
+        
+        public event System.EventHandler<CreateSimpleSignatureCompletedEventArgs> CreateSimpleSignatureCompleted;
         
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
         
@@ -3674,6 +3990,8 @@ namespace Midway.ServiceClient.Model {
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SignDocumentCompleted;
         
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SignDocumentWithSimpleSignatureCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RejectSignCompleted;
         
         public event System.EventHandler<GetDocumentEntriesCompletedEventArgs> GetDocumentEntriesCompleted;
@@ -3704,7 +4022,58 @@ namespace Midway.ServiceClient.Model {
         
         public event System.EventHandler<GetPromoCodeByNameCompletedEventArgs> GetPromoCodeByNameCompleted;
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteOrganizationPromoCodeCompleted;
+        public void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId) {
+            base.Channel.DeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndDeleteOrganizationPromoCode(System.IAsyncResult result) {
+            base.Channel.EndDeleteOrganizationPromoCode(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteOrganizationPromoCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string organizationPromoCodeId = ((string)(inValues[2]));
+            return this.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteOrganizationPromoCode(System.IAsyncResult result) {
+            this.EndDeleteOrganizationPromoCode(result);
+            return null;
+        }
+        
+        private void OnDeleteOrganizationPromoCodeCompleted(object state) {
+            if ((this.DeleteOrganizationPromoCodeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteOrganizationPromoCodeCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId) {
+            this.DeleteOrganizationPromoCodeAsync(authToken, boxId, organizationPromoCodeId, null);
+        }
+        
+        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId, object userState) {
+            if ((this.onBeginDeleteOrganizationPromoCodeDelegate == null)) {
+                this.onBeginDeleteOrganizationPromoCodeDelegate = new BeginOperationDelegate(this.OnBeginDeleteOrganizationPromoCode);
+            }
+            if ((this.onEndDeleteOrganizationPromoCodeDelegate == null)) {
+                this.onEndDeleteOrganizationPromoCodeDelegate = new EndOperationDelegate(this.OnEndDeleteOrganizationPromoCode);
+            }
+            if ((this.onDeleteOrganizationPromoCodeCompletedDelegate == null)) {
+                this.onDeleteOrganizationPromoCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteOrganizationPromoCodeCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteOrganizationPromoCodeDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        organizationPromoCodeId}, this.onEndDeleteOrganizationPromoCodeDelegate, this.onDeleteOrganizationPromoCodeCompletedDelegate, userState);
+        }
         
         public Midway.ObjectModel.CertificateCheckInfo[] CheckCertificateList(string[] thumbprints) {
             return base.Channel.CheckCertificateList(thumbprints);
@@ -5034,6 +5403,432 @@ namespace Midway.ServiceClient.Model {
                         authToken,
                         boxId,
                         documentId}, this.onEndGetDocumentExecutedFunctionDelegate, this.onGetDocumentExecutedFunctionCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request) {
+            return base.Channel.CreateCertificateIssueRequest(authToken, boxId, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateCertificateIssueRequest(authToken, boxId, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequest(System.IAsyncResult result) {
+            return base.Channel.EndCreateCertificateIssueRequest(result);
+        }
+        
+        private System.IAsyncResult OnBeginCreateCertificateIssueRequest(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            Midway.ObjectModel.CertificateIssueRequestCreationRequest request = ((Midway.ObjectModel.CertificateIssueRequestCreationRequest)(inValues[2]));
+            return this.BeginCreateCertificateIssueRequest(authToken, boxId, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCreateCertificateIssueRequest(System.IAsyncResult result) {
+            Midway.ObjectModel.CertificateIssueRequestCreationResponse retVal = this.EndCreateCertificateIssueRequest(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCreateCertificateIssueRequestCompleted(object state) {
+            if ((this.CreateCertificateIssueRequestCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CreateCertificateIssueRequestCompleted(this, new CreateCertificateIssueRequestCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CreateCertificateIssueRequestAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request) {
+            this.CreateCertificateIssueRequestAsync(authToken, boxId, request, null);
+        }
+        
+        public void CreateCertificateIssueRequestAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, object userState) {
+            if ((this.onBeginCreateCertificateIssueRequestDelegate == null)) {
+                this.onBeginCreateCertificateIssueRequestDelegate = new BeginOperationDelegate(this.OnBeginCreateCertificateIssueRequest);
+            }
+            if ((this.onEndCreateCertificateIssueRequestDelegate == null)) {
+                this.onEndCreateCertificateIssueRequestDelegate = new EndOperationDelegate(this.OnEndCreateCertificateIssueRequest);
+            }
+            if ((this.onCreateCertificateIssueRequestCompletedDelegate == null)) {
+                this.onCreateCertificateIssueRequestCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateCertificateIssueRequestCompleted);
+            }
+            base.InvokeAsync(this.onBeginCreateCertificateIssueRequestDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        request}, this.onEndCreateCertificateIssueRequestDelegate, this.onCreateCertificateIssueRequestCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequestFromFile(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request) {
+            return base.Channel.CreateCertificateIssueRequestFromFile(authToken, boxId, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCreateCertificateIssueRequestFromFile(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateCertificateIssueRequestFromFile(authToken, boxId, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequestFromFile(System.IAsyncResult result) {
+            return base.Channel.EndCreateCertificateIssueRequestFromFile(result);
+        }
+        
+        private System.IAsyncResult OnBeginCreateCertificateIssueRequestFromFile(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request = ((Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest)(inValues[2]));
+            return this.BeginCreateCertificateIssueRequestFromFile(authToken, boxId, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCreateCertificateIssueRequestFromFile(System.IAsyncResult result) {
+            Midway.ObjectModel.CertificateIssueRequestCreationResponse retVal = this.EndCreateCertificateIssueRequestFromFile(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCreateCertificateIssueRequestFromFileCompleted(object state) {
+            if ((this.CreateCertificateIssueRequestFromFileCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CreateCertificateIssueRequestFromFileCompleted(this, new CreateCertificateIssueRequestFromFileCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CreateCertificateIssueRequestFromFileAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request) {
+            this.CreateCertificateIssueRequestFromFileAsync(authToken, boxId, request, null);
+        }
+        
+        public void CreateCertificateIssueRequestFromFileAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request, object userState) {
+            if ((this.onBeginCreateCertificateIssueRequestFromFileDelegate == null)) {
+                this.onBeginCreateCertificateIssueRequestFromFileDelegate = new BeginOperationDelegate(this.OnBeginCreateCertificateIssueRequestFromFile);
+            }
+            if ((this.onEndCreateCertificateIssueRequestFromFileDelegate == null)) {
+                this.onEndCreateCertificateIssueRequestFromFileDelegate = new EndOperationDelegate(this.OnEndCreateCertificateIssueRequestFromFile);
+            }
+            if ((this.onCreateCertificateIssueRequestFromFileCompletedDelegate == null)) {
+                this.onCreateCertificateIssueRequestFromFileCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateCertificateIssueRequestFromFileCompleted);
+            }
+            base.InvokeAsync(this.onBeginCreateCertificateIssueRequestFromFileDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        request}, this.onEndCreateCertificateIssueRequestFromFileDelegate, this.onCreateCertificateIssueRequestFromFileCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.CertificateIssueShortInfo GetCertificateIssueShortInfo(string authToken, string boxId, string certificateIssueRequestId) {
+            return base.Channel.GetCertificateIssueShortInfo(authToken, boxId, certificateIssueRequestId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetCertificateIssueShortInfo(string authToken, string boxId, string certificateIssueRequestId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetCertificateIssueShortInfo(authToken, boxId, certificateIssueRequestId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.CertificateIssueShortInfo EndGetCertificateIssueShortInfo(System.IAsyncResult result) {
+            return base.Channel.EndGetCertificateIssueShortInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetCertificateIssueShortInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string certificateIssueRequestId = ((string)(inValues[2]));
+            return this.BeginGetCertificateIssueShortInfo(authToken, boxId, certificateIssueRequestId, callback, asyncState);
+        }
+        
+        private object[] OnEndGetCertificateIssueShortInfo(System.IAsyncResult result) {
+            Midway.ObjectModel.CertificateIssueShortInfo retVal = this.EndGetCertificateIssueShortInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetCertificateIssueShortInfoCompleted(object state) {
+            if ((this.GetCertificateIssueShortInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetCertificateIssueShortInfoCompleted(this, new GetCertificateIssueShortInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetCertificateIssueShortInfoAsync(string authToken, string boxId, string certificateIssueRequestId) {
+            this.GetCertificateIssueShortInfoAsync(authToken, boxId, certificateIssueRequestId, null);
+        }
+        
+        public void GetCertificateIssueShortInfoAsync(string authToken, string boxId, string certificateIssueRequestId, object userState) {
+            if ((this.onBeginGetCertificateIssueShortInfoDelegate == null)) {
+                this.onBeginGetCertificateIssueShortInfoDelegate = new BeginOperationDelegate(this.OnBeginGetCertificateIssueShortInfo);
+            }
+            if ((this.onEndGetCertificateIssueShortInfoDelegate == null)) {
+                this.onEndGetCertificateIssueShortInfoDelegate = new EndOperationDelegate(this.OnEndGetCertificateIssueShortInfo);
+            }
+            if ((this.onGetCertificateIssueShortInfoCompletedDelegate == null)) {
+                this.onGetCertificateIssueShortInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCertificateIssueShortInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetCertificateIssueShortInfoDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        certificateIssueRequestId}, this.onEndGetCertificateIssueShortInfoDelegate, this.onGetCertificateIssueShortInfoCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.CertificateIssueInfo GetCertificateIssueInfo(string authToken, string boxId, string certificateIssueRequestId, Midway.ObjectModel.CertificateIssueInfoGettingSettings settings) {
+            return base.Channel.GetCertificateIssueInfo(authToken, boxId, certificateIssueRequestId, settings);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetCertificateIssueInfo(string authToken, string boxId, string certificateIssueRequestId, Midway.ObjectModel.CertificateIssueInfoGettingSettings settings, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetCertificateIssueInfo(authToken, boxId, certificateIssueRequestId, settings, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.CertificateIssueInfo EndGetCertificateIssueInfo(System.IAsyncResult result) {
+            return base.Channel.EndGetCertificateIssueInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetCertificateIssueInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string certificateIssueRequestId = ((string)(inValues[2]));
+            Midway.ObjectModel.CertificateIssueInfoGettingSettings settings = ((Midway.ObjectModel.CertificateIssueInfoGettingSettings)(inValues[3]));
+            return this.BeginGetCertificateIssueInfo(authToken, boxId, certificateIssueRequestId, settings, callback, asyncState);
+        }
+        
+        private object[] OnEndGetCertificateIssueInfo(System.IAsyncResult result) {
+            Midway.ObjectModel.CertificateIssueInfo retVal = this.EndGetCertificateIssueInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetCertificateIssueInfoCompleted(object state) {
+            if ((this.GetCertificateIssueInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetCertificateIssueInfoCompleted(this, new GetCertificateIssueInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetCertificateIssueInfoAsync(string authToken, string boxId, string certificateIssueRequestId, Midway.ObjectModel.CertificateIssueInfoGettingSettings settings) {
+            this.GetCertificateIssueInfoAsync(authToken, boxId, certificateIssueRequestId, settings, null);
+        }
+        
+        public void GetCertificateIssueInfoAsync(string authToken, string boxId, string certificateIssueRequestId, Midway.ObjectModel.CertificateIssueInfoGettingSettings settings, object userState) {
+            if ((this.onBeginGetCertificateIssueInfoDelegate == null)) {
+                this.onBeginGetCertificateIssueInfoDelegate = new BeginOperationDelegate(this.OnBeginGetCertificateIssueInfo);
+            }
+            if ((this.onEndGetCertificateIssueInfoDelegate == null)) {
+                this.onEndGetCertificateIssueInfoDelegate = new EndOperationDelegate(this.OnEndGetCertificateIssueInfo);
+            }
+            if ((this.onGetCertificateIssueInfoCompletedDelegate == null)) {
+                this.onGetCertificateIssueInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCertificateIssueInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetCertificateIssueInfoDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        certificateIssueRequestId,
+                        settings}, this.onEndGetCertificateIssueInfoDelegate, this.onGetCertificateIssueInfoCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse CheckSimpleSignatureAvailability(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request) {
+            return base.Channel.CheckSimpleSignatureAvailability(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCheckSimpleSignatureAvailability(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCheckSimpleSignatureAvailability(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse EndCheckSimpleSignatureAvailability(System.IAsyncResult result) {
+            return base.Channel.EndCheckSimpleSignatureAvailability(result);
+        }
+        
+        private System.IAsyncResult OnBeginCheckSimpleSignatureAvailability(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request = ((Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest)(inValues[1]));
+            return this.BeginCheckSimpleSignatureAvailability(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCheckSimpleSignatureAvailability(System.IAsyncResult result) {
+            Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse retVal = this.EndCheckSimpleSignatureAvailability(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCheckSimpleSignatureAvailabilityCompleted(object state) {
+            if ((this.CheckSimpleSignatureAvailabilityCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CheckSimpleSignatureAvailabilityCompleted(this, new CheckSimpleSignatureAvailabilityCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CheckSimpleSignatureAvailabilityAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request) {
+            this.CheckSimpleSignatureAvailabilityAsync(credentials, request, null);
+        }
+        
+        public void CheckSimpleSignatureAvailabilityAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request, object userState) {
+            if ((this.onBeginCheckSimpleSignatureAvailabilityDelegate == null)) {
+                this.onBeginCheckSimpleSignatureAvailabilityDelegate = new BeginOperationDelegate(this.OnBeginCheckSimpleSignatureAvailability);
+            }
+            if ((this.onEndCheckSimpleSignatureAvailabilityDelegate == null)) {
+                this.onEndCheckSimpleSignatureAvailabilityDelegate = new EndOperationDelegate(this.OnEndCheckSimpleSignatureAvailability);
+            }
+            if ((this.onCheckSimpleSignatureAvailabilityCompletedDelegate == null)) {
+                this.onCheckSimpleSignatureAvailabilityCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckSimpleSignatureAvailabilityCompleted);
+            }
+            base.InvokeAsync(this.onBeginCheckSimpleSignatureAvailabilityDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndCheckSimpleSignatureAvailabilityDelegate, this.onCheckSimpleSignatureAvailabilityCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse AcceptSimpleSignatureRegulation(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request) {
+            return base.Channel.AcceptSimpleSignatureRegulation(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginAcceptSimpleSignatureRegulation(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAcceptSimpleSignatureRegulation(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse EndAcceptSimpleSignatureRegulation(System.IAsyncResult result) {
+            return base.Channel.EndAcceptSimpleSignatureRegulation(result);
+        }
+        
+        private System.IAsyncResult OnBeginAcceptSimpleSignatureRegulation(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request = ((Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest)(inValues[1]));
+            return this.BeginAcceptSimpleSignatureRegulation(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndAcceptSimpleSignatureRegulation(System.IAsyncResult result) {
+            Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse retVal = this.EndAcceptSimpleSignatureRegulation(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAcceptSimpleSignatureRegulationCompleted(object state) {
+            if ((this.AcceptSimpleSignatureRegulationCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AcceptSimpleSignatureRegulationCompleted(this, new AcceptSimpleSignatureRegulationCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AcceptSimpleSignatureRegulationAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request) {
+            this.AcceptSimpleSignatureRegulationAsync(credentials, request, null);
+        }
+        
+        public void AcceptSimpleSignatureRegulationAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request, object userState) {
+            if ((this.onBeginAcceptSimpleSignatureRegulationDelegate == null)) {
+                this.onBeginAcceptSimpleSignatureRegulationDelegate = new BeginOperationDelegate(this.OnBeginAcceptSimpleSignatureRegulation);
+            }
+            if ((this.onEndAcceptSimpleSignatureRegulationDelegate == null)) {
+                this.onEndAcceptSimpleSignatureRegulationDelegate = new EndOperationDelegate(this.OnEndAcceptSimpleSignatureRegulation);
+            }
+            if ((this.onAcceptSimpleSignatureRegulationCompletedDelegate == null)) {
+                this.onAcceptSimpleSignatureRegulationCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAcceptSimpleSignatureRegulationCompleted);
+            }
+            base.InvokeAsync(this.onBeginAcceptSimpleSignatureRegulationDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndAcceptSimpleSignatureRegulationDelegate, this.onAcceptSimpleSignatureRegulationCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse PreviewSimpleSignatureRequisites(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request) {
+            return base.Channel.PreviewSimpleSignatureRequisites(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginPreviewSimpleSignatureRequisites(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPreviewSimpleSignatureRequisites(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse EndPreviewSimpleSignatureRequisites(System.IAsyncResult result) {
+            return base.Channel.EndPreviewSimpleSignatureRequisites(result);
+        }
+        
+        private System.IAsyncResult OnBeginPreviewSimpleSignatureRequisites(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request = ((Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest)(inValues[1]));
+            return this.BeginPreviewSimpleSignatureRequisites(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndPreviewSimpleSignatureRequisites(System.IAsyncResult result) {
+            Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse retVal = this.EndPreviewSimpleSignatureRequisites(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnPreviewSimpleSignatureRequisitesCompleted(object state) {
+            if ((this.PreviewSimpleSignatureRequisitesCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PreviewSimpleSignatureRequisitesCompleted(this, new PreviewSimpleSignatureRequisitesCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PreviewSimpleSignatureRequisitesAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request) {
+            this.PreviewSimpleSignatureRequisitesAsync(credentials, request, null);
+        }
+        
+        public void PreviewSimpleSignatureRequisitesAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request, object userState) {
+            if ((this.onBeginPreviewSimpleSignatureRequisitesDelegate == null)) {
+                this.onBeginPreviewSimpleSignatureRequisitesDelegate = new BeginOperationDelegate(this.OnBeginPreviewSimpleSignatureRequisites);
+            }
+            if ((this.onEndPreviewSimpleSignatureRequisitesDelegate == null)) {
+                this.onEndPreviewSimpleSignatureRequisitesDelegate = new EndOperationDelegate(this.OnEndPreviewSimpleSignatureRequisites);
+            }
+            if ((this.onPreviewSimpleSignatureRequisitesCompletedDelegate == null)) {
+                this.onPreviewSimpleSignatureRequisitesCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPreviewSimpleSignatureRequisitesCompleted);
+            }
+            base.InvokeAsync(this.onBeginPreviewSimpleSignatureRequisitesDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndPreviewSimpleSignatureRequisitesDelegate, this.onPreviewSimpleSignatureRequisitesCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.SimpleSignatureCreationResponse CreateSimpleSignature(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request) {
+            return base.Channel.CreateSimpleSignature(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCreateSimpleSignature(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateSimpleSignature(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SimpleSignatureCreationResponse EndCreateSimpleSignature(System.IAsyncResult result) {
+            return base.Channel.EndCreateSimpleSignature(result);
+        }
+        
+        private System.IAsyncResult OnBeginCreateSimpleSignature(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.SimpleSignatureCreationRequest request = ((Midway.ObjectModel.SimpleSignatureCreationRequest)(inValues[1]));
+            return this.BeginCreateSimpleSignature(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCreateSimpleSignature(System.IAsyncResult result) {
+            Midway.ObjectModel.SimpleSignatureCreationResponse retVal = this.EndCreateSimpleSignature(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCreateSimpleSignatureCompleted(object state) {
+            if ((this.CreateSimpleSignatureCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CreateSimpleSignatureCompleted(this, new CreateSimpleSignatureCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CreateSimpleSignatureAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request) {
+            this.CreateSimpleSignatureAsync(credentials, request, null);
+        }
+        
+        public void CreateSimpleSignatureAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request, object userState) {
+            if ((this.onBeginCreateSimpleSignatureDelegate == null)) {
+                this.onBeginCreateSimpleSignatureDelegate = new BeginOperationDelegate(this.OnBeginCreateSimpleSignature);
+            }
+            if ((this.onEndCreateSimpleSignatureDelegate == null)) {
+                this.onEndCreateSimpleSignatureDelegate = new EndOperationDelegate(this.OnEndCreateSimpleSignature);
+            }
+            if ((this.onCreateSimpleSignatureCompletedDelegate == null)) {
+                this.onCreateSimpleSignatureCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateSimpleSignatureCompleted);
+            }
+            base.InvokeAsync(this.onBeginCreateSimpleSignatureDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndCreateSimpleSignatureDelegate, this.onCreateSimpleSignatureCompletedDelegate, userState);
         }
         
         public string Authenticate(string login, string password, string applicationId) {
@@ -8722,6 +9517,59 @@ namespace Midway.ServiceClient.Model {
                         sign}, this.onEndSignDocumentDelegate, this.onSignDocumentCompletedDelegate, userState);
         }
         
+        public void SignDocumentWithSimpleSignature(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature) {
+            base.Channel.SignDocumentWithSimpleSignature(authToken, flowType, signature);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSignDocumentWithSimpleSignature(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSignDocumentWithSimpleSignature(authToken, flowType, signature, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndSignDocumentWithSimpleSignature(System.IAsyncResult result) {
+            base.Channel.EndSignDocumentWithSimpleSignature(result);
+        }
+        
+        private System.IAsyncResult OnBeginSignDocumentWithSimpleSignature(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.FlowType flowType = ((Midway.ObjectModel.FlowType)(inValues[1]));
+            Midway.ObjectModel.SimpleSignature signature = ((Midway.ObjectModel.SimpleSignature)(inValues[2]));
+            return this.BeginSignDocumentWithSimpleSignature(authToken, flowType, signature, callback, asyncState);
+        }
+        
+        private object[] OnEndSignDocumentWithSimpleSignature(System.IAsyncResult result) {
+            this.EndSignDocumentWithSimpleSignature(result);
+            return null;
+        }
+        
+        private void OnSignDocumentWithSimpleSignatureCompleted(object state) {
+            if ((this.SignDocumentWithSimpleSignatureCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SignDocumentWithSimpleSignatureCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SignDocumentWithSimpleSignatureAsync(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature) {
+            this.SignDocumentWithSimpleSignatureAsync(authToken, flowType, signature, null);
+        }
+        
+        public void SignDocumentWithSimpleSignatureAsync(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature, object userState) {
+            if ((this.onBeginSignDocumentWithSimpleSignatureDelegate == null)) {
+                this.onBeginSignDocumentWithSimpleSignatureDelegate = new BeginOperationDelegate(this.OnBeginSignDocumentWithSimpleSignature);
+            }
+            if ((this.onEndSignDocumentWithSimpleSignatureDelegate == null)) {
+                this.onEndSignDocumentWithSimpleSignatureDelegate = new EndOperationDelegate(this.OnEndSignDocumentWithSimpleSignature);
+            }
+            if ((this.onSignDocumentWithSimpleSignatureCompletedDelegate == null)) {
+                this.onSignDocumentWithSimpleSignatureCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSignDocumentWithSimpleSignatureCompleted);
+            }
+            base.InvokeAsync(this.onBeginSignDocumentWithSimpleSignatureDelegate, new object[] {
+                        authToken,
+                        flowType,
+                        signature}, this.onEndSignDocumentWithSimpleSignatureDelegate, this.onSignDocumentWithSimpleSignatureCompletedDelegate, userState);
+        }
+        
         public void RejectSign(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.RejectSign rejectSign1) {
             base.Channel.RejectSign(authToken, flowType, rejectSign1);
         }
@@ -9517,59 +10365,6 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginGetPromoCodeByNameDelegate, new object[] {
                         authToken,
                         promoCodeName}, this.onEndGetPromoCodeByNameDelegate, this.onGetPromoCodeByNameCompletedDelegate, userState);
-        }
-        
-        public void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId) {
-            base.Channel.DeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public void EndDeleteOrganizationPromoCode(System.IAsyncResult result) {
-            base.Channel.EndDeleteOrganizationPromoCode(result);
-        }
-        
-        private System.IAsyncResult OnBeginDeleteOrganizationPromoCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string organizationPromoCodeId = ((string)(inValues[2]));
-            return this.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
-        }
-        
-        private object[] OnEndDeleteOrganizationPromoCode(System.IAsyncResult result) {
-            this.EndDeleteOrganizationPromoCode(result);
-            return null;
-        }
-        
-        private void OnDeleteOrganizationPromoCodeCompleted(object state) {
-            if ((this.DeleteOrganizationPromoCodeCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.DeleteOrganizationPromoCodeCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId) {
-            this.DeleteOrganizationPromoCodeAsync(authToken, boxId, organizationPromoCodeId, null);
-        }
-        
-        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId, object userState) {
-            if ((this.onBeginDeleteOrganizationPromoCodeDelegate == null)) {
-                this.onBeginDeleteOrganizationPromoCodeDelegate = new BeginOperationDelegate(this.OnBeginDeleteOrganizationPromoCode);
-            }
-            if ((this.onEndDeleteOrganizationPromoCodeDelegate == null)) {
-                this.onEndDeleteOrganizationPromoCodeDelegate = new EndOperationDelegate(this.OnEndDeleteOrganizationPromoCode);
-            }
-            if ((this.onDeleteOrganizationPromoCodeCompletedDelegate == null)) {
-                this.onDeleteOrganizationPromoCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteOrganizationPromoCodeCompleted);
-            }
-            base.InvokeAsync(this.onBeginDeleteOrganizationPromoCodeDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        organizationPromoCodeId}, this.onEndDeleteOrganizationPromoCodeDelegate, this.onDeleteOrganizationPromoCodeCompletedDelegate, userState);
         }
     }
 }

@@ -3,8 +3,8 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Сообщение с пересылаемыми документами
-    /// Используется только при отправке
+    /// Сообщение с пересылаемыми документами.
+    /// Используется только при отправке.
     /// </summary>
     [DataContract]
     public class ForwardMessage : IMessage
@@ -24,25 +24,31 @@ namespace Midway.ObjectModel
         public string FromDepartment { get; set; }
 
         /// <summary>
-        /// Получатели сообщения
+        /// Получатели сообщения.
         /// </summary>
         [DataMember]
         public MessageRecipient[] Recipients { get; set; }
 
         /// <summary>
-        /// Отправляемые документы
+        /// Отправляемые документы.
         /// </summary>
         [DataMember]
         public Document[] Documents { get; set; }
 
         /// <summary>
-        /// Подписи к отправляемым документам
+        /// Усиленные подписи к отправляемым документам.
         /// </summary>
         [DataMember]
         public Sign[] Signs { get; set; }
 
         /// <summary>
-        /// Пересылаемые документы
+        /// Простые подписи к отправляемым документам.
+        /// </summary>
+        [DataMember]
+        public SimpleSignature[] SimpleSignatures { get; set; }
+
+        /// <summary>
+        /// Пересылаемые документы.
         /// </summary>
         [DataMember]
         public ForwardDocument[] ForwardDocuments { get; set; }

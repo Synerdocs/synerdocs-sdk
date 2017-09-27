@@ -35,6 +35,12 @@
       <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCode" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCodeResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_CheckCertificateList_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckCertificateList" />
   </wsdl:message>
@@ -184,6 +190,54 @@
   </wsdl:message>
   <wsdl:message name="IExchangeService_GetDocumentExecutedFunction_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDocumentExecutedFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequestFromFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestFromFile" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequestFromFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestFromFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueShortInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueShortInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueShortInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueShortInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckSimpleSignatureAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSimpleSignatureAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckSimpleSignatureAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSimpleSignatureAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptSimpleSignatureRegulation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptSimpleSignatureRegulation" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_AcceptSimpleSignatureRegulation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptSimpleSignatureRegulationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_PreviewSimpleSignatureRequisites_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewSimpleSignatureRequisites" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_PreviewSimpleSignatureRequisites_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewSimpleSignatureRequisitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateSimpleSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSimpleSignature" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateSimpleSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSimpleSignatureResponse" />
   </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
@@ -599,6 +653,12 @@
   <wsdl:message name="IExchangeService_SignDocument_OutputMessage">
     <wsdl:part name="parameters" element="tns:SignDocumentResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_SignDocumentWithSimpleSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocumentWithSimpleSignature" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SignDocumentWithSimpleSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignDocumentWithSimpleSignatureResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_RejectSign_InputMessage">
     <wsdl:part name="parameters" element="tns:RejectSign" />
   </wsdl:message>
@@ -689,13 +749,11 @@
   <wsdl:message name="IExchangeService_GetPromoCodeByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPromoCodeByNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCode" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCodeResponse" />
-  </wsdl:message>
   <wsdl:portType name="IExchangeService">
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" message="tns:IExchangeService_DeleteOrganizationPromoCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse" message="tns:IExchangeService_DeleteOrganizationPromoCode_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CheckCertificateList">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateList" message="tns:IExchangeService_CheckCertificateList_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse" message="tns:IExchangeService_CheckCertificateList_OutputMessage" />
@@ -795,6 +853,38 @@
     <wsdl:operation name="GetDocumentExecutedFunction">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" message="tns:IExchangeService_GetDocumentExecutedFunction_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse" message="tns:IExchangeService_GetDocumentExecutedFunction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" message="tns:IExchangeService_CreateCertificateIssueRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse" message="tns:IExchangeService_CreateCertificateIssueRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" message="tns:IExchangeService_CreateCertificateIssueRequestFromFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileResponse" message="tns:IExchangeService_CreateCertificateIssueRequestFromFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueShortInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" message="tns:IExchangeService_GetCertificateIssueShortInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfoResponse" message="tns:IExchangeService_GetCertificateIssueShortInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" message="tns:IExchangeService_GetCertificateIssueInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfoResponse" message="tns:IExchangeService_GetCertificateIssueInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSimpleSignatureAvailability">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" message="tns:IExchangeService_CheckSimpleSignatureAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityResponse" message="tns:IExchangeService_CheckSimpleSignatureAvailability_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptSimpleSignatureRegulation">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation" message="tns:IExchangeService_AcceptSimpleSignatureRegulation_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulationResponse" message="tns:IExchangeService_AcceptSimpleSignatureRegulation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreviewSimpleSignatureRequisites">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisites" message="tns:IExchangeService_PreviewSimpleSignatureRequisites_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisitesResponse" message="tns:IExchangeService_PreviewSimpleSignatureRequisites_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSimpleSignature">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignature" message="tns:IExchangeService_CreateSimpleSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureResponse" message="tns:IExchangeService_CreateSimpleSignature_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
@@ -1072,6 +1162,10 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SignDocument" message="tns:IExchangeService_SignDocument_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SignDocumentResponse" message="tns:IExchangeService_SignDocument_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SignDocumentWithSimpleSignature">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature" message="tns:IExchangeService_SignDocumentWithSimpleSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignatureResponse" message="tns:IExchangeService_SignDocumentWithSimpleSignature_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RejectSign">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/RejectSign" message="tns:IExchangeService_RejectSign_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RejectSignResponse" message="tns:IExchangeService_RejectSign_OutputMessage" />
@@ -1132,13 +1226,18 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" message="tns:IExchangeService_GetPromoCodeByName_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByNameResponse" message="tns:IExchangeService_GetPromoCodeByName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteOrganizationPromoCode">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" message="tns:IExchangeService_DeleteOrganizationPromoCode_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse" message="tns:IExchangeService_DeleteOrganizationPromoCode_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IExchangeService" type="tns:IExchangeService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CheckCertificateList">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
       <wsdl:input>
@@ -1357,6 +1456,78 @@
     </wsdl:operation>
     <wsdl:operation name="GetDocumentExecutedFunction">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueShortInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSimpleSignatureAvailability">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptSimpleSignatureRegulation">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewSimpleSignatureRequisites">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSimpleSignature">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignature" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1985,6 +2156,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SignDocumentWithSimpleSignature">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RejectSign">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectSign" style="document" />
       <wsdl:input>
@@ -2113,15 +2293,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetPromoCodeByName">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteOrganizationPromoCode">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2133,6 +2304,15 @@
   <wsdl:binding name="BasicHttpBindingSecure_IExchangeService" type="tns:IExchangeService">
     <wsp:PolicyReference URI="#BasicHttpBindingSecure_IExchangeService_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CheckCertificateList">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
       <wsdl:input>
@@ -2351,6 +2531,78 @@
     </wsdl:operation>
     <wsdl:operation name="GetDocumentExecutedFunction">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueShortInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSimpleSignatureAvailability">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptSimpleSignatureRegulation">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewSimpleSignatureRequisites">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSimpleSignature">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignature" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2979,6 +3231,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SignDocumentWithSimpleSignature">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RejectSign">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RejectSign" style="document" />
       <wsdl:input>
@@ -3107,15 +3368,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetPromoCodeByName">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteOrganizationPromoCode">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3129,7 +3381,7 @@
       <soap:address location="http://localhost:5001/ExchangeService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBindingSecure_IExchangeService" binding="tns:BasicHttpBindingSecure_IExchangeService">
-      <soap:address location="https://w777w7.comp.npo:447/ExchangeService.svc" />
+      <soap:address location="https://w798w81.comp.npo:5003/ExchangeService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

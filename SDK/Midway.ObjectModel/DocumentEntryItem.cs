@@ -179,5 +179,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DocumentTag[] Tags { get; set; }
+
+        /// <summary>
+        /// Поле для хранения дополнительной информации.
+        /// </summary>
+        [DataMember]
+        public string CustomField { get; set; }
     }
 }

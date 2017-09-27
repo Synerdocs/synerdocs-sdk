@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Параметры загрузки полной информации о документе
+    /// Параметры загрузки полной информации о документе.
     /// </summary>
     [DataContract]
     public class FullDocumentInfoRequestParams
     {
         /// <summary>
-        /// Конструктор по умолчанию
+        /// Конструктор по умолчанию.
         /// </summary>
         public FullDocumentInfoRequestParams()
         {
@@ -18,6 +18,7 @@ namespace Midway.ObjectModel
             this.GetRelatedDocuments = true;
             this.GetServiceDocuments = true;
             this.GetSigns = true;
+            this.GetDocumentDeletionState = true;
         }
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace Midway.ObjectModel
         public bool GetContent { get; set; }
 
         /// <summary>
-        /// Загружать ?
+        /// Загружать карточку документа?
         /// </summary>
         [DataMember]
         public bool GetCard { get; set; }
@@ -55,6 +56,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public bool GetRevocationOffers { get; set; }
+
+        /// <summary>
+        /// Загружать информацию о состоянии документа?
+        /// </summary>
+        [DataMember]
+        public bool GetDocumentDeletionState { get; set; }
 
         /// <summary>
         /// Фильтрация прав для пользователя сервиса по логину через проверку доступа:

@@ -82,24 +82,22 @@
     <None Include="key.snk" />
     <None Include="Properties\DataSources\Midway.ObjectModel.BoxCertificate.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.BoxInfo.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.BoxInfo1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateCheckInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.CertificateIssueInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.CertificateIssueRequestCreationResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.CertificateIssueShortInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateValidationResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Contact.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.Contact1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.ContactSearchResult.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.ContactSearchResult1.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentEntryList3.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentEntryList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessageSearchResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.EnhancedSign.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.EnumValue.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.FlowDocumentInfo3.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.FormatControlResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.FlowDocumentInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionSeller.datasource" />
@@ -108,16 +106,11 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferSeller.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Message.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.Message1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.MessageInfo.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.MessageInfo1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.NamedContent.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.NamedContent1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.NonActiveSubscriberCreationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Organization.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.Organization1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationPromoCode.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationStructureElement.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.PromoCode.datasource" />
@@ -125,18 +118,16 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.RegisterResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.RegistrationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SentMessage.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.SentMessage1.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo1.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.User.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.UserInfoExternal.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.UserPermission.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.ServiceNotice.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureCreationResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.User.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.WorksTransferBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.WorksTransferSeller.datasource" />
-    <None Include="Service References\Model\ExchangeService.wsdl">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\Model\ExchangeService.wsdl" />
     <None Include="Service References\Model\ExchangeService.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -150,6 +141,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Model\ExchangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService5.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -163,101 +157,19 @@
     <WCFMetadataStorage Include="Service References\Model\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Model\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Model\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Model\ExchangeService.wsdl" />
-    <None Include="Service References\Model\ExchangeService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService.wsdl" />
-    <None Include="Service References\Model\ExchangeService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService1.wsdl" />
-    <None Include="Service References\Model\ExchangeService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService51.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService52.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService53.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService54.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Model\ExchangeService1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Model\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Model\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Model\ExchangeService1.wsdl" />
-    <None Include="Service References\Model\ExchangeService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService51.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService52.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService53.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\ExchangeService54.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Model\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Model\ExchangeService1.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\Model\ExchangeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Model\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,13 +3,13 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Класс, содержащий информацию о пользователе в контексте организации
+    /// Класс, содержащий информацию о пользователе в контексте организации.
     /// </summary>
     [DataContract]
     public class User
     {
-         /// <summary>
-        /// Конструктор
+        /// <summary>
+        /// Конструктор.
         /// </summary>
         public User()
         {
@@ -17,124 +17,130 @@ namespace Midway.ObjectModel
         }
 
         /// <summary>
-        /// Логин
+        /// Логин.
         /// </summary>
         [DataMember]
         public string Login { get; set; }
         
         /// <summary>
-        /// Имя
+        /// Имя.
         /// </summary>
         [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Фамилия
+        /// Фамилия.
         /// </summary>
         [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество
+        /// Отчество.
         /// </summary>
         [DataMember]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Телефон
+        /// Телефон.
         /// </summary>
         [DataMember]
         public string Tel { get; set; }
 
         /// <summary>
-        /// Эл.почта
+        /// Эл. почта.
         /// </summary>
         [DataMember]
         public string Email { get; set; }
 
         /// <summary>
-        /// Аська
+        /// Номер ICQ.
         /// </summary>
         [DataMember]
         public string Icq { get; set; }
 
         /// <summary>
-        /// Скайп
+        /// Логин Skype.
         /// </summary>
         [DataMember]
         public string Skype { get; set; }
 
         /// <summary>
-        /// Статус
+        /// Статус.
         /// </summary>
         [DataMember]
         public bool State { get; set; }
         
         /// <summary>
-        /// Комментарий
+        /// Комментарий.
         /// </summary>
         [DataMember]
         public string Comment { get; set; }
 
         /// <summary>
-        /// Часовой пояс
+        /// Часовой пояс.
         /// </summary>
         [DataMember]
         public string TimeZone { get; set; }
 
         /// <summary>
-        /// Администратор организации
+        /// Администратор организации.
         /// </summary>
         [DataMember]
         public bool IsAdmin { get; set; }
-        
-
-        //информация по организации
 
         /// <summary>
-        /// Должность
+        /// СНИЛС.
+        /// </summary>
+        [DataMember]
+        public string Snils { get; set; }
+
+
+        // Информация по организации.
+
+        /// <summary>
+        /// Должность.
         /// </summary>
         [DataMember]
         public string Position { get; set; }
 
         /// <summary>
-        /// Идентификатор организации
+        /// Идентификатор организации.
         /// </summary>
         [DataMember]
         public string OrganizationId { get; set; }
 
         /// <summary>
-        /// Наименование организации
+        /// Наименование организации.
         /// </summary>
         [DataMember]
         public string OrganizationName { get; set; }
         
         /// <summary>
-        /// Идентификатор подразделения
+        /// Идентификатор подразделения.
         /// </summary>
         [DataMember]
         public string DepartmentId { get; set; }
 
         /// <summary>
-        /// Наименование подразделения
+        /// Наименование подразделения.
         /// </summary>
         [DataMember]
         public string DepartmentName { get; set; }
 
         /// <summary>
-        /// Доступ к вложенным основного подразделения
+        /// Доступ к дочерним основного подразделения
         /// </summary>
         [DataMember]
         public bool DepartmentSubElementsAccess { get; set; }
         
         /// <summary>
-        /// Признак "Участник ЭДО СФ"
+        /// Признак "Участник ЭДО СФ".
         /// </summary>
         [DataMember]
         public bool InvoiceReglamentAccepted { get; set; }
         
         /// <summary>
-        /// Сертификат
+        /// Сертификат.
         /// </summary>
         [DataMember]
         public Certificate Certificate { get; set; }

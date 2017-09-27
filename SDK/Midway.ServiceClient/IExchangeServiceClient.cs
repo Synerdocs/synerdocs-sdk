@@ -82,6 +82,20 @@ namespace Midway.ServiceClient
 
         //IAsyncResult BeginSendMessage(Message message, AsyncCallback asyncCallback);
 
+        /// <summary>
+        /// Подписать отправленный ранее документ усиленной ЭП (для пересланных, внутренних и документов без подписи).
+        /// </summary>
+        /// <param name="flowType">Тип документооборота.</param>
+        /// <param name="signature">Простая ЭП документа.</param>
+        void SignDocument(FlowType flowType, Sign signature);
+
+        /// <summary>
+        /// Подписать отправленный ранее документ простой ЭП (для пересланных, внутренних и документов без подписи).
+        /// </summary>
+        /// <param name="flowType">Тип документооборота.</param>
+        /// <param name="signature">Простая ЭП документа.</param>
+        void SignDocumentWithSimpleSignature(FlowType flowType, SimpleSignature signature);
+
         #region Черновики
 
         /// <summary>
@@ -785,5 +799,45 @@ namespace Midway.ServiceClient
         /// <param name="documentId">ИД документа.</param>
         /// <returns>Функция, выполняемая документом.</returns>
         EnumValue GetDocumentExecutedFunction(string boxId, string documentId);
+
+        /// <summary>
+        /// Получить статус принятия правил использования простой ЭП.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на принятие правил использования простой ЭП.</param>
+        /// <returns>Ответ при принятии правил использования простой ЭП.</returns>
+        SimpleSignatureRegulationAcceptingResponse AcceptSimpleSignatureRegulation(
+            EmployeeOperationCredentials credentials, 
+            SimpleSignatureRegulationAcceptingRequest request);
+
+        /// <summary>
+        /// Получить статус доступности использования простой ЭП.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на проверку доступности использования простой ЭП.</param>
+        /// <returns>Ответ при проверки доступности использования простой ЭП.</returns>
+        SimpleSignatureAvailabilityCheckingResponse CheckSimpleSignatureAvailability(
+            EmployeeOperationCredentials credentials, 
+            SimpleSignatureAvailabilityCheckingRequest request);
+
+        /// <summary>
+        /// Получить результат создания простой ЭП.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на создание простой ЭП.</param>
+        /// <returns>Ответ при создании простой ЭП.</returns>
+        SimpleSignatureCreationResponse CreateSimpleSignature(
+            EmployeeOperationCredentials credentials, 
+            SimpleSignatureCreationRequest request);
+
+        /// <summary>
+        /// Предварительный просмотр реквизитор простой ЭП.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на предварительный просмотр простой ЭП.</param>
+        /// <returns></returns>
+        SimpleSignatureRequisitesPreviewingResponse PreviewSimpleSignatureRequisites(
+            EmployeeOperationCredentials credentials, 
+            SimpleSignatureRequisitesPreviewingRequest request);
     }
 }

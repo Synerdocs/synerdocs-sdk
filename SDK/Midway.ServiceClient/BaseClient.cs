@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using Midway.ObjectModel.Exceptions;
+using Midway.ObjectModel;
 
 namespace Midway.ServiceClient
 {
@@ -83,6 +84,13 @@ namespace Midway.ServiceClient
                     throw new ServerException(ServiceErrorCode.UnexpectedError, null, null, null, faultException);
                 // InvalidOperationException("Сервер не передал информацию об ошибке, возможно, неправильно задан адрес сервиса.", faultException);
             }
+        }
+
+        protected TResult Invoke<TResult, TCredentials>(TCredentials credentials, Func<TResult> action)
+            where TCredentials : UserOperationCredentials
+        {
+            credentials.AuthToken = Token;
+            return Invoke(action);
         }
 
         protected T CheckAutorizedInvoke<T>(Func<T> action)
