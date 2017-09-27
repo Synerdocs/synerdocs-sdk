@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 namespace Midway.ConsoleClient
 {
     /// <summary>
-    /// Хелпер для работы с файлами
+    /// Хелпер для работы с файлами.
     /// </summary>
     public static class FileHelper
     {
@@ -28,10 +28,10 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Создает регулярное выражение для удаления запрещенных символов
+        /// Создает регулярное выражение для удаления запрещенных символов.
         /// </summary>
-        /// <param name="invalidChars">Запрещенные символы</param>
-        /// <returns>Регулярное выражение</returns>
+        /// <param name="invalidChars">Запрещенные символы.</param>
+        /// <returns>Регулярное выражение.</returns>
         private static Regex CreateInvalidRegex(char[] invalidChars)
         {
             var invalidString = new string(invalidChars);
@@ -41,41 +41,41 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Удаляет запрещенные символы из пути к файлу
+        /// Удаляет запрещенные символы из пути к файлу.
         /// </summary>
-        /// <param name="filePath">Путь к файлу</param>
-        /// <returns>Путь к файлу с удаленными запрещенными символами</returns>
+        /// <param name="filePath">Путь к файлу.</param>
+        /// <returns>Путь к файлу с удаленными запрещенными символами.</returns>
         public static string RemoveInvalidPathNameChars(string filePath)
         {
             return _invalidFilePathRegex.Replace(filePath, string.Empty);
         }
 
         /// <summary>
-        /// Удаляет запрещенные символы из имени файла
+        /// Удаляет запрещенные символы из имени файла.
         /// </summary>
-        /// <param name="fileName">Имя файла</param>
-        /// <returns>Имя файла с удаленными запрещенными символами</returns>
+        /// <param name="fileName">Имя файла.</param>
+        /// <returns>Имя файла с удаленными запрещенными символами.</returns>
         public static string RemoveInvalidFileNameChars(string fileName)
         {
             return _invalidFileNameRegex.Replace(fileName, string.Empty);
         }
 
         /// <summary>
-        /// Удаляет запрещенные символы из полного пути
+        /// Удаляет запрещенные символы из полного пути.
         /// </summary>
-        /// <param name="fullPath">Полный путь</param>
-        /// <returns>Полный путь с удаленными запрещенными символами</returns>
+        /// <param name="fullPath">Полный путь.</param>
+        /// <returns>Полный путь с удаленными запрещенными символами.</returns>
         public static string RemoveInvalidFullPathChars(string fullPath)
         {
             return _invalidFullPathRegex.Replace(fullPath, string.Empty);
         }
 
         /// <summary>
-        /// Создает файл и записывает в него все данные
+        /// Создает файл и записывает в него все данные.
         /// </summary>
-        /// <param name="filePath">Путь к файлу</param>
-        /// <param name="fileName">Имя файла</param>
-        /// <param name="fileData">Данные файла</param>
+        /// <param name="filePath">Путь к файлу.</param>
+        /// <param name="fileName">Имя файла.</param>
+        /// <param name="fileData">Данные файла.</param>
         public static void WriteAllBytes(string filePath, string fileName, byte[] fileData)
         {
             var validPath = RemoveInvalidPathNameChars(filePath);
@@ -85,9 +85,9 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Получить контент файла
+        /// Получить контент файла.
         /// </summary>
-        /// <param name="fullFilePath">Полный путь к файлу (включая наименование)</param>
+        /// <param name="fullFilePath">Полный путь к файлу (включая наименование).</param>
         /// <returns></returns>
         public static byte[] GetFileContent(string fullFilePath)
         {
@@ -96,9 +96,9 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Проверить существование файла
+        /// Проверить существование файла.
         /// </summary>
-        /// <param name="fullFilePath">Полный путь к файлу (включая наименование)</param>
+        /// <param name="fullFilePath">Полный путь к файлу (включая наименование).</param>
         /// <returns></returns>
         public static bool FileExists(string fullFilePath)
         {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,12 +7,12 @@ using System.Text;
 namespace Midway.ConsoleClient
 {
     /// <summary>
-    /// Работа с пользовательским консольным вводом-выводом 
+    /// Работа с пользовательским консольным вводом-выводом.
     /// </summary>
     public class UserInput
     {
         /// <summary>
-        /// Размер буфера для ввода текста
+        /// Размер буфера для ввода текста.
         /// </summary>
         private const int ReadlineBufferSize = 8192;
         private static string nodePrefix = "*---";
@@ -20,7 +20,7 @@ namespace Midway.ConsoleClient
         /// <summary>
         /// Опция пользовательского выбора одного значения
         /// из некого списка показаных пользователю значений: например выбор Организации из показаного 
-        /// списка организаций
+        /// списка организаций.
         /// </summary>
         public class Option
         {
@@ -59,7 +59,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Выбрать значение из списка возможных
+        /// Выбрать значение из списка возможных.
         /// </summary>
         /// <param name="caption"></param>
         /// <param name="options"></param>
@@ -98,7 +98,7 @@ namespace Midway.ConsoleClient
                 {
                     if (defaultOption != null)
                         return defaultOption;
-                    Console.Out.WriteLine("Введите значение из предложенного списка");
+                    Console.Out.WriteLine("Выберите значение из предложенного списка");
                     continue;
                 }
 
@@ -107,7 +107,7 @@ namespace Midway.ConsoleClient
                 var optionById = options.FirstOrDefault(o => String.Equals(o.Id, line, StringComparison.OrdinalIgnoreCase) || String.Equals(o.Name, line, StringComparison.OrdinalIgnoreCase));
                 if (optionById != null)
                     return optionById;
-                Console.Out.WriteLine("Введите значение из предложенного списка");
+                Console.Out.WriteLine("Выберите значение из предложенного списка");
             }
         }
 
@@ -258,7 +258,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Получить строковые представления модели
+        /// Получить строковые представления модели.
         /// </summary>
         /// <param name="model"></param>
         /// <param name="prefix"></param>
@@ -300,7 +300,7 @@ namespace Midway.ConsoleClient
            }
           
         /// <summary>
-        /// Получить строковые представления данных объекта и вывести их в консоль
+        /// Получить строковые представления данных объекта и вывести их в консоль.
         /// </summary>
         /// <param name="model"></param>
         public static void FormatAndOutputObjectFields(object model)
@@ -313,7 +313,7 @@ namespace Midway.ConsoleClient
     }
 
     /// <summary>
-    /// Исключение выбрасывется при отмене пользователем начатой операции
+    /// Исключение выбрасывется при отмене пользователем начатой операции.
     /// </summary>
     public class InputCanceledException : Exception
     {

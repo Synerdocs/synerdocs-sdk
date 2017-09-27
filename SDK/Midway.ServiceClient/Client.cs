@@ -907,17 +907,21 @@ namespace Midway.ServiceClient
         {
             return CheckAutorizedInvoke(() => client.SendForwardMessage(Token, message));
         }
-
-        /// <summary>
-        /// Подписывает документ, отправленный ранее (для пересланных и документов без подписи)
-        /// </summary>
-        /// <param name="flowType">Тип документооборота</param>
-        /// <param name="sign">Подпись документа</param>
-        public void SignDocument(FlowType flowType, Sign sign)
+        
+        public void SignDocument(FlowType flowType, Sign signature)
         {
             CheckAutorizedInvoke(() => 
             {
-                client.SignDocument(Token, flowType, sign);
+                client.SignDocument(Token, flowType, signature);
+                return true;
+            });
+        }
+        
+        public void SignDocumentWithSimpleSignature(FlowType flowType, SimpleSignature signature)
+        {
+            CheckAutorizedInvoke(() =>
+            {
+                client.SignDocumentWithSimpleSignature(Token, flowType, signature);
                 return true;
             });
         }
@@ -1368,5 +1372,25 @@ namespace Midway.ServiceClient
         {
             return CheckAutorizedInvoke(() => client.GetDocumentExecutedFunction(Token, boxId, documentId));
         }
+        
+        public SimpleSignatureRegulationAcceptingResponse AcceptSimpleSignatureRegulation(
+            EmployeeOperationCredentials credentials,
+            SimpleSignatureRegulationAcceptingRequest request)
+            => Invoke(credentials, () => client.AcceptSimpleSignatureRegulation(credentials, request));
+
+        public SimpleSignatureAvailabilityCheckingResponse CheckSimpleSignatureAvailability(
+            EmployeeOperationCredentials credentials,
+            SimpleSignatureAvailabilityCheckingRequest request)
+            => Invoke(credentials, () => client.CheckSimpleSignatureAvailability(credentials, request));
+
+        public SimpleSignatureCreationResponse CreateSimpleSignature(
+            EmployeeOperationCredentials credentials,
+            SimpleSignatureCreationRequest request)
+            => Invoke(credentials, () => client.CreateSimpleSignature(credentials, request));
+
+        public SimpleSignatureRequisitesPreviewingResponse PreviewSimpleSignatureRequisites(
+            EmployeeOperationCredentials credentials,
+            SimpleSignatureRequisitesPreviewingRequest request)
+            => Invoke(credentials, () => client.PreviewSimpleSignatureRequisites(credentials, request));
     }
 }

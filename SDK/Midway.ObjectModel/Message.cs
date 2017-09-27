@@ -13,6 +13,7 @@ namespace Midway.ObjectModel
         {
             Documents = new Document[0];
             Signs = new Sign[0];
+            SimpleSignatures = new SimpleSignature[0];
         }
 
         /// <summary>
@@ -51,7 +52,7 @@ namespace Midway.ObjectModel
         public string ToDepartment { get; set; }
 
         /// <summary>
-        /// Получатели сообщения
+        /// Получатели сообщения.
         /// </summary>
         [DataMember]
         public MessageRecipient[] Recipients { get; set; }
@@ -64,15 +65,21 @@ namespace Midway.ObjectModel
         public DateTime SentDate { get; set; }
 
         /// <summary>
-        /// Документы
+        /// Документы.
         /// </summary>
         [DataMember]
         public Document[] Documents {get;set;}
 
         /// <summary>
-        /// Отсоединенные подписи 
+        /// Усиленные подписи.
         /// </summary>
         [DataMember]
         public Sign[] Signs { get; set; }
+
+        /// <summary>
+        /// Простые подписи.
+        /// </summary>
+        [DataMember]
+        public SimpleSignature[] SimpleSignatures { get; set; }
     }
 }

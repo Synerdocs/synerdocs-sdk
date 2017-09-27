@@ -1,33 +1,34 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация, необходимая для регистрации пользователя
+    /// Информация, необходимая для регистрации пользователя.
     /// </summary>
     [DataContract]
     public class UserRegistrationData : UserInfo
     {
         /// <summary>
-        /// Пароль
+        /// Пароль.
         /// </summary>
         [DataMember]
         public string Password { get; set; }
-        
+
         /// <summary>
-        /// Администратор организации
+        /// Администратор организации.
         /// </summary>
         [DataMember]
         public bool IsAdmin { get; set; }
 
         /// <summary>
-        /// Должность
+        /// Должность.
         /// </summary>
         [DataMember]
         public string Position { get; set; }
 
         /// <summary>
-        /// Сертификат
+        /// Сертификат.
         /// </summary>
         [DataMember]
         public byte[] Certificate { get; set; }
@@ -38,5 +39,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string DepartmentId { get; set; }
+
+        /// <summary>
+        /// Список настроек пользователя и сотрудника.
+        /// </summary>
+        [DataMember]
+        public List<SettingData> Settings { get; set; } = new List<SettingData>();
     }
 }

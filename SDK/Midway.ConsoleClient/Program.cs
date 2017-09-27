@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 
 namespace Midway.ConsoleClient
 {
     /// <summary>
-    /// Консольное приложение (Консольный клиент) - содержит примеры кода для демонстрации работы с API Synerdocs
+    /// Консольное приложение (Консольный клиент) - содержит примеры кода для демонстрации работы с API Synerdocs.
     /// </summary>
     public class Program
     {
@@ -17,7 +17,7 @@ namespace Midway.ConsoleClient
                 return;
             }
 
-            Console.Out.WriteLine("Для выхода и программы нажмите Ctrl+C");
+            Console.Out.WriteLine("Для выхода из программы нажмите Ctrl+C");
 
             new Shell().Run(args);
         }

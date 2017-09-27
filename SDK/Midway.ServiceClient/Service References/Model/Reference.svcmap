@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5a26210a-e8a3-4399-84de-bf9dc2604378" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5bf16190-3f66-44b6-bb98-26f6cd23e9bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,14 +21,14 @@
     <MetadataSource Address="http://localhost:5001/ExchangeService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExchangeService.wsdl" MetadataType="Wsdl" ID="2f7119c1-edfc-429b-92fe-d64e6467d1ac" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?wsdl" />
-    <MetadataFile FileName="ExchangeService.disco" MetadataType="Disco" ID="16d4ee8f-961f-4bd5-b99b-983d287859de" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?disco" />
-    <MetadataFile FileName="ExchangeService.xsd" MetadataType="Schema" ID="8ab16992-b6a3-48d8-8f29-3ddd89cce734" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd4" />
-    <MetadataFile FileName="ExchangeService5.xsd" MetadataType="Schema" ID="bddef32e-9d0c-4deb-bd8a-0201042ce4a8" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd5" />
-    <MetadataFile FileName="ExchangeService1.xsd" MetadataType="Schema" ID="36a21bac-e704-450c-bc1e-b34c87dfb07e" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ExchangeService2.xsd" MetadataType="Schema" ID="54da8483-b97a-4c6f-9d01-0d3088b157d5" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd3" />
-    <MetadataFile FileName="ExchangeService3.xsd" MetadataType="Schema" ID="a769e9fd-388c-4c67-9679-3324a82d1375" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ExchangeService4.xsd" MetadataType="Schema" ID="4c0e3a55-b7a5-4cc6-8d38-d88a998cf518" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ExchangeService.wsdl" MetadataType="Wsdl" ID="d7ead34e-2e5f-4dfd-9a4e-5872177e3fdf" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?wsdl" />
+    <MetadataFile FileName="ExchangeService.disco" MetadataType="Disco" ID="0ed1421f-f655-471c-aa63-97a8f2bcb97e" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?disco" />
+    <MetadataFile FileName="ExchangeService.xsd" MetadataType="Schema" ID="92a01ca2-7af8-4c5d-bd67-939bcb799577" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ExchangeService1.xsd" MetadataType="Schema" ID="ec7a7a93-db82-4a27-a6ac-6f0aef92df38" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ExchangeService2.xsd" MetadataType="Schema" ID="a1ce39ff-1e20-4060-b921-e0c9b635c1cf" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ExchangeService3.xsd" MetadataType="Schema" ID="a5255db5-21a1-4d7a-b56f-ae8e53a6f367" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ExchangeService4.xsd" MetadataType="Schema" ID="21d0d066-2171-4940-8b5c-3c63a9a586dd" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ExchangeService5.xsd" MetadataType="Schema" ID="61783408-b1ae-454f-b2d8-5d01a28953dc" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

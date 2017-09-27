@@ -6,16 +6,16 @@ using Midway.ObjectModel;
 namespace Midway.ConsoleClient
 {
     /// <summary>
-    /// Хелпер для работы с перечислениями
+    /// Хелпер для работы с перечислениями.
     /// </summary>
     public static class EnumHelper
     {
         /// <summary>
-        /// Получить описание элемента перечисления из его атрибута Description
+        /// Получить описание элемента перечисления из его атрибута Description.
         /// </summary>
-        /// <typeparam name="TEnum">Тип перечисления</typeparam>
-        /// <param name="value">Значение перечисления</param>
-        /// <returns>Описание элемента перечисления</returns>
+        /// <typeparam name="TEnum">Тип перечисления.</typeparam>
+        /// <param name="value">Значение перечисления.</param>
+        /// <returns>Описание элемента перечисления.</returns>
         public static string GetDescription<TEnum>(this TEnum value)
         {
             var fieldInfo = value.GetType().GetField(value.ToString());
@@ -30,7 +30,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Проверяет, равен ли объект перечисления одному из параметров
+        /// Проверяет, равен ли объект перечисления одному из параметров.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -43,11 +43,11 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Преобразовать обычное перечисление в перечисление для API
+        /// Преобразовать обычное перечисление в перечисление для API.
         /// </summary>
-        /// <typeparam name="TEnum">Тип обычного перечисления</typeparam>
-        /// <param name="value">Значение обычного перечисления</param>
-        /// <returns>Значение перечисления для API</returns>
+        /// <typeparam name="TEnum">Тип обычного перечисления.</typeparam>
+        /// <param name="value">Значение обычного перечисления.</param>
+        /// <returns>Значение перечисления для API.</returns>
         public static EnumValue ToEnumValue<TEnum>(this TEnum value)
             where TEnum : struct
         {

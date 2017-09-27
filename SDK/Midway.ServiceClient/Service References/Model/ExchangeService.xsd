@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="TextValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Boolean" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TextValueType" nillable="true" type="tns:TextValueType" />
   <xs:complexType name="FetchingSettings">
     <xs:sequence>
       <xs:element minOccurs="0" name="Paging" nillable="true" type="tns:PageSettings" />

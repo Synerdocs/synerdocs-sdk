@@ -6,46 +6,46 @@ namespace Midway.ConsoleClient
 {
     /// <summary>
     /// Контекст клиентского подключения к сервису обмена Synerdocs
-    /// для хранения текущего ящика, выбранной после авторизации организации
+    /// для хранения текущего ящика, выбранной после авторизации организации.
     /// </summary>
     public class ClientContext
     {
         /// <summary>
-        /// текущий выбранный сертификат
+        /// текущий выбранный сертификат.
         /// </summary>
         public X509Certificate2 Certificate { get; set; }
 
         /// <summary>
-        /// Клиент веб-сервиса
+        /// Клиент веб-сервиса.
         /// </summary>
         public Client ServiceClient { get; set; }
 
         /// <summary>
-        /// Генератор служебных документов
+        /// Генератор служебных документов.
         /// </summary>
         public MessageFactory MessageFactory { get; set; }
 
         /// <summary>
-        /// Текущий ящик
+        /// Текущий ящик.
         /// </summary>
         public string CurrentBox { get; set; }
 
         /// <summary>
-        /// ID текущей организации
+        /// ID текущей организации.
         /// </summary>
         public int CurrentOrganizationId { get; set; }
 
         /// <summary>
-        /// Последнее обработанное сообщение
+        /// Последнее обработанное сообщение.
         /// </summary>
         public string LastProcessedMessageId { get; set; }
         /// <summary>
-        /// Текущий логин
+        /// Текущий логин.
         /// </summary>
         public string Login { get; set; }
 
         /// <summary>
-        /// Загрузить идентификатор последнего обработанного сообщения с прошлого хзапуска
+        /// Загрузить идентификатор последнего обработанного сообщения с прошлого запуска.
         /// </summary>
         public void LoadLastProcessedMessageId()
         {

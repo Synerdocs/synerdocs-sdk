@@ -510,5 +510,63 @@ namespace Midway.ObjectModel.Exceptions
         DocumentConversionError = 7001,
 
         #endregion
+
+        #region Простая ЭП (8001-8009)
+
+        /// <summary>
+        /// Простая ЭП недействительна.
+        /// </summary>
+        [Description("Простая ЭП недействительна")]
+        SimpleSignatureInvalid = 8001,
+
+        /// <summary>
+        /// Некорректный формат простой ЭП.
+        /// </summary>
+        [Description("Некорректный формат простой ЭП")]
+        InvalidSimpleSignatureFormat = 8002,
+
+        /// <summary>
+        /// Некорректные проверяемые атрибуты простой ЭП.
+        /// </summary>
+        [Description("Некорректные проверяемые атрибуты простой ЭП")]
+        InvalidSimpleSignatureAttributes = 8003,
+
+        /// <summary>
+        /// Некорректное содержимое документа простой ЭП.
+        /// </summary>
+        [Description("Некорректное содержимое документа простой ЭП")]
+        InvalidSimpleSignatureDocument = 8004,
+
+        /// <summary>
+        /// Возможность использования простой ЭП отключена.
+        /// </summary>
+        [Description("Возможность использования простой ЭП отключена")]
+        SimpleSignatureDisabled = 8005,
+
+        /// <summary>
+        /// Не принят регламент использования простой ЭП.
+        /// </summary>
+        [Description("Не принят регламент использования простой ЭП")]
+        SimpleSignatureRegulationNotAccepted = 8006,
+
+        /// <summary>
+        /// Регламент использования простой ЭП уже был принят.
+        /// </summary>
+        [Description("Регламент использования простой ЭП уже был принят")]
+        SimpleSignatureRegulationAlreadyAccepted = 8007,
+
+        /// <summary>
+        /// Не указан СНИЛС для использования в простой ЭП.
+        /// </summary>
+        [Description("Не указан СНИЛС для использования в простой ЭП")]
+        SimpleSignatureSnilsNotSpecified = 8008,
+
+        /// <summary>
+        /// Недопустимый тип документа для подписания простой ЭП.
+        /// </summary>
+        [Description("Недопустимый тип документа для подписания простой ЭП")]
+        SimpleSignatureDocumentTypeNotAllowed = 8009,
+
+        #endregion
     }
 }
