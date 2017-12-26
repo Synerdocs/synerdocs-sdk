@@ -205,6 +205,12 @@ namespace Midway.ObjectModel.Exceptions
         /// </summary>
         [Description("Усовершенствованная подпись не найдена")]
         EnhancedSignNotFound = 59,
+        
+        /// <summary>
+        /// Не удалось определить статус отзыва сертификата.
+        /// </summary>
+        [Description("Не удалось определить статус отзыва сертификата.")]
+        CertificateRevocationStatusUnavailable = 60,
 
         #endregion Сертификаты и подписи
 

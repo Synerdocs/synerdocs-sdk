@@ -6,7 +6,6 @@ namespace Midway.ObjectModel
     /// Ответ при проверки доступности использования простой ЭП.
     /// </summary>
     [DataContract]
-    [KnownType(typeof(SimpleSignatureAvailabilityStatus))]
     public class SimpleSignatureAvailabilityCheckingResponse : OperationResponse
     {
         /// <summary>

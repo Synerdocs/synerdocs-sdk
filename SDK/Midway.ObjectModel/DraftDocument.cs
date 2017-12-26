@@ -28,6 +28,12 @@ namespace Midway.ObjectModel
         public EnumValue DocumentTypeEnum { get; set; }
 
         /// <summary>
+        /// Вид неформализованного документа.
+        /// </summary>
+        [DataMember]
+        public string UntypedKind { get; set; }
+
+        /// <summary>
         /// Имя документа
         /// </summary>
         [DataMember]

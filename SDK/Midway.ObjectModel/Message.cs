@@ -40,14 +40,14 @@ namespace Midway.ObjectModel
         /// Ящик получателя.
         /// Используется при отправке.
         /// </summary>
-        [Obsolete]
+        [Obsolete("Используйте свойство '" + nameof(Recipients) + "." + nameof(MessageRecipient.OrganizationBoxId) + "'.")]
         [DataMember]
         public string To { get; set; }
 
         /// <summary>
         /// ИД подразделения получателя.
         /// </summary>
-        [Obsolete]
+        [Obsolete("Используйте свойство '" + nameof(Recipients) + "." + nameof(MessageRecipient.DepartmentId) + "'.")]
         [DataMember]
         public string ToDepartment { get; set; }
 

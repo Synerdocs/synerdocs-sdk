@@ -37,5 +37,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string ErrorMessage { get; set; }
+
+        /// <summary>
+        /// Идентификатор учетной записи абонента.
+        /// </summary>
+        [DataMember]
+        public string CloudSubscriberId { get; set; }
     }
 }

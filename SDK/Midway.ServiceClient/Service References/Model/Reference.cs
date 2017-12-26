@@ -40,10 +40,10 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocumentWithSimpleSignature))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocumentWithSimpleSignature))]
         Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
@@ -357,12 +357,148 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureCreationDocumentId))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureCreationDocumentData))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.SimpleSignatureCreationResponse CreateSimpleSignature(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureResponse")]
         System.IAsyncResult BeginCreateSimpleSignature(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureCreationRequest request, System.AsyncCallback callback, object asyncState);
         
         Midway.ObjectModel.SimpleSignatureCreationResponse EndCreateSimpleSignature(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateUserAndEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/CreateUserAndEmployeeResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UserRegistrationData))]
+        Midway.ObjectModel.UserAndEmployeeCreationResponse CreateUserAndEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.UserAndEmployeeCreationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateUserAndEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/CreateUserAndEmployeeResponse")]
+        System.IAsyncResult BeginCreateUserAndEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.UserAndEmployeeCreationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.UserAndEmployeeCreationResponse EndCreateUserAndEmployee(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeResponse")]
+        void DeleteEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeResponse")]
+        System.IAsyncResult BeginDeleteEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteEmployee(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUser", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUserResponse")]
+        void DeleteEmployeeAndUser(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUser", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUserResponse")]
+        System.IAsyncResult BeginDeleteEmployeeAndUser(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteEmployeeAndUser(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificateResponse")]
+        void DeleteEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificateResponse")]
+        System.IAsyncResult BeginDeleteEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteEmployeeCertificate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetSetting", ReplyAction="http://synerdocs.ru/IExchangeService/GetSettingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.SettingGettingResponse GetSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingGettingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetSetting", ReplyAction="http://synerdocs.ru/IExchangeService/GetSettingResponse")]
+        System.IAsyncResult BeginGetSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingGettingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SettingGettingResponse EndGetSetting(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateSetting", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateSettingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.SettingUpdatingResponse UpdateSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingUpdatingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdateSetting", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateSettingResponse")]
+        System.IAsyncResult BeginUpdateSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingUpdatingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SettingUpdatingResponse EndUpdateSetting(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/GetEmployeeResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeProfileGettingRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UserRegistrationData))]
+        Midway.ObjectModel.Employee GetEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.ProfileGettingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/GetEmployeeResponse")]
+        System.IAsyncResult BeginGetEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.ProfileGettingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.Employee EndGetEmployee(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SearchEmployees", ReplyAction="http://synerdocs.ru/IExchangeService/SearchEmployeesResponse")]
+        Midway.ObjectModel.EmployeeSearchResponse SearchEmployees(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeSearchSettings request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SearchEmployees", ReplyAction="http://synerdocs.ru/IExchangeService/SearchEmployeesResponse")]
+        System.IAsyncResult BeginSearchEmployees(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeSearchSettings request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.EmployeeSearchResponse EndSearchEmployees(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthority", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthorityResponse" +
+            "")]
+        Midway.ObjectModel.AdministratorAuthorityUpdatingResponse UpdateEmployeeAdministratorAuthority(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthority", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthorityResponse" +
+            "")]
+        System.IAsyncResult BeginUpdateEmployeeAdministratorAuthority(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.AdministratorAuthorityUpdatingResponse EndUpdateEmployeeAdministratorAuthority(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfo", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfoResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeePersonalInfoUpdatingRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UserCreationData))]
+        Midway.ObjectModel.PersonalInfoUpdatingResponse UpdateEmployeePersonalInfo(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PersonalInfoUpdatingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfo", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfoResponse")]
+        System.IAsyncResult BeginUpdateEmployeePersonalInfo(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PersonalInfoUpdatingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.PersonalInfoUpdatingResponse EndUpdateEmployeePersonalInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificateResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeCertificateUpdatingRequest))]
+        Midway.ObjectModel.CertificateUpdatingResponse UpdateEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.CertificateUpdatingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificateResponse")]
+        System.IAsyncResult BeginUpdateEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.CertificateUpdatingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.CertificateUpdatingResponse EndUpdateEmployeeCertificate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdatePassword", ReplyAction="http://synerdocs.ru/IExchangeService/UpdatePasswordResponse")]
+        Midway.ObjectModel.PasswordUpdatingResponse UpdatePassword(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PasswordUpdatingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdatePassword", ReplyAction="http://synerdocs.ru/IExchangeService/UpdatePasswordResponse")]
+        System.IAsyncResult BeginUpdatePassword(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PasswordUpdatingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.PasswordUpdatingResponse EndUpdatePassword(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/MoveDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDraftMessageResponse")]
+        void MoveDraftMessage(string authToken, string boxId, string draftMessageId, string employeeId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/MoveDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDraftMessageResponse")]
+        System.IAsyncResult BeginMoveDraftMessage(string authToken, string boxId, string draftMessageId, string employeeId, System.AsyncCallback callback, object asyncState);
+        
+        void EndMoveDraftMessage(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetEnumValues", ReplyAction="http://synerdocs.ru/IExchangeService/GetEnumValuesResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.Utility.AllEnumValuesRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.Utility.FullEnumValuesRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.Utility.SpecifiedEnumValuesRequest))]
+        Midway.ObjectModel.Utility.EnumValuesResponse GetEnumValues(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.Utility.EnumValuesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetEnumValues", ReplyAction="http://synerdocs.ru/IExchangeService/GetEnumValuesResponse")]
+        System.IAsyncResult BeginGetEnumValues(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.Utility.EnumValuesRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.Utility.EnumValuesResponse EndGetEnumValues(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
         string Authenticate(string login, string password, string applicationId);
@@ -930,6 +1066,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SentMessage EndSendForwardMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SignDocument", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         void SignDocument(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.Sign sign);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SignDocument", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentResponse")]
@@ -938,6 +1076,8 @@ namespace Midway.ServiceClient.Model {
         void EndSignDocument(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignatureResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         void SignDocumentWithSimpleSignature(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignatureResponse")]
@@ -1010,6 +1150,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.User[] EndGetDepartmentEmployees(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/CreateDocumentTagResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         string CreateDocumentTag(string authToken, Midway.ObjectModel.DocumentTag documentTag);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/CreateDocumentTagResponse")]
@@ -1026,6 +1168,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteDocumentTag(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentTagResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.DocumentTag GetDocumentTag(string authToken, string documentTagId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentTagResponse")]
@@ -1694,6 +1838,196 @@ namespace Midway.ServiceClient.Model {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((Midway.ObjectModel.SimpleSignatureCreationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateUserAndEmployeeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateUserAndEmployeeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.UserAndEmployeeCreationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.UserAndEmployeeCreationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSettingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSettingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SettingGettingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SettingGettingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateSettingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateSettingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SettingUpdatingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SettingUpdatingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetEmployeeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetEmployeeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.Employee Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.Employee)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SearchEmployeesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SearchEmployeesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.EmployeeSearchResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.EmployeeSearchResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateEmployeeAdministratorAuthorityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateEmployeeAdministratorAuthorityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.AdministratorAuthorityUpdatingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.AdministratorAuthorityUpdatingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateEmployeePersonalInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateEmployeePersonalInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.PersonalInfoUpdatingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.PersonalInfoUpdatingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateEmployeeCertificateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateEmployeeCertificateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.CertificateUpdatingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.CertificateUpdatingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdatePasswordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdatePasswordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.PasswordUpdatingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.PasswordUpdatingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetEnumValuesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetEnumValuesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.Utility.EnumValuesResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.Utility.EnumValuesResponse)(this.results[0]));
             }
         }
     }
@@ -3255,6 +3589,90 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onCreateSimpleSignatureCompletedDelegate;
         
+        private BeginOperationDelegate onBeginCreateUserAndEmployeeDelegate;
+        
+        private EndOperationDelegate onEndCreateUserAndEmployeeDelegate;
+        
+        private System.Threading.SendOrPostCallback onCreateUserAndEmployeeCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteEmployeeDelegate;
+        
+        private EndOperationDelegate onEndDeleteEmployeeDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteEmployeeCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteEmployeeAndUserDelegate;
+        
+        private EndOperationDelegate onEndDeleteEmployeeAndUserDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteEmployeeAndUserCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteEmployeeCertificateDelegate;
+        
+        private EndOperationDelegate onEndDeleteEmployeeCertificateDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteEmployeeCertificateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSettingDelegate;
+        
+        private EndOperationDelegate onEndGetSettingDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSettingCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateSettingDelegate;
+        
+        private EndOperationDelegate onEndUpdateSettingDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateSettingCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetEmployeeDelegate;
+        
+        private EndOperationDelegate onEndGetEmployeeDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetEmployeeCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSearchEmployeesDelegate;
+        
+        private EndOperationDelegate onEndSearchEmployeesDelegate;
+        
+        private System.Threading.SendOrPostCallback onSearchEmployeesCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateEmployeeAdministratorAuthorityDelegate;
+        
+        private EndOperationDelegate onEndUpdateEmployeeAdministratorAuthorityDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateEmployeeAdministratorAuthorityCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateEmployeePersonalInfoDelegate;
+        
+        private EndOperationDelegate onEndUpdateEmployeePersonalInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateEmployeePersonalInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateEmployeeCertificateDelegate;
+        
+        private EndOperationDelegate onEndUpdateEmployeeCertificateDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateEmployeeCertificateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdatePasswordDelegate;
+        
+        private EndOperationDelegate onEndUpdatePasswordDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdatePasswordCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginMoveDraftMessageDelegate;
+        
+        private EndOperationDelegate onEndMoveDraftMessageDelegate;
+        
+        private System.Threading.SendOrPostCallback onMoveDraftMessageCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetEnumValuesDelegate;
+        
+        private EndOperationDelegate onEndGetEnumValuesDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetEnumValuesCompletedDelegate;
+        
         private BeginOperationDelegate onBeginAuthenticateDelegate;
         
         private EndOperationDelegate onEndAuthenticateDelegate;
@@ -3851,6 +4269,34 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<PreviewSimpleSignatureRequisitesCompletedEventArgs> PreviewSimpleSignatureRequisitesCompleted;
         
         public event System.EventHandler<CreateSimpleSignatureCompletedEventArgs> CreateSimpleSignatureCompleted;
+        
+        public event System.EventHandler<CreateUserAndEmployeeCompletedEventArgs> CreateUserAndEmployeeCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteEmployeeCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteEmployeeAndUserCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteEmployeeCertificateCompleted;
+        
+        public event System.EventHandler<GetSettingCompletedEventArgs> GetSettingCompleted;
+        
+        public event System.EventHandler<UpdateSettingCompletedEventArgs> UpdateSettingCompleted;
+        
+        public event System.EventHandler<GetEmployeeCompletedEventArgs> GetEmployeeCompleted;
+        
+        public event System.EventHandler<SearchEmployeesCompletedEventArgs> SearchEmployeesCompleted;
+        
+        public event System.EventHandler<UpdateEmployeeAdministratorAuthorityCompletedEventArgs> UpdateEmployeeAdministratorAuthorityCompleted;
+        
+        public event System.EventHandler<UpdateEmployeePersonalInfoCompletedEventArgs> UpdateEmployeePersonalInfoCompleted;
+        
+        public event System.EventHandler<UpdateEmployeeCertificateCompletedEventArgs> UpdateEmployeeCertificateCompleted;
+        
+        public event System.EventHandler<UpdatePasswordCompletedEventArgs> UpdatePasswordCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> MoveDraftMessageCompleted;
+        
+        public event System.EventHandler<GetEnumValuesCompletedEventArgs> GetEnumValuesCompleted;
         
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
         
@@ -5829,6 +6275,734 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginCreateSimpleSignatureDelegate, new object[] {
                         credentials,
                         request}, this.onEndCreateSimpleSignatureDelegate, this.onCreateSimpleSignatureCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.UserAndEmployeeCreationResponse CreateUserAndEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.UserAndEmployeeCreationRequest request) {
+            return base.Channel.CreateUserAndEmployee(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCreateUserAndEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.UserAndEmployeeCreationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateUserAndEmployee(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.UserAndEmployeeCreationResponse EndCreateUserAndEmployee(System.IAsyncResult result) {
+            return base.Channel.EndCreateUserAndEmployee(result);
+        }
+        
+        private System.IAsyncResult OnBeginCreateUserAndEmployee(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.UserAndEmployeeCreationRequest request = ((Midway.ObjectModel.UserAndEmployeeCreationRequest)(inValues[1]));
+            return this.BeginCreateUserAndEmployee(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCreateUserAndEmployee(System.IAsyncResult result) {
+            Midway.ObjectModel.UserAndEmployeeCreationResponse retVal = this.EndCreateUserAndEmployee(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCreateUserAndEmployeeCompleted(object state) {
+            if ((this.CreateUserAndEmployeeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CreateUserAndEmployeeCompleted(this, new CreateUserAndEmployeeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CreateUserAndEmployeeAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.UserAndEmployeeCreationRequest request) {
+            this.CreateUserAndEmployeeAsync(credentials, request, null);
+        }
+        
+        public void CreateUserAndEmployeeAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.UserAndEmployeeCreationRequest request, object userState) {
+            if ((this.onBeginCreateUserAndEmployeeDelegate == null)) {
+                this.onBeginCreateUserAndEmployeeDelegate = new BeginOperationDelegate(this.OnBeginCreateUserAndEmployee);
+            }
+            if ((this.onEndCreateUserAndEmployeeDelegate == null)) {
+                this.onEndCreateUserAndEmployeeDelegate = new EndOperationDelegate(this.OnEndCreateUserAndEmployee);
+            }
+            if ((this.onCreateUserAndEmployeeCompletedDelegate == null)) {
+                this.onCreateUserAndEmployeeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateUserAndEmployeeCompleted);
+            }
+            base.InvokeAsync(this.onBeginCreateUserAndEmployeeDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndCreateUserAndEmployeeDelegate, this.onCreateUserAndEmployeeCompletedDelegate, userState);
+        }
+        
+        public void DeleteEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId) {
+            base.Channel.DeleteEmployee(credentials, employeeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDeleteEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteEmployee(credentials, employeeId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndDeleteEmployee(System.IAsyncResult result) {
+            base.Channel.EndDeleteEmployee(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteEmployee(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            string employeeId = ((string)(inValues[1]));
+            return this.BeginDeleteEmployee(credentials, employeeId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteEmployee(System.IAsyncResult result) {
+            this.EndDeleteEmployee(result);
+            return null;
+        }
+        
+        private void OnDeleteEmployeeCompleted(object state) {
+            if ((this.DeleteEmployeeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteEmployeeCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteEmployeeAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId) {
+            this.DeleteEmployeeAsync(credentials, employeeId, null);
+        }
+        
+        public void DeleteEmployeeAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, object userState) {
+            if ((this.onBeginDeleteEmployeeDelegate == null)) {
+                this.onBeginDeleteEmployeeDelegate = new BeginOperationDelegate(this.OnBeginDeleteEmployee);
+            }
+            if ((this.onEndDeleteEmployeeDelegate == null)) {
+                this.onEndDeleteEmployeeDelegate = new EndOperationDelegate(this.OnEndDeleteEmployee);
+            }
+            if ((this.onDeleteEmployeeCompletedDelegate == null)) {
+                this.onDeleteEmployeeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteEmployeeCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteEmployeeDelegate, new object[] {
+                        credentials,
+                        employeeId}, this.onEndDeleteEmployeeDelegate, this.onDeleteEmployeeCompletedDelegate, userState);
+        }
+        
+        public void DeleteEmployeeAndUser(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId) {
+            base.Channel.DeleteEmployeeAndUser(credentials, employeeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDeleteEmployeeAndUser(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteEmployeeAndUser(credentials, employeeId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndDeleteEmployeeAndUser(System.IAsyncResult result) {
+            base.Channel.EndDeleteEmployeeAndUser(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteEmployeeAndUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            string employeeId = ((string)(inValues[1]));
+            return this.BeginDeleteEmployeeAndUser(credentials, employeeId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteEmployeeAndUser(System.IAsyncResult result) {
+            this.EndDeleteEmployeeAndUser(result);
+            return null;
+        }
+        
+        private void OnDeleteEmployeeAndUserCompleted(object state) {
+            if ((this.DeleteEmployeeAndUserCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteEmployeeAndUserCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteEmployeeAndUserAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId) {
+            this.DeleteEmployeeAndUserAsync(credentials, employeeId, null);
+        }
+        
+        public void DeleteEmployeeAndUserAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, object userState) {
+            if ((this.onBeginDeleteEmployeeAndUserDelegate == null)) {
+                this.onBeginDeleteEmployeeAndUserDelegate = new BeginOperationDelegate(this.OnBeginDeleteEmployeeAndUser);
+            }
+            if ((this.onEndDeleteEmployeeAndUserDelegate == null)) {
+                this.onEndDeleteEmployeeAndUserDelegate = new EndOperationDelegate(this.OnEndDeleteEmployeeAndUser);
+            }
+            if ((this.onDeleteEmployeeAndUserCompletedDelegate == null)) {
+                this.onDeleteEmployeeAndUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteEmployeeAndUserCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteEmployeeAndUserDelegate, new object[] {
+                        credentials,
+                        employeeId}, this.onEndDeleteEmployeeAndUserDelegate, this.onDeleteEmployeeAndUserCompletedDelegate, userState);
+        }
+        
+        public void DeleteEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId) {
+            base.Channel.DeleteEmployeeCertificate(credentials, employeeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDeleteEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteEmployeeCertificate(credentials, employeeId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndDeleteEmployeeCertificate(System.IAsyncResult result) {
+            base.Channel.EndDeleteEmployeeCertificate(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteEmployeeCertificate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            string employeeId = ((string)(inValues[1]));
+            return this.BeginDeleteEmployeeCertificate(credentials, employeeId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteEmployeeCertificate(System.IAsyncResult result) {
+            this.EndDeleteEmployeeCertificate(result);
+            return null;
+        }
+        
+        private void OnDeleteEmployeeCertificateCompleted(object state) {
+            if ((this.DeleteEmployeeCertificateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteEmployeeCertificateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteEmployeeCertificateAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId) {
+            this.DeleteEmployeeCertificateAsync(credentials, employeeId, null);
+        }
+        
+        public void DeleteEmployeeCertificateAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId, object userState) {
+            if ((this.onBeginDeleteEmployeeCertificateDelegate == null)) {
+                this.onBeginDeleteEmployeeCertificateDelegate = new BeginOperationDelegate(this.OnBeginDeleteEmployeeCertificate);
+            }
+            if ((this.onEndDeleteEmployeeCertificateDelegate == null)) {
+                this.onEndDeleteEmployeeCertificateDelegate = new EndOperationDelegate(this.OnEndDeleteEmployeeCertificate);
+            }
+            if ((this.onDeleteEmployeeCertificateCompletedDelegate == null)) {
+                this.onDeleteEmployeeCertificateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteEmployeeCertificateCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteEmployeeCertificateDelegate, new object[] {
+                        credentials,
+                        employeeId}, this.onEndDeleteEmployeeCertificateDelegate, this.onDeleteEmployeeCertificateCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.SettingGettingResponse GetSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingGettingRequest request) {
+            return base.Channel.GetSetting(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingGettingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSetting(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SettingGettingResponse EndGetSetting(System.IAsyncResult result) {
+            return base.Channel.EndGetSetting(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSetting(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.SettingGettingRequest request = ((Midway.ObjectModel.SettingGettingRequest)(inValues[1]));
+            return this.BeginGetSetting(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSetting(System.IAsyncResult result) {
+            Midway.ObjectModel.SettingGettingResponse retVal = this.EndGetSetting(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSettingCompleted(object state) {
+            if ((this.GetSettingCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSettingCompleted(this, new GetSettingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSettingAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingGettingRequest request) {
+            this.GetSettingAsync(credentials, request, null);
+        }
+        
+        public void GetSettingAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingGettingRequest request, object userState) {
+            if ((this.onBeginGetSettingDelegate == null)) {
+                this.onBeginGetSettingDelegate = new BeginOperationDelegate(this.OnBeginGetSetting);
+            }
+            if ((this.onEndGetSettingDelegate == null)) {
+                this.onEndGetSettingDelegate = new EndOperationDelegate(this.OnEndGetSetting);
+            }
+            if ((this.onGetSettingCompletedDelegate == null)) {
+                this.onGetSettingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSettingCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSettingDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGetSettingDelegate, this.onGetSettingCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.SettingUpdatingResponse UpdateSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingUpdatingRequest request) {
+            return base.Channel.UpdateSetting(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginUpdateSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingUpdatingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateSetting(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SettingUpdatingResponse EndUpdateSetting(System.IAsyncResult result) {
+            return base.Channel.EndUpdateSetting(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateSetting(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.SettingUpdatingRequest request = ((Midway.ObjectModel.SettingUpdatingRequest)(inValues[1]));
+            return this.BeginUpdateSetting(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateSetting(System.IAsyncResult result) {
+            Midway.ObjectModel.SettingUpdatingResponse retVal = this.EndUpdateSetting(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateSettingCompleted(object state) {
+            if ((this.UpdateSettingCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateSettingCompleted(this, new UpdateSettingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateSettingAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingUpdatingRequest request) {
+            this.UpdateSettingAsync(credentials, request, null);
+        }
+        
+        public void UpdateSettingAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingUpdatingRequest request, object userState) {
+            if ((this.onBeginUpdateSettingDelegate == null)) {
+                this.onBeginUpdateSettingDelegate = new BeginOperationDelegate(this.OnBeginUpdateSetting);
+            }
+            if ((this.onEndUpdateSettingDelegate == null)) {
+                this.onEndUpdateSettingDelegate = new EndOperationDelegate(this.OnEndUpdateSetting);
+            }
+            if ((this.onUpdateSettingCompletedDelegate == null)) {
+                this.onUpdateSettingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateSettingCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateSettingDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndUpdateSettingDelegate, this.onUpdateSettingCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.Employee GetEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.ProfileGettingRequest request) {
+            return base.Channel.GetEmployee(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.ProfileGettingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetEmployee(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.Employee EndGetEmployee(System.IAsyncResult result) {
+            return base.Channel.EndGetEmployee(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetEmployee(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.ProfileGettingRequest request = ((Midway.ObjectModel.ProfileGettingRequest)(inValues[1]));
+            return this.BeginGetEmployee(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGetEmployee(System.IAsyncResult result) {
+            Midway.ObjectModel.Employee retVal = this.EndGetEmployee(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetEmployeeCompleted(object state) {
+            if ((this.GetEmployeeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetEmployeeCompleted(this, new GetEmployeeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetEmployeeAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.ProfileGettingRequest request) {
+            this.GetEmployeeAsync(credentials, request, null);
+        }
+        
+        public void GetEmployeeAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.ProfileGettingRequest request, object userState) {
+            if ((this.onBeginGetEmployeeDelegate == null)) {
+                this.onBeginGetEmployeeDelegate = new BeginOperationDelegate(this.OnBeginGetEmployee);
+            }
+            if ((this.onEndGetEmployeeDelegate == null)) {
+                this.onEndGetEmployeeDelegate = new EndOperationDelegate(this.OnEndGetEmployee);
+            }
+            if ((this.onGetEmployeeCompletedDelegate == null)) {
+                this.onGetEmployeeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetEmployeeCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetEmployeeDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGetEmployeeDelegate, this.onGetEmployeeCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.EmployeeSearchResponse SearchEmployees(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeSearchSettings request) {
+            return base.Channel.SearchEmployees(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSearchEmployees(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeSearchSettings request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSearchEmployees(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.EmployeeSearchResponse EndSearchEmployees(System.IAsyncResult result) {
+            return base.Channel.EndSearchEmployees(result);
+        }
+        
+        private System.IAsyncResult OnBeginSearchEmployees(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.EmployeeSearchSettings request = ((Midway.ObjectModel.EmployeeSearchSettings)(inValues[1]));
+            return this.BeginSearchEmployees(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndSearchEmployees(System.IAsyncResult result) {
+            Midway.ObjectModel.EmployeeSearchResponse retVal = this.EndSearchEmployees(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSearchEmployeesCompleted(object state) {
+            if ((this.SearchEmployeesCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SearchEmployeesCompleted(this, new SearchEmployeesCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SearchEmployeesAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeSearchSettings request) {
+            this.SearchEmployeesAsync(credentials, request, null);
+        }
+        
+        public void SearchEmployeesAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeSearchSettings request, object userState) {
+            if ((this.onBeginSearchEmployeesDelegate == null)) {
+                this.onBeginSearchEmployeesDelegate = new BeginOperationDelegate(this.OnBeginSearchEmployees);
+            }
+            if ((this.onEndSearchEmployeesDelegate == null)) {
+                this.onEndSearchEmployeesDelegate = new EndOperationDelegate(this.OnEndSearchEmployees);
+            }
+            if ((this.onSearchEmployeesCompletedDelegate == null)) {
+                this.onSearchEmployeesCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSearchEmployeesCompleted);
+            }
+            base.InvokeAsync(this.onBeginSearchEmployeesDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndSearchEmployeesDelegate, this.onSearchEmployeesCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.AdministratorAuthorityUpdatingResponse UpdateEmployeeAdministratorAuthority(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request) {
+            return base.Channel.UpdateEmployeeAdministratorAuthority(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginUpdateEmployeeAdministratorAuthority(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateEmployeeAdministratorAuthority(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.AdministratorAuthorityUpdatingResponse EndUpdateEmployeeAdministratorAuthority(System.IAsyncResult result) {
+            return base.Channel.EndUpdateEmployeeAdministratorAuthority(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateEmployeeAdministratorAuthority(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request = ((Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest)(inValues[1]));
+            return this.BeginUpdateEmployeeAdministratorAuthority(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateEmployeeAdministratorAuthority(System.IAsyncResult result) {
+            Midway.ObjectModel.AdministratorAuthorityUpdatingResponse retVal = this.EndUpdateEmployeeAdministratorAuthority(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateEmployeeAdministratorAuthorityCompleted(object state) {
+            if ((this.UpdateEmployeeAdministratorAuthorityCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateEmployeeAdministratorAuthorityCompleted(this, new UpdateEmployeeAdministratorAuthorityCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateEmployeeAdministratorAuthorityAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request) {
+            this.UpdateEmployeeAdministratorAuthorityAsync(credentials, request, null);
+        }
+        
+        public void UpdateEmployeeAdministratorAuthorityAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request, object userState) {
+            if ((this.onBeginUpdateEmployeeAdministratorAuthorityDelegate == null)) {
+                this.onBeginUpdateEmployeeAdministratorAuthorityDelegate = new BeginOperationDelegate(this.OnBeginUpdateEmployeeAdministratorAuthority);
+            }
+            if ((this.onEndUpdateEmployeeAdministratorAuthorityDelegate == null)) {
+                this.onEndUpdateEmployeeAdministratorAuthorityDelegate = new EndOperationDelegate(this.OnEndUpdateEmployeeAdministratorAuthority);
+            }
+            if ((this.onUpdateEmployeeAdministratorAuthorityCompletedDelegate == null)) {
+                this.onUpdateEmployeeAdministratorAuthorityCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateEmployeeAdministratorAuthorityCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateEmployeeAdministratorAuthorityDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndUpdateEmployeeAdministratorAuthorityDelegate, this.onUpdateEmployeeAdministratorAuthorityCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.PersonalInfoUpdatingResponse UpdateEmployeePersonalInfo(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PersonalInfoUpdatingRequest request) {
+            return base.Channel.UpdateEmployeePersonalInfo(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginUpdateEmployeePersonalInfo(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PersonalInfoUpdatingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateEmployeePersonalInfo(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.PersonalInfoUpdatingResponse EndUpdateEmployeePersonalInfo(System.IAsyncResult result) {
+            return base.Channel.EndUpdateEmployeePersonalInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateEmployeePersonalInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.PersonalInfoUpdatingRequest request = ((Midway.ObjectModel.PersonalInfoUpdatingRequest)(inValues[1]));
+            return this.BeginUpdateEmployeePersonalInfo(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateEmployeePersonalInfo(System.IAsyncResult result) {
+            Midway.ObjectModel.PersonalInfoUpdatingResponse retVal = this.EndUpdateEmployeePersonalInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateEmployeePersonalInfoCompleted(object state) {
+            if ((this.UpdateEmployeePersonalInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateEmployeePersonalInfoCompleted(this, new UpdateEmployeePersonalInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateEmployeePersonalInfoAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PersonalInfoUpdatingRequest request) {
+            this.UpdateEmployeePersonalInfoAsync(credentials, request, null);
+        }
+        
+        public void UpdateEmployeePersonalInfoAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PersonalInfoUpdatingRequest request, object userState) {
+            if ((this.onBeginUpdateEmployeePersonalInfoDelegate == null)) {
+                this.onBeginUpdateEmployeePersonalInfoDelegate = new BeginOperationDelegate(this.OnBeginUpdateEmployeePersonalInfo);
+            }
+            if ((this.onEndUpdateEmployeePersonalInfoDelegate == null)) {
+                this.onEndUpdateEmployeePersonalInfoDelegate = new EndOperationDelegate(this.OnEndUpdateEmployeePersonalInfo);
+            }
+            if ((this.onUpdateEmployeePersonalInfoCompletedDelegate == null)) {
+                this.onUpdateEmployeePersonalInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateEmployeePersonalInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateEmployeePersonalInfoDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndUpdateEmployeePersonalInfoDelegate, this.onUpdateEmployeePersonalInfoCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.CertificateUpdatingResponse UpdateEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.CertificateUpdatingRequest request) {
+            return base.Channel.UpdateEmployeeCertificate(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginUpdateEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.CertificateUpdatingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateEmployeeCertificate(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.CertificateUpdatingResponse EndUpdateEmployeeCertificate(System.IAsyncResult result) {
+            return base.Channel.EndUpdateEmployeeCertificate(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateEmployeeCertificate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.CertificateUpdatingRequest request = ((Midway.ObjectModel.CertificateUpdatingRequest)(inValues[1]));
+            return this.BeginUpdateEmployeeCertificate(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateEmployeeCertificate(System.IAsyncResult result) {
+            Midway.ObjectModel.CertificateUpdatingResponse retVal = this.EndUpdateEmployeeCertificate(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateEmployeeCertificateCompleted(object state) {
+            if ((this.UpdateEmployeeCertificateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateEmployeeCertificateCompleted(this, new UpdateEmployeeCertificateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateEmployeeCertificateAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.CertificateUpdatingRequest request) {
+            this.UpdateEmployeeCertificateAsync(credentials, request, null);
+        }
+        
+        public void UpdateEmployeeCertificateAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.CertificateUpdatingRequest request, object userState) {
+            if ((this.onBeginUpdateEmployeeCertificateDelegate == null)) {
+                this.onBeginUpdateEmployeeCertificateDelegate = new BeginOperationDelegate(this.OnBeginUpdateEmployeeCertificate);
+            }
+            if ((this.onEndUpdateEmployeeCertificateDelegate == null)) {
+                this.onEndUpdateEmployeeCertificateDelegate = new EndOperationDelegate(this.OnEndUpdateEmployeeCertificate);
+            }
+            if ((this.onUpdateEmployeeCertificateCompletedDelegate == null)) {
+                this.onUpdateEmployeeCertificateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateEmployeeCertificateCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateEmployeeCertificateDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndUpdateEmployeeCertificateDelegate, this.onUpdateEmployeeCertificateCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.PasswordUpdatingResponse UpdatePassword(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PasswordUpdatingRequest request) {
+            return base.Channel.UpdatePassword(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginUpdatePassword(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PasswordUpdatingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdatePassword(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.PasswordUpdatingResponse EndUpdatePassword(System.IAsyncResult result) {
+            return base.Channel.EndUpdatePassword(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdatePassword(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.PasswordUpdatingRequest request = ((Midway.ObjectModel.PasswordUpdatingRequest)(inValues[1]));
+            return this.BeginUpdatePassword(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdatePassword(System.IAsyncResult result) {
+            Midway.ObjectModel.PasswordUpdatingResponse retVal = this.EndUpdatePassword(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdatePasswordCompleted(object state) {
+            if ((this.UpdatePasswordCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdatePasswordCompleted(this, new UpdatePasswordCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdatePasswordAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PasswordUpdatingRequest request) {
+            this.UpdatePasswordAsync(credentials, request, null);
+        }
+        
+        public void UpdatePasswordAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PasswordUpdatingRequest request, object userState) {
+            if ((this.onBeginUpdatePasswordDelegate == null)) {
+                this.onBeginUpdatePasswordDelegate = new BeginOperationDelegate(this.OnBeginUpdatePassword);
+            }
+            if ((this.onEndUpdatePasswordDelegate == null)) {
+                this.onEndUpdatePasswordDelegate = new EndOperationDelegate(this.OnEndUpdatePassword);
+            }
+            if ((this.onUpdatePasswordCompletedDelegate == null)) {
+                this.onUpdatePasswordCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdatePasswordCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdatePasswordDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndUpdatePasswordDelegate, this.onUpdatePasswordCompletedDelegate, userState);
+        }
+        
+        public void MoveDraftMessage(string authToken, string boxId, string draftMessageId, string employeeId) {
+            base.Channel.MoveDraftMessage(authToken, boxId, draftMessageId, employeeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginMoveDraftMessage(string authToken, string boxId, string draftMessageId, string employeeId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginMoveDraftMessage(authToken, boxId, draftMessageId, employeeId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndMoveDraftMessage(System.IAsyncResult result) {
+            base.Channel.EndMoveDraftMessage(result);
+        }
+        
+        private System.IAsyncResult OnBeginMoveDraftMessage(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string draftMessageId = ((string)(inValues[2]));
+            string employeeId = ((string)(inValues[3]));
+            return this.BeginMoveDraftMessage(authToken, boxId, draftMessageId, employeeId, callback, asyncState);
+        }
+        
+        private object[] OnEndMoveDraftMessage(System.IAsyncResult result) {
+            this.EndMoveDraftMessage(result);
+            return null;
+        }
+        
+        private void OnMoveDraftMessageCompleted(object state) {
+            if ((this.MoveDraftMessageCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.MoveDraftMessageCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void MoveDraftMessageAsync(string authToken, string boxId, string draftMessageId, string employeeId) {
+            this.MoveDraftMessageAsync(authToken, boxId, draftMessageId, employeeId, null);
+        }
+        
+        public void MoveDraftMessageAsync(string authToken, string boxId, string draftMessageId, string employeeId, object userState) {
+            if ((this.onBeginMoveDraftMessageDelegate == null)) {
+                this.onBeginMoveDraftMessageDelegate = new BeginOperationDelegate(this.OnBeginMoveDraftMessage);
+            }
+            if ((this.onEndMoveDraftMessageDelegate == null)) {
+                this.onEndMoveDraftMessageDelegate = new EndOperationDelegate(this.OnEndMoveDraftMessage);
+            }
+            if ((this.onMoveDraftMessageCompletedDelegate == null)) {
+                this.onMoveDraftMessageCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnMoveDraftMessageCompleted);
+            }
+            base.InvokeAsync(this.onBeginMoveDraftMessageDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        draftMessageId,
+                        employeeId}, this.onEndMoveDraftMessageDelegate, this.onMoveDraftMessageCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.Utility.EnumValuesResponse GetEnumValues(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.Utility.EnumValuesRequest request) {
+            return base.Channel.GetEnumValues(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetEnumValues(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.Utility.EnumValuesRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetEnumValues(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.Utility.EnumValuesResponse EndGetEnumValues(System.IAsyncResult result) {
+            return base.Channel.EndGetEnumValues(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetEnumValues(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.Utility.EnumValuesRequest request = ((Midway.ObjectModel.Utility.EnumValuesRequest)(inValues[1]));
+            return this.BeginGetEnumValues(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGetEnumValues(System.IAsyncResult result) {
+            Midway.ObjectModel.Utility.EnumValuesResponse retVal = this.EndGetEnumValues(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetEnumValuesCompleted(object state) {
+            if ((this.GetEnumValuesCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetEnumValuesCompleted(this, new GetEnumValuesCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetEnumValuesAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.Utility.EnumValuesRequest request) {
+            this.GetEnumValuesAsync(credentials, request, null);
+        }
+        
+        public void GetEnumValuesAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.Utility.EnumValuesRequest request, object userState) {
+            if ((this.onBeginGetEnumValuesDelegate == null)) {
+                this.onBeginGetEnumValuesDelegate = new BeginOperationDelegate(this.OnBeginGetEnumValues);
+            }
+            if ((this.onEndGetEnumValuesDelegate == null)) {
+                this.onEndGetEnumValuesDelegate = new EndOperationDelegate(this.OnEndGetEnumValues);
+            }
+            if ((this.onGetEnumValuesCompletedDelegate == null)) {
+                this.onGetEnumValuesCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetEnumValuesCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetEnumValuesDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGetEnumValuesDelegate, this.onGetEnumValuesCompletedDelegate, userState);
         }
         
         public string Authenticate(string login, string password, string applicationId) {

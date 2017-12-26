@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5bf16190-3f66-44b6-bb98-26f6cd23e9bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="466fa344-339c-40f1-a950-7429b7f0f23c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,14 +21,15 @@
     <MetadataSource Address="http://localhost:5001/ExchangeService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExchangeService.wsdl" MetadataType="Wsdl" ID="d7ead34e-2e5f-4dfd-9a4e-5872177e3fdf" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?wsdl" />
-    <MetadataFile FileName="ExchangeService.disco" MetadataType="Disco" ID="0ed1421f-f655-471c-aa63-97a8f2bcb97e" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?disco" />
-    <MetadataFile FileName="ExchangeService.xsd" MetadataType="Schema" ID="92a01ca2-7af8-4c5d-bd67-939bcb799577" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd4" />
-    <MetadataFile FileName="ExchangeService1.xsd" MetadataType="Schema" ID="ec7a7a93-db82-4a27-a6ac-6f0aef92df38" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd5" />
-    <MetadataFile FileName="ExchangeService2.xsd" MetadataType="Schema" ID="a1ce39ff-1e20-4060-b921-e0c9b635c1cf" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ExchangeService3.xsd" MetadataType="Schema" ID="a5255db5-21a1-4d7a-b56f-ae8e53a6f367" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd3" />
-    <MetadataFile FileName="ExchangeService4.xsd" MetadataType="Schema" ID="21d0d066-2171-4940-8b5c-3c63a9a586dd" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ExchangeService5.xsd" MetadataType="Schema" ID="61783408-b1ae-454f-b2d8-5d01a28953dc" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ExchangeService.wsdl" MetadataType="Wsdl" ID="5479b7f7-1350-4f96-a45c-5e391231be31" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?wsdl" />
+    <MetadataFile FileName="ExchangeService.disco" MetadataType="Disco" ID="bdaf09f8-4b73-42af-a867-7044c2d7c520" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?disco" />
+    <MetadataFile FileName="ExchangeService.xsd" MetadataType="Schema" ID="d606741f-9a26-4fad-bf14-3a1da2abea81" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ExchangeService1.xsd" MetadataType="Schema" ID="b653673f-32a2-43e8-8b8b-5a28df091b52" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ExchangeService2.xsd" MetadataType="Schema" ID="4bebbba0-ad9f-4f54-814d-009b42347514" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ExchangeService3.xsd" MetadataType="Schema" ID="2b20371f-75a2-49e4-9d70-c75609f592b1" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ExchangeService4.xsd" MetadataType="Schema" ID="51ab0505-60bb-44d8-8aa4-3d5dc9acfaa5" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ExchangeService5.xsd" MetadataType="Schema" ID="e2f8884f-b2bd-4970-b579-bc2cbb4e79c1" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ExchangeService6.xsd" MetadataType="Schema" ID="559af01d-7f4c-42ee-8b53-b6a13b6d3cb5" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

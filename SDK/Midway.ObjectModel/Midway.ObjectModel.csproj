@@ -58,6 +58,7 @@
     <Compile Include="AccessToDepartment.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="AddressType.cs" />
+    <Compile Include="AdministratorAuthorityUpdatingResponse.cs" />
     <Compile Include="AmountChange.cs" />
     <Compile Include="ApprovalArea.cs" />
     <Compile Include="ApprovalInfo.cs" />
@@ -82,9 +83,22 @@
     <Compile Include="CertificateIssueStatus.cs" />
     <Compile Include="CertificateOrganization.cs" />
     <Compile Include="CertificateOrganizationRepresentative.cs" />
+    <Compile Include="CertificateUpdatingRequest.cs" />
+    <Compile Include="CertificateUpdatingResponse.cs" />
     <Compile Include="CertificateValidationResult.cs" />
     <Compile Include="CertificateValidationStatus.cs" />
     <Compile Include="CloudProviderType.cs" />
+    <Compile Include="CompositeFilterCondition.cs" />
+    <Compile Include="Common\CompositeFilterOperatorType.cs" />
+    <Compile Include="EnhancedSignCreateStatus.cs" />
+    <Compile Include="EnhancedSignFailedReason.cs" />
+    <Compile Include="EnhancingSignFailedInfo.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Common\EntityType.cs" />
+    <Compile Include="Utility\AllEnumValuesRequest.cs" />
+    <Compile Include="Utility\EnumValuesRequest.cs" />
+    <Compile Include="Utility\EnumValuesResponse.cs" />
+    <Compile Include="SortCondition.cs" />
     <Compile Include="Common\TextValueType.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="ContactAuthType.cs" />
@@ -96,8 +110,11 @@
     <Compile Include="ContentFormat.cs" />
     <Compile Include="ConversionSettings.cs" />
     <Compile Include="EmployeeOperationCredentials.cs" />
+    <Compile Include="ExecutedFunction.cs" />
+    <Compile Include="Extensions\ExecutedFunctionExtensions.cs" />
     <Compile Include="ISignature.cs" />
     <Compile Include="ServiceDocumentWithSimpleSignature.cs" />
+    <Compile Include="SignatureMark.cs" />
     <Compile Include="SimpleSignatureRequisitesPreviewingResponse.cs" />
     <Compile Include="SimpleSignatureRequisitesPreviewingRequest.cs" />
     <Compile Include="SettingData.cs" />
@@ -126,11 +143,24 @@
     <Compile Include="Drafter.cs" />
     <Compile Include="EdiSubscriberStatus.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeFilterFieldNameList.cs" />
+    <Compile Include="EmployeeAdministratorAuthorityUpdatingRequest.cs" />
+    <Compile Include="EmployeeCertificateUpdatingRequest.cs" />
+    <Compile Include="UserAndEmployeeCreationRequest.cs" />
+    <Compile Include="UserAndEmployeeCreationResponse.cs" />
+    <Compile Include="EmployeeLoadingSettings.cs" />
+    <Compile Include="EmployeeSearchResponse.cs" />
+    <Compile Include="EmployeeSearchSettings.cs" />
+    <Compile Include="EmployeePersonalInfoUpdatingRequest.cs" />
+    <Compile Include="EmployeeProfileGettingRequest.cs" />
     <Compile Include="EnumValue.cs" />
     <Compile Include="Extensions\NonActiveSubscriberExtensions.cs" />
     <Compile Include="Extensions\OrganizationRegistrationDataExtensions.cs" />
     <Compile Include="Extensions\OrganizationTypeExtensions.cs" />
+    <Compile Include="Extensions\SettingValueExtensions.cs" />
     <Compile Include="Factor.cs" />
+    <Compile Include="FilterConditionBase.cs" />
+    <Compile Include="FilterSettings.cs" />
     <Compile Include="FullName.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="GeneralTransferBuyer.cs" />
@@ -165,7 +195,12 @@
     <Compile Include="OrganizationRegistrationData.cs" />
     <Compile Include="OrganizationShortInfo.cs" />
     <Compile Include="ParticipantsServiceInfo.cs" />
+    <Compile Include="PasswordUpdatingRequest.cs" />
+    <Compile Include="PasswordUpdatingResponse.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="PersonalInfo.cs" />
+    <Compile Include="PersonalInfoUpdatingRequest.cs" />
+    <Compile Include="PersonalInfoUpdatingResponse.cs" />
     <Compile Include="ProductBase.cs" />
     <Compile Include="ItemAmountChange.cs" />
     <Compile Include="ItemAmount.cs" />
@@ -178,6 +213,7 @@
     <Compile Include="ProductAttribute.cs" />
     <Compile Include="GeneralTransferCorrectionArea.cs" />
     <Compile Include="GeneralTransferArea.cs" />
+    <Compile Include="ProfileGettingRequest.cs" />
     <Compile Include="PromoCode.cs" />
     <Compile Include="DocumentEntry.cs" />
     <Compile Include="DocumentEntryItem.cs" />
@@ -198,7 +234,7 @@
     <Compile Include="FormatControlError.cs" />
     <Compile Include="Extensions\FilterOperatorTypeExtensions.cs" />
     <Compile Include="Extensions\PageSettingsExtensions.cs" />
-    <Compile Include="Common\FilterCondition.cs" />
+    <Compile Include="FilterCondition.cs" />
     <Compile Include="Common\FilterOperatorType.cs" />
     <Compile Include="Common\FetchingSettings.cs" />
     <Compile Include="ForwardDocument.cs" />
@@ -273,7 +309,7 @@
     <Compile Include="Common\PageSettings.cs" />
     <Compile Include="PersonInfo.cs" />
     <Compile Include="ProcurationInfo.cs" />
-    <Compile Include="Common\SearchSettings.cs" />
+    <Compile Include="SearchSettings.cs" />
     <Compile Include="RegistrationRequest.cs" />
     <Compile Include="RegistrationResponse.cs" />
     <Compile Include="RegistrationResponseCode.cs" />
@@ -286,7 +322,11 @@
     <Compile Include="ServiceDocument.cs" />
     <Compile Include="ServiceNotice.cs" />
     <Compile Include="SimpleSignature.cs" />
+    <Compile Include="SettingGettingRequest.cs" />
+    <Compile Include="SettingGettingResponse.cs" />
     <Compile Include="SettingParams.cs" />
+    <Compile Include="SettingUpdatingRequest.cs" />
+    <Compile Include="SettingUpdatingResponse.cs" />
     <Compile Include="Sign.cs" />
     <Compile Include="Signer.cs" />
     <Compile Include="SignerInfo.cs" />
@@ -323,8 +363,11 @@
     <Compile Include="UntypedKind.cs" />
     <Compile Include="UntypedDocumentMultiFlowStatus.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserCreationData.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserRegistrationData.cs" />
+    <Compile Include="Utility\FullEnumValuesRequest.cs" />
+    <Compile Include="Utility\SpecifiedEnumValuesRequest.cs" />
     <Compile Include="ValidationError.cs" />
     <Compile Include="ValidationMessageCategory.cs" />
     <Compile Include="ValidationMessageStatus.cs" />
@@ -340,6 +383,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Midway.ObjectModel.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

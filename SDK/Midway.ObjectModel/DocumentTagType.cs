@@ -4,29 +4,65 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Типы тегов для документа
+    /// Типы тегов для документа.
     /// </summary>
     [DataContract]
     public enum DocumentTagType
     {
         /// <summary>
-        /// Пользовательский тег
+        /// Пользовательский тег.
         /// </summary>
+        [EnumMember]
         [Description("Пользовательский")]
         UserDefined = 1,
 
         /// <summary>
-        /// Тег "Согласовано"
+        /// Тег "Согласовано".
         /// </summary>
         [EnumMember]
         [Description("Согласовано")]
         Approved = 2,
 
         /// <summary>
-        /// Тег "Отказано в согласовании"
+        /// Тег "Отказано в согласовании".
         /// </summary>
         [EnumMember]
         [Description("Отказано в согласовании")]
-        Disapproved = 3
+        Disapproved = 3,
+
+        /// <summary>
+        /// Тег "Перемещен".
+        /// </summary>
+        [EnumMember]
+        [Description("Перемещен")]
+        Moved = 4,
+
+        /// <summary>
+        /// Тег "Исправлен".
+        /// </summary>
+        [EnumMember]
+        [Description("Исправлен")]
+        Revised = 5,
+
+        /// <summary>
+        /// Тег "Откорректирован".
+        /// </summary>
+        [EnumMember]
+        [Description("Откорректирован")]
+        Corrected = 6,
+
+        /// <summary>
+        /// Тег "Получен груз для доставки".
+        /// </summary>
+        [EnumMember]
+        [Description("Получен груз для доставки")]
+        CargoReceived = 7,
+
+        /// <summary>
+        /// Тег "Груз сдан".
+        /// </summary>
+        [EnumMember]
+        [Description("Груз сдан")]
+        CargoDelivered = 8,
     }
 }

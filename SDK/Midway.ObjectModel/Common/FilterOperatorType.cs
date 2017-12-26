@@ -4,138 +4,132 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel.Common
 {
     /// <summary>
-    /// Тип оператора фильтра
+    /// Тип оператора фильтра.
     /// </summary>
-//    [DataContract]
+    [DataContract]
     public enum FilterOperatorType
     {
         /// <summary>
-        /// Не установлен
-        /// </summary>
-        [Description("Не установлен")]
-        None = 0,
-
-        /// <summary>
-        /// Равно
+        /// Равно.
         /// </summary>
         [EnumMember]
         [Description("Равно")]
         Equals = 1,
 
         /// <summary>
-        /// Не равно
+        /// Не равно.
         /// </summary>
         [EnumMember]
         [Description("Не равно")]
         NotEquals = 2,
 
         /// <summary>
-        /// Больше
+        /// Больше.
         /// </summary>
         [EnumMember]
         [Description("Больше")]
         Greater = 3,
 
         /// <summary>
-        /// Меньше
+        /// Меньше.
         /// </summary>
         [EnumMember]
         [Description("Меньше")]
         Less = 4,
 
         /// <summary>
-        /// Больше или равно
+        /// Больше или равно.
         /// </summary>
         [EnumMember]
         [Description("Больше или равно")]
         GreaterOrEquals = 5,
 
         /// <summary>
-        /// Меньше или равно
+        /// Меньше или равно.
         /// </summary>
         [EnumMember]
         [Description("Меньше или равно")]
         LessOrEquals = 6,
 
         /// <summary>
-        /// Содержит
+        /// Содержит.
         /// </summary>
         [EnumMember]
         [Description("Содержит")]
         Contains = 7,
 
         /// <summary>
-        /// Не содержит
+        /// Не содержит.
         /// </summary>
         [EnumMember]
         [Description("Не содержит")]
         NotContains = 8,
 
         /// <summary>
-        /// Находится в перечислении
+        /// Находится в перечислении.
         /// </summary>
         [EnumMember]
         [Description("Находится в перечислении")]
         In = 9,
 
         /// <summary>
-        /// Не находится в перечислении
+        /// Не находится в перечислении.
         /// </summary>
         [EnumMember]
         [Description("Не находится в перечислении")]
         NotIn = 10,
 
         /// <summary>
-        /// Равно полю
+        /// Равно полю.
         /// </summary>
         [EnumMember]
         [Description("Равно полю")]
         EqualsField = 11,
 
         /// <summary>
-        /// Не равно полю
+        /// Не равно полю.
         /// </summary>
         [EnumMember]
         [Description("Не равно полю")]
         NotEqualsField = 12,
 
         /// <summary>
-        /// Больше поля
+        /// Больше поля.
         /// </summary>
         [EnumMember]
         [Description("Больше поля")]
         GreaterField = 13,
 
         /// <summary>
-        /// Меньше поля
+        /// Меньше поля.
         /// </summary>
         [EnumMember]
         [Description("Меньше поля")]
         LessField = 14,
 
         /// <summary>
-        /// Больше или равно полю
+        /// Больше или равно полю.
         /// </summary>
         [EnumMember]
         [Description("Больше или равно полю")]
         GreaterOrEqualsField = 15,
 
         /// <summary>
-        /// Меньше или равно полю
+        /// Меньше или равно полю.
         /// </summary>
         [EnumMember]
         [Description("Меньше или равно полю")]
         LessOrEqualsField = 16,
 
         /// <summary>
-        /// Пустое
+        /// Пустое.
         /// </summary>
         [EnumMember]
         [Description("Пустое")]
         IsNull = 17,
 
         /// <summary>
-        /// Не пустое
+        /// Не пустое.
         /// </summary>
         [EnumMember]
         [Description("Не пустое")]

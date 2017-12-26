@@ -6,7 +6,6 @@ namespace Midway.ObjectModel
     /// Класс для обозначения данных (типа и содержимого) нового документа, подписываемого простой ЭП.
     /// </summary>
     [DataContract]
-    [KnownType(typeof(DocumentType))]
     public class SimpleSignatureCreationDocumentData : SimpleSignatureCreationDocument
     {
         /// <summary>

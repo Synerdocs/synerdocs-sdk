@@ -7,7 +7,6 @@ namespace Midway.ObjectModel
     /// Значение настройки.
     /// </summary>
     [DataContract]
-    [KnownType(typeof(TextValueType))]
     public class SettingValue
     {
         /// <summary>
