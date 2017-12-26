@@ -1,22 +1,21 @@
-using System.Runtime.Serialization;
+п»їusing System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Тип документа
-    /// TODO переименовать класс
+    /// РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.
     /// </summary>
     [DataContract]
     public enum TitleType
     {
         /// <summary>
-        /// Акт выполненных работ
+        /// РђРєС‚ РІС‹РїРѕР»РЅРµРЅРЅС‹С… СЂР°Р±РѕС‚.
         /// </summary>
         [EnumMember]
         Act,
 
         /// <summary>
-        /// Товарная накладная
+        /// РўРѕРІР°СЂРЅР°СЏ РЅР°РєР»Р°РґРЅР°СЏ.
         /// </summary>
         [EnumMember]
         Torg12

@@ -6,7 +6,6 @@ namespace Midway.ObjectModel
     /// Ответ при выполнении операции.
     /// </summary>
     [DataContract]
-    [KnownType(typeof(OperationStatus))]
     public class OperationResponse
     {
         /// <summary>

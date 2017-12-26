@@ -180,6 +180,10 @@ namespace Midway.ConsoleClient
                         Tuple.Create<Action, string>(DeleteDraftMessage, "Удалить черновик")
                     },
                     {
+                        "move-draft",
+                        Tuple.Create<Action,string>(MoveDraftMessage, "Передать черновик")
+                    },
+                    {
                         "get-contacts",
                         Tuple.Create<Action, string>(GetActiveContacts, "Список активных контактов")
                     },
@@ -291,7 +295,7 @@ namespace Midway.ConsoleClient
                     {
                         "crt-simple-sgn",
                         Tuple.Create<Action,string>(CreateSimpleSignature, "Подписать документ простой ЭП")
-                    },
+                    }
                 };
 
                 PrintAvailableCommnads(commandsMap);
@@ -907,6 +911,7 @@ namespace Midway.ConsoleClient
             {
                 Id = document.Id,
                 DocumentType = document.DocumentType,
+                UntypedKind = document.UntypedKind,
                 Name = document.Name ?? document.FileName,
                 FileName = document.FileName,
                 FileSize = document.FileSize,
@@ -1631,6 +1636,26 @@ namespace Midway.ConsoleClient
             }
 
             UserInput.Success(string.Format("Черновик {0} удален", draftMessageId));
+        }
+
+        /// <summary>
+        /// Передать черновик.
+        /// </summary>
+        private void MoveDraftMessage()
+        {
+            var draftMessageId = UserInput.ReadParameter("Внешний Id черновика сообщения");
+            var employeeId = UserInput.ReadParameter("Внешний Id сотрудника");
+            try
+            {
+                _context.ServiceClient.MoveDraftMessage(_context.CurrentBox, draftMessageId, employeeId);
+            }
+            catch (ServerException ex)
+            {
+                UserInput.Error(ex.Message);
+                return;
+            }
+
+            UserInput.Success($"Черновик {draftMessageId} успешно перемещен");
         }
 
         /// <summary>

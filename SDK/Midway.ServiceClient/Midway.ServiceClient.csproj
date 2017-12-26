@@ -80,12 +80,14 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="key.snk" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.AdministratorAuthorityUpdatingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.BoxCertificate.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.BoxInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateCheckInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateIssueInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateIssueRequestCreationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateIssueShortInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.CertificateUpdatingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateValidationResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Contact.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.ContactSearchResult.datasource" />
@@ -94,6 +96,8 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessageSearchResult.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Employee.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.EmployeeSearchResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.EnhancedSign.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.EnumValue.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FlowDocumentInfo.datasource" />
@@ -113,18 +117,24 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.Organization.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationPromoCode.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.OrganizationStructureElement.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.PasswordUpdatingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.PersonalInfoUpdatingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.PromoCode.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.QualifiedX509Name.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.RegisterResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.RegistrationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SentMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.ServiceNotice.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SettingGettingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.SettingUpdatingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureCreationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.User.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.UserAndEmployeeCreationResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.Utility.EnumValuesResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.WorksTransferBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.WorksTransferSeller.datasource" />
     <None Include="Service References\Model\ExchangeService.wsdl" />
@@ -144,6 +154,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Model\ExchangeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService6.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

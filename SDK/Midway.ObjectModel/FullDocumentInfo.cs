@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -135,10 +136,17 @@ namespace Midway.ObjectModel
         public DocumentFlowStatusDescription DocumentFlowStatusDescription { get; set; }
 
         /// <summary>
-        /// Список дополнительных статусов документа.
+        /// Теги согласования документа.
         /// </summary>
         [DataMember]
+        [Obsolete("Используйте свойство '" + nameof(DocumentTags) + "'.")]
         public DocumentTag[] Tags { get; set; }
+
+        /// <summary>
+        /// Все теги документа.
+        /// </summary>
+        [DataMember]
+        public List<DocumentTag> DocumentTags { get; set; }
 
         /// <summary>
         /// Список предложений об аннулировании.

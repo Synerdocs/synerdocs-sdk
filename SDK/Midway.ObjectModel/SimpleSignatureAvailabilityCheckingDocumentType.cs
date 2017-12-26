@@ -7,7 +7,6 @@ namespace Midway.ObjectModel
     /// у которого требуется проверить возможность подписания простой ЭП.
     /// </summary>
     [DataContract]
-    [KnownType(typeof(DocumentType))]
     public class SimpleSignatureAvailabilityCheckingDocumentType : SimpleSignatureAvailabilityCheckingDocument
     {
         /// <summary>

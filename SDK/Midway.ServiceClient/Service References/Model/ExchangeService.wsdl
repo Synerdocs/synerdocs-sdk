@@ -32,7 +32,8 @@
       <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" />
       <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
-      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Utility" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_InputMessage">
@@ -238,6 +239,90 @@
   </wsdl:message>
   <wsdl:message name="IExchangeService_CreateSimpleSignature_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateSimpleSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateUserAndEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserAndEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateUserAndEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserAndEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteEmployeeAndUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeAndUser" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteEmployeeAndUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeAndUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteEmployeeCertificate_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeCertificate" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteEmployeeCertificate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSetting" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSetting" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SearchEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SearchEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateEmployeeAdministratorAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeAdministratorAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateEmployeeAdministratorAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeAdministratorAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateEmployeePersonalInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeePersonalInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateEmployeePersonalInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeePersonalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateEmployeeCertificate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeCertificate" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdateEmployeeCertificate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_UpdatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDraftMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDraftMessage" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDraftMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDraftMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEnumValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnumValues" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetEnumValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnumValuesResponse" />
   </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
@@ -886,6 +971,62 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignature" message="tns:IExchangeService_CreateSimpleSignature_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureResponse" message="tns:IExchangeService_CreateSimpleSignature_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CreateUserAndEmployee">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateUserAndEmployee" message="tns:IExchangeService_CreateUserAndEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateUserAndEmployeeResponse" message="tns:IExchangeService_CreateUserAndEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteEmployee" message="tns:IExchangeService_DeleteEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeResponse" message="tns:IExchangeService_DeleteEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeAndUser">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUser" message="tns:IExchangeService_DeleteEmployeeAndUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUserResponse" message="tns:IExchangeService_DeleteEmployeeAndUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeCertificate">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificate" message="tns:IExchangeService_DeleteEmployeeCertificate_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificateResponse" message="tns:IExchangeService_DeleteEmployeeCertificate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSetting">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetSetting" message="tns:IExchangeService_GetSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetSettingResponse" message="tns:IExchangeService_GetSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateSetting" message="tns:IExchangeService_UpdateSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateSettingResponse" message="tns:IExchangeService_UpdateSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetEmployee" message="tns:IExchangeService_GetEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetEmployeeResponse" message="tns:IExchangeService_GetEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchEmployees">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SearchEmployees" message="tns:IExchangeService_SearchEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SearchEmployeesResponse" message="tns:IExchangeService_SearchEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeAdministratorAuthority">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthority" message="tns:IExchangeService_UpdateEmployeeAdministratorAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthorityResponse" message="tns:IExchangeService_UpdateEmployeeAdministratorAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeePersonalInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfo" message="tns:IExchangeService_UpdateEmployeePersonalInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfoResponse" message="tns:IExchangeService_UpdateEmployeePersonalInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeCertificate">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificate" message="tns:IExchangeService_UpdateEmployeeCertificate_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificateResponse" message="tns:IExchangeService_UpdateEmployeeCertificate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/UpdatePassword" message="tns:IExchangeService_UpdatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/UpdatePasswordResponse" message="tns:IExchangeService_UpdatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveDraftMessage">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDraftMessage" message="tns:IExchangeService_MoveDraftMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDraftMessageResponse" message="tns:IExchangeService_MoveDraftMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumValues">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnumValues" message="tns:IExchangeService_GetEnumValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnumValuesResponse" message="tns:IExchangeService_GetEnumValues_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AuthenticateResponse" message="tns:IExchangeService_Authenticate_OutputMessage" />
@@ -1528,6 +1669,132 @@
     </wsdl:operation>
     <wsdl:operation name="CreateSimpleSignature">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserAndEmployee">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateUserAndEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeAndUser">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSetting">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEmployees">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SearchEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeAdministratorAuthority">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeePersonalInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumValues">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEnumValues" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2603,6 +2870,132 @@
     </wsdl:operation>
     <wsdl:operation name="CreateSimpleSignature">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserAndEmployee">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateUserAndEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeAndUser">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSetting">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSetting">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEmployees">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SearchEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeAdministratorAuthority">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeePersonalInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeCertificate">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDraftMessage">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumValues">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEnumValues" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -1,33 +1,33 @@
-using System.Runtime.Serialization;
+п»їusing System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Критерии для выборки информации по организации
+    /// РљСЂРёС‚РµСЂРёРё РґР»СЏ РІС‹Р±РѕСЂРєРё РёРЅС„РѕСЂРјР°С†РёРё РїРѕ РѕСЂРіР°РЅРёР·Р°С†РёРё.
     /// </summary>
     [DataContract]
     public enum OrganizationByCriteria
     {
         /// <summary>
-        /// Выборка по ИД
+        /// Р’С‹Р±РѕСЂРєР° РїРѕ РР”.
         /// </summary>
         [EnumMember]
         ById = 0x0,
 
         /// <summary>
-        /// Выборка по ИНН/КПП
+        /// Р’С‹Р±РѕСЂРєР° РїРѕ РРќРќ/РљРџРџ.
         /// </summary>
         [EnumMember]
         ByInnKpp = 0x1,
 
         /// <summary>
-        /// Выборка по адресу ящика
+        /// Р’С‹Р±РѕСЂРєР° РїРѕ Р°РґСЂРµСЃСѓ СЏС‰РёРєР°.
         /// </summary>
         [EnumMember]
         ByBoxAddress = 0x2,
 
         /// <summary>
-        /// Выборка по коду организации в рамках системы ЭДО
+        /// Р’С‹Р±РѕСЂРєР° РїРѕ РєРѕРґСѓ РѕСЂРіР°РЅРёР·Р°С†РёРё РІ СЂР°РјРєР°С… СЃРёСЃС‚РµРјС‹ Р­Р”Рћ.
         /// </summary>
         [EnumMember]
         ByServiceCode = 0x3

@@ -42,6 +42,12 @@ namespace Midway.ObjectModel
         public Guid? MessageId { get; set; } // uniqueidentifier
 
         /// <summary>
+        /// Признак подписи.
+        /// </summary>
+        [DataMember]
+        public EnumValue SignatureMark { get; set; }
+
+        /// <summary>
         /// Субъект сертификата подписи.
         /// </summary>
         [DataMember]

@@ -1,27 +1,27 @@
-using System.Runtime.Serialization;
+п»їusing System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Статус изменения счета-фактуры
+    /// РЎС‚Р°С‚СѓСЃ РёР·РјРµРЅРµРЅРёСЏ СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹.
     /// </summary>
     [DataContract]
     public enum InvoiceModificationStatus
     {
         /// <summary>
-        /// Счет-фактура не изменен
+        /// РЎС‡РµС‚-С„Р°РєС‚СѓСЂР° РЅРµ РёР·РјРµРЅРµРЅ.
         /// </summary>
         [EnumMember]
         Unchanged = 0,
 
         /// <summary>
-        /// Выставлен исправленный счет-фактура
+        /// Р’С‹СЃС‚Р°РІР»РµРЅ РёСЃРїСЂР°РІР»РµРЅРЅС‹Р№ СЃС‡РµС‚-С„Р°РєС‚СѓСЂР°.
         /// </summary>
         [EnumMember]
         Revised = 1,
 
         /// <summary>
-        /// Выставлен корректировочный счет-фактура
+        /// Р’С‹СЃС‚Р°РІР»РµРЅ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРѕС‡РЅС‹Р№ СЃС‡РµС‚-С„Р°РєС‚СѓСЂР°.
         /// </summary>
         [EnumMember]
         Corrected = 2,

@@ -6,7 +6,6 @@ namespace Midway.ObjectModel
     /// Параметры настроек.
     /// </summary>
     [DataContract]
-    [KnownType(typeof(SettingType))]
     public class SettingParams
     {
         /// <summary>

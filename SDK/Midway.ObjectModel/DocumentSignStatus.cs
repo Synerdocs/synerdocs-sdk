@@ -1,39 +1,39 @@
-using System.ComponentModel;
+п»їusing System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Статус подписания документа получателем
+    /// РЎС‚Р°С‚СѓСЃ РїРѕРґРїРёСЃР°РЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р° РїРѕР»СѓС‡Р°С‚РµР»РµРј.
     /// </summary>
     [DataContract]
     public enum DocumentSignStatus
     {
         /// <summary>
-        /// Подпись получателя не требуется
+        /// РџРѕРґРїРёСЃСЊ РїРѕР»СѓС‡Р°С‚РµР»СЏ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ.
         /// </summary>
-        [Description("Подпись не требуется")]
+        [Description("РџРѕРґРїРёСЃСЊ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ")]
         [EnumMember]
         NoSignNeeded = 0,
 
         /// <summary>
-        /// Ожидается подпись получателя
+        /// РћР¶РёРґР°РµС‚СЃСЏ РїРѕРґРїРёСЃСЊ РїРѕР»СѓС‡Р°С‚РµР»СЏ.
         /// </summary>
-        [Description("Требуется подпись")]
+        [Description("РўСЂРµР±СѓРµС‚СЃСЏ РїРѕРґРїРёСЃСЊ")]
         [EnumMember]
         WaitingForSign = 1,
 
         /// <summary>
-        /// Документ подписан получателем
+        /// Р”РѕРєСѓРјРµРЅС‚ РїРѕРґРїРёСЃР°РЅ РїРѕР»СѓС‡Р°С‚РµР»РµРј.
         /// </summary>
-        [Description("Подписан")]
+        [Description("РџРѕРґРїРёСЃР°РЅ")]
         [EnumMember]
         Signed = 2,
 
         /// <summary>
-        /// Получатель отказался подписывать документ
+        /// РџРѕР»СѓС‡Р°С‚РµР»СЊ РѕС‚РєР°Р·Р°Р»СЃСЏ РїРѕРґРїРёСЃС‹РІР°С‚СЊ РґРѕРєСѓРјРµРЅС‚.
         /// </summary>
-        [Description("Отказано")]
+        [Description("РћС‚РєР°Р·Р°РЅРѕ")]
         [EnumMember]
         SignRejected = 3,
     }

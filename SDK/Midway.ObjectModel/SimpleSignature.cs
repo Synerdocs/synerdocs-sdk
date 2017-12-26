@@ -28,6 +28,12 @@ namespace Midway.ObjectModel
         public string SenderBoxId { get; set; }
 
         /// <summary>
+        /// Признак подписи.
+        /// </summary>
+        [DataMember]
+        public EnumValue SignatureMark { get; set; }
+
+        /// <summary>
         /// Дата подписания.
         /// </summary>
         [DataMember]

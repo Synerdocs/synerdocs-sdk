@@ -281,6 +281,15 @@ namespace Midway.ServiceClient
                 });
         }
 
+        public void MoveDraftMessage(string boxId, string draftMessageId, string employeeId)
+        {
+            CheckAutorizedInvoke(() =>
+            {
+                client.MoveDraftMessage(Token, boxId, draftMessageId, employeeId);
+                return true;
+            });
+        }
+
         public DraftMessage GetDraftMessage(string messageId, bool getContent, bool getCard)
         {
             return CheckAutorizedInvoke(() => client.GetDraftMessage(Token, messageId, getContent, getCard));

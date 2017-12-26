@@ -15,6 +15,7 @@
         public static readonly string ActOfVariance = "Акт об установленном расхождении";
         public static readonly string Accounts = "Акт сверки";
         public static readonly string TransportWaybill = "Товарно-транспортная накладная";
+        public static readonly string Transport = "Транспортная накладная";
         public static readonly string Order = "Заказ";
         public static readonly string RevocationOffer = "Соглашение об аннулировании";
         public static readonly string FormalizedData = "Структурированные данные";
@@ -22,6 +23,6 @@
         public static readonly string KS11 = "КС-11";
         public static readonly string KS2 = "КС-2";
         public static readonly string KS3 = "КС-3";
-        public static readonly string Sheet= "Ведомость";
+        public static readonly string Sheet = "Ведомость";
     }
 }

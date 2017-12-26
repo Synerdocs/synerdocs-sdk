@@ -1,33 +1,33 @@
-using System.Runtime.Serialization;
+п»їusing System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Статус сообщения
+    /// РЎС‚Р°С‚СѓСЃ СЃРѕРѕР±С‰РµРЅРёСЏ.
     /// </summary>
     [DataContract]
     public enum MessageStatus : short
     {
         /// <summary>
-        /// Отправлено
+        /// РћС‚РїСЂР°РІР»РµРЅРѕ.
         /// </summary>
         [EnumMember]
         Sent = 0x0,
 
         /// <summary>
-        /// Ожидается отправление в очереди
+        /// РћР¶РёРґР°РµС‚СЃСЏ РѕС‚РїСЂР°РІР»РµРЅРёРµ РІ РѕС‡РµСЂРµРґРё.
         /// </summary>
         [EnumMember]
         Pending = 0x1,
 
         /// <summary>
-        /// Не удалось отправить сообщение из-за ошибки
+        /// РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РёР·-Р·Р° РѕС€РёР±РєРё.
         /// </summary>
         [EnumMember]
         DeliveryError = 0x2,
 
         /// <summary>
-        /// Получено сервисом\Не обработано
+        /// РџРѕР»СѓС‡РµРЅРѕ СЃРµСЂРІРёСЃРѕРј / РЅРµ РѕР±СЂР°Р±РѕС‚Р°РЅРѕ.
         /// </summary>
         [EnumMember]
         NotTreated = 0x3

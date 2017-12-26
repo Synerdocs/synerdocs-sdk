@@ -4,55 +4,62 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Дополнительный статус документа
+    /// Дополнительный статус документа.
     /// </summary>
     [DataContract]
     public class DocumentTag
     {
-         /// <summary>
-        /// Идентификатор 
+        /// <summary>
+        /// Идентификатор.
         /// </summary>
         [DataMember]
         public string Id { get; set; }
 
         /// <summary>
-        /// Ящик организации
+        /// Ящик организации.
         /// </summary>
         [DataMember]
         public string OrganizationBoxId { get; set; }
 
         /// <summary>
-        /// Логин пользователя
+        /// Логин пользователя.
         /// </summary>
         [DataMember]
         public string Login  { get; set; }
 
         /// <summary>
-        /// Идентификатор документа
+        /// Идентификатор документа.
         /// </summary>
         [DataMember]
         public string DocumentId { get; set; }
 
         /// <summary>
-        /// Тип тэга документа
+        /// Тип тэга документа.
         /// </summary>
         [DataMember]
+        [Obsolete("Используйте свойство '" + nameof(TagTypeEnum) + "' .")]
         public DocumentTagType TagType { get; set; }
 
         /// <summary>
-        /// Комментарий
+        /// Тип тэга документа.
+        /// </summary>
+        [DataMember]
+        public EnumValue TagTypeEnum { get; set; }
+
+        /// <summary>
+        /// Комментарий.
         /// </summary>
         [DataMember]
         public string Comment { get; set; }
 
         /// <summary>
-        /// Дата создания
+        /// Дата создания.
         /// </summary>
         [DataMember]
         public DateTime CreateDate { get; set; }
 
         /// <summary>
-        /// Информация о пользователе
+        /// Информация о пользователе.
         /// </summary>
         [DataMember]
         public TagUser User { get; set; }
