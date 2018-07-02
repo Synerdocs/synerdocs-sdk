@@ -2270,6 +2270,13 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PasswordUpdatingResponse" nillable="true" type="tns:PasswordUpdatingResponse" />
+  <xs:complexType name="DraftMessageMovingSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DraftMessageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DraftMessageMovingSettings" nillable="true" type="tns:DraftMessageMovingSettings" />
   <xs:complexType name="ArrayOfAddressType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressType" type="tns:AddressType" />
