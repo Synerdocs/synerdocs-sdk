@@ -1230,9 +1230,10 @@ namespace Midway.ConsoleClient
                     var executedFunctionText = executedFunction != null
                         ? $" ({executedFunction.Name})"
                         : String.Empty;
-                    Console.Out.WriteLine("{0, -60} {1, -20} {2, -20} {3, -20} {4, -20} {5, -20} {6}",
+                    Console.Out.WriteLine("{0, -60} {1, -20} {2, -20} {3, -20} {4, -20} {5, -20} {6, -20} {7}",
                         documentEntryItem.Name,
                         documentEntryItem.FromOrganizationName,
+                        documentEntryItem.FromDepartmentName,
                         documentEntryItem.DocumentId,
                         documentType + executedFunctionText,
                         documentEntryItem.FlowType,

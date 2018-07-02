@@ -68,6 +68,12 @@ namespace Midway.ObjectModel
         public string FromDepartmentId { get; set; }
 
         /// <summary>
+        /// Наименование подразделения отправителя.
+        /// </summary>
+        [DataMember]
+        public string FromDepartmentName { get; set; }
+
+        /// <summary>
         /// Комментарий к документу.
         /// </summary>
         [DataMember]
