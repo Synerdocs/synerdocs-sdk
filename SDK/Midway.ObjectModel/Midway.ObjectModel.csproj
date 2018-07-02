@@ -90,11 +90,14 @@
     <Compile Include="CloudProviderType.cs" />
     <Compile Include="CompositeFilterCondition.cs" />
     <Compile Include="Common\CompositeFilterOperatorType.cs" />
+    <Compile Include="DraftMessageEmployeeMovingSettings.cs" />
+    <Compile Include="DraftMessageUserMovingSettings.cs" />
     <Compile Include="EnhancedSignCreateStatus.cs" />
     <Compile Include="EnhancedSignFailedReason.cs" />
     <Compile Include="EnhancingSignFailedInfo.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Common\EntityType.cs" />
+    <Compile Include="DraftMessageMovingSettings.cs" />
     <Compile Include="Utility\AllEnumValuesRequest.cs" />
     <Compile Include="Utility\EnumValuesRequest.cs" />
     <Compile Include="Utility\EnumValuesResponse.cs" />

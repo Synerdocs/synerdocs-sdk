@@ -318,6 +318,12 @@
   <wsdl:message name="IExchangeService_MoveDraftMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:MoveDraftMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDraftMessageV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDraftMessageV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_MoveDraftMessageV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveDraftMessageV2Response" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_GetEnumValues_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEnumValues" />
   </wsdl:message>
@@ -1022,6 +1028,10 @@
     <wsdl:operation name="MoveDraftMessage">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDraftMessage" message="tns:IExchangeService_MoveDraftMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDraftMessageResponse" message="tns:IExchangeService_MoveDraftMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveDraftMessageV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDraftMessageV2" message="tns:IExchangeService_MoveDraftMessageV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/MoveDraftMessageV2Response" message="tns:IExchangeService_MoveDraftMessageV2_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEnumValues">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnumValues" message="tns:IExchangeService_GetEnumValues_InputMessage" />
@@ -1786,6 +1796,15 @@
     </wsdl:operation>
     <wsdl:operation name="MoveDraftMessage">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDraftMessageV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDraftMessageV2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2987,6 +3006,15 @@
     </wsdl:operation>
     <wsdl:operation name="MoveDraftMessage">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDraftMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveDraftMessageV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/MoveDraftMessageV2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
