@@ -4223,6 +4223,7 @@
       <xs:element minOccurs="0" name="FlowType" type="tns:FlowType" />
       <xs:element minOccurs="0" name="Flows" nillable="true" type="tns:ArrayOfDocumentFlow" />
       <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromOrganizationName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HasRelatedDocuments" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
