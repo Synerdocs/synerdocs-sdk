@@ -688,6 +688,56 @@ namespace Midway.ServiceClient
         GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(byte[] content);
 
         /// <summary>
+        /// Получить модель титула грузоотправителя транспортной накладной. 
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула грузоотправителя транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillConsignorTitleParsingResponse ParseTransportWaybillConsignorTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillConsignorTitleParsingRequest request);
+
+        /// <summary>
+        /// Получить модель титула водителя (прием груза) транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула водителя (прием груза) транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillCargoReceivedTitleParsingResponse ParseTransportWaybillCargoReceivedTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillCargoReceivedParsingRequest request);
+
+        /// <summary>
+        /// Получить модель титула водителя (сдача груза) транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула водителя (сдача груза) транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillCargoDeliveredTitleParsingResponse ParseTransportWaybillCargoDeliveredTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillCargoDeliveredParsingRequest request);
+
+        /// <summary>
+        /// Получить модель титула грузополучателя транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула грузополучателя транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillConsigneeTitleParsingResponse ParseTransportWaybillConsigneeTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillConsigneeTitleParsingRequest request);
+
+        /// <summary>
+        /// Получить модель титула перевозчика транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула перевозчика транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillCarrierTitleParsingResponse ParseTransportWaybillCarrierTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillCarrierTitleParsingRequest request);
+
+        /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
         /// <param name="model">Модель титула продавца</param>
@@ -764,6 +814,55 @@ namespace Midway.ServiceClient
         /// <returns></returns>
         GeneratedContent GenerateGeneralTransferCorrectionBuyer(string boxId, string documentId,
             GeneralTransferCorrectionBuyer model, DocumentGenerationOptions options);
+
+        /// <summary>
+        /// Сгенерировать контент титула грузоотправителя транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на генерацию титула грузоотправителя транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillConsignorTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillConsignorTitleGeneratingRequest request);
+
+        /// <summary>
+        /// Сгенерировать контент титула водителя (прием груза) транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные сотрудника.</param>
+        /// <param name="request">Запрос на генерацию титула водителя (прием груза) транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillCargoReceivedTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillCargoReceivedTitleGeneratingRequest request);
+
+        /// <summary>
+        /// Сгенерировать контент титула водителя (сдача груза) транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные сотрудника.</param>
+        /// <param name="request">Запрос на генерацию титула водителя (сдача груза) транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillCargoDeliveredTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillCargoDeliveredTitleGeneratingRequest request);
+
+        /// <summary>
+        /// Сгенерировать контент титула грузополучателя транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные сотрудника.</param>
+        /// <param name="request">Запрос на генерацию титула грузополучателя транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillConsigneeTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillConsigneeTitleGeneratingRequest request);
+
+        /// <summary>
+        /// Сгенерировать контент титула перевозчика транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные сотрудника.</param>
+        /// <param name="request">Запрос на генерацию титула перевозчика транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillCarrierTitle(EmployeeOperationCredentials credentials,
+            TransportWaybillCarrierTitleGeneratingRequest request);
 
         /// <summary>
         /// Скачать документ в формате pdf 

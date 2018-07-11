@@ -110,6 +110,22 @@ namespace Midway.ConsoleClient
                 Console.Out.WriteLine("Выберите значение из предложенного списка");
             }
         }
+        /// <summary>
+        /// Выбрать значение из списка возможных.
+        /// </summary>
+        /// <param name="caption">Заголовок выбора.</param>
+        /// <param name="values">Возможные значения.</param>
+        /// <returns>Выбранное значение.</returns>
+        public static Option ChooseOption<T>(string caption, IEnumerable<T> values)
+            => ChooseOption(caption, values
+                .Select((v, i) => new Option(
+                    (i + 1).ToString(),
+                    typeof(T).IsEnum
+                        ? EnumHelper.GetDescription(v)
+                        : v.ToString(),
+                    isDefault: false,
+                    data: v))
+                .ToList());
 
         public static bool ChooseYesNo(string caption, bool defaultValue = true)
         {

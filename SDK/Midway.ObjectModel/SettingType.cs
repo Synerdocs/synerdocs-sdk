@@ -163,5 +163,19 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Обмен EDI-сообщениями")]
         Edi = 21,
+
+        /// <summary>
+        /// Возможность получать уведомления и работать через SMS.
+        /// </summary>
+        [EnumMember]
+        [Description("Возможность получать уведомления и работать через SMS")]
+        NotifyBySms = 22,
+
+        /// <summary>
+        /// Возможность получать уведомления и работать через Viber.
+        /// </summary>
+        [EnumMember]
+        [Description("Возможность получать уведомления и работать через Viber")]
+        NotifyByViber = 23
     }
 }

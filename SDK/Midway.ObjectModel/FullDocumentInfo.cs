@@ -24,6 +24,18 @@ namespace Midway.ObjectModel
         public string FromDepartmentId { get; set; }
 
         /// <summary>
+        /// Название подразделения отправителя.
+        /// </summary>
+        [DataMember]
+        public string FromDepartmentName { get; set; }
+
+        /// <summary>
+        /// Название организации отправителя.
+        /// </summary>
+        [DataMember]
+        public string FromOrganizationtName { get; set; }
+
+        /// <summary>
         /// Адрес абонентского ящика получателя.
         /// </summary>
         [DataMember]

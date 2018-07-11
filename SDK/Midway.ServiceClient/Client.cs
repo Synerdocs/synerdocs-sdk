@@ -41,6 +41,13 @@ namespace Midway.ServiceClient
             return performanceCounterInterceptorInserter;
         }
 
+        /// <summary>
+        /// Установить внешний идентификатор организации.
+        /// </summary>
+        /// <param name="boxId">Внешний идентификатор организации.</param>
+        public void SetBoxId(string boxId) 
+            => BoxId = boxId;
+
         public static void ResetPerformanceCounters()
         {
             var operations = (new ExchangeServiceClient(new BasicHttpBinding(), new EndpointAddress("http://localhost/stub.asmx"))).Endpoint.Contract.Operations.Select(op => op.Name).ToArray();
@@ -110,6 +117,7 @@ namespace Midway.ServiceClient
             var token = client.Authenticate(login, password, applicationId);
             TakeToken(token);
 
+            BoxId = null;
             return IsAuthorized;
         }
 
@@ -128,6 +136,8 @@ namespace Midway.ServiceClient
             TakeToken(tokenId);
             if (!IsAuthorized)
                 return false;
+
+            BoxId = null; 
             return true;
         }
 
@@ -1247,6 +1257,30 @@ namespace Midway.ServiceClient
             return client.ParseGeneralTransferCorrectionBuyer(Token, content);
         }
 
+        public TransportWaybillConsignorTitleParsingResponse ParseTransportWaybillConsignorTitle(UserOperationCredentials credentials,
+            TransportWaybillConsignorTitleParsingRequest request) 
+            => CheckAutorizedInvoke(credentials, 
+                c => client.ParseTransportWaybillConsignorTitle(c, request));
+
+        public TransportWaybillCargoReceivedTitleParsingResponse ParseTransportWaybillCargoReceivedTitle(
+            UserOperationCredentials credentials, TransportWaybillCargoReceivedParsingRequest request) 
+            => CheckAutorizedInvoke(credentials, 
+                c => client.ParseTransportWaybillCargoReceivedTitle(c, request));
+
+        public TransportWaybillCargoDeliveredTitleParsingResponse ParseTransportWaybillCargoDeliveredTitle(
+            UserOperationCredentials credentials, TransportWaybillCargoDeliveredParsingRequest request) 
+            => CheckAutorizedInvoke(credentials, c => client.ParseTransportWaybillCargoDeliveredTitle(c, request));
+
+        public TransportWaybillConsigneeTitleParsingResponse ParseTransportWaybillConsigneeTitle(UserOperationCredentials credentials,
+            TransportWaybillConsigneeTitleParsingRequest request) 
+            => CheckAutorizedInvoke(credentials, 
+                c => client.ParseTransportWaybillConsigneeTitle(c, request));
+
+        public TransportWaybillCarrierTitleParsingResponse ParseTransportWaybillCarrierTitle(UserOperationCredentials credentials,
+            TransportWaybillCarrierTitleParsingRequest request) 
+            => CheckAutorizedInvoke(credentials, 
+                c => client.ParseTransportWaybillCarrierTitle(c, request));
+
         /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
@@ -1356,6 +1390,30 @@ namespace Midway.ServiceClient
         {
             return client.GenerateGeneralTransferCorrectionBuyer(Token, boxId, documentId, model, options);
         }
+
+        public DocumentGenerationResponse GenerateTransportWaybillConsignorTitle(UserOperationCredentials credentials,
+            TransportWaybillConsignorTitleGeneratingRequest request) 
+            => CheckAutorizedInvoke(credentials, c => client.GenerateTransportWaybillConsignorTitle(
+                c, request));
+
+        public DocumentGenerationResponse GenerateTransportWaybillCargoReceivedTitle(EmployeeOperationCredentials credentials,
+            TransportWaybillCargoReceivedTitleGeneratingRequest request) 
+            => CheckAutorizedInvoke(credentials, 
+                c => client.GenerateTransportWaybillCargoReceivedTitle(c, request));
+
+        public DocumentGenerationResponse GenerateTransportWaybillCargoDeliveredTitle(EmployeeOperationCredentials credentials,
+            TransportWaybillCargoDeliveredTitleGeneratingRequest request) 
+            => CheckAutorizedInvoke(credentials, 
+                c => client.GenerateTransportWaybillCargoDeliveredTitle(c, request));
+
+        public DocumentGenerationResponse GenerateTransportWaybillConsigneeTitle(EmployeeOperationCredentials credentials,
+            TransportWaybillConsigneeTitleGeneratingRequest request) 
+            => CheckAutorizedInvoke(credentials, 
+                c => client.GenerateTransportWaybillConsigneeTitle(c, request));
+
+        public DocumentGenerationResponse GenerateTransportWaybillCarrierTitle(EmployeeOperationCredentials credentials,
+            TransportWaybillCarrierTitleGeneratingRequest request) 
+            => CheckAutorizedInvoke(credentials, c => client.GenerateTransportWaybillCarrierTitle(c, request));
 
         public NamedContent DownloadPdfDocument(string boxId, string documentId)
         {

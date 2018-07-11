@@ -517,7 +517,7 @@ namespace Midway.ObjectModel.Exceptions
 
         #endregion
 
-        #region Простая ЭП (8001-8009)
+        #region Простая ЭП (8001-8011)
 
         /// <summary>
         /// Простая ЭП недействительна.
@@ -572,6 +572,18 @@ namespace Midway.ObjectModel.Exceptions
         /// </summary>
         [Description("Недопустимый тип документа для подписания простой ЭП")]
         SimpleSignatureDocumentTypeNotAllowed = 8009,
+
+        /// <summary>
+        /// Организация, не являющаяся активной, не может принимать регламент использования простой ЭП.
+        /// </summary>
+        [Description("Организация, не являющаяся активной, не может принимать регламент использования простой ЭП")]
+        SimpleSignatureRegulationOrganizationIsNotActive = 8010,
+
+        /// <summary>
+        /// Не указан телефон для использования в простой ЭП.
+        /// </summary>
+        [Description("Не указан телефон для использования в простой ЭП")]
+        SimpleSignaturePhoneNotSpecified = 8011,
 
         #endregion
     }

@@ -20,10 +20,22 @@ namespace Midway.ObjectModel.Utility
 	public class EnumValuesResponse
 	{
 		/// <summary>
+		/// Значения перечисления типа 'Тип записи адреса'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> AddressLocationTypes { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Тип адреса'.
 		/// </summary>
 		[DataMember]
 		public List<EnumValue> AddressTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Коды операций над документом'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> DocumentOperationCodes { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Тип заявки на издание сертификата'.
@@ -50,6 +62,12 @@ namespace Midway.ObjectModel.Utility
 		public List<EnumValue> CloudProviderTypes { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Статус проверки черновика документа'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> FormatControlValidationStatuses { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Статус создания усовершенствованной подписи'.
 		/// </summary>
 		[DataMember]
@@ -60,6 +78,54 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public List<EnumValue> EnhancedSignFailedReasons { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Тип подписанта документа'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> SignerTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (сдача груза) транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillCargoDeliveredTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула перевозчика транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillCarrierTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула грузополучателя транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (прием груза) транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillCargoReceivedTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillConsignorTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Тип участника ЭДО транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillInterchangeParticipantTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Тип экземпляра транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillCopyTypes { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Тип авторизации контактов'.

@@ -5,99 +5,109 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Параметры поиска/фильтрации списка документов
+    /// Параметры поиска/фильтрации списка документов.
     /// </summary>
     [DataContract]
     public class DocumentListOptions
     {
         /// <summary>
-        /// Отправитель
+        /// Отправитель.
         /// </summary>
         [DataMember]
         public string BoxFrom { get; set; }
 
         /// <summary>
-        /// Получатель
+        /// Получатель.
         /// </summary>
         [DataMember]
         public string BoxTo { get; set; }
 
         /// <summary>
-        /// Период с
+        /// Период с.
         /// </summary>
         [DataMember]
         public DateTime? From { get; set; }
         
         /// <summary>
-        /// Период по
+        /// Период по.
         /// </summary>
         [DataMember]
         public DateTime? To { get; set; }
 
         /// <summary>
-        /// Номер первой записи
+        /// Номер первой записи.
         /// </summary>
         [DataMember]
         public int First { get; set; }
 
         /// <summary>
-        /// Максимальное количество документов в списке
+        /// Максимальное количество документов в списке.
         /// </summary>
         [DataMember]
         public int Max { get; set; }
 
         /// <summary>
-        /// Типы документов
+        /// Типы документов.
         /// </summary>
         [DataMember]
         public DocumentType[] DocumentTypes { get; set; }
 
         /// <summary>
-        /// Типы документов в виде EnumValue
+        /// Типы документов в виде EnumValue.
         /// </summary>
         [DataMember]
         public EnumValue[] DocumentTypeEnums { get; set; }
 
         /// <summary>
-        /// Ящики контрагентов
+        /// Ящики контрагентов.
         /// </summary>
         [DataMember]
         public string[] ContragentBoxIds { get; set; }
 
         /// <summary>
-        /// Статусы ЭСФ
+        /// Статусы ЭСФ.
         /// </summary>
         [DataMember]
         public InvoiceFlowStatus[] InvoiceFlowStatuses { get; set; }
 
         /// <summary>
-        /// Статусы подписания документов 
+        /// Статусы подписания документов.
         /// </summary>
         [DataMember]
         public DocumentSignStatus[] DocumentSignStatuses { get; set; }
         
         /// <summary>
-        /// Статусы аннулирования документов 
+        /// Статусы аннулирования документов.
         /// </summary>
         [DataMember]
         public DocumentRevocationStatus[] DocumentRevocationStatuses { get; set; }
 
         /// <summary>
-        /// Требуется подтверждение получения
+        /// Типы тегов, документы с которыми нужно включить.
+        /// </summary>
+        [DataMember]
+        public List<EnumValue> IncludedDocumentTagTypes { get; set; }
+
+        /// <summary>
+        /// Типы тегов, документы с которыми нужно исключить.
+        /// </summary>
+        [DataMember]
+        public List<EnumValue> ExcludedDocumentTagTypes { get; set; }
+
+        /// <summary>
+        /// Требуется подтверждение получения.
         /// </summary>
         [DataMember]
         public bool? NeedReceipt { get; set; }
 
         /// <summary>
-        /// Получить параметры поиска/фильтрации в виде строки
+        /// Получить параметры поиска/фильтрации в виде строки.
         /// </summary>
-        /// <returns>Строка в параметрами поиска/фильтрации содержащая
-        /// адрес отправителя, адрес получателя, дату с, дата по, номер первой записи, 
-        /// максимальное количество документов в списке</returns>
-        /// todo вынести в extensions
+        /// <returns>
+        /// Строка в параметрами поиска/фильтрации содержащая адрес отправителя, адрес получателя, дату с, дата по,
+        /// номер первой записи, максимальное количество документов в списке.
+        /// </returns>
         public override string ToString()
-        {
-            return string.Format("BoxFrom: {0}, BoxTo: {1}, From: {2}, To: {3}, First: {4}, Max: {5}", BoxFrom, BoxTo, From, To, First, Max);
-        }
+            => $"BoxFrom: {BoxFrom}, BoxTo: {BoxTo}, From: {From}, To: {To}, First: {First}, Max: {Max}";
     }
 }

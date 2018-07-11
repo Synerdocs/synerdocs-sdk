@@ -82,6 +82,12 @@ namespace Midway.ObjectModel
         public bool NeedReceipt { get; set; }
 
         /// <summary>
+        /// Статус проверки документа.
+        /// </summary>
+        [DataMember]
+        public EnumValue ValidationStatus { get; set; }
+
+        /// <summary>
         /// Идентификатор родительского документа в цепочке служебных документов
         /// </summary>
         [DataMember]

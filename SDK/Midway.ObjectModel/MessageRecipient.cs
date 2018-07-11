@@ -3,7 +3,7 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Получатель сообщения
+    /// Получатель сообщения.
     /// </summary>
     [DataContract]
     public class MessageRecipient
@@ -21,24 +21,35 @@ namespace Midway.ObjectModel
         [DataMember]
         public string DepartmentId { get; set; }
 
-
-        /// TODO убрать это поле
         /// <summary>
-        /// Идентификатор стороннего оператора
-        /// Заполняется сервисом
+        /// Наименование организации.
+        /// </summary>
+        [DataMember]
+        public string OrganizationName { get; set; }
+
+        /// <summary>
+        /// Наименование подразделения организации.
+        /// </summary>
+        [DataMember]
+        public string DepartmentName { get; set; }
+
+        /// TODO: Убрать это поле.
+        /// <summary>
+        /// Идентификатор стороннего оператора.
+        /// Заполняется сервисом.
         /// </summary>
         public string ForeignOperatorId { get; set; }
 
         /// <summary>
-        /// Флаг, указывающий на то, что организация зарегистрирована в нашем сервисе
-         /// TODO убрать
+        /// Флаг, указывающий на то, что организация зарегистрирована в нашем сервисе.
+        /// TODO: убрать.
         /// </summary>
         public bool IsLocal
         {
             get { return string.IsNullOrEmpty(ForeignOperatorId); }
         }
 
-        //TODO: Equals не должен приводить к типу. Надо переделать
+        // TODO: Equals не должен приводить к типу. Надо переделать.
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -50,7 +61,7 @@ namespace Midway.ObjectModel
         }
 
         /// <summary>
-        /// Определяет является ли объект-параметр одинаковым с данным объектом
+        /// Определяет является ли объект-параметр одинаковым с данным объектом.
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>

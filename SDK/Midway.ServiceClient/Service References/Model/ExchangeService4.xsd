@@ -275,6 +275,41 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="TransportWaybillConsignorTitle">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TransportWaybillCargoReceivedTitle">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">31</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TransportWaybillCargoDeliveredTitle">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TransportWaybillConsigneeTitle">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">33</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TransportWaybillCarrierTitle">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">34</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="EdiGeneral">
         <xs:annotation>
           <xs:appinfo>
@@ -484,6 +519,47 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="OrganizationAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressType" type="tns:AddressType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrganizationAddress" nillable="true" type="tns:OrganizationAddress" />
+  <xs:simpleType name="AddressType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Legal">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Mailing">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Registration">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
   <xs:complexType name="ContragentContactInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
@@ -1082,6 +1158,805 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GeneralTransferCorrectionBuyer" nillable="true" type="tns:GeneralTransferCorrectionBuyer" />
+  <xs:complexType name="UserOperationCredentials">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationCredentials">
+        <xs:sequence>
+          <xs:element name="AuthToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserOperationCredentials" nillable="true" type="tns:UserOperationCredentials" />
+  <xs:complexType name="OperationCredentials">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="OperationCredentials" nillable="true" type="tns:OperationCredentials" />
+  <xs:complexType name="EmployeeOperationCredentials">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UserOperationCredentials">
+        <xs:sequence>
+          <xs:element name="BoxAddress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmployeeOperationCredentials" nillable="true" type="tns:EmployeeOperationCredentials" />
+  <xs:complexType name="TransportWaybillConsignorTitleParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsignorTitleParsingRequest" nillable="true" type="tns:TransportWaybillConsignorTitleParsingRequest" />
+  <xs:complexType name="ParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="Content" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ParsingRequest" nillable="true" type="tns:ParsingRequest" />
+  <xs:complexType name="OperationRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="OperationRequest" nillable="true" type="tns:OperationRequest" />
+  <xs:complexType name="TransportWaybillConsignorTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:TransportWaybillConsignorTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsignorTitleParsingResponse" nillable="true" type="tns:TransportWaybillConsignorTitleParsingResponse" />
+  <xs:complexType name="OperationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationResponse" nillable="true" type="tns:OperationResponse" />
+  <xs:complexType name="ModelValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfModelValidationResult" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfModelValidationMessage" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
+  <xs:complexType name="ArrayOfModelValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelValidationResult" nillable="true" type="tns:ArrayOfModelValidationResult" />
+  <xs:complexType name="ArrayOfModelValidationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelValidationMessage" nillable="true" type="tns:ArrayOfModelValidationMessage" />
+  <xs:complexType name="ModelValidationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
+  <xs:complexType name="TransportWaybillConsignorTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TransportWaybillTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalCarriagePolicies" nillable="true" type="tns:AdditionalCarriagePolicies" />
+          <xs:element minOccurs="0" name="CargoDelivery" nillable="true" type="tns:CargoOperation" />
+          <xs:element name="CargoDescription" nillable="true" type="tns:CargoDescription" />
+          <xs:element minOccurs="0" name="CargoReception" nillable="true" type="tns:CargoOperation" />
+          <xs:element minOccurs="0" name="CarriageCostAndPaymentPolicy" nillable="true" type="tns:CarriageCostAndPaymentPolicy" />
+          <xs:element minOccurs="0" name="CarriagePolicies" nillable="true" type="tns:CarriagePolicies" />
+          <xs:element minOccurs="0" name="Carrier" nillable="true" type="tns:Carrier" />
+          <xs:element minOccurs="0" name="CarrierRemarks" nillable="true" type="tns:CarrierRemarks" />
+          <xs:element minOccurs="0" name="Consignee" nillable="true" type="tns:CounterpartyBase" />
+          <xs:element minOccurs="0" name="Consignor" nillable="true" type="tns:CounterpartyBase" />
+          <xs:element minOccurs="0" name="ConsignorInstructions" nillable="true" type="tns:ConsignorInstructions" />
+          <xs:element minOccurs="0" name="ConsignorSigners" nillable="true" type="tns:ArrayOfSignerBase" />
+          <xs:element minOccurs="0" name="CopyType" nillable="true" type="tns:EnumValue" />
+          <xs:element minOccurs="0" name="OrderAcceptance" nillable="true" type="tns:OrderAcceptance" />
+          <xs:element minOccurs="0" name="OrderNumberDate" nillable="true" type="tns:NumberDate" />
+          <xs:element minOccurs="0" name="ShippingDocuments" nillable="true" type="tns:ArrayOfShippingDocument" />
+          <xs:element minOccurs="0" name="VehiclesDescription" nillable="true" type="tns:VehiclesDescription" />
+          <xs:element minOccurs="0" name="WaybillNumberDate" nillable="true" type="tns:NumberDate" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsignorTitle" nillable="true" type="tns:TransportWaybillConsignorTitle" />
+  <xs:complexType name="TransportWaybillTitleBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
+      <xs:element name="FormatVersion" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="InterchangeDescription" nillable="true" type="tns:InterchangeDescription" />
+      <xs:element minOccurs="0" name="Tags" nillable="true" type="tns:ArrayOfTransportWaybillTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransportWaybillTitleBase" nillable="true" type="tns:TransportWaybillTitleBase" />
+  <xs:complexType name="InterchangeDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Participants" nillable="true" type="tns:ArrayOfInterchangeParticipant" />
+      <xs:element minOccurs="0" name="SenderSpecialOperator" nillable="true" type="tns:SpecialOperatorInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InterchangeDescription" nillable="true" type="tns:InterchangeDescription" />
+  <xs:complexType name="ArrayOfInterchangeParticipant">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InterchangeParticipant" nillable="true" type="tns:InterchangeParticipant" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInterchangeParticipant" nillable="true" type="tns:ArrayOfInterchangeParticipant" />
+  <xs:complexType name="InterchangeParticipant">
+    <xs:sequence>
+      <xs:element name="IsTitleSender" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string" />
+      <xs:element name="Type" nillable="true" type="tns:EnumValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InterchangeParticipant" nillable="true" type="tns:InterchangeParticipant" />
+  <xs:complexType name="ArrayOfTransportWaybillTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillTag" nillable="true" type="tns:TransportWaybillTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillTag" nillable="true" type="tns:ArrayOfTransportWaybillTag" />
+  <xs:complexType name="TransportWaybillTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Penalties" nillable="true" type="tns:ArrayOfPenaltyCharge" />
+      <xs:element minOccurs="0" name="SignatureBy" nillable="true" type="tns:SignerBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransportWaybillTag" nillable="true" type="tns:TransportWaybillTag" />
+  <xs:complexType name="ArrayOfPenaltyCharge">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PenaltyCharge" nillable="true" type="tns:PenaltyCharge" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPenaltyCharge" nillable="true" type="tns:ArrayOfPenaltyCharge" />
+  <xs:complexType name="PenaltyCharge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalPolicies" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="CalculationRoutine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="tns:NameCodeObject" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="tns:Amount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PenaltyCharge" nillable="true" type="tns:PenaltyCharge" />
+  <xs:complexType name="Amount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="tns:CurrencyInfo" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Amount" nillable="true" type="tns:Amount" />
+  <xs:complexType name="SignerBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorityBase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="tns:FullName" />
+      <xs:element minOccurs="0" name="OrganizationAuthorityBase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignedAt" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignerBase" nillable="true" type="tns:SignerBase" />
+  <xs:complexType name="LegalEntitySigner">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SignerBase">
+        <xs:sequence>
+          <xs:element name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LegalEntitySigner" nillable="true" type="tns:LegalEntitySigner" />
+  <xs:complexType name="IndividualEntrepreneurSigner">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SignerBase">
+        <xs:sequence>
+          <xs:element name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndividualEntrepreneurSigner" nillable="true" type="tns:IndividualEntrepreneurSigner" />
+  <xs:complexType name="IndividualSigner">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SignerBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndividualSigner" nillable="true" type="tns:IndividualSigner" />
+  <xs:complexType name="AdditionalCarriagePolicies">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Acts" nillable="true" type="tns:ArrayOfShippingDocument" />
+      <xs:element minOccurs="0" name="DriverSchedules" nillable="true" type="tns:ArrayOfCarrierDriverSchedule" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Routes" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="SpecialPermission" nillable="true" type="tns:ShippingDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalCarriagePolicies" nillable="true" type="tns:AdditionalCarriagePolicies" />
+  <xs:complexType name="ArrayOfShippingDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShippingDocument" nillable="true" type="tns:ShippingDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShippingDocument" nillable="true" type="tns:ArrayOfShippingDocument" />
+  <xs:complexType name="ShippingDocument">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NumberDate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShippingDocument" nillable="true" type="tns:ShippingDocument" />
+  <xs:complexType name="ArrayOfCarrierDriverSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarrierDriverSchedule" nillable="true" type="tns:CarrierDriverSchedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarrierDriverSchedule" nillable="true" type="tns:ArrayOfCarrierDriverSchedule" />
+  <xs:complexType name="CarrierDriverSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activity" nillable="true" type="xs:string" />
+      <xs:element name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierDriverSchedule" nillable="true" type="tns:CarrierDriverSchedule" />
+  <xs:complexType name="CargoOperation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="AuthorizedSignatureBy" nillable="true" type="tns:SignerBase" />
+      <xs:element minOccurs="0" name="CargoState" nillable="true" type="tns:CargoState" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Duration" nillable="true" type="q5:DateTimeRange" />
+      <xs:element minOccurs="0" name="HandledAt" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoOperation" nillable="true" type="tns:CargoOperation" />
+  <xs:complexType name="CargoState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cargo" nillable="true" type="tns:Cargo" />
+      <xs:element minOccurs="0" name="CargoArea" nillable="true" type="tns:CargoArea" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoState" nillable="true" type="tns:CargoState" />
+  <xs:complexType name="Cargo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Seal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cargo" nillable="true" type="tns:Cargo" />
+  <xs:complexType name="CargoArea">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Total" nillable="true" type="tns:CargoAreaTotal" />
+      <xs:element minOccurs="0" name="Units" nillable="true" type="tns:ArrayOfCargoAreaUnit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoArea" nillable="true" type="tns:CargoArea" />
+  <xs:complexType name="CargoAreaTotal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Dimensions" nillable="true" type="tns:CargoAreaDimensions" />
+      <xs:element minOccurs="0" name="GrossWeight" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="NetWeight" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="NumberOfAreas" nillable="true" type="tns:Quantity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoAreaTotal" nillable="true" type="tns:CargoAreaTotal" />
+  <xs:complexType name="CargoAreaDimensions">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dimensions">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CargoAreaDimensions" nillable="true" type="tns:CargoAreaDimensions" />
+  <xs:complexType name="Dimensions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Height" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="Length" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="Volume" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="Width" nillable="true" type="tns:Quantity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Dimensions" nillable="true" type="tns:Dimensions" />
+  <xs:complexType name="Quantity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitOfMeasure" nillable="true" type="tns:NameCodeObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Quantity" nillable="true" type="tns:Quantity" />
+  <xs:complexType name="ArrayOfCargoAreaUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CargoAreaUnit" nillable="true" type="tns:CargoAreaUnit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCargoAreaUnit" nillable="true" type="tns:ArrayOfCargoAreaUnit" />
+  <xs:complexType name="CargoAreaUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="ContainerType" nillable="true" type="tns:NameCodeObject" />
+      <xs:element minOccurs="0" name="Dimensions" nillable="true" type="tns:CargoAreaDimensions" />
+      <xs:element minOccurs="0" name="GrossWeight" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NetWeight" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="NumberOfAreas" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="Package" nillable="true" type="tns:CargoPackage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoAreaUnit" nillable="true" type="tns:CargoAreaUnit" />
+  <xs:complexType name="CargoPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalPackage" nillable="true" type="tns:NameCodeObject" />
+      <xs:element minOccurs="0" name="PackingMethods" nillable="true" type="tns:ArrayOfNameCodeObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoPackage" nillable="true" type="tns:CargoPackage" />
+  <xs:complexType name="CargoDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cargo" nillable="true" type="tns:Cargo" />
+      <xs:element minOccurs="0" name="CargoArea" nillable="true" type="tns:CargoArea" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HazardousSubstances" nillable="true" type="q6:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoDescription" nillable="true" type="tns:CargoDescription" />
+  <xs:complexType name="CarriageCostAndPaymentPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CalculationRoutine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Payer" nillable="true" type="tns:CounterpartyBase" />
+      <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfCarriagePayment" />
+      <xs:element minOccurs="0" name="ServiceAmount" nillable="true" type="tns:Amount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarriageCostAndPaymentPolicy" nillable="true" type="tns:CarriageCostAndPaymentPolicy" />
+  <xs:complexType name="CounterpartyBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfoForParticipants" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="BankAccount" nillable="true" type="tns:BankAccount" />
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="tns:ContragentContactInfo" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Okpo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterpartyBase" nillable="true" type="tns:CounterpartyBase" />
+  <xs:complexType name="LegalEntityCounterparty">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CounterpartyBase">
+        <xs:sequence>
+          <xs:element name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+          <xs:element name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Representative" nillable="true" type="tns:CounterpartyRepresentative" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LegalEntityCounterparty" nillable="true" type="tns:LegalEntityCounterparty" />
+  <xs:complexType name="CounterpartyRepresentative">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorityBase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="tns:FullName" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterpartyRepresentative" nillable="true" type="tns:CounterpartyRepresentative" />
+  <xs:complexType name="IndividualEntrepreneurCounterparty">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CounterpartyBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="tns:FullName" />
+          <xs:element name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndividualEntrepreneurCounterparty" nillable="true" type="tns:IndividualEntrepreneurCounterparty" />
+  <xs:complexType name="IndividualCounterparty">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CounterpartyBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="tns:FullName" />
+          <xs:element name="Inn" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndividualCounterparty" nillable="true" type="tns:IndividualCounterparty" />
+  <xs:complexType name="ForeignCounterparty">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CounterpartyBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+          <xs:element name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ForeignCounterparty" nillable="true" type="tns:ForeignCounterparty" />
+  <xs:complexType name="ArrayOfCarriagePayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarriagePayment" nillable="true" type="tns:CarriagePayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarriagePayment" nillable="true" type="tns:ArrayOfCarriagePayment" />
+  <xs:complexType name="CarriagePayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="tns:Amount" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="tns:NameCodeObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarriagePayment" nillable="true" type="tns:CarriagePayment" />
+  <xs:complexType name="CarriagePolicies">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="CargoLoadingPolicies" nillable="true" type="tns:CargoHandlingPolicies" />
+      <xs:element minOccurs="0" name="CargoLossDeadline" nillable="true" type="tns:CargoLossDeadline" />
+      <xs:element minOccurs="0" name="CargoUnloadingPolicies" nillable="true" type="tns:CargoHandlingPolicies" />
+      <xs:element minOccurs="0" name="CarrierStoragePolicies" nillable="true" type="tns:CarrierStoragePolicies" />
+      <xs:element minOccurs="0" name="NotificationForm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Penalties" nillable="true" type="tns:ArrayOfPenaltyCharge" />
+      <xs:element minOccurs="0" name="RecordIntroductionPolicies" nillable="true" type="tns:ArrayOfRecordIntroductionPolicy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarriagePolicies" nillable="true" type="tns:CarriagePolicies" />
+  <xs:complexType name="CargoHandlingPolicies">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalPolicies" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Duration" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="Routine" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoHandlingPolicies" nillable="true" type="tns:CargoHandlingPolicies" />
+  <xs:complexType name="CargoLossDeadline">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalPolicies" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="FromDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoLossDeadline" nillable="true" type="tns:CargoLossDeadline" />
+  <xs:complexType name="CarrierStoragePolicies">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalPolicies" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Duration" nillable="true" type="tns:CarrierStorageDuration" />
+      <xs:element minOccurs="0" name="PaymentAmount" nillable="true" type="tns:Amount" />
+      <xs:element minOccurs="0" name="PaymentPolicy" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierStoragePolicies" nillable="true" type="tns:CarrierStoragePolicies" />
+  <xs:complexType name="CarrierStorageDuration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TimeSpan" nillable="true" type="tns:Quantity" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="TimeWindow" nillable="true" type="q7:DateTimeRange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierStorageDuration" nillable="true" type="tns:CarrierStorageDuration" />
+  <xs:complexType name="ArrayOfRecordIntroductionPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecordIntroductionPolicy" nillable="true" type="tns:RecordIntroductionPolicy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecordIntroductionPolicy" nillable="true" type="tns:ArrayOfRecordIntroductionPolicy" />
+  <xs:complexType name="RecordIntroductionPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalPolicies" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="DocumentRequisite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Routine" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecordIntroductionPolicy" nillable="true" type="tns:RecordIntroductionPolicy" />
+  <xs:complexType name="Carrier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Drivers" nillable="true" type="tns:ArrayOfCarrierDriver" />
+      <xs:element minOccurs="0" name="Requisites" nillable="true" type="tns:CounterpartyBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Carrier" nillable="true" type="tns:Carrier" />
+  <xs:complexType name="ArrayOfCarrierDriver">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarrierDriver" nillable="true" type="tns:CarrierDriver" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarrierDriver" nillable="true" type="tns:ArrayOfCarrierDriver" />
+  <xs:complexType name="CarrierDriver">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Requisites" nillable="true" type="tns:CounterpartyBase" />
+      <xs:element minOccurs="0" name="RouteSheets" nillable="true" type="tns:ArrayOfShippingDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierDriver" nillable="true" type="tns:CarrierDriver" />
+  <xs:complexType name="CarrierRemarks">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DuringDelivery" nillable="true" type="tns:CargoRemarks" />
+      <xs:element minOccurs="0" name="DuringReception" nillable="true" type="tns:CargoRemarks" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierRemarks" nillable="true" type="tns:CarrierRemarks" />
+  <xs:complexType name="CargoRemarks">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CargoState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarriagePoliciesChange" nillable="true" type="tns:CarriagePoliciesChange" />
+      <xs:element minOccurs="0" name="ContainerState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LabelState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PackageState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SealState" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargoRemarks" nillable="true" type="tns:CargoRemarks" />
+  <xs:complexType name="CarriagePoliciesChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChangedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ChangedWhen" nillable="true" type="tns:NameCodeObject" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarriagePoliciesChange" nillable="true" type="tns:CarriagePoliciesChange" />
+  <xs:complexType name="ConsignorInstructions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarriageInstructions" nillable="true" type="tns:CarriageInstructions" />
+      <xs:element minOccurs="0" name="DeclaredAmount" nillable="true" type="tns:DeclaredAmount" />
+      <xs:element minOccurs="0" name="LegalInstructions" nillable="true" type="tns:ArrayOfLegalInstruction" />
+      <xs:element minOccurs="0" name="ReloadingProhibited" nillable="true" type="xs:boolean" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SealingDevices" nillable="true" type="q8:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Vehicles" nillable="true" type="tns:ArrayOfVehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsignorInstructions" nillable="true" type="tns:ConsignorInstructions" />
+  <xs:complexType name="CarriageInstructions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInstructions" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="CarriageDeadline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemperatureCondition" nillable="true" type="tns:TemperatureCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarriageInstructions" nillable="true" type="tns:CarriageInstructions" />
+  <xs:complexType name="TemperatureCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="MaximumTemperature" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MinimumTemperature" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Temperature" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemperatureCondition" nillable="true" type="tns:TemperatureCondition" />
+  <xs:complexType name="DeclaredAmount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Total" nillable="true" type="tns:Amount" />
+      <xs:element minOccurs="0" name="Worth" nillable="true" type="tns:Amount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeclaredAmount" nillable="true" type="tns:DeclaredAmount" />
+  <xs:complexType name="ArrayOfLegalInstruction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LegalInstruction" nillable="true" type="tns:LegalInstruction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLegalInstruction" nillable="true" type="tns:ArrayOfLegalInstruction" />
+  <xs:complexType name="LegalInstruction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequirementType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LegalInstruction" nillable="true" type="tns:LegalInstruction" />
+  <xs:complexType name="ArrayOfVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehicle" nillable="true" type="tns:Vehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicle" nillable="true" type="tns:ArrayOfVehicle" />
+  <xs:complexType name="Vehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Capacity" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="CarryingCapacity" nillable="true" type="tns:Quantity" />
+      <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="tns:NameCodeObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vehicle" nillable="true" type="tns:Vehicle" />
+  <xs:complexType name="ArrayOfSignerBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignerBase" nillable="true" type="tns:SignerBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSignerBase" nillable="true" type="tns:ArrayOfSignerBase" />
+  <xs:complexType name="OrderAcceptance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcceptedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AcceptedBy" nillable="true" type="tns:SignerBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderAcceptance" nillable="true" type="tns:OrderAcceptance" />
+  <xs:complexType name="VehiclesDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Vehicles" nillable="true" type="tns:ArrayOfVehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehiclesDescription" nillable="true" type="tns:VehiclesDescription" />
+  <xs:complexType name="TransportWaybillCargoReceivedParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoReceivedParsingRequest" nillable="true" type="tns:TransportWaybillCargoReceivedParsingRequest" />
+  <xs:complexType name="TransportWaybillCargoReceivedTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:TransportWaybillCargoReceivedTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoReceivedTitleParsingResponse" nillable="true" type="tns:TransportWaybillCargoReceivedTitleParsingResponse" />
+  <xs:complexType name="TransportWaybillCargoReceivedTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TransportWaybillReplyTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CargoReception" nillable="true" type="tns:DriverCargoOperation" />
+          <xs:element minOccurs="0" name="CargoRemarksDuringReception" nillable="true" type="tns:CargoRemarks" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoReceivedTitle" nillable="true" type="tns:TransportWaybillCargoReceivedTitle" />
+  <xs:complexType name="TransportWaybillReplyTitleBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TransportWaybillTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConsignorTitleIdentification" nillable="true" type="tns:FileIdentification" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillReplyTitleBase" nillable="true" type="tns:TransportWaybillReplyTitleBase" />
+  <xs:complexType name="FileIdentification">
+    <xs:sequence>
+      <xs:element name="FileId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Signatures" nillable="true" type="q9:ArrayOfbase64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileIdentification" nillable="true" type="tns:FileIdentification" />
+  <xs:complexType name="DriverCargoOperation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="CargoState" nillable="true" type="tns:CargoState" />
+      <xs:element minOccurs="0" name="DriverSignatureBy" nillable="true" type="tns:SignerBase" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Duration" nillable="true" type="q10:DateTimeRange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DriverCargoOperation" nillable="true" type="tns:DriverCargoOperation" />
+  <xs:complexType name="TransportWaybillCargoDeliveredParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoDeliveredParsingRequest" nillable="true" type="tns:TransportWaybillCargoDeliveredParsingRequest" />
+  <xs:complexType name="TransportWaybillCargoDeliveredTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:TransportWaybillCargoDeliveredTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoDeliveredTitleParsingResponse" nillable="true" type="tns:TransportWaybillCargoDeliveredTitleParsingResponse" />
+  <xs:complexType name="TransportWaybillCargoDeliveredTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TransportWaybillReplyTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CargoDelivery" nillable="true" type="tns:DriverCargoOperation" />
+          <xs:element minOccurs="0" name="CargoRemarksDuringDelivery" nillable="true" type="tns:CargoRemarks" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoDeliveredTitle" nillable="true" type="tns:TransportWaybillCargoDeliveredTitle" />
+  <xs:complexType name="TransportWaybillConsigneeTitleParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsigneeTitleParsingRequest" nillable="true" type="tns:TransportWaybillConsigneeTitleParsingRequest" />
+  <xs:complexType name="TransportWaybillConsigneeTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:TransportWaybillConsigneeTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsigneeTitleParsingResponse" nillable="true" type="tns:TransportWaybillConsigneeTitleParsingResponse" />
+  <xs:complexType name="TransportWaybillConsigneeTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TransportWaybillReplyTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CargoDelivery" nillable="true" type="tns:CargoOperation" />
+          <xs:element minOccurs="0" name="CarrierRemarks" nillable="true" type="tns:CarrierRemarks" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsigneeTitle" nillable="true" type="tns:TransportWaybillConsigneeTitle" />
+  <xs:complexType name="TransportWaybillCarrierTitleParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCarrierTitleParsingRequest" nillable="true" type="tns:TransportWaybillCarrierTitleParsingRequest" />
+  <xs:complexType name="TransportWaybillCarrierTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:TransportWaybillCarrierTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCarrierTitleParsingResponse" nillable="true" type="tns:TransportWaybillCarrierTitleParsingResponse" />
+  <xs:complexType name="TransportWaybillCarrierTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TransportWaybillReplyTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CarrierSigners" nillable="true" type="tns:ArrayOfSignerBase" />
+          <xs:element minOccurs="0" name="OrderAcceptance" nillable="true" type="tns:OrderAcceptance" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCarrierTitle" nillable="true" type="tns:TransportWaybillCarrierTitle" />
   <xs:complexType name="DocumentGenerationOptions">
     <xs:sequence>
       <xs:element minOccurs="0" name="RecipientBoxId" nillable="true" type="xs:string" />
@@ -1119,12 +1994,91 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ValidationError" nillable="true" type="tns:ValidationError" />
+  <xs:complexType name="TransportWaybillConsignorTitleGeneratingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="Model" nillable="true" type="tns:TransportWaybillConsignorTitle" />
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:TransportWaybillGenerationOptions" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsignorTitleGeneratingRequest" nillable="true" type="tns:TransportWaybillConsignorTitleGeneratingRequest" />
+  <xs:complexType name="TransportWaybillGenerationOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarrierBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConsigeeBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConsignorBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DriverBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidateContent" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransportWaybillGenerationOptions" nillable="true" type="tns:TransportWaybillGenerationOptions" />
+  <xs:complexType name="DocumentGenerationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeneratedContent" nillable="true" type="tns:GeneratedContent" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentGenerationResponse" nillable="true" type="tns:DocumentGenerationResponse" />
+  <xs:complexType name="TransportWaybillCargoReceivedTitleGeneratingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="Model" nillable="true" type="tns:TransportWaybillCargoReceivedTitle" />
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:TransportWaybillGenerationOptions" />
+          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoReceivedTitleGeneratingRequest" nillable="true" type="tns:TransportWaybillCargoReceivedTitleGeneratingRequest" />
+  <xs:complexType name="TransportWaybillCargoDeliveredTitleGeneratingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="Model" nillable="true" type="tns:TransportWaybillCargoDeliveredTitle" />
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:TransportWaybillGenerationOptions" />
+          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCargoDeliveredTitleGeneratingRequest" nillable="true" type="tns:TransportWaybillCargoDeliveredTitleGeneratingRequest" />
+  <xs:complexType name="TransportWaybillConsigneeTitleGeneratingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="Model" nillable="true" type="tns:TransportWaybillConsigneeTitle" />
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:TransportWaybillGenerationOptions" />
+          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillConsigneeTitleGeneratingRequest" nillable="true" type="tns:TransportWaybillConsigneeTitleGeneratingRequest" />
+  <xs:complexType name="TransportWaybillCarrierTitleGeneratingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="Model" nillable="true" type="tns:TransportWaybillCarrierTitle" />
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:TransportWaybillGenerationOptions" />
+          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillCarrierTitleGeneratingRequest" nillable="true" type="tns:TransportWaybillCarrierTitleGeneratingRequest" />
   <xs:complexType name="RegistrationRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Departments" nillable="true" type="tns:ArrayOfDepartmentRegistrationData" />
       <xs:element minOccurs="0" name="Organization" nillable="true" type="tns:OrganizationRegistrationData" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PromoCodes" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PromoCodes" nillable="true" type="q11:ArrayOfstring" />
       <xs:element minOccurs="0" name="ServiceReglamentAccepted" type="xs:boolean" />
       <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserRegistrationData" />
     </xs:sequence>
@@ -1184,47 +2138,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfOrganizationAddress" nillable="true" type="tns:ArrayOfOrganizationAddress" />
-  <xs:complexType name="OrganizationAddress">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Address">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AddressType" type="tns:AddressType" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="OrganizationAddress" nillable="true" type="tns:OrganizationAddress" />
-  <xs:simpleType name="AddressType">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Legal">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Mailing">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Registration">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
   <xs:complexType name="ArrayOfUserRegistrationData">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRegistrationData" nillable="true" type="tns:UserRegistrationData" />
@@ -1489,39 +2402,10 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="OrganizationType" nillable="true" type="tns:OrganizationType" />
-  <xs:complexType name="ModelValidationResult">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfModelValidationResult" />
-      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfModelValidationMessage" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
-  <xs:complexType name="ArrayOfModelValidationResult">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelValidationResult" nillable="true" type="tns:ArrayOfModelValidationResult" />
-  <xs:complexType name="ArrayOfModelValidationMessage">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelValidationMessage" nillable="true" type="tns:ArrayOfModelValidationMessage" />
-  <xs:complexType name="ModelValidationMessage">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
   <xs:complexType name="NonActiveSubscriberCreationRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Emails" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Emails" nillable="true" type="q12:ArrayOfstring" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
@@ -1546,7 +2430,7 @@
       <xs:extension base="tns:OrganizationShortInfo">
         <xs:sequence>
           <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
-          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Emails" nillable="true" type="q6:ArrayOfstring" />
+          <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Emails" nillable="true" type="q13:ArrayOfstring" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -1741,30 +2625,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="IssuedCertificate" nillable="true" type="tns:IssuedCertificate" />
-  <xs:complexType name="EmployeeOperationCredentials">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:UserOperationCredentials">
-        <xs:sequence>
-          <xs:element name="BoxAddress" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="EmployeeOperationCredentials" nillable="true" type="tns:EmployeeOperationCredentials" />
-  <xs:complexType name="UserOperationCredentials">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:OperationCredentials">
-        <xs:sequence>
-          <xs:element name="AuthToken" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="UserOperationCredentials" nillable="true" type="tns:UserOperationCredentials" />
-  <xs:complexType name="OperationCredentials">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="OperationCredentials" nillable="true" type="tns:OperationCredentials" />
   <xs:complexType name="SimpleSignatureAvailabilityCheckingRequest">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationRequest">
@@ -1775,10 +2635,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="SimpleSignatureAvailabilityCheckingRequest" nillable="true" type="tns:SimpleSignatureAvailabilityCheckingRequest" />
-  <xs:complexType name="OperationRequest">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="OperationRequest" nillable="true" type="tns:OperationRequest" />
   <xs:complexType name="SimpleSignatureAvailabilityCheckingDocument">
     <xs:sequence />
   </xs:complexType>
@@ -1840,13 +2696,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="SimpleSignatureAvailabilityCheckingResponse" nillable="true" type="tns:SimpleSignatureAvailabilityCheckingResponse" />
-  <xs:complexType name="OperationResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ModelValidationResult" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OperationResponse" nillable="true" type="tns:OperationResponse" />
   <xs:complexType name="SimpleSignatureRegulationAcceptingRequest">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationRequest">
@@ -2110,7 +2959,7 @@
   <xs:complexType name="SearchSettings">
     <xs:sequence>
       <xs:element minOccurs="0" name="FilterSettings" nillable="true" type="tns:FilterSettings" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Paging" nillable="true" type="q7:PageSettings" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Paging" nillable="true" type="q14:PageSettings" />
       <xs:element minOccurs="0" name="Sorting" nillable="true" type="tns:ArrayOfSortCondition" />
     </xs:sequence>
   </xs:complexType>
@@ -2171,7 +3020,7 @@
   <xs:complexType name="EmployeeSearchResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfEmployee" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Paging" nillable="true" type="q8:PageSettings" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Paging" nillable="true" type="q15:PageSettings" />
       <xs:element minOccurs="0" name="Total" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -2272,11 +3121,45 @@
   <xs:element name="PasswordUpdatingResponse" nillable="true" type="tns:PasswordUpdatingResponse" />
   <xs:complexType name="DraftMessageMovingSettings">
     <xs:sequence>
-      <xs:element minOccurs="0" name="DraftMessageId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+      <xs:element name="DraftMessageId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DraftMessageMovingSettings" nillable="true" type="tns:DraftMessageMovingSettings" />
+  <xs:complexType name="DraftMessageUserMovingSettings">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DraftMessageMovingSettings">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BoxAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DraftMessageUserMovingSettings" nillable="true" type="tns:DraftMessageUserMovingSettings" />
+  <xs:complexType name="DraftMessageEmployeeMovingSettings">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DraftMessageMovingSettings">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DraftMessageEmployeeMovingSettings" nillable="true" type="tns:DraftMessageEmployeeMovingSettings" />
+  <xs:complexType name="ArrayOfAddressLocationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressLocationType" type="tns:AddressLocationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddressLocationType" nillable="true" type="tns:ArrayOfAddressLocationType" />
+  <xs:simpleType name="AddressLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AddressRF" />
+      <xs:enumeration value="UnstructuredAddress" />
+      <xs:enumeration value="AddressByCode" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressLocationType" nillable="true" type="tns:AddressLocationType" />
   <xs:complexType name="ArrayOfAddressType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressType" type="tns:AddressType" />
@@ -2512,6 +3395,50 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="DocumentMultiSignStatus" nillable="true" type="tns:DocumentMultiSignStatus" />
+  <xs:complexType name="ArrayOfDocumentOperationCodes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentOperationCodes" type="tns:DocumentOperationCodes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentOperationCodes" nillable="true" type="tns:ArrayOfDocumentOperationCodes" />
+  <xs:simpleType name="DocumentOperationCodes">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="MarkAsRead" />
+          <xs:enumeration value="MarkAsUnread" />
+          <xs:enumeration value="Sign" />
+          <xs:enumeration value="Reject" />
+          <xs:enumeration value="SendRevision" />
+          <xs:enumeration value="SendCorrection" />
+          <xs:enumeration value="Delete" />
+          <xs:enumeration value="Reply" />
+          <xs:enumeration value="Print" />
+          <xs:enumeration value="Download" />
+          <xs:enumeration value="ViewRegulation" />
+          <xs:enumeration value="ConfirmReceipt" />
+          <xs:enumeration value="Move" />
+          <xs:enumeration value="Approve" />
+          <xs:enumeration value="Disapprove" />
+          <xs:enumeration value="Permissions" />
+          <xs:enumeration value="Forward" />
+          <xs:enumeration value="Revoke" />
+          <xs:enumeration value="ReceiveCargo" />
+          <xs:enumeration value="DeliverCargo" />
+          <xs:enumeration value="SignByConsignee" />
+          <xs:enumeration value="SignByCarrier" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="DocumentOperationCodes" nillable="true" type="tns:DocumentOperationCodes" />
   <xs:complexType name="ArrayOfDocumentRevocationStatus">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentRevocationStatus" type="tns:DocumentRevocationStatus" />
@@ -2604,6 +3531,20 @@
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SignedByConsignee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SignedByCarrier">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
@@ -3265,6 +4206,45 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SignatureMark" nillable="true" type="tns:SignatureMark" />
+  <xs:complexType name="ArrayOfSignerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SignerType" type="tns:SignerType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSignerType" nillable="true" type="tns:ArrayOfSignerType" />
+  <xs:simpleType name="SignerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Employee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DrafterEmployee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OtherOrganizationEmployee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AuthorizedPerson">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SignerType" nillable="true" type="tns:SignerType" />
   <xs:complexType name="ArrayOfSimpleSignatureAvailabilityStatus">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="SimpleSignatureAvailabilityStatus" type="tns:SimpleSignatureAvailabilityStatus" />
@@ -3309,6 +4289,149 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="TitleType" nillable="true" type="tns:TitleType" />
+  <xs:complexType name="ArrayOfTransportWaybillCargoDeliveredTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillCargoDeliveredTitleFormatVersion" type="tns:TransportWaybillCargoDeliveredTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillCargoDeliveredTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillCargoDeliveredTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillCargoDeliveredTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillCargoDeliveredTitleFormatVersion" nillable="true" type="tns:TransportWaybillCargoDeliveredTitleFormatVersion" />
+  <xs:complexType name="ArrayOfTransportWaybillCargoReceivedTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillCargoReceivedTitleFormatVersion" type="tns:TransportWaybillCargoReceivedTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillCargoReceivedTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillCargoReceivedTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillCargoReceivedTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillCargoReceivedTitleFormatVersion" nillable="true" type="tns:TransportWaybillCargoReceivedTitleFormatVersion" />
+  <xs:complexType name="ArrayOfTransportWaybillCarrierTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillCarrierTitleFormatVersion" type="tns:TransportWaybillCarrierTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillCarrierTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillCarrierTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillCarrierTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillCarrierTitleFormatVersion" nillable="true" type="tns:TransportWaybillCarrierTitleFormatVersion" />
+  <xs:complexType name="ArrayOfTransportWaybillConsigneeTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillConsigneeTitleFormatVersion" type="tns:TransportWaybillConsigneeTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillConsigneeTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillConsigneeTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillConsigneeTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillConsigneeTitleFormatVersion" nillable="true" type="tns:TransportWaybillConsigneeTitleFormatVersion" />
+  <xs:complexType name="ArrayOfTransportWaybillConsignorTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillConsignorTitleFormatVersion" type="tns:TransportWaybillConsignorTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillConsignorTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillConsignorTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillConsignorTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillConsignorTitleFormatVersion" nillable="true" type="tns:TransportWaybillConsignorTitleFormatVersion" />
+  <xs:complexType name="ArrayOfTransportWaybillCopyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillCopyType" type="tns:TransportWaybillCopyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillCopyType" nillable="true" type="tns:ArrayOfTransportWaybillCopyType" />
+  <xs:simpleType name="TransportWaybillCopyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="First">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Second">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Third">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fourth">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillCopyType" nillable="true" type="tns:TransportWaybillCopyType" />
+  <xs:complexType name="ArrayOfTransportWaybillInterchangeParticipantType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillInterchangeParticipantType" type="tns:TransportWaybillInterchangeParticipantType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillInterchangeParticipantType" nillable="true" type="tns:ArrayOfTransportWaybillInterchangeParticipantType" />
+  <xs:simpleType name="TransportWaybillInterchangeParticipantType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Consignor">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Carrier">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Driver">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Consigee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillInterchangeParticipantType" nillable="true" type="tns:TransportWaybillInterchangeParticipantType" />
   <xs:complexType name="ArrayOfValidationMessageCategory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationMessageCategory" type="tns:ValidationMessageCategory" />
@@ -3367,7 +4490,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Recipients" nillable="true" type="q9:ArrayOfstring" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Recipients" nillable="true" type="q16:ArrayOfstring" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -3686,7 +4809,7 @@
   <xs:complexType name="DocumentFlowStatusDescription">
     <xs:sequence>
       <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
-      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalStatuses" nillable="true" type="q10:ArrayOfstring" />
+      <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalStatuses" nillable="true" type="q17:ArrayOfstring" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -3833,7 +4956,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="BoxFrom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BoxTo" nillable="true" type="xs:string" />
-      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContragentBoxIds" nillable="true" type="q11:ArrayOfstring" />
+      <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContragentBoxIds" nillable="true" type="q18:ArrayOfstring" />
       <xs:element minOccurs="0" name="DocumentRevocationStatuses" nillable="true" type="tns:ArrayOfDocumentRevocationStatus" />
       <xs:element minOccurs="0" name="DocumentSignStatuses" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
       <xs:element minOccurs="0" name="DocumentTypeEnums" nillable="true" type="tns:ArrayOfEnumValue" />
@@ -4143,8 +5266,8 @@
   <xs:element name="RegisterModel" nillable="true" type="tns:RegisterModel" />
   <xs:complexType name="RegisterResult">
     <xs:sequence>
-      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q12:ArrayOfstring" />
-      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q13:ArrayOfstring" />
+      <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q19:ArrayOfstring" />
+      <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q20:ArrayOfstring" />
       <xs:element minOccurs="0" name="RegisterModel" nillable="true" type="tns:RegisterModel" />
       <xs:element minOccurs="0" name="Success" type="xs:boolean" />
     </xs:sequence>
@@ -4347,9 +5470,9 @@
       <xs:element minOccurs="0" name="First" type="xs:int" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Max" type="xs:int" />
-      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q14:ArrayOfstring" />
-      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q15:ArrayOfstring" />
-      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q16:ArrayOfstring" />
+      <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q21:ArrayOfstring" />
+      <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q22:ArrayOfstring" />
+      <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q23:ArrayOfstring" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

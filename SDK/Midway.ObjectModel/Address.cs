@@ -6,6 +6,7 @@ namespace Midway.ObjectModel
     /// Адрес
     /// </summary>
     [DataContract]
+    [KnownType(typeof(OrganizationAddress))]
     public class Address
     {
         /// TODO@internal
