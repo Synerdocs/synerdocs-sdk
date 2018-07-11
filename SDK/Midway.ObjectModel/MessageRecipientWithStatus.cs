@@ -24,17 +24,5 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DocumentFlowStatus Status { get; set; }
-
-        /// <summary>
-        /// Наименование организации.
-        /// </summary>
-        [DataMember]
-        public string OrganizationName { get; set; }
-
-        /// <summary>
-        /// Наименование подразделения.
-        /// </summary>
-        [DataMember]
-        public string DepartmentName { get; set; }
     }
 }

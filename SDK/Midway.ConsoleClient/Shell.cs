@@ -1951,13 +1951,13 @@ namespace Midway.ConsoleClient
             else if (documentType == DocumentType.ServiceInvoiceAmendmentRequest)
                 ProcessServiceInvoiceAmendmentRequest(message, documentInfo);
 
-            // ТН / АКТ / ДПТ / ДПРР / УПД / УКД : титул продавца / исполнителя
-            else if (documentType.IsSellerTitle())
-                ProcessSellerTitle(message, documentInfo);
+            // ТН / АКТ / ДПТ / ДПРР / УПД / УКД / ЭТН: корневой титул.
+            else if (documentType.IsRootTitle())
+                ProcessRootTitle(message, documentInfo);
 
-            // ТН / АКТ / ДПТ / ДПРР / УПД / УКД : титул покупателя / заказчика
-            else if (documentType.IsBuyerTitle())
-                ProcessBuyerTitle(document);
+            // ТН / АКТ / ДПТ / ДПРР / УПД / УКД / ЭТН: ответный титул.
+            else if (documentType.IsReplyTitle())
+                ProcessReplyTitle(document);
 
             // Предложение об аннулировании
             else if (documentType == DocumentType.RevocationOffer)
@@ -2246,7 +2246,7 @@ namespace Midway.ConsoleClient
             Console.Out.WriteLine("Документ {0} дошел до получателя", DocumentShortName(documentInfo));
         }
 
-        private void ProcessBuyerTitle(Document document)
+        private void ProcessReplyTitle(Document document)
         {
             var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, document.ParentDocumentId);
             Console.Out.WriteLine("Документ {0} подписан", DocumentShortName(documentInfo));
@@ -2303,17 +2303,21 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Требуется ли подписание документа?
+        /// Проверить, требуется ли подписание документа.
         /// </summary>
         /// <param name="documentInfo">Полная информация о документе.</param>
         /// <returns><c>true</c>, если подписание требуется; иначе - <c>false</c>.</returns>
         private bool IsSignatureRequired(FullDocumentInfo documentInfo)
         {
-            var untypedFlowStatus = documentInfo.Status as UntypedDocumentFlowStatus;
-            if (untypedFlowStatus != null)
-                return untypedFlowStatus.SignStatus == DocumentSignStatus.WaitingForSign;
-            
             var documentType = (DocumentType)documentInfo.Document.DocumentTypeEnum.Code;
+            if (documentType.IsTransportWaybillConsignorTitle())
+                // TODO: Vasilev_IY: features/transport-waybill-formalized:
+                // Актуализировать после добавления операций.
+                return true;
+
+            if (documentInfo.Status is UntypedDocumentFlowStatus untypedFlowStatus)
+                return untypedFlowStatus.SignStatus == DocumentSignStatus.WaitingForSign;
+
             if (documentType.IsGeneralTransferSeller())
                 return !documentInfo.ServiceDocuments.Any(serviceDocument =>
                 {
@@ -2415,11 +2419,11 @@ namespace Midway.ConsoleClient
                 {
                     case "2":
                         // Генерируем подпись или ответный титул.
-                        var isSellerTitle = documentType.IsSellerTitle();
-                        if (!isSellerTitle)
+                        var isRootTitle = documentType.IsRootTitle();
+                        if (!isRootTitle)
                             EnsureDocumentContentLoaded(document);
                         SendServiceDocument(
-                            isSellerTitle
+                            isRootTitle
                                 ? CreateMessage(
                                     message.GetRecipientListForSender(_context.CurrentBox),
                                     documentType, document.Id)
@@ -2504,6 +2508,8 @@ namespace Midway.ConsoleClient
                 true, DocumentType.GeneralTransferCorrectionSeller));
             chooseOptions.Add(new UserInput.Option($"{++i}", "Исправленный универсальный корректировочный документ (титул продавца)",
                 true, DocumentType.GeneralTransferCorrectionRevisionSeller));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Транспортная накладная (титул грузоотправителя)",
+                true, DocumentType.TransportWaybillConsignorTitle));
 
             if (includeEdi)
             {
@@ -2632,6 +2638,77 @@ namespace Midway.ConsoleClient
                         documentType = DocumentType.GeneralTransferCorrectionBuyer;
                         break;
 
+                    case DocumentType.TransportWaybillConsignorTitle:
+                        documentType = (DocumentType)UserInput
+                            .ChooseOption(
+                                "Выберите тип ответного титула транспортной накладной",
+                                new[]
+                                {
+                                    DocumentType.TransportWaybillCargoReceivedTitle,
+                                    DocumentType.TransportWaybillCargoDeliveredTitle,
+                                    DocumentType.TransportWaybillConsigneeTitle,
+                                    DocumentType.TransportWaybillCarrierTitle,
+                                })
+                            .Data;
+                        if (UserInput.ChooseYesNo("Сгенерировать ответный титул транспортной накладной?"))
+                            switch (documentType)
+                            {
+                                case DocumentType.TransportWaybillCargoReceivedTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateTransportWaybillCargoReceivedTitle(
+                                            GetCurrentCredentials(),
+                                            new TransportWaybillCargoReceivedTitleGeneratingRequest
+                                            {
+                                                Model = CreateTransportWaybillCargoReceivedTitle(),
+                                                Options = new TransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+
+                                case DocumentType.TransportWaybillCargoDeliveredTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateTransportWaybillCargoDeliveredTitle(
+                                            GetCurrentCredentials(),
+                                            new TransportWaybillCargoDeliveredTitleGeneratingRequest
+                                            {
+                                                Model = CreateTransportWaybillCargoDeliveredTitle(),
+                                                Options = new TransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+
+                                case DocumentType.TransportWaybillConsigneeTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateTransportWaybillConsigneeTitle(
+                                            GetCurrentCredentials(),
+                                            new TransportWaybillConsigneeTitleGeneratingRequest
+                                            {
+                                                Model = CreateTransportWaybillConsigneeTitle(),
+                                                Options = new TransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+
+                                case DocumentType.TransportWaybillCarrierTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateTransportWaybillCarrierTitle(
+                                            GetCurrentCredentials(),
+                                            new TransportWaybillCarrierTitleGeneratingRequest
+                                            {
+                                                Model = CreateTransportWaybillCarrierTitle(),
+                                                Options = new TransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+                            }
+                        else
+                            Console.Out.WriteLine("Необходимо загрузить ответный титул транспортной накладной");
+                        break;
+
                     default:
                         documentType = ChooseDocumentType("Выберите тип документа");
                         break;
@@ -2697,14 +2774,14 @@ namespace Midway.ConsoleClient
                     ParentDocumentId = parentId
                 }, signature);
 
-                // при отправке титула покупателя(заказчика) отправляется только один документ
-                if (!documentType.IsBuyerTitle())
+                if (documentType.IsRootTitle())
                 {
                     if (!UserInput.ChooseYesNo("Добавить еще один документ для отправки?", false))
                         break;
                 }
                 else
                 {
+                    // При отправке ответного титула отправляется только один документ.
                     break;
                 }
             } while (true);
@@ -2879,7 +2956,7 @@ namespace Midway.ConsoleClient
             };
         }
 
-        private void ProcessSellerTitle(Message message, FullDocumentInfo documentInfo)
+        private void ProcessRootTitle(Message message, FullDocumentInfo documentInfo)
         {
             ProcessRequiredNotice(message, documentInfo);
             ProcessRequiredSignature(message, documentInfo);
@@ -4732,7 +4809,9 @@ namespace Midway.ConsoleClient
                 _context.ServiceClient.AcceptSimpleSignatureRegulation(credentials, request);
                 UserInput.Success("Регламент использования простой ЭП успешно принят");
             }
-            catch (ServerException ex) when (ex.Code.In(ServiceErrorCode.SimpleSignatureRegulationAlreadyAccepted))
+            catch (ServerException ex) when (ex.Code.In(
+                ServiceErrorCode.SimpleSignatureRegulationAlreadyAccepted,
+                ServiceErrorCode.SimpleSignatureRegulationOrganizationIsNotActive))
             {
                 UserInput.Error(ex.Message);
             }
@@ -5182,6 +5261,46 @@ namespace Midway.ConsoleClient
                         Code = 1,
                     },
                 },
+            };
+
+        /// <summary>
+        /// Создать модель титула водителя (прием груза) транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула водителя (прием груза) транспортной накладной.</returns>
+        private static TransportWaybillCargoReceivedTitle CreateTransportWaybillCargoReceivedTitle()
+            => new TransportWaybillCargoReceivedTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(TransportWaybillCargoReceivedTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула водителя (сдача груза) транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула водителя (сдача груза) транспортной накладной.</returns>
+        private static TransportWaybillCargoDeliveredTitle CreateTransportWaybillCargoDeliveredTitle()
+            => new TransportWaybillCargoDeliveredTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(TransportWaybillCargoDeliveredTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула грузополучателя транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула грузополучателя транспортной накладной.</returns>
+        private static TransportWaybillConsigneeTitle CreateTransportWaybillConsigneeTitle()
+            => new TransportWaybillConsigneeTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(TransportWaybillConsigneeTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула перевозчика транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула перевозчика транспортной накладной.</returns>
+        private static TransportWaybillCarrierTitle CreateTransportWaybillCarrierTitle()
+            => new TransportWaybillCarrierTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(TransportWaybillCarrierTitleFormatVersion.V100),
             };
     }
 }

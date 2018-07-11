@@ -92,6 +92,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.Contact.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.ContactSearchResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentEntryList.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentGenerationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
@@ -132,6 +133,11 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.SubjectInfo.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.User.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.UserAndEmployeeCreationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Utility.EnumValuesResponse.datasource" />

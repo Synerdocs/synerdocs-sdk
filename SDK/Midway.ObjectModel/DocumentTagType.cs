@@ -64,5 +64,19 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Груз сдан")]
         CargoDelivered = 8,
+
+        /// <summary>
+        /// Тег "Подписан грузополучателем".
+        /// </summary>
+        [EnumMember]
+        [Description("Подписан грузополучателем")]
+        SignedByConsignee = 9,
+
+        /// <summary>
+        /// Тег "Подписан перевозчиком".
+        /// </summary>
+        [EnumMember]
+        [Description("Подписан перевозчиком")]
+        SignedByCarrier = 10,
     }
 }

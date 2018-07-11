@@ -114,6 +114,36 @@
   <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionBuyer_OutputMessage">
     <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionBuyerResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsignorTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsignorTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsignorTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsignorTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoReceivedTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoReceivedTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoReceivedTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoReceivedTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoDeliveredTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoDeliveredTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoDeliveredTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoDeliveredTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsigneeTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsigneeTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsigneeTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsigneeTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCarrierTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCarrierTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCarrierTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCarrierTitleResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_GenerateWorksTransferSeller_InputMessage">
     <wsdl:part name="parameters" element="tns:GenerateWorksTransferSeller" />
   </wsdl:message>
@@ -161,6 +191,36 @@
   </wsdl:message>
   <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionBuyer_OutputMessage">
     <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsignorTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsignorTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsignorTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsignorTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoReceivedTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoReceivedTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoReceivedTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoReceivedTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoDeliveredTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoDeliveredTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsigneeTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsigneeTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsigneeTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsigneeTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCarrierTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCarrierTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCarrierTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCarrierTitleResponse" />
   </wsdl:message>
   <wsdl:message name="IExchangeService_DownloadPdfDocument_InputMessage">
     <wsdl:part name="parameters" element="tns:DownloadPdfDocument" />
@@ -893,6 +953,26 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer" message="tns:IExchangeService_ParseGeneralTransferCorrectionBuyer_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse" message="tns:IExchangeService_ParseGeneralTransferCorrectionBuyer_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" message="tns:IExchangeService_ParseTransportWaybillConsignorTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse" message="tns:IExchangeService_ParseTransportWaybillConsignorTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" message="tns:IExchangeService_ParseTransportWaybillCargoReceivedTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCargoReceivedTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_ParseTransportWaybillCargoDeliveredTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCargoDeliveredTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" message="tns:IExchangeService_ParseTransportWaybillConsigneeTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse" message="tns:IExchangeService_ParseTransportWaybillConsigneeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" message="tns:IExchangeService_ParseTransportWaybillCarrierTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCarrierTitle_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GenerateWorksTransferSeller">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" message="tns:IExchangeService_GenerateWorksTransferSeller_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse" message="tns:IExchangeService_GenerateWorksTransferSeller_OutputMessage" />
@@ -924,6 +1004,26 @@
     <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" message="tns:IExchangeService_GenerateGeneralTransferCorrectionBuyer_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerResponse" message="tns:IExchangeService_GenerateGeneralTransferCorrectionBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" message="tns:IExchangeService_GenerateTransportWaybillConsignorTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillConsignorTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" message="tns:IExchangeService_GenerateTransportWaybillCargoReceivedTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCargoReceivedTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" message="tns:IExchangeService_GenerateTransportWaybillConsigneeTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillConsigneeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" message="tns:IExchangeService_GenerateTransportWaybillCarrierTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCarrierTitle_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DownloadPdfDocument">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" message="tns:IExchangeService_DownloadPdfDocument_InputMessage" />
@@ -1497,6 +1597,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GenerateWorksTransferSeller">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" style="document" />
       <wsdl:input>
@@ -1562,6 +1707,51 @@
     </wsdl:operation>
     <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2707,6 +2897,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GenerateWorksTransferSeller">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" style="document" />
       <wsdl:input>
@@ -2772,6 +3007,51 @@
     </wsdl:operation>
     <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

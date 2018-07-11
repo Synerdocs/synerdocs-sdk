@@ -19,10 +19,22 @@ namespace Midway.ObjectModel.Utility
 	public class FullEnumValuesRequest : EnumValuesRequest
 	{
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип записи адреса'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithAddressLocationTypes { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип адреса'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]
 		public bool WithAddressTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Коды операций над документом'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithDocumentOperationCodes { get; set; }
 
 		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип заявки на издание сертификата'; иначе - <c>false</c>.
@@ -49,6 +61,12 @@ namespace Midway.ObjectModel.Utility
 		public bool WithCloudProviderTypes { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Статус проверки черновика документа'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithFormatControlValidationStatuses { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Статус создания усовершенствованной подписи'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]
@@ -59,6 +77,54 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public bool WithEnhancedSignFailedReasons { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип подписанта документа'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithSignerTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула водителя (сдача груза) транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillCargoDeliveredTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула перевозчика транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillCarrierTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула грузополучателя транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула водителя (прием груза) транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillCargoReceivedTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillConsignorTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип участника ЭДО транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillInterchangeParticipantTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип экземпляра транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillCopyTypes { get; set; }
 
 		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип авторизации контактов'; иначе - <c>false</c>.

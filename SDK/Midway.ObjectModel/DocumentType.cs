@@ -213,6 +213,41 @@ namespace Midway.ObjectModel
         GeneralTransferCorrectionRevisionSeller = 29,
 
         /// <summary>
+        /// Транспортная накладная (титул грузоотправителя).
+        /// </summary>
+        [EnumMember]
+        [Description("Транспортная накладная (титул грузоотправителя)")]
+        TransportWaybillConsignorTitle = 30,
+
+        /// <summary>
+        /// Транспортная накладная (титул водителя - прием груза).
+        /// </summary>
+        [EnumMember]
+        [Description("Транспортная накладная (титул водителя - прием груза)")]
+        TransportWaybillCargoReceivedTitle = 31,
+
+        /// <summary>
+        /// Транспортная накладная (титул водителя - сдача груза).
+        /// </summary>
+        [EnumMember]
+        [Description("Транспортная накладная (титул водителя - сдача груза)")]
+        TransportWaybillCargoDeliveredTitle = 32,
+
+        /// <summary>
+        /// Транспортная накладная (титул грузополучателя).
+        /// </summary>
+        [EnumMember]
+        [Description("Транспортная накладная (титул грузополучателя)")]
+        TransportWaybillConsigneeTitle = 33,
+
+        /// <summary>
+        /// Транспортная накладная (титул перевозчика).
+        /// </summary>
+        [EnumMember]
+        [Description("Транспортная накладная (титул перевозчика)")]
+        TransportWaybillCarrierTitle = 34,
+
+        /// <summary>
         /// Канонический EDI документ.
         /// Используется только при конвертации документов.
         /// </summary>

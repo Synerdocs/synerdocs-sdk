@@ -21,10 +21,22 @@ namespace Midway.ObjectModel.Utility
 	public class SpecifiedEnumValuesRequest : EnumValuesRequest
 	{
 		/// <summary>
+		/// Значения перечисления типа 'Тип записи адреса'.
+		/// </summary>
+		[DataMember]
+		public List<AddressLocationType> AddressLocationTypes { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Тип адреса'.
 		/// </summary>
 		[DataMember]
 		public List<AddressType> AddressTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Коды операций над документом'.
+		/// </summary>
+		[DataMember]
+		public List<DocumentOperationCodes> DocumentOperationCodes { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Тип заявки на издание сертификата'.
@@ -51,6 +63,12 @@ namespace Midway.ObjectModel.Utility
 		public List<CloudProviderType> CloudProviderTypes { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Статус проверки черновика документа'.
+		/// </summary>
+		[DataMember]
+		public List<FormatControlValidationStatus> FormatControlValidationStatuses { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Статус создания усовершенствованной подписи'.
 		/// </summary>
 		[DataMember]
@@ -61,6 +79,54 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public List<EnhancedSignFailedReason> EnhancedSignFailedReasons { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Тип подписанта документа'.
+		/// </summary>
+		[DataMember]
+		public List<SignerType> SignerTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (сдача груза) транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillCargoDeliveredTitleFormatVersion> TransportWaybillCargoDeliveredTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула перевозчика транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillCarrierTitleFormatVersion> TransportWaybillCarrierTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула грузополучателя транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillConsigneeTitleFormatVersion> TransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (прием груза) транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillCargoReceivedTitleFormatVersion> TransportWaybillCargoReceivedTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillConsignorTitleFormatVersion> TransportWaybillConsignorTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Тип участника ЭДО транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillInterchangeParticipantType> TransportWaybillInterchangeParticipantTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Тип экземпляра транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillCopyType> TransportWaybillCopyTypes { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Тип авторизации контактов'.

@@ -15,7 +15,7 @@ namespace Midway.ObjectModel.Extensions
             => !(documentType == DocumentType.Untyped
                 || documentType == DocumentType.RevocationOffer
                 || documentType.IsInvoice()
-                || documentType.IsSellerTitle()
+                || documentType.IsRootTitle()
                 || documentType.IsEdiDocument());
 
         /// <summary>
@@ -99,12 +99,12 @@ namespace Midway.ObjectModel.Extensions
                 && untypedKind == UntypedKind.StatementOfInvoiceReglament;
 
         /// <summary>
-        /// явл€етс€ ли документ подписью
+        /// ѕроверить, €вл€етс€ ли документ подписью.
         /// </summary>
-        /// <param name="documentType"></param>
-        /// <returns></returns>
+        /// <param name="documentType">“ип документа.</param>
+        /// <returns><c>true</c>, если документ €вл€етс€ подписью; иначе - <c>false</c>.</returns>
         public static bool IsSign(this DocumentType documentType)
-            => IsBuyerTitle(documentType);
+            => IsReplyTitle(documentType);
 
         /// <summary>
         /// явл€етс€ ли документ тем или иным видом титула продавца.
@@ -168,10 +168,10 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
 
         /// <summary>
-        /// ≈сть ли возможность выбора требовани€ ответной подписи
+        /// ≈сть ли возможность выбора требовани€ ответной подписи.
         /// </summary>
-        /// <param name="documentType">“ип документа</param>
-        /// <returns><c>true</c>, если есть возможность выбора требовани€ ответной подписи</returns>
+        /// <param name="documentType">“ип документа.</param>
+        /// <returns><c>true</c>, если есть возможность выбора требовани€ ответной подписи.</returns>
         public static bool IsNeedSignOptional(this DocumentType documentType)
             => documentType == DocumentType.Untyped
                 || documentType.IsWorksTransferSeller()
@@ -250,5 +250,50 @@ namespace Midway.ObjectModel.Extensions
         public static bool IsGeneralTransferBuyer(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferBuyer
                 || documentType == DocumentType.GeneralTransferCorrectionBuyer;
+
+        /// <summary>
+        /// ѕроверить, €вл€етс€ ли документ титулом грузоотправител€ транспортной накладной.
+        /// </summary>
+        /// <param name="documentType">“ип документа.</param>
+        /// <returns>
+        /// <c>true</c>, если документ €вл€етс€ титулом грузоотправител€ транспортной накладной; иначе - <c>false</c>.
+        /// </returns>
+        public static bool IsTransportWaybillConsignorTitle(this DocumentType documentType)
+            => documentType == DocumentType.TransportWaybillConsignorTitle;
+
+        /// <summary>
+        /// ѕроверить, €вл€етс€ ли документ ответным титулом транспортной накладной.
+        /// </summary>
+        /// <param name="documentType">“ип документа.</param>
+        /// <returns>
+        /// <c>true</c>, если документ €вл€етс€ ответным титулом транспортной накладной; иначе - <c>false</c>.
+        /// </returns>
+        public static bool IsTransportWaybillReplyTitle(this DocumentType documentType)
+            => documentType == DocumentType.TransportWaybillCargoReceivedTitle
+                || documentType == DocumentType.TransportWaybillCargoDeliveredTitle
+                || documentType == DocumentType.TransportWaybillConsigneeTitle
+                || documentType == DocumentType.TransportWaybillCarrierTitle;
+
+        /// <summary>
+        /// ѕроверить, €вл€етс€ ли документ тем или иным корневым титулом.
+        /// </summary>
+        /// <param name="documentType">“ип документа.</param>
+        /// <returns>
+        /// <c>true</c>, если документ €вл€етс€ тем или иным корневым титулом; иначе - <c>false</c>.
+        /// </returns>
+        public static bool IsRootTitle(this DocumentType documentType)
+            => documentType.IsSellerTitle()
+                || documentType.IsTransportWaybillConsignorTitle();
+
+        /// <summary>
+        /// ѕроверить, €вл€етс€ ли документ тем или иным ответным титулом.
+        /// </summary>
+        /// <param name="documentType">“ип документа.</param>
+        /// <returns>
+        /// <c>true</c>, если документ €вл€етс€ тем или иным ответным титулом; иначе - <c>false</c>.
+        /// </returns>
+        public static bool IsReplyTitle(this DocumentType documentType)
+            => documentType.IsBuyerTitle()
+                || documentType.IsTransportWaybillReplyTitle();
     }
 }

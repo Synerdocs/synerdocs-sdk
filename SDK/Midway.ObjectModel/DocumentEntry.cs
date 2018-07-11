@@ -61,10 +61,22 @@ namespace Midway.ObjectModel
         public string OrganizationBox { get; set; }
 
         /// <summary>
+        /// Название организации отправителя.
+        /// </summary>
+        [DataMember]
+        public string OrganizationName { get; set; }
+
+        /// <summary>
         /// ИД подразделения отправителя
         /// </summary>
         [DataMember]
         public string DepartmentId { get; set; }
+
+        /// <summary>
+        /// Название подразделения отправителя.
+        /// </summary>
+        [DataMember]
+        public string DepartmentName { get; set; }
 
         /// <summary>
         /// Документооборот

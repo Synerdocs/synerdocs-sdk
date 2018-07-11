@@ -203,6 +203,12 @@ namespace Midway.ObjectModel
         public bool InvoiceReglamentAccepted { get; set; }
 
         /// <summary>
+        /// <c>true</c>, если принят регламент использования простой ЭП; иначе - <c>false</c>.
+        /// </summary>
+        [DataMember]
+        public bool SimpleSignatureRegulationAccepted { get; set; }
+
+        /// <summary>
         /// Код оператора ЭДО.
         /// </summary>
         [DataMember]

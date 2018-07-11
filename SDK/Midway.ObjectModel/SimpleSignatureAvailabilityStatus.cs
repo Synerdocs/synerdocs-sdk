@@ -43,5 +43,12 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Подписание простой ЭП недоступно для данного типа документа")]
         DocumentTypeNotAllowed = 4,
+
+        /// <summary>
+        /// Не указан номер телефона для использования в простой ЭП.
+        /// </summary>
+        [EnumMember]
+        [Description("Не указан номер телефона для использования в простой ЭП")]
+        PhoneNumberNotSpecified = 5,
     }
 }

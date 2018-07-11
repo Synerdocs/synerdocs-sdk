@@ -3,21 +3,21 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Связка код - наименование
+    /// Связка код - наименование.
     /// </summary>
     [DataContract]
     public class NameCodeObject
     {
         /// <summary>
-        /// Код
+        /// Код.
         /// </summary>
         [DataMember]
         public string Code { get; set; }
 
         /// <summary>
-        /// Имя объекта
+        /// Имя объекта.
         /// </summary>
         [DataMember]
-        public string Name{ get; set; }
+        public string Name { get; set; }
     }
 }
