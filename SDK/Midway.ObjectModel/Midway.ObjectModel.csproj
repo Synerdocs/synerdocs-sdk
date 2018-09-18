@@ -75,6 +75,8 @@
     <Compile Include="CargoArea.cs" />
     <Compile Include="CargoAreaTotal.cs" />
     <Compile Include="DocumentOperationCodes.cs" />
+    <Compile Include="DocumentPrintingRequest.cs" />
+    <Compile Include="DocumentPrintingResponse.cs" />
     <Compile Include="ParsingRequest.cs" />
     <Compile Include="DriverCargoOperation.cs" />
     <Compile Include="CargoPackage.cs" />

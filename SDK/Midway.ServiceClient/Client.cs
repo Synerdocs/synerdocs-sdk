@@ -116,8 +116,6 @@ namespace Midway.ServiceClient
         {
             var token = client.Authenticate(login, password, applicationId);
             TakeToken(token);
-
-            BoxId = null;
             return IsAuthorized;
         }
 
@@ -130,15 +128,26 @@ namespace Midway.ServiceClient
             var encryptedToken = client.AuthenticateWithCertificate(certHash, applicationId);
             if (encryptedToken == null)
                 return false;
+
             EncryptedToken = encryptedToken;
             var token = Crypto.CryptoApiHelper.Decrypt(Convert.FromBase64String(encryptedToken));
             var tokenId = new Guid(token).ToString();
             TakeToken(tokenId);
-            if (!IsAuthorized)
-                return false;
+            return IsAuthorized;
+        }
 
-            BoxId = null; 
-            return true;
+        public bool AuthenticateWithIdentityToken(string identityToken, string applicationId = null)
+        {
+            var token = client.AuthenticateWithIdentityToken(identityToken, applicationId);
+            TakeToken(token);
+            return IsAuthorized;
+        }
+
+        public bool AuthenticateWithAccessToken(string accessToken, string applicationId = null)
+        {
+            var token = client.AuthenticateWithAccessToken(accessToken, applicationId);
+            TakeToken(token);
+            return IsAuthorized;
         }
 
         public bool OrganizationStructureHasSingleElement(string organizationId)
@@ -1418,6 +1427,11 @@ namespace Midway.ServiceClient
         public NamedContent DownloadPdfDocument(string boxId, string documentId)
         {
             return CheckAutorizedInvoke(() => client.DownloadPdfDocument(Token, boxId, documentId));
+        }
+
+        public DocumentPrintingResponse PrintDocument(EmployeeOperationCredentials credentials, DocumentPrintingRequest request)
+        {
+            return CheckAutorizedInvoke(() => client.PrintDocument(credentials, request));
         }
 
         public RegistrationResponse RegisterSubscriber(RegistrationRequest request)

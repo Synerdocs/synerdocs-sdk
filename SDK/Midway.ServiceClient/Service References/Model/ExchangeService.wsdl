@@ -390,6 +390,12 @@
   <wsdl:message name="IExchangeService_GetEnumValues_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEnumValuesResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_PrintDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintDocument" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_PrintDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintDocumentResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
   </wsdl:message>
@@ -1136,6 +1142,10 @@
     <wsdl:operation name="GetEnumValues">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnumValues" message="tns:IExchangeService_GetEnumValues_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetEnumValuesResponse" message="tns:IExchangeService_GetEnumValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintDocument">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/PrintDocument" message="tns:IExchangeService_PrintDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/PrintDocumentResponse" message="tns:IExchangeService_PrintDocument_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
@@ -2004,6 +2014,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetEnumValues">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetEnumValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintDocument">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/PrintDocument" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3311,6 +3330,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PrintDocument">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/PrintDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Authenticate" style="document" />
       <wsdl:input>
@@ -4082,7 +4110,7 @@
       <soap:address location="http://localhost:5001/ExchangeService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBindingSecure_IExchangeService" binding="tns:BasicHttpBindingSecure_IExchangeService">
-      <soap:address location="https://w798w81.comp.npo:5003/ExchangeService.svc" />
+      <soap:address location="https://w730w10.comp.npo:444/ExchangeService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

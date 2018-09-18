@@ -29,6 +29,22 @@ namespace Midway.ServiceClient
         /// <param name="certHash">отпечаток сертификата</param>
         bool AuthenticateWithCertificate(string certHash, string applicationId = null);
 
+        /// <summary>
+        /// Получить локальный токен при авторизации по токену удостоверения.
+        /// </summary>
+        /// <param name="identityToken">Токен удостоверения.</param>
+        /// <param name="applicationId">ИД приложения.</param>
+        /// <returns><c>true</c>, если авторизация прошла успешно; иначе - <c>false</c>.</returns>
+        bool AuthenticateWithIdentityToken(string identityToken, string applicationId = null);
+
+        /// <summary>
+        /// Получить локальный токен при авторизации по токену доступа.
+        /// </summary>
+        /// <param name="accessToken">Токен доступа.</param>
+        /// <param name="applicationId">ИД приложения.</param>
+        /// <returns><c>true</c>, если авторизация прошла успешно; иначе - <c>false</c>.</returns>
+        bool AuthenticateWithAccessToken(string accessToken, string applicationId = null);
+
         IAsyncResult BeginAuthenticate(string login, string password, string applicationId, AsyncCallback asyncCallback);
 
         string EndAuthenticate(IAsyncResult asyncResult);

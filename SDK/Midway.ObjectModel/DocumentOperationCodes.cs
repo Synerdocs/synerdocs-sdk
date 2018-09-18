@@ -29,7 +29,7 @@ namespace Midway.ObjectModel
         /// Отметить документ как не прочитанный.
         /// </summary>
         [EnumMember]
-        [Description("Отметить документ как не прочитанный")]
+        [Description("Отметить документ как непрочитанный")]
         MarkAsUnread = 1 << 2, // 2.
 
         /// <summary>

@@ -30,8 +30,8 @@ namespace Midway.ServiceClient
         public void TakeToken(string token)
         {
             Token = token;
-            if (Authorized != null)
-                Authorized(this, new ClientAutorizedEventArgs(token));
+            BoxId = null;
+            Authorized?.Invoke(this, new ClientAutorizedEventArgs(token));
         }
 
         public virtual string Token { get; set; }

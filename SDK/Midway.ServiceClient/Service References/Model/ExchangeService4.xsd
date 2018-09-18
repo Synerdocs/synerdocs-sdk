@@ -1593,7 +1593,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FullName" nillable="true" type="tns:FullName" />
-          <xs:element name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -2312,6 +2312,7 @@
       <xs:element minOccurs="0" name="RoamingPackageRecipientId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ServiceReglamentAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SimpleSignatureRegulationAccepted" type="xs:boolean" />
       <xs:element minOccurs="0" name="State" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Tel" nillable="true" type="xs:string" />
@@ -2707,7 +2708,10 @@
   <xs:complexType name="SimpleSignatureRegulationAcceptingResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationResponse">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RegulationRecommendationsMessage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegulationRecommendationsUrl" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -3785,6 +3789,21 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="FlowType" nillable="true" type="tns:FlowType" />
+  <xs:complexType name="ArrayOfFormatControlValidationStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FormatControlValidationStatus" type="tns:FormatControlValidationStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFormatControlValidationStatus" nillable="true" type="tns:ArrayOfFormatControlValidationStatus" />
+  <xs:simpleType name="FormatControlValidationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Warning" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FormatControlValidationStatus" nillable="true" type="tns:FormatControlValidationStatus" />
   <xs:complexType name="ArrayOfGender">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Gender" type="tns:Gender" />
@@ -4150,6 +4169,8 @@
       <xs:enumeration value="InfoFieldPdfEnabled" />
       <xs:enumeration value="Factoring" />
       <xs:enumeration value="Edi" />
+      <xs:enumeration value="NotifyBySms" />
+      <xs:enumeration value="NotifyByViber" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SettingType" nillable="true" type="tns:SettingType" />
@@ -4258,6 +4279,7 @@
       <xs:enumeration value="RegulationNotAccepted" />
       <xs:enumeration value="SnilsNotSpecified" />
       <xs:enumeration value="DocumentTypeNotAllowed" />
+      <xs:enumeration value="PhoneNumberNotSpecified" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SimpleSignatureAvailabilityStatus" nillable="true" type="tns:SimpleSignatureAvailabilityStatus" />
@@ -4480,6 +4502,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfEnumValue" nillable="true" type="tns:ArrayOfEnumValue" />
+  <xs:complexType name="DocumentPrintingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="DocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentPrintingRequest" nillable="true" type="tns:DocumentPrintingRequest" />
+  <xs:complexType name="DocumentPrintingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NamedContent" nillable="true" type="tns:NamedContent" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentPrintingResponse" nillable="true" type="tns:DocumentPrintingResponse" />
   <xs:complexType name="ArrayOfMessageInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
@@ -4525,7 +4567,9 @@
   <xs:complexType name="MessageRecipient">
     <xs:sequence>
       <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
@@ -4585,6 +4629,7 @@
       <xs:element minOccurs="0" name="NeedSign" type="xs:boolean" />
       <xs:element minOccurs="0" name="ParentDocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UntypedKind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidationStatus" nillable="true" type="tns:EnumValue" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DraftDocument" nillable="true" type="tns:DraftDocument" />
@@ -4650,6 +4695,7 @@
   <xs:complexType name="InternalMessageRecipient">
     <xs:sequence>
       <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserLogin" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -4788,6 +4834,8 @@
       <xs:element minOccurs="0" name="DocumentTags" nillable="true" type="tns:ArrayOfDocumentTag" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromOrganizationtName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MessageId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MultiStatus" nillable="true" type="tns:UntypedDocumentMultiFlowStatus" />
       <xs:element minOccurs="0" name="Recipients" nillable="true" type="tns:ArrayOfMessageRecipientWithStatus" />
@@ -4864,8 +4912,6 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:MessageRecipient">
         <xs:sequence>
-          <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Status" nillable="true" type="tns:DocumentFlowStatus" />
         </xs:sequence>
       </xs:extension>
@@ -4961,8 +5007,10 @@
       <xs:element minOccurs="0" name="DocumentSignStatuses" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
       <xs:element minOccurs="0" name="DocumentTypeEnums" nillable="true" type="tns:ArrayOfEnumValue" />
       <xs:element minOccurs="0" name="DocumentTypes" nillable="true" type="tns:ArrayOfDocumentType" />
+      <xs:element minOccurs="0" name="ExcludedDocumentTagTypes" nillable="true" type="tns:ArrayOfEnumValue" />
       <xs:element minOccurs="0" name="First" type="xs:int" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IncludedDocumentTagTypes" nillable="true" type="tns:ArrayOfEnumValue" />
       <xs:element minOccurs="0" name="InvoiceFlowStatuses" nillable="true" type="tns:ArrayOfInvoiceFlowStatus" />
       <xs:element minOccurs="0" name="Max" type="xs:int" />
       <xs:element minOccurs="0" name="NeedReceipt" nillable="true" type="xs:boolean" />
@@ -5438,6 +5486,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
       <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FlowType" type="tns:FlowType" />
@@ -5446,6 +5495,7 @@
       <xs:element minOccurs="0" name="NeedReceipt" type="xs:boolean" />
       <xs:element minOccurs="0" name="NeedSign" type="xs:boolean" />
       <xs:element minOccurs="0" name="OrganizationBox" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

@@ -178,7 +178,7 @@ namespace Midway.ObjectModel
         public string Ifns { get; set; }
 
         /// <summary>
-        /// Свидетельство государственной регистрации ИП.
+        /// Дата внесения записи об ИП в ЕГРИП.
         /// </summary>
         [DataMember]
         public string StateRegistrationCert { get; set; }

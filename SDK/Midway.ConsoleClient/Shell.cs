@@ -295,10 +295,14 @@ namespace Midway.ConsoleClient
                     {
                         "crt-simple-sgn",
                         Tuple.Create<Action,string>(CreateSimpleSignature, "Подписать документ простой ЭП")
+                    },
+                    {
+                        "print-document",
+                        Tuple.Create<Action, string>(PrintDocument, "Напечатать документ")
                     }
                 };
 
-                PrintAvailableCommnads(commandsMap);
+                PrintAvailableCommands(commandsMap);
 
                 // выбираем первый доступный ящик
                 var firstAvailableBox = client.GetBoxes().FirstOrDefault();
@@ -340,7 +344,7 @@ namespace Midway.ConsoleClient
                     else
                     {
                         UserInput.Error("Неправильно указано имя команды \"{0}\"", line);
-                        PrintAvailableCommnads(commandsMap);
+                        PrintAvailableCommands(commandsMap);
                     }
                 }
 
@@ -3050,8 +3054,8 @@ namespace Midway.ConsoleClient
         /// <summary>
         /// Напечатать доступные команды.
         /// </summary>
-        /// <param name="commandsMap"></param>
-        private void PrintAvailableCommnads(Dictionary<string, Tuple<Action, string>> commandsMap)
+        /// <param name="commandsMap">Доступные команды.</param>
+        private void PrintAvailableCommands(Dictionary<string, Tuple<Action, string>> commandsMap)
         {
             Console.Out.WriteLine("Доступные команды:");
             foreach (var pair in commandsMap)
@@ -4030,6 +4034,22 @@ namespace Midway.ConsoleClient
             SaveFile(pdfDocument);
         }
 
+        private void PrintDocument()
+        {
+            var documentId = UserInput.ReadParameter("Id документа");
+            var response = _context.ServiceClient.PrintDocument(
+                GetCurrentCredentials(), 
+                new DocumentPrintingRequest {DocumentId = documentId });
+            if (response == null)
+            {
+                UserInput.Error("Неправильный идентификатор документа");
+                return;
+            }
+
+            Console.Out.Write("Получен документ в формате pdf.");
+            SaveFile(response.NamedContent);
+        }
+
         private void SaveFile(NamedContent namedContent)
         {
             if (!UserInput.ChooseYesNo("Сохранить файл?"))
@@ -4122,7 +4142,7 @@ namespace Midway.ConsoleClient
             {
                 organizationRegistrationData.Ogrn = FillField(organizationRegistrationData.Ogrn, "Введите ОГРНИП");
                 organizationRegistrationData.StateRegistrationCert =
-                   FillField(organizationRegistrationData.StateRegistrationCert, "Введите реквизиты свидетельства о гос.регистрации ИП");
+                   FillField(organizationRegistrationData.StateRegistrationCert, "Введите дату внесения записи об ИП в ЕГРИП");
             }
 
             //TODO synerman: хорошо бы здесь проверку сделать на существование абонента в сервисе. Пока не позволяет это сделать невозможность аутентификации приложения 
@@ -5109,6 +5129,7 @@ namespace Midway.ConsoleClient
         private EmployeeOperationCredentials GetCurrentCredentials()
             => new EmployeeOperationCredentials
             {
+                AuthToken = _context.ServiceClient.Token,
                 BoxAddress = _context.CurrentBox
             };
 

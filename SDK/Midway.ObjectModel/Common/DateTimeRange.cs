@@ -1,22 +1,22 @@
-using System;
+п»їusing System;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel.Common
 {
     /// <summary>
-    /// Диапазон дат и времени.
+    /// Р”РёР°РїР°Р·РѕРЅ РґР°С‚ Рё РІСЂРµРјРµРЅРё.
     /// </summary>
     [DataContract]
     public class DateTimeRange
     {
         /// <summary>
-        /// Дата и время начала.
+        /// Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°С‡Р°Р»Р°.
         /// </summary>
         [DataMember]
         public DateTime? From { get; set; }
 
         /// <summary>
-        /// Дата и время завершения.
+        /// Р”Р°С‚Р° Рё РІСЂРµРјСЏ Р·Р°РІРµСЂС€РµРЅРёСЏ.
         /// </summary>
         [DataMember]
         public DateTime? To { get; set; }

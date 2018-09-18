@@ -17,7 +17,7 @@ namespace Midway.ConsoleClient
                 return;
             }
 
-            Console.Out.WriteLine("Для выхода из программы нажмите Ctrl+C");
+            Console.Out.WriteLine("Для выхода из программы нажмите горячие клавиши Ctrl+C");
 
             new Shell().Run(args);
         }
