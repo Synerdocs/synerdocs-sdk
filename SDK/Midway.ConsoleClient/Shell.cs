@@ -2643,7 +2643,7 @@ namespace Midway.ConsoleClient
                         break;
 
                     case DocumentType.TransportWaybillConsignorTitle:
-                        documentType = (DocumentType)UserInput
+                        documentType = (DocumentType) UserInput
                             .ChooseOption(
                                 "Выберите тип ответного титула транспортной накладной",
                                 new[]
@@ -2652,6 +2652,7 @@ namespace Midway.ConsoleClient
                                     DocumentType.TransportWaybillCargoDeliveredTitle,
                                     DocumentType.TransportWaybillConsigneeTitle,
                                     DocumentType.TransportWaybillCarrierTitle,
+                                    DocumentType.TransportWaybillDeliveryPlaceChangeTitle
                                 })
                             .Data;
                         if (UserInput.ChooseYesNo("Сгенерировать ответный титул транспортной накладной?"))
@@ -2704,6 +2705,33 @@ namespace Midway.ConsoleClient
                                             {
                                                 Model = CreateTransportWaybillCarrierTitle(),
                                                 Options = new TransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+                                case DocumentType.TransportWaybillDeliveryPlaceChangeTitle:
+
+                                    var titleSenderType = (TransportWaybillInterchangeParticipantType)UserInput
+                                        .ChooseOption(
+                                            "Выберите тип отправителя титула изменения места доставки транспортной накладной",
+                                            new[]
+                                            {
+                                                TransportWaybillInterchangeParticipantType.Driver,
+                                                TransportWaybillInterchangeParticipantType.Consigee,
+                                                TransportWaybillInterchangeParticipantType.Carrier
+                                            })
+                                        .Data;
+
+                                    namedContent = _context.ServiceClient
+                                        .GenerateTransportWaybillDeliveryPlaceChangeTitle(
+                                            GetCurrentCredentials(),
+                                            new TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest
+                                            {
+                                                Model = CreateTransportWaybillDeliveryPlaceChangeTitle(),
+                                                Options = new TransportWaybillGenerationOptions
+                                                {
+                                                    TitleSenderType = titleSenderType.ToEnumValue()
+                                                },
                                                 ParentDocumentId = parentId,
                                             })
                                         .GeneratedContent.NamedContent;
@@ -5322,6 +5350,16 @@ namespace Midway.ConsoleClient
             => new TransportWaybillCarrierTitle
             {
                 FormatVersion = EnumHelper.ToEnumValue(TransportWaybillCarrierTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула изменения места доставки транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула изменения места доставки транспортной накладной.</returns>
+        private static TransportWaybillDeliveryPlaceChangeTitle CreateTransportWaybillDeliveryPlaceChangeTitle()
+            => new TransportWaybillDeliveryPlaceChangeTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(TransportWaybillDeliveryPlaceChangeTitleFormatVersion.V100),
             };
     }
 }

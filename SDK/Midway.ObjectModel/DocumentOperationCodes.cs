@@ -171,5 +171,12 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Подписать перевозчиком Транспортной накладной")]
         SignByCarrier = 1 << 22, // 2097152.
+
+        /// <summary>
+        /// Изменить место доставки Транспортной накладной.
+        /// </summary>
+        [EnumMember]
+        [Description("Изменить место доставки Транспортной накладной")]
+        ChangeDeliveryPlace = 1 << 23, // 4194304.
     }
 }

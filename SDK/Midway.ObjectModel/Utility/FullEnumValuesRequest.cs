@@ -97,6 +97,12 @@ namespace Midway.ObjectModel.Utility
 		public bool WithTransportWaybillCarrierTitleFormatVersions { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула изменения места доставки транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillDeliveryPlaceChangeTitleFormatVersions { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула грузополучателя транспортной накладной'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]

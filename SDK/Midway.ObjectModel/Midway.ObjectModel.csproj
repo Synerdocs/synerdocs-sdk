@@ -77,6 +77,9 @@
     <Compile Include="DocumentOperationCodes.cs" />
     <Compile Include="DocumentPrintingRequest.cs" />
     <Compile Include="DocumentPrintingResponse.cs" />
+    <Compile Include="IndividualEntrepreneurPlaceChangeInitiator.cs" />
+    <Compile Include="IndividualPlaceChangeInitiator.cs" />
+    <Compile Include="LegalEntityPlaceChangeInitiator.cs" />
     <Compile Include="ParsingRequest.cs" />
     <Compile Include="DriverCargoOperation.cs" />
     <Compile Include="CargoPackage.cs" />
@@ -149,6 +152,8 @@
     <Compile Include="InterchangeDescription.cs" />
     <Compile Include="InterchangeParticipant.cs" />
     <Compile Include="PenaltyCharge.cs" />
+    <Compile Include="PlaceChange.cs" />
+    <Compile Include="PlaceChangeInitiatorBase.cs" />
     <Compile Include="Quantity.cs" />
     <Compile Include="RecordIntroductionPolicy.cs" />
     <Compile Include="CargoRemarks.cs" />
@@ -162,6 +167,10 @@
     <Compile Include="TransportWaybillCarrierTitle.cs" />
     <Compile Include="TransportWaybillCarrierTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillCarrierTitleGeneratingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingResponse.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillConsigneeTitleGeneratingRequest.cs" />
     <Compile Include="TransportWaybillCarrierTitleParsingRequest.cs" />
     <Compile Include="TransportWaybillConsigneeTitleParsingRequest.cs" />
@@ -169,6 +178,7 @@
     <Compile Include="TransportWaybillConsigneeTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillCarrierTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillConsigneeTitleParsingResponse.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitle.cs" />
     <Compile Include="TransportWaybillReplyTitleBase.cs" />
     <Compile Include="TransportWaybillTitleBase.cs" />
     <Compile Include="TransportWaybillCargoDeliveredTitle.cs" />

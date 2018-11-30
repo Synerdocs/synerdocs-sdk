@@ -754,6 +754,16 @@ namespace Midway.ServiceClient
             TransportWaybillCarrierTitleParsingRequest request);
 
         /// <summary>
+        /// Получить модель титула изменения места доставки транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула изменения места доставки транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillDeliveryPlaceChangeTitleParsingRequest request);
+
+        /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
         /// <param name="model">Модель титула продавца</param>
@@ -879,6 +889,16 @@ namespace Midway.ServiceClient
         /// <returns>Ответ на запрос на генерацию документа.</returns>
         DocumentGenerationResponse GenerateTransportWaybillCarrierTitle(EmployeeOperationCredentials credentials,
             TransportWaybillCarrierTitleGeneratingRequest request);
+
+        /// <summary>
+        /// Сгенерировать контент титула изменения места доставки транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные сотрудника.</param>
+        /// <param name="request">Запрос на генерацию титула изменения места доставки транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request);
 
         /// <summary>
         /// Скачать документ в формате pdf 

@@ -235,6 +235,32 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse EndParseTransportWaybillCarrierTitle(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "eResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "eResponse")]
+        System.IAsyncResult BeginParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse EndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -416,6 +442,31 @@ namespace Midway.ServiceClient.Model {
         System.IAsyncResult BeginGenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
         
         Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCarrierTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itleResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itleResponse")]
+        System.IAsyncResult BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse")]
         Midway.ObjectModel.NamedContent DownloadPdfDocument(string authToken, string boxId, string documentId);
@@ -1742,6 +1793,25 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class GenerateWorksTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -1975,6 +2045,25 @@ namespace Midway.ServiceClient.Model {
         private object[] results;
         
         public GenerateTransportWaybillCarrierTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -3904,6 +3993,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onParseTransportWaybillCarrierTitleCompletedDelegate;
         
+        private BeginOperationDelegate onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private EndOperationDelegate onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGenerateWorksTransferSellerDelegate;
         
         private EndOperationDelegate onEndGenerateWorksTransferSellerDelegate;
@@ -3981,6 +4076,12 @@ namespace Midway.ServiceClient.Model {
         private EndOperationDelegate onEndGenerateTransportWaybillCarrierTitleDelegate;
         
         private System.Threading.SendOrPostCallback onGenerateTransportWaybillCarrierTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private EndOperationDelegate onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate;
         
         private BeginOperationDelegate onBeginDownloadPdfDocumentDelegate;
         
@@ -4721,6 +4822,8 @@ namespace Midway.ServiceClient.Model {
         
         public event System.EventHandler<ParseTransportWaybillCarrierTitleCompletedEventArgs> ParseTransportWaybillCarrierTitleCompleted;
         
+        public event System.EventHandler<ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs> ParseTransportWaybillDeliveryPlaceChangeTitleCompleted;
+        
         public event System.EventHandler<GenerateWorksTransferSellerCompletedEventArgs> GenerateWorksTransferSellerCompleted;
         
         public event System.EventHandler<GenerateGoodsTransferSellerCompletedEventArgs> GenerateGoodsTransferSellerCompleted;
@@ -4746,6 +4849,8 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<GenerateTransportWaybillConsigneeTitleCompletedEventArgs> GenerateTransportWaybillConsigneeTitleCompleted;
         
         public event System.EventHandler<GenerateTransportWaybillCarrierTitleCompletedEventArgs> GenerateTransportWaybillCarrierTitleCompleted;
+        
+        public event System.EventHandler<GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs> GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted;
         
         public event System.EventHandler<DownloadPdfDocumentCompletedEventArgs> DownloadPdfDocumentCompleted;
         
@@ -5910,6 +6015,58 @@ namespace Midway.ServiceClient.Model {
                         request}, this.onEndParseTransportWaybillCarrierTitleDelegate, this.onParseTransportWaybillCarrierTitleCompletedDelegate, userState);
         }
         
+        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request) {
+            return base.Channel.ParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse EndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseTransportWaybillDeliveryPlaceChangeTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseTransportWaybillDeliveryPlaceChangeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest)(inValues[1]));
+            return this.BeginParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse retVal = this.EndParseTransportWaybillDeliveryPlaceChangeTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseTransportWaybillDeliveryPlaceChangeTitleCompleted(object state) {
+            if ((this.ParseTransportWaybillDeliveryPlaceChangeTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseTransportWaybillDeliveryPlaceChangeTitleCompleted(this, new ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request) {
+            this.ParseTransportWaybillDeliveryPlaceChangeTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, object userState) {
+            if ((this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate == null)) {
+                this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillDeliveryPlaceChangeTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate, this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate, userState);
+        }
+        
         public Midway.ObjectModel.GeneratedContent GenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
             return base.Channel.GenerateWorksTransferSeller(authToken, model, options);
         }
@@ -6616,6 +6773,58 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginGenerateTransportWaybillCarrierTitleDelegate, new object[] {
                         credentials,
                         request}, this.onEndGenerateTransportWaybillCarrierTitleDelegate, this.onGenerateTransportWaybillCarrierTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request) {
+            return base.Channel.GenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            return base.Channel.EndGenerateTransportWaybillDeliveryPlaceChangeTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateTransportWaybillDeliveryPlaceChangeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest)(inValues[1]));
+            return this.BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillDeliveryPlaceChangeTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateTransportWaybillDeliveryPlaceChangeTitleCompleted(object state) {
+            if ((this.GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted(this, new GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request) {
+            this.GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(credentials, request, null);
+        }
+        
+        public void GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate == null)) {
+                this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillDeliveryPlaceChangeTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate, this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate, userState);
         }
         
         public Midway.ObjectModel.NamedContent DownloadPdfDocument(string authToken, string boxId, string documentId) {

@@ -1290,6 +1290,12 @@ namespace Midway.ServiceClient
             => CheckAutorizedInvoke(credentials, 
                 c => client.ParseTransportWaybillCarrierTitle(c, request));
 
+        public TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillDeliveryPlaceChangeTitleParsingRequest request)
+            => CheckAutorizedInvoke(credentials,
+                c => client.ParseTransportWaybillDeliveryPlaceChangeTitle(c, request));
+
         /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
@@ -1424,6 +1430,11 @@ namespace Midway.ServiceClient
             TransportWaybillCarrierTitleGeneratingRequest request) 
             => CheckAutorizedInvoke(credentials, c => client.GenerateTransportWaybillCarrierTitle(c, request));
 
+        public DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request)
+            => CheckAutorizedInvoke(credentials, c => client.GenerateTransportWaybillDeliveryPlaceChangeTitle(c, request));
+
         public NamedContent DownloadPdfDocument(string boxId, string documentId)
         {
             return CheckAutorizedInvoke(() => client.DownloadPdfDocument(Token, boxId, documentId));
@@ -1431,7 +1442,7 @@ namespace Midway.ServiceClient
 
         public DocumentPrintingResponse PrintDocument(EmployeeOperationCredentials credentials, DocumentPrintingRequest request)
         {
-            return CheckAutorizedInvoke(() => client.PrintDocument(credentials, request));
+            return CheckAutorizedInvoke(credentials, c => client.PrintDocument(c, request));
         }
 
         public RegistrationResponse RegisterSubscriber(RegistrationRequest request)
