@@ -310,6 +310,13 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="TransportWaybillDeliveryPlaceChangeTitle">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">35</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="EdiGeneral">
         <xs:annotation>
           <xs:appinfo>
@@ -1957,6 +1964,87 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TransportWaybillCarrierTitle" nillable="true" type="tns:TransportWaybillCarrierTitle" />
+  <xs:complexType name="TransportWaybillDeliveryPlaceChangeTitleParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillDeliveryPlaceChangeTitleParsingRequest" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitleParsingRequest" />
+  <xs:complexType name="TransportWaybillDeliveryPlaceChangeTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillDeliveryPlaceChangeTitleParsingResponse" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitleParsingResponse" />
+  <xs:complexType name="TransportWaybillDeliveryPlaceChangeTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TransportWaybillReplyTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeliveryPlaceChange" nillable="true" type="tns:PlaceChange" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillDeliveryPlaceChangeTitle" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitle" />
+  <xs:complexType name="PlaceChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="tns:InfoFieldFull" />
+      <xs:element minOccurs="0" name="ChangedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Consignee" nillable="true" type="tns:CounterpartyBase" />
+      <xs:element minOccurs="0" name="Form" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Initiator" nillable="true" type="tns:PlaceChangeInitiatorBase" />
+      <xs:element minOccurs="0" name="PlaceChangeInfo" nillable="true" type="tns:CargoOperation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlaceChange" nillable="true" type="tns:PlaceChange" />
+  <xs:complexType name="PlaceChangeInitiatorBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorityBase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="tns:FullName" />
+      <xs:element minOccurs="0" name="OrganizationAuthorityBase" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlaceChangeInitiatorBase" nillable="true" type="tns:PlaceChangeInitiatorBase" />
+  <xs:complexType name="LegalEntityPlaceChangeInitiator">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PlaceChangeInitiatorBase">
+        <xs:sequence>
+          <xs:element name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LegalEntityPlaceChangeInitiator" nillable="true" type="tns:LegalEntityPlaceChangeInitiator" />
+  <xs:complexType name="IndividualEntrepreneurPlaceChangeInitiator">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PlaceChangeInitiatorBase">
+        <xs:sequence>
+          <xs:element name="Inn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndividualEntrepreneurPlaceChangeInitiator" nillable="true" type="tns:IndividualEntrepreneurPlaceChangeInitiator" />
+  <xs:complexType name="IndividualPlaceChangeInitiator">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PlaceChangeInitiatorBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndividualPlaceChangeInitiator" nillable="true" type="tns:IndividualPlaceChangeInitiator" />
   <xs:complexType name="DocumentGenerationOptions">
     <xs:sequence>
       <xs:element minOccurs="0" name="RecipientBoxId" nillable="true" type="xs:string" />
@@ -2011,6 +2099,7 @@
       <xs:element minOccurs="0" name="ConsigeeBoxId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ConsignorBoxId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DriverBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TitleSenderType" nillable="true" type="tns:EnumValue" />
       <xs:element minOccurs="0" name="ValidateContent" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
@@ -2073,6 +2162,18 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TransportWaybillCarrierTitleGeneratingRequest" nillable="true" type="tns:TransportWaybillCarrierTitleGeneratingRequest" />
+  <xs:complexType name="TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="Model" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitle" />
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:TransportWaybillGenerationOptions" />
+          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest" />
   <xs:complexType name="RegistrationRequest">
     <xs:sequence>
       <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:string" />
@@ -3438,6 +3539,7 @@
           <xs:enumeration value="DeliverCargo" />
           <xs:enumeration value="SignByConsignee" />
           <xs:enumeration value="SignByCarrier" />
+          <xs:enumeration value="ChangeDeliveryPlace" />
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
@@ -3549,6 +3651,13 @@
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ChangedDeliveryPlace">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
@@ -4415,6 +4524,19 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="TransportWaybillCopyType" nillable="true" type="tns:TransportWaybillCopyType" />
+  <xs:complexType name="ArrayOfTransportWaybillDeliveryPlaceChangeTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillDeliveryPlaceChangeTitleFormatVersion" type="tns:TransportWaybillDeliveryPlaceChangeTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillDeliveryPlaceChangeTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillDeliveryPlaceChangeTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillDeliveryPlaceChangeTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillDeliveryPlaceChangeTitleFormatVersion" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitleFormatVersion" />
   <xs:complexType name="ArrayOfTransportWaybillInterchangeParticipantType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillInterchangeParticipantType" type="tns:TransportWaybillInterchangeParticipantType" />

@@ -99,6 +99,12 @@ namespace Midway.ObjectModel.Utility
 		public List<TransportWaybillCarrierTitleFormatVersion> TransportWaybillCarrierTitleFormatVersions { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула изменения места доставки транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<TransportWaybillDeliveryPlaceChangeTitleFormatVersion> TransportWaybillDeliveryPlaceChangeTitleFormatVersions { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Версия формата титула грузополучателя транспортной накладной'.
 		/// </summary>
 		[DataMember]

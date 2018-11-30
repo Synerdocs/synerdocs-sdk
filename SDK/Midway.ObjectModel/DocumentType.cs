@@ -248,6 +248,13 @@ namespace Midway.ObjectModel
         TransportWaybillCarrierTitle = 34,
 
         /// <summary>
+        /// Транспортная накладная (изменение места доставки).
+        /// </summary>
+        [EnumMember]
+        [Description("Транспортная накладная (изменение места доставки)")]
+        TransportWaybillDeliveryPlaceChangeTitle = 35,
+        
+        /// <summary>
         /// Канонический EDI документ.
         /// Используется только при конвертации документов.
         /// </summary>

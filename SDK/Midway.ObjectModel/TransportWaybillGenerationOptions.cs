@@ -37,5 +37,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string ConsigeeBoxId { get; set; }
+
+        /// <summary>
+        /// Тип участника-отправителя титула транспортной накладной.
+        /// </summary>
+        [DataMember]
+        public EnumValue TitleSenderType { get; set; }
     }
 }
