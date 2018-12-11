@@ -167,10 +167,6 @@
     <Compile Include="TransportWaybillCarrierTitle.cs" />
     <Compile Include="TransportWaybillCarrierTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillCarrierTitleGeneratingRequest.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingRequest.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingResponse.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillConsigneeTitleGeneratingRequest.cs" />
     <Compile Include="TransportWaybillCarrierTitleParsingRequest.cs" />
     <Compile Include="TransportWaybillConsigneeTitleParsingRequest.cs" />
@@ -179,6 +175,10 @@
     <Compile Include="TransportWaybillCarrierTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillConsigneeTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillDeliveryPlaceChangeTitle.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleFormatVersion.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillReplyTitleBase.cs" />
     <Compile Include="TransportWaybillTitleBase.cs" />
     <Compile Include="TransportWaybillCargoDeliveredTitle.cs" />

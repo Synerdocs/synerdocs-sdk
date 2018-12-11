@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Pkcs;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using Midway.Crypto;
 using Midway.ObjectModel;
 using Midway.ObjectModel.Common;
@@ -64,6 +64,16 @@ namespace Midway.ConsoleClient
         private ClientContext _context;
         private List<UserInput.Option> _departmentsOptions;
         private int _index;
+
+        /// <summary>
+        /// Алгоритмы подписи сертификата, поддерживаемые консольным клиентом.
+        /// </summary>
+        private static readonly string[] _supportedSignatureAlgorithms = new[]
+        {
+            "1.2.643.2.2.3", //ГОСТ Р 34.10-2001
+            "1.2.643.7.1.1.3.2", //ГОСТ Р 34.10-2012 (256 бит)
+            "1.2.643.7.1.1.3.3" //ГОСТ Р 34.10-2012 (512 бит)
+        };
 
         /// <summary>
         /// КОНСТРУКТОР
@@ -426,12 +436,6 @@ namespace Midway.ConsoleClient
                 if (selectedContactList.Any(value => value.Equals(address)))
                 {
                     UserInput.Error("Получатель с таким адресом уже указан");
-                    return null;
-                }
-
-                if (address.Equals(_context.CurrentBox))
-                {
-                    UserInput.Error("Отправитель не может быть указан в качестве получателя");
                     return null;
                 }
 
@@ -1675,32 +1679,13 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Выбрать сертификат из списка установленных.
+        /// Выбрать сертификат из списка установленных и установить его текущим в клиентском контексте.
         /// </summary>
-        private void ChooseCertificate()
+        private void ChooseAndSetContextCertificate()
         {
-            // The following code gets the cert from the keystore
-            var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-            store.Open(OpenFlags.ReadOnly);
-            var certificates =
-                store.Certificates.Cast<X509Certificate2>()
-                    // выбираем только сертификаты с закрытым ключем
-                    .Where(c => c.HasPrivateKey)
-                    // алгоритм ГОСТ
-                    .Where(
-                        c =>
-                            c.SignatureAlgorithm.Value == "1.2.643.2.2.4" ||
-                            c.SignatureAlgorithm.Value == "1.2.643.2.2.3")
-                    .ToList();
-
-            var chooseOption = UserInput.ChooseOption("Выберите сертификат", certificates
-                .Select((c, i) => new UserInput.Option((i + 1).ToString(CultureInfo.InvariantCulture),
-                    // получаем Common Name (CN) из сертификата
-                    c.GetNameInfo(X509NameType.SimpleName, false),
-                    i == 0, c)));
-            var certificate = (X509Certificate2)chooseOption.Data;
-            Console.Out.WriteLine("Выбран сертификат {0}", certificate.Subject);
+            var certificate = ChooseCertificateFromCertificateStores(excludeRegisteredCertificates: false); 
             _context.Certificate = certificate;
+            Console.Out.WriteLine("Выбран сертификат {0}", certificate.Subject);
         }
 
         /// <summary>
@@ -3204,7 +3189,7 @@ namespace Midway.ConsoleClient
                     try
                     {
                         // выбор сертификата по списку
-                        ChooseCertificate();
+                        ChooseAndSetContextCertificate();
                         if (client.AuthenticateWithCertificate(_context.Certificate.Thumbprint, _applicationId))
                         {
                             UserInput.Success("Аутентификация прошла успешно");
@@ -3253,7 +3238,7 @@ namespace Midway.ConsoleClient
             if (UserInput.ChooseYesNo("Выбрать сертификат?", false))
             {
                 // регистрация по сертификату
-                ChooseCertificate();
+                ChooseAndSetContextCertificate();
             }
             else
             {
@@ -4112,7 +4097,7 @@ namespace Midway.ConsoleClient
             byte[] certRaw = null;
             if (UserInput.ChooseYesNo("Взять данные из сертификата?"))
             {
-                var certificate = ChooseCertificateFromRegister(true);
+                var certificate = ChooseCertificateFromCertificateStores(true);
                 certRaw = certificate.RawData;
                 subjectInfo = _context.ServiceClient.GetCertificateSubjectInfo(certRaw);
             }
@@ -4366,7 +4351,7 @@ namespace Midway.ConsoleClient
 
             if (option == loadFromRegisterOption)
             {
-                userRegistrationData.Certificate = ChooseCertificateFromRegister(true)?.RawData;
+                userRegistrationData.Certificate = ChooseCertificateFromCertificateStores(true)?.RawData;
             }
             else
             {
@@ -4398,9 +4383,9 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Выбрать сертификат из списка установленных.
+        /// Выбрать сертификат из списка установленных в системе.
         /// </summary>
-        private X509Certificate2 ChooseCertificateFromRegister(bool excludeRegisteredCertificates = false)
+        private X509Certificate2 ChooseCertificateFromCertificateStores(bool excludeRegisteredCertificates = false)
         {
             // The following code gets the cert from the keystore
             var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
@@ -4409,11 +4394,7 @@ namespace Midway.ConsoleClient
                 store.Certificates.Cast<X509Certificate2>()
                     // выбираем только сертификаты с закрытым ключем
                     .Where(c => c.HasPrivateKey)
-                    // алгоритм ГОСТ
-                    .Where(
-                        c =>
-                            c.SignatureAlgorithm.Value == "1.2.643.2.2.4" ||
-                            c.SignatureAlgorithm.Value == "1.2.643.2.2.3")
+                    .Where(c => _supportedSignatureAlgorithms.Contains(c.SignatureAlgorithm.Value))
                     .ToList();
 
             if (excludeRegisteredCertificates)
@@ -5020,7 +5001,7 @@ namespace Midway.ConsoleClient
         private Sign ChooseStrongSignature(byte[] documentContent = null, DocumentTypeInfo documentTypeInfo = null)
         {
             if (_context.Certificate == null)
-                ChooseCertificate();
+                ChooseAndSetContextCertificate();
 
             string documentId = string.Empty;
 

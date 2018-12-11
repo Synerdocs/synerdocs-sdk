@@ -24,5 +24,7 @@
         public static readonly string KS2 = "КС-2";
         public static readonly string KS3 = "КС-3";
         public static readonly string Sheet = "Ведомость";
+        public static readonly string Invoice = "Счет";
+        public static readonly string AnyAct = "Акт";
     }
 }
