@@ -17,6 +17,7 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>f8b54a30</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -139,6 +140,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.User.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.UserAndEmployeeCreationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Utility.EnumValuesResponse.datasource" />

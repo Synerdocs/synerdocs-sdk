@@ -361,6 +361,12 @@ namespace Midway.ObjectModel.Utility
 		public bool WithValidationResultFormats { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Налоговая ставка'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithVatRates { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип оператора составного фильтра'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]
