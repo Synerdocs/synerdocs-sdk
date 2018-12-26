@@ -363,6 +363,12 @@ namespace Midway.ObjectModel.Utility
 		public List<ValidationResultFormat> ValidationResultFormats { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Налоговая ставка'.
+		/// </summary>
+		[DataMember]
+		public List<VatRate> VatRates { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Тип оператора составного фильтра'.
 		/// </summary>
 		[DataMember]

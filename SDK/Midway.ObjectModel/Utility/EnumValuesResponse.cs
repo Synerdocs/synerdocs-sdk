@@ -362,6 +362,12 @@ namespace Midway.ObjectModel.Utility
 		public List<EnumValue> ValidationResultFormats { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Налоговая ставка'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> VatRates { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Тип оператора составного фильтра'.
 		/// </summary>
 		[DataMember]

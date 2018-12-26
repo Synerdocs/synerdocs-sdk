@@ -167,6 +167,10 @@
     <Compile Include="TransportWaybillCarrierTitle.cs" />
     <Compile Include="TransportWaybillCarrierTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillCarrierTitleGeneratingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingRequest.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingResponse.cs" />
+    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillConsigneeTitleGeneratingRequest.cs" />
     <Compile Include="TransportWaybillCarrierTitleParsingRequest.cs" />
     <Compile Include="TransportWaybillConsigneeTitleParsingRequest.cs" />
@@ -175,10 +179,6 @@
     <Compile Include="TransportWaybillCarrierTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillConsigneeTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillDeliveryPlaceChangeTitle.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleFormatVersion.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingRequest.cs" />
-    <Compile Include="TransportWaybillDeliveryPlaceChangeTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillReplyTitleBase.cs" />
     <Compile Include="TransportWaybillTitleBase.cs" />
     <Compile Include="TransportWaybillCargoDeliveredTitle.cs" />
@@ -203,7 +203,6 @@
     <Compile Include="TransportWaybillTag.cs" />
     <Compile Include="Utility\AllEnumValuesRequest.cs" />
     <Compile Include="Utility\EnumValuesRequest.cs" />
-    <Compile Include="Utility\EnumValuesResponse.cs" />
     <Compile Include="SortCondition.cs" />
     <Compile Include="Common\TextValueType.cs" />
     <Compile Include="Contact.cs" />
@@ -470,6 +469,7 @@
     <Compile Include="UserCreationData.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserRegistrationData.cs" />
+    <Compile Include="Utility\EnumValuesResponse.cs" />
     <Compile Include="Utility\FullEnumValuesRequest.cs" />
     <Compile Include="Utility\SpecifiedEnumValuesRequest.cs" />
     <Compile Include="ValidationError.cs" />
@@ -477,6 +477,7 @@
     <Compile Include="ValidationMessageStatus.cs" />
     <Compile Include="ValidationResultFormat.cs" />
     <Compile Include="ValidationResultFormatEnum.cs" />
+    <Compile Include="VatRate.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehiclesDescription.cs" />
     <Compile Include="WorksTransferItem.cs" />
