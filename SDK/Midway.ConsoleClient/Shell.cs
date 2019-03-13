@@ -1323,7 +1323,7 @@ namespace Midway.ConsoleClient
                     signStatuses.Add(DocumentSignStatus.NoSignNeeded);
                 if (UserInput.ChooseYesNo("Подписан"))
                     signStatuses.Add(DocumentSignStatus.Signed);
-                if (UserInput.ChooseYesNo("Отказано"))
+                if (UserInput.ChooseYesNo("Отказано (запрошено уточнение)"))
                     signStatuses.Add(DocumentSignStatus.SignRejected);
                 if (UserInput.ChooseYesNo("Требуется подпись"))
                     signStatuses.Add(DocumentSignStatus.WaitingForSign);
