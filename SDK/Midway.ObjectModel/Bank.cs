@@ -3,19 +3,19 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Банк
+    /// Банк.
     /// </summary>
     [DataContract]
     public class Bank
     {
         /// <summary>
-        /// Наименование банка
+        /// Наименование банка.
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// БИК (Банковский идентификационный код)
+        /// БИК (Банковский идентификационный код).
         /// </summary>
         [DataMember]
         public string Bik { get; set; }

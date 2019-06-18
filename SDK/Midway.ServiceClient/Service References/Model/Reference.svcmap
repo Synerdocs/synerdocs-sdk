@@ -24,6 +24,7 @@
     <MetadataFile FileName="ExchangeService.wsdl" MetadataType="Wsdl" ID="89266f96-eeaf-4b71-bce6-b7669d4daea6" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?wsdl" />
     <MetadataFile FileName="ExchangeService.disco" MetadataType="Disco" ID="2e318f43-12a3-4dd5-854c-b644458d6a00" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?disco" />
     <MetadataFile FileName="ExchangeService.xsd" MetadataType="Schema" ID="47aed4a2-bb4d-4ddd-889a-a7e1adea7c35" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ExchangeService7.xsd" MetadataType="Schema" ID="453f45f5-57cc-4d90-b209-0dbb4ef4d6c8" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd7" />
     <MetadataFile FileName="ExchangeService1.xsd" MetadataType="Schema" ID="0c7bef6b-88b4-41aa-9d7a-b4073b47b187" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd4" />
     <MetadataFile FileName="ExchangeService2.xsd" MetadataType="Schema" ID="0587128d-9ee2-4b7f-823c-23320282317f" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd5" />
     <MetadataFile FileName="ExchangeService3.xsd" MetadataType="Schema" ID="c3fe222c-759c-4fa7-9e2f-1719ff0c7f3b" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd2" />

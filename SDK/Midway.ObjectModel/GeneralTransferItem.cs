@@ -3,43 +3,43 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Продукт
+    /// Продукт.
     /// </summary>
     [DataContract]
-    public class GeneralTransferItem: ProductBase
+    public class GeneralTransferItem : ProductBase
     {
         /// <summary>
-        /// Сведения о признаке
+        /// Сведения о признаке.
         /// </summary>
         [DataMember]
         public ProductAttribute Attribute { get; set; }
 
         /// <summary>
-        /// Сведения о таможенной декларации
+        /// Сведения о таможенной декларации.
         /// </summary>
         [DataMember]
         public CustomsDeclaration[] CustomsDeclarations { get; set; }
 
         /// <summary>
-        /// Краткое наименование страны происхождения товара
+        /// Краткое наименование страны происхождения товара.
         /// </summary>
         [DataMember]
         public string OriginCountryShortName { get; set; }
 
         /// <summary>
-        /// Код товара
+        /// Код товара.
         /// </summary>
         [DataMember]
         public string Code { get; set; }
 
         /// <summary>
-        /// Количество надлежит отпустить
+        /// Количество надлежит отпустить.
         /// </summary>
         [DataMember]
         public decimal? QuantityToRelease { get; set; }
 
         /// <summary>
-        /// Сумма акциза
+        /// Сумма акциза.
         /// </summary>
         [DataMember]
         public decimal? Excise { get; set; }

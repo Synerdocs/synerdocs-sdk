@@ -27,6 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -56,12 +58,14 @@
   <ItemGroup>
     <Compile Include="AcceptanceInfo.cs" />
     <Compile Include="AccessToDepartment.cs" />
+    <Compile Include="ActivityStatus.cs" />
     <Compile Include="AdditionalCarriagePolicies.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="AddressLocationType.cs" />
     <Compile Include="AddressType.cs" />
     <Compile Include="AdministratorAuthorityUpdatingResponse.cs" />
     <Compile Include="AmountChange.cs" />
+    <Compile Include="AmountTotalV2.cs" />
     <Compile Include="ApprovalArea.cs" />
     <Compile Include="ApprovalInfo.cs" />
     <Compile Include="Bank.cs" />
@@ -69,17 +73,47 @@
     <Compile Include="BasisDocument.cs" />
     <Compile Include="BoxCertificate.cs" />
     <Compile Include="BoxInfo.cs" />
+    <Compile Include="BuyerStateOrderInfo.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="CargoAreaDimensions.cs" />
     <Compile Include="CargoAreaUnit.cs" />
     <Compile Include="CargoArea.cs" />
     <Compile Include="CargoAreaTotal.cs" />
+    <Compile Include="CircumstancesOfProducing.cs" />
+    <Compile Include="DivergenceDocumentType.cs" />
     <Compile Include="DocumentOperationCodes.cs" />
     <Compile Include="DocumentPrintingRequest.cs" />
     <Compile Include="DocumentPrintingResponse.cs" />
+    <Compile Include="DocumentPurpose.cs" />
+    <Compile Include="DocumentTypeEnum.cs" />
+    <Compile Include="DocumentTypeVersion.cs" />
+    <Compile Include="DocumentTypeVersionsGettingRequest.cs" />
+    <Compile Include="DocumentTypeVersionsGettingResponse.cs" />
+    <Compile Include="ExtendedOperationDescription.cs" />
+    <Compile Include="FundsType.cs" />
+    <Compile Include="GeneralTransferAreaV2.cs" />
+    <Compile Include="GeneralTransferBuyerV2.cs" />
+    <Compile Include="GeneralTransferBuyerV2ParsingRequest.cs" />
+    <Compile Include="GeneralTransferBuyerV2ParsingResponse.cs" />
+    <Compile Include="GeneralTransferItem.cs" />
+    <Compile Include="GeneralTransferSellerV2.cs" />
+    <Compile Include="GeneralTransferSellerV2GeneratingRequest.cs" />
+    <Compile Include="GeneralTransferBuyerV2GeneratingRequest.cs" />
+    <Compile Include="GeneralTransferSellerV2ParsingRequest.cs" />
+    <Compile Include="GeneralTransferSellerV2ParsingResponse.cs" />
+    <Compile Include="GeneralTransferTotalV2.cs" />
+    <Compile Include="GoodsAcceptanceResultType.cs" />
+    <Compile Include="DocumentFlowParticipantShortInfo.cs" />
+    <Compile Include="DocumentFlowParticipantRole.cs" />
+    <Compile Include="ProviderIdentificationCentersSearchingRequest.cs" />
+    <Compile Include="ProviderIdentificationCentersSearchingResponse.cs" />
+    <Compile Include="IdentificationCenter.cs" />
     <Compile Include="IndividualEntrepreneurPlaceChangeInitiator.cs" />
     <Compile Include="IndividualPlaceChangeInitiator.cs" />
+    <Compile Include="ItemAmountV2.cs" />
     <Compile Include="LegalEntityPlaceChangeInitiator.cs" />
+    <Compile Include="MonetaryObligation.cs" />
+    <Compile Include="NamedNumberDate.cs" />
     <Compile Include="ParsingRequest.cs" />
     <Compile Include="DriverCargoOperation.cs" />
     <Compile Include="CargoPackage.cs" />
@@ -151,15 +185,25 @@
     <Compile Include="OrderAcceptance.cs" />
     <Compile Include="InterchangeDescription.cs" />
     <Compile Include="InterchangeParticipant.cs" />
+    <Compile Include="PaymentBillingDocument.cs" />
+    <Compile Include="PaymentType.cs" />
     <Compile Include="PenaltyCharge.cs" />
     <Compile Include="PlaceChange.cs" />
     <Compile Include="PlaceChangeInitiatorBase.cs" />
+    <Compile Include="ProductBaseV2.cs" />
+    <Compile Include="ProductIdentificationInfo.cs" />
+    <Compile Include="ProductTraceabilityInfo.cs" />
+    <Compile Include="ProviderIdentificationCenter.cs" />
     <Compile Include="Quantity.cs" />
     <Compile Include="RecordIntroductionPolicy.cs" />
     <Compile Include="CargoRemarks.cs" />
+    <Compile Include="SellerStateOrderInfo.cs" />
     <Compile Include="ShippingDocument.cs" />
+    <Compile Include="ShippingDocumentApprovement.cs" />
     <Compile Include="SignerBase.cs" />
     <Compile Include="SignerType.cs" />
+    <Compile Include="VatAmountType.cs" />
+    <Compile Include="TransferAreaV2.cs" />
     <Compile Include="TransportWaybillCargoDeliveredParsingRequest.cs" />
     <Compile Include="TransportWaybillCargoDeliveredTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillCargoDeliveredTitleGeneratingRequest.cs" />
@@ -180,6 +224,7 @@
     <Compile Include="TransportWaybillConsigneeTitleParsingResponse.cs" />
     <Compile Include="TransportWaybillDeliveryPlaceChangeTitle.cs" />
     <Compile Include="TransportWaybillReplyTitleBase.cs" />
+    <Compile Include="TransportWaybillStatus.cs" />
     <Compile Include="TransportWaybillTitleBase.cs" />
     <Compile Include="TransportWaybillCargoDeliveredTitle.cs" />
     <Compile Include="TransportWaybillCargoReceivedParsingRequest.cs" />
@@ -229,7 +274,6 @@
     <Compile Include="OperationCredentials.cs" />
     <Compile Include="OperationResponse.cs" />
     <Compile Include="OperationRequest.cs" />
-    <Compile Include="DocumentTypeEnum.cs" />
     <Compile Include="ContentFormatEnum.cs" />
     <Compile Include="ContentValidationResult.cs" />
     <Compile Include="Contragent.cs" />
@@ -314,7 +358,7 @@
     <Compile Include="MessageRequestParams.cs" />
     <Compile Include="NameCodeObject.cs" />
     <Compile Include="OrganizationPromoCode.cs" />
-    <Compile Include="GeneralTransferItem.cs" />
+    <Compile Include="GeneralTransferItemV2.cs" />
     <Compile Include="ProductAttribute.cs" />
     <Compile Include="GeneralTransferCorrectionArea.cs" />
     <Compile Include="GeneralTransferArea.cs" />
@@ -477,6 +521,7 @@
     <Compile Include="ValidationMessageStatus.cs" />
     <Compile Include="ValidationResultFormat.cs" />
     <Compile Include="ValidationResultFormatEnum.cs" />
+    <Compile Include="VatAmount.cs" />
     <Compile Include="VatRate.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehiclesDescription.cs" />

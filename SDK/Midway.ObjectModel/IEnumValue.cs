@@ -1,17 +1,17 @@
 ﻿namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Интерфейс для объекта перечисления
+    /// Интерфейс для объекта перечисления.
     /// </summary>
     public interface IEnumValue
     {
         /// <summary>
-        /// Числовой код
+        /// Числовой код.
         /// </summary>
         int Code { get; }
 
         /// <summary>
-        /// Значение перечисления
+        /// Значение перечисления.
         /// </summary>
         object Value { get; }
     }

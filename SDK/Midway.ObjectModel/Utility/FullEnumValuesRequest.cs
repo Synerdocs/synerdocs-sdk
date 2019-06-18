@@ -19,6 +19,12 @@ namespace Midway.ObjectModel.Utility
 	public class FullEnumValuesRequest : EnumValuesRequest
 	{
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Статус работы'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithActivityStatuses { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип записи адреса'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]
@@ -31,10 +37,46 @@ namespace Midway.ObjectModel.Utility
 		public bool WithAddressTypes { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Обстоятельства формирования счета-фактуры, применяемого при расчетах по налогу на добавленную стоимость'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithCircumstancesOfProducings { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Вид документа о расхождениях'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithDivergenceDocumentTypes { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Коды операций над документом'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]
 		public bool WithDocumentOperationCodes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Назначение документа'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithDocumentPurposes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Вид средств'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithFundsTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Итоговый результат приемки товара'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithGoodsAcceptanceResultTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Роль участника документооборота'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithDocumentFlowParticipantRoles { get; set; }
 
 		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип заявки на издание сертификата'; иначе - <c>false</c>.
@@ -79,10 +121,22 @@ namespace Midway.ObjectModel.Utility
 		public bool WithEnhancedSignFailedReasons { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип платежа'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithPaymentTypes { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип подписанта документа'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]
 		public bool WithSignerTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип суммы налога'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithVatAmountTypes { get; set; }
 
 		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула водителя (сдача груза) транспортной накладной'; иначе - <c>false</c>.
@@ -107,6 +161,12 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public bool WithTransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Статус транспортной накладной (ТрН)'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillStatuses { get; set; }
 
 		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула водителя (прием груза) транспортной накладной'; иначе - <c>false</c>.

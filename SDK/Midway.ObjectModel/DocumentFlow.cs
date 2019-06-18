@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -116,5 +117,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public SimpleSignature RecipientSimpleSignature { get; set; }
+
+        /// <summary>
+        /// Список ролей участника-получателя в рамках документооборота.
+        /// </summary>
+        [DataMember]
+        public List<EnumValue> RecipientRoles { get; set; }
     }
 }

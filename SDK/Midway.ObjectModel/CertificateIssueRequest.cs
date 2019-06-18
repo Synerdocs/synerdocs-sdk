@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -38,6 +37,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string PartnerId { get; set; }
+
+        /// <summary>
+        /// Центр идентификации.
+        /// </summary>
+        [DataMember]
+        public IdentificationCenter IdentificationCenter { get; set; }
 
         /// <summary>
         /// Реквизиты организации.

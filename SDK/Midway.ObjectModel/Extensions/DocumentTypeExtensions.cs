@@ -10,7 +10,7 @@ namespace Midway.ObjectModel.Extensions
         /// Является ли тип документа служебным.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является служебным; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является служебным.</returns>
         public static bool IsService(this DocumentType documentType)
             => !(documentType == DocumentType.Untyped
                 || documentType == DocumentType.RevocationOffer
@@ -19,9 +19,10 @@ namespace Midway.ObjectModel.Extensions
                 || documentType.IsEdiDocument());
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом счета фактуры
+        /// Является ли тип документа тем или иным видом СФ.
         /// </summary>
-        /// <param name="documentType"></param>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является видом СФ.</returns>
         public static bool IsInvoice(this DocumentType documentType)
             => documentType == DocumentType.Invoice
                 || documentType == DocumentType.InvoiceCorrection
@@ -29,32 +30,39 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом корректировочного счета фактуры
+        /// Является ли тип документа тем или иным видом корректировочного СФ.
         /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является видом корректировочного СФ.</returns>
         public static bool IsCorrectionInvoice(this DocumentType documentType)
             => documentType == DocumentType.InvoiceCorrection
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом исправленного счета фактуры
+        /// Является ли тип документа тем или иным видом исправленного СФ.
         /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является видом исправленного СФ.</returns>
         public static bool IsRevisionInvoice(this DocumentType documentType)
             => documentType == DocumentType.InvoiceRevision
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом корректировочного или исправленного счета фактуры
+        /// Является ли тип документа тем или иным видом корректировочного или исправленного СФ.
         /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является видом корректировочного или исправленного СФ.</returns>
         public static bool IsCorrectionOrRevision(this DocumentType documentType)
             => documentType == DocumentType.InvoiceCorrection
                 || documentType == DocumentType.InvoiceRevision
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли документ приложением к другому документу
+        /// Является ли документ приложением к другому документу.
         /// </summary>
-        /// <param name="documentType"></param>
-        /// <param name="untypedKind"></param>
+        /// <param name="documentType">Тип документа.</param>
+        /// <param name="untypedKind">Вид неформализованного документа.</param>
+        /// <returns><c>true</c>, если документ является приложениемк другому документу.</returns>
         public static bool IsChild(this DocumentType documentType, string untypedKind = null)
             => documentType.IsService()
                 || documentType.IsCorrectionOrRevision()
@@ -63,10 +71,10 @@ namespace Midway.ObjectModel.Extensions
                 || (documentType == DocumentType.RevocationOffer);
 
         /// <summary>
-        /// Должен ли документ обрабатываться как "нетипизированный"
+        /// Является ли документ неформализованным.
         /// </summary>
-        /// <param name="documentType"></param>
-        /// <returns></returns>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ неформализованный.</returns>
         public static bool IsUntyped(this DocumentType documentType)
             => documentType == DocumentType.Untyped
                 || documentType == DocumentType.WaybillSeller
@@ -75,25 +83,19 @@ namespace Midway.ObjectModel.Extensions
                 || documentType.IsGoodsTransferSeller();
 
         /// <summary>
-        /// Является ли документ формализованным
+        /// Является ли документ формализованным.
         /// </summary>
-        /// <param name="documentType">Тип документа</param>
-        /// <returns>
-        /// true - документ формализованный
-        /// false - неформализованный или служебный документ
-        /// </returns>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ формализованный.</returns>
         public static bool IsFormalized(this DocumentType documentType)
             => !documentType.IsService() && documentType != DocumentType.Untyped;
 
         /// <summary>
-        /// Является ли документ Заявлением об участии в ЭДО счетов-фактур
+        /// Является ли документ Заявлением об участии в ЭДО СФ.
         /// </summary>
-        /// <param name="documentType">Тип документа</param>
-        /// <param name="untypedKind">Вид нетипизированного документа</param>
-        /// <returns>
-        /// true - является
-        /// false - не является
-        /// </returns>
+        /// <param name="documentType">Тип документа.</param>
+        /// <param name="untypedKind">Вид нетипизированного документа.</param>
+        /// <returns><c>true</c>, если документ является заявлением об участии в ЭДО СФ.</returns>
         public static bool IsStatementOfInvoiceReglament(this DocumentType documentType, string untypedKind)
             => documentType == DocumentType.Untyped 
                 && untypedKind == UntypedKind.StatementOfInvoiceReglament;
@@ -102,7 +104,7 @@ namespace Midway.ObjectModel.Extensions
         /// Проверить, является ли документ подписью.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является подписью; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является подписью.</returns>
         public static bool IsSign(this DocumentType documentType)
             => IsReplyTitle(documentType);
 
@@ -110,7 +112,7 @@ namespace Midway.ObjectModel.Extensions
         /// Является ли документ тем или иным видом титула продавца.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
         public static bool IsSellerTitle(this DocumentType documentType)
             => documentType.IsGeneralTransferSeller()
                 || documentType.IsGoodsTransferSeller()
@@ -143,7 +145,7 @@ namespace Midway.ObjectModel.Extensions
         /// Является ли документ УПД или УКД.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является УПД или УКД; иначе <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является УПД или УКД.</returns>
         public static bool IsGeneralTransfer(this DocumentType documentType)
             => documentType.IsGeneralTransferSeller()
                 || documentType.IsGeneralTransferBuyer();
@@ -159,10 +161,10 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.GoodsTransferRevisionSeller;
 
         /// <summary>
-        /// Проверка: является ли документ исправлением УПД, УКД
+        /// Является ли документ исправленным УПД или УКД.
         /// </summary>
-        /// <param name="documentType"></param>
-        /// <returns></returns>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
         public static bool IsGeneralTransferRevision(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferRevisionSeller
                 || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
@@ -178,10 +180,10 @@ namespace Midway.ObjectModel.Extensions
                 || documentType.IsGeneralTransferSeller();
 
         /// <summary>
-        /// Является ли документ EDI-документом
+        /// Является ли документ EDI-документом.
         /// </summary>
-        /// <param name="documentType">Тип документа</param>
-        /// <returns><c>true</c>, если документ является EDI-документом</returns>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является EDI-документом.</returns>
         public static bool IsEdiDocument(this DocumentType documentType)
             => documentType == DocumentType.EdiGeneral
                 || documentType == DocumentType.EdiOrders
@@ -190,24 +192,20 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.EdiRecadv;
 
         /// <summary>
-        /// Определить, относится ли тип документа к служебным документам для СФ/УПД.
+        /// Относится ли тип документа к служебным документам для СФ/УПД.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns>
-        /// <c>true</c>, если тип документа относится к служебным документам для СФ/УПД; иначе - <c>false</c>.
-        /// </returns>
+        /// <returns><c>true</c>, если тип документа относится к служебным документам для СФ/УПД.</returns>
         public static bool IsInvoiceServiceDocument(this DocumentType documentType)
             => documentType == DocumentType.ServiceInvoiceConfirmation
                 || documentType == DocumentType.ServiceInvoiceReceipt
                 || documentType == DocumentType.ServiceInvoiceAmendmentRequest;
 
         /// <summary>
-        /// Определить, относится ли тип документа к регламенту СФ/УПД.
+        /// Относится ли тип документа к регламенту СФ/УПД.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns>
-        /// <c>true</c>, если тип документа относится к регламенту СФ/УПД; иначе - <c>false</c>.
-        /// </returns>
+        /// <returns><c>true</c>, если тип документа относится к регламенту СФ/УПД.</returns>
         public static bool IsInvoiceRegulationDocument(this DocumentType documentType)
             => documentType.IsInvoice()
                 || documentType.IsGeneralTransfer()
@@ -217,7 +215,7 @@ namespace Midway.ObjectModel.Extensions
         /// Является ли документ титулом продавца документа о передаче товара.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
         public static bool IsGoodsTransferSeller(this DocumentType documentType)
             => documentType == DocumentType.GoodsTransferSeller
                 || documentType == DocumentType.GoodsTransferRevisionSeller;
@@ -226,7 +224,7 @@ namespace Midway.ObjectModel.Extensions
         /// Является ли документ титулом исполнителя документа о передаче результатов работ (об оказании услуг).
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом исполнителя; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является титулом исполнителя.</returns>
         public static bool IsWorksTransferSeller(this DocumentType documentType)
             => documentType == DocumentType.WorksTransferSeller
                 || documentType == DocumentType.WorksTransferRevisionSeller;
@@ -235,28 +233,44 @@ namespace Midway.ObjectModel.Extensions
         /// Является ли документ титулом продавца универсального передаточного документа.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
         public static bool IsGeneralTransferSeller(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferSeller
                 || documentType == DocumentType.GeneralTransferRevisionSeller
-                || documentType == DocumentType.GeneralTransferCorrectionSeller
+                || documentType.IsGeneralTransferCorrectionSeller();
+
+        /// <summary>
+        /// Является ли документ универсальным корректировочным документом.
+        /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
+        public static bool IsGeneralTransferCorrectionSeller(this DocumentType documentType)
+            => documentType == DocumentType.GeneralTransferCorrectionSeller
                 || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
 
         /// <summary>
         /// Является ли документ титулом покупателя универсального передаточного документа.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом покупателя; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если документ является титулом покупателя.</returns>
         public static bool IsGeneralTransferBuyer(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferBuyer
                 || documentType == DocumentType.GeneralTransferCorrectionBuyer;
+
+        /// <summary>
+        /// Является ли документ титулом покупателя универсального передаточного документа.
+        /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns><c>true</c>, если документ является титулом покупателя.</returns>
+        public static bool IsGeneralTransferCorrectionBuyer(this DocumentType documentType)
+            => documentType == DocumentType.GeneralTransferCorrectionBuyer;
 
         /// <summary>
         /// Проверить, является ли документ титулом грузоотправителя транспортной накладной.
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
         /// <returns>
-        /// <c>true</c>, если документ является титулом грузоотправителя транспортной накладной; иначе - <c>false</c>.
+        /// <c>true</c>, если документ является титулом грузоотправителя транспортной накладной.
         /// </returns>
         public static bool IsTransportWaybillConsignorTitle(this DocumentType documentType)
             => documentType == DocumentType.TransportWaybillConsignorTitle;
@@ -266,7 +280,7 @@ namespace Midway.ObjectModel.Extensions
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
         /// <returns>
-        /// <c>true</c>, если документ является ответным титулом транспортной накладной; иначе - <c>false</c>.
+        /// <c>true</c>, если документ является ответным титулом транспортной накладной.
         /// </returns>
         public static bool IsTransportWaybillReplyTitle(this DocumentType documentType)
             => documentType == DocumentType.TransportWaybillCargoReceivedTitle
@@ -279,7 +293,7 @@ namespace Midway.ObjectModel.Extensions
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
         /// <returns>
-        /// <c>true</c>, если документ является тем или иным корневым титулом; иначе - <c>false</c>.
+        /// <c>true</c>, если документ является тем или иным корневым титулом.
         /// </returns>
         public static bool IsRootTitle(this DocumentType documentType)
             => documentType.IsSellerTitle()
@@ -290,7 +304,7 @@ namespace Midway.ObjectModel.Extensions
         /// </summary>
         /// <param name="documentType">Тип документа.</param>
         /// <returns>
-        /// <c>true</c>, если документ является тем или иным ответным титулом; иначе - <c>false</c>.
+        /// <c>true</c>, если документ является тем или иным ответным титулом.
         /// </returns>
         public static bool IsReplyTitle(this DocumentType documentType)
             => documentType.IsBuyerTitle()

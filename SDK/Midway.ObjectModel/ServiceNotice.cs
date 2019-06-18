@@ -1,75 +1,83 @@
+using System;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Класс для хранения информации об ИОП
+    /// Класс для хранения информации об ИОП.
     /// </summary>
     [DataContract]
     public class ServiceNotice
     {
         /// <summary>
-        /// Понятное имя извещения
+        /// Понятное имя извещения.
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Адрес отправителя
+        /// Адрес отправителя.
         /// </summary>
         [DataMember]
         public string FromBoxId { get; set; }
 
         /// <summary>
-        /// Идентификатор подразделения отправителя
+        /// Идентификатор подразделения отправителя.
         /// </summary>
         [DataMember]
         public string FromDepartmentId { get; set; }
 
         /// <summary>
-        /// Адрес получателя
+        /// Адрес получателя.
         /// </summary>
         [DataMember]
         public string ToBoxId { get; set; }
 
         /// <summary>
-        /// Идентификатор подразделения получателя
+        /// Идентификатор подразделения получателя.
         /// </summary>
         [DataMember]
         public string ToDepartmentId { get; set; }
 
         /// <summary>
-        /// Список получателей
+        /// Список получателей.
         /// </summary>
         [DataMember]
         public MessageRecipient[] Recipients { get; set; }
 
         /// <summary>
-        /// Идентификатор документа, на который готовится извещение
+        /// Идентификатор документа, на который готовится извещение.
         /// </summary>
         [DataMember]
         public string ParentDocumentId { get; set; }
 
         /// <summary>
-        /// Тип документа, на который готовится извещение
+        /// Тип документа, на который готовится извещение.
         /// </summary>
         [DataMember]
         public DocumentType ParentDocumentType { get; set; }
 
         /// <summary>
-        /// Признак, указывающий легитимность родительского документа
+        /// Признак, указывающий легитимность родительского документа.
         /// </summary>
         [DataMember]
         public bool ParentDocumentIsLegitimate { get; set; }
 
         /// <summary>
-        /// Тип документа (извещения)
+        /// Тип документа (извещения).
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
-        /// Контент извещения в base64-кодировке
+        /// Информация о типе документа.
+        /// </summary>
+        [DataMember]
+        public DocumentTypeInfo DocumentTypeInfo { get; set; }
+
+        /// <summary>
+        /// Контент извещения в BASE64-кодировке.
         /// </summary>
         [DataMember]
         public byte[] Content { get; set; }
