@@ -27,13 +27,21 @@ namespace Midway.ObjectModel
         /// Тип документа.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
         /// Тип документа в виде EnumValue.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public EnumValue DocumentTypeEnum { get; set; }
+
+        /// <summary>
+        /// Информация о типе документа.
+        /// </summary>
+        [DataMember]
+        public DocumentTypeInfo DocumentTypeInfo { get; set; }
 
         /// <summary>
         /// Идентификатор сообщения, в котором был загружен документ.
@@ -143,6 +151,7 @@ namespace Midway.ObjectModel
         /// Тип неформализованного документа.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public string UntypedKind { get; set; }
         
         /// <summary>

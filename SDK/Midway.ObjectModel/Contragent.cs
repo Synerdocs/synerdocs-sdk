@@ -19,7 +19,7 @@ namespace Midway.ObjectModel
         }
 
         /// <summary>
-        /// Тип организации.
+        /// Тип организации, соответствует перечислению <see cref="Midway.ObjectModel.OrganizationType"/>.
         /// </summary>
         [DataMember]
         public EnumValue OrganizationType { get; set; }
@@ -95,5 +95,17 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public bool IsForeign { get; set; }
+
+        /// <summary>
+        /// Краткое наименование.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public string ShortName { get; set; }
+
+        /// <summary>
+        /// Идентификатор юридического лица.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public string LegalEntityId { get; set; }
     }
 }

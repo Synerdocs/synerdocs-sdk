@@ -5,80 +5,88 @@ namespace Midway.ObjectModel
 {
     /// <summary>
     /// Информация о документе.
-    /// Используется для отправки и получения документов
+    /// Используется для отправки и получения документов.
     /// </summary>
     [DataContract]
     public class Document
     {
         /// <summary>
-        /// Идентификатор документа (не используется при отправке)
+        /// Идентификатор документа (не используется при отправке).
         /// </summary>
         [DataMember]
         public string Id { get; set; }
 
         /// <summary>
-        /// Название документа
+        /// Название документа.
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Тип документа
+        /// Тип документа.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
-        /// Тип документа в виде EnumValue
-        /// Не используется при отправке
+        /// Тип документа в виде EnumValue.
+        /// Не используется при отправке.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public EnumValue DocumentTypeEnum { get; set; }
 
         /// <summary>
-        /// Содержимое документа
+        /// Информация о типе документа.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public DocumentTypeInfo DocumentTypeInfo { get; set; }
+
+        /// <summary>
+        /// Содержимое документа.
         /// </summary>
         [DataMember]
         public byte[] Content { get; set; }
 
         /// <summary>
-        /// Карточка документа
+        /// Карточка документа.
         /// </summary>
         [DataMember]
         public byte[] Card { get; set; }
 
         /// <summary>
-        /// Имя файла документа
+        /// Имя файла документа.
         /// </summary>
         [DataMember]
         public string FileName { get; set; }
 
         /// <summary>
-        /// Флаг ожидания подписи под документом 
+        /// Флаг ожидания подписи под документом.
         /// </summary>
         [DataMember]
         public bool NeedSign { get; set; }
 
         /// <summary>
-        /// Размер файла (не используется при отправке)
+        /// Размер файла (не используется при отправке).
         /// </summary>
         [DataMember]
         public int FileSize { get; set; }
 
         /// TODO@internal
         /// <summary>
-        /// Идентификатор сообщения, содержащего документ
+        /// Идентификатор сообщения, содержащего документ.
         /// </summary>
         public Guid MessageId { get; set; }
 
         /// <summary>
-        /// Идентификатор родительского документа в цепочке служебных документов
+        /// Идентификатор родительского документа в цепочке служебных документов.
         /// </summary>
         [DataMember]
         public string ParentDocumentId { get; set; }
 
         /// <summary>
-        /// Идентификатор родительского документа в цепочке логических связей
+        /// Идентификатор родительского документа в цепочке логических связей.
         /// </summary>
         [DataMember]
         public string SourceDocumentId { get; set; }
@@ -91,18 +99,18 @@ namespace Midway.ObjectModel
 
         /// TODO@internal
         /// <summary>
-        /// Тип служебного документа
+        /// Тип служебного документа.
         /// </summary>
         public DocumentServiceType DocumentServiceType { get; set; }
 
         /// <summary>
-        /// Идентификаторы связанных документов
+        /// Идентификаторы связанных документов.
         /// </summary>
         [DataMember]
         public string[] RelatedDocumentIds { get; set; }
 
         /// <summary>
-        /// Комментарий к документу
+        /// Комментарий к документу.
         /// </summary>
         [DataMember]
         public string Comment { get; set; }
@@ -115,31 +123,32 @@ namespace Midway.ObjectModel
 
         /// TODO@перенести
         /// <summary>
-        /// Признак "удаления"
+        /// Признак "удаления".
         /// </summary>
         [DataMember]
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// Флаг юридической значимости документа
+        /// Флаг юридической значимости документа.
         /// </summary>
         [DataMember(IsRequired = false)]
         public bool IsLegitimate { get; set; }
 
         /// <summary>
-        /// Причины нелегитимности документа, указываются в виде битовой маски
+        /// Причины нелегитимности документа, указываются в виде битовой маски.
         /// </summary>
         [DataMember(IsRequired = false)]
         public NonLegitimateReason[] NonLegitimateReasons { get; set; }
 
         /// <summary>
-        /// Вид нетипизированного документа
+        /// Вид нетипизированного документа.
         /// </summary>
         [DataMember(IsRequired = false)]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public string UntypedKind { get; set; }
-        
+
         /// <summary>
-        /// Флаг "Необходимость генерации извещения о получении"
+        /// Флаг "Необходимость генерации извещения о получении".
         /// </summary>
         [DataMember(IsRequired = false)]
         public bool NoticeRequired { get; set; }
@@ -151,33 +160,45 @@ namespace Midway.ObjectModel
         public decimal? Sum { get; set; }
 
         /// <summary>
-        /// Номер документа, указанный пользователем
+        /// Номер документа, указанный пользователем.
         /// </summary>
         [DataMember(IsRequired = false)]
-        public string Number { get; set; } 
+        public string Number { get; set; }
 
         /// <summary>
-        /// Дата документа, указанная пользователем
+        /// Дата документа, указанная пользователем.
         /// </summary>
         [DataMember(IsRequired = false)]
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// Флаг "Необходимость подтверждения факта приема документа"
+        /// Флаг "Необходимость подтверждения факта приема документа".
         /// </summary>
         [DataMember]
         public bool NeedReceipt { get; set; }
 
         /// <summary>
-        /// Дата отправки
+        /// Дата отправки.
         /// </summary>
         [DataMember(IsRequired = false)]
         public DateTime? SentDate { get; set; }
 
         /// <summary>
-        /// Ящик отправителя
+        /// Ящик отправителя.
         /// </summary>
         [DataMember]
         public string FromBoxId { get; set; }
+
+        /// <summary>
+        /// Признак того, что документ будет отправлен только участникам документооборота.
+        /// </summary>
+        [DataMember]
+        public bool? SendOnlyToDocumentFlowParticipants { get; set; }
+
+        /// <summary>
+        /// Участники документооборота.
+        /// </summary>
+        [DataMember]
+        public DocumentFlowParticipantShortInfo[] DocumentFlowParticipants { get; set; }
     }
 }

@@ -33,6 +33,12 @@ namespace Midway.ObjectModel
         public string Email { get; set; }
 
         /// <summary>
+        /// СНИЛС.
+        /// </summary>
+        [DataMember]
+        public string Snils { get; set; }
+
+        /// <summary>
         /// Часовой пояс.
         /// </summary>
         [DataMember]

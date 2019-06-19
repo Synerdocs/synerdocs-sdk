@@ -7,6 +7,7 @@ namespace Midway.ObjectModel
     /// при добавлении нового значения в отличие от обычных перечислений
     /// </summary>
     [DataContract]
+    [KnownType(typeof(DocumentTypeEnum))]
     public class EnumValue : IEnumValue
     {
         /// <summary>

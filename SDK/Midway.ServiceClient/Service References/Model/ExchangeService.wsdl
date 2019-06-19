@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://synerdocs.ru" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExchangeService" targetNamespace="http://synerdocs.ru" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://synerdocs.ru" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExchangeService" targetNamespace="http://synerdocs.ru" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="BasicHttpBindingSecure_IExchangeService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -29,13 +29,296 @@
     <xsd:schema targetNamespace="http://synerdocs.ru/Imports">
       <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd0" namespace="http://synerdocs.ru" />
       <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" />
-      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
-      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Utility" />
-      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Utility" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCode" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckCertificateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCertificateList" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckCertificateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCertificateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateStatementOfInvoiceReglament_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateStatementOfInvoiceReglament" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateStatementOfInvoiceReglament_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateStatementOfInvoiceReglamentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendStatementOfInvoiceReglament_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatementOfInvoiceReglament" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SendStatementOfInvoiceReglament_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendStatementOfInvoiceReglamentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckNeedToStatementOfInvoiceReglament_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckNeedToStatementOfInvoiceReglament" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckNeedToStatementOfInvoiceReglament_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckNeedToStatementOfInvoiceReglamentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseWorksTransferSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseWorksTransferSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseWorksTransferSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseWorksTransferSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseWorksTransferBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseWorksTransferBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseWorksTransferBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseWorksTransferBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransferSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransferSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransferSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransferSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransferBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransferBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransferBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransferBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferSellerV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferSellerV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferSellerV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferSellerV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferBuyerV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferBuyerV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGeneralTransferBuyerV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGeneralTransferBuyerV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsignorTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsignorTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsignorTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsignorTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoReceivedTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoReceivedTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoReceivedTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoReceivedTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoDeliveredTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoDeliveredTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoDeliveredTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoDeliveredTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsigneeTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsigneeTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillConsigneeTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsigneeTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCarrierTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCarrierTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillCarrierTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCarrierTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillDeliveryPlaceChangeTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseTransportWaybillDeliveryPlaceChangeTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateWorksTransferSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWorksTransferSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateWorksTransferSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWorksTransferSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGoodsTransferSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGoodsTransferSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferSellerV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferSellerV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferSellerV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferSellerV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionSeller" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateWorksTransferBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWorksTransferBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateWorksTransferBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWorksTransferBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGoodsTransferBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGoodsTransferBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferBuyerV2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferBuyerV2" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferBuyerV2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferBuyerV2Response" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionBuyer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionBuyer" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionBuyer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionBuyerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsignorTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsignorTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsignorTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsignorTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoReceivedTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoReceivedTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoReceivedTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoReceivedTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoDeliveredTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoDeliveredTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsigneeTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsigneeTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsigneeTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsigneeTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCarrierTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCarrierTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillCarrierTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCarrierTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillDeliveryPlaceChangeTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillDeliveryPlaceChangeTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DownloadPdfDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadPdfDocument" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_DownloadPdfDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadPdfDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RegisterSubscriber_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterSubscriber" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_RegisterSubscriber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterSubscriberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateNonActiveSubscriber_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNonActiveSubscriber" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateNonActiveSubscriber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNonActiveSubscriberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateSubjectInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateSubjectInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateSubjectInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateSubjectInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentExecutedFunction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentExecutedFunction" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentExecutedFunction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentExecutedFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequest" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequestFromFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestFromFile" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CreateCertificateIssueRequestFromFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestFromFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueShortInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueShortInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueShortInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueShortInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueInfo" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetCertificateIssueInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateIssueInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckSimpleSignatureAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSimpleSignatureAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_CheckSimpleSignatureAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSimpleSignatureAvailabilityResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_AcceptSimpleSignatureRegulation_InputMessage">
     <wsdl:part name="parameters" element="tns:AcceptSimpleSignatureRegulation" />
   </wsdl:message>
@@ -149,6 +432,18 @@
   </wsdl:message>
   <wsdl:message name="IExchangeService_PrintDocument_OutputMessage">
     <wsdl:part name="parameters" element="tns:PrintDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentTypeVersions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTypeVersions" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentTypeVersions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentTypeVersionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SearchProviderIdentificationCenters_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProviderIdentificationCenters" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_SearchProviderIdentificationCenters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProviderIdentificationCentersResponse" />
   </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
@@ -660,265 +955,195 @@
   <wsdl:message name="IExchangeService_GetPromoCodeByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPromoCodeByNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCode" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_DeleteOrganizationPromoCode_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteOrganizationPromoCodeResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CheckCertificateList_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckCertificateList" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CheckCertificateList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckCertificateListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateStatementOfInvoiceReglament_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateStatementOfInvoiceReglament" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateStatementOfInvoiceReglament_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateStatementOfInvoiceReglamentResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_SendStatementOfInvoiceReglament_InputMessage">
-    <wsdl:part name="parameters" element="tns:SendStatementOfInvoiceReglament" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_SendStatementOfInvoiceReglament_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SendStatementOfInvoiceReglamentResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CheckNeedToStatementOfInvoiceReglament_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckNeedToStatementOfInvoiceReglament" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CheckNeedToStatementOfInvoiceReglament_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckNeedToStatementOfInvoiceReglamentResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseWorksTransferSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseWorksTransferSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseWorksTransferSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseWorksTransferSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseWorksTransferBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseWorksTransferBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseWorksTransferBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseWorksTransferBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGoodsTransferSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGoodsTransferSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGoodsTransferSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGoodsTransferSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGoodsTransferBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGoodsTransferBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGoodsTransferBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGoodsTransferBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseGeneralTransferCorrectionBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseGeneralTransferCorrectionBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillConsignorTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsignorTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillConsignorTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsignorTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoReceivedTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoReceivedTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoReceivedTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoReceivedTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoDeliveredTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoDeliveredTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillCargoDeliveredTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCargoDeliveredTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillConsigneeTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsigneeTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillConsigneeTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillConsigneeTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillCarrierTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCarrierTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillCarrierTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillCarrierTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillDeliveryPlaceChangeTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ParseTransportWaybillDeliveryPlaceChangeTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateWorksTransferSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateWorksTransferSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateWorksTransferSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateWorksTransferSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGoodsTransferSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGoodsTransferSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionSeller_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionSeller" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionSeller_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionSellerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateWorksTransferBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateWorksTransferBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateWorksTransferBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateWorksTransferBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGoodsTransferBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGoodsTransferBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGoodsTransferBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionBuyer_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionBuyer" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateGeneralTransferCorrectionBuyer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateGeneralTransferCorrectionBuyerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsignorTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsignorTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsignorTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsignorTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoReceivedTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoReceivedTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoReceivedTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoReceivedTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoDeliveredTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCargoDeliveredTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsigneeTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsigneeTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillConsigneeTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillConsigneeTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillCarrierTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCarrierTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillCarrierTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillCarrierTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_InputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillDeliveryPlaceChangeTitle" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GenerateTransportWaybillDeliveryPlaceChangeTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_DownloadPdfDocument_InputMessage">
-    <wsdl:part name="parameters" element="tns:DownloadPdfDocument" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_DownloadPdfDocument_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DownloadPdfDocumentResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_RegisterSubscriber_InputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterSubscriber" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_RegisterSubscriber_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterSubscriberResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CreateNonActiveSubscriber_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNonActiveSubscriber" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CreateNonActiveSubscriber_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNonActiveSubscriberResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetCertificateSubjectInfo_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificateSubjectInfo" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetCertificateSubjectInfo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificateSubjectInfoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetDocumentExecutedFunction_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDocumentExecutedFunction" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetDocumentExecutedFunction_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDocumentExecutedFunctionResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CreateCertificateIssueRequest_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequest" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CreateCertificateIssueRequest_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CreateCertificateIssueRequestFromFile_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestFromFile" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CreateCertificateIssueRequestFromFile_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCertificateIssueRequestFromFileResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetCertificateIssueShortInfo_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificateIssueShortInfo" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetCertificateIssueShortInfo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificateIssueShortInfoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetCertificateIssueInfo_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificateIssueInfo" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_GetCertificateIssueInfo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificateIssueInfoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CheckSimpleSignatureAvailability_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckSimpleSignatureAvailability" />
-  </wsdl:message>
-  <wsdl:message name="IExchangeService_CheckSimpleSignatureAvailability_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckSimpleSignatureAvailabilityResponse" />
-  </wsdl:message>
   <wsdl:portType name="IExchangeService">
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" message="tns:IExchangeService_DeleteOrganizationPromoCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse" message="tns:IExchangeService_DeleteOrganizationPromoCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificateList">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateList" message="tns:IExchangeService_CheckCertificateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse" message="tns:IExchangeService_CheckCertificateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" message="tns:IExchangeService_GenerateStatementOfInvoiceReglament_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_GenerateStatementOfInvoiceReglament_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendStatementOfInvoiceReglament">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" message="tns:IExchangeService_SendStatementOfInvoiceReglament_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_SendStatementOfInvoiceReglament_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" message="tns:IExchangeService_CheckNeedToStatementOfInvoiceReglament_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_CheckNeedToStatementOfInvoiceReglament_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller" message="tns:IExchangeService_ParseGeneralTransferSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse" message="tns:IExchangeService_ParseGeneralTransferSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer" message="tns:IExchangeService_ParseGeneralTransferBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse" message="tns:IExchangeService_ParseGeneralTransferBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseWorksTransferSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller" message="tns:IExchangeService_ParseWorksTransferSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse" message="tns:IExchangeService_ParseWorksTransferSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseWorksTransferBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer" message="tns:IExchangeService_ParseWorksTransferBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerResponse" message="tns:IExchangeService_ParseWorksTransferBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransferSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller" message="tns:IExchangeService_ParseGoodsTransferSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse" message="tns:IExchangeService_ParseGoodsTransferSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransferBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer" message="tns:IExchangeService_ParseGoodsTransferBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse" message="tns:IExchangeService_ParseGoodsTransferBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferCorrectionSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller" message="tns:IExchangeService_ParseGeneralTransferCorrectionSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" message="tns:IExchangeService_ParseGeneralTransferCorrectionSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferCorrectionBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer" message="tns:IExchangeService_ParseGeneralTransferCorrectionBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse" message="tns:IExchangeService_ParseGeneralTransferCorrectionBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferSellerV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2" message="tns:IExchangeService_ParseGeneralTransferSellerV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2Response" message="tns:IExchangeService_ParseGeneralTransferSellerV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferBuyerV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2" message="tns:IExchangeService_ParseGeneralTransferBuyerV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2Response" message="tns:IExchangeService_ParseGeneralTransferBuyerV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" message="tns:IExchangeService_ParseTransportWaybillConsignorTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse" message="tns:IExchangeService_ParseTransportWaybillConsignorTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" message="tns:IExchangeService_ParseTransportWaybillCargoReceivedTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCargoReceivedTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_ParseTransportWaybillCargoDeliveredTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCargoDeliveredTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" message="tns:IExchangeService_ParseTransportWaybillConsigneeTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse" message="tns:IExchangeService_ParseTransportWaybillConsigneeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" message="tns:IExchangeService_ParseTransportWaybillCarrierTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCarrierTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillDeliveryPlaceChangeTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitle" message="tns:IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitleResponse" message="tns:IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWorksTransferSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" message="tns:IExchangeService_GenerateWorksTransferSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse" message="tns:IExchangeService_GenerateWorksTransferSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGoodsTransferSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller" message="tns:IExchangeService_GenerateGoodsTransferSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse" message="tns:IExchangeService_GenerateGoodsTransferSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller" message="tns:IExchangeService_GenerateGeneralTransferSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse" message="tns:IExchangeService_GenerateGeneralTransferSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferSellerV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2" message="tns:IExchangeService_GenerateGeneralTransferSellerV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2Response" message="tns:IExchangeService_GenerateGeneralTransferSellerV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferCorrectionSeller">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller" message="tns:IExchangeService_GenerateGeneralTransferCorrectionSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerResponse" message="tns:IExchangeService_GenerateGeneralTransferCorrectionSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWorksTransferBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer" message="tns:IExchangeService_GenerateWorksTransferBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse" message="tns:IExchangeService_GenerateWorksTransferBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGoodsTransferBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer" message="tns:IExchangeService_GenerateGoodsTransferBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse" message="tns:IExchangeService_GenerateGoodsTransferBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer" message="tns:IExchangeService_GenerateGeneralTransferBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse" message="tns:IExchangeService_GenerateGeneralTransferBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferBuyerV2">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2" message="tns:IExchangeService_GenerateGeneralTransferBuyerV2_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2Response" message="tns:IExchangeService_GenerateGeneralTransferBuyerV2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" message="tns:IExchangeService_GenerateGeneralTransferCorrectionBuyer_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerResponse" message="tns:IExchangeService_GenerateGeneralTransferCorrectionBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" message="tns:IExchangeService_GenerateTransportWaybillConsignorTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillConsignorTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" message="tns:IExchangeService_GenerateTransportWaybillCargoReceivedTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCargoReceivedTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" message="tns:IExchangeService_GenerateTransportWaybillConsigneeTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillConsigneeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" message="tns:IExchangeService_GenerateTransportWaybillCarrierTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCarrierTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillDeliveryPlaceChangeTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitle" message="tns:IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPdfDocument">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" message="tns:IExchangeService_DownloadPdfDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse" message="tns:IExchangeService_DownloadPdfDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber" message="tns:IExchangeService_RegisterSubscriber_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse" message="tns:IExchangeService_RegisterSubscriber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNonActiveSubscriber">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" message="tns:IExchangeService_CreateNonActiveSubscriber_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse" message="tns:IExchangeService_CreateNonActiveSubscriber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSubjectInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" message="tns:IExchangeService_GetCertificateSubjectInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse" message="tns:IExchangeService_GetCertificateSubjectInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentExecutedFunction">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" message="tns:IExchangeService_GetDocumentExecutedFunction_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse" message="tns:IExchangeService_GetDocumentExecutedFunction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequest">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" message="tns:IExchangeService_CreateCertificateIssueRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse" message="tns:IExchangeService_CreateCertificateIssueRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" message="tns:IExchangeService_CreateCertificateIssueRequestFromFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileResponse" message="tns:IExchangeService_CreateCertificateIssueRequestFromFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueShortInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" message="tns:IExchangeService_GetCertificateIssueShortInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfoResponse" message="tns:IExchangeService_GetCertificateIssueShortInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueInfo">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" message="tns:IExchangeService_GetCertificateIssueInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfoResponse" message="tns:IExchangeService_GetCertificateIssueInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSimpleSignatureAvailability">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" message="tns:IExchangeService_CheckSimpleSignatureAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityResponse" message="tns:IExchangeService_CheckSimpleSignatureAvailability_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AcceptSimpleSignatureRegulation">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation" message="tns:IExchangeService_AcceptSimpleSignatureRegulation_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulationResponse" message="tns:IExchangeService_AcceptSimpleSignatureRegulation_OutputMessage" />
@@ -994,6 +1219,14 @@
     <wsdl:operation name="PrintDocument">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/PrintDocument" message="tns:IExchangeService_PrintDocument_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/PrintDocumentResponse" message="tns:IExchangeService_PrintDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTypeVersions">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentTypeVersions" message="tns:IExchangeService_GetDocumentTypeVersions_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentTypeVersionsResponse" message="tns:IExchangeService_GetDocumentTypeVersions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProviderIdentificationCenters">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SearchProviderIdentificationCenters" message="tns:IExchangeService_SearchProviderIdentificationCenters_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SearchProviderIdentificationCentersResponse" message="tns:IExchangeService_SearchProviderIdentificationCenters_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
@@ -1335,181 +1568,432 @@
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" message="tns:IExchangeService_GetPromoCodeByName_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByNameResponse" message="tns:IExchangeService_GetPromoCodeByName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteOrganizationPromoCode">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" message="tns:IExchangeService_DeleteOrganizationPromoCode_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse" message="tns:IExchangeService_DeleteOrganizationPromoCode_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckCertificateList">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateList" message="tns:IExchangeService_CheckCertificateList_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse" message="tns:IExchangeService_CheckCertificateList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" message="tns:IExchangeService_GenerateStatementOfInvoiceReglament_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_GenerateStatementOfInvoiceReglament_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SendStatementOfInvoiceReglament">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" message="tns:IExchangeService_SendStatementOfInvoiceReglament_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_SendStatementOfInvoiceReglament_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" message="tns:IExchangeService_CheckNeedToStatementOfInvoiceReglament_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentResponse" message="tns:IExchangeService_CheckNeedToStatementOfInvoiceReglament_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller" message="tns:IExchangeService_ParseGeneralTransferSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse" message="tns:IExchangeService_ParseGeneralTransferSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer" message="tns:IExchangeService_ParseGeneralTransferBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse" message="tns:IExchangeService_ParseGeneralTransferBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseWorksTransferSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller" message="tns:IExchangeService_ParseWorksTransferSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse" message="tns:IExchangeService_ParseWorksTransferSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseWorksTransferBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer" message="tns:IExchangeService_ParseWorksTransferBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerResponse" message="tns:IExchangeService_ParseWorksTransferBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseGoodsTransferSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller" message="tns:IExchangeService_ParseGoodsTransferSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse" message="tns:IExchangeService_ParseGoodsTransferSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseGoodsTransferBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer" message="tns:IExchangeService_ParseGoodsTransferBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse" message="tns:IExchangeService_ParseGoodsTransferBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferCorrectionSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller" message="tns:IExchangeService_ParseGeneralTransferCorrectionSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" message="tns:IExchangeService_ParseGeneralTransferCorrectionSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferCorrectionBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer" message="tns:IExchangeService_ParseGeneralTransferCorrectionBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse" message="tns:IExchangeService_ParseGeneralTransferCorrectionBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" message="tns:IExchangeService_ParseTransportWaybillConsignorTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse" message="tns:IExchangeService_ParseTransportWaybillConsignorTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" message="tns:IExchangeService_ParseTransportWaybillCargoReceivedTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCargoReceivedTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_ParseTransportWaybillCargoDeliveredTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCargoDeliveredTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" message="tns:IExchangeService_ParseTransportWaybillConsigneeTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse" message="tns:IExchangeService_ParseTransportWaybillConsigneeTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" message="tns:IExchangeService_ParseTransportWaybillCarrierTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse" message="tns:IExchangeService_ParseTransportWaybillCarrierTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillDeliveryPlaceChangeTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitle" message="tns:IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitleResponse" message="tns:IExchangeService_ParseTransportWaybillDeliveryPlaceChangeTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateWorksTransferSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" message="tns:IExchangeService_GenerateWorksTransferSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse" message="tns:IExchangeService_GenerateWorksTransferSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGoodsTransferSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller" message="tns:IExchangeService_GenerateGoodsTransferSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse" message="tns:IExchangeService_GenerateGoodsTransferSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller" message="tns:IExchangeService_GenerateGeneralTransferSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse" message="tns:IExchangeService_GenerateGeneralTransferSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferCorrectionSeller">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller" message="tns:IExchangeService_GenerateGeneralTransferCorrectionSeller_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerResponse" message="tns:IExchangeService_GenerateGeneralTransferCorrectionSeller_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateWorksTransferBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer" message="tns:IExchangeService_GenerateWorksTransferBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse" message="tns:IExchangeService_GenerateWorksTransferBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGoodsTransferBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer" message="tns:IExchangeService_GenerateGoodsTransferBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse" message="tns:IExchangeService_GenerateGoodsTransferBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer" message="tns:IExchangeService_GenerateGeneralTransferBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse" message="tns:IExchangeService_GenerateGeneralTransferBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" message="tns:IExchangeService_GenerateGeneralTransferCorrectionBuyer_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerResponse" message="tns:IExchangeService_GenerateGeneralTransferCorrectionBuyer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" message="tns:IExchangeService_GenerateTransportWaybillConsignorTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillConsignorTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" message="tns:IExchangeService_GenerateTransportWaybillCargoReceivedTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCargoReceivedTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCargoDeliveredTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" message="tns:IExchangeService_GenerateTransportWaybillConsigneeTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillConsigneeTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" message="tns:IExchangeService_GenerateTransportWaybillCarrierTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillCarrierTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillDeliveryPlaceChangeTitle">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitle" message="tns:IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitleResponse" message="tns:IExchangeService_GenerateTransportWaybillDeliveryPlaceChangeTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DownloadPdfDocument">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" message="tns:IExchangeService_DownloadPdfDocument_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse" message="tns:IExchangeService_DownloadPdfDocument_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RegisterSubscriber">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber" message="tns:IExchangeService_RegisterSubscriber_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse" message="tns:IExchangeService_RegisterSubscriber_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateNonActiveSubscriber">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" message="tns:IExchangeService_CreateNonActiveSubscriber_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse" message="tns:IExchangeService_CreateNonActiveSubscriber_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateSubjectInfo">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" message="tns:IExchangeService_GetCertificateSubjectInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse" message="tns:IExchangeService_GetCertificateSubjectInfo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDocumentExecutedFunction">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" message="tns:IExchangeService_GetDocumentExecutedFunction_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse" message="tns:IExchangeService_GetDocumentExecutedFunction_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateCertificateIssueRequest">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" message="tns:IExchangeService_CreateCertificateIssueRequest_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse" message="tns:IExchangeService_CreateCertificateIssueRequest_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" message="tns:IExchangeService_CreateCertificateIssueRequestFromFile_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileResponse" message="tns:IExchangeService_CreateCertificateIssueRequestFromFile_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateIssueShortInfo">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" message="tns:IExchangeService_GetCertificateIssueShortInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfoResponse" message="tns:IExchangeService_GetCertificateIssueShortInfo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateIssueInfo">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" message="tns:IExchangeService_GetCertificateIssueInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfoResponse" message="tns:IExchangeService_GetCertificateIssueInfo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckSimpleSignatureAvailability">
-      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" message="tns:IExchangeService_CheckSimpleSignatureAvailability_InputMessage" />
-      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityResponse" message="tns:IExchangeService_CheckSimpleSignatureAvailability_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IExchangeService" type="tns:IExchangeService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificateList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseWorksTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseWorksTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferCorrectionSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferCorrectionBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferSellerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferBuyerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillDeliveryPlaceChangeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWorksTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGoodsTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferSellerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferCorrectionSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWorksTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGoodsTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferBuyerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillDeliveryPlaceChangeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPdfDocument">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RegisterSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNonActiveSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSubjectInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentExecutedFunction">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueShortInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSimpleSignatureAvailability">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AcceptSimpleSignatureRegulation">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation" style="document" />
       <wsdl:input>
@@ -1674,6 +2158,24 @@
     </wsdl:operation>
     <wsdl:operation name="PrintDocument">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/PrintDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTypeVersions">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentTypeVersions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProviderIdentificationCenters">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SearchProviderIdentificationCenters" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2439,393 +2941,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetPromoCodeByName">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteOrganizationPromoCode">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckCertificateList">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendStatementOfInvoiceReglament">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseWorksTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseWorksTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGoodsTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGoodsTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferCorrectionSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferCorrectionBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillDeliveryPlaceChangeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateWorksTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGoodsTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferCorrectionSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateWorksTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGoodsTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillDeliveryPlaceChangeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DownloadPdfDocument">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RegisterSubscriber">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RegisterSubscriber" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateNonActiveSubscriber">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateSubjectInfo">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDocumentExecutedFunction">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateCertificateIssueRequest">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateIssueShortInfo">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateIssueInfo">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckSimpleSignatureAvailability">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2837,6 +2952,429 @@
   <wsdl:binding name="BasicHttpBindingSecure_IExchangeService" type="tns:IExchangeService">
     <wsp:PolicyReference URI="#BasicHttpBindingSecure_IExchangeService_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteOrganizationPromoCode">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCertificateList">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseWorksTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseWorksTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferCorrectionSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferCorrectionBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferSellerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGeneralTransferBuyerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseTransportWaybillDeliveryPlaceChangeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWorksTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGoodsTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferSellerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferCorrectionSeller">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWorksTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGoodsTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferBuyerV2">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTransportWaybillDeliveryPlaceChangeTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPdfDocument">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RegisterSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNonActiveSubscriber">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateSubjectInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentExecutedFunction">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequest">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueShortInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateIssueInfo">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSimpleSignatureAvailability">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AcceptSimpleSignatureRegulation">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation" style="document" />
       <wsdl:input>
@@ -3001,6 +3539,24 @@
     </wsdl:operation>
     <wsdl:operation name="PrintDocument">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/PrintDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentTypeVersions">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentTypeVersions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProviderIdentificationCenters">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SearchProviderIdentificationCenters" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3766,393 +4322,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetPromoCodeByName">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteOrganizationPromoCode">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckCertificateList">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckCertificateList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateStatementOfInvoiceReglament">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendStatementOfInvoiceReglament">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckNeedToStatementOfInvoiceReglament">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseWorksTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseWorksTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGoodsTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGoodsTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferCorrectionSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseGeneralTransferCorrectionBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillConsignorTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCargoReceivedTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCargoDeliveredTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillConsigneeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillCarrierTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ParseTransportWaybillDeliveryPlaceChangeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateWorksTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGoodsTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferCorrectionSeller">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateWorksTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGoodsTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateGeneralTransferCorrectionBuyer">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillConsignorTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCargoReceivedTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCargoDeliveredTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillConsigneeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillCarrierTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateTransportWaybillDeliveryPlaceChangeTitle">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DownloadPdfDocument">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocument" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RegisterSubscriber">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/RegisterSubscriber" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateNonActiveSubscriber">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateSubjectInfo">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDocumentExecutedFunction">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateCertificateIssueRequest">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateCertificateIssueRequestFromFile">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateIssueShortInfo">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificateIssueInfo">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckSimpleSignatureAvailability">
-      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4166,7 +4335,7 @@
       <soap:address location="http://localhost:5001/ExchangeService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBindingSecure_IExchangeService" binding="tns:BasicHttpBindingSecure_IExchangeService">
-      <soap:address location="https://w781w10.comp.npo:5043/ExchangeService.svc" />
+      <soap:address location="https://w970w10.comp.npo:5003/ExchangeService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

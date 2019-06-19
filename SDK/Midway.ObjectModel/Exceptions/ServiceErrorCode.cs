@@ -32,7 +32,9 @@ namespace Midway.ObjectModel.Exceptions
         [Description("Внутренняя ошибка сервера")]
         UnexpectedError = 0,
 
-        // Не заполнено обязательное поле
+        /// <summary>
+        /// Не заполнено обязательное поле
+        /// </summary>
         [Description("Не заполнено обязательное поле")]
         NotFilledRequiredField = 1,
 

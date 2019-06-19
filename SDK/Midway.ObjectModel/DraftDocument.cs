@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -18,6 +19,7 @@ namespace Midway.ObjectModel
         /// Тип документа
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
@@ -25,12 +27,20 @@ namespace Midway.ObjectModel
         /// Не используется при отправке
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public EnumValue DocumentTypeEnum { get; set; }
+
+        /// <summary>
+        /// Информация о типе документа.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public DocumentTypeInfo DocumentTypeInfo { get; set; }
 
         /// <summary>
         /// Вид неформализованного документа.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
         public string UntypedKind { get; set; }
 
         /// <summary>
@@ -99,5 +109,17 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public ConversionSettings ConversionSettings { get; set; }
+
+        /// <summary>
+        /// Признак того, что документ будет отправлен только участникам документооборота.
+        /// </summary>
+        [DataMember]
+        public bool? SendOnlyToDocumentFlowParticipants { get; set; }
+
+        /// <summary>
+        /// Участники документооборота.
+        /// </summary>
+        [DataMember]
+        public DocumentFlowParticipantShortInfo[] DocumentFlowParticipants { get; set; }
     }
 }

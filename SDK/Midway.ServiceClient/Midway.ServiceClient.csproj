@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -97,6 +99,8 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentPrintingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionGettingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionsGettingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessageSearchResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Employee.datasource" />
@@ -106,9 +110,11 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.FlowDocumentInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.FullDocumentInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferBuyer.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionSeller.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferSeller.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneratedContent.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferSeller.datasource" />
@@ -123,6 +129,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.PasswordUpdatingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.PersonalInfoUpdatingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.PromoCode.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.ProviderIdentificationCentersSearchingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.QualifiedX509Name.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.RegisterResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.RegistrationResponse.datasource" />
@@ -168,12 +175,9 @@
     <None Include="Service References\Model\ExchangeService6.xsd">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Midway.ObjectModel\Midway.ObjectModel.csproj">
-      <Project>{9C571FE8-5D05-481D-A79F-1D77B16D944A}</Project>
-      <Name>Midway.ObjectModel</Name>
-    </ProjectReference>
+    <None Include="Service References\Model\ExchangeService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Model\" />
@@ -192,6 +196,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Midway.ObjectModel\Midway.ObjectModel.csproj">
+      <Project>{9c571fe8-5d05-481d-a79f-1d77b16d944a}</Project>
+      <Name>Midway.ObjectModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,6 +19,7 @@ namespace Midway.ObjectModel
             this.GetServiceDocuments = true;
             this.GetSigns = true;
             this.GetDocumentDeletionState = true;
+            this.GetAvailableOperations = true;
         }
 
         /// <summary>
@@ -64,15 +65,30 @@ namespace Midway.ObjectModel
         public bool GetDocumentDeletionState { get; set; }
 
         /// <summary>
+        /// «агружать информацию о доступных операци€х?
+        /// </summary>
+        [DataMember]
+        public bool? GetAvailableOperations { get; set; }
+
+        /// <summary>
         /// ‘ильтраци€ прав дл€ пользовател€ сервиса по логину через проверку доступа:
         /// TODO - перенести эту проверку в веб клиент?
         /// </summary>
         [DataMember]
         public string UserLogin { get; set; }
 
-        public override string ToString()
-        {
-            return string.Format("GetContent: {0}, GetCard: {1}, GetSigns: {2}, GetServiceDocuments: {3}, GetRelatedDocuments: {4}", GetContent, GetCard, GetSigns, GetServiceDocuments, GetRelatedDocuments);
-        }
+        /// <summary>
+        /// <c>true</c>, если требуетс€ загружать информацию о рол€х участников документооборота; иначе - <c>false</c>.
+        /// </summary>
+        [DataMember]
+        public bool GetDocumentFlowParticipantsRoles { get; set; }
+
+        public override string ToString() 
+            => $"GetAvailableOperations: {GetAvailableOperations}, " +
+               $"GetContent: {GetContent}, " +
+               $"GetCard: {GetCard}, " +
+               $"GetSigns: {GetSigns}, " +
+               $"GetServiceDocuments: {GetServiceDocuments}, " +
+               $"GetRelatedDocuments: {GetRelatedDocuments}";
     }
 }

@@ -3,49 +3,49 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Базовая модель товара / продукта / услуги
+    /// Базовая модель товара (продукта, услуги).
     /// </summary>
-    [DataContract] 
+    [DataContract]
     public class ItemAmount
     {
         /// <summary>
-        /// Налоговая ставка
+        /// Налоговая ставка.
         /// </summary>
         [DataMember]
         public EnumValue VatRate { get; set; }
 
         /// <summary>
-        /// Цена
+        /// Цена.
         /// </summary>
         [DataMember]
         public decimal? Price { get; set; }
 
         /// <summary>
-        /// Количество
+        /// Количество.
         /// </summary>
         [DataMember]
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// Стоимость без налога
+        /// Стоимость без налога.
         /// </summary>
         [DataMember]
         public decimal? NetAmount { get; set; }
 
         /// <summary>
-        /// Сумма налога
+        /// Сумма налога.
         /// </summary>
         [DataMember]
-        public decimal? VatAmount{ get; set; }
+        public decimal? VatAmount { get; set; }
 
         /// <summary>
-        /// Сумма с налогом
+        /// Сумма с налогом.
         /// </summary>
         [DataMember]
         public decimal? GrossAmount { get; set; }
 
         ///<summary>
-        /// Единица измерения
+        /// Единица измерения.
         /// </summary>
         [DataMember]
         public NameCodeObject UnitOfMeasure { get; set; }

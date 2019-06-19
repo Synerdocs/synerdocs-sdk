@@ -3,37 +3,37 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Базовый класс контрагента
+    /// Базовый класс контрагента.
     /// </summary>
     [DataContract]
     public class ContragentBase
     {
         /// <summary>
-        /// Наименование организации
+        /// Наименование организации.
         /// </summary>
         [DataMember]
         public string OrganizationName { get; set; }
 
         /// <summary>
-        /// ИНН
+        /// ИНН.
         /// </summary>
         [DataMember]
         public string Inn { get; set; }
 
         /// <summary>
-        /// КПП
+        /// КПП.
         /// </summary>
         [DataMember]
         public string Kpp { get; set; }
 
         /// <summary>
-        /// Банковские реквизиты
+        /// Банковские реквизиты.
         /// </summary>
         [DataMember]
         public BankAccount BankAccount { get; set; }
 
         /// <summary>
-        /// Дополнительная информация
+        /// Дополнительная информация.
         /// </summary>
         [DataMember]
         public string AdditionalInfo { get; set; }

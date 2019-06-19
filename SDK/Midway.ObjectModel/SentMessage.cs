@@ -4,26 +4,26 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация об отправленном сообщении
+    /// Информация об отправленном сообщении.
     /// </summary>
     [DataContract]
     public class SentMessage
     {
         /// <summary>
-        /// Сгенерированный идентификатор сообщения
+        /// Сгенерированный идентификатор сообщения.
         /// </summary>
         [DataMember]
         public string MessageId { get; set; }
 
         /// <summary>
-        /// Сгенерированные идентификаторы документов: локальные и серверные
-        /// Ключ - входящий идентификатор
+        /// Сгенерированные идентификаторы документов: локальные и серверные.
+        /// Ключ - входящий идентификатор.
         /// </summary>
         [DataMember]
         public LocalServerId[] DocumentIds { get; set; }
 
         /// <summary>
-        /// Дата отправки
+        /// Дата отправки.
         /// </summary>
         [DataMember]
         public DateTime SentDate { get; set; }
@@ -35,7 +35,7 @@ namespace Midway.ObjectModel
         public LocalServerId[] SignIds { get; set; }
 
         /// <summary>
-        /// Лог отправки. Здесь могут быть сообщения о событиях, возникших в ходе обработки и отправки сообщения
+        /// Лог отправки. Здесь могут быть сообщения о событиях, возникших в ходе обработки и отправки сообщения.
         /// </summary>
         [DataMember]
         public string[] Log { get; set; }

@@ -947,10 +947,7 @@ namespace Midway.ConsoleClient
                 {
                     DocumentTypeInfo = new DocumentTypeInfo
                     {
-                        DocumentType = new DocumentTypeEnum
-                        {
-                            Value = draftDocument.DocumentType,
-                        },
+                        DocumentType = draftDocument.DocumentType.ToEnumValue()
                     },
                 },
             };
@@ -2535,11 +2532,7 @@ namespace Midway.ConsoleClient
 
             return new DocumentTypeInfo
             {
-                DocumentType = new DocumentTypeEnum
-                {
-                    Value = documentType,
-                    Code = (int)documentType,
-                },
+                DocumentType = documentType.ToEnumValue(),
                 UntypedKind = untypedKind,
             };
         }
@@ -4936,11 +4929,7 @@ namespace Midway.ConsoleClient
         private ISignature ChooseSignature(byte[] documentContent, DocumentType documentType, string untypedKind = null)
             => ChooseSignature(documentContent, new DocumentTypeInfo
             {
-                DocumentType = new DocumentTypeEnum
-                {
-                    Value = documentType,
-                    Code = (int)documentType,
-                },
+                DocumentType = documentType.ToEnumValue(),
                 UntypedKind = untypedKind,
             });
 

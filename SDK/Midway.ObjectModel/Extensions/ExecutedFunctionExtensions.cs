@@ -9,7 +9,7 @@
         /// Позволяет ли функция документа его подписывать.
         /// </summary>
         /// <param name="documentFunction">Функция документа.</param>
-        /// <returns><c>true</c>, если функция документа позволяет его подписывать; иначе - <c>false</c>.</returns>
+        /// <returns><c>true</c>, если функция документа позволяет его подписывать.</returns>
         public static bool IsSigningAvailable(this ExecutedFunction documentFunction)
             => documentFunction == ExecutedFunction.Transfer
                || documentFunction == ExecutedFunction.TransferCorrection

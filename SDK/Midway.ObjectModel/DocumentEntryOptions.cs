@@ -1,32 +1,30 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Параметры поиска/фильтрации списка вхождений документов
+    /// Параметры поиска/фильтрации списка вхождений документов.
     /// </summary>
     [DataContract]
     public class DocumentEntryOptions : DocumentListOptions
     {
         /// <summary>
-        /// Конструктор по умолчанию
+        /// Типы документооборота.
         /// </summary>
-        public DocumentEntryOptions()
-        {
-            DocumentFlowTypes = new[]
+        [DataMember]
+        public DocumentFlowType[] DocumentFlowTypes { get; set; }
+            = new[]
             {
                 DocumentFlowType.SentSigned,
                 DocumentFlowType.SentUnsigned,
                 DocumentFlowType.SentPrepared,
                 DocumentFlowType.SentForward,
             };
-        }
 
         /// <summary>
-        /// Типы документооборота
+        /// Статусы транспортной накладной (ТрН).
         /// </summary>
         [DataMember]
-        public DocumentFlowType[] DocumentFlowTypes { get; set; }
+        public TransportWaybillStatus[] TransportWaybillStatuses { get; set; }
     }
 }

@@ -6,14 +6,8 @@ namespace Midway.ObjectModel
     /// Реквизиты сопроводительного документа.
     /// </summary>
     [DataContract]
-    public class ShippingDocument : NumberDate
+    public class ShippingDocument : NamedNumberDate
     {
-        /// <summary>
-        /// Наименование документа.
-        /// </summary>
-        [DataMember]
-        public string Name { get; set; }
-
         /// <summary>
         /// Дополнительные сведения о документе.
         /// </summary>

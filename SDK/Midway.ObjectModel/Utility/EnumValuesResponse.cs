@@ -20,6 +20,12 @@ namespace Midway.ObjectModel.Utility
 	public class EnumValuesResponse
 	{
 		/// <summary>
+		/// Значения перечисления типа 'Статус работы'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> ActivityStatuses { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Тип записи адреса'.
 		/// </summary>
 		[DataMember]
@@ -32,10 +38,46 @@ namespace Midway.ObjectModel.Utility
 		public List<EnumValue> AddressTypes { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Обстоятельства формирования счета-фактуры, применяемого при расчетах по налогу на добавленную стоимость'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> CircumstancesOfProducings { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Вид документа о расхождениях'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> DivergenceDocumentTypes { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Коды операций над документом'.
 		/// </summary>
 		[DataMember]
 		public List<EnumValue> DocumentOperationCodes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Назначение документа'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> DocumentPurposes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Вид средств'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> FundsTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Итоговый результат приемки товара'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> GoodsAcceptanceResultTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Роль участника документооборота'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> DocumentFlowParticipantRoles { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Тип заявки на издание сертификата'.
@@ -80,10 +122,22 @@ namespace Midway.ObjectModel.Utility
 		public List<EnumValue> EnhancedSignFailedReasons { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Тип платежа'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> PaymentTypes { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Тип подписанта документа'.
 		/// </summary>
 		[DataMember]
 		public List<EnumValue> SignerTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Тип суммы налога'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> VatAmountTypes { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Версия формата титула водителя (сдача груза) транспортной накладной'.
@@ -108,6 +162,12 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public List<EnumValue> TransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Статус транспортной накладной (ТрН)'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> TransportWaybillStatuses { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Версия формата титула водителя (прием груза) транспортной накладной'.

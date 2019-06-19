@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -89,5 +90,17 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DocumentFlowStatusDescription DocumentFlowStatusDescription { get; set; }
+
+        /// <summary>
+        /// Ограничение на отправку документа только участникам документооборота.
+        /// </summary>
+        [DataMember]
+        public bool? SendOnlyToDocumentFlowParticipants { get; set; }
+
+        /// <summary>
+        /// Список ролей участника-отправителя в рамках документооборота.
+        /// </summary>
+        [DataMember]
+        public List<EnumValue> SenderRoles { get; set; }
     }
 }
