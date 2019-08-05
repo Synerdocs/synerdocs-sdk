@@ -26,5 +26,7 @@
         public static readonly string Sheet = "Ведомость";
         public static readonly string Invoice = "Счет";
         public static readonly string AnyAct = "Акт";
+        public static readonly string Specification = "Спецификация";
+        public static readonly string Procuration = "Доверенность";
     }
 }

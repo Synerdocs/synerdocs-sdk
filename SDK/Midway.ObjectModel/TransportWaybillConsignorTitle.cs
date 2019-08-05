@@ -11,12 +11,16 @@ namespace Midway.ObjectModel
     {
         /// <summary>
         /// Грузоотправитель.
+        /// По XSD схеме элемент обязателен, но т.к он может быть заполнен автоматически из контента документа,
+        /// свойство помечено как необязательное.
         /// </summary>
         [DataMember]
         public CounterpartyBase Consignor { get; set; }
 
         /// <summary>
         /// Грузополучатель.
+        /// По XSD схеме элемент обязателен, но т.к он может быть заполнен автоматически из контента документа,
+        /// свойство помечено как необязательное.
         /// </summary>
         [DataMember]
         public CounterpartyBase Consignee { get; set; }
@@ -24,7 +28,7 @@ namespace Midway.ObjectModel
         /// <summary>
         /// Описание груза.
         /// </summary>
-        [DataMember(IsRequired = true)]
+        [DataMember]
         public CargoDescription CargoDescription { get; set; }
 
         /// <summary>

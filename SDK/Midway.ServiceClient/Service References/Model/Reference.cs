@@ -15,615 +15,6 @@ namespace Midway.ServiceClient.Model {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://synerdocs.ru", ConfigurationName="Model.IExchangeService")]
     public interface IExchangeService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
-        void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
-        System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState);
-        
-        void EndDeleteOrganizationPromoCode(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckCertificateList", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse")]
-        Midway.ObjectModel.CertificateCheckInfo[] CheckCertificateList(string[] thumbprints);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckCertificateList", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse")]
-        System.IAsyncResult BeginCheckCertificateList(string[] thumbprints, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.CertificateCheckInfo[] EndCheckCertificateList(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
-        Midway.ObjectModel.NamedContent GenerateStatementOfInvoiceReglament(string authToken, string boxId);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
-        System.IAsyncResult BeginGenerateStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocumentWithSimpleSignature))]
-        Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
-        System.IAsyncResult BeginSendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.SentMessage EndSendStatementOfInvoiceReglament(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
-            "se")]
-        bool CheckNeedToStatementOfInvoiceReglament(string authToken, string boxId);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
-            "se")]
-        System.IAsyncResult BeginCheckNeedToStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
-        
-        bool EndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneralTransferSeller ParseGeneralTransferSeller(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse")]
-        System.IAsyncResult BeginParseGeneralTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneralTransferSeller EndParseGeneralTransferSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneralTransferBuyer ParseGeneralTransferBuyer(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse")]
-        System.IAsyncResult BeginParseGeneralTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneralTransferBuyer EndParseGeneralTransferBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.WorksTransferSeller ParseWorksTransferSeller(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse")]
-        System.IAsyncResult BeginParseWorksTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.WorksTransferSeller EndParseWorksTransferSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        Midway.ObjectModel.WorksTransferBuyer ParseWorksTransferBuyer(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerResponse")]
-        System.IAsyncResult BeginParseWorksTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.WorksTransferBuyer EndParseWorksTransferBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GoodsTransferSeller ParseGoodsTransferSeller(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse")]
-        System.IAsyncResult BeginParseGoodsTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GoodsTransferSeller EndParseGoodsTransferSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GoodsTransferBuyer ParseGoodsTransferBuyer(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse")]
-        System.IAsyncResult BeginParseGoodsTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GoodsTransferBuyer EndParseGoodsTransferBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" +
-            "")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneralTransferCorrectionSeller ParseGeneralTransferCorrectionSeller(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" +
-            "")]
-        System.IAsyncResult BeginParseGeneralTransferCorrectionSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneralTransferCorrectionSeller EndParseGeneralTransferCorrectionSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(string authToken, byte[] content);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse")]
-        System.IAsyncResult BeginParseGeneralTransferCorrectionBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneralTransferCorrectionBuyer EndParseGeneralTransferCorrectionBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2Response")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse ParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2Response")]
-        System.IAsyncResult BeginParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse EndParseGeneralTransferSellerV2(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2Response")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse ParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2Response")]
-        System.IAsyncResult BeginParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse EndParseGeneralTransferBuyerV2(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse ParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse")]
-        System.IAsyncResult BeginParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse EndParseTransportWaybillConsignorTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleRespo" +
-            "nse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse ParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleRespo" +
-            "nse")]
-        System.IAsyncResult BeginParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse EndParseTransportWaybillCargoReceivedTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResp" +
-            "onse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse ParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResp" +
-            "onse")]
-        System.IAsyncResult BeginParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse EndParseTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse ParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse")]
-        System.IAsyncResult BeginParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse EndParseTransportWaybillConsigneeTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse ParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse")]
-        System.IAsyncResult BeginParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse EndParseTransportWaybillCarrierTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
-            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
-            "eResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityPlaceChangeInitiator))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurPlaceChangeInitiator))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualPlaceChangeInitiator))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
-            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
-            "eResponse")]
-        System.IAsyncResult BeginParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse EndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneratedContent GenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
-        System.IAsyncResult BeginGenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneratedContent GenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse")]
-        System.IAsyncResult BeginGenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse")]
-        System.IAsyncResult BeginGenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2Response")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2Response")]
-        System.IAsyncResult BeginGenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferSellerV2(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerRespo" +
-            "nse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerRespo" +
-            "nse")]
-        System.IAsyncResult BeginGenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        Midway.ObjectModel.GeneratedContent GenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse")]
-        System.IAsyncResult BeginGenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneratedContent GenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse")]
-        System.IAsyncResult BeginGenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse")]
-        System.IAsyncResult BeginGenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2Response")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2Response")]
-        System.IAsyncResult BeginGenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferBuyerV2(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerRespon" +
-            "se")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerRespon" +
-            "se")]
-        System.IAsyncResult BeginGenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionBuyer(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleRespon" +
-            "se")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleRespon" +
-            "se")]
-        System.IAsyncResult BeginGenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsignorTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleRe" +
-            "sponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleRe" +
-            "sponse")]
-        System.IAsyncResult BeginGenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoReceivedTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleR" +
-            "esponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleR" +
-            "esponse")]
-        System.IAsyncResult BeginGenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleRespon" +
-            "se")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleRespon" +
-            "se")]
-        System.IAsyncResult BeginGenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsigneeTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" +
-            "")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" +
-            "")]
-        System.IAsyncResult BeginGenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCarrierTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
-            "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
-            "itleResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityPlaceChangeInitiator))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurPlaceChangeInitiator))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualPlaceChangeInitiator))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
-        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
-            "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
-            "itleResponse")]
-        System.IAsyncResult BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse")]
-        Midway.ObjectModel.NamedContent DownloadPdfDocument(string authToken, string boxId, string documentId);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse")]
-        System.IAsyncResult BeginDownloadPdfDocument(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.NamedContent EndDownloadPdfDocument(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
-        Midway.ObjectModel.RegistrationResponse RegisterSubscriber(Midway.ObjectModel.RegistrationRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
-        System.IAsyncResult BeginRegisterSubscriber(Midway.ObjectModel.RegistrationRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
-        System.IAsyncResult BeginCreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
-        System.IAsyncResult BeginGetCertificateSubjectInfo(byte[] certificate, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
-        System.IAsyncResult BeginGetDocumentExecutedFunction(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
-        Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse")]
-        System.IAsyncResult BeginCreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequest(System.IAsyncResult result);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileRespons" +
             "e")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -1579,808 +970,619 @@ namespace Midway.ServiceClient.Model {
         System.IAsyncResult BeginGetPromoCodeByName(string authToken, string promoCodeName, System.AsyncCallback callback, object asyncState);
         
         Midway.ObjectModel.PromoCode EndGetPromoCodeByName(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
+        void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
+        System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteOrganizationPromoCode(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckCertificateList", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse")]
+        Midway.ObjectModel.CertificateCheckInfo[] CheckCertificateList(string[] thumbprints);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckCertificateList", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse")]
+        System.IAsyncResult BeginCheckCertificateList(string[] thumbprints, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.CertificateCheckInfo[] EndCheckCertificateList(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
+        Midway.ObjectModel.NamedContent GenerateStatementOfInvoiceReglament(string authToken, string boxId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
+        System.IAsyncResult BeginGenerateStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocumentWithSimpleSignature))]
+        Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
+        System.IAsyncResult BeginSendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.SentMessage EndSendStatementOfInvoiceReglament(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
+            "se")]
+        bool CheckNeedToStatementOfInvoiceReglament(string authToken, string boxId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
+            "se")]
+        System.IAsyncResult BeginCheckNeedToStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
+        
+        bool EndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneralTransferSeller ParseGeneralTransferSeller(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse")]
+        System.IAsyncResult BeginParseGeneralTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneralTransferSeller EndParseGeneralTransferSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneralTransferBuyer ParseGeneralTransferBuyer(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse")]
+        System.IAsyncResult BeginParseGeneralTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneralTransferBuyer EndParseGeneralTransferBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.WorksTransferSeller ParseWorksTransferSeller(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse")]
+        System.IAsyncResult BeginParseWorksTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.WorksTransferSeller EndParseWorksTransferSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.WorksTransferBuyer ParseWorksTransferBuyer(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerResponse")]
+        System.IAsyncResult BeginParseWorksTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.WorksTransferBuyer EndParseWorksTransferBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GoodsTransferSeller ParseGoodsTransferSeller(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse")]
+        System.IAsyncResult BeginParseGoodsTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GoodsTransferSeller EndParseGoodsTransferSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GoodsTransferBuyer ParseGoodsTransferBuyer(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse")]
+        System.IAsyncResult BeginParseGoodsTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GoodsTransferBuyer EndParseGoodsTransferBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" +
+            "")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneralTransferCorrectionSeller ParseGeneralTransferCorrectionSeller(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" +
+            "")]
+        System.IAsyncResult BeginParseGeneralTransferCorrectionSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneralTransferCorrectionSeller EndParseGeneralTransferCorrectionSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(string authToken, byte[] content);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse")]
+        System.IAsyncResult BeginParseGeneralTransferCorrectionBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneralTransferCorrectionBuyer EndParseGeneralTransferCorrectionBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2Response")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse ParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2Response")]
+        System.IAsyncResult BeginParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse EndParseGeneralTransferSellerV2(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2Response")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse ParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2Response")]
+        System.IAsyncResult BeginParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse EndParseGeneralTransferBuyerV2(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse ParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse")]
+        System.IAsyncResult BeginParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse EndParseTransportWaybillConsignorTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleRespo" +
+            "nse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse ParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleRespo" +
+            "nse")]
+        System.IAsyncResult BeginParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse EndParseTransportWaybillCargoReceivedTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResp" +
+            "onse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse ParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResp" +
+            "onse")]
+        System.IAsyncResult BeginParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse EndParseTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse ParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse")]
+        System.IAsyncResult BeginParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse EndParseTransportWaybillConsigneeTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse ParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse")]
+        System.IAsyncResult BeginParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse EndParseTransportWaybillCarrierTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "eResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "eResponse")]
+        System.IAsyncResult BeginParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse EndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneratedContent GenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
+        System.IAsyncResult BeginGenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneratedContent GenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse")]
+        System.IAsyncResult BeginGenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse")]
+        System.IAsyncResult BeginGenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2Response")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2Response")]
+        System.IAsyncResult BeginGenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferSellerV2(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerRespo" +
+            "nse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerRespo" +
+            "nse")]
+        System.IAsyncResult BeginGenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.GeneratedContent GenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse")]
+        System.IAsyncResult BeginGenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneratedContent GenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse")]
+        System.IAsyncResult BeginGenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse")]
+        System.IAsyncResult BeginGenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2Response")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2Response")]
+        System.IAsyncResult BeginGenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferBuyerV2(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerRespon" +
+            "se")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerRespon" +
+            "se")]
+        System.IAsyncResult BeginGenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionBuyer(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleRespon" +
+            "se")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleRespon" +
+            "se")]
+        System.IAsyncResult BeginGenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsignorTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleRe" +
+            "sponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleRe" +
+            "sponse")]
+        System.IAsyncResult BeginGenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoReceivedTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleR" +
+            "esponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleR" +
+            "esponse")]
+        System.IAsyncResult BeginGenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleRespon" +
+            "se")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleRespon" +
+            "se")]
+        System.IAsyncResult BeginGenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsigneeTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" +
+            "")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" +
+            "")]
+        System.IAsyncResult BeginGenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCarrierTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itleResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ForeignCounterparty))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualPlaceChangeInitiator))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
+        Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itleResponse")]
+        System.IAsyncResult BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse")]
+        Midway.ObjectModel.NamedContent DownloadPdfDocument(string authToken, string boxId, string documentId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse")]
+        System.IAsyncResult BeginDownloadPdfDocument(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.NamedContent EndDownloadPdfDocument(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
+        Midway.ObjectModel.RegistrationResponse RegisterSubscriber(Midway.ObjectModel.RegistrationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
+        System.IAsyncResult BeginRegisterSubscriber(Midway.ObjectModel.RegistrationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
+        System.IAsyncResult BeginCreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
+        System.IAsyncResult BeginGetCertificateSubjectInfo(byte[] certificate, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
+        System.IAsyncResult BeginGetDocumentExecutedFunction(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse")]
+        System.IAsyncResult BeginCreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequest(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IExchangeServiceChannel : Midway.ServiceClient.Model.IExchangeService, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CheckCertificateListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public CheckCertificateListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.CertificateCheckInfo[] Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.CertificateCheckInfo[])(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.NamedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.NamedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SendStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SendStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.SentMessage Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.SentMessage)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGeneralTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGeneralTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneralTransferSeller Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneralTransferSeller)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGeneralTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGeneralTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneralTransferBuyer Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneralTransferBuyer)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseWorksTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseWorksTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.WorksTransferSeller Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.WorksTransferSeller)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseWorksTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseWorksTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.WorksTransferBuyer Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.WorksTransferBuyer)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGoodsTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGoodsTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GoodsTransferSeller Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GoodsTransferSeller)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGoodsTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGoodsTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GoodsTransferBuyer Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GoodsTransferBuyer)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGeneralTransferCorrectionSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGeneralTransferCorrectionSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneralTransferCorrectionSeller Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneralTransferCorrectionSeller)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGeneralTransferCorrectionBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGeneralTransferCorrectionBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneralTransferCorrectionBuyer Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneralTransferCorrectionBuyer)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGeneralTransferSellerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGeneralTransferSellerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseGeneralTransferBuyerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseGeneralTransferBuyerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseTransportWaybillConsignorTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseTransportWaybillConsignorTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseTransportWaybillCargoReceivedTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseTransportWaybillCargoReceivedTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseTransportWaybillConsigneeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseTransportWaybillConsigneeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseTransportWaybillCarrierTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseTransportWaybillCarrierTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateWorksTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateWorksTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGoodsTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGoodsTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGeneralTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGeneralTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGeneralTransferSellerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGeneralTransferSellerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGeneralTransferCorrectionSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGeneralTransferCorrectionSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateWorksTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateWorksTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGoodsTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGoodsTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGeneralTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGeneralTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGeneralTransferBuyerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGeneralTransferBuyerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateGeneralTransferCorrectionBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateGeneralTransferCorrectionBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.GeneratedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateTransportWaybillConsignorTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateTransportWaybillConsignorTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateTransportWaybillConsigneeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateTransportWaybillConsigneeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateTransportWaybillCarrierTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateTransportWaybillCarrierTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DownloadPdfDocumentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public DownloadPdfDocumentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.NamedContent Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.NamedContent)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RegisterSubscriberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public RegisterSubscriberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.RegistrationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.RegistrationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CreateNonActiveSubscriberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public CreateNonActiveSubscriberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.NonActiveSubscriberCreationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.NonActiveSubscriberCreationResponse)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetCertificateSubjectInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetCertificateSubjectInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.QualifiedX509Name Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.QualifiedX509Name)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDocumentExecutedFunctionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetDocumentExecutedFunctionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.EnumValue Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.EnumValue)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CreateCertificateIssueRequestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public CreateCertificateIssueRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.CertificateIssueRequestCreationResponse Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.CertificateIssueRequestCreationResponse)(this.results[0]));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4114,265 +3316,805 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CheckCertificateListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CheckCertificateListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.CertificateCheckInfo[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.CertificateCheckInfo[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.NamedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.NamedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SendStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SendStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.SentMessage Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.SentMessage)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGeneralTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGeneralTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneralTransferSeller Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneralTransferSeller)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGeneralTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGeneralTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneralTransferBuyer Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneralTransferBuyer)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseWorksTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseWorksTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.WorksTransferSeller Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.WorksTransferSeller)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseWorksTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseWorksTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.WorksTransferBuyer Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.WorksTransferBuyer)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGoodsTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGoodsTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GoodsTransferSeller Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GoodsTransferSeller)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGoodsTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGoodsTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GoodsTransferBuyer Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GoodsTransferBuyer)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGeneralTransferCorrectionSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGeneralTransferCorrectionSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneralTransferCorrectionSeller Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneralTransferCorrectionSeller)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGeneralTransferCorrectionBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGeneralTransferCorrectionBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneralTransferCorrectionBuyer Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneralTransferCorrectionBuyer)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGeneralTransferSellerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGeneralTransferSellerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGeneralTransferBuyerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGeneralTransferBuyerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseTransportWaybillConsignorTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseTransportWaybillConsignorTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseTransportWaybillCargoReceivedTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseTransportWaybillCargoReceivedTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseTransportWaybillConsigneeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseTransportWaybillConsigneeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseTransportWaybillCarrierTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseTransportWaybillCarrierTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateWorksTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateWorksTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGoodsTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGoodsTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGeneralTransferSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGeneralTransferSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGeneralTransferSellerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGeneralTransferSellerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGeneralTransferCorrectionSellerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGeneralTransferCorrectionSellerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateWorksTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateWorksTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGoodsTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGoodsTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGeneralTransferBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGeneralTransferBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGeneralTransferBuyerV2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGeneralTransferBuyerV2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateGeneralTransferCorrectionBuyerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateGeneralTransferCorrectionBuyerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GeneratedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GeneratedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateTransportWaybillConsignorTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateTransportWaybillConsignorTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateTransportWaybillConsigneeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateTransportWaybillConsigneeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateTransportWaybillCarrierTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateTransportWaybillCarrierTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGenerationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DownloadPdfDocumentCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public DownloadPdfDocumentCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.NamedContent Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.NamedContent)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RegisterSubscriberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RegisterSubscriberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.RegistrationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.RegistrationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateNonActiveSubscriberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateNonActiveSubscriberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.NonActiveSubscriberCreationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.NonActiveSubscriberCreationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetCertificateSubjectInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetCertificateSubjectInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.QualifiedX509Name Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.QualifiedX509Name)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetDocumentExecutedFunctionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetDocumentExecutedFunctionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.EnumValue Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.EnumValue)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CreateCertificateIssueRequestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CreateCertificateIssueRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.CertificateIssueRequestCreationResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ExchangeServiceClient : System.ServiceModel.ClientBase<Midway.ServiceClient.Model.IExchangeService>, Midway.ServiceClient.Model.IExchangeService {
-        
-        private BeginOperationDelegate onBeginDeleteOrganizationPromoCodeDelegate;
-        
-        private EndOperationDelegate onEndDeleteOrganizationPromoCodeDelegate;
-        
-        private System.Threading.SendOrPostCallback onDeleteOrganizationPromoCodeCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCheckCertificateListDelegate;
-        
-        private EndOperationDelegate onEndCheckCertificateListDelegate;
-        
-        private System.Threading.SendOrPostCallback onCheckCertificateListCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateStatementOfInvoiceReglamentDelegate;
-        
-        private EndOperationDelegate onEndGenerateStatementOfInvoiceReglamentDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateStatementOfInvoiceReglamentCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSendStatementOfInvoiceReglamentDelegate;
-        
-        private EndOperationDelegate onEndSendStatementOfInvoiceReglamentDelegate;
-        
-        private System.Threading.SendOrPostCallback onSendStatementOfInvoiceReglamentCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCheckNeedToStatementOfInvoiceReglamentDelegate;
-        
-        private EndOperationDelegate onEndCheckNeedToStatementOfInvoiceReglamentDelegate;
-        
-        private System.Threading.SendOrPostCallback onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGeneralTransferSellerDelegate;
-        
-        private EndOperationDelegate onEndParseGeneralTransferSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseGeneralTransferSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGeneralTransferBuyerDelegate;
-        
-        private EndOperationDelegate onEndParseGeneralTransferBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseGeneralTransferBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseWorksTransferSellerDelegate;
-        
-        private EndOperationDelegate onEndParseWorksTransferSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseWorksTransferSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseWorksTransferBuyerDelegate;
-        
-        private EndOperationDelegate onEndParseWorksTransferBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseWorksTransferBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGoodsTransferSellerDelegate;
-        
-        private EndOperationDelegate onEndParseGoodsTransferSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseGoodsTransferSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGoodsTransferBuyerDelegate;
-        
-        private EndOperationDelegate onEndParseGoodsTransferBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseGoodsTransferBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGeneralTransferCorrectionSellerDelegate;
-        
-        private EndOperationDelegate onEndParseGeneralTransferCorrectionSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseGeneralTransferCorrectionSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGeneralTransferCorrectionBuyerDelegate;
-        
-        private EndOperationDelegate onEndParseGeneralTransferCorrectionBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseGeneralTransferCorrectionBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGeneralTransferSellerV2Delegate;
-        
-        private EndOperationDelegate onEndParseGeneralTransferSellerV2Delegate;
-        
-        private System.Threading.SendOrPostCallback onParseGeneralTransferSellerV2CompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseGeneralTransferBuyerV2Delegate;
-        
-        private EndOperationDelegate onEndParseGeneralTransferBuyerV2Delegate;
-        
-        private System.Threading.SendOrPostCallback onParseGeneralTransferBuyerV2CompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseTransportWaybillConsignorTitleDelegate;
-        
-        private EndOperationDelegate onEndParseTransportWaybillConsignorTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseTransportWaybillConsignorTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseTransportWaybillCargoReceivedTitleDelegate;
-        
-        private EndOperationDelegate onEndParseTransportWaybillCargoReceivedTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseTransportWaybillCargoReceivedTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseTransportWaybillCargoDeliveredTitleDelegate;
-        
-        private EndOperationDelegate onEndParseTransportWaybillCargoDeliveredTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseTransportWaybillCargoDeliveredTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseTransportWaybillConsigneeTitleDelegate;
-        
-        private EndOperationDelegate onEndParseTransportWaybillConsigneeTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseTransportWaybillConsigneeTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseTransportWaybillCarrierTitleDelegate;
-        
-        private EndOperationDelegate onEndParseTransportWaybillCarrierTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseTransportWaybillCarrierTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate;
-        
-        private EndOperationDelegate onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateWorksTransferSellerDelegate;
-        
-        private EndOperationDelegate onEndGenerateWorksTransferSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateWorksTransferSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGoodsTransferSellerDelegate;
-        
-        private EndOperationDelegate onEndGenerateGoodsTransferSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGoodsTransferSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGeneralTransferSellerDelegate;
-        
-        private EndOperationDelegate onEndGenerateGeneralTransferSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGeneralTransferSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGeneralTransferSellerV2Delegate;
-        
-        private EndOperationDelegate onEndGenerateGeneralTransferSellerV2Delegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGeneralTransferSellerV2CompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGeneralTransferCorrectionSellerDelegate;
-        
-        private EndOperationDelegate onEndGenerateGeneralTransferCorrectionSellerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGeneralTransferCorrectionSellerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateWorksTransferBuyerDelegate;
-        
-        private EndOperationDelegate onEndGenerateWorksTransferBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateWorksTransferBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGoodsTransferBuyerDelegate;
-        
-        private EndOperationDelegate onEndGenerateGoodsTransferBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGoodsTransferBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGeneralTransferBuyerDelegate;
-        
-        private EndOperationDelegate onEndGenerateGeneralTransferBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGeneralTransferBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGeneralTransferBuyerV2Delegate;
-        
-        private EndOperationDelegate onEndGenerateGeneralTransferBuyerV2Delegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGeneralTransferBuyerV2CompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateGeneralTransferCorrectionBuyerDelegate;
-        
-        private EndOperationDelegate onEndGenerateGeneralTransferCorrectionBuyerDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateGeneralTransferCorrectionBuyerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateTransportWaybillConsignorTitleDelegate;
-        
-        private EndOperationDelegate onEndGenerateTransportWaybillConsignorTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateTransportWaybillConsignorTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateTransportWaybillCargoReceivedTitleDelegate;
-        
-        private EndOperationDelegate onEndGenerateTransportWaybillCargoReceivedTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate;
-        
-        private EndOperationDelegate onEndGenerateTransportWaybillCargoDeliveredTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateTransportWaybillConsigneeTitleDelegate;
-        
-        private EndOperationDelegate onEndGenerateTransportWaybillConsigneeTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateTransportWaybillConsigneeTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateTransportWaybillCarrierTitleDelegate;
-        
-        private EndOperationDelegate onEndGenerateTransportWaybillCarrierTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateTransportWaybillCarrierTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate;
-        
-        private EndOperationDelegate onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginDownloadPdfDocumentDelegate;
-        
-        private EndOperationDelegate onEndDownloadPdfDocumentDelegate;
-        
-        private System.Threading.SendOrPostCallback onDownloadPdfDocumentCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginRegisterSubscriberDelegate;
-        
-        private EndOperationDelegate onEndRegisterSubscriberDelegate;
-        
-        private System.Threading.SendOrPostCallback onRegisterSubscriberCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCreateNonActiveSubscriberDelegate;
-        
-        private EndOperationDelegate onEndCreateNonActiveSubscriberDelegate;
-        
-        private System.Threading.SendOrPostCallback onCreateNonActiveSubscriberCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetCertificateSubjectInfoDelegate;
-        
-        private EndOperationDelegate onEndGetCertificateSubjectInfoDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetCertificateSubjectInfoCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetDocumentExecutedFunctionDelegate;
-        
-        private EndOperationDelegate onEndGetDocumentExecutedFunctionDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetDocumentExecutedFunctionCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCreateCertificateIssueRequestDelegate;
-        
-        private EndOperationDelegate onEndCreateCertificateIssueRequestDelegate;
-        
-        private System.Threading.SendOrPostCallback onCreateCertificateIssueRequestCompletedDelegate;
         
         private BeginOperationDelegate onBeginCreateCertificateIssueRequestFromFileDelegate;
         
@@ -5034,6 +4776,264 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onGetPromoCodeByNameCompletedDelegate;
         
+        private BeginOperationDelegate onBeginDeleteOrganizationPromoCodeDelegate;
+        
+        private EndOperationDelegate onEndDeleteOrganizationPromoCodeDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteOrganizationPromoCodeCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCheckCertificateListDelegate;
+        
+        private EndOperationDelegate onEndCheckCertificateListDelegate;
+        
+        private System.Threading.SendOrPostCallback onCheckCertificateListCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateStatementOfInvoiceReglamentDelegate;
+        
+        private EndOperationDelegate onEndGenerateStatementOfInvoiceReglamentDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateStatementOfInvoiceReglamentCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSendStatementOfInvoiceReglamentDelegate;
+        
+        private EndOperationDelegate onEndSendStatementOfInvoiceReglamentDelegate;
+        
+        private System.Threading.SendOrPostCallback onSendStatementOfInvoiceReglamentCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCheckNeedToStatementOfInvoiceReglamentDelegate;
+        
+        private EndOperationDelegate onEndCheckNeedToStatementOfInvoiceReglamentDelegate;
+        
+        private System.Threading.SendOrPostCallback onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGeneralTransferSellerDelegate;
+        
+        private EndOperationDelegate onEndParseGeneralTransferSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGeneralTransferSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGeneralTransferBuyerDelegate;
+        
+        private EndOperationDelegate onEndParseGeneralTransferBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGeneralTransferBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseWorksTransferSellerDelegate;
+        
+        private EndOperationDelegate onEndParseWorksTransferSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseWorksTransferSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseWorksTransferBuyerDelegate;
+        
+        private EndOperationDelegate onEndParseWorksTransferBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseWorksTransferBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGoodsTransferSellerDelegate;
+        
+        private EndOperationDelegate onEndParseGoodsTransferSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGoodsTransferSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGoodsTransferBuyerDelegate;
+        
+        private EndOperationDelegate onEndParseGoodsTransferBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGoodsTransferBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGeneralTransferCorrectionSellerDelegate;
+        
+        private EndOperationDelegate onEndParseGeneralTransferCorrectionSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGeneralTransferCorrectionSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGeneralTransferCorrectionBuyerDelegate;
+        
+        private EndOperationDelegate onEndParseGeneralTransferCorrectionBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGeneralTransferCorrectionBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGeneralTransferSellerV2Delegate;
+        
+        private EndOperationDelegate onEndParseGeneralTransferSellerV2Delegate;
+        
+        private System.Threading.SendOrPostCallback onParseGeneralTransferSellerV2CompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGeneralTransferBuyerV2Delegate;
+        
+        private EndOperationDelegate onEndParseGeneralTransferBuyerV2Delegate;
+        
+        private System.Threading.SendOrPostCallback onParseGeneralTransferBuyerV2CompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseTransportWaybillConsignorTitleDelegate;
+        
+        private EndOperationDelegate onEndParseTransportWaybillConsignorTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseTransportWaybillConsignorTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseTransportWaybillCargoReceivedTitleDelegate;
+        
+        private EndOperationDelegate onEndParseTransportWaybillCargoReceivedTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseTransportWaybillCargoReceivedTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseTransportWaybillCargoDeliveredTitleDelegate;
+        
+        private EndOperationDelegate onEndParseTransportWaybillCargoDeliveredTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseTransportWaybillCargoDeliveredTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseTransportWaybillConsigneeTitleDelegate;
+        
+        private EndOperationDelegate onEndParseTransportWaybillConsigneeTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseTransportWaybillConsigneeTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseTransportWaybillCarrierTitleDelegate;
+        
+        private EndOperationDelegate onEndParseTransportWaybillCarrierTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseTransportWaybillCarrierTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private EndOperationDelegate onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateWorksTransferSellerDelegate;
+        
+        private EndOperationDelegate onEndGenerateWorksTransferSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateWorksTransferSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGoodsTransferSellerDelegate;
+        
+        private EndOperationDelegate onEndGenerateGoodsTransferSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGoodsTransferSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGeneralTransferSellerDelegate;
+        
+        private EndOperationDelegate onEndGenerateGeneralTransferSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGeneralTransferSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGeneralTransferSellerV2Delegate;
+        
+        private EndOperationDelegate onEndGenerateGeneralTransferSellerV2Delegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGeneralTransferSellerV2CompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGeneralTransferCorrectionSellerDelegate;
+        
+        private EndOperationDelegate onEndGenerateGeneralTransferCorrectionSellerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGeneralTransferCorrectionSellerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateWorksTransferBuyerDelegate;
+        
+        private EndOperationDelegate onEndGenerateWorksTransferBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateWorksTransferBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGoodsTransferBuyerDelegate;
+        
+        private EndOperationDelegate onEndGenerateGoodsTransferBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGoodsTransferBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGeneralTransferBuyerDelegate;
+        
+        private EndOperationDelegate onEndGenerateGeneralTransferBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGeneralTransferBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGeneralTransferBuyerV2Delegate;
+        
+        private EndOperationDelegate onEndGenerateGeneralTransferBuyerV2Delegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGeneralTransferBuyerV2CompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateGeneralTransferCorrectionBuyerDelegate;
+        
+        private EndOperationDelegate onEndGenerateGeneralTransferCorrectionBuyerDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateGeneralTransferCorrectionBuyerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateTransportWaybillConsignorTitleDelegate;
+        
+        private EndOperationDelegate onEndGenerateTransportWaybillConsignorTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateTransportWaybillConsignorTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateTransportWaybillCargoReceivedTitleDelegate;
+        
+        private EndOperationDelegate onEndGenerateTransportWaybillCargoReceivedTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate;
+        
+        private EndOperationDelegate onEndGenerateTransportWaybillCargoDeliveredTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateTransportWaybillConsigneeTitleDelegate;
+        
+        private EndOperationDelegate onEndGenerateTransportWaybillConsigneeTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateTransportWaybillConsigneeTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateTransportWaybillCarrierTitleDelegate;
+        
+        private EndOperationDelegate onEndGenerateTransportWaybillCarrierTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateTransportWaybillCarrierTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private EndOperationDelegate onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDownloadPdfDocumentDelegate;
+        
+        private EndOperationDelegate onEndDownloadPdfDocumentDelegate;
+        
+        private System.Threading.SendOrPostCallback onDownloadPdfDocumentCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRegisterSubscriberDelegate;
+        
+        private EndOperationDelegate onEndRegisterSubscriberDelegate;
+        
+        private System.Threading.SendOrPostCallback onRegisterSubscriberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCreateNonActiveSubscriberDelegate;
+        
+        private EndOperationDelegate onEndCreateNonActiveSubscriberDelegate;
+        
+        private System.Threading.SendOrPostCallback onCreateNonActiveSubscriberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetCertificateSubjectInfoDelegate;
+        
+        private EndOperationDelegate onEndGetCertificateSubjectInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetCertificateSubjectInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetDocumentExecutedFunctionDelegate;
+        
+        private EndOperationDelegate onEndGetDocumentExecutedFunctionDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetDocumentExecutedFunctionCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCreateCertificateIssueRequestDelegate;
+        
+        private EndOperationDelegate onEndCreateCertificateIssueRequestDelegate;
+        
+        private System.Threading.SendOrPostCallback onCreateCertificateIssueRequestCompletedDelegate;
+        
         public ExchangeServiceClient() {
         }
         
@@ -5052,92 +5052,6 @@ namespace Midway.ServiceClient.Model {
         public ExchangeServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteOrganizationPromoCodeCompleted;
-        
-        public event System.EventHandler<CheckCertificateListCompletedEventArgs> CheckCertificateListCompleted;
-        
-        public event System.EventHandler<GenerateStatementOfInvoiceReglamentCompletedEventArgs> GenerateStatementOfInvoiceReglamentCompleted;
-        
-        public event System.EventHandler<SendStatementOfInvoiceReglamentCompletedEventArgs> SendStatementOfInvoiceReglamentCompleted;
-        
-        public event System.EventHandler<CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs> CheckNeedToStatementOfInvoiceReglamentCompleted;
-        
-        public event System.EventHandler<ParseGeneralTransferSellerCompletedEventArgs> ParseGeneralTransferSellerCompleted;
-        
-        public event System.EventHandler<ParseGeneralTransferBuyerCompletedEventArgs> ParseGeneralTransferBuyerCompleted;
-        
-        public event System.EventHandler<ParseWorksTransferSellerCompletedEventArgs> ParseWorksTransferSellerCompleted;
-        
-        public event System.EventHandler<ParseWorksTransferBuyerCompletedEventArgs> ParseWorksTransferBuyerCompleted;
-        
-        public event System.EventHandler<ParseGoodsTransferSellerCompletedEventArgs> ParseGoodsTransferSellerCompleted;
-        
-        public event System.EventHandler<ParseGoodsTransferBuyerCompletedEventArgs> ParseGoodsTransferBuyerCompleted;
-        
-        public event System.EventHandler<ParseGeneralTransferCorrectionSellerCompletedEventArgs> ParseGeneralTransferCorrectionSellerCompleted;
-        
-        public event System.EventHandler<ParseGeneralTransferCorrectionBuyerCompletedEventArgs> ParseGeneralTransferCorrectionBuyerCompleted;
-        
-        public event System.EventHandler<ParseGeneralTransferSellerV2CompletedEventArgs> ParseGeneralTransferSellerV2Completed;
-        
-        public event System.EventHandler<ParseGeneralTransferBuyerV2CompletedEventArgs> ParseGeneralTransferBuyerV2Completed;
-        
-        public event System.EventHandler<ParseTransportWaybillConsignorTitleCompletedEventArgs> ParseTransportWaybillConsignorTitleCompleted;
-        
-        public event System.EventHandler<ParseTransportWaybillCargoReceivedTitleCompletedEventArgs> ParseTransportWaybillCargoReceivedTitleCompleted;
-        
-        public event System.EventHandler<ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs> ParseTransportWaybillCargoDeliveredTitleCompleted;
-        
-        public event System.EventHandler<ParseTransportWaybillConsigneeTitleCompletedEventArgs> ParseTransportWaybillConsigneeTitleCompleted;
-        
-        public event System.EventHandler<ParseTransportWaybillCarrierTitleCompletedEventArgs> ParseTransportWaybillCarrierTitleCompleted;
-        
-        public event System.EventHandler<ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs> ParseTransportWaybillDeliveryPlaceChangeTitleCompleted;
-        
-        public event System.EventHandler<GenerateWorksTransferSellerCompletedEventArgs> GenerateWorksTransferSellerCompleted;
-        
-        public event System.EventHandler<GenerateGoodsTransferSellerCompletedEventArgs> GenerateGoodsTransferSellerCompleted;
-        
-        public event System.EventHandler<GenerateGeneralTransferSellerCompletedEventArgs> GenerateGeneralTransferSellerCompleted;
-        
-        public event System.EventHandler<GenerateGeneralTransferSellerV2CompletedEventArgs> GenerateGeneralTransferSellerV2Completed;
-        
-        public event System.EventHandler<GenerateGeneralTransferCorrectionSellerCompletedEventArgs> GenerateGeneralTransferCorrectionSellerCompleted;
-        
-        public event System.EventHandler<GenerateWorksTransferBuyerCompletedEventArgs> GenerateWorksTransferBuyerCompleted;
-        
-        public event System.EventHandler<GenerateGoodsTransferBuyerCompletedEventArgs> GenerateGoodsTransferBuyerCompleted;
-        
-        public event System.EventHandler<GenerateGeneralTransferBuyerCompletedEventArgs> GenerateGeneralTransferBuyerCompleted;
-        
-        public event System.EventHandler<GenerateGeneralTransferBuyerV2CompletedEventArgs> GenerateGeneralTransferBuyerV2Completed;
-        
-        public event System.EventHandler<GenerateGeneralTransferCorrectionBuyerCompletedEventArgs> GenerateGeneralTransferCorrectionBuyerCompleted;
-        
-        public event System.EventHandler<GenerateTransportWaybillConsignorTitleCompletedEventArgs> GenerateTransportWaybillConsignorTitleCompleted;
-        
-        public event System.EventHandler<GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs> GenerateTransportWaybillCargoReceivedTitleCompleted;
-        
-        public event System.EventHandler<GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs> GenerateTransportWaybillCargoDeliveredTitleCompleted;
-        
-        public event System.EventHandler<GenerateTransportWaybillConsigneeTitleCompletedEventArgs> GenerateTransportWaybillConsigneeTitleCompleted;
-        
-        public event System.EventHandler<GenerateTransportWaybillCarrierTitleCompletedEventArgs> GenerateTransportWaybillCarrierTitleCompleted;
-        
-        public event System.EventHandler<GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs> GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted;
-        
-        public event System.EventHandler<DownloadPdfDocumentCompletedEventArgs> DownloadPdfDocumentCompleted;
-        
-        public event System.EventHandler<RegisterSubscriberCompletedEventArgs> RegisterSubscriberCompleted;
-        
-        public event System.EventHandler<CreateNonActiveSubscriberCompletedEventArgs> CreateNonActiveSubscriberCompleted;
-        
-        public event System.EventHandler<GetCertificateSubjectInfoCompletedEventArgs> GetCertificateSubjectInfoCompleted;
-        
-        public event System.EventHandler<GetDocumentExecutedFunctionCompletedEventArgs> GetDocumentExecutedFunctionCompleted;
-        
-        public event System.EventHandler<CreateCertificateIssueRequestCompletedEventArgs> CreateCertificateIssueRequestCompleted;
         
         public event System.EventHandler<CreateCertificateIssueRequestFromFileCompletedEventArgs> CreateCertificateIssueRequestFromFileCompleted;
         
@@ -5359,2274 +5273,91 @@ namespace Midway.ServiceClient.Model {
         
         public event System.EventHandler<GetPromoCodeByNameCompletedEventArgs> GetPromoCodeByNameCompleted;
         
-        public void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId) {
-            base.Channel.DeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId);
-        }
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteOrganizationPromoCodeCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
-        }
+        public event System.EventHandler<CheckCertificateListCompletedEventArgs> CheckCertificateListCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public void EndDeleteOrganizationPromoCode(System.IAsyncResult result) {
-            base.Channel.EndDeleteOrganizationPromoCode(result);
-        }
+        public event System.EventHandler<GenerateStatementOfInvoiceReglamentCompletedEventArgs> GenerateStatementOfInvoiceReglamentCompleted;
         
-        private System.IAsyncResult OnBeginDeleteOrganizationPromoCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string organizationPromoCodeId = ((string)(inValues[2]));
-            return this.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
-        }
+        public event System.EventHandler<SendStatementOfInvoiceReglamentCompletedEventArgs> SendStatementOfInvoiceReglamentCompleted;
         
-        private object[] OnEndDeleteOrganizationPromoCode(System.IAsyncResult result) {
-            this.EndDeleteOrganizationPromoCode(result);
-            return null;
-        }
+        public event System.EventHandler<CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs> CheckNeedToStatementOfInvoiceReglamentCompleted;
         
-        private void OnDeleteOrganizationPromoCodeCompleted(object state) {
-            if ((this.DeleteOrganizationPromoCodeCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.DeleteOrganizationPromoCodeCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
+        public event System.EventHandler<ParseGeneralTransferSellerCompletedEventArgs> ParseGeneralTransferSellerCompleted;
         
-        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId) {
-            this.DeleteOrganizationPromoCodeAsync(authToken, boxId, organizationPromoCodeId, null);
-        }
+        public event System.EventHandler<ParseGeneralTransferBuyerCompletedEventArgs> ParseGeneralTransferBuyerCompleted;
         
-        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId, object userState) {
-            if ((this.onBeginDeleteOrganizationPromoCodeDelegate == null)) {
-                this.onBeginDeleteOrganizationPromoCodeDelegate = new BeginOperationDelegate(this.OnBeginDeleteOrganizationPromoCode);
-            }
-            if ((this.onEndDeleteOrganizationPromoCodeDelegate == null)) {
-                this.onEndDeleteOrganizationPromoCodeDelegate = new EndOperationDelegate(this.OnEndDeleteOrganizationPromoCode);
-            }
-            if ((this.onDeleteOrganizationPromoCodeCompletedDelegate == null)) {
-                this.onDeleteOrganizationPromoCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteOrganizationPromoCodeCompleted);
-            }
-            base.InvokeAsync(this.onBeginDeleteOrganizationPromoCodeDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        organizationPromoCodeId}, this.onEndDeleteOrganizationPromoCodeDelegate, this.onDeleteOrganizationPromoCodeCompletedDelegate, userState);
-        }
+        public event System.EventHandler<ParseWorksTransferSellerCompletedEventArgs> ParseWorksTransferSellerCompleted;
         
-        public Midway.ObjectModel.CertificateCheckInfo[] CheckCertificateList(string[] thumbprints) {
-            return base.Channel.CheckCertificateList(thumbprints);
-        }
+        public event System.EventHandler<ParseWorksTransferBuyerCompletedEventArgs> ParseWorksTransferBuyerCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginCheckCertificateList(string[] thumbprints, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCheckCertificateList(thumbprints, callback, asyncState);
-        }
+        public event System.EventHandler<ParseGoodsTransferSellerCompletedEventArgs> ParseGoodsTransferSellerCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.CertificateCheckInfo[] EndCheckCertificateList(System.IAsyncResult result) {
-            return base.Channel.EndCheckCertificateList(result);
-        }
+        public event System.EventHandler<ParseGoodsTransferBuyerCompletedEventArgs> ParseGoodsTransferBuyerCompleted;
         
-        private System.IAsyncResult OnBeginCheckCertificateList(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string[] thumbprints = ((string[])(inValues[0]));
-            return this.BeginCheckCertificateList(thumbprints, callback, asyncState);
-        }
+        public event System.EventHandler<ParseGeneralTransferCorrectionSellerCompletedEventArgs> ParseGeneralTransferCorrectionSellerCompleted;
         
-        private object[] OnEndCheckCertificateList(System.IAsyncResult result) {
-            Midway.ObjectModel.CertificateCheckInfo[] retVal = this.EndCheckCertificateList(result);
-            return new object[] {
-                    retVal};
-        }
+        public event System.EventHandler<ParseGeneralTransferCorrectionBuyerCompletedEventArgs> ParseGeneralTransferCorrectionBuyerCompleted;
         
-        private void OnCheckCertificateListCompleted(object state) {
-            if ((this.CheckCertificateListCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CheckCertificateListCompleted(this, new CheckCertificateListCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
+        public event System.EventHandler<ParseGeneralTransferSellerV2CompletedEventArgs> ParseGeneralTransferSellerV2Completed;
         
-        public void CheckCertificateListAsync(string[] thumbprints) {
-            this.CheckCertificateListAsync(thumbprints, null);
-        }
+        public event System.EventHandler<ParseGeneralTransferBuyerV2CompletedEventArgs> ParseGeneralTransferBuyerV2Completed;
         
-        public void CheckCertificateListAsync(string[] thumbprints, object userState) {
-            if ((this.onBeginCheckCertificateListDelegate == null)) {
-                this.onBeginCheckCertificateListDelegate = new BeginOperationDelegate(this.OnBeginCheckCertificateList);
-            }
-            if ((this.onEndCheckCertificateListDelegate == null)) {
-                this.onEndCheckCertificateListDelegate = new EndOperationDelegate(this.OnEndCheckCertificateList);
-            }
-            if ((this.onCheckCertificateListCompletedDelegate == null)) {
-                this.onCheckCertificateListCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckCertificateListCompleted);
-            }
-            base.InvokeAsync(this.onBeginCheckCertificateListDelegate, new object[] {
-                        thumbprints}, this.onEndCheckCertificateListDelegate, this.onCheckCertificateListCompletedDelegate, userState);
-        }
+        public event System.EventHandler<ParseTransportWaybillConsignorTitleCompletedEventArgs> ParseTransportWaybillConsignorTitleCompleted;
         
-        public Midway.ObjectModel.NamedContent GenerateStatementOfInvoiceReglament(string authToken, string boxId) {
-            return base.Channel.GenerateStatementOfInvoiceReglament(authToken, boxId);
-        }
+        public event System.EventHandler<ParseTransportWaybillCargoReceivedTitleCompletedEventArgs> ParseTransportWaybillCargoReceivedTitleCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
-        }
+        public event System.EventHandler<ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs> ParseTransportWaybillCargoDeliveredTitleCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result) {
-            return base.Channel.EndGenerateStatementOfInvoiceReglament(result);
-        }
+        public event System.EventHandler<ParseTransportWaybillConsigneeTitleCompletedEventArgs> ParseTransportWaybillConsigneeTitleCompleted;
         
-        private System.IAsyncResult OnBeginGenerateStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            return this.BeginGenerateStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
-        }
+        public event System.EventHandler<ParseTransportWaybillCarrierTitleCompletedEventArgs> ParseTransportWaybillCarrierTitleCompleted;
         
-        private object[] OnEndGenerateStatementOfInvoiceReglament(System.IAsyncResult result) {
-            Midway.ObjectModel.NamedContent retVal = this.EndGenerateStatementOfInvoiceReglament(result);
-            return new object[] {
-                    retVal};
-        }
+        public event System.EventHandler<ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs> ParseTransportWaybillDeliveryPlaceChangeTitleCompleted;
         
-        private void OnGenerateStatementOfInvoiceReglamentCompleted(object state) {
-            if ((this.GenerateStatementOfInvoiceReglamentCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateStatementOfInvoiceReglamentCompleted(this, new GenerateStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
+        public event System.EventHandler<GenerateWorksTransferSellerCompletedEventArgs> GenerateWorksTransferSellerCompleted;
         
-        public void GenerateStatementOfInvoiceReglamentAsync(string authToken, string boxId) {
-            this.GenerateStatementOfInvoiceReglamentAsync(authToken, boxId, null);
-        }
+        public event System.EventHandler<GenerateGoodsTransferSellerCompletedEventArgs> GenerateGoodsTransferSellerCompleted;
         
-        public void GenerateStatementOfInvoiceReglamentAsync(string authToken, string boxId, object userState) {
-            if ((this.onBeginGenerateStatementOfInvoiceReglamentDelegate == null)) {
-                this.onBeginGenerateStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginGenerateStatementOfInvoiceReglament);
-            }
-            if ((this.onEndGenerateStatementOfInvoiceReglamentDelegate == null)) {
-                this.onEndGenerateStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndGenerateStatementOfInvoiceReglament);
-            }
-            if ((this.onGenerateStatementOfInvoiceReglamentCompletedDelegate == null)) {
-                this.onGenerateStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateStatementOfInvoiceReglamentCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateStatementOfInvoiceReglamentDelegate, new object[] {
-                        authToken,
-                        boxId}, this.onEndGenerateStatementOfInvoiceReglamentDelegate, this.onGenerateStatementOfInvoiceReglamentCompletedDelegate, userState);
-        }
+        public event System.EventHandler<GenerateGeneralTransferSellerCompletedEventArgs> GenerateGeneralTransferSellerCompleted;
         
-        public Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message) {
-            return base.Channel.SendStatementOfInvoiceReglament(authToken, message);
-        }
+        public event System.EventHandler<GenerateGeneralTransferSellerV2CompletedEventArgs> GenerateGeneralTransferSellerV2Completed;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginSendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSendStatementOfInvoiceReglament(authToken, message, callback, asyncState);
-        }
+        public event System.EventHandler<GenerateGeneralTransferCorrectionSellerCompletedEventArgs> GenerateGeneralTransferCorrectionSellerCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.SentMessage EndSendStatementOfInvoiceReglament(System.IAsyncResult result) {
-            return base.Channel.EndSendStatementOfInvoiceReglament(result);
-        }
+        public event System.EventHandler<GenerateWorksTransferBuyerCompletedEventArgs> GenerateWorksTransferBuyerCompleted;
         
-        private System.IAsyncResult OnBeginSendStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            Midway.ObjectModel.MessageOfStatement message = ((Midway.ObjectModel.MessageOfStatement)(inValues[1]));
-            return this.BeginSendStatementOfInvoiceReglament(authToken, message, callback, asyncState);
-        }
+        public event System.EventHandler<GenerateGoodsTransferBuyerCompletedEventArgs> GenerateGoodsTransferBuyerCompleted;
         
-        private object[] OnEndSendStatementOfInvoiceReglament(System.IAsyncResult result) {
-            Midway.ObjectModel.SentMessage retVal = this.EndSendStatementOfInvoiceReglament(result);
-            return new object[] {
-                    retVal};
-        }
+        public event System.EventHandler<GenerateGeneralTransferBuyerCompletedEventArgs> GenerateGeneralTransferBuyerCompleted;
         
-        private void OnSendStatementOfInvoiceReglamentCompleted(object state) {
-            if ((this.SendStatementOfInvoiceReglamentCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SendStatementOfInvoiceReglamentCompleted(this, new SendStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
+        public event System.EventHandler<GenerateGeneralTransferBuyerV2CompletedEventArgs> GenerateGeneralTransferBuyerV2Completed;
         
-        public void SendStatementOfInvoiceReglamentAsync(string authToken, Midway.ObjectModel.MessageOfStatement message) {
-            this.SendStatementOfInvoiceReglamentAsync(authToken, message, null);
-        }
+        public event System.EventHandler<GenerateGeneralTransferCorrectionBuyerCompletedEventArgs> GenerateGeneralTransferCorrectionBuyerCompleted;
         
-        public void SendStatementOfInvoiceReglamentAsync(string authToken, Midway.ObjectModel.MessageOfStatement message, object userState) {
-            if ((this.onBeginSendStatementOfInvoiceReglamentDelegate == null)) {
-                this.onBeginSendStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginSendStatementOfInvoiceReglament);
-            }
-            if ((this.onEndSendStatementOfInvoiceReglamentDelegate == null)) {
-                this.onEndSendStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndSendStatementOfInvoiceReglament);
-            }
-            if ((this.onSendStatementOfInvoiceReglamentCompletedDelegate == null)) {
-                this.onSendStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSendStatementOfInvoiceReglamentCompleted);
-            }
-            base.InvokeAsync(this.onBeginSendStatementOfInvoiceReglamentDelegate, new object[] {
-                        authToken,
-                        message}, this.onEndSendStatementOfInvoiceReglamentDelegate, this.onSendStatementOfInvoiceReglamentCompletedDelegate, userState);
-        }
+        public event System.EventHandler<GenerateTransportWaybillConsignorTitleCompletedEventArgs> GenerateTransportWaybillConsignorTitleCompleted;
         
-        public bool CheckNeedToStatementOfInvoiceReglament(string authToken, string boxId) {
-            return base.Channel.CheckNeedToStatementOfInvoiceReglament(authToken, boxId);
-        }
+        public event System.EventHandler<GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs> GenerateTransportWaybillCargoReceivedTitleCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginCheckNeedToStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCheckNeedToStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
-        }
+        public event System.EventHandler<GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs> GenerateTransportWaybillCargoDeliveredTitleCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public bool EndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result) {
-            return base.Channel.EndCheckNeedToStatementOfInvoiceReglament(result);
-        }
+        public event System.EventHandler<GenerateTransportWaybillConsigneeTitleCompletedEventArgs> GenerateTransportWaybillConsigneeTitleCompleted;
         
-        private System.IAsyncResult OnBeginCheckNeedToStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            return this.BeginCheckNeedToStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
-        }
+        public event System.EventHandler<GenerateTransportWaybillCarrierTitleCompletedEventArgs> GenerateTransportWaybillCarrierTitleCompleted;
         
-        private object[] OnEndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result) {
-            bool retVal = this.EndCheckNeedToStatementOfInvoiceReglament(result);
-            return new object[] {
-                    retVal};
-        }
+        public event System.EventHandler<GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs> GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted;
         
-        private void OnCheckNeedToStatementOfInvoiceReglamentCompleted(object state) {
-            if ((this.CheckNeedToStatementOfInvoiceReglamentCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CheckNeedToStatementOfInvoiceReglamentCompleted(this, new CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
+        public event System.EventHandler<DownloadPdfDocumentCompletedEventArgs> DownloadPdfDocumentCompleted;
         
-        public void CheckNeedToStatementOfInvoiceReglamentAsync(string authToken, string boxId) {
-            this.CheckNeedToStatementOfInvoiceReglamentAsync(authToken, boxId, null);
-        }
+        public event System.EventHandler<RegisterSubscriberCompletedEventArgs> RegisterSubscriberCompleted;
         
-        public void CheckNeedToStatementOfInvoiceReglamentAsync(string authToken, string boxId, object userState) {
-            if ((this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate == null)) {
-                this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginCheckNeedToStatementOfInvoiceReglament);
-            }
-            if ((this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate == null)) {
-                this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndCheckNeedToStatementOfInvoiceReglament);
-            }
-            if ((this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate == null)) {
-                this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckNeedToStatementOfInvoiceReglamentCompleted);
-            }
-            base.InvokeAsync(this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate, new object[] {
-                        authToken,
-                        boxId}, this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate, this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate, userState);
-        }
+        public event System.EventHandler<CreateNonActiveSubscriberCompletedEventArgs> CreateNonActiveSubscriberCompleted;
         
-        public Midway.ObjectModel.GeneralTransferSeller ParseGeneralTransferSeller(string authToken, byte[] content) {
-            return base.Channel.ParseGeneralTransferSeller(authToken, content);
-        }
+        public event System.EventHandler<GetCertificateSubjectInfoCompletedEventArgs> GetCertificateSubjectInfoCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGeneralTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGeneralTransferSeller(authToken, content, callback, asyncState);
-        }
+        public event System.EventHandler<GetDocumentExecutedFunctionCompletedEventArgs> GetDocumentExecutedFunctionCompleted;
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneralTransferSeller EndParseGeneralTransferSeller(System.IAsyncResult result) {
-            return base.Channel.EndParseGeneralTransferSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGeneralTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseGeneralTransferSeller(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGeneralTransferSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneralTransferSeller retVal = this.EndParseGeneralTransferSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGeneralTransferSellerCompleted(object state) {
-            if ((this.ParseGeneralTransferSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGeneralTransferSellerCompleted(this, new ParseGeneralTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGeneralTransferSellerAsync(string authToken, byte[] content) {
-            this.ParseGeneralTransferSellerAsync(authToken, content, null);
-        }
-        
-        public void ParseGeneralTransferSellerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseGeneralTransferSellerDelegate == null)) {
-                this.onBeginParseGeneralTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferSeller);
-            }
-            if ((this.onEndParseGeneralTransferSellerDelegate == null)) {
-                this.onEndParseGeneralTransferSellerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferSeller);
-            }
-            if ((this.onParseGeneralTransferSellerCompletedDelegate == null)) {
-                this.onParseGeneralTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseGeneralTransferSellerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseGeneralTransferSellerDelegate, this.onParseGeneralTransferSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneralTransferBuyer ParseGeneralTransferBuyer(string authToken, byte[] content) {
-            return base.Channel.ParseGeneralTransferBuyer(authToken, content);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGeneralTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGeneralTransferBuyer(authToken, content, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneralTransferBuyer EndParseGeneralTransferBuyer(System.IAsyncResult result) {
-            return base.Channel.EndParseGeneralTransferBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGeneralTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseGeneralTransferBuyer(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGeneralTransferBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneralTransferBuyer retVal = this.EndParseGeneralTransferBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGeneralTransferBuyerCompleted(object state) {
-            if ((this.ParseGeneralTransferBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGeneralTransferBuyerCompleted(this, new ParseGeneralTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGeneralTransferBuyerAsync(string authToken, byte[] content) {
-            this.ParseGeneralTransferBuyerAsync(authToken, content, null);
-        }
-        
-        public void ParseGeneralTransferBuyerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseGeneralTransferBuyerDelegate == null)) {
-                this.onBeginParseGeneralTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferBuyer);
-            }
-            if ((this.onEndParseGeneralTransferBuyerDelegate == null)) {
-                this.onEndParseGeneralTransferBuyerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferBuyer);
-            }
-            if ((this.onParseGeneralTransferBuyerCompletedDelegate == null)) {
-                this.onParseGeneralTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseGeneralTransferBuyerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseGeneralTransferBuyerDelegate, this.onParseGeneralTransferBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.WorksTransferSeller ParseWorksTransferSeller(string authToken, byte[] content) {
-            return base.Channel.ParseWorksTransferSeller(authToken, content);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseWorksTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseWorksTransferSeller(authToken, content, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.WorksTransferSeller EndParseWorksTransferSeller(System.IAsyncResult result) {
-            return base.Channel.EndParseWorksTransferSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseWorksTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseWorksTransferSeller(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseWorksTransferSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.WorksTransferSeller retVal = this.EndParseWorksTransferSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseWorksTransferSellerCompleted(object state) {
-            if ((this.ParseWorksTransferSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseWorksTransferSellerCompleted(this, new ParseWorksTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseWorksTransferSellerAsync(string authToken, byte[] content) {
-            this.ParseWorksTransferSellerAsync(authToken, content, null);
-        }
-        
-        public void ParseWorksTransferSellerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseWorksTransferSellerDelegate == null)) {
-                this.onBeginParseWorksTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginParseWorksTransferSeller);
-            }
-            if ((this.onEndParseWorksTransferSellerDelegate == null)) {
-                this.onEndParseWorksTransferSellerDelegate = new EndOperationDelegate(this.OnEndParseWorksTransferSeller);
-            }
-            if ((this.onParseWorksTransferSellerCompletedDelegate == null)) {
-                this.onParseWorksTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseWorksTransferSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseWorksTransferSellerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseWorksTransferSellerDelegate, this.onParseWorksTransferSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.WorksTransferBuyer ParseWorksTransferBuyer(string authToken, byte[] content) {
-            return base.Channel.ParseWorksTransferBuyer(authToken, content);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseWorksTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseWorksTransferBuyer(authToken, content, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.WorksTransferBuyer EndParseWorksTransferBuyer(System.IAsyncResult result) {
-            return base.Channel.EndParseWorksTransferBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseWorksTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseWorksTransferBuyer(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseWorksTransferBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.WorksTransferBuyer retVal = this.EndParseWorksTransferBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseWorksTransferBuyerCompleted(object state) {
-            if ((this.ParseWorksTransferBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseWorksTransferBuyerCompleted(this, new ParseWorksTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseWorksTransferBuyerAsync(string authToken, byte[] content) {
-            this.ParseWorksTransferBuyerAsync(authToken, content, null);
-        }
-        
-        public void ParseWorksTransferBuyerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseWorksTransferBuyerDelegate == null)) {
-                this.onBeginParseWorksTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseWorksTransferBuyer);
-            }
-            if ((this.onEndParseWorksTransferBuyerDelegate == null)) {
-                this.onEndParseWorksTransferBuyerDelegate = new EndOperationDelegate(this.OnEndParseWorksTransferBuyer);
-            }
-            if ((this.onParseWorksTransferBuyerCompletedDelegate == null)) {
-                this.onParseWorksTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseWorksTransferBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseWorksTransferBuyerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseWorksTransferBuyerDelegate, this.onParseWorksTransferBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GoodsTransferSeller ParseGoodsTransferSeller(string authToken, byte[] content) {
-            return base.Channel.ParseGoodsTransferSeller(authToken, content);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGoodsTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGoodsTransferSeller(authToken, content, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GoodsTransferSeller EndParseGoodsTransferSeller(System.IAsyncResult result) {
-            return base.Channel.EndParseGoodsTransferSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGoodsTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseGoodsTransferSeller(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGoodsTransferSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.GoodsTransferSeller retVal = this.EndParseGoodsTransferSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGoodsTransferSellerCompleted(object state) {
-            if ((this.ParseGoodsTransferSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGoodsTransferSellerCompleted(this, new ParseGoodsTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGoodsTransferSellerAsync(string authToken, byte[] content) {
-            this.ParseGoodsTransferSellerAsync(authToken, content, null);
-        }
-        
-        public void ParseGoodsTransferSellerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseGoodsTransferSellerDelegate == null)) {
-                this.onBeginParseGoodsTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginParseGoodsTransferSeller);
-            }
-            if ((this.onEndParseGoodsTransferSellerDelegate == null)) {
-                this.onEndParseGoodsTransferSellerDelegate = new EndOperationDelegate(this.OnEndParseGoodsTransferSeller);
-            }
-            if ((this.onParseGoodsTransferSellerCompletedDelegate == null)) {
-                this.onParseGoodsTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGoodsTransferSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseGoodsTransferSellerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseGoodsTransferSellerDelegate, this.onParseGoodsTransferSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GoodsTransferBuyer ParseGoodsTransferBuyer(string authToken, byte[] content) {
-            return base.Channel.ParseGoodsTransferBuyer(authToken, content);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGoodsTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGoodsTransferBuyer(authToken, content, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GoodsTransferBuyer EndParseGoodsTransferBuyer(System.IAsyncResult result) {
-            return base.Channel.EndParseGoodsTransferBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGoodsTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseGoodsTransferBuyer(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGoodsTransferBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.GoodsTransferBuyer retVal = this.EndParseGoodsTransferBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGoodsTransferBuyerCompleted(object state) {
-            if ((this.ParseGoodsTransferBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGoodsTransferBuyerCompleted(this, new ParseGoodsTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGoodsTransferBuyerAsync(string authToken, byte[] content) {
-            this.ParseGoodsTransferBuyerAsync(authToken, content, null);
-        }
-        
-        public void ParseGoodsTransferBuyerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseGoodsTransferBuyerDelegate == null)) {
-                this.onBeginParseGoodsTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseGoodsTransferBuyer);
-            }
-            if ((this.onEndParseGoodsTransferBuyerDelegate == null)) {
-                this.onEndParseGoodsTransferBuyerDelegate = new EndOperationDelegate(this.OnEndParseGoodsTransferBuyer);
-            }
-            if ((this.onParseGoodsTransferBuyerCompletedDelegate == null)) {
-                this.onParseGoodsTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGoodsTransferBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseGoodsTransferBuyerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseGoodsTransferBuyerDelegate, this.onParseGoodsTransferBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneralTransferCorrectionSeller ParseGeneralTransferCorrectionSeller(string authToken, byte[] content) {
-            return base.Channel.ParseGeneralTransferCorrectionSeller(authToken, content);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGeneralTransferCorrectionSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGeneralTransferCorrectionSeller(authToken, content, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneralTransferCorrectionSeller EndParseGeneralTransferCorrectionSeller(System.IAsyncResult result) {
-            return base.Channel.EndParseGeneralTransferCorrectionSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGeneralTransferCorrectionSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseGeneralTransferCorrectionSeller(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGeneralTransferCorrectionSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneralTransferCorrectionSeller retVal = this.EndParseGeneralTransferCorrectionSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGeneralTransferCorrectionSellerCompleted(object state) {
-            if ((this.ParseGeneralTransferCorrectionSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGeneralTransferCorrectionSellerCompleted(this, new ParseGeneralTransferCorrectionSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGeneralTransferCorrectionSellerAsync(string authToken, byte[] content) {
-            this.ParseGeneralTransferCorrectionSellerAsync(authToken, content, null);
-        }
-        
-        public void ParseGeneralTransferCorrectionSellerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseGeneralTransferCorrectionSellerDelegate == null)) {
-                this.onBeginParseGeneralTransferCorrectionSellerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferCorrectionSeller);
-            }
-            if ((this.onEndParseGeneralTransferCorrectionSellerDelegate == null)) {
-                this.onEndParseGeneralTransferCorrectionSellerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferCorrectionSeller);
-            }
-            if ((this.onParseGeneralTransferCorrectionSellerCompletedDelegate == null)) {
-                this.onParseGeneralTransferCorrectionSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferCorrectionSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseGeneralTransferCorrectionSellerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseGeneralTransferCorrectionSellerDelegate, this.onParseGeneralTransferCorrectionSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(string authToken, byte[] content) {
-            return base.Channel.ParseGeneralTransferCorrectionBuyer(authToken, content);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGeneralTransferCorrectionBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGeneralTransferCorrectionBuyer(authToken, content, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneralTransferCorrectionBuyer EndParseGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
-            return base.Channel.EndParseGeneralTransferCorrectionBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGeneralTransferCorrectionBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            byte[] content = ((byte[])(inValues[1]));
-            return this.BeginParseGeneralTransferCorrectionBuyer(authToken, content, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneralTransferCorrectionBuyer retVal = this.EndParseGeneralTransferCorrectionBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGeneralTransferCorrectionBuyerCompleted(object state) {
-            if ((this.ParseGeneralTransferCorrectionBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGeneralTransferCorrectionBuyerCompleted(this, new ParseGeneralTransferCorrectionBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGeneralTransferCorrectionBuyerAsync(string authToken, byte[] content) {
-            this.ParseGeneralTransferCorrectionBuyerAsync(authToken, content, null);
-        }
-        
-        public void ParseGeneralTransferCorrectionBuyerAsync(string authToken, byte[] content, object userState) {
-            if ((this.onBeginParseGeneralTransferCorrectionBuyerDelegate == null)) {
-                this.onBeginParseGeneralTransferCorrectionBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferCorrectionBuyer);
-            }
-            if ((this.onEndParseGeneralTransferCorrectionBuyerDelegate == null)) {
-                this.onEndParseGeneralTransferCorrectionBuyerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferCorrectionBuyer);
-            }
-            if ((this.onParseGeneralTransferCorrectionBuyerCompletedDelegate == null)) {
-                this.onParseGeneralTransferCorrectionBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferCorrectionBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseGeneralTransferCorrectionBuyerDelegate, new object[] {
-                        authToken,
-                        content}, this.onEndParseGeneralTransferCorrectionBuyerDelegate, this.onParseGeneralTransferCorrectionBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse ParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request) {
-            return base.Channel.ParseGeneralTransferSellerV2(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGeneralTransferSellerV2(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse EndParseGeneralTransferSellerV2(System.IAsyncResult result) {
-            return base.Channel.EndParseGeneralTransferSellerV2(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGeneralTransferSellerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request = ((Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest)(inValues[1]));
-            return this.BeginParseGeneralTransferSellerV2(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGeneralTransferSellerV2(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse retVal = this.EndParseGeneralTransferSellerV2(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGeneralTransferSellerV2Completed(object state) {
-            if ((this.ParseGeneralTransferSellerV2Completed != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGeneralTransferSellerV2Completed(this, new ParseGeneralTransferSellerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request) {
-            this.ParseGeneralTransferSellerV2Async(credentials, request, null);
-        }
-        
-        public void ParseGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request, object userState) {
-            if ((this.onBeginParseGeneralTransferSellerV2Delegate == null)) {
-                this.onBeginParseGeneralTransferSellerV2Delegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferSellerV2);
-            }
-            if ((this.onEndParseGeneralTransferSellerV2Delegate == null)) {
-                this.onEndParseGeneralTransferSellerV2Delegate = new EndOperationDelegate(this.OnEndParseGeneralTransferSellerV2);
-            }
-            if ((this.onParseGeneralTransferSellerV2CompletedDelegate == null)) {
-                this.onParseGeneralTransferSellerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferSellerV2Completed);
-            }
-            base.InvokeAsync(this.onBeginParseGeneralTransferSellerV2Delegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseGeneralTransferSellerV2Delegate, this.onParseGeneralTransferSellerV2CompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse ParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request) {
-            return base.Channel.ParseGeneralTransferBuyerV2(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseGeneralTransferBuyerV2(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse EndParseGeneralTransferBuyerV2(System.IAsyncResult result) {
-            return base.Channel.EndParseGeneralTransferBuyerV2(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseGeneralTransferBuyerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request = ((Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest)(inValues[1]));
-            return this.BeginParseGeneralTransferBuyerV2(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseGeneralTransferBuyerV2(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse retVal = this.EndParseGeneralTransferBuyerV2(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseGeneralTransferBuyerV2Completed(object state) {
-            if ((this.ParseGeneralTransferBuyerV2Completed != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseGeneralTransferBuyerV2Completed(this, new ParseGeneralTransferBuyerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseGeneralTransferBuyerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request) {
-            this.ParseGeneralTransferBuyerV2Async(credentials, request, null);
-        }
-        
-        public void ParseGeneralTransferBuyerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request, object userState) {
-            if ((this.onBeginParseGeneralTransferBuyerV2Delegate == null)) {
-                this.onBeginParseGeneralTransferBuyerV2Delegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferBuyerV2);
-            }
-            if ((this.onEndParseGeneralTransferBuyerV2Delegate == null)) {
-                this.onEndParseGeneralTransferBuyerV2Delegate = new EndOperationDelegate(this.OnEndParseGeneralTransferBuyerV2);
-            }
-            if ((this.onParseGeneralTransferBuyerV2CompletedDelegate == null)) {
-                this.onParseGeneralTransferBuyerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferBuyerV2Completed);
-            }
-            base.InvokeAsync(this.onBeginParseGeneralTransferBuyerV2Delegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseGeneralTransferBuyerV2Delegate, this.onParseGeneralTransferBuyerV2CompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse ParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request) {
-            return base.Channel.ParseTransportWaybillConsignorTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse EndParseTransportWaybillConsignorTitle(System.IAsyncResult result) {
-            return base.Channel.EndParseTransportWaybillConsignorTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseTransportWaybillConsignorTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest)(inValues[1]));
-            return this.BeginParseTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseTransportWaybillConsignorTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse retVal = this.EndParseTransportWaybillConsignorTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseTransportWaybillConsignorTitleCompleted(object state) {
-            if ((this.ParseTransportWaybillConsignorTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseTransportWaybillConsignorTitleCompleted(this, new ParseTransportWaybillConsignorTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request) {
-            this.ParseTransportWaybillConsignorTitleAsync(credentials, request, null);
-        }
-        
-        public void ParseTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request, object userState) {
-            if ((this.onBeginParseTransportWaybillConsignorTitleDelegate == null)) {
-                this.onBeginParseTransportWaybillConsignorTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillConsignorTitle);
-            }
-            if ((this.onEndParseTransportWaybillConsignorTitleDelegate == null)) {
-                this.onEndParseTransportWaybillConsignorTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillConsignorTitle);
-            }
-            if ((this.onParseTransportWaybillConsignorTitleCompletedDelegate == null)) {
-                this.onParseTransportWaybillConsignorTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillConsignorTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseTransportWaybillConsignorTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseTransportWaybillConsignorTitleDelegate, this.onParseTransportWaybillConsignorTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse ParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request) {
-            return base.Channel.ParseTransportWaybillCargoReceivedTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse EndParseTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
-            return base.Channel.EndParseTransportWaybillCargoReceivedTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseTransportWaybillCargoReceivedTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request = ((Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest)(inValues[1]));
-            return this.BeginParseTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse retVal = this.EndParseTransportWaybillCargoReceivedTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseTransportWaybillCargoReceivedTitleCompleted(object state) {
-            if ((this.ParseTransportWaybillCargoReceivedTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseTransportWaybillCargoReceivedTitleCompleted(this, new ParseTransportWaybillCargoReceivedTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request) {
-            this.ParseTransportWaybillCargoReceivedTitleAsync(credentials, request, null);
-        }
-        
-        public void ParseTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request, object userState) {
-            if ((this.onBeginParseTransportWaybillCargoReceivedTitleDelegate == null)) {
-                this.onBeginParseTransportWaybillCargoReceivedTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillCargoReceivedTitle);
-            }
-            if ((this.onEndParseTransportWaybillCargoReceivedTitleDelegate == null)) {
-                this.onEndParseTransportWaybillCargoReceivedTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillCargoReceivedTitle);
-            }
-            if ((this.onParseTransportWaybillCargoReceivedTitleCompletedDelegate == null)) {
-                this.onParseTransportWaybillCargoReceivedTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillCargoReceivedTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseTransportWaybillCargoReceivedTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseTransportWaybillCargoReceivedTitleDelegate, this.onParseTransportWaybillCargoReceivedTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse ParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request) {
-            return base.Channel.ParseTransportWaybillCargoDeliveredTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse EndParseTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
-            return base.Channel.EndParseTransportWaybillCargoDeliveredTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseTransportWaybillCargoDeliveredTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request = ((Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest)(inValues[1]));
-            return this.BeginParseTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse retVal = this.EndParseTransportWaybillCargoDeliveredTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseTransportWaybillCargoDeliveredTitleCompleted(object state) {
-            if ((this.ParseTransportWaybillCargoDeliveredTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseTransportWaybillCargoDeliveredTitleCompleted(this, new ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request) {
-            this.ParseTransportWaybillCargoDeliveredTitleAsync(credentials, request, null);
-        }
-        
-        public void ParseTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request, object userState) {
-            if ((this.onBeginParseTransportWaybillCargoDeliveredTitleDelegate == null)) {
-                this.onBeginParseTransportWaybillCargoDeliveredTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillCargoDeliveredTitle);
-            }
-            if ((this.onEndParseTransportWaybillCargoDeliveredTitleDelegate == null)) {
-                this.onEndParseTransportWaybillCargoDeliveredTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillCargoDeliveredTitle);
-            }
-            if ((this.onParseTransportWaybillCargoDeliveredTitleCompletedDelegate == null)) {
-                this.onParseTransportWaybillCargoDeliveredTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillCargoDeliveredTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseTransportWaybillCargoDeliveredTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseTransportWaybillCargoDeliveredTitleDelegate, this.onParseTransportWaybillCargoDeliveredTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse ParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request) {
-            return base.Channel.ParseTransportWaybillConsigneeTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse EndParseTransportWaybillConsigneeTitle(System.IAsyncResult result) {
-            return base.Channel.EndParseTransportWaybillConsigneeTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseTransportWaybillConsigneeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest)(inValues[1]));
-            return this.BeginParseTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseTransportWaybillConsigneeTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse retVal = this.EndParseTransportWaybillConsigneeTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseTransportWaybillConsigneeTitleCompleted(object state) {
-            if ((this.ParseTransportWaybillConsigneeTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseTransportWaybillConsigneeTitleCompleted(this, new ParseTransportWaybillConsigneeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request) {
-            this.ParseTransportWaybillConsigneeTitleAsync(credentials, request, null);
-        }
-        
-        public void ParseTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request, object userState) {
-            if ((this.onBeginParseTransportWaybillConsigneeTitleDelegate == null)) {
-                this.onBeginParseTransportWaybillConsigneeTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillConsigneeTitle);
-            }
-            if ((this.onEndParseTransportWaybillConsigneeTitleDelegate == null)) {
-                this.onEndParseTransportWaybillConsigneeTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillConsigneeTitle);
-            }
-            if ((this.onParseTransportWaybillConsigneeTitleCompletedDelegate == null)) {
-                this.onParseTransportWaybillConsigneeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillConsigneeTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseTransportWaybillConsigneeTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseTransportWaybillConsigneeTitleDelegate, this.onParseTransportWaybillConsigneeTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse ParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request) {
-            return base.Channel.ParseTransportWaybillCarrierTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse EndParseTransportWaybillCarrierTitle(System.IAsyncResult result) {
-            return base.Channel.EndParseTransportWaybillCarrierTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseTransportWaybillCarrierTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest)(inValues[1]));
-            return this.BeginParseTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseTransportWaybillCarrierTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse retVal = this.EndParseTransportWaybillCarrierTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseTransportWaybillCarrierTitleCompleted(object state) {
-            if ((this.ParseTransportWaybillCarrierTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseTransportWaybillCarrierTitleCompleted(this, new ParseTransportWaybillCarrierTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseTransportWaybillCarrierTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request) {
-            this.ParseTransportWaybillCarrierTitleAsync(credentials, request, null);
-        }
-        
-        public void ParseTransportWaybillCarrierTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request, object userState) {
-            if ((this.onBeginParseTransportWaybillCarrierTitleDelegate == null)) {
-                this.onBeginParseTransportWaybillCarrierTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillCarrierTitle);
-            }
-            if ((this.onEndParseTransportWaybillCarrierTitleDelegate == null)) {
-                this.onEndParseTransportWaybillCarrierTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillCarrierTitle);
-            }
-            if ((this.onParseTransportWaybillCarrierTitleCompletedDelegate == null)) {
-                this.onParseTransportWaybillCarrierTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillCarrierTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseTransportWaybillCarrierTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseTransportWaybillCarrierTitleDelegate, this.onParseTransportWaybillCarrierTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request) {
-            return base.Channel.ParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse EndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
-            return base.Channel.EndParseTransportWaybillDeliveryPlaceChangeTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginParseTransportWaybillDeliveryPlaceChangeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest)(inValues[1]));
-            return this.BeginParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse retVal = this.EndParseTransportWaybillDeliveryPlaceChangeTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnParseTransportWaybillDeliveryPlaceChangeTitleCompleted(object state) {
-            if ((this.ParseTransportWaybillDeliveryPlaceChangeTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ParseTransportWaybillDeliveryPlaceChangeTitleCompleted(this, new ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ParseTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request) {
-            this.ParseTransportWaybillDeliveryPlaceChangeTitleAsync(credentials, request, null);
-        }
-        
-        public void ParseTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, object userState) {
-            if ((this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
-                this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillDeliveryPlaceChangeTitle);
-            }
-            if ((this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
-                this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillDeliveryPlaceChangeTitle);
-            }
-            if ((this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate == null)) {
-                this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillDeliveryPlaceChangeTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate, this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateWorksTransferSeller(authToken, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateWorksTransferSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferSeller(System.IAsyncResult result) {
-            return base.Channel.EndGenerateWorksTransferSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateWorksTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            Midway.ObjectModel.WorksTransferSeller model = ((Midway.ObjectModel.WorksTransferSeller)(inValues[1]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
-            return this.BeginGenerateWorksTransferSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateWorksTransferSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateWorksTransferSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateWorksTransferSellerCompleted(object state) {
-            if ((this.GenerateWorksTransferSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateWorksTransferSellerCompleted(this, new GenerateWorksTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateWorksTransferSellerAsync(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateWorksTransferSellerAsync(authToken, model, options, null);
-        }
-        
-        public void GenerateWorksTransferSellerAsync(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateWorksTransferSellerDelegate == null)) {
-                this.onBeginGenerateWorksTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateWorksTransferSeller);
-            }
-            if ((this.onEndGenerateWorksTransferSellerDelegate == null)) {
-                this.onEndGenerateWorksTransferSellerDelegate = new EndOperationDelegate(this.OnEndGenerateWorksTransferSeller);
-            }
-            if ((this.onGenerateWorksTransferSellerCompletedDelegate == null)) {
-                this.onGenerateWorksTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateWorksTransferSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateWorksTransferSellerDelegate, new object[] {
-                        authToken,
-                        model,
-                        options}, this.onEndGenerateWorksTransferSellerDelegate, this.onGenerateWorksTransferSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateGoodsTransferSeller(authToken, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGoodsTransferSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferSeller(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGoodsTransferSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGoodsTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            Midway.ObjectModel.GoodsTransferSeller model = ((Midway.ObjectModel.GoodsTransferSeller)(inValues[1]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
-            return this.BeginGenerateGoodsTransferSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGoodsTransferSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGoodsTransferSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGoodsTransferSellerCompleted(object state) {
-            if ((this.GenerateGoodsTransferSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGoodsTransferSellerCompleted(this, new GenerateGoodsTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGoodsTransferSellerAsync(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateGoodsTransferSellerAsync(authToken, model, options, null);
-        }
-        
-        public void GenerateGoodsTransferSellerAsync(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateGoodsTransferSellerDelegate == null)) {
-                this.onBeginGenerateGoodsTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGoodsTransferSeller);
-            }
-            if ((this.onEndGenerateGoodsTransferSellerDelegate == null)) {
-                this.onEndGenerateGoodsTransferSellerDelegate = new EndOperationDelegate(this.OnEndGenerateGoodsTransferSeller);
-            }
-            if ((this.onGenerateGoodsTransferSellerCompletedDelegate == null)) {
-                this.onGenerateGoodsTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGoodsTransferSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateGoodsTransferSellerDelegate, new object[] {
-                        authToken,
-                        model,
-                        options}, this.onEndGenerateGoodsTransferSellerDelegate, this.onGenerateGoodsTransferSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateGeneralTransferSeller(authToken, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGeneralTransferSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferSeller(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGeneralTransferSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGeneralTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            Midway.ObjectModel.GeneralTransferSeller model = ((Midway.ObjectModel.GeneralTransferSeller)(inValues[1]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
-            return this.BeginGenerateGeneralTransferSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGeneralTransferSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGeneralTransferSellerCompleted(object state) {
-            if ((this.GenerateGeneralTransferSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGeneralTransferSellerCompleted(this, new GenerateGeneralTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGeneralTransferSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateGeneralTransferSellerAsync(authToken, model, options, null);
-        }
-        
-        public void GenerateGeneralTransferSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateGeneralTransferSellerDelegate == null)) {
-                this.onBeginGenerateGeneralTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferSeller);
-            }
-            if ((this.onEndGenerateGeneralTransferSellerDelegate == null)) {
-                this.onEndGenerateGeneralTransferSellerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferSeller);
-            }
-            if ((this.onGenerateGeneralTransferSellerCompletedDelegate == null)) {
-                this.onGenerateGeneralTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateGeneralTransferSellerDelegate, new object[] {
-                        authToken,
-                        model,
-                        options}, this.onEndGenerateGeneralTransferSellerDelegate, this.onGenerateGeneralTransferSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request) {
-            return base.Channel.GenerateGeneralTransferSellerV2(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGeneralTransferSellerV2(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferSellerV2(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGeneralTransferSellerV2(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGeneralTransferSellerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request = ((Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest)(inValues[1]));
-            return this.BeginGenerateGeneralTransferSellerV2(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGeneralTransferSellerV2(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateGeneralTransferSellerV2(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGeneralTransferSellerV2Completed(object state) {
-            if ((this.GenerateGeneralTransferSellerV2Completed != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGeneralTransferSellerV2Completed(this, new GenerateGeneralTransferSellerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request) {
-            this.GenerateGeneralTransferSellerV2Async(credentials, request, null);
-        }
-        
-        public void GenerateGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateGeneralTransferSellerV2Delegate == null)) {
-                this.onBeginGenerateGeneralTransferSellerV2Delegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferSellerV2);
-            }
-            if ((this.onEndGenerateGeneralTransferSellerV2Delegate == null)) {
-                this.onEndGenerateGeneralTransferSellerV2Delegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferSellerV2);
-            }
-            if ((this.onGenerateGeneralTransferSellerV2CompletedDelegate == null)) {
-                this.onGenerateGeneralTransferSellerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferSellerV2Completed);
-            }
-            base.InvokeAsync(this.onBeginGenerateGeneralTransferSellerV2Delegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateGeneralTransferSellerV2Delegate, this.onGenerateGeneralTransferSellerV2CompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateGeneralTransferCorrectionSeller(authToken, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGeneralTransferCorrectionSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGeneralTransferCorrectionSeller(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGeneralTransferCorrectionSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            Midway.ObjectModel.GeneralTransferCorrectionSeller model = ((Midway.ObjectModel.GeneralTransferCorrectionSeller)(inValues[1]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
-            return this.BeginGenerateGeneralTransferCorrectionSeller(authToken, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferCorrectionSeller(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGeneralTransferCorrectionSellerCompleted(object state) {
-            if ((this.GenerateGeneralTransferCorrectionSellerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGeneralTransferCorrectionSellerCompleted(this, new GenerateGeneralTransferCorrectionSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGeneralTransferCorrectionSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateGeneralTransferCorrectionSellerAsync(authToken, model, options, null);
-        }
-        
-        public void GenerateGeneralTransferCorrectionSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateGeneralTransferCorrectionSellerDelegate == null)) {
-                this.onBeginGenerateGeneralTransferCorrectionSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferCorrectionSeller);
-            }
-            if ((this.onEndGenerateGeneralTransferCorrectionSellerDelegate == null)) {
-                this.onEndGenerateGeneralTransferCorrectionSellerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferCorrectionSeller);
-            }
-            if ((this.onGenerateGeneralTransferCorrectionSellerCompletedDelegate == null)) {
-                this.onGenerateGeneralTransferCorrectionSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferCorrectionSellerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateGeneralTransferCorrectionSellerDelegate, new object[] {
-                        authToken,
-                        model,
-                        options}, this.onEndGenerateGeneralTransferCorrectionSellerDelegate, this.onGenerateGeneralTransferCorrectionSellerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateWorksTransferBuyer(authToken, boxId, documentId, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateWorksTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferBuyer(System.IAsyncResult result) {
-            return base.Channel.EndGenerateWorksTransferBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateWorksTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string documentId = ((string)(inValues[2]));
-            Midway.ObjectModel.WorksTransferBuyer model = ((Midway.ObjectModel.WorksTransferBuyer)(inValues[3]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
-            return this.BeginGenerateWorksTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateWorksTransferBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateWorksTransferBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateWorksTransferBuyerCompleted(object state) {
-            if ((this.GenerateWorksTransferBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateWorksTransferBuyerCompleted(this, new GenerateWorksTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateWorksTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateWorksTransferBuyerAsync(authToken, boxId, documentId, model, options, null);
-        }
-        
-        public void GenerateWorksTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateWorksTransferBuyerDelegate == null)) {
-                this.onBeginGenerateWorksTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateWorksTransferBuyer);
-            }
-            if ((this.onEndGenerateWorksTransferBuyerDelegate == null)) {
-                this.onEndGenerateWorksTransferBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateWorksTransferBuyer);
-            }
-            if ((this.onGenerateWorksTransferBuyerCompletedDelegate == null)) {
-                this.onGenerateWorksTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateWorksTransferBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateWorksTransferBuyerDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        documentId,
-                        model,
-                        options}, this.onEndGenerateWorksTransferBuyerDelegate, this.onGenerateWorksTransferBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateGoodsTransferBuyer(authToken, boxId, documentId, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGoodsTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferBuyer(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGoodsTransferBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGoodsTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string documentId = ((string)(inValues[2]));
-            Midway.ObjectModel.GoodsTransferBuyer model = ((Midway.ObjectModel.GoodsTransferBuyer)(inValues[3]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
-            return this.BeginGenerateGoodsTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGoodsTransferBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGoodsTransferBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGoodsTransferBuyerCompleted(object state) {
-            if ((this.GenerateGoodsTransferBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGoodsTransferBuyerCompleted(this, new GenerateGoodsTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGoodsTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateGoodsTransferBuyerAsync(authToken, boxId, documentId, model, options, null);
-        }
-        
-        public void GenerateGoodsTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateGoodsTransferBuyerDelegate == null)) {
-                this.onBeginGenerateGoodsTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGoodsTransferBuyer);
-            }
-            if ((this.onEndGenerateGoodsTransferBuyerDelegate == null)) {
-                this.onEndGenerateGoodsTransferBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateGoodsTransferBuyer);
-            }
-            if ((this.onGenerateGoodsTransferBuyerCompletedDelegate == null)) {
-                this.onGenerateGoodsTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGoodsTransferBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateGoodsTransferBuyerDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        documentId,
-                        model,
-                        options}, this.onEndGenerateGoodsTransferBuyerDelegate, this.onGenerateGoodsTransferBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateGeneralTransferBuyer(authToken, boxId, documentId, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGeneralTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferBuyer(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGeneralTransferBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGeneralTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string documentId = ((string)(inValues[2]));
-            Midway.ObjectModel.GeneralTransferBuyer model = ((Midway.ObjectModel.GeneralTransferBuyer)(inValues[3]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
-            return this.BeginGenerateGeneralTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGeneralTransferBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGeneralTransferBuyerCompleted(object state) {
-            if ((this.GenerateGeneralTransferBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGeneralTransferBuyerCompleted(this, new GenerateGeneralTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGeneralTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateGeneralTransferBuyerAsync(authToken, boxId, documentId, model, options, null);
-        }
-        
-        public void GenerateGeneralTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateGeneralTransferBuyerDelegate == null)) {
-                this.onBeginGenerateGeneralTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferBuyer);
-            }
-            if ((this.onEndGenerateGeneralTransferBuyerDelegate == null)) {
-                this.onEndGenerateGeneralTransferBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferBuyer);
-            }
-            if ((this.onGenerateGeneralTransferBuyerCompletedDelegate == null)) {
-                this.onGenerateGeneralTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateGeneralTransferBuyerDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        documentId,
-                        model,
-                        options}, this.onEndGenerateGeneralTransferBuyerDelegate, this.onGenerateGeneralTransferBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request) {
-            return base.Channel.GenerateGeneralTransferBuyerV2(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGeneralTransferBuyerV2(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferBuyerV2(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGeneralTransferBuyerV2(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGeneralTransferBuyerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request = ((Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest)(inValues[1]));
-            return this.BeginGenerateGeneralTransferBuyerV2(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGeneralTransferBuyerV2(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateGeneralTransferBuyerV2(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGeneralTransferBuyerV2Completed(object state) {
-            if ((this.GenerateGeneralTransferBuyerV2Completed != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGeneralTransferBuyerV2Completed(this, new GenerateGeneralTransferBuyerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGeneralTransferBuyerV2Async(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request) {
-            this.GenerateGeneralTransferBuyerV2Async(credentials, request, null);
-        }
-        
-        public void GenerateGeneralTransferBuyerV2Async(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateGeneralTransferBuyerV2Delegate == null)) {
-                this.onBeginGenerateGeneralTransferBuyerV2Delegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferBuyerV2);
-            }
-            if ((this.onEndGenerateGeneralTransferBuyerV2Delegate == null)) {
-                this.onEndGenerateGeneralTransferBuyerV2Delegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferBuyerV2);
-            }
-            if ((this.onGenerateGeneralTransferBuyerV2CompletedDelegate == null)) {
-                this.onGenerateGeneralTransferBuyerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferBuyerV2Completed);
-            }
-            base.InvokeAsync(this.onBeginGenerateGeneralTransferBuyerV2Delegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateGeneralTransferBuyerV2Delegate, this.onGenerateGeneralTransferBuyerV2CompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            return base.Channel.GenerateGeneralTransferCorrectionBuyer(authToken, boxId, documentId, model, options);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateGeneralTransferCorrectionBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
-            return base.Channel.EndGenerateGeneralTransferCorrectionBuyer(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateGeneralTransferCorrectionBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string documentId = ((string)(inValues[2]));
-            Midway.ObjectModel.GeneralTransferCorrectionBuyer model = ((Midway.ObjectModel.GeneralTransferCorrectionBuyer)(inValues[3]));
-            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
-            return this.BeginGenerateGeneralTransferCorrectionBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
-            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferCorrectionBuyer(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateGeneralTransferCorrectionBuyerCompleted(object state) {
-            if ((this.GenerateGeneralTransferCorrectionBuyerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateGeneralTransferCorrectionBuyerCompleted(this, new GenerateGeneralTransferCorrectionBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateGeneralTransferCorrectionBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
-            this.GenerateGeneralTransferCorrectionBuyerAsync(authToken, boxId, documentId, model, options, null);
-        }
-        
-        public void GenerateGeneralTransferCorrectionBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
-            if ((this.onBeginGenerateGeneralTransferCorrectionBuyerDelegate == null)) {
-                this.onBeginGenerateGeneralTransferCorrectionBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferCorrectionBuyer);
-            }
-            if ((this.onEndGenerateGeneralTransferCorrectionBuyerDelegate == null)) {
-                this.onEndGenerateGeneralTransferCorrectionBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferCorrectionBuyer);
-            }
-            if ((this.onGenerateGeneralTransferCorrectionBuyerCompletedDelegate == null)) {
-                this.onGenerateGeneralTransferCorrectionBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferCorrectionBuyerCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateGeneralTransferCorrectionBuyerDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        documentId,
-                        model,
-                        options}, this.onEndGenerateGeneralTransferCorrectionBuyerDelegate, this.onGenerateGeneralTransferCorrectionBuyerCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request) {
-            return base.Channel.GenerateTransportWaybillConsignorTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsignorTitle(System.IAsyncResult result) {
-            return base.Channel.EndGenerateTransportWaybillConsignorTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateTransportWaybillConsignorTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest)(inValues[1]));
-            return this.BeginGenerateTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateTransportWaybillConsignorTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillConsignorTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateTransportWaybillConsignorTitleCompleted(object state) {
-            if ((this.GenerateTransportWaybillConsignorTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateTransportWaybillConsignorTitleCompleted(this, new GenerateTransportWaybillConsignorTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request) {
-            this.GenerateTransportWaybillConsignorTitleAsync(credentials, request, null);
-        }
-        
-        public void GenerateTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateTransportWaybillConsignorTitleDelegate == null)) {
-                this.onBeginGenerateTransportWaybillConsignorTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillConsignorTitle);
-            }
-            if ((this.onEndGenerateTransportWaybillConsignorTitleDelegate == null)) {
-                this.onEndGenerateTransportWaybillConsignorTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillConsignorTitle);
-            }
-            if ((this.onGenerateTransportWaybillConsignorTitleCompletedDelegate == null)) {
-                this.onGenerateTransportWaybillConsignorTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillConsignorTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateTransportWaybillConsignorTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateTransportWaybillConsignorTitleDelegate, this.onGenerateTransportWaybillConsignorTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request) {
-            return base.Channel.GenerateTransportWaybillCargoReceivedTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
-            return base.Channel.EndGenerateTransportWaybillCargoReceivedTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateTransportWaybillCargoReceivedTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest)(inValues[1]));
-            return this.BeginGenerateTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillCargoReceivedTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateTransportWaybillCargoReceivedTitleCompleted(object state) {
-            if ((this.GenerateTransportWaybillCargoReceivedTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateTransportWaybillCargoReceivedTitleCompleted(this, new GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request) {
-            this.GenerateTransportWaybillCargoReceivedTitleAsync(credentials, request, null);
-        }
-        
-        public void GenerateTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateTransportWaybillCargoReceivedTitleDelegate == null)) {
-                this.onBeginGenerateTransportWaybillCargoReceivedTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillCargoReceivedTitle);
-            }
-            if ((this.onEndGenerateTransportWaybillCargoReceivedTitleDelegate == null)) {
-                this.onEndGenerateTransportWaybillCargoReceivedTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillCargoReceivedTitle);
-            }
-            if ((this.onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate == null)) {
-                this.onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillCargoReceivedTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateTransportWaybillCargoReceivedTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateTransportWaybillCargoReceivedTitleDelegate, this.onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request) {
-            return base.Channel.GenerateTransportWaybillCargoDeliveredTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
-            return base.Channel.EndGenerateTransportWaybillCargoDeliveredTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateTransportWaybillCargoDeliveredTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest)(inValues[1]));
-            return this.BeginGenerateTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillCargoDeliveredTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateTransportWaybillCargoDeliveredTitleCompleted(object state) {
-            if ((this.GenerateTransportWaybillCargoDeliveredTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateTransportWaybillCargoDeliveredTitleCompleted(this, new GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request) {
-            this.GenerateTransportWaybillCargoDeliveredTitleAsync(credentials, request, null);
-        }
-        
-        public void GenerateTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate == null)) {
-                this.onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillCargoDeliveredTitle);
-            }
-            if ((this.onEndGenerateTransportWaybillCargoDeliveredTitleDelegate == null)) {
-                this.onEndGenerateTransportWaybillCargoDeliveredTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillCargoDeliveredTitle);
-            }
-            if ((this.onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate == null)) {
-                this.onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillCargoDeliveredTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateTransportWaybillCargoDeliveredTitleDelegate, this.onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request) {
-            return base.Channel.GenerateTransportWaybillConsigneeTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsigneeTitle(System.IAsyncResult result) {
-            return base.Channel.EndGenerateTransportWaybillConsigneeTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateTransportWaybillConsigneeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest)(inValues[1]));
-            return this.BeginGenerateTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateTransportWaybillConsigneeTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillConsigneeTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateTransportWaybillConsigneeTitleCompleted(object state) {
-            if ((this.GenerateTransportWaybillConsigneeTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateTransportWaybillConsigneeTitleCompleted(this, new GenerateTransportWaybillConsigneeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request) {
-            this.GenerateTransportWaybillConsigneeTitleAsync(credentials, request, null);
-        }
-        
-        public void GenerateTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateTransportWaybillConsigneeTitleDelegate == null)) {
-                this.onBeginGenerateTransportWaybillConsigneeTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillConsigneeTitle);
-            }
-            if ((this.onEndGenerateTransportWaybillConsigneeTitleDelegate == null)) {
-                this.onEndGenerateTransportWaybillConsigneeTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillConsigneeTitle);
-            }
-            if ((this.onGenerateTransportWaybillConsigneeTitleCompletedDelegate == null)) {
-                this.onGenerateTransportWaybillConsigneeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillConsigneeTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateTransportWaybillConsigneeTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateTransportWaybillConsigneeTitleDelegate, this.onGenerateTransportWaybillConsigneeTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request) {
-            return base.Channel.GenerateTransportWaybillCarrierTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCarrierTitle(System.IAsyncResult result) {
-            return base.Channel.EndGenerateTransportWaybillCarrierTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateTransportWaybillCarrierTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest)(inValues[1]));
-            return this.BeginGenerateTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateTransportWaybillCarrierTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillCarrierTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateTransportWaybillCarrierTitleCompleted(object state) {
-            if ((this.GenerateTransportWaybillCarrierTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateTransportWaybillCarrierTitleCompleted(this, new GenerateTransportWaybillCarrierTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateTransportWaybillCarrierTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request) {
-            this.GenerateTransportWaybillCarrierTitleAsync(credentials, request, null);
-        }
-        
-        public void GenerateTransportWaybillCarrierTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateTransportWaybillCarrierTitleDelegate == null)) {
-                this.onBeginGenerateTransportWaybillCarrierTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillCarrierTitle);
-            }
-            if ((this.onEndGenerateTransportWaybillCarrierTitleDelegate == null)) {
-                this.onEndGenerateTransportWaybillCarrierTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillCarrierTitle);
-            }
-            if ((this.onGenerateTransportWaybillCarrierTitleCompletedDelegate == null)) {
-                this.onGenerateTransportWaybillCarrierTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillCarrierTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateTransportWaybillCarrierTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateTransportWaybillCarrierTitleDelegate, this.onGenerateTransportWaybillCarrierTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request) {
-            return base.Channel.GenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
-            return base.Channel.EndGenerateTransportWaybillDeliveryPlaceChangeTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginGenerateTransportWaybillDeliveryPlaceChangeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
-            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest)(inValues[1]));
-            return this.BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
-        }
-        
-        private object[] OnEndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
-            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillDeliveryPlaceChangeTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGenerateTransportWaybillDeliveryPlaceChangeTitleCompleted(object state) {
-            if ((this.GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted(this, new GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request) {
-            this.GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(credentials, request, null);
-        }
-        
-        public void GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, object userState) {
-            if ((this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
-                this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillDeliveryPlaceChangeTitle);
-            }
-            if ((this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
-                this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillDeliveryPlaceChangeTitle);
-            }
-            if ((this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate == null)) {
-                this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillDeliveryPlaceChangeTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate, new object[] {
-                        credentials,
-                        request}, this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate, this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.NamedContent DownloadPdfDocument(string authToken, string boxId, string documentId) {
-            return base.Channel.DownloadPdfDocument(authToken, boxId, documentId);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginDownloadPdfDocument(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginDownloadPdfDocument(authToken, boxId, documentId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.NamedContent EndDownloadPdfDocument(System.IAsyncResult result) {
-            return base.Channel.EndDownloadPdfDocument(result);
-        }
-        
-        private System.IAsyncResult OnBeginDownloadPdfDocument(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string documentId = ((string)(inValues[2]));
-            return this.BeginDownloadPdfDocument(authToken, boxId, documentId, callback, asyncState);
-        }
-        
-        private object[] OnEndDownloadPdfDocument(System.IAsyncResult result) {
-            Midway.ObjectModel.NamedContent retVal = this.EndDownloadPdfDocument(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnDownloadPdfDocumentCompleted(object state) {
-            if ((this.DownloadPdfDocumentCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.DownloadPdfDocumentCompleted(this, new DownloadPdfDocumentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void DownloadPdfDocumentAsync(string authToken, string boxId, string documentId) {
-            this.DownloadPdfDocumentAsync(authToken, boxId, documentId, null);
-        }
-        
-        public void DownloadPdfDocumentAsync(string authToken, string boxId, string documentId, object userState) {
-            if ((this.onBeginDownloadPdfDocumentDelegate == null)) {
-                this.onBeginDownloadPdfDocumentDelegate = new BeginOperationDelegate(this.OnBeginDownloadPdfDocument);
-            }
-            if ((this.onEndDownloadPdfDocumentDelegate == null)) {
-                this.onEndDownloadPdfDocumentDelegate = new EndOperationDelegate(this.OnEndDownloadPdfDocument);
-            }
-            if ((this.onDownloadPdfDocumentCompletedDelegate == null)) {
-                this.onDownloadPdfDocumentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDownloadPdfDocumentCompleted);
-            }
-            base.InvokeAsync(this.onBeginDownloadPdfDocumentDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        documentId}, this.onEndDownloadPdfDocumentDelegate, this.onDownloadPdfDocumentCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.RegistrationResponse RegisterSubscriber(Midway.ObjectModel.RegistrationRequest request) {
-            return base.Channel.RegisterSubscriber(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginRegisterSubscriber(Midway.ObjectModel.RegistrationRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginRegisterSubscriber(request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result) {
-            return base.Channel.EndRegisterSubscriber(result);
-        }
-        
-        private System.IAsyncResult OnBeginRegisterSubscriber(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            Midway.ObjectModel.RegistrationRequest request = ((Midway.ObjectModel.RegistrationRequest)(inValues[0]));
-            return this.BeginRegisterSubscriber(request, callback, asyncState);
-        }
-        
-        private object[] OnEndRegisterSubscriber(System.IAsyncResult result) {
-            Midway.ObjectModel.RegistrationResponse retVal = this.EndRegisterSubscriber(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnRegisterSubscriberCompleted(object state) {
-            if ((this.RegisterSubscriberCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.RegisterSubscriberCompleted(this, new RegisterSubscriberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void RegisterSubscriberAsync(Midway.ObjectModel.RegistrationRequest request) {
-            this.RegisterSubscriberAsync(request, null);
-        }
-        
-        public void RegisterSubscriberAsync(Midway.ObjectModel.RegistrationRequest request, object userState) {
-            if ((this.onBeginRegisterSubscriberDelegate == null)) {
-                this.onBeginRegisterSubscriberDelegate = new BeginOperationDelegate(this.OnBeginRegisterSubscriber);
-            }
-            if ((this.onEndRegisterSubscriberDelegate == null)) {
-                this.onEndRegisterSubscriberDelegate = new EndOperationDelegate(this.OnEndRegisterSubscriber);
-            }
-            if ((this.onRegisterSubscriberCompletedDelegate == null)) {
-                this.onRegisterSubscriberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRegisterSubscriberCompleted);
-            }
-            base.InvokeAsync(this.onBeginRegisterSubscriberDelegate, new object[] {
-                        request}, this.onEndRegisterSubscriberDelegate, this.onRegisterSubscriberCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request) {
-            return base.Channel.CreateNonActiveSubscriber(authToken, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginCreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCreateNonActiveSubscriber(authToken, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result) {
-            return base.Channel.EndCreateNonActiveSubscriber(result);
-        }
-        
-        private System.IAsyncResult OnBeginCreateNonActiveSubscriber(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            Midway.ObjectModel.NonActiveSubscriberCreationRequest request = ((Midway.ObjectModel.NonActiveSubscriberCreationRequest)(inValues[1]));
-            return this.BeginCreateNonActiveSubscriber(authToken, request, callback, asyncState);
-        }
-        
-        private object[] OnEndCreateNonActiveSubscriber(System.IAsyncResult result) {
-            Midway.ObjectModel.NonActiveSubscriberCreationResponse retVal = this.EndCreateNonActiveSubscriber(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnCreateNonActiveSubscriberCompleted(object state) {
-            if ((this.CreateNonActiveSubscriberCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CreateNonActiveSubscriberCompleted(this, new CreateNonActiveSubscriberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CreateNonActiveSubscriberAsync(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request) {
-            this.CreateNonActiveSubscriberAsync(authToken, request, null);
-        }
-        
-        public void CreateNonActiveSubscriberAsync(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, object userState) {
-            if ((this.onBeginCreateNonActiveSubscriberDelegate == null)) {
-                this.onBeginCreateNonActiveSubscriberDelegate = new BeginOperationDelegate(this.OnBeginCreateNonActiveSubscriber);
-            }
-            if ((this.onEndCreateNonActiveSubscriberDelegate == null)) {
-                this.onEndCreateNonActiveSubscriberDelegate = new EndOperationDelegate(this.OnEndCreateNonActiveSubscriber);
-            }
-            if ((this.onCreateNonActiveSubscriberCompletedDelegate == null)) {
-                this.onCreateNonActiveSubscriberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateNonActiveSubscriberCompleted);
-            }
-            base.InvokeAsync(this.onBeginCreateNonActiveSubscriberDelegate, new object[] {
-                        authToken,
-                        request}, this.onEndCreateNonActiveSubscriberDelegate, this.onCreateNonActiveSubscriberCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate) {
-            return base.Channel.GetCertificateSubjectInfo(certificate);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGetCertificateSubjectInfo(byte[] certificate, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetCertificateSubjectInfo(certificate, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result) {
-            return base.Channel.EndGetCertificateSubjectInfo(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetCertificateSubjectInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            byte[] certificate = ((byte[])(inValues[0]));
-            return this.BeginGetCertificateSubjectInfo(certificate, callback, asyncState);
-        }
-        
-        private object[] OnEndGetCertificateSubjectInfo(System.IAsyncResult result) {
-            Midway.ObjectModel.QualifiedX509Name retVal = this.EndGetCertificateSubjectInfo(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetCertificateSubjectInfoCompleted(object state) {
-            if ((this.GetCertificateSubjectInfoCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetCertificateSubjectInfoCompleted(this, new GetCertificateSubjectInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetCertificateSubjectInfoAsync(byte[] certificate) {
-            this.GetCertificateSubjectInfoAsync(certificate, null);
-        }
-        
-        public void GetCertificateSubjectInfoAsync(byte[] certificate, object userState) {
-            if ((this.onBeginGetCertificateSubjectInfoDelegate == null)) {
-                this.onBeginGetCertificateSubjectInfoDelegate = new BeginOperationDelegate(this.OnBeginGetCertificateSubjectInfo);
-            }
-            if ((this.onEndGetCertificateSubjectInfoDelegate == null)) {
-                this.onEndGetCertificateSubjectInfoDelegate = new EndOperationDelegate(this.OnEndGetCertificateSubjectInfo);
-            }
-            if ((this.onGetCertificateSubjectInfoCompletedDelegate == null)) {
-                this.onGetCertificateSubjectInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCertificateSubjectInfoCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetCertificateSubjectInfoDelegate, new object[] {
-                        certificate}, this.onEndGetCertificateSubjectInfoDelegate, this.onGetCertificateSubjectInfoCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId) {
-            return base.Channel.GetDocumentExecutedFunction(authToken, boxId, documentId);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGetDocumentExecutedFunction(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetDocumentExecutedFunction(authToken, boxId, documentId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result) {
-            return base.Channel.EndGetDocumentExecutedFunction(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetDocumentExecutedFunction(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            string documentId = ((string)(inValues[2]));
-            return this.BeginGetDocumentExecutedFunction(authToken, boxId, documentId, callback, asyncState);
-        }
-        
-        private object[] OnEndGetDocumentExecutedFunction(System.IAsyncResult result) {
-            Midway.ObjectModel.EnumValue retVal = this.EndGetDocumentExecutedFunction(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetDocumentExecutedFunctionCompleted(object state) {
-            if ((this.GetDocumentExecutedFunctionCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetDocumentExecutedFunctionCompleted(this, new GetDocumentExecutedFunctionCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetDocumentExecutedFunctionAsync(string authToken, string boxId, string documentId) {
-            this.GetDocumentExecutedFunctionAsync(authToken, boxId, documentId, null);
-        }
-        
-        public void GetDocumentExecutedFunctionAsync(string authToken, string boxId, string documentId, object userState) {
-            if ((this.onBeginGetDocumentExecutedFunctionDelegate == null)) {
-                this.onBeginGetDocumentExecutedFunctionDelegate = new BeginOperationDelegate(this.OnBeginGetDocumentExecutedFunction);
-            }
-            if ((this.onEndGetDocumentExecutedFunctionDelegate == null)) {
-                this.onEndGetDocumentExecutedFunctionDelegate = new EndOperationDelegate(this.OnEndGetDocumentExecutedFunction);
-            }
-            if ((this.onGetDocumentExecutedFunctionCompletedDelegate == null)) {
-                this.onGetDocumentExecutedFunctionCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDocumentExecutedFunctionCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetDocumentExecutedFunctionDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        documentId}, this.onEndGetDocumentExecutedFunctionDelegate, this.onGetDocumentExecutedFunctionCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request) {
-            return base.Channel.CreateCertificateIssueRequest(authToken, boxId, request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginCreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCreateCertificateIssueRequest(authToken, boxId, request, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequest(System.IAsyncResult result) {
-            return base.Channel.EndCreateCertificateIssueRequest(result);
-        }
-        
-        private System.IAsyncResult OnBeginCreateCertificateIssueRequest(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            Midway.ObjectModel.CertificateIssueRequestCreationRequest request = ((Midway.ObjectModel.CertificateIssueRequestCreationRequest)(inValues[2]));
-            return this.BeginCreateCertificateIssueRequest(authToken, boxId, request, callback, asyncState);
-        }
-        
-        private object[] OnEndCreateCertificateIssueRequest(System.IAsyncResult result) {
-            Midway.ObjectModel.CertificateIssueRequestCreationResponse retVal = this.EndCreateCertificateIssueRequest(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnCreateCertificateIssueRequestCompleted(object state) {
-            if ((this.CreateCertificateIssueRequestCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CreateCertificateIssueRequestCompleted(this, new CreateCertificateIssueRequestCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CreateCertificateIssueRequestAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request) {
-            this.CreateCertificateIssueRequestAsync(authToken, boxId, request, null);
-        }
-        
-        public void CreateCertificateIssueRequestAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, object userState) {
-            if ((this.onBeginCreateCertificateIssueRequestDelegate == null)) {
-                this.onBeginCreateCertificateIssueRequestDelegate = new BeginOperationDelegate(this.OnBeginCreateCertificateIssueRequest);
-            }
-            if ((this.onEndCreateCertificateIssueRequestDelegate == null)) {
-                this.onEndCreateCertificateIssueRequestDelegate = new EndOperationDelegate(this.OnEndCreateCertificateIssueRequest);
-            }
-            if ((this.onCreateCertificateIssueRequestCompletedDelegate == null)) {
-                this.onCreateCertificateIssueRequestCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateCertificateIssueRequestCompleted);
-            }
-            base.InvokeAsync(this.onBeginCreateCertificateIssueRequestDelegate, new object[] {
-                        authToken,
-                        boxId,
-                        request}, this.onEndCreateCertificateIssueRequestDelegate, this.onCreateCertificateIssueRequestCompletedDelegate, userState);
-        }
+        public event System.EventHandler<CreateCertificateIssueRequestCompletedEventArgs> CreateCertificateIssueRequestCompleted;
         
         public Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequestFromFile(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request) {
             return base.Channel.CreateCertificateIssueRequestFromFile(authToken, boxId, request);
@@ -13467,6 +11198,2275 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginGetPromoCodeByNameDelegate, new object[] {
                         authToken,
                         promoCodeName}, this.onEndGetPromoCodeByNameDelegate, this.onGetPromoCodeByNameCompletedDelegate, userState);
+        }
+        
+        public void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId) {
+            base.Channel.DeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndDeleteOrganizationPromoCode(System.IAsyncResult result) {
+            base.Channel.EndDeleteOrganizationPromoCode(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteOrganizationPromoCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string organizationPromoCodeId = ((string)(inValues[2]));
+            return this.BeginDeleteOrganizationPromoCode(authToken, boxId, organizationPromoCodeId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteOrganizationPromoCode(System.IAsyncResult result) {
+            this.EndDeleteOrganizationPromoCode(result);
+            return null;
+        }
+        
+        private void OnDeleteOrganizationPromoCodeCompleted(object state) {
+            if ((this.DeleteOrganizationPromoCodeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteOrganizationPromoCodeCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId) {
+            this.DeleteOrganizationPromoCodeAsync(authToken, boxId, organizationPromoCodeId, null);
+        }
+        
+        public void DeleteOrganizationPromoCodeAsync(string authToken, string boxId, string organizationPromoCodeId, object userState) {
+            if ((this.onBeginDeleteOrganizationPromoCodeDelegate == null)) {
+                this.onBeginDeleteOrganizationPromoCodeDelegate = new BeginOperationDelegate(this.OnBeginDeleteOrganizationPromoCode);
+            }
+            if ((this.onEndDeleteOrganizationPromoCodeDelegate == null)) {
+                this.onEndDeleteOrganizationPromoCodeDelegate = new EndOperationDelegate(this.OnEndDeleteOrganizationPromoCode);
+            }
+            if ((this.onDeleteOrganizationPromoCodeCompletedDelegate == null)) {
+                this.onDeleteOrganizationPromoCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteOrganizationPromoCodeCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteOrganizationPromoCodeDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        organizationPromoCodeId}, this.onEndDeleteOrganizationPromoCodeDelegate, this.onDeleteOrganizationPromoCodeCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.CertificateCheckInfo[] CheckCertificateList(string[] thumbprints) {
+            return base.Channel.CheckCertificateList(thumbprints);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCheckCertificateList(string[] thumbprints, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCheckCertificateList(thumbprints, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.CertificateCheckInfo[] EndCheckCertificateList(System.IAsyncResult result) {
+            return base.Channel.EndCheckCertificateList(result);
+        }
+        
+        private System.IAsyncResult OnBeginCheckCertificateList(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string[] thumbprints = ((string[])(inValues[0]));
+            return this.BeginCheckCertificateList(thumbprints, callback, asyncState);
+        }
+        
+        private object[] OnEndCheckCertificateList(System.IAsyncResult result) {
+            Midway.ObjectModel.CertificateCheckInfo[] retVal = this.EndCheckCertificateList(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCheckCertificateListCompleted(object state) {
+            if ((this.CheckCertificateListCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CheckCertificateListCompleted(this, new CheckCertificateListCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CheckCertificateListAsync(string[] thumbprints) {
+            this.CheckCertificateListAsync(thumbprints, null);
+        }
+        
+        public void CheckCertificateListAsync(string[] thumbprints, object userState) {
+            if ((this.onBeginCheckCertificateListDelegate == null)) {
+                this.onBeginCheckCertificateListDelegate = new BeginOperationDelegate(this.OnBeginCheckCertificateList);
+            }
+            if ((this.onEndCheckCertificateListDelegate == null)) {
+                this.onEndCheckCertificateListDelegate = new EndOperationDelegate(this.OnEndCheckCertificateList);
+            }
+            if ((this.onCheckCertificateListCompletedDelegate == null)) {
+                this.onCheckCertificateListCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckCertificateListCompleted);
+            }
+            base.InvokeAsync(this.onBeginCheckCertificateListDelegate, new object[] {
+                        thumbprints}, this.onEndCheckCertificateListDelegate, this.onCheckCertificateListCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.NamedContent GenerateStatementOfInvoiceReglament(string authToken, string boxId) {
+            return base.Channel.GenerateStatementOfInvoiceReglament(authToken, boxId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result) {
+            return base.Channel.EndGenerateStatementOfInvoiceReglament(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            return this.BeginGenerateStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateStatementOfInvoiceReglament(System.IAsyncResult result) {
+            Midway.ObjectModel.NamedContent retVal = this.EndGenerateStatementOfInvoiceReglament(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateStatementOfInvoiceReglamentCompleted(object state) {
+            if ((this.GenerateStatementOfInvoiceReglamentCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateStatementOfInvoiceReglamentCompleted(this, new GenerateStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateStatementOfInvoiceReglamentAsync(string authToken, string boxId) {
+            this.GenerateStatementOfInvoiceReglamentAsync(authToken, boxId, null);
+        }
+        
+        public void GenerateStatementOfInvoiceReglamentAsync(string authToken, string boxId, object userState) {
+            if ((this.onBeginGenerateStatementOfInvoiceReglamentDelegate == null)) {
+                this.onBeginGenerateStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginGenerateStatementOfInvoiceReglament);
+            }
+            if ((this.onEndGenerateStatementOfInvoiceReglamentDelegate == null)) {
+                this.onEndGenerateStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndGenerateStatementOfInvoiceReglament);
+            }
+            if ((this.onGenerateStatementOfInvoiceReglamentCompletedDelegate == null)) {
+                this.onGenerateStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateStatementOfInvoiceReglamentCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateStatementOfInvoiceReglamentDelegate, new object[] {
+                        authToken,
+                        boxId}, this.onEndGenerateStatementOfInvoiceReglamentDelegate, this.onGenerateStatementOfInvoiceReglamentCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.SentMessage SendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message) {
+            return base.Channel.SendStatementOfInvoiceReglament(authToken, message);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSendStatementOfInvoiceReglament(string authToken, Midway.ObjectModel.MessageOfStatement message, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSendStatementOfInvoiceReglament(authToken, message, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.SentMessage EndSendStatementOfInvoiceReglament(System.IAsyncResult result) {
+            return base.Channel.EndSendStatementOfInvoiceReglament(result);
+        }
+        
+        private System.IAsyncResult OnBeginSendStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.MessageOfStatement message = ((Midway.ObjectModel.MessageOfStatement)(inValues[1]));
+            return this.BeginSendStatementOfInvoiceReglament(authToken, message, callback, asyncState);
+        }
+        
+        private object[] OnEndSendStatementOfInvoiceReglament(System.IAsyncResult result) {
+            Midway.ObjectModel.SentMessage retVal = this.EndSendStatementOfInvoiceReglament(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSendStatementOfInvoiceReglamentCompleted(object state) {
+            if ((this.SendStatementOfInvoiceReglamentCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SendStatementOfInvoiceReglamentCompleted(this, new SendStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SendStatementOfInvoiceReglamentAsync(string authToken, Midway.ObjectModel.MessageOfStatement message) {
+            this.SendStatementOfInvoiceReglamentAsync(authToken, message, null);
+        }
+        
+        public void SendStatementOfInvoiceReglamentAsync(string authToken, Midway.ObjectModel.MessageOfStatement message, object userState) {
+            if ((this.onBeginSendStatementOfInvoiceReglamentDelegate == null)) {
+                this.onBeginSendStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginSendStatementOfInvoiceReglament);
+            }
+            if ((this.onEndSendStatementOfInvoiceReglamentDelegate == null)) {
+                this.onEndSendStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndSendStatementOfInvoiceReglament);
+            }
+            if ((this.onSendStatementOfInvoiceReglamentCompletedDelegate == null)) {
+                this.onSendStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSendStatementOfInvoiceReglamentCompleted);
+            }
+            base.InvokeAsync(this.onBeginSendStatementOfInvoiceReglamentDelegate, new object[] {
+                        authToken,
+                        message}, this.onEndSendStatementOfInvoiceReglamentDelegate, this.onSendStatementOfInvoiceReglamentCompletedDelegate, userState);
+        }
+        
+        public bool CheckNeedToStatementOfInvoiceReglament(string authToken, string boxId) {
+            return base.Channel.CheckNeedToStatementOfInvoiceReglament(authToken, boxId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCheckNeedToStatementOfInvoiceReglament(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCheckNeedToStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public bool EndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result) {
+            return base.Channel.EndCheckNeedToStatementOfInvoiceReglament(result);
+        }
+        
+        private System.IAsyncResult OnBeginCheckNeedToStatementOfInvoiceReglament(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            return this.BeginCheckNeedToStatementOfInvoiceReglament(authToken, boxId, callback, asyncState);
+        }
+        
+        private object[] OnEndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result) {
+            bool retVal = this.EndCheckNeedToStatementOfInvoiceReglament(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCheckNeedToStatementOfInvoiceReglamentCompleted(object state) {
+            if ((this.CheckNeedToStatementOfInvoiceReglamentCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CheckNeedToStatementOfInvoiceReglamentCompleted(this, new CheckNeedToStatementOfInvoiceReglamentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CheckNeedToStatementOfInvoiceReglamentAsync(string authToken, string boxId) {
+            this.CheckNeedToStatementOfInvoiceReglamentAsync(authToken, boxId, null);
+        }
+        
+        public void CheckNeedToStatementOfInvoiceReglamentAsync(string authToken, string boxId, object userState) {
+            if ((this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate == null)) {
+                this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate = new BeginOperationDelegate(this.OnBeginCheckNeedToStatementOfInvoiceReglament);
+            }
+            if ((this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate == null)) {
+                this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate = new EndOperationDelegate(this.OnEndCheckNeedToStatementOfInvoiceReglament);
+            }
+            if ((this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate == null)) {
+                this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckNeedToStatementOfInvoiceReglamentCompleted);
+            }
+            base.InvokeAsync(this.onBeginCheckNeedToStatementOfInvoiceReglamentDelegate, new object[] {
+                        authToken,
+                        boxId}, this.onEndCheckNeedToStatementOfInvoiceReglamentDelegate, this.onCheckNeedToStatementOfInvoiceReglamentCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneralTransferSeller ParseGeneralTransferSeller(string authToken, byte[] content) {
+            return base.Channel.ParseGeneralTransferSeller(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGeneralTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGeneralTransferSeller(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneralTransferSeller EndParseGeneralTransferSeller(System.IAsyncResult result) {
+            return base.Channel.EndParseGeneralTransferSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGeneralTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseGeneralTransferSeller(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGeneralTransferSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneralTransferSeller retVal = this.EndParseGeneralTransferSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGeneralTransferSellerCompleted(object state) {
+            if ((this.ParseGeneralTransferSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGeneralTransferSellerCompleted(this, new ParseGeneralTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGeneralTransferSellerAsync(string authToken, byte[] content) {
+            this.ParseGeneralTransferSellerAsync(authToken, content, null);
+        }
+        
+        public void ParseGeneralTransferSellerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseGeneralTransferSellerDelegate == null)) {
+                this.onBeginParseGeneralTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferSeller);
+            }
+            if ((this.onEndParseGeneralTransferSellerDelegate == null)) {
+                this.onEndParseGeneralTransferSellerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferSeller);
+            }
+            if ((this.onParseGeneralTransferSellerCompletedDelegate == null)) {
+                this.onParseGeneralTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGeneralTransferSellerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseGeneralTransferSellerDelegate, this.onParseGeneralTransferSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneralTransferBuyer ParseGeneralTransferBuyer(string authToken, byte[] content) {
+            return base.Channel.ParseGeneralTransferBuyer(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGeneralTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGeneralTransferBuyer(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneralTransferBuyer EndParseGeneralTransferBuyer(System.IAsyncResult result) {
+            return base.Channel.EndParseGeneralTransferBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGeneralTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseGeneralTransferBuyer(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGeneralTransferBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneralTransferBuyer retVal = this.EndParseGeneralTransferBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGeneralTransferBuyerCompleted(object state) {
+            if ((this.ParseGeneralTransferBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGeneralTransferBuyerCompleted(this, new ParseGeneralTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGeneralTransferBuyerAsync(string authToken, byte[] content) {
+            this.ParseGeneralTransferBuyerAsync(authToken, content, null);
+        }
+        
+        public void ParseGeneralTransferBuyerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseGeneralTransferBuyerDelegate == null)) {
+                this.onBeginParseGeneralTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferBuyer);
+            }
+            if ((this.onEndParseGeneralTransferBuyerDelegate == null)) {
+                this.onEndParseGeneralTransferBuyerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferBuyer);
+            }
+            if ((this.onParseGeneralTransferBuyerCompletedDelegate == null)) {
+                this.onParseGeneralTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGeneralTransferBuyerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseGeneralTransferBuyerDelegate, this.onParseGeneralTransferBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.WorksTransferSeller ParseWorksTransferSeller(string authToken, byte[] content) {
+            return base.Channel.ParseWorksTransferSeller(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseWorksTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseWorksTransferSeller(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.WorksTransferSeller EndParseWorksTransferSeller(System.IAsyncResult result) {
+            return base.Channel.EndParseWorksTransferSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseWorksTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseWorksTransferSeller(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseWorksTransferSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.WorksTransferSeller retVal = this.EndParseWorksTransferSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseWorksTransferSellerCompleted(object state) {
+            if ((this.ParseWorksTransferSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseWorksTransferSellerCompleted(this, new ParseWorksTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseWorksTransferSellerAsync(string authToken, byte[] content) {
+            this.ParseWorksTransferSellerAsync(authToken, content, null);
+        }
+        
+        public void ParseWorksTransferSellerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseWorksTransferSellerDelegate == null)) {
+                this.onBeginParseWorksTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginParseWorksTransferSeller);
+            }
+            if ((this.onEndParseWorksTransferSellerDelegate == null)) {
+                this.onEndParseWorksTransferSellerDelegate = new EndOperationDelegate(this.OnEndParseWorksTransferSeller);
+            }
+            if ((this.onParseWorksTransferSellerCompletedDelegate == null)) {
+                this.onParseWorksTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseWorksTransferSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseWorksTransferSellerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseWorksTransferSellerDelegate, this.onParseWorksTransferSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.WorksTransferBuyer ParseWorksTransferBuyer(string authToken, byte[] content) {
+            return base.Channel.ParseWorksTransferBuyer(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseWorksTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseWorksTransferBuyer(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.WorksTransferBuyer EndParseWorksTransferBuyer(System.IAsyncResult result) {
+            return base.Channel.EndParseWorksTransferBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseWorksTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseWorksTransferBuyer(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseWorksTransferBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.WorksTransferBuyer retVal = this.EndParseWorksTransferBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseWorksTransferBuyerCompleted(object state) {
+            if ((this.ParseWorksTransferBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseWorksTransferBuyerCompleted(this, new ParseWorksTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseWorksTransferBuyerAsync(string authToken, byte[] content) {
+            this.ParseWorksTransferBuyerAsync(authToken, content, null);
+        }
+        
+        public void ParseWorksTransferBuyerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseWorksTransferBuyerDelegate == null)) {
+                this.onBeginParseWorksTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseWorksTransferBuyer);
+            }
+            if ((this.onEndParseWorksTransferBuyerDelegate == null)) {
+                this.onEndParseWorksTransferBuyerDelegate = new EndOperationDelegate(this.OnEndParseWorksTransferBuyer);
+            }
+            if ((this.onParseWorksTransferBuyerCompletedDelegate == null)) {
+                this.onParseWorksTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseWorksTransferBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseWorksTransferBuyerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseWorksTransferBuyerDelegate, this.onParseWorksTransferBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GoodsTransferSeller ParseGoodsTransferSeller(string authToken, byte[] content) {
+            return base.Channel.ParseGoodsTransferSeller(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGoodsTransferSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGoodsTransferSeller(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GoodsTransferSeller EndParseGoodsTransferSeller(System.IAsyncResult result) {
+            return base.Channel.EndParseGoodsTransferSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGoodsTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseGoodsTransferSeller(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGoodsTransferSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.GoodsTransferSeller retVal = this.EndParseGoodsTransferSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGoodsTransferSellerCompleted(object state) {
+            if ((this.ParseGoodsTransferSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGoodsTransferSellerCompleted(this, new ParseGoodsTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGoodsTransferSellerAsync(string authToken, byte[] content) {
+            this.ParseGoodsTransferSellerAsync(authToken, content, null);
+        }
+        
+        public void ParseGoodsTransferSellerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseGoodsTransferSellerDelegate == null)) {
+                this.onBeginParseGoodsTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginParseGoodsTransferSeller);
+            }
+            if ((this.onEndParseGoodsTransferSellerDelegate == null)) {
+                this.onEndParseGoodsTransferSellerDelegate = new EndOperationDelegate(this.OnEndParseGoodsTransferSeller);
+            }
+            if ((this.onParseGoodsTransferSellerCompletedDelegate == null)) {
+                this.onParseGoodsTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGoodsTransferSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGoodsTransferSellerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseGoodsTransferSellerDelegate, this.onParseGoodsTransferSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GoodsTransferBuyer ParseGoodsTransferBuyer(string authToken, byte[] content) {
+            return base.Channel.ParseGoodsTransferBuyer(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGoodsTransferBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGoodsTransferBuyer(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GoodsTransferBuyer EndParseGoodsTransferBuyer(System.IAsyncResult result) {
+            return base.Channel.EndParseGoodsTransferBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGoodsTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseGoodsTransferBuyer(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGoodsTransferBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.GoodsTransferBuyer retVal = this.EndParseGoodsTransferBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGoodsTransferBuyerCompleted(object state) {
+            if ((this.ParseGoodsTransferBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGoodsTransferBuyerCompleted(this, new ParseGoodsTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGoodsTransferBuyerAsync(string authToken, byte[] content) {
+            this.ParseGoodsTransferBuyerAsync(authToken, content, null);
+        }
+        
+        public void ParseGoodsTransferBuyerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseGoodsTransferBuyerDelegate == null)) {
+                this.onBeginParseGoodsTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseGoodsTransferBuyer);
+            }
+            if ((this.onEndParseGoodsTransferBuyerDelegate == null)) {
+                this.onEndParseGoodsTransferBuyerDelegate = new EndOperationDelegate(this.OnEndParseGoodsTransferBuyer);
+            }
+            if ((this.onParseGoodsTransferBuyerCompletedDelegate == null)) {
+                this.onParseGoodsTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGoodsTransferBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGoodsTransferBuyerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseGoodsTransferBuyerDelegate, this.onParseGoodsTransferBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneralTransferCorrectionSeller ParseGeneralTransferCorrectionSeller(string authToken, byte[] content) {
+            return base.Channel.ParseGeneralTransferCorrectionSeller(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGeneralTransferCorrectionSeller(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGeneralTransferCorrectionSeller(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneralTransferCorrectionSeller EndParseGeneralTransferCorrectionSeller(System.IAsyncResult result) {
+            return base.Channel.EndParseGeneralTransferCorrectionSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGeneralTransferCorrectionSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseGeneralTransferCorrectionSeller(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGeneralTransferCorrectionSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneralTransferCorrectionSeller retVal = this.EndParseGeneralTransferCorrectionSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGeneralTransferCorrectionSellerCompleted(object state) {
+            if ((this.ParseGeneralTransferCorrectionSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGeneralTransferCorrectionSellerCompleted(this, new ParseGeneralTransferCorrectionSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGeneralTransferCorrectionSellerAsync(string authToken, byte[] content) {
+            this.ParseGeneralTransferCorrectionSellerAsync(authToken, content, null);
+        }
+        
+        public void ParseGeneralTransferCorrectionSellerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseGeneralTransferCorrectionSellerDelegate == null)) {
+                this.onBeginParseGeneralTransferCorrectionSellerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferCorrectionSeller);
+            }
+            if ((this.onEndParseGeneralTransferCorrectionSellerDelegate == null)) {
+                this.onEndParseGeneralTransferCorrectionSellerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferCorrectionSeller);
+            }
+            if ((this.onParseGeneralTransferCorrectionSellerCompletedDelegate == null)) {
+                this.onParseGeneralTransferCorrectionSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferCorrectionSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGeneralTransferCorrectionSellerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseGeneralTransferCorrectionSellerDelegate, this.onParseGeneralTransferCorrectionSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneralTransferCorrectionBuyer ParseGeneralTransferCorrectionBuyer(string authToken, byte[] content) {
+            return base.Channel.ParseGeneralTransferCorrectionBuyer(authToken, content);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGeneralTransferCorrectionBuyer(string authToken, byte[] content, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGeneralTransferCorrectionBuyer(authToken, content, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneralTransferCorrectionBuyer EndParseGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
+            return base.Channel.EndParseGeneralTransferCorrectionBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGeneralTransferCorrectionBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            byte[] content = ((byte[])(inValues[1]));
+            return this.BeginParseGeneralTransferCorrectionBuyer(authToken, content, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneralTransferCorrectionBuyer retVal = this.EndParseGeneralTransferCorrectionBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGeneralTransferCorrectionBuyerCompleted(object state) {
+            if ((this.ParseGeneralTransferCorrectionBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGeneralTransferCorrectionBuyerCompleted(this, new ParseGeneralTransferCorrectionBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGeneralTransferCorrectionBuyerAsync(string authToken, byte[] content) {
+            this.ParseGeneralTransferCorrectionBuyerAsync(authToken, content, null);
+        }
+        
+        public void ParseGeneralTransferCorrectionBuyerAsync(string authToken, byte[] content, object userState) {
+            if ((this.onBeginParseGeneralTransferCorrectionBuyerDelegate == null)) {
+                this.onBeginParseGeneralTransferCorrectionBuyerDelegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferCorrectionBuyer);
+            }
+            if ((this.onEndParseGeneralTransferCorrectionBuyerDelegate == null)) {
+                this.onEndParseGeneralTransferCorrectionBuyerDelegate = new EndOperationDelegate(this.OnEndParseGeneralTransferCorrectionBuyer);
+            }
+            if ((this.onParseGeneralTransferCorrectionBuyerCompletedDelegate == null)) {
+                this.onParseGeneralTransferCorrectionBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferCorrectionBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGeneralTransferCorrectionBuyerDelegate, new object[] {
+                        authToken,
+                        content}, this.onEndParseGeneralTransferCorrectionBuyerDelegate, this.onParseGeneralTransferCorrectionBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse ParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request) {
+            return base.Channel.ParseGeneralTransferSellerV2(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGeneralTransferSellerV2(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse EndParseGeneralTransferSellerV2(System.IAsyncResult result) {
+            return base.Channel.EndParseGeneralTransferSellerV2(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGeneralTransferSellerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request = ((Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest)(inValues[1]));
+            return this.BeginParseGeneralTransferSellerV2(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGeneralTransferSellerV2(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse retVal = this.EndParseGeneralTransferSellerV2(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGeneralTransferSellerV2Completed(object state) {
+            if ((this.ParseGeneralTransferSellerV2Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGeneralTransferSellerV2Completed(this, new ParseGeneralTransferSellerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request) {
+            this.ParseGeneralTransferSellerV2Async(credentials, request, null);
+        }
+        
+        public void ParseGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2ParsingRequest request, object userState) {
+            if ((this.onBeginParseGeneralTransferSellerV2Delegate == null)) {
+                this.onBeginParseGeneralTransferSellerV2Delegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferSellerV2);
+            }
+            if ((this.onEndParseGeneralTransferSellerV2Delegate == null)) {
+                this.onEndParseGeneralTransferSellerV2Delegate = new EndOperationDelegate(this.OnEndParseGeneralTransferSellerV2);
+            }
+            if ((this.onParseGeneralTransferSellerV2CompletedDelegate == null)) {
+                this.onParseGeneralTransferSellerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferSellerV2Completed);
+            }
+            base.InvokeAsync(this.onBeginParseGeneralTransferSellerV2Delegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseGeneralTransferSellerV2Delegate, this.onParseGeneralTransferSellerV2CompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse ParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request) {
+            return base.Channel.ParseGeneralTransferBuyerV2(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGeneralTransferBuyerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGeneralTransferBuyerV2(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse EndParseGeneralTransferBuyerV2(System.IAsyncResult result) {
+            return base.Channel.EndParseGeneralTransferBuyerV2(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGeneralTransferBuyerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request = ((Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest)(inValues[1]));
+            return this.BeginParseGeneralTransferBuyerV2(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGeneralTransferBuyerV2(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse retVal = this.EndParseGeneralTransferBuyerV2(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGeneralTransferBuyerV2Completed(object state) {
+            if ((this.ParseGeneralTransferBuyerV2Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGeneralTransferBuyerV2Completed(this, new ParseGeneralTransferBuyerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGeneralTransferBuyerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request) {
+            this.ParseGeneralTransferBuyerV2Async(credentials, request, null);
+        }
+        
+        public void ParseGeneralTransferBuyerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2ParsingRequest request, object userState) {
+            if ((this.onBeginParseGeneralTransferBuyerV2Delegate == null)) {
+                this.onBeginParseGeneralTransferBuyerV2Delegate = new BeginOperationDelegate(this.OnBeginParseGeneralTransferBuyerV2);
+            }
+            if ((this.onEndParseGeneralTransferBuyerV2Delegate == null)) {
+                this.onEndParseGeneralTransferBuyerV2Delegate = new EndOperationDelegate(this.OnEndParseGeneralTransferBuyerV2);
+            }
+            if ((this.onParseGeneralTransferBuyerV2CompletedDelegate == null)) {
+                this.onParseGeneralTransferBuyerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGeneralTransferBuyerV2Completed);
+            }
+            base.InvokeAsync(this.onBeginParseGeneralTransferBuyerV2Delegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseGeneralTransferBuyerV2Delegate, this.onParseGeneralTransferBuyerV2CompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse ParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request) {
+            return base.Channel.ParseTransportWaybillConsignorTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse EndParseTransportWaybillConsignorTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseTransportWaybillConsignorTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseTransportWaybillConsignorTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest)(inValues[1]));
+            return this.BeginParseTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseTransportWaybillConsignorTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse retVal = this.EndParseTransportWaybillConsignorTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseTransportWaybillConsignorTitleCompleted(object state) {
+            if ((this.ParseTransportWaybillConsignorTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseTransportWaybillConsignorTitleCompleted(this, new ParseTransportWaybillConsignorTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request) {
+            this.ParseTransportWaybillConsignorTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleParsingRequest request, object userState) {
+            if ((this.onBeginParseTransportWaybillConsignorTitleDelegate == null)) {
+                this.onBeginParseTransportWaybillConsignorTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillConsignorTitle);
+            }
+            if ((this.onEndParseTransportWaybillConsignorTitleDelegate == null)) {
+                this.onEndParseTransportWaybillConsignorTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillConsignorTitle);
+            }
+            if ((this.onParseTransportWaybillConsignorTitleCompletedDelegate == null)) {
+                this.onParseTransportWaybillConsignorTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillConsignorTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseTransportWaybillConsignorTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseTransportWaybillConsignorTitleDelegate, this.onParseTransportWaybillConsignorTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse ParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request) {
+            return base.Channel.ParseTransportWaybillCargoReceivedTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse EndParseTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseTransportWaybillCargoReceivedTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseTransportWaybillCargoReceivedTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request = ((Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest)(inValues[1]));
+            return this.BeginParseTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.TransportWaybillCargoReceivedTitleParsingResponse retVal = this.EndParseTransportWaybillCargoReceivedTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseTransportWaybillCargoReceivedTitleCompleted(object state) {
+            if ((this.ParseTransportWaybillCargoReceivedTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseTransportWaybillCargoReceivedTitleCompleted(this, new ParseTransportWaybillCargoReceivedTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request) {
+            this.ParseTransportWaybillCargoReceivedTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedParsingRequest request, object userState) {
+            if ((this.onBeginParseTransportWaybillCargoReceivedTitleDelegate == null)) {
+                this.onBeginParseTransportWaybillCargoReceivedTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillCargoReceivedTitle);
+            }
+            if ((this.onEndParseTransportWaybillCargoReceivedTitleDelegate == null)) {
+                this.onEndParseTransportWaybillCargoReceivedTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillCargoReceivedTitle);
+            }
+            if ((this.onParseTransportWaybillCargoReceivedTitleCompletedDelegate == null)) {
+                this.onParseTransportWaybillCargoReceivedTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillCargoReceivedTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseTransportWaybillCargoReceivedTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseTransportWaybillCargoReceivedTitleDelegate, this.onParseTransportWaybillCargoReceivedTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse ParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request) {
+            return base.Channel.ParseTransportWaybillCargoDeliveredTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse EndParseTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseTransportWaybillCargoDeliveredTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseTransportWaybillCargoDeliveredTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request = ((Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest)(inValues[1]));
+            return this.BeginParseTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse retVal = this.EndParseTransportWaybillCargoDeliveredTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseTransportWaybillCargoDeliveredTitleCompleted(object state) {
+            if ((this.ParseTransportWaybillCargoDeliveredTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseTransportWaybillCargoDeliveredTitleCompleted(this, new ParseTransportWaybillCargoDeliveredTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request) {
+            this.ParseTransportWaybillCargoDeliveredTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredParsingRequest request, object userState) {
+            if ((this.onBeginParseTransportWaybillCargoDeliveredTitleDelegate == null)) {
+                this.onBeginParseTransportWaybillCargoDeliveredTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillCargoDeliveredTitle);
+            }
+            if ((this.onEndParseTransportWaybillCargoDeliveredTitleDelegate == null)) {
+                this.onEndParseTransportWaybillCargoDeliveredTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillCargoDeliveredTitle);
+            }
+            if ((this.onParseTransportWaybillCargoDeliveredTitleCompletedDelegate == null)) {
+                this.onParseTransportWaybillCargoDeliveredTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillCargoDeliveredTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseTransportWaybillCargoDeliveredTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseTransportWaybillCargoDeliveredTitleDelegate, this.onParseTransportWaybillCargoDeliveredTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse ParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request) {
+            return base.Channel.ParseTransportWaybillConsigneeTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseTransportWaybillConsigneeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse EndParseTransportWaybillConsigneeTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseTransportWaybillConsigneeTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseTransportWaybillConsigneeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest)(inValues[1]));
+            return this.BeginParseTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseTransportWaybillConsigneeTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse retVal = this.EndParseTransportWaybillConsigneeTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseTransportWaybillConsigneeTitleCompleted(object state) {
+            if ((this.ParseTransportWaybillConsigneeTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseTransportWaybillConsigneeTitleCompleted(this, new ParseTransportWaybillConsigneeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request) {
+            this.ParseTransportWaybillConsigneeTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleParsingRequest request, object userState) {
+            if ((this.onBeginParseTransportWaybillConsigneeTitleDelegate == null)) {
+                this.onBeginParseTransportWaybillConsigneeTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillConsigneeTitle);
+            }
+            if ((this.onEndParseTransportWaybillConsigneeTitleDelegate == null)) {
+                this.onEndParseTransportWaybillConsigneeTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillConsigneeTitle);
+            }
+            if ((this.onParseTransportWaybillConsigneeTitleCompletedDelegate == null)) {
+                this.onParseTransportWaybillConsigneeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillConsigneeTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseTransportWaybillConsigneeTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseTransportWaybillConsigneeTitleDelegate, this.onParseTransportWaybillConsigneeTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse ParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request) {
+            return base.Channel.ParseTransportWaybillCarrierTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseTransportWaybillCarrierTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse EndParseTransportWaybillCarrierTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseTransportWaybillCarrierTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseTransportWaybillCarrierTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest)(inValues[1]));
+            return this.BeginParseTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseTransportWaybillCarrierTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.TransportWaybillCarrierTitleParsingResponse retVal = this.EndParseTransportWaybillCarrierTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseTransportWaybillCarrierTitleCompleted(object state) {
+            if ((this.ParseTransportWaybillCarrierTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseTransportWaybillCarrierTitleCompleted(this, new ParseTransportWaybillCarrierTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseTransportWaybillCarrierTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request) {
+            this.ParseTransportWaybillCarrierTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseTransportWaybillCarrierTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleParsingRequest request, object userState) {
+            if ((this.onBeginParseTransportWaybillCarrierTitleDelegate == null)) {
+                this.onBeginParseTransportWaybillCarrierTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillCarrierTitle);
+            }
+            if ((this.onEndParseTransportWaybillCarrierTitleDelegate == null)) {
+                this.onEndParseTransportWaybillCarrierTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillCarrierTitle);
+            }
+            if ((this.onParseTransportWaybillCarrierTitleCompletedDelegate == null)) {
+                this.onParseTransportWaybillCarrierTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillCarrierTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseTransportWaybillCarrierTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseTransportWaybillCarrierTitleDelegate, this.onParseTransportWaybillCarrierTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse ParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request) {
+            return base.Channel.ParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse EndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseTransportWaybillDeliveryPlaceChangeTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseTransportWaybillDeliveryPlaceChangeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request = ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest)(inValues[1]));
+            return this.BeginParseTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse retVal = this.EndParseTransportWaybillDeliveryPlaceChangeTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseTransportWaybillDeliveryPlaceChangeTitleCompleted(object state) {
+            if ((this.ParseTransportWaybillDeliveryPlaceChangeTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseTransportWaybillDeliveryPlaceChangeTitleCompleted(this, new ParseTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request) {
+            this.ParseTransportWaybillDeliveryPlaceChangeTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingRequest request, object userState) {
+            if ((this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate = new BeginOperationDelegate(this.OnBeginParseTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate = new EndOperationDelegate(this.OnEndParseTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate == null)) {
+                this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseTransportWaybillDeliveryPlaceChangeTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseTransportWaybillDeliveryPlaceChangeTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseTransportWaybillDeliveryPlaceChangeTitleDelegate, this.onParseTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateWorksTransferSeller(authToken, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateWorksTransferSeller(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateWorksTransferSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferSeller(System.IAsyncResult result) {
+            return base.Channel.EndGenerateWorksTransferSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateWorksTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.WorksTransferSeller model = ((Midway.ObjectModel.WorksTransferSeller)(inValues[1]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
+            return this.BeginGenerateWorksTransferSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateWorksTransferSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateWorksTransferSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateWorksTransferSellerCompleted(object state) {
+            if ((this.GenerateWorksTransferSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateWorksTransferSellerCompleted(this, new GenerateWorksTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateWorksTransferSellerAsync(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateWorksTransferSellerAsync(authToken, model, options, null);
+        }
+        
+        public void GenerateWorksTransferSellerAsync(string authToken, Midway.ObjectModel.WorksTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateWorksTransferSellerDelegate == null)) {
+                this.onBeginGenerateWorksTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateWorksTransferSeller);
+            }
+            if ((this.onEndGenerateWorksTransferSellerDelegate == null)) {
+                this.onEndGenerateWorksTransferSellerDelegate = new EndOperationDelegate(this.OnEndGenerateWorksTransferSeller);
+            }
+            if ((this.onGenerateWorksTransferSellerCompletedDelegate == null)) {
+                this.onGenerateWorksTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateWorksTransferSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateWorksTransferSellerDelegate, new object[] {
+                        authToken,
+                        model,
+                        options}, this.onEndGenerateWorksTransferSellerDelegate, this.onGenerateWorksTransferSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateGoodsTransferSeller(authToken, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGoodsTransferSeller(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGoodsTransferSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferSeller(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGoodsTransferSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGoodsTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.GoodsTransferSeller model = ((Midway.ObjectModel.GoodsTransferSeller)(inValues[1]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
+            return this.BeginGenerateGoodsTransferSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGoodsTransferSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGoodsTransferSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGoodsTransferSellerCompleted(object state) {
+            if ((this.GenerateGoodsTransferSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGoodsTransferSellerCompleted(this, new GenerateGoodsTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGoodsTransferSellerAsync(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateGoodsTransferSellerAsync(authToken, model, options, null);
+        }
+        
+        public void GenerateGoodsTransferSellerAsync(string authToken, Midway.ObjectModel.GoodsTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateGoodsTransferSellerDelegate == null)) {
+                this.onBeginGenerateGoodsTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGoodsTransferSeller);
+            }
+            if ((this.onEndGenerateGoodsTransferSellerDelegate == null)) {
+                this.onEndGenerateGoodsTransferSellerDelegate = new EndOperationDelegate(this.OnEndGenerateGoodsTransferSeller);
+            }
+            if ((this.onGenerateGoodsTransferSellerCompletedDelegate == null)) {
+                this.onGenerateGoodsTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGoodsTransferSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateGoodsTransferSellerDelegate, new object[] {
+                        authToken,
+                        model,
+                        options}, this.onEndGenerateGoodsTransferSellerDelegate, this.onGenerateGoodsTransferSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateGeneralTransferSeller(authToken, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGeneralTransferSeller(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGeneralTransferSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferSeller(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGeneralTransferSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGeneralTransferSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.GeneralTransferSeller model = ((Midway.ObjectModel.GeneralTransferSeller)(inValues[1]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
+            return this.BeginGenerateGeneralTransferSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGeneralTransferSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGeneralTransferSellerCompleted(object state) {
+            if ((this.GenerateGeneralTransferSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGeneralTransferSellerCompleted(this, new GenerateGeneralTransferSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGeneralTransferSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateGeneralTransferSellerAsync(authToken, model, options, null);
+        }
+        
+        public void GenerateGeneralTransferSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateGeneralTransferSellerDelegate == null)) {
+                this.onBeginGenerateGeneralTransferSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferSeller);
+            }
+            if ((this.onEndGenerateGeneralTransferSellerDelegate == null)) {
+                this.onEndGenerateGeneralTransferSellerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferSeller);
+            }
+            if ((this.onGenerateGeneralTransferSellerCompletedDelegate == null)) {
+                this.onGenerateGeneralTransferSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateGeneralTransferSellerDelegate, new object[] {
+                        authToken,
+                        model,
+                        options}, this.onEndGenerateGeneralTransferSellerDelegate, this.onGenerateGeneralTransferSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request) {
+            return base.Channel.GenerateGeneralTransferSellerV2(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGeneralTransferSellerV2(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGeneralTransferSellerV2(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferSellerV2(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGeneralTransferSellerV2(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGeneralTransferSellerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request = ((Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest)(inValues[1]));
+            return this.BeginGenerateGeneralTransferSellerV2(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGeneralTransferSellerV2(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateGeneralTransferSellerV2(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGeneralTransferSellerV2Completed(object state) {
+            if ((this.GenerateGeneralTransferSellerV2Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGeneralTransferSellerV2Completed(this, new GenerateGeneralTransferSellerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request) {
+            this.GenerateGeneralTransferSellerV2Async(credentials, request, null);
+        }
+        
+        public void GenerateGeneralTransferSellerV2Async(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GeneralTransferSellerV2GeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateGeneralTransferSellerV2Delegate == null)) {
+                this.onBeginGenerateGeneralTransferSellerV2Delegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferSellerV2);
+            }
+            if ((this.onEndGenerateGeneralTransferSellerV2Delegate == null)) {
+                this.onEndGenerateGeneralTransferSellerV2Delegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferSellerV2);
+            }
+            if ((this.onGenerateGeneralTransferSellerV2CompletedDelegate == null)) {
+                this.onGenerateGeneralTransferSellerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferSellerV2Completed);
+            }
+            base.InvokeAsync(this.onBeginGenerateGeneralTransferSellerV2Delegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateGeneralTransferSellerV2Delegate, this.onGenerateGeneralTransferSellerV2CompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateGeneralTransferCorrectionSeller(authToken, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGeneralTransferCorrectionSeller(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGeneralTransferCorrectionSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGeneralTransferCorrectionSeller(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGeneralTransferCorrectionSeller(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.GeneralTransferCorrectionSeller model = ((Midway.ObjectModel.GeneralTransferCorrectionSeller)(inValues[1]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[2]));
+            return this.BeginGenerateGeneralTransferCorrectionSeller(authToken, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferCorrectionSeller(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGeneralTransferCorrectionSellerCompleted(object state) {
+            if ((this.GenerateGeneralTransferCorrectionSellerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGeneralTransferCorrectionSellerCompleted(this, new GenerateGeneralTransferCorrectionSellerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGeneralTransferCorrectionSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateGeneralTransferCorrectionSellerAsync(authToken, model, options, null);
+        }
+        
+        public void GenerateGeneralTransferCorrectionSellerAsync(string authToken, Midway.ObjectModel.GeneralTransferCorrectionSeller model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateGeneralTransferCorrectionSellerDelegate == null)) {
+                this.onBeginGenerateGeneralTransferCorrectionSellerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferCorrectionSeller);
+            }
+            if ((this.onEndGenerateGeneralTransferCorrectionSellerDelegate == null)) {
+                this.onEndGenerateGeneralTransferCorrectionSellerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferCorrectionSeller);
+            }
+            if ((this.onGenerateGeneralTransferCorrectionSellerCompletedDelegate == null)) {
+                this.onGenerateGeneralTransferCorrectionSellerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferCorrectionSellerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateGeneralTransferCorrectionSellerDelegate, new object[] {
+                        authToken,
+                        model,
+                        options}, this.onEndGenerateGeneralTransferCorrectionSellerDelegate, this.onGenerateGeneralTransferCorrectionSellerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateWorksTransferBuyer(authToken, boxId, documentId, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateWorksTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateWorksTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferBuyer(System.IAsyncResult result) {
+            return base.Channel.EndGenerateWorksTransferBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateWorksTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            Midway.ObjectModel.WorksTransferBuyer model = ((Midway.ObjectModel.WorksTransferBuyer)(inValues[3]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
+            return this.BeginGenerateWorksTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateWorksTransferBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateWorksTransferBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateWorksTransferBuyerCompleted(object state) {
+            if ((this.GenerateWorksTransferBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateWorksTransferBuyerCompleted(this, new GenerateWorksTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateWorksTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateWorksTransferBuyerAsync(authToken, boxId, documentId, model, options, null);
+        }
+        
+        public void GenerateWorksTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.WorksTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateWorksTransferBuyerDelegate == null)) {
+                this.onBeginGenerateWorksTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateWorksTransferBuyer);
+            }
+            if ((this.onEndGenerateWorksTransferBuyerDelegate == null)) {
+                this.onEndGenerateWorksTransferBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateWorksTransferBuyer);
+            }
+            if ((this.onGenerateWorksTransferBuyerCompletedDelegate == null)) {
+                this.onGenerateWorksTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateWorksTransferBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateWorksTransferBuyerDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId,
+                        model,
+                        options}, this.onEndGenerateWorksTransferBuyerDelegate, this.onGenerateWorksTransferBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateGoodsTransferBuyer(authToken, boxId, documentId, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGoodsTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGoodsTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferBuyer(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGoodsTransferBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGoodsTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            Midway.ObjectModel.GoodsTransferBuyer model = ((Midway.ObjectModel.GoodsTransferBuyer)(inValues[3]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
+            return this.BeginGenerateGoodsTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGoodsTransferBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGoodsTransferBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGoodsTransferBuyerCompleted(object state) {
+            if ((this.GenerateGoodsTransferBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGoodsTransferBuyerCompleted(this, new GenerateGoodsTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGoodsTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateGoodsTransferBuyerAsync(authToken, boxId, documentId, model, options, null);
+        }
+        
+        public void GenerateGoodsTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GoodsTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateGoodsTransferBuyerDelegate == null)) {
+                this.onBeginGenerateGoodsTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGoodsTransferBuyer);
+            }
+            if ((this.onEndGenerateGoodsTransferBuyerDelegate == null)) {
+                this.onEndGenerateGoodsTransferBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateGoodsTransferBuyer);
+            }
+            if ((this.onGenerateGoodsTransferBuyerCompletedDelegate == null)) {
+                this.onGenerateGoodsTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGoodsTransferBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateGoodsTransferBuyerDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId,
+                        model,
+                        options}, this.onEndGenerateGoodsTransferBuyerDelegate, this.onGenerateGoodsTransferBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateGeneralTransferBuyer(authToken, boxId, documentId, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGeneralTransferBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGeneralTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferBuyer(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGeneralTransferBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGeneralTransferBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            Midway.ObjectModel.GeneralTransferBuyer model = ((Midway.ObjectModel.GeneralTransferBuyer)(inValues[3]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
+            return this.BeginGenerateGeneralTransferBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGeneralTransferBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGeneralTransferBuyerCompleted(object state) {
+            if ((this.GenerateGeneralTransferBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGeneralTransferBuyerCompleted(this, new GenerateGeneralTransferBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGeneralTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateGeneralTransferBuyerAsync(authToken, boxId, documentId, model, options, null);
+        }
+        
+        public void GenerateGeneralTransferBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateGeneralTransferBuyerDelegate == null)) {
+                this.onBeginGenerateGeneralTransferBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferBuyer);
+            }
+            if ((this.onEndGenerateGeneralTransferBuyerDelegate == null)) {
+                this.onEndGenerateGeneralTransferBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferBuyer);
+            }
+            if ((this.onGenerateGeneralTransferBuyerCompletedDelegate == null)) {
+                this.onGenerateGeneralTransferBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateGeneralTransferBuyerDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId,
+                        model,
+                        options}, this.onEndGenerateGeneralTransferBuyerDelegate, this.onGenerateGeneralTransferBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request) {
+            return base.Channel.GenerateGeneralTransferBuyerV2(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGeneralTransferBuyerV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGeneralTransferBuyerV2(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateGeneralTransferBuyerV2(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGeneralTransferBuyerV2(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGeneralTransferBuyerV2(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request = ((Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest)(inValues[1]));
+            return this.BeginGenerateGeneralTransferBuyerV2(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGeneralTransferBuyerV2(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateGeneralTransferBuyerV2(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGeneralTransferBuyerV2Completed(object state) {
+            if ((this.GenerateGeneralTransferBuyerV2Completed != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGeneralTransferBuyerV2Completed(this, new GenerateGeneralTransferBuyerV2CompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGeneralTransferBuyerV2Async(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request) {
+            this.GenerateGeneralTransferBuyerV2Async(credentials, request, null);
+        }
+        
+        public void GenerateGeneralTransferBuyerV2Async(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.GeneralTransferBuyerV2GeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateGeneralTransferBuyerV2Delegate == null)) {
+                this.onBeginGenerateGeneralTransferBuyerV2Delegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferBuyerV2);
+            }
+            if ((this.onEndGenerateGeneralTransferBuyerV2Delegate == null)) {
+                this.onEndGenerateGeneralTransferBuyerV2Delegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferBuyerV2);
+            }
+            if ((this.onGenerateGeneralTransferBuyerV2CompletedDelegate == null)) {
+                this.onGenerateGeneralTransferBuyerV2CompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferBuyerV2Completed);
+            }
+            base.InvokeAsync(this.onBeginGenerateGeneralTransferBuyerV2Delegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateGeneralTransferBuyerV2Delegate, this.onGenerateGeneralTransferBuyerV2CompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GeneratedContent GenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            return base.Channel.GenerateGeneralTransferCorrectionBuyer(authToken, boxId, documentId, model, options);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateGeneralTransferCorrectionBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateGeneralTransferCorrectionBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
+            return base.Channel.EndGenerateGeneralTransferCorrectionBuyer(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateGeneralTransferCorrectionBuyer(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            Midway.ObjectModel.GeneralTransferCorrectionBuyer model = ((Midway.ObjectModel.GeneralTransferCorrectionBuyer)(inValues[3]));
+            Midway.ObjectModel.DocumentGenerationOptions options = ((Midway.ObjectModel.DocumentGenerationOptions)(inValues[4]));
+            return this.BeginGenerateGeneralTransferCorrectionBuyer(authToken, boxId, documentId, model, options, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateGeneralTransferCorrectionBuyer(System.IAsyncResult result) {
+            Midway.ObjectModel.GeneratedContent retVal = this.EndGenerateGeneralTransferCorrectionBuyer(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateGeneralTransferCorrectionBuyerCompleted(object state) {
+            if ((this.GenerateGeneralTransferCorrectionBuyerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateGeneralTransferCorrectionBuyerCompleted(this, new GenerateGeneralTransferCorrectionBuyerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateGeneralTransferCorrectionBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options) {
+            this.GenerateGeneralTransferCorrectionBuyerAsync(authToken, boxId, documentId, model, options, null);
+        }
+        
+        public void GenerateGeneralTransferCorrectionBuyerAsync(string authToken, string boxId, string documentId, Midway.ObjectModel.GeneralTransferCorrectionBuyer model, Midway.ObjectModel.DocumentGenerationOptions options, object userState) {
+            if ((this.onBeginGenerateGeneralTransferCorrectionBuyerDelegate == null)) {
+                this.onBeginGenerateGeneralTransferCorrectionBuyerDelegate = new BeginOperationDelegate(this.OnBeginGenerateGeneralTransferCorrectionBuyer);
+            }
+            if ((this.onEndGenerateGeneralTransferCorrectionBuyerDelegate == null)) {
+                this.onEndGenerateGeneralTransferCorrectionBuyerDelegate = new EndOperationDelegate(this.OnEndGenerateGeneralTransferCorrectionBuyer);
+            }
+            if ((this.onGenerateGeneralTransferCorrectionBuyerCompletedDelegate == null)) {
+                this.onGenerateGeneralTransferCorrectionBuyerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateGeneralTransferCorrectionBuyerCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateGeneralTransferCorrectionBuyerDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId,
+                        model,
+                        options}, this.onEndGenerateGeneralTransferCorrectionBuyerDelegate, this.onGenerateGeneralTransferCorrectionBuyerCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request) {
+            return base.Channel.GenerateTransportWaybillConsignorTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsignorTitle(System.IAsyncResult result) {
+            return base.Channel.EndGenerateTransportWaybillConsignorTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateTransportWaybillConsignorTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest)(inValues[1]));
+            return this.BeginGenerateTransportWaybillConsignorTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateTransportWaybillConsignorTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillConsignorTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateTransportWaybillConsignorTitleCompleted(object state) {
+            if ((this.GenerateTransportWaybillConsignorTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateTransportWaybillConsignorTitleCompleted(this, new GenerateTransportWaybillConsignorTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request) {
+            this.GenerateTransportWaybillConsignorTitleAsync(credentials, request, null);
+        }
+        
+        public void GenerateTransportWaybillConsignorTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsignorTitleGeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateTransportWaybillConsignorTitleDelegate == null)) {
+                this.onBeginGenerateTransportWaybillConsignorTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillConsignorTitle);
+            }
+            if ((this.onEndGenerateTransportWaybillConsignorTitleDelegate == null)) {
+                this.onEndGenerateTransportWaybillConsignorTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillConsignorTitle);
+            }
+            if ((this.onGenerateTransportWaybillConsignorTitleCompletedDelegate == null)) {
+                this.onGenerateTransportWaybillConsignorTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillConsignorTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateTransportWaybillConsignorTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateTransportWaybillConsignorTitleDelegate, this.onGenerateTransportWaybillConsignorTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request) {
+            return base.Channel.GenerateTransportWaybillCargoReceivedTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateTransportWaybillCargoReceivedTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
+            return base.Channel.EndGenerateTransportWaybillCargoReceivedTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateTransportWaybillCargoReceivedTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest)(inValues[1]));
+            return this.BeginGenerateTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillCargoReceivedTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateTransportWaybillCargoReceivedTitleCompleted(object state) {
+            if ((this.GenerateTransportWaybillCargoReceivedTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateTransportWaybillCargoReceivedTitleCompleted(this, new GenerateTransportWaybillCargoReceivedTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request) {
+            this.GenerateTransportWaybillCargoReceivedTitleAsync(credentials, request, null);
+        }
+        
+        public void GenerateTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoReceivedTitleGeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateTransportWaybillCargoReceivedTitleDelegate == null)) {
+                this.onBeginGenerateTransportWaybillCargoReceivedTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillCargoReceivedTitle);
+            }
+            if ((this.onEndGenerateTransportWaybillCargoReceivedTitleDelegate == null)) {
+                this.onEndGenerateTransportWaybillCargoReceivedTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillCargoReceivedTitle);
+            }
+            if ((this.onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate == null)) {
+                this.onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillCargoReceivedTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateTransportWaybillCargoReceivedTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateTransportWaybillCargoReceivedTitleDelegate, this.onGenerateTransportWaybillCargoReceivedTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request) {
+            return base.Channel.GenerateTransportWaybillCargoDeliveredTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
+            return base.Channel.EndGenerateTransportWaybillCargoDeliveredTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateTransportWaybillCargoDeliveredTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest)(inValues[1]));
+            return this.BeginGenerateTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillCargoDeliveredTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateTransportWaybillCargoDeliveredTitleCompleted(object state) {
+            if ((this.GenerateTransportWaybillCargoDeliveredTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateTransportWaybillCargoDeliveredTitleCompleted(this, new GenerateTransportWaybillCargoDeliveredTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request) {
+            this.GenerateTransportWaybillCargoDeliveredTitleAsync(credentials, request, null);
+        }
+        
+        public void GenerateTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCargoDeliveredTitleGeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate == null)) {
+                this.onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillCargoDeliveredTitle);
+            }
+            if ((this.onEndGenerateTransportWaybillCargoDeliveredTitleDelegate == null)) {
+                this.onEndGenerateTransportWaybillCargoDeliveredTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillCargoDeliveredTitle);
+            }
+            if ((this.onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate == null)) {
+                this.onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillCargoDeliveredTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateTransportWaybillCargoDeliveredTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateTransportWaybillCargoDeliveredTitleDelegate, this.onGenerateTransportWaybillCargoDeliveredTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request) {
+            return base.Channel.GenerateTransportWaybillConsigneeTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateTransportWaybillConsigneeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillConsigneeTitle(System.IAsyncResult result) {
+            return base.Channel.EndGenerateTransportWaybillConsigneeTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateTransportWaybillConsigneeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest)(inValues[1]));
+            return this.BeginGenerateTransportWaybillConsigneeTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateTransportWaybillConsigneeTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillConsigneeTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateTransportWaybillConsigneeTitleCompleted(object state) {
+            if ((this.GenerateTransportWaybillConsigneeTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateTransportWaybillConsigneeTitleCompleted(this, new GenerateTransportWaybillConsigneeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request) {
+            this.GenerateTransportWaybillConsigneeTitleAsync(credentials, request, null);
+        }
+        
+        public void GenerateTransportWaybillConsigneeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillConsigneeTitleGeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateTransportWaybillConsigneeTitleDelegate == null)) {
+                this.onBeginGenerateTransportWaybillConsigneeTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillConsigneeTitle);
+            }
+            if ((this.onEndGenerateTransportWaybillConsigneeTitleDelegate == null)) {
+                this.onEndGenerateTransportWaybillConsigneeTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillConsigneeTitle);
+            }
+            if ((this.onGenerateTransportWaybillConsigneeTitleCompletedDelegate == null)) {
+                this.onGenerateTransportWaybillConsigneeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillConsigneeTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateTransportWaybillConsigneeTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateTransportWaybillConsigneeTitleDelegate, this.onGenerateTransportWaybillConsigneeTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request) {
+            return base.Channel.GenerateTransportWaybillCarrierTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateTransportWaybillCarrierTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillCarrierTitle(System.IAsyncResult result) {
+            return base.Channel.EndGenerateTransportWaybillCarrierTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateTransportWaybillCarrierTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest)(inValues[1]));
+            return this.BeginGenerateTransportWaybillCarrierTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateTransportWaybillCarrierTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillCarrierTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateTransportWaybillCarrierTitleCompleted(object state) {
+            if ((this.GenerateTransportWaybillCarrierTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateTransportWaybillCarrierTitleCompleted(this, new GenerateTransportWaybillCarrierTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateTransportWaybillCarrierTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request) {
+            this.GenerateTransportWaybillCarrierTitleAsync(credentials, request, null);
+        }
+        
+        public void GenerateTransportWaybillCarrierTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillCarrierTitleGeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateTransportWaybillCarrierTitleDelegate == null)) {
+                this.onBeginGenerateTransportWaybillCarrierTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillCarrierTitle);
+            }
+            if ((this.onEndGenerateTransportWaybillCarrierTitleDelegate == null)) {
+                this.onEndGenerateTransportWaybillCarrierTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillCarrierTitle);
+            }
+            if ((this.onGenerateTransportWaybillCarrierTitleCompletedDelegate == null)) {
+                this.onGenerateTransportWaybillCarrierTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillCarrierTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateTransportWaybillCarrierTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateTransportWaybillCarrierTitleDelegate, this.onGenerateTransportWaybillCarrierTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request) {
+            return base.Channel.GenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            return base.Channel.EndGenerateTransportWaybillDeliveryPlaceChangeTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGenerateTransportWaybillDeliveryPlaceChangeTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request = ((Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest)(inValues[1]));
+            return this.BeginGenerateTransportWaybillDeliveryPlaceChangeTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGenerateTransportWaybillDeliveryPlaceChangeTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGenerationResponse retVal = this.EndGenerateTransportWaybillDeliveryPlaceChangeTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGenerateTransportWaybillDeliveryPlaceChangeTitleCompleted(object state) {
+            if ((this.GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GenerateTransportWaybillDeliveryPlaceChangeTitleCompleted(this, new GenerateTransportWaybillDeliveryPlaceChangeTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request) {
+            this.GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(credentials, request, null);
+        }
+        
+        public void GenerateTransportWaybillDeliveryPlaceChangeTitleAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request, object userState) {
+            if ((this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate = new BeginOperationDelegate(this.OnBeginGenerateTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate == null)) {
+                this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate = new EndOperationDelegate(this.OnEndGenerateTransportWaybillDeliveryPlaceChangeTitle);
+            }
+            if ((this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate == null)) {
+                this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGenerateTransportWaybillDeliveryPlaceChangeTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGenerateTransportWaybillDeliveryPlaceChangeTitleDelegate, this.onGenerateTransportWaybillDeliveryPlaceChangeTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.NamedContent DownloadPdfDocument(string authToken, string boxId, string documentId) {
+            return base.Channel.DownloadPdfDocument(authToken, boxId, documentId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginDownloadPdfDocument(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDownloadPdfDocument(authToken, boxId, documentId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.NamedContent EndDownloadPdfDocument(System.IAsyncResult result) {
+            return base.Channel.EndDownloadPdfDocument(result);
+        }
+        
+        private System.IAsyncResult OnBeginDownloadPdfDocument(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            return this.BeginDownloadPdfDocument(authToken, boxId, documentId, callback, asyncState);
+        }
+        
+        private object[] OnEndDownloadPdfDocument(System.IAsyncResult result) {
+            Midway.ObjectModel.NamedContent retVal = this.EndDownloadPdfDocument(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnDownloadPdfDocumentCompleted(object state) {
+            if ((this.DownloadPdfDocumentCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DownloadPdfDocumentCompleted(this, new DownloadPdfDocumentCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DownloadPdfDocumentAsync(string authToken, string boxId, string documentId) {
+            this.DownloadPdfDocumentAsync(authToken, boxId, documentId, null);
+        }
+        
+        public void DownloadPdfDocumentAsync(string authToken, string boxId, string documentId, object userState) {
+            if ((this.onBeginDownloadPdfDocumentDelegate == null)) {
+                this.onBeginDownloadPdfDocumentDelegate = new BeginOperationDelegate(this.OnBeginDownloadPdfDocument);
+            }
+            if ((this.onEndDownloadPdfDocumentDelegate == null)) {
+                this.onEndDownloadPdfDocumentDelegate = new EndOperationDelegate(this.OnEndDownloadPdfDocument);
+            }
+            if ((this.onDownloadPdfDocumentCompletedDelegate == null)) {
+                this.onDownloadPdfDocumentCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDownloadPdfDocumentCompleted);
+            }
+            base.InvokeAsync(this.onBeginDownloadPdfDocumentDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId}, this.onEndDownloadPdfDocumentDelegate, this.onDownloadPdfDocumentCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.RegistrationResponse RegisterSubscriber(Midway.ObjectModel.RegistrationRequest request) {
+            return base.Channel.RegisterSubscriber(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginRegisterSubscriber(Midway.ObjectModel.RegistrationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRegisterSubscriber(request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result) {
+            return base.Channel.EndRegisterSubscriber(result);
+        }
+        
+        private System.IAsyncResult OnBeginRegisterSubscriber(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.RegistrationRequest request = ((Midway.ObjectModel.RegistrationRequest)(inValues[0]));
+            return this.BeginRegisterSubscriber(request, callback, asyncState);
+        }
+        
+        private object[] OnEndRegisterSubscriber(System.IAsyncResult result) {
+            Midway.ObjectModel.RegistrationResponse retVal = this.EndRegisterSubscriber(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRegisterSubscriberCompleted(object state) {
+            if ((this.RegisterSubscriberCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RegisterSubscriberCompleted(this, new RegisterSubscriberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RegisterSubscriberAsync(Midway.ObjectModel.RegistrationRequest request) {
+            this.RegisterSubscriberAsync(request, null);
+        }
+        
+        public void RegisterSubscriberAsync(Midway.ObjectModel.RegistrationRequest request, object userState) {
+            if ((this.onBeginRegisterSubscriberDelegate == null)) {
+                this.onBeginRegisterSubscriberDelegate = new BeginOperationDelegate(this.OnBeginRegisterSubscriber);
+            }
+            if ((this.onEndRegisterSubscriberDelegate == null)) {
+                this.onEndRegisterSubscriberDelegate = new EndOperationDelegate(this.OnEndRegisterSubscriber);
+            }
+            if ((this.onRegisterSubscriberCompletedDelegate == null)) {
+                this.onRegisterSubscriberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRegisterSubscriberCompleted);
+            }
+            base.InvokeAsync(this.onBeginRegisterSubscriberDelegate, new object[] {
+                        request}, this.onEndRegisterSubscriberDelegate, this.onRegisterSubscriberCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request) {
+            return base.Channel.CreateNonActiveSubscriber(authToken, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateNonActiveSubscriber(authToken, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result) {
+            return base.Channel.EndCreateNonActiveSubscriber(result);
+        }
+        
+        private System.IAsyncResult OnBeginCreateNonActiveSubscriber(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            Midway.ObjectModel.NonActiveSubscriberCreationRequest request = ((Midway.ObjectModel.NonActiveSubscriberCreationRequest)(inValues[1]));
+            return this.BeginCreateNonActiveSubscriber(authToken, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCreateNonActiveSubscriber(System.IAsyncResult result) {
+            Midway.ObjectModel.NonActiveSubscriberCreationResponse retVal = this.EndCreateNonActiveSubscriber(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCreateNonActiveSubscriberCompleted(object state) {
+            if ((this.CreateNonActiveSubscriberCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CreateNonActiveSubscriberCompleted(this, new CreateNonActiveSubscriberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CreateNonActiveSubscriberAsync(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request) {
+            this.CreateNonActiveSubscriberAsync(authToken, request, null);
+        }
+        
+        public void CreateNonActiveSubscriberAsync(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request, object userState) {
+            if ((this.onBeginCreateNonActiveSubscriberDelegate == null)) {
+                this.onBeginCreateNonActiveSubscriberDelegate = new BeginOperationDelegate(this.OnBeginCreateNonActiveSubscriber);
+            }
+            if ((this.onEndCreateNonActiveSubscriberDelegate == null)) {
+                this.onEndCreateNonActiveSubscriberDelegate = new EndOperationDelegate(this.OnEndCreateNonActiveSubscriber);
+            }
+            if ((this.onCreateNonActiveSubscriberCompletedDelegate == null)) {
+                this.onCreateNonActiveSubscriberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateNonActiveSubscriberCompleted);
+            }
+            base.InvokeAsync(this.onBeginCreateNonActiveSubscriberDelegate, new object[] {
+                        authToken,
+                        request}, this.onEndCreateNonActiveSubscriberDelegate, this.onCreateNonActiveSubscriberCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate) {
+            return base.Channel.GetCertificateSubjectInfo(certificate);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetCertificateSubjectInfo(byte[] certificate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetCertificateSubjectInfo(certificate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result) {
+            return base.Channel.EndGetCertificateSubjectInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetCertificateSubjectInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            byte[] certificate = ((byte[])(inValues[0]));
+            return this.BeginGetCertificateSubjectInfo(certificate, callback, asyncState);
+        }
+        
+        private object[] OnEndGetCertificateSubjectInfo(System.IAsyncResult result) {
+            Midway.ObjectModel.QualifiedX509Name retVal = this.EndGetCertificateSubjectInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetCertificateSubjectInfoCompleted(object state) {
+            if ((this.GetCertificateSubjectInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetCertificateSubjectInfoCompleted(this, new GetCertificateSubjectInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetCertificateSubjectInfoAsync(byte[] certificate) {
+            this.GetCertificateSubjectInfoAsync(certificate, null);
+        }
+        
+        public void GetCertificateSubjectInfoAsync(byte[] certificate, object userState) {
+            if ((this.onBeginGetCertificateSubjectInfoDelegate == null)) {
+                this.onBeginGetCertificateSubjectInfoDelegate = new BeginOperationDelegate(this.OnBeginGetCertificateSubjectInfo);
+            }
+            if ((this.onEndGetCertificateSubjectInfoDelegate == null)) {
+                this.onEndGetCertificateSubjectInfoDelegate = new EndOperationDelegate(this.OnEndGetCertificateSubjectInfo);
+            }
+            if ((this.onGetCertificateSubjectInfoCompletedDelegate == null)) {
+                this.onGetCertificateSubjectInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCertificateSubjectInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetCertificateSubjectInfoDelegate, new object[] {
+                        certificate}, this.onEndGetCertificateSubjectInfoDelegate, this.onGetCertificateSubjectInfoCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId) {
+            return base.Channel.GetDocumentExecutedFunction(authToken, boxId, documentId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetDocumentExecutedFunction(string authToken, string boxId, string documentId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetDocumentExecutedFunction(authToken, boxId, documentId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result) {
+            return base.Channel.EndGetDocumentExecutedFunction(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetDocumentExecutedFunction(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            string documentId = ((string)(inValues[2]));
+            return this.BeginGetDocumentExecutedFunction(authToken, boxId, documentId, callback, asyncState);
+        }
+        
+        private object[] OnEndGetDocumentExecutedFunction(System.IAsyncResult result) {
+            Midway.ObjectModel.EnumValue retVal = this.EndGetDocumentExecutedFunction(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetDocumentExecutedFunctionCompleted(object state) {
+            if ((this.GetDocumentExecutedFunctionCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetDocumentExecutedFunctionCompleted(this, new GetDocumentExecutedFunctionCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetDocumentExecutedFunctionAsync(string authToken, string boxId, string documentId) {
+            this.GetDocumentExecutedFunctionAsync(authToken, boxId, documentId, null);
+        }
+        
+        public void GetDocumentExecutedFunctionAsync(string authToken, string boxId, string documentId, object userState) {
+            if ((this.onBeginGetDocumentExecutedFunctionDelegate == null)) {
+                this.onBeginGetDocumentExecutedFunctionDelegate = new BeginOperationDelegate(this.OnBeginGetDocumentExecutedFunction);
+            }
+            if ((this.onEndGetDocumentExecutedFunctionDelegate == null)) {
+                this.onEndGetDocumentExecutedFunctionDelegate = new EndOperationDelegate(this.OnEndGetDocumentExecutedFunction);
+            }
+            if ((this.onGetDocumentExecutedFunctionCompletedDelegate == null)) {
+                this.onGetDocumentExecutedFunctionCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDocumentExecutedFunctionCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetDocumentExecutedFunctionDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        documentId}, this.onEndGetDocumentExecutedFunctionDelegate, this.onGetDocumentExecutedFunctionCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request) {
+            return base.Channel.CreateCertificateIssueRequest(authToken, boxId, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginCreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCreateCertificateIssueRequest(authToken, boxId, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequest(System.IAsyncResult result) {
+            return base.Channel.EndCreateCertificateIssueRequest(result);
+        }
+        
+        private System.IAsyncResult OnBeginCreateCertificateIssueRequest(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            Midway.ObjectModel.CertificateIssueRequestCreationRequest request = ((Midway.ObjectModel.CertificateIssueRequestCreationRequest)(inValues[2]));
+            return this.BeginCreateCertificateIssueRequest(authToken, boxId, request, callback, asyncState);
+        }
+        
+        private object[] OnEndCreateCertificateIssueRequest(System.IAsyncResult result) {
+            Midway.ObjectModel.CertificateIssueRequestCreationResponse retVal = this.EndCreateCertificateIssueRequest(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCreateCertificateIssueRequestCompleted(object state) {
+            if ((this.CreateCertificateIssueRequestCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CreateCertificateIssueRequestCompleted(this, new CreateCertificateIssueRequestCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CreateCertificateIssueRequestAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request) {
+            this.CreateCertificateIssueRequestAsync(authToken, boxId, request, null);
+        }
+        
+        public void CreateCertificateIssueRequestAsync(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request, object userState) {
+            if ((this.onBeginCreateCertificateIssueRequestDelegate == null)) {
+                this.onBeginCreateCertificateIssueRequestDelegate = new BeginOperationDelegate(this.OnBeginCreateCertificateIssueRequest);
+            }
+            if ((this.onEndCreateCertificateIssueRequestDelegate == null)) {
+                this.onEndCreateCertificateIssueRequestDelegate = new EndOperationDelegate(this.OnEndCreateCertificateIssueRequest);
+            }
+            if ((this.onCreateCertificateIssueRequestCompletedDelegate == null)) {
+                this.onCreateCertificateIssueRequestCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCreateCertificateIssueRequestCompleted);
+            }
+            base.InvokeAsync(this.onBeginCreateCertificateIssueRequestDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        request}, this.onEndCreateCertificateIssueRequestDelegate, this.onCreateCertificateIssueRequestCompletedDelegate, userState);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Midway.ConsoleClient
@@ -11,16 +12,25 @@ namespace Midway.ConsoleClient
         /// <summary>
         /// Запустить контроллер.
         /// </summary>
-        public void Run()
-        {
+        /// <param name="args">Аргументы командной строки.</param>
+        public void Run(string[] args)
+        {          
+            var commandCodes
+                = new Queue<string>(Array.IndexOf(args, "-CommandCodes") is var index && index >= 0
+                    ? args.ElementAtOrDefault(index + 1)?.Split(',') ?? Enumerable.Empty<string>()
+                    : Enumerable.Empty<string>());
+
             while (true)
             {
                 var commands = GetCommands();
                 PrintAvailableCommands(commands);
                 Console.Write(">");
 
-                var commandName = UserInput.ReadLine();
-                if (commands.TryGetValue(commandName, out var command))
+                var commandCode = commandCodes.Any()
+                    ? commandCodes.Dequeue()
+                    : UserInput.ReadLine();
+
+                if (commands.TryGetValue(commandCode, out var command))
                 {
                     var commandAction = command.Item1;
                     if (commandAction == null)
@@ -50,13 +60,13 @@ namespace Midway.ConsoleClient
                 }
                 else
                 {
-                    UserInput.Error($"Неправильно указано имя команды \"{commandName}\"");
+                    UserInput.Error($"Неправильно указано имя команды \"{commandCode}\"");
                 }
             }
         }
 
         /// <summary>
-        /// Получить доступные комманды.
+        /// Получить доступные команды.
         /// </summary>
         /// <returns>Доступные комманды.</returns>
         protected abstract Dictionary<string, Tuple<Action, string>> GetCommands();

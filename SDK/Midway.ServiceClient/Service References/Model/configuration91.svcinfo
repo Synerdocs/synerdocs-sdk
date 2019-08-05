@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="BIFuaaeyrQNPvbzgX2biNUXiQiA=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="1CPGz4XhR5MQ1nnxuAse0uGrPLU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IExchangeService">
       <properties>
@@ -306,10 +306,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBindingSecure_IExchangeService" contract="Model.IExchangeService" bindingType="basicHttpBinding" address="https://w777w10.comp.npo/ExchangeService.svc" bindingConfiguration="BasicHttpBindingSecure_IExchangeService">
+    <endpoint name="BasicHttpBindingSecure_IExchangeService" contract="Model.IExchangeService" bindingType="basicHttpBinding" address="https://w852w81.comp.npo:5003/ExchangeService.svc" bindingConfiguration="BasicHttpBindingSecure_IExchangeService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>https://w777w10.comp.npo/ExchangeService.svc</serializedValue>
+          <serializedValue>https://w852w81.comp.npo:5003/ExchangeService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="AcceptanceInfo.cs" />
     <Compile Include="AccessToDepartment.cs" />
     <Compile Include="ActivityStatus.cs" />
@@ -81,6 +82,9 @@
     <Compile Include="CargoAreaTotal.cs" />
     <Compile Include="CircumstancesOfProducing.cs" />
     <Compile Include="DivergenceDocumentType.cs" />
+    <Compile Include="AdditionalDocumentData.cs" />
+    <Compile Include="DocumentCardGenerationRequest.cs" />
+    <Compile Include="DocumentCardGenerationResponse.cs" />
     <Compile Include="DocumentOperationCodes.cs" />
     <Compile Include="DocumentPrintingRequest.cs" />
     <Compile Include="DocumentPrintingResponse.cs" />
@@ -102,6 +106,8 @@
     <Compile Include="GeneralTransferSellerV2ParsingRequest.cs" />
     <Compile Include="GeneralTransferSellerV2ParsingResponse.cs" />
     <Compile Include="GeneralTransferTotalV2.cs" />
+    <Compile Include="RoamingDocumentCard.cs" />
+    <Compile Include="RoamingDocumentCardGenerationRequest.cs" />
     <Compile Include="GoodsAcceptanceResultType.cs" />
     <Compile Include="DocumentFlowParticipantShortInfo.cs" />
     <Compile Include="DocumentFlowParticipantRole.cs" />
@@ -248,6 +254,7 @@
     <Compile Include="TransportWaybillTag.cs" />
     <Compile Include="Utility\AllEnumValuesRequest.cs" />
     <Compile Include="Utility\EnumValuesRequest.cs" />
+    <Compile Include="Utility\EnumValuesResponse.cs" />
     <Compile Include="SortCondition.cs" />
     <Compile Include="Common\TextValueType.cs" />
     <Compile Include="Contact.cs" />
@@ -513,7 +520,6 @@
     <Compile Include="UserCreationData.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserRegistrationData.cs" />
-    <Compile Include="Utility\EnumValuesResponse.cs" />
     <Compile Include="Utility\FullEnumValuesRequest.cs" />
     <Compile Include="Utility\SpecifiedEnumValuesRequest.cs" />
     <Compile Include="ValidationError.cs" />
@@ -531,6 +537,7 @@
     <Compile Include="WorksTransferSeller.cs" />
     <Compile Include="WorksTransferTotal.cs" />
     <Compile Include="X509NameInfo.cs" />
+    <Compile Include="NameValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Midway.ObjectModel.snk" />
@@ -539,7 +546,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
