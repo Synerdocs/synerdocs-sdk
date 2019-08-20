@@ -30,10 +30,16 @@ namespace Midway.ObjectModel
         public DateTime SentDate { get; set; }
 
         /// <summary>
-        /// Отправитель подписи.
+        /// Ящик организации-отправителя подписи.
         /// </summary>
         [DataMember]
         public string From { get; set; }
+
+        /// <summary>
+        /// ИД подразделения отправителя подписи.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public string FromDepartmentId { get; set; }
 
         /// TODO@internal а надо ли это делать internal?
         /// <summary>

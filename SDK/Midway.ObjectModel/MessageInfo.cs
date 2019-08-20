@@ -1,35 +1,49 @@
+using System;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о сообщении, используется для получения списка сообщений из ящика
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРѕРѕР±С‰РµРЅРёРё, РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° СЃРѕРѕР±С‰РµРЅРёР№ РёР· СЏС‰РёРєР°
     /// </summary>
     [DataContract]
     public class MessageInfo
     {
         /// <summary>
-        /// Идентификатор сообщения
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРѕРѕР±С‰РµРЅРёСЏ
         /// </summary>
         [DataMember]
         public string Id { get; set; }
 
         /// <summary>
-        /// Ящик отправителя
+        /// РЇС‰РёРє РѕС‚РїСЂР°РІРёС‚РµР»СЏ
         /// </summary>
         [DataMember]
         public string From { get; set; }
 
         /// <summary>
-        /// Ящик адресата
+        /// РџРѕРґСЂР°Р·РґРµР»РµРЅРёРµ РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
+        /// </summary>
+        [DataMember]
+        public string FromDepartment { get; set; }
+
+        /// <summary>
+        /// РЇС‰РёРє Р°РґСЂРµСЃР°С‚Р°
         /// </summary>
         [DataMember]
         public string To { get; set; }
 
         /// <summary>
-        /// Ящики получателей
+        /// РЇС‰РёРєРё РїРѕР»СѓС‡Р°С‚РµР»РµР№
         /// </summary>
         [DataMember]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ СЃРІРѕР№СЃС‚РІРѕ '" + nameof(MessageRecipients) + "'.")]
         public string[] Recipients { get; set; }
+
+        /// <summary>
+        /// РџРѕР»СѓС‡Р°С‚РµР»Рё.
+        /// </summary>
+        [DataMember]
+        public MessageRecipient[] MessageRecipients { get; set; }
     }
 }

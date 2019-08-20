@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
@@ -23,160 +23,160 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Отметить документ как прочитанный")]
-        MarkAsRead = 1 << 1, // 1.
+        MarkAsRead = 1 << 0, // 1.
 
         /// <summary>
         /// Отметить документ как не прочитанный.
         /// </summary>
         [EnumMember]
         [Description("Отметить документ как непрочитанный")]
-        MarkAsUnread = 1 << 2, // 2.
+        MarkAsUnread = 1 << 1, // 2.
 
         /// <summary>
         /// Подписать документ.
         /// </summary>
         [EnumMember]
         [Description("Подписать документ")]
-        Sign = 1 << 3, // 4.
+        Sign = 1 << 2, // 4.
 
         /// <summary>
         /// Отказать по документу.
         /// </summary>
         [EnumMember]
         [Description("Отказать по документу")]
-        Reject = 1 << 4, // 8.
+        Reject = 1 << 3, // 8.
 
         /// <summary>
         /// Отправить исправление ЭСФ.
         /// </summary>
         [EnumMember]
         [Description("Отправить исправление ЭСФ")]
-        SendRevision = 1 << 5, // 16.
+        SendRevision = 1 << 4, // 16.
 
         /// <summary>
         /// Отправить корректировку ЭСФ.
         /// </summary>
         [EnumMember]
         [Description("Отправить корректировку ЭСФ")]
-        SendCorrection = 1 << 6, // 32.
+        SendCorrection = 1 << 5, // 32.
 
         /// <summary>
         /// Удалить документ.
         /// </summary>
         [EnumMember]
         [Description("Удалить документ")]
-        Delete = 1 << 7, // 64.
+        Delete = 1 << 6, // 64.
 
         /// <summary>
         /// Ответить на документ.
         /// </summary>
         [EnumMember]
         [Description("Ответить на документ")]
-        Reply = 1 << 8, // 128.
+        Reply = 1 << 7, // 128.
 
         /// <summary>
         /// Распечатать документ.
         /// </summary>
         [EnumMember]
         [Description("Распечатать документ")]
-        Print = 1 << 9, // 256.
+        Print = 1 << 8, // 256.
 
         /// <summary>
         /// Загрузить документ.
         /// </summary>
         [EnumMember]
         [Description("Загрузить документ")]
-        Download = 1 << 10, // 512.
+        Download = 1 << 9, // 512.
 
         /// <summary>
         /// Просмотреть регламентные документы.
         /// </summary>
         [EnumMember]
         [Description("Просмотреть регламентные документы")]
-        ViewRegulation = 1 << 11, // 1024.
+        ViewRegulation = 1 << 10, // 1024.
 
         /// <summary>
         /// Подтвердить получение документа.
         /// </summary>
         [EnumMember]
         [Description("Подтвердить получение документа")]
-        ConfirmReceipt = 1 << 12, // 2048.
+        ConfirmReceipt = 1 << 11, // 2048.
 
         /// <summary>
         /// Переместить документ.
         /// </summary>
         [EnumMember]
         [Description("Переместить документ")]
-        Move = 1 << 13, // 4096.
+        Move = 1 << 12, // 4096.
 
         /// <summary>
         /// Согласовать документ.
         /// </summary>
         [EnumMember]
         [Description("Согласовать документ")]
-        Approve = 1 << 14, // 8192.
+        Approve = 1 << 13, // 8192.
 
         /// <summary>
         /// Отказать в согласовании документа.
         /// </summary>
         [EnumMember]
         [Description("Отказать в согласовании документа")]
-        Disapprove = 1 << 15, // 16384.
+        Disapprove = 1 << 14, // 16384.
 
         /// <summary>
         /// Настроить права доступа на документ.
         /// </summary>
         [EnumMember]
         [Description("Настроить права доступа на документ")]
-        Permissions = 1 << 16, // 32768.
+        Permissions = 1 << 15, // 32768.
 
         /// <summary>
         /// Переслать документ.
         /// </summary>
         [EnumMember]
         [Description("Переслать документ")]
-        Forward = 1 << 17, // 65536.
+        Forward = 1 << 16, // 65536.
 
         /// <summary>
         /// Аннулировать документ.
         /// </summary>
         [EnumMember]
         [Description("Аннулировать документ")]
-        Revoke = 1 << 18, // 131072.
+        Revoke = 1 << 17, // 131072.
 
         /// <summary>
         /// Получить груз (для ТН/ТТН).
         /// </summary>
         [EnumMember]
         [Description("Получить груз (для ТН/ТТН)")]
-        ReceiveCargo = 1 << 19, // 262144.
+        ReceiveCargo = 1 << 18, // 262144.
 
         /// <summary>
         /// Сдать груз (для ТН/ТТН).
         /// </summary>
         [EnumMember]
         [Description("Сдать груз (для ТН/ТТН)")]
-        DeliverCargo = 1 << 20, // 524288.
+        DeliverCargo = 1 << 19, // 524288.
 
         /// <summary>
         /// Подписать грузополучателем Транспортной накладной.
         /// </summary>
         [EnumMember]
         [Description("Подписать грузополучателем Транспортной накладной")]
-        SignByConsignee = 1 << 21, // 1048576.
+        SignByConsignee = 1 << 20, // 1048576.
 
         /// <summary>
         /// Подписать перевозчиком Транспортной накладной.
         /// </summary>
         [EnumMember]
         [Description("Подписать перевозчиком Транспортной накладной")]
-        SignByCarrier = 1 << 22, // 2097152.
+        SignByCarrier = 1 << 21, // 2097152.
 
         /// <summary>
         /// Изменить место доставки Транспортной накладной.
         /// </summary>
         [EnumMember]
         [Description("Изменить место доставки Транспортной накладной")]
-        ChangeDeliveryPlace = 1 << 23, // 4194304.
+        ChangeDeliveryPlace = 1 << 22, // 4194304.
     }
 }

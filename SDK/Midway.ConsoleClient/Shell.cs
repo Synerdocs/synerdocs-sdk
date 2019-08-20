@@ -318,7 +318,7 @@ namespace Midway.ConsoleClient
                 var firstAvailableBox = client.GetBoxes().FirstOrDefault();
                 if (firstAvailableBox == null)
                 {
-                    throw new InvalidOperationException("У пользователя нет доступа ни к одному ящику");
+                    throw new InvalidOperationException("У пользователя нет доступа ни к одному абонентскому ящику.");
                 }
                 _context.CurrentBox = firstAvailableBox.Address;
                 _context.CurrentOrganizationId = firstAvailableBox.OrganizationId;
