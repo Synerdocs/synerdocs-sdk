@@ -98,7 +98,7 @@ namespace Midway.ConsoleClient
                 {
                     if (defaultOption != null)
                         return defaultOption;
-                    Console.Out.WriteLine("Выберите значение из предложенного списка");
+                    Console.Out.WriteLine("Выберите значение из списка");
                     continue;
                 }
 
@@ -107,7 +107,7 @@ namespace Midway.ConsoleClient
                 var optionById = options.FirstOrDefault(o => String.Equals(o.Id, line, StringComparison.OrdinalIgnoreCase) || String.Equals(o.Name, line, StringComparison.OrdinalIgnoreCase));
                 if (optionById != null)
                     return optionById;
-                Console.Out.WriteLine("Выберите значение из предложенного списка");
+                Console.Out.WriteLine("Выберите значение из списка");
             }
         }
         /// <summary>

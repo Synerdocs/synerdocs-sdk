@@ -701,6 +701,7 @@
       <xs:element name="Raw" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Requisites" nillable="true" type="tns:SimpleSignatureRequisites" />
       <xs:element minOccurs="0" name="SenderBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SenderDepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SignatureMark" nillable="true" type="tns:EnumValue" />
       <xs:element minOccurs="0" name="SignedAt" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ValidationCode" nillable="true" type="xs:base64Binary" />
@@ -1706,29 +1707,167 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
-          <xs:enumeration value="MarkAsRead" />
-          <xs:enumeration value="MarkAsUnread" />
-          <xs:enumeration value="Sign" />
-          <xs:enumeration value="Reject" />
-          <xs:enumeration value="SendRevision" />
-          <xs:enumeration value="SendCorrection" />
-          <xs:enumeration value="Delete" />
-          <xs:enumeration value="Reply" />
-          <xs:enumeration value="Print" />
-          <xs:enumeration value="Download" />
-          <xs:enumeration value="ViewRegulation" />
-          <xs:enumeration value="ConfirmReceipt" />
-          <xs:enumeration value="Move" />
-          <xs:enumeration value="Approve" />
-          <xs:enumeration value="Disapprove" />
-          <xs:enumeration value="Permissions" />
-          <xs:enumeration value="Forward" />
-          <xs:enumeration value="Revoke" />
-          <xs:enumeration value="ReceiveCargo" />
-          <xs:enumeration value="DeliverCargo" />
-          <xs:enumeration value="SignByConsignee" />
-          <xs:enumeration value="SignByCarrier" />
-          <xs:enumeration value="ChangeDeliveryPlace" />
+          <xs:enumeration value="MarkAsRead">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="MarkAsUnread">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Sign">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Reject">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SendRevision">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SendCorrection">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Delete">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Reply">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Print">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Download">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">512</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ViewRegulation">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1024</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ConfirmReceipt">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2048</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Move">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4096</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Approve">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8192</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Disapprove">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16384</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Permissions">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32768</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Forward">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65536</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Revoke">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">131072</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReceiveCargo">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">262144</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DeliverCargo">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">524288</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SignByConsignee">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1048576</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SignByCarrier">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2097152</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ChangeDeliveryPlace">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4194304</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
@@ -3176,12 +3315,29 @@
   <xs:complexType name="MessageInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageRecipients" nillable="true" type="tns:ArrayOfMessageRecipient" />
       <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Recipients" nillable="true" type="q8:ArrayOfstring" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+  <xs:complexType name="ArrayOfMessageRecipient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageRecipient" nillable="true" type="tns:ArrayOfMessageRecipient" />
+  <xs:complexType name="MessageRecipient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
   <xs:complexType name="Message">
     <xs:sequence>
       <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfDocument" />
@@ -3307,21 +3463,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="NonLegitimateReason" nillable="true" type="tns:NonLegitimateReason" />
-  <xs:complexType name="ArrayOfMessageRecipient">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfMessageRecipient" nillable="true" type="tns:ArrayOfMessageRecipient" />
-  <xs:complexType name="MessageRecipient">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MessageRecipient" nillable="true" type="tns:MessageRecipient" />
   <xs:complexType name="ArrayOfSign">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Sign" nillable="true" type="tns:Sign" />
@@ -3332,6 +3473,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
       <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
@@ -4152,9 +4294,10 @@
   <xs:element name="ForwardDocument" nillable="true" type="tns:ForwardDocument" />
   <xs:complexType name="RejectSign">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element name="Comment" nillable="true" type="xs:string" />
+      <xs:element name="DocumentId" nillable="true" type="xs:string" />
+      <xs:element name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RejectSign" nillable="true" type="tns:RejectSign" />
@@ -5401,7 +5544,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="AdditionalCarriagePolicies" nillable="true" type="tns:AdditionalCarriagePolicies" />
           <xs:element minOccurs="0" name="CargoDelivery" nillable="true" type="tns:CargoOperation" />
-          <xs:element name="CargoDescription" nillable="true" type="tns:CargoDescription" />
+          <xs:element minOccurs="0" name="CargoDescription" nillable="true" type="tns:CargoDescription" />
           <xs:element minOccurs="0" name="CargoReception" nillable="true" type="tns:CargoOperation" />
           <xs:element minOccurs="0" name="CarriageCostAndPaymentPolicy" nillable="true" type="tns:CarriageCostAndPaymentPolicy" />
           <xs:element minOccurs="0" name="CarriagePolicies" nillable="true" type="tns:CarriagePolicies" />

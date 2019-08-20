@@ -28,6 +28,12 @@ namespace Midway.ObjectModel
         public string SenderBoxId { get; set; }
 
         /// <summary>
+        /// ИД подразделения отправителя.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public string SenderDepartmentId { get; set; }
+
+        /// <summary>
         /// Признак подписи.
         /// </summary>
         [DataMember]
