@@ -118,6 +118,10 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneratedContent.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransferSeller.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillConsigneeTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillConsignorTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Message.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.MessageInfo.datasource" />
@@ -192,6 +196,9 @@
     <None Include="Service References\Model\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\Model\ExchangeService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Model\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

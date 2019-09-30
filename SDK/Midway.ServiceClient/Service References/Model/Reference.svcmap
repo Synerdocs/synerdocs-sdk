@@ -23,6 +23,7 @@
   <Metadata>
     <MetadataFile FileName="ExchangeService.wsdl" MetadataType="Wsdl" ID="89266f96-eeaf-4b71-bce6-b7669d4daea6" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?wsdl" />
     <MetadataFile FileName="ExchangeService.disco" MetadataType="Disco" ID="2e318f43-12a3-4dd5-854c-b644458d6a00" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?disco" />
+    <MetadataFile FileName="ExchangeService8.xsd" MetadataType="Schema" ID="89a8139a-e037-4e1d-9d80-7b4dc205e05c" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd8" />
     <MetadataFile FileName="ExchangeService.xsd" MetadataType="Schema" ID="47aed4a2-bb4d-4ddd-889a-a7e1adea7c35" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd6" />
     <MetadataFile FileName="ExchangeService7.xsd" MetadataType="Schema" ID="453f45f5-57cc-4d90-b209-0dbb4ef4d6c8" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd7" />
     <MetadataFile FileName="ExchangeService1.xsd" MetadataType="Schema" ID="0c7bef6b-88b4-41aa-9d7a-b4073b47b187" SourceId="1" SourceUrl="http://localhost:5001/ExchangeService.svc?xsd=xsd4" />

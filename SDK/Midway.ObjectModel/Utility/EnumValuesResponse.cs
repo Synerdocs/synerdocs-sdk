@@ -7,7 +7,7 @@
  * WARNING: Do not edit this class. It is automatically generated using T4 and any changes will be overwritten. *
  ****************************************************************************************************************
  */
- 
+
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -66,6 +66,12 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public List<EnumValue> FundsTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Статус товарно-транспортной накладной (ТТН)'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> GoodsTransportWaybillStatuses { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Итоговый результат приемки товара'.
@@ -450,5 +456,29 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public List<EnumValue> FilterOperatorTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (прием груза) товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> GoodsTransportWaybillCargoReceivedTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (сдача груза) товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> GoodsTransportWaybillCargoDeliveredTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула грузополучателя товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> GoodsTransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула грузоотправителя товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> GoodsTransportWaybillConsignorTitleFormatVersions { get; set; }
 	}
 }

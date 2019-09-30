@@ -2,6 +2,7 @@
 using System.Linq;
 using System.ServiceModel;
 using Midway.ObjectModel;
+using Midway.ObjectModel.GoodsTransportWaybill;
 using Midway.ObjectModel.Common;
 using Midway.ServiceClient.Model;
 
@@ -1434,6 +1435,21 @@ namespace Midway.ServiceClient
             EmployeeOperationCredentials credentials,
             TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request)
             => CheckAutorizedInvoke(credentials, c => client.GenerateTransportWaybillDeliveryPlaceChangeTitle(c, request));
+
+        public DocumentGenerationResponse GenerateGoodsTransportWaybillCargoReceivedTitle(EmployeeOperationCredentials credentials,
+            GoodsTransportWaybillCargoReceivedTitleGeneratingRequest request)
+            => CheckAutorizedInvoke(credentials,
+                c => client.GenerateGoodsTransportWaybillCargoReceivedTitle(c, request));
+
+        public DocumentGenerationResponse GenerateGoodsTransportWaybillCargoDeliveredTitle(EmployeeOperationCredentials credentials,
+            GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest request)
+            => CheckAutorizedInvoke(credentials,
+                c => client.GenerateGoodsTransportWaybillCargoDeliveredTitle(c, request));
+
+        public DocumentGenerationResponse GenerateGoodsTransportWaybillConsigneeTitle(EmployeeOperationCredentials credentials,
+            GoodsTransportWaybillConsigneeTitleGeneratingRequest request)
+            => CheckAutorizedInvoke(credentials,
+                c => client.GenerateGoodsTransportWaybillConsigneeTitle(c, request));
 
         public NamedContent DownloadPdfDocument(string boxId, string documentId)
         {

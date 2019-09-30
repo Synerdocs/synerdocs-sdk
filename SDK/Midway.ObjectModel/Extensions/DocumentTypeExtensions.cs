@@ -297,7 +297,8 @@ namespace Midway.ObjectModel.Extensions
         /// </returns>
         public static bool IsRootTitle(this DocumentType documentType)
             => documentType.IsSellerTitle()
-                || documentType.IsTransportWaybillConsignorTitle();
+                || documentType.IsTransportWaybillConsignorTitle()
+                || documentType.IsGoodsTransportWaybillConsignorTitle();
 
         /// <summary>
         /// Проверить, является ли документ тем или иным ответным титулом.
@@ -308,6 +309,29 @@ namespace Midway.ObjectModel.Extensions
         /// </returns>
         public static bool IsReplyTitle(this DocumentType documentType)
             => documentType.IsBuyerTitle()
-                || documentType.IsTransportWaybillReplyTitle();
+                || documentType.IsTransportWaybillReplyTitle()
+                || documentType.IsGoodsTransportWaybillReplyTitle();
+
+        /// <summary>
+        /// Проверить, является ли документ титулом грузоотправителя товарно-транспортной накладной.
+        /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns>
+        /// <c>true</c>, если документ является титулом грузоотправителя товарно-транспортной накладной.
+        /// </returns>
+        public static bool IsGoodsTransportWaybillConsignorTitle(this DocumentType documentType)
+            => documentType == DocumentType.GoodsTransportWaybillConsignorTitle;
+
+        /// <summary>
+        /// Проверить, является ли документ ответным титулом товарно-транспортной накладной.
+        /// </summary>
+        /// <param name="documentType">Тип документа.</param>
+        /// <returns>
+        /// <c>true</c>, если документ является ответным титулом товарно-транспортной накладной.
+        /// </returns>
+        public static bool IsGoodsTransportWaybillReplyTitle(this DocumentType documentType)
+            => documentType == DocumentType.GoodsTransportWaybillCargoReceivedTitle
+               || documentType == DocumentType.GoodsTransportWaybillCargoDeliveredTitle
+               || documentType == DocumentType.GoodsTransportWaybillConsigneeTitle;
     }
 }

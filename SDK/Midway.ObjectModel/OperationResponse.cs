@@ -1,4 +1,4 @@
-﻿using System.Runtime.Serialization;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -10,6 +10,9 @@ namespace Midway.ObjectModel
     {
         /// <summary>
         /// Статус выполнения.
+        /// <para>
+        /// Является представлением перечисления <see cref="OperationStatus"/>.
+        /// </para>
         /// </summary>
         [DataMember]
         public EnumValue Status { get; set; }

@@ -55,7 +55,7 @@ namespace Midway.ObjectModel.Exceptions
         {
             get
             {
-                // поскольку сборка Midway.Common здесь недоступна, пришлось продублировать код Midway.Common.Utils.GetDescription<TEnum>()
+                // поскольку сборка Midway.Legacy.Common здесь недоступна, пришлось продублировать код Midway.Legacy.Common.Utils.GetDescription<TEnum>()
                 var fi = Code.GetType().GetField(Code.ToString());
 
                 var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
