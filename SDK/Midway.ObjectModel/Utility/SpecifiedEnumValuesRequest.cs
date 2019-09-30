@@ -7,10 +7,11 @@
  * WARNING: Do not edit this class. It is automatically generated using T4 and any changes will be overwritten. *
  ****************************************************************************************************************
  */
- 
+
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Midway.ObjectModel.Common;
+using Midway.ObjectModel.GoodsTransportWaybill;
 
 namespace Midway.ObjectModel.Utility
 {
@@ -67,6 +68,12 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public List<FundsType> FundsTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Статус товарно-транспортной накладной (ТТН)'.
+		/// </summary>
+		[DataMember]
+		public List<GoodsTransportWaybillStatus> GoodsTransportWaybillStatuses { get; set; }
 
 		/// <summary>
 		/// Значения перечисления типа 'Итоговый результат приемки товара'.
@@ -451,5 +458,29 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public List<FilterOperatorType> FilterOperatorTypes { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (прием груза) товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<GoodsTransportWaybillCargoReceivedTitleFormatVersion> GoodsTransportWaybillCargoReceivedTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула водителя (сдача груза) товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<GoodsTransportWaybillCargoDeliveredTitleFormatVersion> GoodsTransportWaybillCargoDeliveredTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула грузополучателя товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<GoodsTransportWaybillConsigneeTitleFormatVersion> GoodsTransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// Значения перечисления типа 'Версия формата титула грузоотправителя товарно-транспортной накладной'.
+		/// </summary>
+		[DataMember]
+		public List<GoodsTransportWaybillConsignorTitleFormatVersion> GoodsTransportWaybillConsignorTitleFormatVersions { get; set; }
 	}
 }

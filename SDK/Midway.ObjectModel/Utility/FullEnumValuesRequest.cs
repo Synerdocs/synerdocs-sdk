@@ -7,7 +7,7 @@
  * WARNING: Do not edit this class. It is automatically generated using T4 and any changes will be overwritten. *
  ****************************************************************************************************************
  */
- 
+
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel.Utility
@@ -65,6 +65,12 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public bool WithFundsTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Статус товарно-транспортной накладной (ТТН)'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithGoodsTransportWaybillStatuses { get; set; }
 
 		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Итоговый результат приемки товара'; иначе - <c>false</c>.
@@ -449,5 +455,29 @@ namespace Midway.ObjectModel.Utility
 		/// </summary>
 		[DataMember]
 		public bool WithFilterOperatorTypes { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула водителя (прием груза) товарно-транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithGoodsTransportWaybillCargoReceivedTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула водителя (сдача груза) товарно-транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithGoodsTransportWaybillCargoDeliveredTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула грузополучателя товарно-транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithGoodsTransportWaybillConsigneeTitleFormatVersions { get; set; }
+
+		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула грузоотправителя товарно-транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithGoodsTransportWaybillConsignorTitleFormatVersions { get; set; }
 	}
 }

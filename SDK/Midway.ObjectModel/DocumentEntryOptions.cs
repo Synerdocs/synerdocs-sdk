@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -26,5 +27,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public TransportWaybillStatus[] TransportWaybillStatuses { get; set; }
+
+        /// <summary>
+        /// Статусы товарно-транспорной накладной (ТТН).
+        /// </summary>
+        [DataMember]
+        public List<GoodsTransportWaybillStatus> GoodsTransportWaybillStatuses { get; set; }
     }
 }

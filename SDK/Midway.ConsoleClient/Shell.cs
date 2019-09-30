@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Midway.Crypto;
 using Midway.ObjectModel;
+using Midway.ObjectModel.GoodsTransportWaybill;
 using Midway.ObjectModel.Common;
 using Midway.ObjectModel.Exceptions;
 using Midway.ObjectModel.Extensions;
@@ -2496,6 +2497,8 @@ namespace Midway.ConsoleClient
                 true, DocumentType.GeneralTransferCorrectionRevisionSeller));
             chooseOptions.Add(new UserInput.Option($"{++i}", "Транспортная накладная (титул грузоотправителя)",
                 true, DocumentType.TransportWaybillConsignorTitle));
+            chooseOptions.Add(new UserInput.Option($"{++i}", "Товарно-транспортная накладная (титул грузоотправителя)",
+                true, DocumentType.GoodsTransportWaybillConsignorTitle));
 
             if (includeEdi)
             {
@@ -2710,6 +2713,63 @@ namespace Midway.ConsoleClient
                                                 {
                                                     TitleSenderType = titleSenderType.ToEnumValue()
                                                 },
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+                            }
+                        else
+                            Console.Out.WriteLine("Необходимо загрузить ответный титул транспортной накладной");
+                        break;
+
+                    case DocumentType.GoodsTransportWaybillConsignorTitle:
+                        documentType = (DocumentType)UserInput
+                            .ChooseOption(
+                                "Выберите тип ответного титула товарно-транспортной накладной",
+                                new[]
+                                {
+                                    DocumentType.GoodsTransportWaybillCargoReceivedTitle,
+                                    DocumentType.GoodsTransportWaybillCargoDeliveredTitle,
+                                    DocumentType.GoodsTransportWaybillConsigneeTitle
+                                })
+                            .Data;
+                        if (UserInput.ChooseYesNo("Сгенерировать ответный титул товарно-транспортной накладной?"))
+                            switch (documentType)
+                            {
+                                case DocumentType.GoodsTransportWaybillCargoReceivedTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateGoodsTransportWaybillCargoReceivedTitle(
+                                            GetCurrentCredentials(),
+                                            new GoodsTransportWaybillCargoReceivedTitleGeneratingRequest
+                                            {
+                                                Model = CreateGoodsTransportWaybillCargoReceivedTitle(),
+                                                Options = new GoodsTransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+
+                                case DocumentType.GoodsTransportWaybillCargoDeliveredTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateGoodsTransportWaybillCargoDeliveredTitle(
+                                            GetCurrentCredentials(),
+                                            new GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest
+                                            {
+                                                Model = CreateGoodsTransportWaybillCargoDeliveredTitle(),
+                                                Options = new GoodsTransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+
+                                case DocumentType.GoodsTransportWaybillConsigneeTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateGoodsTransportWaybillConsigneeTitle(
+                                            GetCurrentCredentials(),
+                                            new GoodsTransportWaybillConsigneeTitleGeneratingRequest
+                                            {
+                                                Model = CreateGoodsTransportWaybillConsigneeTitle(),
+                                                Options = new GoodsTransportWaybillGenerationOptions(),
                                                 ParentDocumentId = parentId,
                                             })
                                         .GeneratedContent.NamedContent;
@@ -5330,6 +5390,36 @@ namespace Midway.ConsoleClient
             => new TransportWaybillDeliveryPlaceChangeTitle
             {
                 FormatVersion = EnumHelper.ToEnumValue(TransportWaybillDeliveryPlaceChangeTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула водителя (прием груза) транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула водителя (прием груза) транспортной накладной.</returns>
+        private static GoodsTransportWaybillCargoReceivedTitle CreateGoodsTransportWaybillCargoReceivedTitle()
+            => new GoodsTransportWaybillCargoReceivedTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(GoodsTransportWaybillCargoReceivedTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула водителя (сдача груза) транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула водителя (сдача груза) транспортной накладной.</returns>
+        private static GoodsTransportWaybillCargoDeliveredTitle CreateGoodsTransportWaybillCargoDeliveredTitle()
+            => new GoodsTransportWaybillCargoDeliveredTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(GoodsTransportWaybillCargoDeliveredTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула грузополучателя транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула грузополучателя транспортной накладной.</returns>
+        private static GoodsTransportWaybillConsigneeTitle CreateGoodsTransportWaybillConsigneeTitle()
+            => new GoodsTransportWaybillConsigneeTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(GoodsTransportWaybillConsigneeTitleFormatVersion.V100),
             };
     }
 }

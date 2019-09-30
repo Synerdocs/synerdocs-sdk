@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -253,7 +253,35 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Транспортная накладная (изменение места доставки)")]
         TransportWaybillDeliveryPlaceChangeTitle = 35,
-        
+
+        /// <summary>
+        /// Товарно-транспортная накладная (титул грузоотправителя).
+        /// </summary>
+        [EnumMember]
+        [Description("Товарно-транспортная накладная (титул грузоотправителя)")]
+        GoodsTransportWaybillConsignorTitle = 100,
+
+        /// <summary>
+        /// Товарно-транспортная накладная (титул водителя - прием груза).
+        /// </summary>
+        [EnumMember]
+        [Description("Товарно-транспортная накладная (титул водителя - прием груза)")]
+        GoodsTransportWaybillCargoReceivedTitle = 101,
+
+        /// <summary>
+        /// Товарно-транспортная накладная (титул водителя - сдача груза).
+        /// </summary>
+        [EnumMember]
+        [Description("Товарно-транспортная накладная (титул водителя - сдача груза)")]
+        GoodsTransportWaybillCargoDeliveredTitle = 102,
+
+        /// <summary>
+        /// Товарно-транспортная накладная (титул грузополучателя).
+        /// </summary>
+        [EnumMember]
+        [Description("Товарно-транспортная накладная (титул грузополучателя)")]
+        GoodsTransportWaybillConsigneeTitle = 103,
+
         /// <summary>
         /// Канонический EDI документ.
         /// Используется только при конвертации документов.

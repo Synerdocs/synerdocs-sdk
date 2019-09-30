@@ -84,6 +84,11 @@ namespace Midway.ObjectModel
         public string CountryCode { get; set; }
 
         /// <summary>
+        /// Дополнительная информация.
+        /// </summary>
+        public string AdditionalInfo { get; set; }
+
+        /// <summary>
         /// Флаг "иностранный адрес"
         /// </summary>
         [DataMember]
