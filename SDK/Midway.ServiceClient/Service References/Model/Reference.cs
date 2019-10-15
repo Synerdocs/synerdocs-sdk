@@ -925,6 +925,40 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillConsigneeTitleParsingResponse EndParseGoodsTransportWaybillConsigneeTitle(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" +
+            "", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" +
+            "Response")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse ParseGoodsTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" +
+            "", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" +
+            "Response")]
+        System.IAsyncResult BeginParseGoodsTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse EndParseGoodsTransportWaybillCargoReceivedTitle(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitl" +
+            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitl" +
+            "eResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
+        Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse ParseGoodsTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitl" +
+            "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitl" +
+            "eResponse")]
+        System.IAsyncResult BeginParseGoodsTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse EndParseGoodsTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsignorTitleR" +
             "esponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
@@ -2957,6 +2991,44 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGoodsTransportWaybillCargoReceivedTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGoodsTransportWaybillCargoReceivedTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ParseGoodsTransportWaybillCargoDeliveredTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ParseGoodsTransportWaybillCargoDeliveredTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class GenerateGoodsTransportWaybillConsignorTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -4810,6 +4882,18 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onParseGoodsTransportWaybillConsigneeTitleCompletedDelegate;
         
+        private BeginOperationDelegate onBeginParseGoodsTransportWaybillCargoReceivedTitleDelegate;
+        
+        private EndOperationDelegate onEndParseGoodsTransportWaybillCargoReceivedTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGoodsTransportWaybillCargoReceivedTitleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginParseGoodsTransportWaybillCargoDeliveredTitleDelegate;
+        
+        private EndOperationDelegate onEndParseGoodsTransportWaybillCargoDeliveredTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onParseGoodsTransportWaybillCargoDeliveredTitleCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGenerateGoodsTransportWaybillConsignorTitleDelegate;
         
         private EndOperationDelegate onEndGenerateGoodsTransportWaybillConsignorTitleDelegate;
@@ -5504,6 +5588,10 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<ParseGoodsTransportWaybillConsignorTitleCompletedEventArgs> ParseGoodsTransportWaybillConsignorTitleCompleted;
         
         public event System.EventHandler<ParseGoodsTransportWaybillConsigneeTitleCompletedEventArgs> ParseGoodsTransportWaybillConsigneeTitleCompleted;
+        
+        public event System.EventHandler<ParseGoodsTransportWaybillCargoReceivedTitleCompletedEventArgs> ParseGoodsTransportWaybillCargoReceivedTitleCompleted;
+        
+        public event System.EventHandler<ParseGoodsTransportWaybillCargoDeliveredTitleCompletedEventArgs> ParseGoodsTransportWaybillCargoDeliveredTitleCompleted;
         
         public event System.EventHandler<GenerateGoodsTransportWaybillConsignorTitleCompletedEventArgs> GenerateGoodsTransportWaybillConsignorTitleCompleted;
         
@@ -9411,6 +9499,110 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginParseGoodsTransportWaybillConsigneeTitleDelegate, new object[] {
                         credentials,
                         request}, this.onEndParseGoodsTransportWaybillConsigneeTitleDelegate, this.onParseGoodsTransportWaybillConsigneeTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse ParseGoodsTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest request) {
+            return base.Channel.ParseGoodsTransportWaybillCargoReceivedTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGoodsTransportWaybillCargoReceivedTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGoodsTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse EndParseGoodsTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseGoodsTransportWaybillCargoReceivedTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGoodsTransportWaybillCargoReceivedTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest request = ((Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest)(inValues[1]));
+            return this.BeginParseGoodsTransportWaybillCargoReceivedTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGoodsTransportWaybillCargoReceivedTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedTitleParsingResponse retVal = this.EndParseGoodsTransportWaybillCargoReceivedTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGoodsTransportWaybillCargoReceivedTitleCompleted(object state) {
+            if ((this.ParseGoodsTransportWaybillCargoReceivedTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGoodsTransportWaybillCargoReceivedTitleCompleted(this, new ParseGoodsTransportWaybillCargoReceivedTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGoodsTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest request) {
+            this.ParseGoodsTransportWaybillCargoReceivedTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseGoodsTransportWaybillCargoReceivedTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoReceivedParsingRequest request, object userState) {
+            if ((this.onBeginParseGoodsTransportWaybillCargoReceivedTitleDelegate == null)) {
+                this.onBeginParseGoodsTransportWaybillCargoReceivedTitleDelegate = new BeginOperationDelegate(this.OnBeginParseGoodsTransportWaybillCargoReceivedTitle);
+            }
+            if ((this.onEndParseGoodsTransportWaybillCargoReceivedTitleDelegate == null)) {
+                this.onEndParseGoodsTransportWaybillCargoReceivedTitleDelegate = new EndOperationDelegate(this.OnEndParseGoodsTransportWaybillCargoReceivedTitle);
+            }
+            if ((this.onParseGoodsTransportWaybillCargoReceivedTitleCompletedDelegate == null)) {
+                this.onParseGoodsTransportWaybillCargoReceivedTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGoodsTransportWaybillCargoReceivedTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGoodsTransportWaybillCargoReceivedTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseGoodsTransportWaybillCargoReceivedTitleDelegate, this.onParseGoodsTransportWaybillCargoReceivedTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse ParseGoodsTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest request) {
+            return base.Channel.ParseGoodsTransportWaybillCargoDeliveredTitle(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginParseGoodsTransportWaybillCargoDeliveredTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginParseGoodsTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse EndParseGoodsTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
+            return base.Channel.EndParseGoodsTransportWaybillCargoDeliveredTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginParseGoodsTransportWaybillCargoDeliveredTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.UserOperationCredentials credentials = ((Midway.ObjectModel.UserOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest request = ((Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest)(inValues[1]));
+            return this.BeginParseGoodsTransportWaybillCargoDeliveredTitle(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndParseGoodsTransportWaybillCargoDeliveredTitle(System.IAsyncResult result) {
+            Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredTitleParsingResponse retVal = this.EndParseGoodsTransportWaybillCargoDeliveredTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnParseGoodsTransportWaybillCargoDeliveredTitleCompleted(object state) {
+            if ((this.ParseGoodsTransportWaybillCargoDeliveredTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ParseGoodsTransportWaybillCargoDeliveredTitleCompleted(this, new ParseGoodsTransportWaybillCargoDeliveredTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ParseGoodsTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest request) {
+            this.ParseGoodsTransportWaybillCargoDeliveredTitleAsync(credentials, request, null);
+        }
+        
+        public void ParseGoodsTransportWaybillCargoDeliveredTitleAsync(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillCargoDeliveredParsingRequest request, object userState) {
+            if ((this.onBeginParseGoodsTransportWaybillCargoDeliveredTitleDelegate == null)) {
+                this.onBeginParseGoodsTransportWaybillCargoDeliveredTitleDelegate = new BeginOperationDelegate(this.OnBeginParseGoodsTransportWaybillCargoDeliveredTitle);
+            }
+            if ((this.onEndParseGoodsTransportWaybillCargoDeliveredTitleDelegate == null)) {
+                this.onEndParseGoodsTransportWaybillCargoDeliveredTitleDelegate = new EndOperationDelegate(this.OnEndParseGoodsTransportWaybillCargoDeliveredTitle);
+            }
+            if ((this.onParseGoodsTransportWaybillCargoDeliveredTitleCompletedDelegate == null)) {
+                this.onParseGoodsTransportWaybillCargoDeliveredTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnParseGoodsTransportWaybillCargoDeliveredTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginParseGoodsTransportWaybillCargoDeliveredTitleDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndParseGoodsTransportWaybillCargoDeliveredTitleDelegate, this.onParseGoodsTransportWaybillCargoDeliveredTitleCompletedDelegate, userState);
         }
         
         public Midway.ObjectModel.DocumentGenerationResponse GenerateGoodsTransportWaybillConsignorTitle(Midway.ObjectModel.UserOperationCredentials credentials, Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillConsignorTitleGeneratingRequest request) {

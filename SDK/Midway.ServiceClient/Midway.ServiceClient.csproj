@@ -97,6 +97,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentEntryList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentGenerationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentList.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentMovingResponse1.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentPrintingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionGettingResponse.datasource" />

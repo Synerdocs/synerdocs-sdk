@@ -74,12 +74,16 @@
     <Compile Include="GoodsTransportWaybill\GoodsSectionRequisites.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsSectionSigningInfo.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTable.cs" />
+    <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredParsingRequest.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredTitle.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredTitleFormatVersion.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest.cs" />
+    <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredTitleParsingResponse.cs" />
+    <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoReceivedParsingRequest.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoReceivedTitle.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoReceivedTitleFormatVersion.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoReceivedTitleGeneratingRequest.cs" />
+    <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoReceivedTitleParsingResponse.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillConsigneeTitle.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillConsigneeTitleFormatVersion.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillConsigneeTitleGeneratingRequest.cs" />

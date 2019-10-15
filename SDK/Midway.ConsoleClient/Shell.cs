@@ -1681,7 +1681,7 @@ namespace Midway.ConsoleClient
         /// </summary>
         private void ChooseAndSetContextCertificate()
         {
-            var certificate = ChooseCertificateFromCertificateStores(excludeRegisteredCertificates: false); 
+            var certificate = ChooseCertificateFromCertificateStores(excludeRegisteredCertificates: false);
             _context.Certificate = certificate;
             Console.Out.WriteLine("Выбран сертификат {0}", certificate.Subject);
         }
@@ -2624,7 +2624,7 @@ namespace Midway.ConsoleClient
                         break;
 
                     case DocumentType.TransportWaybillConsignorTitle:
-                        documentType = (DocumentType) UserInput
+                        documentType = (DocumentType)UserInput
                             .ChooseOption(
                                 "Выберите тип ответного титула транспортной накладной",
                                 new[]
@@ -2776,7 +2776,7 @@ namespace Midway.ConsoleClient
                                     break;
                             }
                         else
-                            Console.Out.WriteLine("Необходимо загрузить ответный титул транспортной накладной");
+                            Console.Out.WriteLine("Необходимо загрузить ответный титул товарно-транспортной накладной");
                         break;
 
                     default:
@@ -4104,8 +4104,8 @@ namespace Midway.ConsoleClient
         {
             var documentId = UserInput.ReadParameter("Id документа");
             var response = _context.ServiceClient.PrintDocument(
-                GetCurrentCredentials(), 
-                new DocumentPrintingRequest {DocumentId = documentId });
+                GetCurrentCredentials(),
+                new DocumentPrintingRequest { DocumentId = documentId });
             if (response == null)
             {
                 UserInput.Error("Неправильный идентификатор документа");
@@ -5024,7 +5024,7 @@ namespace Midway.ConsoleClient
                 switch (userChoice.Id)
                 {
                     case "1":
-                        var strongSignature =  signatureContent != null
+                        var strongSignature = signatureContent != null
                             ? new Sign { Raw = signatureContent }
                             : ChooseStrongSignature(documentContent);
                         strongSignature.From = _context.CurrentBox;
