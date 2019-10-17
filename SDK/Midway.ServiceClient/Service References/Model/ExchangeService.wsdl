@@ -464,6 +464,18 @@
   <wsdl:message name="IExchangeService_ParseGoodsTransportWaybillConsigneeTitle_OutputMessage">
     <wsdl:part name="parameters" element="tns:ParseGoodsTransportWaybillConsigneeTitleResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransportWaybillCargoReceivedTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransportWaybillCargoReceivedTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransportWaybillCargoReceivedTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransportWaybillCargoReceivedTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransportWaybillCargoDeliveredTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransportWaybillCargoDeliveredTitle" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_ParseGoodsTransportWaybillCargoDeliveredTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParseGoodsTransportWaybillCargoDeliveredTitleResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_GenerateGoodsTransportWaybillConsignorTitle_InputMessage">
     <wsdl:part name="parameters" element="tns:GenerateGoodsTransportWaybillConsignorTitle" />
   </wsdl:message>
@@ -1282,6 +1294,14 @@
     <wsdl:operation name="ParseGoodsTransportWaybillConsigneeTitle">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsigneeTitle" message="tns:IExchangeService_ParseGoodsTransportWaybillConsigneeTitle_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsigneeTitleResponse" message="tns:IExchangeService_ParseGoodsTransportWaybillConsigneeTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransportWaybillCargoReceivedTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" message="tns:IExchangeService_ParseGoodsTransportWaybillCargoReceivedTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitleResponse" message="tns:IExchangeService_ParseGoodsTransportWaybillCargoReceivedTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransportWaybillCargoDeliveredTitle">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_ParseGoodsTransportWaybillCargoDeliveredTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_ParseGoodsTransportWaybillCargoDeliveredTitle_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GenerateGoodsTransportWaybillConsignorTitle">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsignorTitle" message="tns:IExchangeService_GenerateGoodsTransportWaybillConsignorTitle_InputMessage" />
@@ -2274,6 +2294,24 @@
     </wsdl:operation>
     <wsdl:operation name="ParseGoodsTransportWaybillConsigneeTitle">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3718,6 +3756,24 @@
     </wsdl:operation>
     <wsdl:operation name="ParseGoodsTransportWaybillConsigneeTitle">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsigneeTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransportWaybillCargoReceivedTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParseGoodsTransportWaybillCargoDeliveredTitle">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

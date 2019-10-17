@@ -419,9 +419,67 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ConsigneeTransportSection" nillable="true" type="tns:ConsigneeTransportSection" />
+  <xs:complexType name="GoodsTransportWaybillCargoReceivedParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q35="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q35:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GoodsTransportWaybillCargoReceivedParsingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedParsingRequest" />
+  <xs:complexType name="GoodsTransportWaybillCargoReceivedTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q36="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q36:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GoodsTransportWaybillCargoReceivedTitleParsingResponse" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitleParsingResponse" />
+  <xs:complexType name="GoodsTransportWaybillCargoReceivedTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GoodsTransportWaybillReplyTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReceiptionFacts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceivedBy" nillable="true" type="tns:OperationAuthority" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GoodsTransportWaybillCargoReceivedTitle" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitle" />
+  <xs:complexType name="GoodsTransportWaybillCargoDeliveredParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q37="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q37:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GoodsTransportWaybillCargoDeliveredParsingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredParsingRequest" />
+  <xs:complexType name="GoodsTransportWaybillCargoDeliveredTitleParsingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q38="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q38:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GoodsTransportWaybillCargoDeliveredTitleParsingResponse" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitleParsingResponse" />
+  <xs:complexType name="GoodsTransportWaybillCargoDeliveredTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GoodsTransportWaybillReplyTitleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeliveredBy" nillable="true" type="tns:OperationAuthority" />
+          <xs:element minOccurs="0" name="DeliveryFacts" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GoodsTransportWaybillCargoDeliveredTitle" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitle" />
   <xs:complexType name="GoodsTransportWaybillConsignorTitleGeneratingRequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q35="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q35:OperationRequest">
+      <xs:extension xmlns:q39="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q39:OperationRequest">
         <xs:sequence>
           <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillConsignorTitle" />
           <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
@@ -440,7 +498,7 @@
   <xs:element name="GoodsTransportWaybillGenerationOptions" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
   <xs:complexType name="GoodsTransportWaybillConsigneeTitleGeneratingRequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q36="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q36:OperationRequest">
+      <xs:extension xmlns:q40="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q40:OperationRequest">
         <xs:sequence>
           <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitle" />
           <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
@@ -452,7 +510,7 @@
   <xs:element name="GoodsTransportWaybillConsigneeTitleGeneratingRequest" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitleGeneratingRequest" />
   <xs:complexType name="GoodsTransportWaybillCargoReceivedTitleGeneratingRequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q37="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q37:OperationRequest">
+      <xs:extension xmlns:q41="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q41:OperationRequest">
         <xs:sequence>
           <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitle" />
           <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
@@ -462,20 +520,9 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="GoodsTransportWaybillCargoReceivedTitleGeneratingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitleGeneratingRequest" />
-  <xs:complexType name="GoodsTransportWaybillCargoReceivedTitle">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:GoodsTransportWaybillReplyTitleBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="ReceiptionFacts" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ReceivedBy" nillable="true" type="tns:OperationAuthority" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoReceivedTitle" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitle" />
   <xs:complexType name="GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q38="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q38:OperationRequest">
+      <xs:extension xmlns:q42="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q42:OperationRequest">
         <xs:sequence>
           <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitle" />
           <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
@@ -485,15 +532,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest" />
-  <xs:complexType name="GoodsTransportWaybillCargoDeliveredTitle">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:GoodsTransportWaybillReplyTitleBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="DeliveredBy" nillable="true" type="tns:OperationAuthority" />
-          <xs:element minOccurs="0" name="DeliveryFacts" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoDeliveredTitle" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitle" />
 </xs:schema>
