@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="DocumentMovingResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Midway.ObjectModel.DocumentMovingResponse, Midway.ObjectModel, Version=2.33.0.0, Culture=neutral, PublicKeyToken=5b99fede12d9a0f3</TypeInfo>
+<GenericObjectDataSource DisplayName="AvailableDepartmentsResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>Midway.ObjectModel.AvailableDepartmentsResponse, Midway.ObjectModel, Version=2.34.0.0, Culture=neutral, PublicKeyToken=5b99fede12d9a0f3</TypeInfo>
 </GenericObjectDataSource>

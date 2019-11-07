@@ -1040,6 +1040,14 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.DocumentGenerationResponse EndGenerateGoodsTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartments", ReplyAction="http://synerdocs.ru/IExchangeService/GetAvailableDepartmentsResponse")]
+        Midway.ObjectModel.AvailableDepartmentsResponse GetAvailableDepartments(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.AvailableDepartmentsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartments", ReplyAction="http://synerdocs.ru/IExchangeService/GetAvailableDepartmentsResponse")]
+        System.IAsyncResult BeginGetAvailableDepartments(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.AvailableDepartmentsRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.AvailableDepartmentsResponse EndGetAvailableDepartments(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
         string Authenticate(string login, string password, string applicationId);
         
@@ -3105,6 +3113,25 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetAvailableDepartmentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAvailableDepartmentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.AvailableDepartmentsResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.AvailableDepartmentsResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class AuthenticateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -4918,6 +4945,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onGenerateGoodsTransportWaybillCargoDeliveredTitleCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetAvailableDepartmentsDelegate;
+        
+        private EndOperationDelegate onEndGetAvailableDepartmentsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAvailableDepartmentsCompletedDelegate;
+        
         private BeginOperationDelegate onBeginAuthenticateDelegate;
         
         private EndOperationDelegate onEndAuthenticateDelegate;
@@ -5600,6 +5633,8 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<GenerateGoodsTransportWaybillCargoReceivedTitleCompletedEventArgs> GenerateGoodsTransportWaybillCargoReceivedTitleCompleted;
         
         public event System.EventHandler<GenerateGoodsTransportWaybillCargoDeliveredTitleCompletedEventArgs> GenerateGoodsTransportWaybillCargoDeliveredTitleCompleted;
+        
+        public event System.EventHandler<GetAvailableDepartmentsCompletedEventArgs> GetAvailableDepartmentsCompleted;
         
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
         
@@ -9811,6 +9846,58 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginGenerateGoodsTransportWaybillCargoDeliveredTitleDelegate, new object[] {
                         credentials,
                         request}, this.onEndGenerateGoodsTransportWaybillCargoDeliveredTitleDelegate, this.onGenerateGoodsTransportWaybillCargoDeliveredTitleCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.AvailableDepartmentsResponse GetAvailableDepartments(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.AvailableDepartmentsRequest request) {
+            return base.Channel.GetAvailableDepartments(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetAvailableDepartments(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.AvailableDepartmentsRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAvailableDepartments(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.AvailableDepartmentsResponse EndGetAvailableDepartments(System.IAsyncResult result) {
+            return base.Channel.EndGetAvailableDepartments(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAvailableDepartments(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.AvailableDepartmentsRequest request = ((Midway.ObjectModel.AvailableDepartmentsRequest)(inValues[1]));
+            return this.BeginGetAvailableDepartments(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAvailableDepartments(System.IAsyncResult result) {
+            Midway.ObjectModel.AvailableDepartmentsResponse retVal = this.EndGetAvailableDepartments(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetAvailableDepartmentsCompleted(object state) {
+            if ((this.GetAvailableDepartmentsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAvailableDepartmentsCompleted(this, new GetAvailableDepartmentsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAvailableDepartmentsAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.AvailableDepartmentsRequest request) {
+            this.GetAvailableDepartmentsAsync(credentials, request, null);
+        }
+        
+        public void GetAvailableDepartmentsAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.AvailableDepartmentsRequest request, object userState) {
+            if ((this.onBeginGetAvailableDepartmentsDelegate == null)) {
+                this.onBeginGetAvailableDepartmentsDelegate = new BeginOperationDelegate(this.OnBeginGetAvailableDepartments);
+            }
+            if ((this.onEndGetAvailableDepartmentsDelegate == null)) {
+                this.onEndGetAvailableDepartmentsDelegate = new EndOperationDelegate(this.OnEndGetAvailableDepartments);
+            }
+            if ((this.onGetAvailableDepartmentsCompletedDelegate == null)) {
+                this.onGetAvailableDepartmentsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAvailableDepartmentsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAvailableDepartmentsDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGetAvailableDepartmentsDelegate, this.onGetAvailableDepartmentsCompletedDelegate, userState);
         }
         
         public string Authenticate(string login, string password, string applicationId) {

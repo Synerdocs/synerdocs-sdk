@@ -500,6 +500,12 @@
   <wsdl:message name="IExchangeService_GenerateGoodsTransportWaybillCargoDeliveredTitle_OutputMessage">
     <wsdl:part name="parameters" element="tns:GenerateGoodsTransportWaybillCargoDeliveredTitleResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_GetAvailableDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetAvailableDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDepartmentsResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
   </wsdl:message>
@@ -1318,6 +1324,10 @@
     <wsdl:operation name="GenerateGoodsTransportWaybillCargoDeliveredTitle">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoDeliveredTitle" message="tns:IExchangeService_GenerateGoodsTransportWaybillCargoDeliveredTitle_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoDeliveredTitleResponse" message="tns:IExchangeService_GenerateGoodsTransportWaybillCargoDeliveredTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDepartments">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartments" message="tns:IExchangeService_GetAvailableDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartmentsResponse" message="tns:IExchangeService_GetAvailableDepartments_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
@@ -2348,6 +2358,15 @@
     </wsdl:operation>
     <wsdl:operation name="GenerateGoodsTransportWaybillCargoDeliveredTitle">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDepartments">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetAvailableDepartments" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3810,6 +3829,15 @@
     </wsdl:operation>
     <wsdl:operation name="GenerateGoodsTransportWaybillCargoDeliveredTitle">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoDeliveredTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDepartments">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetAvailableDepartments" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
