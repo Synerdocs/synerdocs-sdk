@@ -5692,6 +5692,32 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProviderIdentificationCenter" nillable="true" type="tns:ProviderIdentificationCenter" />
+  <xs:complexType name="AvailableDepartmentsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AvailableDepartmentsRequest" nillable="true" type="tns:AvailableDepartmentsRequest" />
+  <xs:complexType name="AvailableDepartmentsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AvailableDepartments" nillable="true" type="tns:ArrayOfDepartment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AvailableDepartmentsResponse" nillable="true" type="tns:AvailableDepartmentsResponse" />
+  <xs:complexType name="ArrayOfDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
   <xs:complexType name="ArrayOfMessageInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
@@ -6575,6 +6601,7 @@
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CustomField" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentFlowParticipants" nillable="true" type="tns:ArrayOfDocumentFlowParticipantShortInfo" />
       <xs:element minOccurs="0" name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
       <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DocumentTags" nillable="true" type="tns:ArrayOfDocumentTag" />

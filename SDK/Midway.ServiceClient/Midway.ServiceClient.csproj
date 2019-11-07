@@ -84,6 +84,7 @@
     </None>
     <None Include="key.snk" />
     <None Include="Properties\DataSources\Midway.ObjectModel.AdministratorAuthorityUpdatingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.AvailableDepartmentsResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.BoxCertificate.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.BoxInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.CertificateCheckInfo.datasource" />
@@ -97,7 +98,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentEntryList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentGenerationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentList.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentMovingResponse1.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentMovingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentPrintingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionGettingResponse.datasource" />
@@ -180,9 +181,12 @@
     <None Include="Service References\Model\ExchangeService6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Model\ExchangeService7.xsd">
-      <SubType>Designer</SubType>
-    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Midway.ObjectModel\Midway.ObjectModel.csproj">
+      <Project>{9C571FE8-5D05-481D-A79F-1D77B16D944A}</Project>
+      <Name>Midway.ObjectModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Model\" />
@@ -197,6 +201,9 @@
     <None Include="Service References\Model\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\Model\ExchangeService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Model\ExchangeService8.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -204,12 +211,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Midway.ObjectModel\Midway.ObjectModel.csproj">
-      <Project>{9c571fe8-5d05-481d-a79f-1d77b16d944a}</Project>
-      <Name>Midway.ObjectModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

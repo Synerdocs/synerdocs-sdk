@@ -208,5 +208,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string CustomField { get; set; }
+
+        /// <summary>
+        /// Информация об участниках документооборота.
+        /// </summary>
+        [DataMember]
+        public List<DocumentFlowParticipantShortInfo> DocumentFlowParticipants{ get; set; }
     }
 }

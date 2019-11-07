@@ -3,25 +3,25 @@
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// ФИО
+    /// ФИО.
     /// </summary>
     [DataContract]
     public class FullName
     {
         /// <summary>
-        /// Имя
+        /// Имя.
         /// </summary>
         [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Фамилия
+        /// Фамилия.
         /// </summary>
         [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество
+        /// Отчество.
         /// </summary>
         [DataMember]
         public string MiddleName { get; set; }
