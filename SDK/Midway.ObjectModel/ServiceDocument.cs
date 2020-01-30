@@ -16,7 +16,7 @@ namespace Midway.ObjectModel
         public string SignId { get; set; }
 
         /// <summary>
-        /// Подпись к документу (единственная).
+        /// Содержимое подписи.
         /// </summary>
         [DataMember]
         public byte[] SignRaw { get; set; }
@@ -43,12 +43,14 @@ namespace Midway.ObjectModel
         /// Адрес абонентского ящика получателя.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(Recipients) + "'.")]
         public string To { get; set; }
 
         /// <summary>
         /// Идентификатор подразделения получателя.
         /// </summary>
         [DataMember]
+        [Obsolete("Устарело, используйте свойство '" + nameof(Recipients) + "'.")]
         public string ToDepartmentId { get; set; }
 
         /// <summary>

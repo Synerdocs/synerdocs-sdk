@@ -265,6 +265,7 @@
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoReceivedTitleGeneratingRequest.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillConsigneeTitleGeneratingRequest.cs" />
+    <Compile Include="Utility\FullEnumValuesRequest.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VatAmountType.cs" />
     <Compile Include="TransferAreaV2.cs" />
@@ -313,6 +314,7 @@
     <Compile Include="Utility\AllEnumValuesRequest.cs" />
     <Compile Include="Utility\EnumValuesRequest.cs" />
     <Compile Include="Utility\EnumValuesResponse.cs" />
+    <Compile Include="Utility\SpecifiedEnumValuesRequest.cs" />
     <Compile Include="SortCondition.cs" />
     <Compile Include="Common\TextValueType.cs" />
     <Compile Include="Contact.cs" />
@@ -578,8 +580,6 @@
     <Compile Include="UserCreationData.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserRegistrationData.cs" />
-    <Compile Include="Utility\FullEnumValuesRequest.cs" />
-    <Compile Include="Utility\SpecifiedEnumValuesRequest.cs" />
     <Compile Include="ValidationError.cs" />
     <Compile Include="ValidationMessageCategory.cs" />
     <Compile Include="ValidationMessageStatus.cs" />

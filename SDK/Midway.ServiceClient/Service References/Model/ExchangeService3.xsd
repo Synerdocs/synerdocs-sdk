@@ -4208,6 +4208,20 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
+          <xs:enumeration value="Copy">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8388608</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AssureConsigneeSimpleSignature">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16777216</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
@@ -4393,6 +4407,13 @@
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AssuredConsigneeSimpleSignature">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
@@ -5152,6 +5173,7 @@
       <xs:enumeration value="Edi" />
       <xs:enumeration value="NotifyBySms" />
       <xs:enumeration value="NotifyByViber" />
+      <xs:enumeration value="ConsigneeSimpleSignatureAssurance" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SettingType" nillable="true" type="tns:SettingType" />

@@ -178,5 +178,19 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Изменить место доставки Транспортной накладной")]
         ChangeDeliveryPlace = 1 << 22, // 4194304.
+
+        /// <summary>
+        /// Скопировать документ(ы).
+        /// </summary>
+        [EnumMember]
+        [Description("Скопировать документ(ы)")]
+        Copy = 1 << 23, // 8388608.
+
+        /// <summary>
+        /// Заверить ПЭП грузополучателя Транспортной накладной.
+        /// </summary>
+        [EnumMember]
+        [Description("Заверить ПЭП грузополучателя Транспортной накладной")]
+        AssureConsigneeSimpleSignature = 1 << 24, // 16777216.
     }
 }

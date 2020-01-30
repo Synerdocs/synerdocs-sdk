@@ -84,6 +84,13 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Изменен пункт доставки")]
-        ChangedDeliveryPlace = 11
+        ChangedDeliveryPlace = 11,
+
+        /// <summary>
+        /// Тег "ПЭП грузополучателя заверена".
+        /// </summary>
+        [EnumMember]
+        [Description("ПЭП грузополучателя заверена")]
+        AssuredConsigneeSimpleSignature = 12,
     }
 }

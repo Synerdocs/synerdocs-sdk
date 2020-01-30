@@ -176,6 +176,13 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Возможность получать уведомления и работать через Viber")]
-        NotifyByViber = 23
+        NotifyByViber = 23,
+
+        /// <summary>
+        /// Возможность заверять простую ЭП грузополучателя (ТрН). 
+        /// </summary>
+        [EnumMember]
+        [Description("Возможность заверять простую ЭП грузополучателя (ТрН)")]
+        ConsigneeSimpleSignatureAssurance = 24,
     }
 }
