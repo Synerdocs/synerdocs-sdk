@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midway.ObjectModel", "Midway.ObjectModel\Midway.ObjectModel.csproj", "{9C571FE8-5D05-481D-A79F-1D77B16D944A}"
 EndProject
@@ -22,6 +22,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.SendUnsignedDocument", "Samples\Samples.SendUnsignedDocument\Samples.SendUnsignedDocument.csproj", "{69425D9D-43B2-4895-88A6-729B891ACDAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.GetDocumentInfo", "Samples\Samples.GetDocumentInfo\Samples.GetDocumentInfo.csproj", "{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC07D464-247A-49EF-A3F3-10FD7106C425}"
+	ProjectSection(SolutionItems) = preProject
+		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,5 +130,8 @@ Global
 		{AB4B622A-CC93-4EC1-82AD-1816FA4DC358} = {22A93E1D-3911-4CDC-A624-E384250A6797}
 		{69425D9D-43B2-4895-88A6-729B891ACDAD} = {22A93E1D-3911-4CDC-A624-E384250A6797}
 		{7CD889C1-79ED-4FC9-AB0C-9A194DE77B7C} = {22A93E1D-3911-4CDC-A624-E384250A6797}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3808146-11E3-4113-BCE0-D93A5991633A}
 	EndGlobalSection
 EndGlobal
