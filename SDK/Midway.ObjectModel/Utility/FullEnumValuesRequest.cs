@@ -37,6 +37,12 @@ namespace Midway.ObjectModel.Utility
 		public bool WithAddressTypes { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Перечисление групп приложений'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithApplicationGroupTypes { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Обстоятельства формирования счета-фактуры, применяемого при расчетах по налогу на добавленную стоимость'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]

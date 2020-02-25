@@ -40,6 +40,12 @@ namespace Midway.ObjectModel.Utility
 		public List<AddressType> AddressTypes { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Перечисление групп приложений'.
+		/// </summary>
+		[DataMember]
+		public List<ApplicationGroupType> ApplicationGroupTypes { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Обстоятельства формирования счета-фактуры, применяемого при расчетах по налогу на добавленную стоимость'.
 		/// </summary>
 		[DataMember]

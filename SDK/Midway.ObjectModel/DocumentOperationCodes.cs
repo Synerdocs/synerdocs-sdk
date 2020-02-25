@@ -192,5 +192,19 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Заверить ПЭП грузополучателя Транспортной накладной")]
         AssureConsigneeSimpleSignature = 1 << 24, // 16777216.
+
+        /// <summary>
+        /// Заверить ПЭП водителя о получении груза Транспортной накладной.
+        /// </summary>
+        [EnumMember]
+        [Description("Заверить ПЭП водителя о получении груза Транспортной накладной")]
+        AssureDriverReceiveCargoSimpleSignature = 1 << 25, //33554432.
+
+        /// <summary>
+        /// Заверить ПЭП водителя о сдаче груза Транспортной накладной.
+        /// </summary>
+        [EnumMember]
+        [Description("Заверить ПЭП водителя о сдаче груза Транспортной накладной")]
+        AssureDriverDeliverCargoSimpleSignature = 1 << 26, //67108864.
     }
 }
