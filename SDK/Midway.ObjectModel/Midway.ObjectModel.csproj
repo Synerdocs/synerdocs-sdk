@@ -163,6 +163,7 @@
     <Compile Include="MonetaryObligation.cs" />
     <Compile Include="NamedNumberDate.cs" />
     <Compile Include="ParsingRequest.cs" />
+    <Compile Include="SimpleSignatureRegulationAcceptedValueSettingRequest.cs" />
     <Compile Include="DriverCargoOperation.cs" />
     <Compile Include="CargoPackage.cs" />
     <Compile Include="CargoLossDeadline.cs" />

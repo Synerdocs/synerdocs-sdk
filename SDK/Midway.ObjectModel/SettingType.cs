@@ -184,5 +184,12 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Возможность заверять простую ЭП грузополучателя (ТрН)")]
         ConsigneeSimpleSignatureAssurance = 24,
+
+        /// <summary>
+        /// Возможность использовать простую ЭП в организации.
+        /// </summary>
+        [EnumMember]
+        [Description("Возможность использовать простую ЭП в организации")]
+        SimpleSignatureFeature = 25,
     }
 }

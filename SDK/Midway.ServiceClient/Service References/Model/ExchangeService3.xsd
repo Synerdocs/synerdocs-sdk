@@ -5241,6 +5241,7 @@
       <xs:enumeration value="NotifyBySms" />
       <xs:enumeration value="NotifyByViber" />
       <xs:enumeration value="ConsigneeSimpleSignatureAssurance" />
+      <xs:enumeration value="SimpleSignatureFeature" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SettingType" nillable="true" type="tns:SettingType" />
