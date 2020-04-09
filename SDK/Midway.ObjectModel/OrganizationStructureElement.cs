@@ -59,6 +59,12 @@ namespace Midway.ObjectModel
         [DataMember]
         public bool IsDeleted { get; set; }
 
+        /// <summary>
+        /// <c>true</c>, если подразделение скрыто; иначе - <c>false</c>.
+        /// </summary>
+        [DataMember]
+        public bool IsHidden { get; set; }
+
         public override string ToString()
         {
             return string.Format("Id: {0}, Name: {1}, Code: {2}, Kpp: {3}, ParentId: {4}, OrganizationId: {5}", Id, Name, Code, Kpp, ParentId, OrganizationId);

@@ -158,6 +158,12 @@ namespace Midway.ObjectModel.Exceptions
         [Description("Возможность отключена")]
         FeatureDisabled = 14,
 
+        /// <summary>
+        /// Ошибка при работе с SQL.
+        /// </summary>
+        [Description("Ошибка при работе с SQL")]
+        SqlException = 15,
+
         #region Сертификаты и подписи (51-60)
 
         /// <summary>

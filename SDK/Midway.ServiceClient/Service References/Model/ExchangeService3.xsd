@@ -3727,45 +3727,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAddressType" nillable="true" type="tns:ArrayOfAddressType" />
-  <xs:complexType name="ArrayOfApplicationGroupType">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationGroupType" type="tns:ApplicationGroupType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfApplicationGroupType" nillable="true" type="tns:ArrayOfApplicationGroupType" />
-  <xs:simpleType name="ApplicationGroupType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Integration1C">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ExternalIntegrationProjects">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="TrustedIntegrationProjects">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="IntegrationService">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ApplicationGroupType" nillable="true" type="tns:ApplicationGroupType" />
   <xs:complexType name="ArrayOfCertificateIssueRequestType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CertificateIssueRequestType" type="tns:CertificateIssueRequestType" />
@@ -4261,20 +4222,6 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
-          <xs:enumeration value="AssureDriverReceiveCargoSimpleSignature">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">33554432</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
-          <xs:enumeration value="AssureDriverDeliverCargoSimpleSignature">
-            <xs:annotation>
-              <xs:appinfo>
-                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67108864</EnumerationValue>
-              </xs:appinfo>
-            </xs:annotation>
-          </xs:enumeration>
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
@@ -4460,27 +4407,6 @@
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AssuredConsigneeSimpleSignature">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AssuredDriverReceiveCargoSimpleSignature">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AssuredDriverDeliverCargoSimpleSignature">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
@@ -5241,7 +5167,6 @@
       <xs:enumeration value="NotifyBySms" />
       <xs:enumeration value="NotifyByViber" />
       <xs:enumeration value="ConsigneeSimpleSignatureAssurance" />
-      <xs:enumeration value="SimpleSignatureFeature" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SettingType" nillable="true" type="tns:SettingType" />
