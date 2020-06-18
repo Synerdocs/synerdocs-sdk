@@ -57,6 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="ApplicationVersionEndpointBehavior.cs" />
     <Compile Include="BaseClient.cs" />
     <Compile Include="Client.cs" />
@@ -79,9 +82,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SharedAssemblyInfo.cs">
-      <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -128,6 +128,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillConsigneeTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GoodsTransportWaybill.GoodsTransportWaybillConsignorTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.InnKppName.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.IssuedCertificateQrCode.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Message.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.MessageInfo.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.NamedContent.datasource" />

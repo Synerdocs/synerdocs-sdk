@@ -14,6 +14,13 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("ЗАО 'Калуга Астрал'")]
-        KalugaAstral = 1
+        KalugaAstral = 1,
+
+        /// <summary>
+        /// Калуга Астрал DSS.
+        /// </summary>
+        [EnumMember]
+        [Description("ЗАО \"Калуга Астрал\" по технологии DSS")]
+        KalugaAstralDss = 2,
     }
 }

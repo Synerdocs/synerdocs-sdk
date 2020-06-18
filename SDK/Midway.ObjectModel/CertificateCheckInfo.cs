@@ -25,5 +25,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public bool IsCloud { get; set; }
+
+        /// <summary>
+        /// Тип провайдера.
+        /// </summary>
+        [DataMember]
+        public string CryptoProviderType { get; set; }
     }
 }
