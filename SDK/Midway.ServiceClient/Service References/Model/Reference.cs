@@ -15,6 +15,14 @@ namespace Midway.ServiceClient.Model {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://synerdocs.ru", ConfigurationName="Model.IExchangeService")]
     public interface IExchangeService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListResponse")]
+        Midway.ObjectModel.OrganizationPromoCode[] GetOrganizationPromoCodeList(string authToken, string boxId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListResponse")]
+        System.IAsyncResult BeginGetOrganizationPromoCodeList(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.OrganizationPromoCode[] EndGetOrganizationPromoCodeList(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByName", ReplyAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByNameResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationPromoCode))]
         Midway.ObjectModel.PromoCode GetPromoCodeByName(string authToken, string promoCodeName);
@@ -666,6 +674,14 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.CertificateIssueInfo EndGetCertificateIssueInfo(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCode", ReplyAction="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCodeResponse")]
+        Midway.ObjectModel.IssuedCertificateQrCode ReissueCertificateQrCode(string authToken, string boxId, Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCode", ReplyAction="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCodeResponse")]
+        System.IAsyncResult BeginReissueCertificateQrCode(string authToken, string boxId, Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.IssuedCertificateQrCode EndReissueCertificateQrCode(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability", ReplyAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentId))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentType))]
@@ -1063,6 +1079,16 @@ namespace Midway.ServiceClient.Model {
         System.IAsyncResult BeginAuthenticateWithCertificate(string certHash, string applicationId, System.AsyncCallback callback, object asyncState);
         
         string EndAuthenticateWithCertificate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPassword", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPasswordRespon" +
+            "se")]
+        string AuthenticateWithCertificateAndPassword(string thumbprint, string password, string applicationId);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPassword", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPasswordRespon" +
+            "se")]
+        System.IAsyncResult BeginAuthenticateWithCertificateAndPassword(string thumbprint, string password, string applicationId, System.AsyncCallback callback, object asyncState);
+        
+        string EndAuthenticateWithCertificateAndPassword(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2Response")]
         byte[] AuthenticateWithCertificate2(string certHash, string applicationId);
@@ -1748,18 +1774,29 @@ namespace Midway.ServiceClient.Model {
         System.IAsyncResult BeginAddOrganizationPromoCode(string authToken, string boxId, string promoCodeName, System.AsyncCallback callback, object asyncState);
         
         void EndAddOrganizationPromoCode(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListResponse")]
-        Midway.ObjectModel.OrganizationPromoCode[] GetOrganizationPromoCodeList(string authToken, string boxId);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListResponse")]
-        System.IAsyncResult BeginGetOrganizationPromoCodeList(string authToken, string boxId, System.AsyncCallback callback, object asyncState);
-        
-        Midway.ObjectModel.OrganizationPromoCode[] EndGetOrganizationPromoCodeList(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IExchangeServiceChannel : Midway.ServiceClient.Model.IExchangeService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetOrganizationPromoCodeListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetOrganizationPromoCodeListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.OrganizationPromoCode[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.OrganizationPromoCode[])(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2638,6 +2675,25 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ReissueCertificateQrCodeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ReissueCertificateQrCodeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.IssuedCertificateQrCode Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.IssuedCertificateQrCode)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class CheckSimpleSignatureAvailabilityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -3156,6 +3212,25 @@ namespace Midway.ServiceClient.Model {
         private object[] results;
         
         public AuthenticateWithCertificateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AuthenticateWithCertificateAndPasswordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AuthenticateWithCertificateAndPasswordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -4462,26 +4537,13 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetOrganizationPromoCodeListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetOrganizationPromoCodeListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public Midway.ObjectModel.OrganizationPromoCode[] Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((Midway.ObjectModel.OrganizationPromoCode[])(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ExchangeServiceClient : System.ServiceModel.ClientBase<Midway.ServiceClient.Model.IExchangeService>, Midway.ServiceClient.Model.IExchangeService {
+        
+        private BeginOperationDelegate onBeginGetOrganizationPromoCodeListDelegate;
+        
+        private EndOperationDelegate onEndGetOrganizationPromoCodeListDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetOrganizationPromoCodeListCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetPromoCodeByNameDelegate;
         
@@ -4765,6 +4827,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onGetCertificateIssueInfoCompletedDelegate;
         
+        private BeginOperationDelegate onBeginReissueCertificateQrCodeDelegate;
+        
+        private EndOperationDelegate onEndReissueCertificateQrCodeDelegate;
+        
+        private System.Threading.SendOrPostCallback onReissueCertificateQrCodeCompletedDelegate;
+        
         private BeginOperationDelegate onBeginCheckSimpleSignatureAvailabilityDelegate;
         
         private EndOperationDelegate onEndCheckSimpleSignatureAvailabilityDelegate;
@@ -4962,6 +5030,12 @@ namespace Midway.ServiceClient.Model {
         private EndOperationDelegate onEndAuthenticateWithCertificateDelegate;
         
         private System.Threading.SendOrPostCallback onAuthenticateWithCertificateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAuthenticateWithCertificateAndPasswordDelegate;
+        
+        private EndOperationDelegate onEndAuthenticateWithCertificateAndPasswordDelegate;
+        
+        private System.Threading.SendOrPostCallback onAuthenticateWithCertificateAndPasswordCompletedDelegate;
         
         private BeginOperationDelegate onBeginAuthenticateWithCertificate2Delegate;
         
@@ -5455,12 +5529,6 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onAddOrganizationPromoCodeCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetOrganizationPromoCodeListDelegate;
-        
-        private EndOperationDelegate onEndGetOrganizationPromoCodeListDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetOrganizationPromoCodeListCompletedDelegate;
-        
         public ExchangeServiceClient() {
         }
         
@@ -5479,6 +5547,8 @@ namespace Midway.ServiceClient.Model {
         public ExchangeServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
+        
+        public event System.EventHandler<GetOrganizationPromoCodeListCompletedEventArgs> GetOrganizationPromoCodeListCompleted;
         
         public event System.EventHandler<GetPromoCodeByNameCompletedEventArgs> GetPromoCodeByNameCompleted;
         
@@ -5574,6 +5644,8 @@ namespace Midway.ServiceClient.Model {
         
         public event System.EventHandler<GetCertificateIssueInfoCompletedEventArgs> GetCertificateIssueInfoCompleted;
         
+        public event System.EventHandler<ReissueCertificateQrCodeCompletedEventArgs> ReissueCertificateQrCodeCompleted;
+        
         public event System.EventHandler<CheckSimpleSignatureAvailabilityCompletedEventArgs> CheckSimpleSignatureAvailabilityCompleted;
         
         public event System.EventHandler<AcceptSimpleSignatureRegulationCompletedEventArgs> AcceptSimpleSignatureRegulationCompleted;
@@ -5639,6 +5711,8 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
         
         public event System.EventHandler<AuthenticateWithCertificateCompletedEventArgs> AuthenticateWithCertificateCompleted;
+        
+        public event System.EventHandler<AuthenticateWithCertificateAndPasswordCompletedEventArgs> AuthenticateWithCertificateAndPasswordCompleted;
         
         public event System.EventHandler<AuthenticateWithCertificate2CompletedEventArgs> AuthenticateWithCertificate2Completed;
         
@@ -5804,7 +5878,57 @@ namespace Midway.ServiceClient.Model {
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddOrganizationPromoCodeCompleted;
         
-        public event System.EventHandler<GetOrganizationPromoCodeListCompletedEventArgs> GetOrganizationPromoCodeListCompleted;
+        public Midway.ObjectModel.OrganizationPromoCode[] GetOrganizationPromoCodeList(string authToken, string boxId) {
+            return base.Channel.GetOrganizationPromoCodeList(authToken, boxId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetOrganizationPromoCodeList(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetOrganizationPromoCodeList(authToken, boxId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.OrganizationPromoCode[] EndGetOrganizationPromoCodeList(System.IAsyncResult result) {
+            return base.Channel.EndGetOrganizationPromoCodeList(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetOrganizationPromoCodeList(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            return this.BeginGetOrganizationPromoCodeList(authToken, boxId, callback, asyncState);
+        }
+        
+        private object[] OnEndGetOrganizationPromoCodeList(System.IAsyncResult result) {
+            Midway.ObjectModel.OrganizationPromoCode[] retVal = this.EndGetOrganizationPromoCodeList(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetOrganizationPromoCodeListCompleted(object state) {
+            if ((this.GetOrganizationPromoCodeListCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetOrganizationPromoCodeListCompleted(this, new GetOrganizationPromoCodeListCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetOrganizationPromoCodeListAsync(string authToken, string boxId) {
+            this.GetOrganizationPromoCodeListAsync(authToken, boxId, null);
+        }
+        
+        public void GetOrganizationPromoCodeListAsync(string authToken, string boxId, object userState) {
+            if ((this.onBeginGetOrganizationPromoCodeListDelegate == null)) {
+                this.onBeginGetOrganizationPromoCodeListDelegate = new BeginOperationDelegate(this.OnBeginGetOrganizationPromoCodeList);
+            }
+            if ((this.onEndGetOrganizationPromoCodeListDelegate == null)) {
+                this.onEndGetOrganizationPromoCodeListDelegate = new EndOperationDelegate(this.OnEndGetOrganizationPromoCodeList);
+            }
+            if ((this.onGetOrganizationPromoCodeListCompletedDelegate == null)) {
+                this.onGetOrganizationPromoCodeListCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOrganizationPromoCodeListCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetOrganizationPromoCodeListDelegate, new object[] {
+                        authToken,
+                        boxId}, this.onEndGetOrganizationPromoCodeListDelegate, this.onGetOrganizationPromoCodeListCompletedDelegate, userState);
+        }
         
         public Midway.ObjectModel.PromoCode GetPromoCodeByName(string authToken, string promoCodeName) {
             return base.Channel.GetPromoCodeByName(authToken, promoCodeName);
@@ -8291,6 +8415,60 @@ namespace Midway.ServiceClient.Model {
                         settings}, this.onEndGetCertificateIssueInfoDelegate, this.onGetCertificateIssueInfoCompletedDelegate, userState);
         }
         
+        public Midway.ObjectModel.IssuedCertificateQrCode ReissueCertificateQrCode(string authToken, string boxId, Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest) {
+            return base.Channel.ReissueCertificateQrCode(authToken, boxId, reissueCertificateQrCodeRequest);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginReissueCertificateQrCode(string authToken, string boxId, Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginReissueCertificateQrCode(authToken, boxId, reissueCertificateQrCodeRequest, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.IssuedCertificateQrCode EndReissueCertificateQrCode(System.IAsyncResult result) {
+            return base.Channel.EndReissueCertificateQrCode(result);
+        }
+        
+        private System.IAsyncResult OnBeginReissueCertificateQrCode(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string authToken = ((string)(inValues[0]));
+            string boxId = ((string)(inValues[1]));
+            Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest = ((Midway.ObjectModel.ReissueCertificateQrCodeRequest)(inValues[2]));
+            return this.BeginReissueCertificateQrCode(authToken, boxId, reissueCertificateQrCodeRequest, callback, asyncState);
+        }
+        
+        private object[] OnEndReissueCertificateQrCode(System.IAsyncResult result) {
+            Midway.ObjectModel.IssuedCertificateQrCode retVal = this.EndReissueCertificateQrCode(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnReissueCertificateQrCodeCompleted(object state) {
+            if ((this.ReissueCertificateQrCodeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ReissueCertificateQrCodeCompleted(this, new ReissueCertificateQrCodeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ReissueCertificateQrCodeAsync(string authToken, string boxId, Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest) {
+            this.ReissueCertificateQrCodeAsync(authToken, boxId, reissueCertificateQrCodeRequest, null);
+        }
+        
+        public void ReissueCertificateQrCodeAsync(string authToken, string boxId, Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest, object userState) {
+            if ((this.onBeginReissueCertificateQrCodeDelegate == null)) {
+                this.onBeginReissueCertificateQrCodeDelegate = new BeginOperationDelegate(this.OnBeginReissueCertificateQrCode);
+            }
+            if ((this.onEndReissueCertificateQrCodeDelegate == null)) {
+                this.onEndReissueCertificateQrCodeDelegate = new EndOperationDelegate(this.OnEndReissueCertificateQrCode);
+            }
+            if ((this.onReissueCertificateQrCodeCompletedDelegate == null)) {
+                this.onReissueCertificateQrCodeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReissueCertificateQrCodeCompleted);
+            }
+            base.InvokeAsync(this.onBeginReissueCertificateQrCodeDelegate, new object[] {
+                        authToken,
+                        boxId,
+                        reissueCertificateQrCodeRequest}, this.onEndReissueCertificateQrCodeDelegate, this.onReissueCertificateQrCodeCompletedDelegate, userState);
+        }
+        
         public Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse CheckSimpleSignatureAvailability(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureAvailabilityCheckingRequest request) {
             return base.Channel.CheckSimpleSignatureAvailability(credentials, request);
         }
@@ -10004,6 +10182,60 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginAuthenticateWithCertificateDelegate, new object[] {
                         certHash,
                         applicationId}, this.onEndAuthenticateWithCertificateDelegate, this.onAuthenticateWithCertificateCompletedDelegate, userState);
+        }
+        
+        public string AuthenticateWithCertificateAndPassword(string thumbprint, string password, string applicationId) {
+            return base.Channel.AuthenticateWithCertificateAndPassword(thumbprint, password, applicationId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginAuthenticateWithCertificateAndPassword(string thumbprint, string password, string applicationId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAuthenticateWithCertificateAndPassword(thumbprint, password, applicationId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public string EndAuthenticateWithCertificateAndPassword(System.IAsyncResult result) {
+            return base.Channel.EndAuthenticateWithCertificateAndPassword(result);
+        }
+        
+        private System.IAsyncResult OnBeginAuthenticateWithCertificateAndPassword(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string thumbprint = ((string)(inValues[0]));
+            string password = ((string)(inValues[1]));
+            string applicationId = ((string)(inValues[2]));
+            return this.BeginAuthenticateWithCertificateAndPassword(thumbprint, password, applicationId, callback, asyncState);
+        }
+        
+        private object[] OnEndAuthenticateWithCertificateAndPassword(System.IAsyncResult result) {
+            string retVal = this.EndAuthenticateWithCertificateAndPassword(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAuthenticateWithCertificateAndPasswordCompleted(object state) {
+            if ((this.AuthenticateWithCertificateAndPasswordCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AuthenticateWithCertificateAndPasswordCompleted(this, new AuthenticateWithCertificateAndPasswordCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AuthenticateWithCertificateAndPasswordAsync(string thumbprint, string password, string applicationId) {
+            this.AuthenticateWithCertificateAndPasswordAsync(thumbprint, password, applicationId, null);
+        }
+        
+        public void AuthenticateWithCertificateAndPasswordAsync(string thumbprint, string password, string applicationId, object userState) {
+            if ((this.onBeginAuthenticateWithCertificateAndPasswordDelegate == null)) {
+                this.onBeginAuthenticateWithCertificateAndPasswordDelegate = new BeginOperationDelegate(this.OnBeginAuthenticateWithCertificateAndPassword);
+            }
+            if ((this.onEndAuthenticateWithCertificateAndPasswordDelegate == null)) {
+                this.onEndAuthenticateWithCertificateAndPasswordDelegate = new EndOperationDelegate(this.OnEndAuthenticateWithCertificateAndPassword);
+            }
+            if ((this.onAuthenticateWithCertificateAndPasswordCompletedDelegate == null)) {
+                this.onAuthenticateWithCertificateAndPasswordCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAuthenticateWithCertificateAndPasswordCompleted);
+            }
+            base.InvokeAsync(this.onBeginAuthenticateWithCertificateAndPasswordDelegate, new object[] {
+                        thumbprint,
+                        password,
+                        applicationId}, this.onEndAuthenticateWithCertificateAndPasswordDelegate, this.onAuthenticateWithCertificateAndPasswordCompletedDelegate, userState);
         }
         
         public byte[] AuthenticateWithCertificate2(string certHash, string applicationId) {
@@ -14382,58 +14614,6 @@ namespace Midway.ServiceClient.Model {
                         authToken,
                         boxId,
                         promoCodeName}, this.onEndAddOrganizationPromoCodeDelegate, this.onAddOrganizationPromoCodeCompletedDelegate, userState);
-        }
-        
-        public Midway.ObjectModel.OrganizationPromoCode[] GetOrganizationPromoCodeList(string authToken, string boxId) {
-            return base.Channel.GetOrganizationPromoCodeList(authToken, boxId);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGetOrganizationPromoCodeList(string authToken, string boxId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetOrganizationPromoCodeList(authToken, boxId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Midway.ObjectModel.OrganizationPromoCode[] EndGetOrganizationPromoCodeList(System.IAsyncResult result) {
-            return base.Channel.EndGetOrganizationPromoCodeList(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetOrganizationPromoCodeList(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string authToken = ((string)(inValues[0]));
-            string boxId = ((string)(inValues[1]));
-            return this.BeginGetOrganizationPromoCodeList(authToken, boxId, callback, asyncState);
-        }
-        
-        private object[] OnEndGetOrganizationPromoCodeList(System.IAsyncResult result) {
-            Midway.ObjectModel.OrganizationPromoCode[] retVal = this.EndGetOrganizationPromoCodeList(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetOrganizationPromoCodeListCompleted(object state) {
-            if ((this.GetOrganizationPromoCodeListCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetOrganizationPromoCodeListCompleted(this, new GetOrganizationPromoCodeListCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetOrganizationPromoCodeListAsync(string authToken, string boxId) {
-            this.GetOrganizationPromoCodeListAsync(authToken, boxId, null);
-        }
-        
-        public void GetOrganizationPromoCodeListAsync(string authToken, string boxId, object userState) {
-            if ((this.onBeginGetOrganizationPromoCodeListDelegate == null)) {
-                this.onBeginGetOrganizationPromoCodeListDelegate = new BeginOperationDelegate(this.OnBeginGetOrganizationPromoCodeList);
-            }
-            if ((this.onEndGetOrganizationPromoCodeListDelegate == null)) {
-                this.onEndGetOrganizationPromoCodeListDelegate = new EndOperationDelegate(this.OnEndGetOrganizationPromoCodeList);
-            }
-            if ((this.onGetOrganizationPromoCodeListCompletedDelegate == null)) {
-                this.onGetOrganizationPromoCodeListCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOrganizationPromoCodeListCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetOrganizationPromoCodeListDelegate, new object[] {
-                        authToken,
-                        boxId}, this.onEndGetOrganizationPromoCodeListDelegate, this.onGetOrganizationPromoCodeListCompletedDelegate, userState);
         }
     }
 }

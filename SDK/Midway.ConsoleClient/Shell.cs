@@ -4105,7 +4105,7 @@ namespace Midway.ConsoleClient
             var documentId = UserInput.ReadParameter("Id документа");
             var response = _context.ServiceClient.PrintDocument(
                 GetCurrentCredentials(), 
-                new DocumentPrintingRequest { DocumentId = documentId });
+                new DocumentPrintingRequest {DocumentId = documentId });
             if (response == null)
             {
                 UserInput.Error("Неправильный идентификатор документа");

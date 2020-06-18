@@ -25,5 +25,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember(IsRequired = true)]
         public bool IncludeCertificate { get; set; } = true;
+
+        /// <summary>
+        /// Нужно ли включать в ответ qr-код.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public bool IncludeQrCode { get; set; } = true;
     }
 }

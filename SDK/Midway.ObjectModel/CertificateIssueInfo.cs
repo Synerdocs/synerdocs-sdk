@@ -25,5 +25,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public IssuedCertificate Certificate { get; set; }
+
+        /// <summary>
+        /// QR-код (заполняется, если сертификат издан и выпускается по технологии DSS).
+        /// </summary>
+        [DataMember]
+        public IssuedCertificateQrCode CertificateQrCode { get; set; }
     }
 }
