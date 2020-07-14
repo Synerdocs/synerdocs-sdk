@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -23,16 +23,28 @@ namespace Midway.ObjectModel
         public string BoxTo { get; set; }
 
         /// <summary>
-        /// Период с.
+        /// Дата отправки документа с.
         /// </summary>
         [DataMember]
         public DateTime? From { get; set; }
-        
+
         /// <summary>
-        /// Период по.
+        /// Дата отправки документа по.
         /// </summary>
         [DataMember]
         public DateTime? To { get; set; }
+
+        /// <summary>
+        /// Дата документа включительно, с которой будет производиться поиск.
+        /// </summary>
+        [DataMember]
+        public DateTime? DocumentDateFrom { get; set; }
+
+        /// <summary>
+        /// Дата документа включительно, по которую будет производиться поиск.
+        /// </summary>
+        [DataMember]
+        public DateTime? DocumentDateTo { get; set; }
 
         /// <summary>
         /// Номер первой записи.
@@ -101,6 +113,12 @@ namespace Midway.ObjectModel
         public bool? NeedReceipt { get; set; }
 
         /// <summary>
+        /// Номера документов.
+        /// </summary>
+        [DataMember]
+        public string[] DocumentNumbers { get; set; }
+
+        /// <summary>
         /// Получить параметры поиска/фильтрации в виде строки.
         /// </summary>
         /// <returns>
@@ -108,6 +126,6 @@ namespace Midway.ObjectModel
         /// номер первой записи, максимальное количество документов в списке.
         /// </returns>
         public override string ToString()
-            => $"BoxFrom: {BoxFrom}, BoxTo: {BoxTo}, From: {From}, To: {To}, First: {First}, Max: {Max}";
+            => $"BoxFrom: {BoxFrom}, BoxTo: {BoxTo}, From: {From}, To: {To}, DocumentDateFrom: {DocumentDateFrom}, DocumentDateTo: {DocumentDateTo}, First: {First}, Max: {Max}";
     }
 }

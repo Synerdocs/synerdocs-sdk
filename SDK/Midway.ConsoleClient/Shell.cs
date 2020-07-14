@@ -2633,7 +2633,8 @@ namespace Midway.ConsoleClient
                                     DocumentType.TransportWaybillCargoDeliveredTitle,
                                     DocumentType.TransportWaybillConsigneeTitle,
                                     DocumentType.TransportWaybillCarrierTitle,
-                                    DocumentType.TransportWaybillDeliveryPlaceChangeTitle
+                                    DocumentType.TransportWaybillDeliveryPlaceChangeTitle,
+                                    DocumentType.TransportWaybillDriverOrVehicleChangeTitle,
                                 })
                             .Data;
                         if (UserInput.ChooseYesNo("Сгенерировать ответный титул транспортной накладной?"))
@@ -2713,6 +2714,19 @@ namespace Midway.ConsoleClient
                                                 {
                                                     TitleSenderType = titleSenderType.ToEnumValue()
                                                 },
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+
+                                case DocumentType.TransportWaybillDriverOrVehicleChangeTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateTransportWaybillDriverOrVehicleChangeTitle(
+                                            GetCurrentCredentials(),
+                                            new TransportWaybillDriverOrVehicleChangeTitleGeneratingRequest
+                                            {
+                                                Model = CreateTransportWaybillDriverOrVehicleChangeTitle(),
+                                                Options = new TransportWaybillGenerationOptions(),
                                                 ParentDocumentId = parentId,
                                             })
                                         .GeneratedContent.NamedContent;
@@ -5390,6 +5404,16 @@ namespace Midway.ConsoleClient
             => new TransportWaybillDeliveryPlaceChangeTitle
             {
                 FormatVersion = EnumHelper.ToEnumValue(TransportWaybillDeliveryPlaceChangeTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула изменения водителя и/или ТС транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула изменения водителя и/или ТС транспортной накладной.</returns>
+        private static TransportWaybillDriverOrVehicleChangeTitle CreateTransportWaybillDriverOrVehicleChangeTitle() =>
+            new TransportWaybillDriverOrVehicleChangeTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(TransportWaybillDriverOrVehicleChangeTitleFormatVersion.V100),
             };
 
         /// <summary>

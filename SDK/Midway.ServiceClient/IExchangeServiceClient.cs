@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Midway.ObjectModel;
 using Midway.ObjectModel.Common;
 
@@ -764,6 +764,16 @@ namespace Midway.ServiceClient
             TransportWaybillDeliveryPlaceChangeTitleParsingRequest request);
 
         /// <summary>
+        /// Получить модель титула изменения водителя и/или ТС транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула изменения водителя и/или ТС транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillDriverOrVehicleChangeTitleParsingResponse ParseTransportWaybillDriverOrVehicleChangeTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillDriverOrVehicleChangeTitleParsingRequest request);
+
+        /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
         /// <param name="model">Модель титула продавца</param>
@@ -899,6 +909,16 @@ namespace Midway.ServiceClient
         DocumentGenerationResponse GenerateTransportWaybillDeliveryPlaceChangeTitle(
             EmployeeOperationCredentials credentials,
             TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request);
+
+        /// <summary>
+        /// Сгенерировать контент титула изменения водителя и/или ТС транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные сотрудника.</param>
+        /// <param name="request">Запрос на генерацию титула изменения водителя и/или ТС транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillDriverOrVehicleChangeTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillDriverOrVehicleChangeTitleGeneratingRequest request);
 
         /// <summary>
         /// Скачать документ в формате pdf 

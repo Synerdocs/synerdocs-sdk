@@ -145,6 +145,12 @@ namespace Midway.ObjectModel.Utility
 		public bool WithSignerTypes { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Версия формата титула смены водителя и/или ТС транспортной накладной'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithTransportWaybillDriverOrVehicleChangeTitleFormatVersions { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Тип суммы налога'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]

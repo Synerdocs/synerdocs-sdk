@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.ServiceModel;
 using Midway.ObjectModel;
@@ -1297,6 +1297,13 @@ namespace Midway.ServiceClient
             => CheckAutorizedInvoke(credentials,
                 c => client.ParseTransportWaybillDeliveryPlaceChangeTitle(c, request));
 
+        public TransportWaybillDriverOrVehicleChangeTitleParsingResponse ParseTransportWaybillDriverOrVehicleChangeTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillDriverOrVehicleChangeTitleParsingRequest request) =>
+            CheckAutorizedInvoke(
+                credentials,
+                c => client.ParseTransportWaybillDriverOrVehicleChangeTitle(c, request));
+
         /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
@@ -1435,6 +1442,13 @@ namespace Midway.ServiceClient
             EmployeeOperationCredentials credentials,
             TransportWaybillDeliveryPlaceChangeTitleGeneratingRequest request)
             => CheckAutorizedInvoke(credentials, c => client.GenerateTransportWaybillDeliveryPlaceChangeTitle(c, request));
+
+        public DocumentGenerationResponse GenerateTransportWaybillDriverOrVehicleChangeTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillDriverOrVehicleChangeTitleGeneratingRequest request) =>
+            CheckAutorizedInvoke(
+                credentials,
+                c => client.GenerateTransportWaybillDriverOrVehicleChangeTitle(c, request));
 
         public DocumentGenerationResponse GenerateGoodsTransportWaybillCargoReceivedTitle(EmployeeOperationCredentials credentials,
             GoodsTransportWaybillCargoReceivedTitleGeneratingRequest request)

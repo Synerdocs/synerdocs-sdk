@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -106,5 +106,12 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("ПЭП водителя о сдаче груза заверена")]
         AssuredDriverDeliverCargoSimpleSignature = 14,
+
+        /// <summary>
+        /// Тег "Изменен водитель и/или ТС".
+        /// </summary>
+        [EnumMember]
+        [Description("Изменен водитель и/или ТС")]
+        ChangedDriverOrVehicle = 15,
     }
 }

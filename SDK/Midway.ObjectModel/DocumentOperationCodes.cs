@@ -206,5 +206,12 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Заверить ПЭП водителя о сдаче груза Транспортной накладной")]
         AssureDriverDeliverCargoSimpleSignature = 1 << 26, //67108864.
+
+        /// <summary>
+        /// Изменить водителя и/или ТС (ТрН).
+        /// </summary>
+        [EnumMember]
+        [Description("Изменить водителя и/или транспортное средство")]
+        ChangeDriverOrVehicle = 1 << 27, //134217728.
     }
 }

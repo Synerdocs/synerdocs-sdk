@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -17,16 +17,28 @@ namespace Midway.ObjectModel
         public string BoxId { get; set; }
 
         /// <summary>
-        /// Период с
+        /// Дата отправки документа с.
         /// </summary>
         [DataMember]
         public DateTime? From { get; set; }
 
         /// <summary>
-        /// Период по
+        /// Дата отправки документа по.
         /// </summary>
         [DataMember]
         public DateTime? To { get; set; }
+
+        /// <summary>
+        /// Дата документа включительно, с которой будет производиться поиск.
+        /// </summary>
+        [DataMember]
+        public DateTime? DocumentDateFrom { get; set; }
+
+        /// <summary>
+        /// Дата документа включительно, по которую будет производиться поиск.
+        /// </summary>
+        [DataMember]
+        public DateTime? DocumentDateTo { get; set; }
 
         /// <summary>
         /// Номер первой записи
@@ -76,6 +88,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string[] RecipientUserLogins { get; set; }
+
+        /// <summary>
+        /// Номера документов.
+        /// </summary>
+        [DataMember]
+        public string[] DocumentNumbers { get; set; }
 
         /// <summary>
         /// Исключить из списка документы,
