@@ -158,6 +158,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillConsignorTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillDeliveryPlaceChangeTitleParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.TransportWaybillDriverOrVehicleChangeTitleParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.User.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.UserAndEmployeeCreationResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.Utility.EnumValuesResponse.datasource" />

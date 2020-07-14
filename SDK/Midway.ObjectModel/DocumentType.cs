@@ -255,6 +255,13 @@ namespace Midway.ObjectModel
         TransportWaybillDeliveryPlaceChangeTitle = 35,
 
         /// <summary>
+        /// Транспортная накладная (смена водителя и/или ТС).
+        /// </summary>
+        [EnumMember]
+        [Description("Транспортная накладная (смена водителя и/или ТС")]
+        TransportWaybillDriverOrVehicleChangeTitle = 36,
+
+        /// <summary>
         /// Товарно-транспортная накладная (титул грузоотправителя).
         /// </summary>
         [EnumMember]

@@ -275,6 +275,11 @@
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillConsigneeTitleGeneratingRequest.cs" />
     <Compile Include="SimpleSignatureRegulationAcceptedValueSettingRequest.cs" />
+    <Compile Include="TransportWaybillDriverOrVehicleChangeTitle.cs" />
+    <Compile Include="TransportWaybillDriverOrVehicleChangeTitleFormatVersion.cs" />
+    <Compile Include="TransportWaybillDriverOrVehicleChangeTitleGeneratingRequest.cs" />
+    <Compile Include="TransportWaybillDriverOrVehicleChangeTitleParsingRequest.cs" />
+    <Compile Include="TransportWaybillDriverOrVehicleChangeTitleParsingResponse.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VatAmountType.cs" />
     <Compile Include="TransferAreaV2.cs" />
