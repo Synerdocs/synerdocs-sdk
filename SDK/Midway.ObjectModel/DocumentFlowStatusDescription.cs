@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -21,7 +21,7 @@ namespace Midway.ObjectModel
         /// Дополнительный статус документооборота
         /// </summary>
         [DataMember]
-        [Obsolete("Устаревшее свойство, используйте AdditionalStatuses")]
+        [Obsolete("Используйте '" + nameof(AdditionalStatuses) + "'.")]
         public string AdditionalStatus { get; set; }
 
         /// <summary>

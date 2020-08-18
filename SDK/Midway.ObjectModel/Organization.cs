@@ -4,13 +4,13 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Полная информация об организации.
+    /// РџРѕР»РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕСЂРіР°РЅРёР·Р°С†РёРё.
     /// </summary>
     [DataContract]
     public class Organization
     {
         /// <summary>
-        /// Конструктор.
+        /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
         /// </summary>
         public Organization()
         {
@@ -19,242 +19,248 @@ namespace Midway.ObjectModel
         }
 
         /// <summary>
-        /// ИД организации.
+        /// ID РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string OrganizationId { get; set; }
 
         /// <summary>
-        /// Тип организации.
+        /// ID РѕСЂРіР°РЅРёР·Р°С†РёРё-Р°Р±РѕРЅРµРЅС‚Р° РѕРїРµСЂР°С‚РѕСЂР° Р­Р”Рћ.
+        /// </summary>
+        [DataMember]
+        public Guid SubscriberId { get; set; }
+
+        /// <summary>
+        /// РўРёРї РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public OrganizationType OrganizationType { get; set; }
         
         /// <summary>
-        /// Название организации.
+        /// РќР°Р·РІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Телефон организации.
+        /// РўРµР»РµС„РѕРЅ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Tel { get; set; }
 
         /// <summary>
-        /// Факс организации.
+        /// Р¤Р°РєСЃ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Fax { get; set; }
 
-        /// TODO@устарело
+        /// TODO@СѓСЃС‚Р°СЂРµР»Рѕ
         /// <summary>
         /// </summary>
         [DataMember]
         public bool? State { get; set; }
 
         /// <summary>
-        /// Юридическое название организации.
+        /// Р®СЂРёРґРёС‡РµСЃРєРѕРµ РЅР°Р·РІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string LegalName { get; set; }
 
         /// <summary>
-        /// Организационно-правовая форма (ООО, ЗАО, и т.д.).
+        /// РћСЂРіР°РЅРёР·Р°С†РёРѕРЅРЅРѕ-РїСЂР°РІРѕРІР°СЏ С„РѕСЂРјР° (РћРћРћ, Р—РђРћ, Рё С‚.Рґ.).
         /// </summary>
         [DataMember]
         public string LegalForm { get; set; }
 
         /// <summary>
-        /// Признак иностранной компании.
+        /// РџСЂРёР·РЅР°Рє РёРЅРѕСЃС‚СЂР°РЅРЅРѕР№ РєРѕРјРїР°РЅРёРё.
         /// </summary>
         [DataMember]
         public bool IsForeignCompany { get; set; }
 
         /// <summary>
-        /// ИНН организации.
+        /// РРќРќ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Inn { get; set; }
 
         /// <summary>
-        /// КПП организации.
+        /// РљРџРџ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Kpp { get; set; }
 
         /// <summary>
-        /// Наименование банка организации.
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ Р±Р°РЅРєР° РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Bank { get; set; }
 
         /// <summary>
-        /// Банковский идентификационный код организации.
+        /// Р‘Р°РЅРєРѕРІСЃРєРёР№ РёРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РєРѕРґ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Bik { get; set; }
 
         /// <summary>
-        /// Корреспондентский счет организации.
+        /// РљРѕСЂСЂРµСЃРїРѕРЅРґРµРЅС‚СЃРєРёР№ СЃС‡РµС‚ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string CorrespondentAccount { get; set; }
 
         /// <summary>
-        /// Расчетный счет организации.
+        /// Р Р°СЃС‡РµС‚РЅС‹Р№ СЃС‡РµС‚ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string CurrentAccount { get; set; }
 
         /// <summary>
-        /// Список адресов организации.
+        /// РЎРїРёСЃРѕРє Р°РґСЂРµСЃРѕРІ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public OrganizationAddress[] Addresses { get; set; }
 
         /// <summary>
-        /// Юридический адрес организации.
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё")]
         public Address LegalAddress { get; set; }
 
         /// <summary>
-        /// Почтовый адрес организации.
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё")]
         public Address MailingAddress { get; set; }
 
         /// <summary>
-        /// ЮЛ или ИП.
+        /// Р®Р› РёР»Рё РРџ.
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё")]
         public bool IsJuridical { get; set; }
 
         /// <summary>
-        /// Имя (для ИП).
+        /// РРјСЏ (РґР»СЏ РРџ).
         /// </summary>
         [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Фамилия (для ИП).
+        /// Р¤Р°РјРёР»РёСЏ (РґР»СЏ РРџ).
         /// </summary>
         [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество (для ИП).
+        /// РћС‚С‡РµСЃС‚РІРѕ (РґР»СЏ РРџ).
         /// </summary>
         [DataMember]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Код организации в рамках системы ЭДО, используется при выставлении ЭСФ.
+        /// РљРѕРґ РѕСЂРіР°РЅРёР·Р°С†РёРё РІ СЂР°РјРєР°С… СЃРёСЃС‚РµРјС‹ Р­Р”Рћ, РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РІС‹СЃС‚Р°РІР»РµРЅРёРё Р­РЎР¤.
         /// </summary>
         [DataMember]
         public string ServiceCode { get; set; }
 
         /// <summary>
-        /// Адрес абонентского ящика организации.
+        /// РђРґСЂРµСЃ Р°Р±РѕРЅРµРЅС‚СЃРєРѕРіРѕ СЏС‰РёРєР° РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string BoxAddress { get; set; }
 
         /// <summary>
-        /// ОГРН.
+        /// РћР“Р Рќ.
         /// </summary>
         [DataMember]
         public string Ogrn { get; set; }
 
         /// <summary>
-        /// Код налогового органа.
+        /// РљРѕРґ РЅР°Р»РѕРіРѕРІРѕРіРѕ РѕСЂРіР°РЅР°.
         /// </summary>
         [DataMember]
         public string Ifns { get; set; }
 
         /// <summary>
-        /// Дата внесения записи об ИП в ЕГРИП.
+        /// Р”Р°С‚Р° РІРЅРµСЃРµРЅРёСЏ Р·Р°РїРёСЃРё РѕР± РРџ РІ Р•Р“Р РРџ.
         /// </summary>
         [DataMember]
         public string StateRegistrationCert { get; set; }
 
         /// TODO@internal
         /// <summary>
-        /// Версия последнего изменения.
+        /// Р’РµСЂСЃРёСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ.
         /// </summary>
         [DataMember]
         public Int64 Version { get; set; }
 
         /// <summary>
-        /// Принят регламент ЭДО.
+        /// РџСЂРёРЅСЏС‚ СЂРµРіР»Р°РјРµРЅС‚ Р­Р”Рћ.
         /// </summary>
         [DataMember]
         public bool ServiceReglamentAccepted { get; set; }
 
         /// <summary>
-        /// Принят регламент ЭДО счетами-фактурами.
+        /// РџСЂРёРЅСЏС‚ СЂРµРіР»Р°РјРµРЅС‚ Р­Р”Рћ СЃС‡РµС‚Р°РјРё-С„Р°РєС‚СѓСЂР°РјРё.
         /// </summary>
         [DataMember]
         public bool InvoiceReglamentAccepted { get; set; }
 
         /// <summary>
-        /// <c>true</c>, если принят регламент использования простой ЭП; иначе - <c>false</c>.
+        /// <c>true</c>, РµСЃР»Рё РїСЂРёРЅСЏС‚ СЂРµРіР»Р°РјРµРЅС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РїСЂРѕСЃС‚РѕР№ Р­Рџ; РёРЅР°С‡Рµ - <c>false</c>.
         /// </summary>
         [DataMember]
         public bool SimpleSignatureRegulationAccepted { get; set; }
 
         /// <summary>
-        /// Код оператора ЭДО.
+        /// РљРѕРґ РѕРїРµСЂР°С‚РѕСЂР° Р­Р”Рћ.
         /// </summary>
         [DataMember]
         public string OperatorCode { get; set; }
 
         /// <summary>
-        /// Наименование сервиса оператора ЭДО.
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ СЃРµСЂРІРёСЃР° РѕРїРµСЂР°С‚РѕСЂР° Р­Р”Рћ.
         /// </summary>
         [DataMember]
         public string OperatorServiceName { get; set; }
         
         /// <summary>
-        /// Статус организации в сервисе.
+        /// РЎС‚Р°С‚СѓСЃ РѕСЂРіР°РЅРёР·Р°С†РёРё РІ СЃРµСЂРІРёСЃРµ.
         /// </summary>
         [DataMember]
         public OrganizationStatus OrganizationStatus { get; set; }
 
         /// <summary>
-        /// Тип авторизации контактов.
+        /// РўРёРї Р°РІС‚РѕСЂРёР·Р°С†РёРё РєРѕРЅС‚Р°РєС‚РѕРІ.
         /// </summary>
         [DataMember]
         public ContactAuthType ContactAuthType { get; set; }
 
         /// <summary>
-        /// Признак "Подключена услуга "Подтверждение получения документа".
+        /// РџСЂРёР·РЅР°Рє "РџРѕРґРєР»СЋС‡РµРЅР° СѓСЃР»СѓРіР° "РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РїРѕР»СѓС‡РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°".
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё")]
         public bool FeatureConfirmReceiptEnabled { get; set; }
 
         /// <summary>
-        /// Признак "Включен обмен с ФЛ".
+        /// РџСЂРёР·РЅР°Рє "Р’РєР»СЋС‡РµРЅ РѕР±РјРµРЅ СЃ Р¤Р›".
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё")]
         public bool ExchangeWithIndividualEnabled { get; set; }
 
         /// <summary>
-        /// Идентификатор получателя пакетов в роуминге.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕР»СѓС‡Р°С‚РµР»СЏ РїР°РєРµС‚РѕРІ РІ СЂРѕСѓРјРёРЅРіРµ.
         /// </summary>
         [DataMember]
         public int? RoamingPackageRecipientId { get; set; }
 
         /// <summary>
-        /// Статус организации как абонента EDI
-        /// Не используется при отправке.
+        /// РЎС‚Р°С‚СѓСЃ РѕСЂРіР°РЅРёР·Р°С†РёРё РєР°Рє Р°Р±РѕРЅРµРЅС‚Р° EDI
+        /// РќРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ.
         /// </summary>
         [DataMember]
         public EnumValue EdiSubscriberStatus { get; set; }

@@ -1304,6 +1304,13 @@ namespace Midway.ServiceClient
                 credentials,
                 c => client.ParseTransportWaybillDriverOrVehicleChangeTitle(c, request));
 
+        public TransportWaybillExpeditorTitleParsingResponse ParseTransportWaybillExpeditorTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillExpeditorTitleParsingRequest request) =>
+            CheckAutorizedInvoke(
+                credentials,
+                c => client.ParseTransportWaybillExpeditorTitle(c, request));
+
         /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
@@ -1449,6 +1456,13 @@ namespace Midway.ServiceClient
             CheckAutorizedInvoke(
                 credentials,
                 c => client.GenerateTransportWaybillDriverOrVehicleChangeTitle(c, request));
+
+        public DocumentGenerationResponse GenerateTransportWaybillExpeditorTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillExpeditorTitleGeneratingRequest request) =>
+            CheckAutorizedInvoke(
+                credentials,
+                c => client.GenerateTransportWaybillExpeditorTitle(c, request));
 
         public DocumentGenerationResponse GenerateGoodsTransportWaybillCargoReceivedTitle(EmployeeOperationCredentials credentials,
             GoodsTransportWaybillCargoReceivedTitleGeneratingRequest request)

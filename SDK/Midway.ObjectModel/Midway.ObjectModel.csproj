@@ -17,6 +17,8 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -275,6 +277,11 @@
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest.cs" />
     <Compile Include="GoodsTransportWaybill\GoodsTransportWaybillConsigneeTitleGeneratingRequest.cs" />
     <Compile Include="SimpleSignatureRegulationAcceptedValueSettingRequest.cs" />
+    <Compile Include="TransportWaybillExpeditorTitleGeneratingRequest.cs" />
+    <Compile Include="TransportWaybillExpeditorTitleParsingRequest.cs" />
+    <Compile Include="TransportWaybillExpeditorTitleParsingResponse.cs" />
+    <Compile Include="TransportWaybillExpeditorTitle.cs" />
+    <Compile Include="TransportWaybillExpeditorTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillDriverOrVehicleChangeTitle.cs" />
     <Compile Include="TransportWaybillDriverOrVehicleChangeTitleFormatVersion.cs" />
     <Compile Include="TransportWaybillDriverOrVehicleChangeTitleGeneratingRequest.cs" />

@@ -213,5 +213,12 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Изменить водителя и/или транспортное средство")]
         ChangeDriverOrVehicle = 1 << 27, //134217728.
+
+        /// <summary>
+        /// Подписать экспедитором Транспортной накладной.
+        /// </summary>
+        [EnumMember]
+        [Description("Подписать экспедитором Транспортной накладной")]
+        SignByExpeditor = 1 << 28, //268435456.
     }
 }

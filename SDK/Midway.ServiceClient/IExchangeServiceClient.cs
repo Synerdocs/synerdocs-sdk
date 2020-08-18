@@ -774,6 +774,16 @@ namespace Midway.ServiceClient
             TransportWaybillDriverOrVehicleChangeTitleParsingRequest request);
 
         /// <summary>
+        /// Получить модель титула экспедитора транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные пользователя.</param>
+        /// <param name="request">Запрос на получение модели титула экспедитора транспортной накладной.</param>
+        /// <returns>Ответ на запрос на получение модели.</returns>
+        TransportWaybillExpeditorTitleParsingResponse ParseTransportWaybillExpeditorTitle(
+            UserOperationCredentials credentials,
+            TransportWaybillExpeditorTitleParsingRequest request);
+
+        /// <summary>
         /// Сгенерировать контент титула продавца универсального корректировочного документа
         /// </summary>
         /// <param name="model">Модель титула продавца</param>
@@ -919,6 +929,16 @@ namespace Midway.ServiceClient
         DocumentGenerationResponse GenerateTransportWaybillDriverOrVehicleChangeTitle(
             EmployeeOperationCredentials credentials,
             TransportWaybillDriverOrVehicleChangeTitleGeneratingRequest request);
+
+        /// <summary>
+        /// Сгенерировать контент титула экспедитора транспортной накладной.
+        /// </summary>
+        /// <param name="credentials">Учетные данные сотрудника.</param>
+        /// <param name="request">Запрос на генерацию титула экспедитора транспортной накладной.</param>
+        /// <returns>Ответ на запрос на генерацию документа.</returns>
+        DocumentGenerationResponse GenerateTransportWaybillExpeditorTitle(
+            EmployeeOperationCredentials credentials,
+            TransportWaybillExpeditorTitleGeneratingRequest request);
 
         /// <summary>
         /// Скачать документ в формате pdf 

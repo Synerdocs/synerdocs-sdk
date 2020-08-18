@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -37,7 +37,7 @@ namespace Midway.ObjectModel
         /// Тип тэга документа.
         /// </summary>
         [DataMember]
-        [Obsolete("Используйте свойство '" + nameof(TagTypeEnum) + "' .")]
+        [Obsolete("Используйте '" + nameof(TagTypeEnum) + "' .")]
         public DocumentTagType TagType { get; set; }
 
         /// <summary>

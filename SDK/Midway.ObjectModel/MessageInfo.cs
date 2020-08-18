@@ -31,13 +31,14 @@ namespace Midway.ObjectModel
         /// Ящик адресата
         /// </summary>
         [DataMember]
+        [Obsolete("Используйте '" + nameof(MessageRecipients) + "'.")]
         public string To { get; set; }
 
         /// <summary>
         /// Ящики получателей
         /// </summary>
         [DataMember]
-        [Obsolete("Используйте свойство '" + nameof(MessageRecipients) + "'.")]
+        [Obsolete("Используйте '" + nameof(MessageRecipients) + "'.")]
         public string[] Recipients { get; set; }
 
         /// <summary>
