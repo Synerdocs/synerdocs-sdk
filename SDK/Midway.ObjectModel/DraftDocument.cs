@@ -19,7 +19,7 @@ namespace Midway.ObjectModel
         /// Тип документа
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Midway.ObjectModel
         /// Не используется при отправке
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
         public EnumValue DocumentTypeEnum { get; set; }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Midway.ObjectModel
         /// Вид неформализованного документа.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
         public string UntypedKind { get; set; }
 
         /// <summary>

@@ -4,199 +4,199 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о документе.
-    /// Используется для отправки и получения документов.
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РґРѕРєСѓРјРµРЅС‚Рµ.
+    /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РѕС‚РїСЂР°РІРєРё Рё РїРѕР»СѓС‡РµРЅРёСЏ РґРѕРєСѓРјРµРЅС‚РѕРІ.
     /// </summary>
     [DataContract]
     public class Document
     {
         /// <summary>
-        /// Идентификатор документа (не используется при отправке).
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р° (РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ).
         /// </summary>
         [DataMember]
         public string Id { get; set; }
 
         /// <summary>
-        /// Название документа.
+        /// РќР°Р·РІР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Тип документа.
+        /// РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(DocumentTypeInfo) + "'.")]
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
-        /// Тип документа в виде EnumValue.
-        /// Не используется при отправке.
+        /// РўРёРї РґРѕРєСѓРјРµРЅС‚Р° РІ РІРёРґРµ EnumValue.
+        /// РќРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(DocumentTypeInfo) + "'.")]
         public EnumValue DocumentTypeEnum { get; set; }
 
         /// <summary>
-        /// Информация о типе документа.
+        /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РёРїРµ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember(IsRequired = false)]
         public DocumentTypeInfo DocumentTypeInfo { get; set; }
 
         /// <summary>
-        /// Содержимое документа.
+        /// РЎРѕРґРµСЂР¶РёРјРѕРµ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public byte[] Content { get; set; }
 
         /// <summary>
-        /// Карточка документа.
+        /// РљР°СЂС‚РѕС‡РєР° РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public byte[] Card { get; set; }
 
         /// <summary>
-        /// Имя файла документа.
+        /// РРјСЏ С„Р°Р№Р»Р° РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public string FileName { get; set; }
 
         /// <summary>
-        /// Флаг ожидания подписи под документом.
+        /// Р¤Р»Р°Рі РѕР¶РёРґР°РЅРёСЏ РїРѕРґРїРёСЃРё РїРѕРґ РґРѕРєСѓРјРµРЅС‚РѕРј.
         /// </summary>
         [DataMember]
         public bool NeedSign { get; set; }
 
         /// <summary>
-        /// Размер файла (не используется при отправке).
+        /// Р Р°Р·РјРµСЂ С„Р°Р№Р»Р° (РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ).
         /// </summary>
         [DataMember]
         public int FileSize { get; set; }
 
         /// TODO@internal
         /// <summary>
-        /// Идентификатор сообщения, содержащего документ.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРѕРѕР±С‰РµРЅРёСЏ, СЃРѕРґРµСЂР¶Р°С‰РµРіРѕ РґРѕРєСѓРјРµРЅС‚.
         /// </summary>
         public Guid MessageId { get; set; }
 
         /// <summary>
-        /// Идентификатор родительского документа в цепочке служебных документов.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЂРѕРґРёС‚РµР»СЊСЃРєРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РІ С†РµРїРѕС‡РєРµ СЃР»СѓР¶РµР±РЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ.
         /// </summary>
         [DataMember]
         public string ParentDocumentId { get; set; }
 
         /// <summary>
-        /// Идентификатор родительского документа в цепочке логических связей.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЂРѕРґРёС‚РµР»СЊСЃРєРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РІ С†РµРїРѕС‡РєРµ Р»РѕРіРёС‡РµСЃРєРёС… СЃРІСЏР·РµР№.
         /// </summary>
         [DataMember]
         public string SourceDocumentId { get; set; }
 
         /// <summary>
-        /// Идентификатор основного документа, к которому относится служебный документ. 
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕСЃРЅРѕРІРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°, Рє РєРѕС‚РѕСЂРѕРјСѓ РѕС‚РЅРѕСЃРёС‚СЃСЏ СЃР»СѓР¶РµР±РЅС‹Р№ РґРѕРєСѓРјРµРЅС‚. 
         /// </summary>
         [DataMember]
         public string RootDocumentId { get; set; }
 
         /// TODO@internal
         /// <summary>
-        /// Тип служебного документа.
+        /// РўРёРї СЃР»СѓР¶РµР±РЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         public DocumentServiceType DocumentServiceType { get; set; }
 
         /// <summary>
-        /// Идентификаторы связанных документов.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ СЃРІСЏР·Р°РЅРЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ.
         /// </summary>
         [DataMember]
         public string[] RelatedDocumentIds { get; set; }
 
         /// <summary>
-        /// Комментарий к документу.
+        /// РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє РґРѕРєСѓРјРµРЅС‚Сѓ.
         /// </summary>
         [DataMember]
         public string Comment { get; set; }
 
         /// <summary>
-        /// Поле для хранение дополнительной информации. До 255 символов.
+        /// РџРѕР»Рµ РґР»СЏ С…СЂР°РЅРµРЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё. Р”Рѕ 255 СЃРёРјРІРѕР»РѕРІ.
         /// </summary>
         [DataMember]
         public string CustomField { get; set; }
 
-        /// TODO@перенести
+        /// TODO@РїРµСЂРµРЅРµСЃС‚Рё
         /// <summary>
-        /// Признак "удаления".
+        /// РџСЂРёР·РЅР°Рє "СѓРґР°Р»РµРЅРёСЏ".
         /// </summary>
         [DataMember]
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// Флаг юридической значимости документа.
+        /// Р¤Р»Р°Рі СЋСЂРёРґРёС‡РµСЃРєРѕР№ Р·РЅР°С‡РёРјРѕСЃС‚Рё РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember(IsRequired = false)]
         public bool IsLegitimate { get; set; }
 
         /// <summary>
-        /// Причины нелегитимности документа, указываются в виде битовой маски.
+        /// РџСЂРёС‡РёРЅС‹ РЅРµР»РµРіРёС‚РёРјРЅРѕСЃС‚Рё РґРѕРєСѓРјРµРЅС‚Р°, СѓРєР°Р·С‹РІР°СЋС‚СЃСЏ РІ РІРёРґРµ Р±РёС‚РѕРІРѕР№ РјР°СЃРєРё.
         /// </summary>
         [DataMember(IsRequired = false)]
         public NonLegitimateReason[] NonLegitimateReasons { get; set; }
 
         /// <summary>
-        /// Вид нетипизированного документа.
+        /// Р’РёРґ РЅРµС‚РёРїРёР·РёСЂРѕРІР°РЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember(IsRequired = false)]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(DocumentTypeInfo) + "'.")]
         public string UntypedKind { get; set; }
 
         /// <summary>
-        /// Флаг "Необходимость генерации извещения о получении".
+        /// Р¤Р»Р°Рі "РќРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ РіРµРЅРµСЂР°С†РёРё РёР·РІРµС‰РµРЅРёСЏ Рѕ РїРѕР»СѓС‡РµРЅРёРё".
         /// </summary>
         [DataMember(IsRequired = false)]
         public bool NoticeRequired { get; set; }
 
         /// <summary>
-        /// Итоговая стоимость документа, включая налоги, НДС и т.п.
+        /// РС‚РѕРіРѕРІР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ РґРѕРєСѓРјРµРЅС‚Р°, РІРєР»СЋС‡Р°СЏ РЅР°Р»РѕРіРё, РќР”РЎ Рё С‚.Рї.
         /// </summary>
         [DataMember(IsRequired = false)]
         public decimal? Sum { get; set; }
 
         /// <summary>
-        /// Номер документа, указанный пользователем.
+        /// РќРѕРјРµСЂ РґРѕРєСѓРјРµРЅС‚Р°, СѓРєР°Р·Р°РЅРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј.
         /// </summary>
         [DataMember(IsRequired = false)]
         public string Number { get; set; }
 
         /// <summary>
-        /// Дата документа, указанная пользователем.
+        /// Р”Р°С‚Р° РґРѕРєСѓРјРµРЅС‚Р°, СѓРєР°Р·Р°РЅРЅР°СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј.
         /// </summary>
         [DataMember(IsRequired = false)]
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// Флаг "Необходимость подтверждения факта приема документа".
+        /// Р¤Р»Р°Рі "РќРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ С„Р°РєС‚Р° РїСЂРёРµРјР° РґРѕРєСѓРјРµРЅС‚Р°".
         /// </summary>
         [DataMember]
         public bool NeedReceipt { get; set; }
 
         /// <summary>
-        /// Дата отправки.
+        /// Р”Р°С‚Р° РѕС‚РїСЂР°РІРєРё.
         /// </summary>
         [DataMember(IsRequired = false)]
         public DateTime? SentDate { get; set; }
 
         /// <summary>
-        /// Ящик отправителя.
+        /// РЇС‰РёРє РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string FromBoxId { get; set; }
 
         /// <summary>
-        /// Признак того, что документ будет отправлен только участникам документооборота.
+        /// РџСЂРёР·РЅР°Рє С‚РѕРіРѕ, С‡С‚Рѕ РґРѕРєСѓРјРµРЅС‚ Р±СѓРґРµС‚ РѕС‚РїСЂР°РІР»РµРЅ С‚РѕР»СЊРєРѕ СѓС‡Р°СЃС‚РЅРёРєР°Рј РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р°.
         /// </summary>
         [DataMember]
         public bool? SendOnlyToDocumentFlowParticipants { get; set; }
 
         /// <summary>
-        /// Участники документооборота.
+        /// РЈС‡Р°СЃС‚РЅРёРєРё РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р°.
         /// </summary>
         [DataMember]
         public DocumentFlowParticipantShortInfo[] DocumentFlowParticipants { get; set; }

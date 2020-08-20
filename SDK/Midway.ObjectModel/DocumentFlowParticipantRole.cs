@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -49,6 +49,13 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Наблюдатель")]
-        Observer = 5
+        Observer = 5,
+
+        /// <summary>
+        /// Экспедитор.
+        /// </summary>
+        [EnumMember]
+        [Description("Экспедитор")]
+        Expeditor = 6,
     }
 }

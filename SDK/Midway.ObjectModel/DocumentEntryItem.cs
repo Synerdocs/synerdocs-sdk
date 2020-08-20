@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -35,14 +35,14 @@ namespace Midway.ObjectModel
         /// Тип документа.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
         public DocumentType DocumentType { get; set; }
 
         /// <summary>
         /// Тип документа в виде EnumValue.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
         public EnumValue DocumentTypeEnum { get; set; }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace Midway.ObjectModel
         /// Тип неформализованного документа.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(DocumentTypeInfo) + "'.")]
+        [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
         public string UntypedKind { get; set; }
 
         /// <summary>
@@ -194,7 +194,7 @@ namespace Midway.ObjectModel
         /// Теги согласования документа.
         /// </summary>
         [DataMember]
-        [Obsolete("Используйте свойство '" + nameof(DocumentTags) + "'.")]
+        [Obsolete("Используйте '" + nameof(DocumentTags) + "'.")]
         public DocumentTag[] Tags { get; set; }
 
         /// <summary>

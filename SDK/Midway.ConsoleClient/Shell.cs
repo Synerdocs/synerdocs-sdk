@@ -2635,6 +2635,7 @@ namespace Midway.ConsoleClient
                                     DocumentType.TransportWaybillCarrierTitle,
                                     DocumentType.TransportWaybillDeliveryPlaceChangeTitle,
                                     DocumentType.TransportWaybillDriverOrVehicleChangeTitle,
+                                    DocumentType.TransportWaybillExpeditorTitle,
                                 })
                             .Data;
                         if (UserInput.ChooseYesNo("Сгенерировать ответный титул транспортной накладной?"))
@@ -2691,8 +2692,8 @@ namespace Midway.ConsoleClient
                                             })
                                         .GeneratedContent.NamedContent;
                                     break;
-                                case DocumentType.TransportWaybillDeliveryPlaceChangeTitle:
 
+                                case DocumentType.TransportWaybillDeliveryPlaceChangeTitle:
                                     var titleSenderType = (TransportWaybillInterchangeParticipantType)UserInput
                                         .ChooseOption(
                                             "Выберите тип отправителя титула изменения места доставки транспортной накладной",
@@ -2726,6 +2727,19 @@ namespace Midway.ConsoleClient
                                             new TransportWaybillDriverOrVehicleChangeTitleGeneratingRequest
                                             {
                                                 Model = CreateTransportWaybillDriverOrVehicleChangeTitle(),
+                                                Options = new TransportWaybillGenerationOptions(),
+                                                ParentDocumentId = parentId,
+                                            })
+                                        .GeneratedContent.NamedContent;
+                                    break;
+
+                                case DocumentType.TransportWaybillExpeditorTitle:
+                                    namedContent = _context.ServiceClient
+                                        .GenerateTransportWaybillExpeditorTitle(
+                                            GetCurrentCredentials(),
+                                            new TransportWaybillExpeditorTitleGeneratingRequest
+                                            {
+                                                Model = CreateTransportWaybillExpeditorTitle(),
                                                 Options = new TransportWaybillGenerationOptions(),
                                                 ParentDocumentId = parentId,
                                             })
@@ -3537,6 +3551,7 @@ namespace Midway.ConsoleClient
                 var elementCode = UserInput.ReadParameter("Введите код нового подразделения");
                 var elementKpp = UserInput.ReadParameter("Введите КПП нового подразделения");
                 var elementAdditionalInfo = UserInput.ReadParameter("Введите примечание");
+                var isHidden = UserInput.ReadParameter("Сделать подразделение скрытым? : (y/n)");
 
                 try
                 {
@@ -3552,7 +3567,9 @@ namespace Midway.ConsoleClient
                                                                                        _context.CurrentOrganizationId
                                                                                        .ToString(
                                                                                            CultureInfo.InvariantCulture),
-                            ParentId = selectedDepartment.Id
+                            ParentId = selectedDepartment.Id,
+
+                            IsHidden = isHidden.ToLower().Equals("y"),
                         });
                 }
                 catch (Exception ex)
@@ -5414,6 +5431,16 @@ namespace Midway.ConsoleClient
             new TransportWaybillDriverOrVehicleChangeTitle
             {
                 FormatVersion = EnumHelper.ToEnumValue(TransportWaybillDriverOrVehicleChangeTitleFormatVersion.V100),
+            };
+
+        /// <summary>
+        /// Создать модель титула экспедитора транспортной накладной.
+        /// </summary>
+        /// <returns>Модель титула экспедитора транспортной накладной.</returns>
+        private static TransportWaybillExpeditorTitle CreateTransportWaybillExpeditorTitle() =>
+            new TransportWaybillExpeditorTitle
+            {
+                FormatVersion = EnumHelper.ToEnumValue(TransportWaybillExpeditorTitleFormatVersion.V100),
             };
 
         /// <summary>

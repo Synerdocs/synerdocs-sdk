@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Сообщения, используется для отправки и чтения.
+    /// РЎРѕРѕР±С‰РµРЅРёСЏ, РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РѕС‚РїСЂР°РІРєРё Рё С‡С‚РµРЅРёСЏ.
     /// </summary>
     [DataContract]
     public class Message : IMessage
@@ -17,67 +17,67 @@ namespace Midway.ObjectModel
         }
 
         /// <summary>
-        /// Идентификатор сообщения. 
-        /// Не используется при отправке.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРѕРѕР±С‰РµРЅРёСЏ. 
+        /// РќРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ.
         /// </summary>
         [DataMember]
         public string Id { get; set; }
 
         /// <summary>
-        /// Ящик отправителя.
-        /// Используется при отправке.
+        /// РЇС‰РёРє РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
+        /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ.
         /// </summary>
         [DataMember]
         public string From { get; set; }
 
         /// <summary>
-        /// ИД подразделения отправителя.
+        /// РР” РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string FromDepartment { get; set; }
 
         /// <summary>
-        /// Ящик получателя.
-        /// Используется при отправке.
+        /// РЇС‰РёРє РїРѕР»СѓС‡Р°С‚РµР»СЏ.
+        /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ.
         /// </summary>
-        [Obsolete("Используйте свойство '" + nameof(Recipients) + "." + nameof(MessageRecipient.OrganizationBoxId) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(Recipients) + "'.")]
         [DataMember]
         public string To { get; set; }
 
         /// <summary>
-        /// ИД подразделения получателя.
+        /// РР” РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РїРѕР»СѓС‡Р°С‚РµР»СЏ.
         /// </summary>
-        [Obsolete("Используйте свойство '" + nameof(Recipients) + "." + nameof(MessageRecipient.DepartmentId) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(Recipients) + "'.")]
         [DataMember]
         public string ToDepartment { get; set; }
 
         /// <summary>
-        /// Получатели сообщения.
+        /// РџРѕР»СѓС‡Р°С‚РµР»Рё СЃРѕРѕР±С‰РµРЅРёСЏ.
         /// </summary>
         [DataMember]
         public MessageRecipient[] Recipients { get; set; }
 
         /// <summary>
-        /// Время приема сообщения.
-        /// не используется при отправке.
+        /// Р’СЂРµРјСЏ РїСЂРёРµРјР° СЃРѕРѕР±С‰РµРЅРёСЏ.
+        /// РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РѕС‚РїСЂР°РІРєРµ.
         /// </summary>
         [DataMember]
         public DateTime SentDate { get; set; }
 
         /// <summary>
-        /// Документы.
+        /// Р”РѕРєСѓРјРµРЅС‚С‹.
         /// </summary>
         [DataMember]
         public Document[] Documents {get;set;}
 
         /// <summary>
-        /// Усиленные подписи.
+        /// РЈСЃРёР»РµРЅРЅС‹Рµ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public Sign[] Signs { get; set; }
 
         /// <summary>
-        /// Простые подписи.
+        /// РџСЂРѕСЃС‚С‹Рµ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public SimpleSignature[] SimpleSignatures { get; set; }

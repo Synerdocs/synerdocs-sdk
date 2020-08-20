@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -7,7 +7,7 @@ namespace Midway.ObjectModel
     /// Тип документа в виде объекта перечисления
     /// </summary>
     [DataContract]
-    [Obsolete("Устарел, используйте класс '" + nameof(DocumentTypeInfo) + "'.")]
+    [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
     public class DocumentTypeEnum : EnumValue, IEnumValue
     {
         /// <summary>

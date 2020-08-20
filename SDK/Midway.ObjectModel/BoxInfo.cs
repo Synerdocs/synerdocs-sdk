@@ -4,68 +4,74 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация об абонентском ящике. Используется для получения списка ящиков для пользователя
+    /// РРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°Р±РѕРЅРµРЅС‚СЃРєРѕРј СЏС‰РёРєРµ. РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° СЏС‰РёРєРѕРІ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
     /// </summary>
     [DataContract]
     public class BoxInfo
     {
         /// <summary>
-        /// Абонентский ящик организации
+        /// РђР±РѕРЅРµРЅС‚СЃРєРёР№ СЏС‰РёРє РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Address { get; set; }
 
-        /// TODO: устарело
+        /// TODO: СѓСЃС‚Р°СЂРµР»Рѕ
         /// <summary>
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте поле Address для указания абонентского ящика")]
+        [Obsolete("РЈСЃС‚Р°СЂРµР»Рѕ, РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РїРѕР»Рµ Address РґР»СЏ СѓРєР°Р·Р°РЅРёСЏ Р°Р±РѕРЅРµРЅС‚СЃРєРѕРіРѕ СЏС‰РёРєР°.")]
         public string Name { get; set; }
 
         /// <summary>
-        /// ИД организации
+        /// Р’РЅСѓС‚СЂРµРЅРЅРёР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public int OrganizationId { get; set; }
 
         /// <summary>
-        /// Тип организации
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°Р±РѕРЅРµРЅС‚Р°.
+        /// </summary>
+        [DataMember]
+        public Guid SubscriberId { get; set; }
+
+        /// <summary>
+        /// РўРёРї РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public OrganizationType OrganizationType { get; set; }
 
         /// <summary>
-        /// Название организации
+        /// РќР°Р·РІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string OrganizationName { get; set; }
 
         /// <summary>
-        /// ИНН организации
+        /// РРќРќ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Inn { get; set; }
 
         /// <summary>
-        /// КПП организации
+        /// РљРџРџ РѕСЂРіР°РЅРёР·Р°С†РёРё.
         /// </summary>
         [DataMember]
         public string Kpp { get; set; }
 
         /// <summary>
-        /// Флаг принятия регламента ЭДО
+        /// Р¤Р»Р°Рі РїСЂРёРЅСЏС‚РёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° Р­Р”Рћ.
         /// </summary>
         [DataMember]
         public bool ServiceReglamentAccepted { get; set; }
 
         /// <summary>
-        /// Флаг принятия регламента ЭДО счетов-фактур
+        /// Р¤Р»Р°Рі РїСЂРёРЅСЏС‚РёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° Р­Р”Рћ СЃС‡РµС‚РѕРІ-С„Р°РєС‚СѓСЂ.
         /// </summary>
         [DataMember]
         public bool InvoiceReglamentAccepted { get; set; }
 
         /// <summary>
-        /// Флаг принятия пользователем регламента ЭДО счетами-фактурами
+        /// Р¤Р»Р°Рі РїСЂРёРЅСЏС‚РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј СЂРµРіР»Р°РјРµРЅС‚Р° Р­Р”Рћ СЃС‡РµС‚Р°РјРё-С„Р°РєС‚СѓСЂР°РјРё.
         /// </summary>
         [DataMember]
         public bool InvoiceUserReglamentAccepted { get; set; }

@@ -4,69 +4,69 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Служебный документ, подписанный усиленной ЭП.
+    /// РЎР»СѓР¶РµР±РЅС‹Р№ РґРѕРєСѓРјРµРЅС‚, РїРѕРґРїРёСЃР°РЅРЅС‹Р№ СѓСЃРёР»РµРЅРЅРѕР№ Р­Рџ.
     /// </summary>
     [DataContract]
     public class ServiceDocument : Document
     {
         /// <summary>
-        /// Идентификатор подписи.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public string SignId { get; set; }
 
         /// <summary>
-        /// Содержимое подписи.
+        /// РЎРѕРґРµСЂР¶РёРјРѕРµ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public byte[] SignRaw { get; set; }
 
         /// <summary>
-        /// Дата подписи.
+        /// Р”Р°С‚Р° РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public DateTime SignDate { get; set; }
 
         /// <summary>
-        /// Адрес абонентского ящика отправителя.
+        /// РђРґСЂРµСЃ Р°Р±РѕРЅРµРЅС‚СЃРєРѕРіРѕ СЏС‰РёРєР° РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string From { get; set; }
 
         /// <summary>
-        /// Идентификатор подразделения отправителя.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string FromDepartmentId { get; set; }
 
         /// <summary>
-        /// Адрес абонентского ящика получателя.
+        /// РђРґСЂРµСЃ Р°Р±РѕРЅРµРЅС‚СЃРєРѕРіРѕ СЏС‰РёРєР° РїРѕР»СѓС‡Р°С‚РµР»СЏ.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(Recipients) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(Recipients) + "'.")]
         public string To { get; set; }
 
         /// <summary>
-        /// Идентификатор подразделения получателя.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РїРѕР»СѓС‡Р°С‚РµР»СЏ.
         /// </summary>
         [DataMember]
-        [Obsolete("Устарело, используйте свойство '" + nameof(Recipients) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(Recipients) + "'.")]
         public string ToDepartmentId { get; set; }
 
         /// <summary>
-        /// Список получателей.
+        /// РЎРїРёСЃРѕРє РїРѕР»СѓС‡Р°С‚РµР»РµР№.
         /// </summary>
         [DataMember]
         public MessageRecipient[] Recipients { get; set; }
 
         /// <summary>
-        /// Штамп времени.
+        /// РЁС‚Р°РјРї РІСЂРµРјРµРЅРё.
         /// </summary>
         [DataMember]
         public DateTime TimeStamp { get; set; }
 
         /// <summary>
-        /// Флаг соответствия подписи документу.
+        /// Р¤Р»Р°Рі СЃРѕРѕС‚РІРµС‚СЃС‚РІРёСЏ РїРѕРґРїРёСЃРё РґРѕРєСѓРјРµРЅС‚Сѓ.
         /// </summary>
         [DataMember]
         public bool IsValidSign { get; set; }

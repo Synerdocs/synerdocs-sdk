@@ -113,5 +113,12 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Изменен водитель и/или ТС")]
         ChangedDriverOrVehicle = 15,
+
+        /// <summary>
+        /// Тег "Подписан экспедитором".
+        /// </summary>
+        [EnumMember]
+        [Description("Подписан экспедитором")]
+        SignedByExpeditor = 16,
     }
 }

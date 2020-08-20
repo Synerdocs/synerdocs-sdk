@@ -1,4 +1,4 @@
-﻿using System.Runtime.Serialization;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -37,6 +37,12 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string ConsigeeBoxId { get; set; }
+
+        /// <summary>
+        /// Ящик организации-экспедитора.
+        /// </summary>
+        [DataMember]
+        public string ExpeditorBoxId { get; set; }
 
         /// <summary>
         /// Тип участника-отправителя титула транспортной накладной.

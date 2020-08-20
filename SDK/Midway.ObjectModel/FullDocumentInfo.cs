@@ -5,163 +5,163 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Полная информация о документе.
-    /// Включает в себя подписи, статусы, служебные документы и связи.
+    /// РџРѕР»РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РґРѕРєСѓРјРµРЅС‚Рµ.
+    /// Р’РєР»СЋС‡Р°РµС‚ РІ СЃРµР±СЏ РїРѕРґРїРёСЃРё, СЃС‚Р°С‚СѓСЃС‹, СЃР»СѓР¶РµР±РЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹ Рё СЃРІСЏР·Рё.
     /// </summary>
     [DataContract]
     public class FullDocumentInfo
     {
         /// <summary>
-        /// Адрес абонентского ящика отправителя.
+        /// РђРґСЂРµСЃ Р°Р±РѕРЅРµРЅС‚СЃРєРѕРіРѕ СЏС‰РёРєР° РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string From { get; set; }
 
         /// <summary>
-        /// Идентификатор подразделения отправителя.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string FromDepartmentId { get; set; }
 
         /// <summary>
-        /// Название подразделения отправителя.
+        /// РќР°Р·РІР°РЅРёРµ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string FromDepartmentName { get; set; }
 
         /// <summary>
-        /// Название организации отправителя.
+        /// РќР°Р·РІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string FromOrganizationtName { get; set; }
 
         /// <summary>
-        /// Адрес абонентского ящика получателя.
+        /// РђРґСЂРµСЃ Р°Р±РѕРЅРµРЅС‚СЃРєРѕРіРѕ СЏС‰РёРєР° РїРѕР»СѓС‡Р°С‚РµР»СЏ.
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(Recipients) + "'.")]
         public string To { get; set; }
 
         /// <summary>
-        /// Идентификатор подразделения получателя.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РїРѕР»СѓС‡Р°С‚РµР»СЏ.
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(Recipients) + "'.")]
         public string ToDepartmentId { get; set; }
 
         /// <summary>
-        /// Список получателей документа со статусами.
+        /// РЎРїРёСЃРѕРє РїРѕР»СѓС‡Р°С‚РµР»РµР№ РґРѕРєСѓРјРµРЅС‚Р° СЃРѕ СЃС‚Р°С‚СѓСЃР°РјРё.
         /// </summary>
         [DataMember]
         public MessageRecipientWithStatus[] Recipients { get; set; }
 
         /// <summary>
-        /// Дата отправки.
+        /// Р”Р°С‚Р° РѕС‚РїСЂР°РІРєРё.
         /// </summary>
         [DataMember]
         public DateTime SentDate { get; set; }
 
         /// <summary>
-        /// Данные о документе.
+        /// Р”Р°РЅРЅС‹Рµ Рѕ РґРѕРєСѓРјРµРЅС‚Рµ.
         /// </summary>
         [DataMember]
         public Document Document { get; set; }
 
         /// <summary>
-        /// Усиленные подписи к документу.
+        /// РЈСЃРёР»РµРЅРЅС‹Рµ РїРѕРґРїРёСЃРё Рє РґРѕРєСѓРјРµРЅС‚Сѓ.
         /// </summary>
         [DataMember]
         public Sign[] Signs { get; set; }
 
         /// <summary>
-        /// Простые подписи к документу.
+        /// РџСЂРѕСЃС‚С‹Рµ РїРѕРґРїРёСЃРё Рє РґРѕРєСѓРјРµРЅС‚Сѓ.
         /// </summary>
         [DataMember]
         public SimpleSignature[] SimpleSignatures { get; set; }
 
         /// <summary>
-        /// Статус документооборота для текущего абонента.
+        /// РЎС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° РґР»СЏ С‚РµРєСѓС‰РµРіРѕ Р°Р±РѕРЅРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public DocumentFlowStatus Status { get; set; }
 
         /// <summary>
-        /// Общий статус по документу, отправленному нескольким контрагентам.
+        /// РћР±С‰РёР№ СЃС‚Р°С‚СѓСЃ РїРѕ РґРѕРєСѓРјРµРЅС‚Сѓ, РѕС‚РїСЂР°РІР»РµРЅРЅРѕРјСѓ РЅРµСЃРєРѕР»СЊРєРёРј РєРѕРЅС‚СЂР°РіРµРЅС‚Р°Рј.
         /// </summary>
         [DataMember]
         public UntypedDocumentMultiFlowStatus MultiStatus { get; set; }
 
         /// <summary>
-        /// Статус аннулирования документа.
+        /// РЎС‚Р°С‚СѓСЃ Р°РЅРЅСѓР»РёСЂРѕРІР°РЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public DocumentRevocationStatus RevocationStatus { get; set; }
 
         /// <summary>
-        /// Служебные документы, относящиеся к данному документу и подписанные усиленной ЭП.
+        /// РЎР»СѓР¶РµР±РЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹, РѕС‚РЅРѕСЃСЏС‰РёРµСЃСЏ Рє РґР°РЅРЅРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ Рё РїРѕРґРїРёСЃР°РЅРЅС‹Рµ СѓСЃРёР»РµРЅРЅРѕР№ Р­Рџ.
         /// </summary>
         [DataMember]
         public ServiceDocument[] ServiceDocuments { get; set; }
 
         /// <summary>
-        /// Служебные документы, относящиеся к данному документу и подписанные простой ЭП.
+        /// РЎР»СѓР¶РµР±РЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹, РѕС‚РЅРѕСЃСЏС‰РёРµСЃСЏ Рє РґР°РЅРЅРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ Рё РїРѕРґРїРёСЃР°РЅРЅС‹Рµ РїСЂРѕСЃС‚РѕР№ Р­Рџ.
         /// </summary>
         [DataMember]
         public ServiceDocumentWithSimpleSignature[] ServiceDocumentsWithSimpleSignatures { get; set; }
 
         /// <summary>
-        /// Связанные документы.
+        /// РЎРІСЏР·Р°РЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹.
         /// </summary>
         [DataMember]
         public Document[] RelatedDocuments { get; set; }
 
-        /// TODO для чего он здесь нужен, если эта информация должна уже содержаться в Docuemnt.Comment?
-        /// TODO нигде не используется УДАЛИТЬ.
+        /// TODO РґР»СЏ С‡РµРіРѕ РѕРЅ Р·РґРµСЃСЊ РЅСѓР¶РµРЅ, РµСЃР»Рё СЌС‚Р° РёРЅС„РѕСЂРјР°С†РёСЏ РґРѕР»Р¶РЅР° СѓР¶Рµ СЃРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РІ Docuemnt.Comment?
+        /// TODO РЅРёРіРґРµ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РЈР”РђР›РРўР¬.
         /// <summary>
-        /// Комментарий к документу.
+        /// РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє РґРѕРєСѓРјРµРЅС‚Сѓ.
         /// </summary>
         [DataMember]
         public string Comment { get; set; }
 
         /// <summary>
-        /// Идентификатор сообщения.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРѕРѕР±С‰РµРЅРёСЏ.
         /// </summary>
         [DataMember]
         public string MessageId { get; set; }
 
         /// <summary>
-        /// Количество связанных документов.
+        /// РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРІСЏР·Р°РЅРЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ.
         /// </summary>
         [DataMember(IsRequired = false)]
         public int CountRelatedDocuments { get; set; }
 
         /// <summary>
-        /// Доступные операции над документом в виде битовой маски.
+        /// Р”РѕСЃС‚СѓРїРЅС‹Рµ РѕРїРµСЂР°С†РёРё РЅР°Рґ РґРѕРєСѓРјРµРЅС‚РѕРј РІ РІРёРґРµ Р±РёС‚РѕРІРѕР№ РјР°СЃРєРё.
         /// </summary>
         [DataMember]
         public int AvailableOperations { get; set; }
 
         /// <summary>
-        /// Текстовое описание полного текущего статуса документооборота относительно абонента.
+        /// РўРµРєСЃС‚РѕРІРѕРµ РѕРїРёСЃР°РЅРёРµ РїРѕР»РЅРѕРіРѕ С‚РµРєСѓС‰РµРіРѕ СЃС‚Р°С‚СѓСЃР° РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ Р°Р±РѕРЅРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public DocumentFlowStatusDescription DocumentFlowStatusDescription { get; set; }
 
         /// <summary>
-        /// Теги согласования документа.
+        /// РўРµРіРё СЃРѕРіР»Р°СЃРѕРІР°РЅРёСЏ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
-        [Obsolete("Используйте свойство '" + nameof(DocumentTags) + "'.")]
+        [Obsolete("РСЃРїРѕР»СЊР·СѓР№С‚Рµ '" + nameof(DocumentTags) + "'.")]
         public DocumentTag[] Tags { get; set; }
 
         /// <summary>
-        /// Все теги документа.
+        /// Р’СЃРµ С‚РµРіРё РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public List<DocumentTag> DocumentTags { get; set; }
 
         /// <summary>
-        /// Список предложений об аннулировании.
+        /// РЎРїРёСЃРѕРє РїСЂРµРґР»РѕР¶РµРЅРёР№ РѕР± Р°РЅРЅСѓР»РёСЂРѕРІР°РЅРёРё.
         /// </summary>
         [DataMember]
         public FullDocumentInfo[] RevocationOffers { get; set; }
