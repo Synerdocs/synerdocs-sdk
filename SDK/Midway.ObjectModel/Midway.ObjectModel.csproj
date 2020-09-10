@@ -117,6 +117,9 @@
     <Compile Include="GeneralTransferSellerV2ParsingRequest.cs" />
     <Compile Include="GeneralTransferSellerV2ParsingResponse.cs" />
     <Compile Include="GeneralTransferTotalV2.cs" />
+    <Compile Include="DocumentGoodsMarkingStateRequest.cs" />
+    <Compile Include="DocumentGoodsMarkingStateResponse.cs" />
+    <Compile Include="GoodsMarkingState.cs" />
     <Compile Include="GoodsTransportWaybill\AdditionalOperation.cs" />
     <Compile Include="GoodsTransportWaybill\ConsigneeGoodsSection.cs" />
     <Compile Include="GoodsTransportWaybill\ConsigneeTransportSection.cs" />

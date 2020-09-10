@@ -1136,6 +1136,16 @@ namespace Midway.ServiceClient.Model {
         
         Midway.ObjectModel.AvailableDepartmentsResponse EndGetAvailableDepartments(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingState", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingStateResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
+        Midway.ObjectModel.DocumentGoodsMarkingStateResponse GetDocumentGoodsMarkingState(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentGoodsMarkingStateRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingState", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingStateResponse")]
+        System.IAsyncResult BeginGetDocumentGoodsMarkingState(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentGoodsMarkingStateRequest request, System.AsyncCallback callback, object asyncState);
+        
+        Midway.ObjectModel.DocumentGoodsMarkingStateResponse EndGetDocumentGoodsMarkingState(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
         string Authenticate(string login, string password, string applicationId);
         
@@ -3336,6 +3346,25 @@ namespace Midway.ServiceClient.Model {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetDocumentGoodsMarkingStateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetDocumentGoodsMarkingStateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Midway.ObjectModel.DocumentGoodsMarkingStateResponse Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Midway.ObjectModel.DocumentGoodsMarkingStateResponse)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class AuthenticateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -5191,6 +5220,12 @@ namespace Midway.ServiceClient.Model {
         
         private System.Threading.SendOrPostCallback onGetAvailableDepartmentsCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetDocumentGoodsMarkingStateDelegate;
+        
+        private EndOperationDelegate onEndGetDocumentGoodsMarkingStateDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetDocumentGoodsMarkingStateCompletedDelegate;
+        
         private BeginOperationDelegate onBeginAuthenticateDelegate;
         
         private EndOperationDelegate onEndAuthenticateDelegate;
@@ -5887,6 +5922,8 @@ namespace Midway.ServiceClient.Model {
         public event System.EventHandler<GenerateGoodsTransportWaybillCargoDeliveredTitleCompletedEventArgs> GenerateGoodsTransportWaybillCargoDeliveredTitleCompleted;
         
         public event System.EventHandler<GetAvailableDepartmentsCompletedEventArgs> GetAvailableDepartmentsCompleted;
+        
+        public event System.EventHandler<GetDocumentGoodsMarkingStateCompletedEventArgs> GetDocumentGoodsMarkingStateCompleted;
         
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
         
@@ -10464,6 +10501,58 @@ namespace Midway.ServiceClient.Model {
             base.InvokeAsync(this.onBeginGetAvailableDepartmentsDelegate, new object[] {
                         credentials,
                         request}, this.onEndGetAvailableDepartmentsDelegate, this.onGetAvailableDepartmentsCompletedDelegate, userState);
+        }
+        
+        public Midway.ObjectModel.DocumentGoodsMarkingStateResponse GetDocumentGoodsMarkingState(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentGoodsMarkingStateRequest request) {
+            return base.Channel.GetDocumentGoodsMarkingState(credentials, request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetDocumentGoodsMarkingState(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentGoodsMarkingStateRequest request, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetDocumentGoodsMarkingState(credentials, request, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Midway.ObjectModel.DocumentGoodsMarkingStateResponse EndGetDocumentGoodsMarkingState(System.IAsyncResult result) {
+            return base.Channel.EndGetDocumentGoodsMarkingState(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetDocumentGoodsMarkingState(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Midway.ObjectModel.EmployeeOperationCredentials credentials = ((Midway.ObjectModel.EmployeeOperationCredentials)(inValues[0]));
+            Midway.ObjectModel.DocumentGoodsMarkingStateRequest request = ((Midway.ObjectModel.DocumentGoodsMarkingStateRequest)(inValues[1]));
+            return this.BeginGetDocumentGoodsMarkingState(credentials, request, callback, asyncState);
+        }
+        
+        private object[] OnEndGetDocumentGoodsMarkingState(System.IAsyncResult result) {
+            Midway.ObjectModel.DocumentGoodsMarkingStateResponse retVal = this.EndGetDocumentGoodsMarkingState(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetDocumentGoodsMarkingStateCompleted(object state) {
+            if ((this.GetDocumentGoodsMarkingStateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetDocumentGoodsMarkingStateCompleted(this, new GetDocumentGoodsMarkingStateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetDocumentGoodsMarkingStateAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentGoodsMarkingStateRequest request) {
+            this.GetDocumentGoodsMarkingStateAsync(credentials, request, null);
+        }
+        
+        public void GetDocumentGoodsMarkingStateAsync(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentGoodsMarkingStateRequest request, object userState) {
+            if ((this.onBeginGetDocumentGoodsMarkingStateDelegate == null)) {
+                this.onBeginGetDocumentGoodsMarkingStateDelegate = new BeginOperationDelegate(this.OnBeginGetDocumentGoodsMarkingState);
+            }
+            if ((this.onEndGetDocumentGoodsMarkingStateDelegate == null)) {
+                this.onEndGetDocumentGoodsMarkingStateDelegate = new EndOperationDelegate(this.OnEndGetDocumentGoodsMarkingState);
+            }
+            if ((this.onGetDocumentGoodsMarkingStateCompletedDelegate == null)) {
+                this.onGetDocumentGoodsMarkingStateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDocumentGoodsMarkingStateCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetDocumentGoodsMarkingStateDelegate, new object[] {
+                        credentials,
+                        request}, this.onEndGetDocumentGoodsMarkingStateDelegate, this.onGetDocumentGoodsMarkingStateCompletedDelegate, userState);
         }
         
         public string Authenticate(string login, string password, string applicationId) {

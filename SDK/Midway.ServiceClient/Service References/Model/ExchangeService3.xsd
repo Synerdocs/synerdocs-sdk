@@ -5005,6 +5005,22 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="GoodsAcceptanceResultType" nillable="true" type="tns:GoodsAcceptanceResultType" />
+  <xs:complexType name="ArrayOfGoodsMarkingState">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GoodsMarkingState" type="tns:GoodsMarkingState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGoodsMarkingState" nillable="true" type="tns:ArrayOfGoodsMarkingState" />
+  <xs:simpleType name="GoodsMarkingState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Undefined" />
+      <xs:enumeration value="WaitingSend" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="Rejected" />
+      <xs:enumeration value="Accepted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GoodsMarkingState" nillable="true" type="tns:GoodsMarkingState" />
   <xs:complexType name="ArrayOfGoodsTransportWaybillStatus">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="GoodsTransportWaybillStatus" type="tns:GoodsTransportWaybillStatus" />
@@ -5672,6 +5688,32 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="TransportWaybillDeliveryPlaceChangeTitleFormatVersion" nillable="true" type="tns:TransportWaybillDeliveryPlaceChangeTitleFormatVersion" />
+  <xs:complexType name="ArrayOfTransportWaybillDriverOrVehicleChangeTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillDriverOrVehicleChangeTitleFormatVersion" type="tns:TransportWaybillDriverOrVehicleChangeTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillDriverOrVehicleChangeTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillDriverOrVehicleChangeTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillDriverOrVehicleChangeTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillDriverOrVehicleChangeTitleFormatVersion" nillable="true" type="tns:TransportWaybillDriverOrVehicleChangeTitleFormatVersion" />
+  <xs:complexType name="ArrayOfTransportWaybillExpeditorTitleFormatVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillExpeditorTitleFormatVersion" type="tns:TransportWaybillExpeditorTitleFormatVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransportWaybillExpeditorTitleFormatVersion" nillable="true" type="tns:ArrayOfTransportWaybillExpeditorTitleFormatVersion" />
+  <xs:simpleType name="TransportWaybillExpeditorTitleFormatVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="V100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransportWaybillExpeditorTitleFormatVersion" nillable="true" type="tns:TransportWaybillExpeditorTitleFormatVersion" />
   <xs:complexType name="ArrayOfTransportWaybillInterchangeParticipantType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportWaybillInterchangeParticipantType" type="tns:TransportWaybillInterchangeParticipantType" />
@@ -5967,6 +6009,27 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
+  <xs:complexType name="DocumentGoodsMarkingStateRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="DocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentGoodsMarkingStateRequest" nillable="true" type="tns:DocumentGoodsMarkingStateRequest" />
+  <xs:complexType name="DocumentGoodsMarkingStateResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OccurredAt" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="tns:EnumValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentGoodsMarkingStateResponse" nillable="true" type="tns:DocumentGoodsMarkingStateResponse" />
   <xs:complexType name="ArrayOfMessageInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
@@ -6867,6 +6930,7 @@
       <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromDepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromOrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoodsMarkingStateInfo" nillable="true" type="tns:GoodsMarkingState" />
       <xs:element minOccurs="0" name="HasRelatedDocuments" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MessageFrom" nillable="true" type="xs:string" />

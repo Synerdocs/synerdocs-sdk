@@ -76,6 +76,12 @@ namespace Midway.ObjectModel.Utility
 		public List<FundsType> FundsTypes { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Состояние товарной маркировки документа'.
+		/// </summary>
+		[DataMember]
+		public List<GoodsMarkingState> GoodsMarkingStates { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Статус товарно-транспортной накладной (ТТН)'.
 		/// </summary>
 		[DataMember]

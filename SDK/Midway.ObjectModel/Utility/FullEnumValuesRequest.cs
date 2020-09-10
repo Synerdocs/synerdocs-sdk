@@ -73,6 +73,12 @@ namespace Midway.ObjectModel.Utility
 		public bool WithFundsTypes { get; set; }
 
 		/// <summary>
+		/// <c>true</c>, если требуется получить значения перечисления типа 'Состояние товарной маркировки документа'; иначе - <c>false</c>.
+		/// </summary>
+		[DataMember]
+		public bool WithGoodsMarkingStates { get; set; }
+
+		/// <summary>
 		/// <c>true</c>, если требуется получить значения перечисления типа 'Статус товарно-транспортной накладной (ТТН)'; иначе - <c>false</c>.
 		/// </summary>
 		[DataMember]
