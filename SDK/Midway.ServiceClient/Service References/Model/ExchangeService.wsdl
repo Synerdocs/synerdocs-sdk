@@ -542,6 +542,12 @@
   <wsdl:message name="IExchangeService_GetAvailableDepartments_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAvailableDepartmentsResponse" />
   </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentGoodsMarkingState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentGoodsMarkingState" />
+  </wsdl:message>
+  <wsdl:message name="IExchangeService_GetDocumentGoodsMarkingState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentGoodsMarkingStateResponse" />
+  </wsdl:message>
   <wsdl:message name="IExchangeService_Authenticate_InputMessage">
     <wsdl:part name="parameters" element="tns:Authenticate" />
   </wsdl:message>
@@ -1388,6 +1394,10 @@
     <wsdl:operation name="GetAvailableDepartments">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartments" message="tns:IExchangeService_GetAvailableDepartments_InputMessage" />
       <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartmentsResponse" message="tns:IExchangeService_GetAvailableDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentGoodsMarkingState">
+      <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingState" message="tns:IExchangeService_GetDocumentGoodsMarkingState_InputMessage" />
+      <wsdl:output wsaw:Action="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingStateResponse" message="tns:IExchangeService_GetDocumentGoodsMarkingState_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://synerdocs.ru/IExchangeService/Authenticate" message="tns:IExchangeService_Authenticate_InputMessage" />
@@ -2481,6 +2491,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAvailableDepartments">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetAvailableDepartments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentGoodsMarkingState">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingState" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -4013,6 +4032,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDocumentGoodsMarkingState">
+      <soap:operation soapAction="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Authenticate">
       <soap:operation soapAction="http://synerdocs.ru/IExchangeService/Authenticate" style="document" />
       <wsdl:input>
@@ -4784,7 +4812,7 @@
       <soap:address location="http://localhost:5001/ExchangeService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBindingSecure_IExchangeService" binding="tns:BasicHttpBindingSecure_IExchangeService">
-      <soap:address location="https://w1036w10.comp.npo:5003/ExchangeService.svc" />
+      <soap:address location="https://w908w10.comp.npo:5003/ExchangeService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

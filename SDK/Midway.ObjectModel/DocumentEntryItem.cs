@@ -214,5 +214,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public List<DocumentFlowParticipantShortInfo> DocumentFlowParticipants{ get; set; }
+
+        /// <summary>
+        /// Информация о состоянии товарной маркировки документа.
+        /// </summary>
+        [DataMember]
+        public GoodsMarkingState? GoodsMarkingStateInfo { get; set; }
     }
 }

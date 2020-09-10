@@ -74,6 +74,12 @@ namespace Midway.ObjectModel.Utility
 		public List<EnumValue> FundsTypes { get; set; }
 
 		/// <summary>
+		/// Значения перечисления типа 'Состояние товарной маркировки документа'.
+		/// </summary>
+		[DataMember]
+		public List<EnumValue> GoodsMarkingStates { get; set; }
+
+		/// <summary>
 		/// Значения перечисления типа 'Статус товарно-транспортной накладной (ТТН)'.
 		/// </summary>
 		[DataMember]
