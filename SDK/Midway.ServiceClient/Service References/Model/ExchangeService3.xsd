@@ -6023,6 +6023,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationResponse">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OccurredAt" type="xs:dateTime" />
           <xs:element minOccurs="0" name="State" nillable="true" type="tns:EnumValue" />
         </xs:sequence>
@@ -6930,7 +6931,7 @@
       <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromDepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromOrganizationName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GoodsMarkingStateInfo" nillable="true" type="tns:GoodsMarkingState" />
+      <xs:element minOccurs="0" name="GoodsMarkingState" nillable="true" type="tns:EnumValue" />
       <xs:element minOccurs="0" name="HasRelatedDocuments" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MessageFrom" nillable="true" type="xs:string" />

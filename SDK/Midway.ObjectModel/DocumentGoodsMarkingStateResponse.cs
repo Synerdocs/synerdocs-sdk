@@ -11,7 +11,7 @@ namespace Midway.ObjectModel
     {
         /// <summary>
         /// Состояние кодов маркировки документа.
-        /// Соответствует перечислению <see cref="Midway.ObjectModel.GoodsMarking.GoodsMarkingState"/>
+        /// Соответствует перечислению <see cref="GoodsMarkingState"/>
         /// </summary>
         [DataMember]
         public EnumValue State { get; set; }
@@ -21,5 +21,11 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public DateTime OccurredAt { get; set; }
+
+        /// <summary>
+        /// Описание состояния товарной маркировки.
+        /// </summary>
+        [DataMember]
+        public string Description { get; set; }
     }
 }
