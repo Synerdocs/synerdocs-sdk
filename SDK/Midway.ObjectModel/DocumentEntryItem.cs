@@ -216,9 +216,10 @@ namespace Midway.ObjectModel
         public List<DocumentFlowParticipantShortInfo> DocumentFlowParticipants{ get; set; }
 
         /// <summary>
-        /// Информация о состоянии товарной маркировки документа.
+        /// Состояние товарной маркировки документа.
+        /// Соответствует перечислению <see cref="ObjectModel.GoodsMarkingState"/>
         /// </summary>
         [DataMember]
-        public GoodsMarkingState? GoodsMarkingStateInfo { get; set; }
+        public EnumValue GoodsMarkingState { get; set; }
     }
 }
