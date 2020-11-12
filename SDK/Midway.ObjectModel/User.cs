@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+using System;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -15,6 +16,12 @@ namespace Midway.ObjectModel
         {
             Certificate = new Certificate();
         }
+
+        /// <summary>
+        /// ИД.
+        /// </summary>
+        [DataMember]
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Логин.

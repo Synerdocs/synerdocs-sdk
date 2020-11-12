@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+using System;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -8,6 +9,12 @@ namespace Midway.ObjectModel
     [DataContract]
     public class UserInfo
     {
+        /// <summary>
+        /// ИД.
+        /// </summary>
+        [DataMember]
+        public Guid Id { get; set; }
+
         /// <summary>
         /// Логин.
         /// </summary>

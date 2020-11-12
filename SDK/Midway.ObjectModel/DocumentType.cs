@@ -269,6 +269,20 @@ namespace Midway.ObjectModel
         TransportWaybillExpeditorTitle = 37,
 
         /// <summary>
+        /// Акт о расхождениях (титул покупателя).
+        /// </summary>
+        [EnumMember]
+        [Description("Акт о расхождениях (титул покупателя)")]
+        ActOfVarianceBuyer = 38,
+
+        /// <summary>
+        /// Акт о расхождениях (титул продавца).
+        /// </summary>
+        [EnumMember]
+        [Description("Акт о расхождениях (титул продавца)")]
+        ActOfVarianceSeller = 39,
+
+        /// <summary>
         /// Товарно-транспортная накладная (титул грузоотправителя).
         /// </summary>
         [EnumMember]

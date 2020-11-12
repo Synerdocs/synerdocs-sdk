@@ -339,6 +339,20 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="ActOfVarianceBuyer">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">38</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ActOfVarianceSeller">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">39</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="GoodsTransportWaybillConsignorTitle">
         <xs:annotation>
           <xs:appinfo>
@@ -2801,6 +2815,7 @@
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
@@ -6023,6 +6038,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationResponse">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OccurredAt" type="xs:dateTime" />
           <xs:element minOccurs="0" name="State" nillable="true" type="tns:EnumValue" />
         </xs:sequence>
@@ -6797,6 +6813,7 @@
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Icq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="InvoiceReglamentAccepted" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
@@ -6930,7 +6947,7 @@
       <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromDepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FromOrganizationName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GoodsMarkingStateInfo" nillable="true" type="tns:GoodsMarkingState" />
+      <xs:element minOccurs="0" name="GoodsMarkingState" nillable="true" type="tns:EnumValue" />
       <xs:element minOccurs="0" name="HasRelatedDocuments" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MessageFrom" nillable="true" type="xs:string" />
