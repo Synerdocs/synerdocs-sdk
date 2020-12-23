@@ -7,10 +7,10 @@ namespace Midway.ObjectModel.Extensions
     public static class DocumentTypeExtensions
     {
         /// <summary>
-        /// Является ли тип документа служебным.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° СЃР»СѓР¶РµР±РЅС‹Рј.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является служебным.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ СЃР»СѓР¶РµР±РЅС‹Рј.</returns>
         public static bool IsService(this DocumentType documentType)
             => !(documentType == DocumentType.Untyped
                 || documentType == DocumentType.RevocationOffer
@@ -19,10 +19,10 @@ namespace Midway.ObjectModel.Extensions
                 || documentType.IsEdiDocument());
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом СФ.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° С‚РµРј РёР»Рё РёРЅС‹Рј РІРёРґРѕРј РЎР¤.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является видом СФ.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РІРёРґРѕРј РЎР¤.</returns>
         public static bool IsInvoice(this DocumentType documentType)
             => documentType == DocumentType.Invoice
                 || documentType == DocumentType.InvoiceCorrection
@@ -30,39 +30,39 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом корректировочного СФ.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° С‚РµРј РёР»Рё РёРЅС‹Рј РІРёРґРѕРј РєРѕСЂСЂРµРєС‚РёСЂРѕРІРѕС‡РЅРѕРіРѕ РЎР¤.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является видом корректировочного СФ.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РІРёРґРѕРј РєРѕСЂСЂРµРєС‚РёСЂРѕРІРѕС‡РЅРѕРіРѕ РЎР¤.</returns>
         public static bool IsCorrectionInvoice(this DocumentType documentType)
             => documentType == DocumentType.InvoiceCorrection
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом исправленного СФ.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° С‚РµРј РёР»Рё РёРЅС‹Рј РІРёРґРѕРј РёСЃРїСЂР°РІР»РµРЅРЅРѕРіРѕ РЎР¤.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является видом исправленного СФ.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РІРёРґРѕРј РёСЃРїСЂР°РІР»РµРЅРЅРѕРіРѕ РЎР¤.</returns>
         public static bool IsRevisionInvoice(this DocumentType documentType)
             => documentType == DocumentType.InvoiceRevision
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли тип документа тем или иным видом корректировочного или исправленного СФ.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° С‚РµРј РёР»Рё РёРЅС‹Рј РІРёРґРѕРј РєРѕСЂСЂРµРєС‚РёСЂРѕРІРѕС‡РЅРѕРіРѕ РёР»Рё РёСЃРїСЂР°РІР»РµРЅРЅРѕРіРѕ РЎР¤.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является видом корректировочного или исправленного СФ.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РІРёРґРѕРј РєРѕСЂСЂРµРєС‚РёСЂРѕРІРѕС‡РЅРѕРіРѕ РёР»Рё РёСЃРїСЂР°РІР»РµРЅРЅРѕРіРѕ РЎР¤.</returns>
         public static bool IsCorrectionOrRevision(this DocumentType documentType)
             => documentType == DocumentType.InvoiceCorrection
                 || documentType == DocumentType.InvoiceRevision
                 || documentType == DocumentType.InvoiceCorrectionRevision;
 
         /// <summary>
-        /// Является ли документ приложением к другому документу.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РїСЂРёР»РѕР¶РµРЅРёРµРј Рє РґСЂСѓРіРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <param name="untypedKind">Вид неформализованного документа.</param>
-        /// <returns><c>true</c>, если документ является приложениемк другому документу.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <param name="untypedKind">Р’РёРґ РЅРµС„РѕСЂРјР°Р»РёР·РѕРІР°РЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёР»РѕР¶РµРЅРёРµРјРє РґСЂСѓРіРѕРјСѓ РґРѕРєСѓРјРµРЅС‚Сѓ.</returns>
         public static bool IsChild(this DocumentType documentType, string untypedKind = null)
             => documentType.IsService()
                 || documentType.IsCorrectionOrRevision()
@@ -71,10 +71,10 @@ namespace Midway.ObjectModel.Extensions
                 || (documentType == DocumentType.RevocationOffer);
 
         /// <summary>
-        /// Является ли документ неформализованным.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РЅРµС„РѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рј.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ неформализованный.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ РЅРµС„РѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Р№.</returns>
         public static bool IsUntyped(this DocumentType documentType)
             => documentType == DocumentType.Untyped
                 || documentType == DocumentType.WaybillSeller
@@ -83,36 +83,36 @@ namespace Midway.ObjectModel.Extensions
                 || documentType.IsGoodsTransferSeller();
 
         /// <summary>
-        /// Является ли документ формализованным.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С„РѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рј.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ формализованный.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ С„РѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Р№.</returns>
         public static bool IsFormalized(this DocumentType documentType)
             => !documentType.IsService() && documentType != DocumentType.Untyped;
 
         /// <summary>
-        /// Является ли документ Заявлением об участии в ЭДО СФ.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ Р—Р°СЏРІР»РµРЅРёРµРј РѕР± СѓС‡Р°СЃС‚РёРё РІ Р­Р”Рћ РЎР¤.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <param name="untypedKind">Вид нетипизированного документа.</param>
-        /// <returns><c>true</c>, если документ является заявлением об участии в ЭДО СФ.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <param name="untypedKind">Р’РёРґ РЅРµС‚РёРїРёР·РёСЂРѕРІР°РЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ Р·Р°СЏРІР»РµРЅРёРµРј РѕР± СѓС‡Р°СЃС‚РёРё РІ Р­Р”Рћ РЎР¤.</returns>
         public static bool IsStatementOfInvoiceReglament(this DocumentType documentType, string untypedKind)
             => documentType == DocumentType.Untyped 
                 && untypedKind == UntypedKind.StatementOfInvoiceReglament;
 
         /// <summary>
-        /// Проверить, является ли документ подписью.
+        /// РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РїРѕРґРїРёСЃСЊСЋ.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является подписью.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РїРѕРґРїРёСЃСЊСЋ.</returns>
         public static bool IsSign(this DocumentType documentType)
             => IsReplyTitle(documentType);
 
         /// <summary>
-        /// Является ли документ тем или иным видом титула продавца.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РµРј РёР»Рё РёРЅС‹Рј РІРёРґРѕРј С‚РёС‚СѓР»Р° РїСЂРѕРґР°РІС†Р°.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїСЂРѕРґР°РІС†Р°.</returns>
         public static bool IsSellerTitle(this DocumentType documentType)
             => documentType.IsGeneralTransferSeller()
                 || documentType.IsGoodsTransferSeller()
@@ -121,10 +121,10 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.ActOfWorkSeller;
 
         /// <summary>
-        /// Является ли документ тем или иным видом титула покупателя
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РµРј РёР»Рё РёРЅС‹Рј РІРёРґРѕРј С‚РёС‚СѓР»Р° РїРѕРєСѓРїР°С‚РµР»СЏ
         /// </summary>
-        /// <param name="documentType">Тип документа</param>
-        /// <returns><c>true</c>, если документ является титулом покупателя</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїРѕРєСѓРїР°С‚РµР»СЏ</returns>
         public static bool IsBuyerTitle(this DocumentType documentType)
             => documentType.IsGeneralTransferBuyer()
                 || documentType == DocumentType.GoodsTransferBuyer
@@ -142,17 +142,17 @@ namespace Midway.ObjectModel.Extensions
             => Enum.GetValues(typeof(DocumentType)).Cast<DocumentType>();
 
         /// <summary>
-        /// Является ли документ УПД или УКД.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РЈРџР” РёР»Рё РЈРљР”.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является УПД или УКД.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РЈРџР” РёР»Рё РЈРљР”.</returns>
         public static bool IsGeneralTransfer(this DocumentType documentType)
             => documentType.IsGeneralTransferSeller()
                 || documentType.IsGeneralTransferBuyer();
 
         /// <summary>
-        /// Проверка: является ли документ исправлением документа о передаче товара,
-        /// результатов работ (об оказании услуг), УПД, УКД.
+        /// РџСЂРѕРІРµСЂРєР°: СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РёСЃРїСЂР°РІР»РµРЅРёРµРј РґРѕРєСѓРјРµРЅС‚Р° Рѕ РїРµСЂРµРґР°С‡Рµ С‚РѕРІР°СЂР°,
+        /// СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ СЂР°Р±РѕС‚ (РѕР± РѕРєР°Р·Р°РЅРёРё СѓСЃР»СѓРі), РЈРџР”, РЈРљР”.
         /// </summary>
         /// <returns></returns>
         public static bool IsTransferDocumentRevision(this DocumentType documentType)
@@ -161,29 +161,29 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.GoodsTransferRevisionSeller;
 
         /// <summary>
-        /// Является ли документ исправленным УПД или УКД.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РёСЃРїСЂР°РІР»РµРЅРЅС‹Рј РЈРџР” РёР»Рё РЈРљР”.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїСЂРѕРґР°РІС†Р°.</returns>
         public static bool IsGeneralTransferRevision(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferRevisionSeller
                 || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
 
         /// <summary>
-        /// Есть ли возможность выбора требования ответной подписи.
+        /// Р•СЃС‚СЊ Р»Рё РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹Р±РѕСЂР° С‚СЂРµР±РѕРІР°РЅРёСЏ РѕС‚РІРµС‚РЅРѕР№ РїРѕРґРїРёСЃРё.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если есть возможность выбора требования ответной подписи.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РµСЃС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹Р±РѕСЂР° С‚СЂРµР±РѕРІР°РЅРёСЏ РѕС‚РІРµС‚РЅРѕР№ РїРѕРґРїРёСЃРё.</returns>
         public static bool IsNeedSignOptional(this DocumentType documentType)
             => documentType == DocumentType.Untyped
                 || documentType.IsWorksTransferSeller()
                 || documentType.IsGeneralTransferSeller();
 
         /// <summary>
-        /// Является ли документ EDI-документом.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ EDI-РґРѕРєСѓРјРµРЅС‚РѕРј.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является EDI-документом.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ EDI-РґРѕРєСѓРјРµРЅС‚РѕРј.</returns>
         public static bool IsEdiDocument(this DocumentType documentType)
             => documentType == DocumentType.EdiGeneral
                 || documentType == DocumentType.EdiOrders
@@ -192,95 +192,95 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.EdiRecadv;
 
         /// <summary>
-        /// Относится ли тип документа к служебным документам для СФ/УПД.
+        /// РћС‚РЅРѕСЃРёС‚СЃСЏ Р»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° Рє СЃР»СѓР¶РµР±РЅС‹Рј РґРѕРєСѓРјРµРЅС‚Р°Рј РґР»СЏ РЎР¤/РЈРџР”.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если тип документа относится к служебным документам для СФ/УПД.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РЅРѕСЃРёС‚СЃСЏ Рє СЃР»СѓР¶РµР±РЅС‹Рј РґРѕРєСѓРјРµРЅС‚Р°Рј РґР»СЏ РЎР¤/РЈРџР”.</returns>
         public static bool IsInvoiceServiceDocument(this DocumentType documentType)
             => documentType == DocumentType.ServiceInvoiceConfirmation
                 || documentType == DocumentType.ServiceInvoiceReceipt
                 || documentType == DocumentType.ServiceInvoiceAmendmentRequest;
 
         /// <summary>
-        /// Относится ли тип документа к регламенту СФ/УПД.
+        /// РћС‚РЅРѕСЃРёС‚СЃСЏ Р»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° Рє СЂРµРіР»Р°РјРµРЅС‚Сѓ РЎР¤/РЈРџР”.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если тип документа относится к регламенту СФ/УПД.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° РѕС‚РЅРѕСЃРёС‚СЃСЏ Рє СЂРµРіР»Р°РјРµРЅС‚Сѓ РЎР¤/РЈРџР”.</returns>
         public static bool IsInvoiceRegulationDocument(this DocumentType documentType)
             => documentType.IsInvoice()
                 || documentType.IsGeneralTransfer()
                 || documentType.IsInvoiceServiceDocument();
 
         /// <summary>
-        /// Является ли документ титулом продавца документа о передаче товара.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РёС‚СѓР»РѕРј РїСЂРѕРґР°РІС†Р° РґРѕРєСѓРјРµРЅС‚Р° Рѕ РїРµСЂРµРґР°С‡Рµ С‚РѕРІР°СЂР°.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїСЂРѕРґР°РІС†Р°.</returns>
         public static bool IsGoodsTransferSeller(this DocumentType documentType)
             => documentType == DocumentType.GoodsTransferSeller
                 || documentType == DocumentType.GoodsTransferRevisionSeller;
 
         /// <summary>
-        /// Является ли документ титулом исполнителя документа о передаче результатов работ (об оказании услуг).
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РёС‚СѓР»РѕРј РёСЃРїРѕР»РЅРёС‚РµР»СЏ РґРѕРєСѓРјРµРЅС‚Р° Рѕ РїРµСЂРµРґР°С‡Рµ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ СЂР°Р±РѕС‚ (РѕР± РѕРєР°Р·Р°РЅРёРё СѓСЃР»СѓРі).
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом исполнителя.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РёСЃРїРѕР»РЅРёС‚РµР»СЏ.</returns>
         public static bool IsWorksTransferSeller(this DocumentType documentType)
             => documentType == DocumentType.WorksTransferSeller
                 || documentType == DocumentType.WorksTransferRevisionSeller;
 
         /// <summary>
-        /// Является ли документ титулом продавца универсального передаточного документа.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РёС‚СѓР»РѕРј РїСЂРѕРґР°РІС†Р° СѓРЅРёРІРµСЂСЃР°Р»СЊРЅРѕРіРѕ РїРµСЂРµРґР°С‚РѕС‡РЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїСЂРѕРґР°РІС†Р°.</returns>
         public static bool IsGeneralTransferSeller(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferSeller
                 || documentType == DocumentType.GeneralTransferRevisionSeller
                 || documentType.IsGeneralTransferCorrectionSeller();
 
         /// <summary>
-        /// Является ли документ универсальным корректировочным документом.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Рј РєРѕСЂСЂРµРєС‚РёСЂРѕРІРѕС‡РЅС‹Рј РґРѕРєСѓРјРµРЅС‚РѕРј.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом продавца.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїСЂРѕРґР°РІС†Р°.</returns>
         public static bool IsGeneralTransferCorrectionSeller(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferCorrectionSeller
                 || documentType == DocumentType.GeneralTransferCorrectionRevisionSeller;
 
         /// <summary>
-        /// Является ли документ титулом покупателя универсального передаточного документа.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РёС‚СѓР»РѕРј РїРѕРєСѓРїР°С‚РµР»СЏ СѓРЅРёРІРµСЂСЃР°Р»СЊРЅРѕРіРѕ РїРµСЂРµРґР°С‚РѕС‡РЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом покупателя.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїРѕРєСѓРїР°С‚РµР»СЏ.</returns>
         public static bool IsGeneralTransferBuyer(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferBuyer
                 || documentType == DocumentType.GeneralTransferCorrectionBuyer;
 
         /// <summary>
-        /// Является ли документ титулом покупателя универсального передаточного документа.
+        /// РЇРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РёС‚СѓР»РѕРј РїРѕРєСѓРїР°С‚РµР»СЏ СѓРЅРёРІРµСЂСЃР°Р»СЊРЅРѕРіРѕ РїРµСЂРµРґР°С‚РѕС‡РЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
-        /// <returns><c>true</c>, если документ является титулом покупателя.</returns>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
+        /// <returns><c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РїРѕРєСѓРїР°С‚РµР»СЏ.</returns>
         public static bool IsGeneralTransferCorrectionBuyer(this DocumentType documentType)
             => documentType == DocumentType.GeneralTransferCorrectionBuyer;
 
         /// <summary>
-        /// Проверить, является ли документ титулом грузоотправителя транспортной накладной.
+        /// РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РёС‚СѓР»РѕРј РіСЂСѓР·РѕРѕС‚РїСЂР°РІРёС‚РµР»СЏ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
         /// <returns>
-        /// <c>true</c>, если документ является титулом грузоотправителя транспортной накладной.
+        /// <c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РіСЂСѓР·РѕРѕС‚РїСЂР°РІРёС‚РµР»СЏ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </returns>
         public static bool IsTransportWaybillConsignorTitle(this DocumentType documentType)
             => documentType == DocumentType.TransportWaybillConsignorTitle;
 
         /// <summary>
-        /// Проверить, является ли документ ответным титулом транспортной накладной.
+        /// РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РѕС‚РІРµС‚РЅС‹Рј С‚РёС‚СѓР»РѕРј С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
         /// <returns>
-        /// <c>true</c>, если документ является ответным титулом транспортной накладной.
+        /// <c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РѕС‚РІРµС‚РЅС‹Рј С‚РёС‚СѓР»РѕРј С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </returns>
         public static bool IsTransportWaybillReplyTitle(this DocumentType documentType)
             => documentType == DocumentType.TransportWaybillCargoReceivedTitle
@@ -289,11 +289,11 @@ namespace Midway.ObjectModel.Extensions
                 || documentType == DocumentType.TransportWaybillCarrierTitle;
 
         /// <summary>
-        /// Проверить, является ли документ тем или иным корневым титулом.
+        /// РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РµРј РёР»Рё РёРЅС‹Рј РєРѕСЂРЅРµРІС‹Рј С‚РёС‚СѓР»РѕРј.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
         /// <returns>
-        /// <c>true</c>, если документ является тем или иным корневым титулом.
+        /// <c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РµРј РёР»Рё РёРЅС‹Рј РєРѕСЂРЅРµРІС‹Рј С‚РёС‚СѓР»РѕРј.
         /// </returns>
         public static bool IsRootTitle(this DocumentType documentType)
             => documentType.IsSellerTitle()
@@ -301,11 +301,11 @@ namespace Midway.ObjectModel.Extensions
                 || documentType.IsGoodsTransportWaybillConsignorTitle();
 
         /// <summary>
-        /// Проверить, является ли документ тем или иным ответным титулом.
+        /// РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РµРј РёР»Рё РёРЅС‹Рј РѕС‚РІРµС‚РЅС‹Рј С‚РёС‚СѓР»РѕРј.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
         /// <returns>
-        /// <c>true</c>, если документ является тем или иным ответным титулом.
+        /// <c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РµРј РёР»Рё РёРЅС‹Рј РѕС‚РІРµС‚РЅС‹Рј С‚РёС‚СѓР»РѕРј.
         /// </returns>
         public static bool IsReplyTitle(this DocumentType documentType)
             => documentType.IsBuyerTitle()
@@ -313,21 +313,21 @@ namespace Midway.ObjectModel.Extensions
                 || documentType.IsGoodsTransportWaybillReplyTitle();
 
         /// <summary>
-        /// Проверить, является ли документ титулом грузоотправителя товарно-транспортной накладной.
+        /// РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ С‚РёС‚СѓР»РѕРј РіСЂСѓР·РѕРѕС‚РїСЂР°РІРёС‚РµР»СЏ С‚РѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
         /// <returns>
-        /// <c>true</c>, если документ является титулом грузоотправителя товарно-транспортной накладной.
+        /// <c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ С‚РёС‚СѓР»РѕРј РіСЂСѓР·РѕРѕС‚РїСЂР°РІРёС‚РµР»СЏ С‚РѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </returns>
         public static bool IsGoodsTransportWaybillConsignorTitle(this DocumentType documentType)
             => documentType == DocumentType.GoodsTransportWaybillConsignorTitle;
 
         /// <summary>
-        /// Проверить, является ли документ ответным титулом товарно-транспортной накладной.
+        /// РџСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґРѕРєСѓРјРµРЅС‚ РѕС‚РІРµС‚РЅС‹Рј С‚РёС‚СѓР»РѕРј С‚РѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </summary>
-        /// <param name="documentType">Тип документа.</param>
+        /// <param name="documentType">РўРёРї РґРѕРєСѓРјРµРЅС‚Р°.</param>
         /// <returns>
-        /// <c>true</c>, если документ является ответным титулом товарно-транспортной накладной.
+        /// <c>true</c>, РµСЃР»Рё РґРѕРєСѓРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РѕС‚РІРµС‚РЅС‹Рј С‚РёС‚СѓР»РѕРј С‚РѕРІР°СЂРЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РЅР°РєР»Р°РґРЅРѕР№.
         /// </returns>
         public static bool IsGoodsTransportWaybillReplyTitle(this DocumentType documentType)
             => documentType == DocumentType.GoodsTransportWaybillCargoReceivedTitle

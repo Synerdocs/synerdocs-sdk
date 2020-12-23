@@ -4,91 +4,91 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация по сертификату
+    /// РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ СЃРµСЂС‚РёС„РёРєР°С‚Сѓ
     /// </summary>
     [DataContract]
     public class Certificate
     {
         /// <summary>
-        /// Идентификатор
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ
         /// </summary>
         [DataMember]
         public int CertificateId { get; set; }
 
         /// <summary>
-        /// Признак "Квалифицированный сертификат"
+        /// РџСЂРёР·РЅР°Рє "РљРІР°Р»РёС„РёС†РёСЂРѕРІР°РЅРЅС‹Р№ СЃРµСЂС‚РёС„РёРєР°С‚"
         /// </summary>
         [DataMember]
         public bool QualifiedCertificate { get; set; }
 
         /// <summary>
-        /// Серийный номер
+        /// РЎРµСЂРёР№РЅС‹Р№ РЅРѕРјРµСЂ
         /// </summary>
         [DataMember]
         public string SerialNumber { get; set; }
 
         /// <summary>
-        /// Начало срока действия сертификата
+        /// РќР°С‡Р°Р»Рѕ СЃСЂРѕРєР° РґРµР№СЃС‚РІРёСЏ СЃРµСЂС‚РёС„РёРєР°С‚Р°
         /// </summary>
         [DataMember]
         public DateTime StartDate { get; set; }
         
         /// <summary>
-        /// Конец срока действия сертификата
+        /// РљРѕРЅРµС† СЃСЂРѕРєР° РґРµР№СЃС‚РІРёСЏ СЃРµСЂС‚РёС„РёРєР°С‚Р°
         /// </summary>
         [DataMember]
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
-        /// Открытый ключ
+        /// РћС‚РєСЂС‹С‚С‹Р№ РєР»СЋС‡
         /// </summary>
         [DataMember]
         public byte[] PublicKey { get; set; }
 
         /// <summary>
-        /// Издатель
+        /// РР·РґР°С‚РµР»СЊ
         /// </summary>
         [DataMember]
         public string IssuerName { get; set; }
         
         /// <summary>
-        /// Алгоритм подписи
+        /// РђР»РіРѕСЂРёС‚Рј РїРѕРґРїРёСЃРё
         /// </summary>
         [DataMember]
         public string SignatureAlgorithm { get; set; }
         
         /// <summary>
-        /// Владелец
+        /// Р’Р»Р°РґРµР»РµС†
         /// </summary>
         [DataMember]
         public string LegalPerson { get; set; }
 
         /// <summary>
-        /// Контент
+        /// РљРѕРЅС‚РµРЅС‚
         /// </summary>
         [DataMember]
         public byte[] Raw { get; set; }
         
         /// <summary>
-        /// Отпечаток сертификата
+        /// РћС‚РїРµС‡Р°С‚РѕРє СЃРµСЂС‚РёС„РёРєР°С‚Р°
         /// </summary>
         [DataMember]
         public string Thumbprint { get; set; }
 
         /// <summary>
-        /// Логин пользователя
+        /// Р›РѕРіРёРЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         /// </summary>
         [DataMember]
         public string Login { get; set; }
 
         /// <summary>
-        /// Идентификатор организации
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string OrganizationId { get; set; }
        
         /// <summary>
-        /// Признак "Тестовый сертификат"
+        /// РџСЂРёР·РЅР°Рє "РўРµСЃС‚РѕРІС‹Р№ СЃРµСЂС‚РёС„РёРєР°С‚"
         /// </summary>
         [DataMember]
         public bool IsTest { get; set; }

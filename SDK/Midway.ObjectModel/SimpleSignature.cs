@@ -4,85 +4,85 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Простая электронная подпись.
+    /// РџСЂРѕСЃС‚Р°СЏ СЌР»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕРґРїРёСЃСЊ.
     /// </summary>
     [DataContract]
     public class SimpleSignature : ISignature
     {
         /// <summary>
-        /// Идентификатор подписи.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember(IsRequired = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Идентификатор подписанного документа.
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕРґРїРёСЃР°РЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember(IsRequired = true)]
         public string DocumentId { get; set; }
 
         /// <summary>
-        /// Ящик организации-отправителя.
+        /// РЇС‰РёРє РѕСЂРіР°РЅРёР·Р°С†РёРё-РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember]
         public string SenderBoxId { get; set; }
 
         /// <summary>
-        /// ИД подразделения отправителя.
+        /// РР” РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ РѕС‚РїСЂР°РІРёС‚РµР»СЏ.
         /// </summary>
         [DataMember(IsRequired = false)]
         public string SenderDepartmentId { get; set; }
 
         /// <summary>
-        /// Признак подписи.
+        /// РџСЂРёР·РЅР°Рє РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public EnumValue SignatureMark { get; set; }
 
         /// <summary>
-        /// Дата подписания.
+        /// Р”Р°С‚Р° РїРѕРґРїРёСЃР°РЅРёСЏ.
         /// </summary>
         [DataMember]
         public DateTime SignedAt { get; set; }
 
         /// <summary>
-        /// Версия подписи.
+        /// Р’РµСЂСЃРёСЏ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public string Version { get; set; }
 
         /// <summary>
-        /// Реквизиты подписи.
+        /// Р РµРєРІРёР·РёС‚С‹ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public SimpleSignatureRequisites Requisites { get; set; }
 
         /// <summary>
-        /// Хеш проверяемых атрибутов.
+        /// РҐРµС€ РїСЂРѕРІРµСЂСЏРµРјС‹С… Р°С‚СЂРёР±СѓС‚РѕРІ.
         /// </summary>
         [DataMember]
         public byte[] AttributesHash { get; set; }
 
         /// <summary>
-        /// Хеш подписанного документа.
+        /// РҐРµС€ РїРѕРґРїРёСЃР°РЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°.
         /// </summary>
         [DataMember]
         public byte[] DocumentHash { get; set; }
 
         /// <summary>
-        /// Код проверки подписи.
+        /// РљРѕРґ РїСЂРѕРІРµСЂРєРё РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember]
         public byte[] ValidationCode { get; set; }
 
         /// <summary>
-        /// <c>true</c>, если подпись валидна; иначе - <c>false</c>.
+        /// <c>true</c>, РµСЃР»Рё РїРѕРґРїРёСЃСЊ РІР°Р»РёРґРЅР°; РёРЅР°С‡Рµ - <c>false</c>.
         /// </summary>
         [DataMember]
         public bool IsValid { get; set; }
 
         /// <summary>
-        /// Двоичное содержимое подписи.
+        /// Р”РІРѕРёС‡РЅРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РїРѕРґРїРёСЃРё.
         /// </summary>
         [DataMember(IsRequired = true)]
         public byte[] Raw { get; set; }

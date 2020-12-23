@@ -3,26 +3,26 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Краткая информация об организации. 
-    /// Структура данных для передачи ИНН, КПП и наименования организации
+    /// РљСЂР°С‚РєР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕСЂРіР°РЅРёР·Р°С†РёРё. 
+    /// РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РґР»СЏ РїРµСЂРµРґР°С‡Рё РРќРќ, РљРџРџ Рё РЅР°РёРјРµРЅРѕРІР°РЅРёСЏ РѕСЂРіР°РЅРёР·Р°С†РёРё
     /// </summary>
     [DataContract]
     public class InnKppName
     {
         /// <summary>
-        /// ИНН
+        /// РРќРќ
         /// </summary>
         [DataMember]
         public string Inn { get; set; }
 
         /// <summary>
-        /// КПП
+        /// РљРџРџ
         /// </summary>
         [DataMember]
         public string Kpp { get; set; }
 
         /// <summary>
-        /// Наименование
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ
         /// </summary>
         [DataMember]
         public string Name { get; set; }

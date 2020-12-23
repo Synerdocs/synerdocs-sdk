@@ -3,31 +3,31 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о должностном лице
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РґРѕР»Р¶РЅРѕСЃС‚РЅРѕРј Р»РёС†Рµ
     /// </summary>
     [DataContract]
     public class PersonInfo
     {
         /// <summary>
-        /// Должность
+        /// Р”РѕР»Р¶РЅРѕСЃС‚СЊ
         /// </summary>
         [DataMember]
         public string Position { get; set; }
 
         /// <summary>
-        /// Имя
+        /// РРјСЏ
         /// </summary>
         [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Фамилия
+        /// Р¤Р°РјРёР»РёСЏ
         /// </summary>
         [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество
+        /// РћС‚С‡РµСЃС‚РІРѕ
         /// </summary>
         [DataMember]
         public string MiddleName { get; set; }

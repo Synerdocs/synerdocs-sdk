@@ -1,4 +1,4 @@
-﻿using System.Runtime.Serialization;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -37,6 +37,18 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string Snils { get; set; }
+
+        /// <summary>
+        /// Данные документа, удостоверяющего личность.
+        /// </summary>
+        [DataMember]
+        public string IdentityDocument { get; set; }
+
+        /// <summary>
+        /// Код страны (ОКСМ Альфа-3).
+        /// </summary>
+        [DataMember]
+        public string CountryCode { get; set; }
 
         /// <summary>
         /// Часовой пояс.

@@ -4,38 +4,38 @@ using System;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Промокод
+    /// РџСЂРѕРјРѕРєРѕРґ
     /// </summary>
     [DataContract]
     [KnownType(typeof(OrganizationPromoCode))]
     public class PromoCode
     {
         /// <summary>
-        /// Наименование промокода
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРѕРјРѕРєРѕРґР°
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Описание бонуса промокода
+        /// РћРїРёСЃР°РЅРёРµ Р±РѕРЅСѓСЃР° РїСЂРѕРјРѕРєРѕРґР°
         /// </summary>
         [DataMember]
         public string Description { get; set; }
 
         /// <summary>
-        /// Флаг неограниченности действия промокода
+        /// Р¤Р»Р°Рі РЅРµРѕРіСЂР°РЅРёС‡РµРЅРЅРѕСЃС‚Рё РґРµР№СЃС‚РІРёСЏ РїСЂРѕРјРѕРєРѕРґР°
         /// </summary>
         [DataMember]
         public bool IsValidityNotLimited { get; set; }
 
         /// <summary>
-        /// Начало действия промокода
+        /// РќР°С‡Р°Р»Рѕ РґРµР№СЃС‚РІРёСЏ РїСЂРѕРјРѕРєРѕРґР°
         /// </summary>
         [DataMember]
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// Окончание действия промокода
+        /// РћРєРѕРЅС‡Р°РЅРёРµ РґРµР№СЃС‚РІРёСЏ РїСЂРѕРјРѕРєРѕРґР°
         /// </summary>
         [DataMember]
         public DateTime? ExpiryDate { get; set; }

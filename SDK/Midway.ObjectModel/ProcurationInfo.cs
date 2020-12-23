@@ -3,44 +3,44 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о доверенности
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РґРѕРІРµСЂРµРЅРЅРѕСЃС‚Рё
     /// </summary>
     [DataContract]
     public class ProcurationInfo
     {
         /// <summary>
-        /// Номер доверенности
+        /// РќРѕРјРµСЂ РґРѕРІРµСЂРµРЅРЅРѕСЃС‚Рё
         /// </summary>
         [DataMember]
         public string Num { get; set; }
 
-        /// TODO: почему не DateTime?
+        /// TODO: РїРѕС‡РµРјСѓ РЅРµ DateTime?
         /// <summary>
-        /// Дата выдачи доверенности
+        /// Р”Р°С‚Р° РІС‹РґР°С‡Рё РґРѕРІРµСЂРµРЅРЅРѕСЃС‚Рё
         /// </summary>
         [DataMember]
         public string Date { get; set; }
 
         /// <summary>
-        /// Наименование организации доверителя
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё РґРѕРІРµСЂРёС‚РµР»СЏ
         /// </summary>
         [DataMember]
         public string NameOrgMandator { get; set; }
 
         /// <summary>
-        /// Дополнительная информация
+        /// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ
         /// </summary>
         [DataMember]
         public string MoreInfo { get; set; }
 
         /// <summary>
-        /// Доверитель
+        /// Р”РѕРІРµСЂРёС‚РµР»СЊ
         /// </summary>
         [DataMember]
         public PersonInfo Mandator { get; set; }
 
         /// <summary>
-        /// Доверенное лицо
+        /// Р”РѕРІРµСЂРµРЅРЅРѕРµ Р»РёС†Рѕ
         /// </summary>
         [DataMember]
         public PersonInfo Confidant { get; set; }

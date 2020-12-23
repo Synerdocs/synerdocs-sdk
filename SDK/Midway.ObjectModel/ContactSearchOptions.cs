@@ -3,44 +3,44 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Параметры поиска контактов
+    /// РџР°СЂР°РјРµС‚СЂС‹ РїРѕРёСЃРєР° РєРѕРЅС‚Р°РєС‚РѕРІ
     /// </summary>
     [DataContract]
     public class ContactSearchOptions
     {
         /// <summary>
-        /// Номер записи, начиная с которого ведётся поиск в списке контактов
+        /// РќРѕРјРµСЂ Р·Р°РїРёСЃРё, РЅР°С‡РёРЅР°СЏ СЃ РєРѕС‚РѕСЂРѕРіРѕ РІРµРґС‘С‚СЃСЏ РїРѕРёСЃРє РІ СЃРїРёСЃРєРµ РєРѕРЅС‚Р°РєС‚РѕРІ
         /// </summary>
         [DataMember]
         public int From { get; set; }
 
         /// <summary>
-        /// Количество выбираемых записей
+        /// РљРѕР»РёС‡РµСЃС‚РІРѕ РІС‹Р±РёСЂР°РµРјС‹С… Р·Р°РїРёСЃРµР№
         /// </summary>
         [DataMember]
         public int Max { get; set; }
 
         /// <summary>
-        /// ИД организации, осуществляющей поиск
+        /// РР” РѕСЂРіР°РЅРёР·Р°С†РёРё, РѕСЃСѓС‰РµСЃС‚РІР»СЏСЋС‰РµР№ РїРѕРёСЃРє
         /// </summary>
         [DataMember]
         public int OrganizationId { get; set; }
 
         /// <summary>
-        /// Строка поиска. В строке поиска можно указывать 
-        /// часть наименования, ИНН, КПП
+        /// РЎС‚СЂРѕРєР° РїРѕРёСЃРєР°. Р’ СЃС‚СЂРѕРєРµ РїРѕРёСЃРєР° РјРѕР¶РЅРѕ СѓРєР°Р·С‹РІР°С‚СЊ 
+        /// С‡Р°СЃС‚СЊ РЅР°РёРјРµРЅРѕРІР°РЅРёСЏ, РРќРќ, РљРџРџ
         /// </summary>
         [DataMember]
         public string SearchString { get; set; }
 
         /// <summary>
-        /// Статус контакта
+        /// РЎС‚Р°С‚СѓСЃ РєРѕРЅС‚Р°РєС‚Р°
         /// </summary>
         [DataMember]
         public ContactStatus ContactStatus { get; set; }
 
         /// <summary>
-        /// Флаг включения неактивных организаций в поиск
+        /// Р¤Р»Р°Рі РІРєР»СЋС‡РµРЅРёСЏ РЅРµР°РєС‚РёРІРЅС‹С… РѕСЂРіР°РЅРёР·Р°С†РёР№ РІ РїРѕРёСЃРє
         /// </summary>
         [DataMember]
         public bool IncludeNonActive { get; set; }

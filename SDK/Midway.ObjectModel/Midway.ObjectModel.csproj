@@ -65,6 +65,7 @@
     <Compile Include="AccessToDepartment.cs" />
     <Compile Include="ActivityStatus.cs" />
     <Compile Include="AdditionalCarriagePolicies.cs" />
+    <Compile Include="AddRecipientWhitelistRequest.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="AddressLocationType.cs" />
     <Compile Include="AddressType.cs" />

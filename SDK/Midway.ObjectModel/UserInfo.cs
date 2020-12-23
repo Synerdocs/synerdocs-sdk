@@ -4,13 +4,13 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>.
-    /// Информаци о пользователе
+    /// Информация о пользователе.
     /// </summary>
     [DataContract]
     public class UserInfo
     {
         /// <summary>
-        /// ИД.
+        /// ID.
         /// </summary>
         [DataMember]
         public Guid Id { get; set; }
@@ -74,5 +74,17 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string Snils { get; set; }
+
+        /// <summary>
+        /// Данные документа, удостоверяющего личность.
+        /// </summary>
+        [DataMember]
+        public string IdentityDocument { get; set; }
+
+        /// <summary>
+        /// Код страны (ОКСМ Альфа-3).
+        /// </summary>
+        [DataMember]
+        public string CountryCode { get; set; }
     }
 }

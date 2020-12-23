@@ -28,7 +28,7 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string Login { get; set; }
-        
+
         /// <summary>
         /// Имя.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public bool State { get; set; }
-        
+
         /// <summary>
         /// Комментарий.
         /// </summary>
@@ -101,6 +101,18 @@ namespace Midway.ObjectModel
         [DataMember]
         public string Snils { get; set; }
 
+        /// <summary>
+        /// Данные документа, удостоверяющего личность.
+        /// </summary>
+        [DataMember]
+        public string IdentityDocument { get; set; }
+
+        /// <summary>
+        /// Код страны (ОКСМ Альфа-3).
+        /// </summary>
+        [DataMember]
+        public string CountryCode { get; set; }
+
 
         // Информация по организации.
 
@@ -121,7 +133,7 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public string OrganizationName { get; set; }
-        
+
         /// <summary>
         /// Идентификатор подразделения.
         /// </summary>
@@ -139,13 +151,13 @@ namespace Midway.ObjectModel
         /// </summary>
         [DataMember]
         public bool DepartmentSubElementsAccess { get; set; }
-        
+
         /// <summary>
         /// Признак "Участник ЭДО СФ".
         /// </summary>
         [DataMember]
         public bool InvoiceReglamentAccepted { get; set; }
-        
+
         /// <summary>
         /// Сертификат.
         /// </summary>

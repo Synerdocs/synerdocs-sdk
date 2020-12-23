@@ -7,7 +7,7 @@ namespace Midway.ObjectModel
     public class RegisterModel
     {
         /// <summary>
-        /// Конструктор
+        /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
         /// </summary>
         public RegisterModel()
         {
@@ -15,119 +15,119 @@ namespace Midway.ObjectModel
             OrganizationType = OrganizationType.LegalEntity;
         }
 
-        #region Информация о пользователе
+        #region РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ
 
         /// <summary>
-        /// Логин
+        /// Р›РѕРіРёРЅ
         /// </summary>
         [DataMember]
-        [DisplayName("Введите логин")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ")]
         public string Login { get; set; }
 
         /// <summary>
-        /// Пароль
+        /// РџР°СЂРѕР»СЊ
         /// </summary>
         [DataMember]
-        [DisplayName("Введите пароль")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ")]
         public string Password { get; set; }
 
         /// <summary>
-        /// Имя
+        /// РРјСЏ
         /// </summary>
         [DataMember]
-        [DisplayName("Введите имя")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ РёРјСЏ")]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Фамилия
+        /// Р¤Р°РјРёР»РёСЏ
         /// </summary>
         [DataMember]
-        [DisplayName("Введите фамилию")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ")]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество
+        /// РћС‚С‡РµСЃС‚РІРѕ
         /// </summary>
         [DataMember]
-        [DisplayName("Введите отчество")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ")]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Электронная почта
+        /// Р­Р»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р°
         /// </summary>
         [DataMember]
-        [DisplayName("Введите email")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ email")]
         public string Email { get; set; }
 
-        #endregion Информация о пользователе
+        #endregion РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ
 
-        #region Информация по организации
+        #region РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РѕСЂРіР°РЅРёР·Р°С†РёРё
 
         /// <summary>
-        /// Идентификатор организации
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public int OrganizationId { get; set; }
 
         /// <summary>
-        /// Наименование организации
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
-        [DisplayName("Введите название организации")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё")]
         public string OrganizationName { get; set; }
 
         /// <summary>
-        /// ИНН организации
+        /// РРќРќ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
-        [DisplayName("Введите ИНН")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ РРќРќ")]
         public string Inn { get; set; }
 
         /// <summary>
-        /// КПП организации
+        /// РљРџРџ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
-        [DisplayName("Введите КПП")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ РљРџРџ")]
         public string Kpp { get; set; }
 
         /// <summary>
-        /// ОГРН организации или ИП
+        /// РћР“Р Рќ РѕСЂРіР°РЅРёР·Р°С†РёРё РёР»Рё РРџ
         /// </summary>
         [DataMember]
-        [DisplayName("Введите ОГРН")]
+        [DisplayName("Р’РІРµРґРёС‚Рµ РћР“Р Рќ")]
         public string Ogrn { get; set; }
 
         /// <summary>
-        /// Принят регламент ЭДО
+        /// РџСЂРёРЅСЏС‚ СЂРµРіР»Р°РјРµРЅС‚ Р­Р”Рћ
         /// </summary>
         [DataMember]
-        [DisplayName("Вы принимаете доступные по адресу www.synerdocs.ru Правила Synerdocs?")]
+        [DisplayName("Р’С‹ РїСЂРёРЅРёРјР°РµС‚Рµ РґРѕСЃС‚СѓРїРЅС‹Рµ РїРѕ Р°РґСЂРµСЃСѓ www.synerdocs.ru РџСЂР°РІРёР»Р° Synerdocs?")]
         public bool ServiceReglamentAccepted { get; set; }
 
         /// <summary>
-        /// Сертификат
+        /// РЎРµСЂС‚РёС„РёРєР°С‚
         /// </summary>
         [DataMember]
         public Certificate Certificate { get; set; }
 
         /// <summary>
-        /// Тип организации
+        /// РўРёРї РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public OrganizationType OrganizationType { get; set; }
 
         /// <summary>
-        /// Код оператора ЭДО
+        /// РљРѕРґ РѕРїРµСЂР°С‚РѕСЂР° Р­Р”Рћ
         /// </summary>
         [DataMember]
         public string OperatorCode { get; set; }
 
         /// <summary>
-        /// Код организации в рамках системы ЭДО, используется при выставлении ЭСФ
+        /// РљРѕРґ РѕСЂРіР°РЅРёР·Р°С†РёРё РІ СЂР°РјРєР°С… СЃРёСЃС‚РµРјС‹ Р­Р”Рћ, РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё РІС‹СЃС‚Р°РІР»РµРЅРёРё Р­РЎР¤
         /// </summary>
         [DataMember]
         public string ServiceCode { get; set; }
 
-        #endregion Информация по организации
+        #endregion РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РѕСЂРіР°РЅРёР·Р°С†РёРё
     }
 }

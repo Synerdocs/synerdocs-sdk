@@ -191,5 +191,9 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Возможность использовать простую ЭП в организации")]
         SimpleSignatureFeature = 25,
+
+        [EnumMember]
+        [Description("Возможность отправки документов в разрешенные организации")]
+        SendingToWhitelistedOrganization = 26,
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Midway.ObjectModel.Exceptions
 {
     /// <summary>
-    /// Ошибка сервиса обмена
+    /// РћС€РёР±РєР° СЃРµСЂРІРёСЃР° РѕР±РјРµРЅР°
     /// </summary>
     public class ServerException : Exception
     {
@@ -12,7 +12,7 @@ namespace Midway.ObjectModel.Exceptions
         private readonly string _field;
         private readonly string _serviceStackTrace;
 
-        #region Конструкторы
+        #region РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 
         public ServerException(ServiceErrorCode code)
             : base()
@@ -43,7 +43,7 @@ namespace Midway.ObjectModel.Exceptions
             _serviceStackTrace = serviceStackTrace;
         }
 
-        #endregion Конструкторы
+        #endregion РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 
 
         public ServiceErrorCode Code
@@ -55,7 +55,7 @@ namespace Midway.ObjectModel.Exceptions
         {
             get
             {
-                // поскольку сборка Midway.Legacy.Common здесь недоступна, пришлось продублировать код Midway.Legacy.Common.Utils.GetDescription<TEnum>()
+                // РїРѕСЃРєРѕР»СЊРєСѓ СЃР±РѕСЂРєР° Midway.Legacy.Common Р·РґРµСЃСЊ РЅРµРґРѕСЃС‚СѓРїРЅР°, РїСЂРёС€Р»РѕСЃСЊ РїСЂРѕРґСѓР±Р»РёСЂРѕРІР°С‚СЊ РєРѕРґ Midway.Legacy.Common.Utils.GetDescription<TEnum>()
                 var fi = Code.GetType().GetField(Code.ToString());
 
                 var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);

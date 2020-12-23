@@ -3,7 +3,7 @@ using System;
 namespace Midway.ObjectModel.Exceptions
 {
     /// <summary>
-    /// Ошибки валидации документа
+    /// РћС€РёР±РєРё РІР°Р»РёРґР°С†РёРё РґРѕРєСѓРјРµРЅС‚Р°
     /// </summary>
     public class DocumentValidationException : ServiceException
     {

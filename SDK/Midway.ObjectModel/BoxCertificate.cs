@@ -3,33 +3,33 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Ассоциация ящик-сертификат (в контексте авторизованного пользователя)
-    /// TODO Надо сюда добавить OraganizationId
+    /// РђСЃСЃРѕС†РёР°С†РёСЏ СЏС‰РёРє-СЃРµСЂС‚РёС„РёРєР°С‚ (РІ РєРѕРЅС‚РµРєСЃС‚Рµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ)
+    /// TODO РќР°РґРѕ СЃСЋРґР° РґРѕР±Р°РІРёС‚СЊ OraganizationId
     /// </summary>
     [DataContract]
     public class BoxCertificate
     {
         /// <summary>
-        /// Адрес организации в сервисе
-        /// TODO Это ящик, такая терминология используется в Message; Поле логичнее назвать BoxAddress
+        /// РђРґСЂРµСЃ РѕСЂРіР°РЅРёР·Р°С†РёРё РІ СЃРµСЂРІРёСЃРµ
+        /// TODO Р­С‚Рѕ СЏС‰РёРє, С‚Р°РєР°СЏ С‚РµСЂРјРёРЅРѕР»РѕРіРёСЏ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ Message; РџРѕР»Рµ Р»РѕРіРёС‡РЅРµРµ РЅР°Р·РІР°С‚СЊ BoxAddress
         /// </summary>
         [DataMember]
         public string Address { get; set; }
 
         /// <summary>
-        /// Отпечаток сертификата
+        /// РћС‚РїРµС‡Р°С‚РѕРє СЃРµСЂС‚РёС„РёРєР°С‚Р°
         /// </summary>
         [DataMember]
         public string Thumbprint { get; set; }
 
         /// <summary>
-        /// CN сертификата
+        /// CN СЃРµСЂС‚РёС„РёРєР°С‚Р°
         /// </summary>
         [DataMember]
         public string CommonName { get; set; }
 
         /// <summary>
-        /// Признак квалифицированного сертификата
+        /// РџСЂРёР·РЅР°Рє РєРІР°Р»РёС„РёС†РёСЂРѕРІР°РЅРЅРѕРіРѕ СЃРµСЂС‚РёС„РёРєР°С‚Р°
         /// </summary>
         [DataMember]
         public bool IsQualified { get; set; }

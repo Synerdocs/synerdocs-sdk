@@ -3,8 +3,8 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Статус документооборота
-    /// Базовый класс. Конкретная реализация зависит от типа документа.
+    /// РЎС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р°
+    /// Р‘Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ. РљРѕРЅРєСЂРµС‚РЅР°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ Р·Р°РІРёСЃРёС‚ РѕС‚ С‚РёРїР° РґРѕРєСѓРјРµРЅС‚Р°.
     /// </summary>
     [DataContract]
     [KnownType(typeof(UntypedDocumentFlowStatus))]

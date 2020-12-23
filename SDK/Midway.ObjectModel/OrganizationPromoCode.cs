@@ -4,13 +4,13 @@ using System;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Связь промокод - организация
+    /// РЎРІСЏР·СЊ РїСЂРѕРјРѕРєРѕРґ - РѕСЂРіР°РЅРёР·Р°С†РёСЏ
     /// </summary>
     [DataContract]
     public class OrganizationPromoCode:PromoCode
     {
         /// <summary>
-        /// глобальный ИД связи промокода - организации
+        /// РіР»РѕР±Р°Р»СЊРЅС‹Р№ РР” СЃРІСЏР·Рё РїСЂРѕРјРѕРєРѕРґР° - РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string OrganizationPromoCodeId { get; set; }

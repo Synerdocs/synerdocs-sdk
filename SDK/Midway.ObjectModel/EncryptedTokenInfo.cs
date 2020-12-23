@@ -3,25 +3,25 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о зашифрованном токене авторизации
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°С€РёС„СЂРѕРІР°РЅРЅРѕРј С‚РѕРєРµРЅРµ Р°РІС‚РѕСЂРёР·Р°С†РёРё
     /// </summary>
     [DataContract]
     public class EncryptedTokenInfo
     {
         /// <summary>
-        /// Идентификатор токена в БД
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РѕРєРµРЅР° РІ Р‘Р”
         /// </summary>
         [DataMember]
         public string TokenId { get; set; }
 
         /// <summary>
-        /// Зашифрованный токен в base64 кодировке
+        /// Р—Р°С€РёС„СЂРѕРІР°РЅРЅС‹Р№ С‚РѕРєРµРЅ РІ base64 РєРѕРґРёСЂРѕРІРєРµ
         /// </summary>
         [DataMember]
         public string EncryptedToken { get; set; }
 
         /// <summary>
-        /// Логин пользователя
+        /// Р›РѕРіРёРЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         /// </summary>
         [DataMember]
         public string Login { get; set; }
