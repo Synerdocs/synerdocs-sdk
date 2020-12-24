@@ -3,143 +3,143 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Данные об организации для отображения в виде списка
+    /// Р”Р°РЅРЅС‹Рµ РѕР± РѕСЂРіР°РЅРёР·Р°С†РёРё РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РІ РІРёРґРµ СЃРїРёСЃРєР°
     /// </summary>
     [DataContract]
     public class OrganizationListEntry
     {
         /// <summary>
-        /// Идентификатор орагнизации
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕСЂР°РіРЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public int OrganizationId { get; set; }
 
         /// <summary>
-        /// Наименование орагнизации
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂР°РіРЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Юридическое наименование организации
+        /// Р®СЂРёРґРёС‡РµСЃРєРѕРµ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string LegalName { get; set; }
 
         /// <summary>
-        /// Форма собственности
+        /// Р¤РѕСЂРјР° СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё
         /// </summary>
         [DataMember]
         public string LegalForm { get; set; }
 
         /// <summary>
-        /// Признак иностранной организации
+        /// РџСЂРёР·РЅР°Рє РёРЅРѕСЃС‚СЂР°РЅРЅРѕР№ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public bool IsForeignCompany { get; set; }
 
         /// <summary>
-        /// Юридический адрес иностранной организации
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ РёРЅРѕСЃС‚СЂР°РЅРЅРѕР№ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string LegalAddressForeign { get; set; }
 
         /// <summary>
-        /// Почтовый адрес иностранной организации
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ РёРЅРѕСЃС‚СЂР°РЅРЅРѕР№ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string MailingAddressForeign { get; set; }
 
-        #region Юридический адрес
+        #region Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
 
         /// <summary>
-        /// Юридический адрес: город
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ: РіРѕСЂРѕРґ
         /// </summary>
         [DataMember]
         public string LegalAddressCity { get; set; }
 
         /// <summary>
-        /// Юридический адрес: дом
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ: РґРѕРј
         /// </summary>
         [DataMember]
         public int? LegalAddressHouse { get; set; }
 
         /// <summary>
-        /// Юридический адрес: квартира, офис
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ: РєРІР°СЂС‚РёСЂР°, РѕС„РёСЃ
         /// </summary>
         [DataMember]
         public int? LegalAddressApartment { get; set; }
 
         /// <summary>
-        /// Юридический адрес: строение
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ: СЃС‚СЂРѕРµРЅРёРµ
         /// </summary>
         [DataMember]
         public string LegalAddressBuilding { get; set; }
 
         /// <summary>
-        /// Юридический адрес: населенный пункт
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ: РЅР°СЃРµР»РµРЅРЅС‹Р№ РїСѓРЅРєС‚
         /// </summary>
         [DataMember]
         public string LegalAddressLocality { get; set; }
 
         /// <summary>
-        /// Юридический адрес: район
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ: СЂР°Р№РѕРЅ
         /// </summary>
         [DataMember]
         public string LegalAddressDistrict { get; set; }
 
         /// <summary>
-        /// Юридический адрес: улица
+        /// Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ: СѓР»РёС†Р°
         /// </summary>
         [DataMember]
         public string LegalAddressStreet { get; set; }
 
-        #endregion Юридический адрес
+        #endregion Р®СЂРёРґРёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
 
-        #region Почтовый адрес
+        #region РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ
 
         /// <summary>
-        /// Почтовый адрес: город
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ: РіРѕСЂРѕРґ
         /// </summary>
         [DataMember]
         public string MailingAddressCity { get; set; }
 
         /// <summary>
-        /// Почтовый адрес: дом
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ: РґРѕРј
         /// </summary>
         [DataMember]
         public int? MailingAddressHouse { get; set; }
 
         /// <summary>
-        /// Почтовый адрес: квартира
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ: РєРІР°СЂС‚РёСЂР°
         /// </summary>
         [DataMember]
         public int? MailingAddressApartment { get; set; }
 
         /// <summary>
-        /// Почтовый адрес: строение
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ: СЃС‚СЂРѕРµРЅРёРµ
         /// </summary>
         [DataMember]
         public string MailingAddressBuilding { get; set; }
 
         /// <summary>
-        /// Почтовый адрес: населенный пункт
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ: РЅР°СЃРµР»РµРЅРЅС‹Р№ РїСѓРЅРєС‚
         /// </summary>
         [DataMember]
         public string MailingAddressLocality { get; set; }
 
         /// <summary>
-        /// Почтовый адрес: район
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ: СЂР°Р№РѕРЅ
         /// </summary>
         [DataMember]
         public string MailingAddressDistrict { get; set; }
 
         /// <summary>
-        /// Почтовый адрес: улица
+        /// РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ: СѓР»РёС†Р°
         /// </summary>
         [DataMember]
         public string MailingAddressStreet { get; set; }
 
-        #endregion Почтовый адрес
+        #endregion РџРѕС‡С‚РѕРІС‹Р№ Р°РґСЂРµСЃ
     }
 }

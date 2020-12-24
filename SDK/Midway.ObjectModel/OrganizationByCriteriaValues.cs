@@ -3,49 +3,49 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Критерии поиска организаций
+    /// РљСЂРёС‚РµСЂРёРё РїРѕРёСЃРєР° РѕСЂРіР°РЅРёР·Р°С†РёР№
     /// </summary>
     [DataContract]
     public class OrganizationByCriteriaValues
     {
         /// <summary>
-        /// ИД организации
+        /// РР” РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string OrganizationId { get; set; }
 
         /// <summary>
-        /// ИНН организации
+        /// РРќРќ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string Inn { get; set; }
 
         /// <summary>
-        /// КПП организации
+        /// РљРџРџ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string Kpp { get; set; }
 
         /// <summary>
-        /// Адрес абонентского ящика
+        /// РђРґСЂРµСЃ Р°Р±РѕРЅРµРЅС‚СЃРєРѕРіРѕ СЏС‰РёРєР°
         /// </summary>
         [DataMember]
         public string BoxAddress { get; set; }
 
         /// <summary>
-        /// Логин пользователя
+        /// Р›РѕРіРёРЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         /// </summary>
         [DataMember]
         public string UserLogin { get; set; }
 
         /// <summary>
-        /// Код организации в рамках системы ЭДО
+        /// РљРѕРґ РѕСЂРіР°РЅРёР·Р°С†РёРё РІ СЂР°РјРєР°С… СЃРёСЃС‚РµРјС‹ Р­Р”Рћ
         /// </summary>
         [DataMember]
         public string ServiceCode { get; set; }
 
         /// <summary>
-        /// Код оператора ЭДО
+        /// РљРѕРґ РѕРїРµСЂР°С‚РѕСЂР° Р­Р”Рћ
         /// </summary>
         [DataMember]
         public string OperatorCode { get; set; }

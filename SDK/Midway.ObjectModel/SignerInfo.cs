@@ -4,73 +4,73 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о подписанте
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРѕРґРїРёСЃР°РЅС‚Рµ
     /// </summary>
     [DataContract]
     public class SignerInfo
     {
         /// <summary>
-        /// Конструктор по умолчанию
+        /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
         /// </summary>
         public SignerInfo()
         {
             OrganizationType = OrganizationType.Unknown;
-#pragma warning disable 618 //Отлючить предупреждения насчет устаревших полей (obsolete)
+#pragma warning disable 618 //РћС‚Р»СЋС‡РёС‚СЊ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ РЅР°СЃС‡РµС‚ СѓСЃС‚Р°СЂРµРІС€РёС… РїРѕР»РµР№ (obsolete)
             IsJuridical = false;
 #pragma warning restore 618
-            Inn = "Не указано";
-            StateRegistrationCert = "Не указано";
-            Position = "Не указано";
-            FirstName = "Не указано";
-            LastName = "Не указано";
-            MiddleName = "Не указано";
+            Inn = "РќРµ СѓРєР°Р·Р°РЅРѕ";
+            StateRegistrationCert = "РќРµ СѓРєР°Р·Р°РЅРѕ";
+            Position = "РќРµ СѓРєР°Р·Р°РЅРѕ";
+            FirstName = "РќРµ СѓРєР°Р·Р°РЅРѕ";
+            LastName = "РќРµ СѓРєР°Р·Р°РЅРѕ";
+            MiddleName = "РќРµ СѓРєР°Р·Р°РЅРѕ";
         }
 
         /// <summary>
-        /// Тип организации
+        /// РўРёРї РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public OrganizationType OrganizationType { get; set; }
 
         /// <summary>
-        /// Признак, указывающий, что подписант юридическое лицо
+        /// РџСЂРёР·РЅР°Рє, СѓРєР°Р·С‹РІР°СЋС‰РёР№, С‡С‚Рѕ РїРѕРґРїРёСЃР°РЅС‚ СЋСЂРёРґРёС‡РµСЃРєРѕРµ Р»РёС†Рѕ
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё")]
         public bool IsJuridical { get; set; }
 
         /// <summary>
-        /// ИНН организации
+        /// РРќРќ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string Inn { get; set; }
 
         /// <summary>
-        /// Должность подписанта
+        /// Р”РѕР»Р¶РЅРѕСЃС‚СЊ РїРѕРґРїРёСЃР°РЅС‚Р°
         /// </summary>
         [DataMember]
         public string Position { get; set; }
 
         /// <summary>
-        /// Свидетельство государственной регистрации ИП
+        /// РЎРІРёРґРµС‚РµР»СЊСЃС‚РІРѕ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕР№ СЂРµРіРёСЃС‚СЂР°С†РёРё РРџ
         /// </summary>
         [DataMember]
         public string StateRegistrationCert { get; set; }
 
         /// <summary>
-        /// Фамилия подписанта
+        /// Р¤Р°РјРёР»РёСЏ РїРѕРґРїРёСЃР°РЅС‚Р°
         /// </summary>
         [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Имя подписанта
+        /// РРјСЏ РїРѕРґРїРёСЃР°РЅС‚Р°
         /// </summary>
         [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество подписанта
+        /// РћС‚С‡РµСЃС‚РІРѕ РїРѕРґРїРёСЃР°РЅС‚Р°
         /// </summary>
         [DataMember]
         public string MiddleName { get; set; }

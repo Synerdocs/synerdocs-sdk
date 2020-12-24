@@ -1,20 +1,20 @@
 namespace Midway.ObjectModel.Exceptions
 {
     /// <summary>
-    /// Тип ошибки
+    /// РўРёРї РѕС€РёР±РєРё
     /// </summary>
     public enum ServiceErrorType
     {
         /// <summary>
-        /// Ошибка валидации сообщения
+        /// РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё СЃРѕРѕР±С‰РµРЅРёСЏ
         /// </summary>
         ValidationFormat = 0,
         /// <summary>
-        /// Внутренняя ошибка сервера
+        /// Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР°
         /// </summary>
         InternalServer = 1,
         /// <summary>
-        /// Ошибка доставки сообщения
+        /// РћС€РёР±РєР° РґРѕСЃС‚Р°РІРєРё СЃРѕРѕР±С‰РµРЅРёСЏ
         /// </summary>
         Delivery
     }

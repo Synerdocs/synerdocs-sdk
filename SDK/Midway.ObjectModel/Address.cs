@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Адрес
+    /// РђРґСЂРµСЃ
     /// </summary>
     [DataContract]
     [KnownType(typeof(OrganizationAddress))]
@@ -11,103 +11,103 @@ namespace Midway.ObjectModel
     {
         /// TODO@internal
         /// <summary>
-        /// Идентификатор адреса
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РґСЂРµСЃР°
         /// </summary>
         [DataMember]
         public string AddressId { get; set; }
 
         /// <summary>
-        /// Город
+        /// Р“РѕСЂРѕРґ
         /// </summary>
         [DataMember]
         public string City { get; set; }
 
         /// <summary>
-        /// Дом
+        /// Р”РѕРј
         /// </summary>
         [DataMember]
         public string House { get; set; }
 
         /// <summary>
-        /// Почтовый индекс
+        /// РџРѕС‡С‚РѕРІС‹Р№ РёРЅРґРµРєСЃ
         /// </summary>
         [DataMember]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Квартира
+        /// РљРІР°СЂС‚РёСЂР°
         /// </summary>
         [DataMember]
         public string Apartment { get; set; }
 
         /// <summary>
-        /// Код региона
+        /// РљРѕРґ СЂРµРіРёРѕРЅР°
         /// </summary>
         [DataMember]
         public string RegionCode { get; set; }
 
         /// <summary>
-        /// Строение
+        /// РЎС‚СЂРѕРµРЅРёРµ
         /// </summary>
         [DataMember]
         public string Building { get; set; }
 
         /// <summary>
-        /// Населенный пункт
+        /// РќР°СЃРµР»РµРЅРЅС‹Р№ РїСѓРЅРєС‚
         /// </summary>
         [DataMember]
         public string Locality { get; set; }
 
         /// <summary>
-        /// Район    
+        /// Р Р°Р№РѕРЅ    
         /// </summary>
         [DataMember]
         public string District { get; set; }
 
         /// <summary>
-        /// Улица
+        /// РЈР»РёС†Р°
         /// </summary>
         [DataMember]
         public string Street { get; set; }
 
-        /// TODO: не используется
+        /// TODO: РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
         /// <summary>
-        /// Физический абонентский ящик
+        /// Р¤РёР·РёС‡РµСЃРєРёР№ Р°Р±РѕРЅРµРЅС‚СЃРєРёР№ СЏС‰РёРє
         /// </summary>
         [DataMember]
         public string PostOfficeBox { get; set; }
 
         /// <summary>
-        /// Код страны
+        /// РљРѕРґ СЃС‚СЂР°РЅС‹
         /// </summary>
         [DataMember]
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// Дополнительная информация.
+        /// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ.
         /// </summary>
         public string AdditionalInfo { get; set; }
 
         /// <summary>
-        /// Флаг "иностранный адрес"
+        /// Р¤Р»Р°Рі "РёРЅРѕСЃС‚СЂР°РЅРЅС‹Р№ Р°РґСЂРµСЃ"
         /// </summary>
         [DataMember]
         public bool IsForeign { get; set; }
 
         /// <summary>
-        /// Иностранный адрес (город, улица, дом и т.д.)
+        /// РРЅРѕСЃС‚СЂР°РЅРЅС‹Р№ Р°РґСЂРµСЃ (РіРѕСЂРѕРґ, СѓР»РёС†Р°, РґРѕРј Рё С‚.Рґ.)
         /// </summary>
         [DataMember]
         public string ForeignStreetAddress { get; set; }
 
         /// <summary>
-        /// Уникальный номер адреса объекта в государственном реестре
+        /// РЈРЅРёРєР°Р»СЊРЅС‹Р№ РЅРѕРјРµСЂ Р°РґСЂРµСЃР° РѕР±СЉРµРєС‚Р° РІ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕРј СЂРµРµСЃС‚СЂРµ
         /// </summary>
         [DataMember]
         public string StateRegistryCode { get; set; }
 
         /// <summary>
-        /// Тип записи Адреса
+        /// РўРёРї Р·Р°РїРёСЃРё РђРґСЂРµСЃР°
         /// </summary>
         [DataMember]
         public EnumValue AddressLocationType { get; set; }

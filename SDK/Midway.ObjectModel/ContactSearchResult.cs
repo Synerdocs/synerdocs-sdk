@@ -3,19 +3,19 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Результат поиска контактов
+    /// Р РµР·СѓР»СЊС‚Р°С‚ РїРѕРёСЃРєР° РєРѕРЅС‚Р°РєС‚РѕРІ
     /// </summary>
     [DataContract]
     public class ContactSearchResult
     {
         /// <summary>
-        /// Общее количество контактов, удовлетворяющих критерию поиска
+        /// РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРЅС‚Р°РєС‚РѕРІ, СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‰РёС… РєСЂРёС‚РµСЂРёСЋ РїРѕРёСЃРєР°
         /// </summary>
         [DataMember]
         public int TotalCount { get; set; }
 
         /// <summary>
-        /// Найденные контакты, ограниченные параметрами From и Max
+        /// РќР°Р№РґРµРЅРЅС‹Рµ РєРѕРЅС‚Р°РєС‚С‹, РѕРіСЂР°РЅРёС‡РµРЅРЅС‹Рµ РїР°СЂР°РјРµС‚СЂР°РјРё From Рё Max
         /// </summary>
         [DataMember]
         public ContactSearchItem[] Items { get; set; }

@@ -3,19 +3,19 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Идентификатор отправленного документа
+    /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕС‚РїСЂР°РІР»РµРЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р°
     /// </summary>
     [DataContract]
     public class LocalServerId
     {
         /// <summary>
-        /// Локальный идентификатор документа (на стороне клиента)
+        /// Р›РѕРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р° (РЅР° СЃС‚РѕСЂРѕРЅРµ РєР»РёРµРЅС‚Р°)
         /// </summary>
         [DataMember]
         public string LocalId { get; set; }
 
         /// <summary>
-        /// Идентификатор документа в сервисе обмена
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РґРѕРєСѓРјРµРЅС‚Р° РІ СЃРµСЂРІРёСЃРµ РѕР±РјРµРЅР°
         /// </summary>
         [DataMember]
         public string ServiceId { get; set; }

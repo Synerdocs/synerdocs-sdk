@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Параметры загрузки полной информации о документе.
+    /// РџР°СЂР°РјРµС‚СЂС‹ Р·Р°РіСЂСѓР·РєРё РїРѕР»РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РґРѕРєСѓРјРµРЅС‚Рµ.
     /// </summary>
     [DataContract]
     public class FullDocumentInfoRequestParams
     {
         /// <summary>
-        /// Конструктор по умолчанию.
+        /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.
         /// </summary>
         public FullDocumentInfoRequestParams()
         {
@@ -23,62 +23,62 @@ namespace Midway.ObjectModel
         }
 
         /// <summary>
-        /// Загружать содержимое документа?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ РґРѕРєСѓРјРµРЅС‚Р°?
         /// </summary>
         [DataMember]
         public bool GetContent { get; set; }
 
         /// <summary>
-        /// Загружать карточку документа?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ РєР°СЂС‚РѕС‡РєСѓ РґРѕРєСѓРјРµРЅС‚Р°?
         /// </summary>
         [DataMember]
         public bool GetCard { get; set; }
 
         /// <summary>
-        /// Загружать подписи?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ РїРѕРґРїРёСЃРё?
         /// </summary>
         [DataMember]
         public bool GetSigns { get; set; }
 
         /// <summary>
-        /// Загружать служебные документы?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ СЃР»СѓР¶РµР±РЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹?
         /// </summary>
         [DataMember]
         public bool GetServiceDocuments { get; set; }
 
         /// <summary>
-        /// Загружать связанные документы?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ СЃРІСЏР·Р°РЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹?
         /// </summary>
         [DataMember]
         public bool GetRelatedDocuments { get; set; }
 
         /// <summary>
-        /// Загружать предложения об аннулировании?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ РїСЂРµРґР»РѕР¶РµРЅРёСЏ РѕР± Р°РЅРЅСѓР»РёСЂРѕРІР°РЅРёРё?
         /// </summary>
         [DataMember]
         public bool GetRevocationOffers { get; set; }
 
         /// <summary>
-        /// Загружать информацию о состоянии документа?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃРѕСЃС‚РѕСЏРЅРёРё РґРѕРєСѓРјРµРЅС‚Р°?
         /// </summary>
         [DataMember]
         public bool GetDocumentDeletionState { get; set; }
 
         /// <summary>
-        /// Загружать информацию о доступных операциях?
+        /// Р—Р°РіСЂСѓР¶Р°С‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РґРѕСЃС‚СѓРїРЅС‹С… РѕРїРµСЂР°С†РёСЏС…?
         /// </summary>
         [DataMember]
         public bool? GetAvailableOperations { get; set; }
 
         /// <summary>
-        /// Фильтрация прав для пользователя сервиса по логину через проверку доступа:
-        /// TODO - перенести эту проверку в веб клиент?
+        /// Р¤РёР»СЊС‚СЂР°С†РёСЏ РїСЂР°РІ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃРµСЂРІРёСЃР° РїРѕ Р»РѕРіРёРЅСѓ С‡РµСЂРµР· РїСЂРѕРІРµСЂРєСѓ РґРѕСЃС‚СѓРїР°:
+        /// TODO - РїРµСЂРµРЅРµСЃС‚Рё СЌС‚Сѓ РїСЂРѕРІРµСЂРєСѓ РІ РІРµР± РєР»РёРµРЅС‚?
         /// </summary>
         [DataMember]
         public string UserLogin { get; set; }
 
         /// <summary>
-        /// <c>true</c>, если требуется загружать информацию о ролях участников документооборота; иначе - <c>false</c>.
+        /// <c>true</c>, РµСЃР»Рё С‚СЂРµР±СѓРµС‚СЃСЏ Р·Р°РіСЂСѓР¶Р°С‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЂРѕР»СЏС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р°; РёРЅР°С‡Рµ - <c>false</c>.
         /// </summary>
         [DataMember]
         public bool GetDocumentFlowParticipantsRoles { get; set; }

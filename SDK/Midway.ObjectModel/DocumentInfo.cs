@@ -4,43 +4,43 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о документе
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РґРѕРєСѓРјРµРЅС‚Рµ
     /// </summary>
     [DataContract]
     public class DocumentInfo
     {
         /// <summary>
-        /// Номер документа
+        /// РќРѕРјРµСЂ РґРѕРєСѓРјРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public string Number { get; set; }
 
         /// <summary>
-        /// Дата составления, указанная в документе
+        /// Р”Р°С‚Р° СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ, СѓРєР°Р·Р°РЅРЅР°СЏ РІ РґРѕРєСѓРјРµРЅС‚Рµ
         /// </summary>
         [DataMember]
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// Дата создания
+        /// Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ
         /// </summary>
         [DataMember]
         public DateTime CreateDate { get; set; }
         
         /// <summary>
-        /// Идентификатор файла
+        /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С„Р°Р№Р»Р°
         /// </summary>
         [DataMember]
         public string IdFile { get; set; }
 
         /// <summary>
-        /// Сумма без НДС
+        /// РЎСѓРјРјР° Р±РµР· РќР”РЎ
         /// </summary>
         [DataMember]
         public decimal? CoastSum { get; set; }
 
         /// <summary>
-        /// Сумма НДС
+        /// РЎСѓРјРјР° РќР”РЎ
         /// </summary>
         [DataMember]
         public decimal? SumNds { get; set; }

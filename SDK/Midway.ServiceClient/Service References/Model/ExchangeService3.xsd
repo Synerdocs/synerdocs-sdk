@@ -2813,9 +2813,11 @@
   <xs:complexType name="UserInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IdentityDocument" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
@@ -3414,10 +3416,12 @@
   <xs:element name="SimpleSignatureRequisites" nillable="true" type="tns:SimpleSignatureRequisites" />
   <xs:complexType name="SimpleSignatureEmployee">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
       <xs:element name="Email" nillable="true" type="xs:string" />
       <xs:element name="FullName" nillable="true" type="tns:FullName" />
+      <xs:element minOccurs="0" name="IdentityDocument" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
-      <xs:element name="Snils" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Snils" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SimpleSignatureEmployee" nillable="true" type="tns:SimpleSignatureEmployee" />
@@ -3523,8 +3527,10 @@
   <xs:complexType name="PersonalInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
       <xs:element name="Email" nillable="true" type="xs:string" />
       <xs:element name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdentityDocument" nillable="true" type="xs:string" />
       <xs:element name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
@@ -5432,6 +5438,7 @@
       <xs:enumeration value="NotifyByViber" />
       <xs:enumeration value="ConsigneeSimpleSignatureAssurance" />
       <xs:enumeration value="SimpleSignatureFeature" />
+      <xs:enumeration value="SendingToWhitelistedOrganization" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SettingType" nillable="true" type="tns:SettingType" />
@@ -5555,6 +5562,7 @@
       <xs:enumeration value="SnilsNotSpecified" />
       <xs:enumeration value="DocumentTypeNotAllowed" />
       <xs:enumeration value="PhoneNumberNotSpecified" />
+      <xs:enumeration value="IdentityDocumentNotSpecified" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SimpleSignatureAvailabilityStatus" nillable="true" type="tns:SimpleSignatureAvailabilityStatus" />
@@ -6807,6 +6815,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Certificate" nillable="true" type="tns:Certificate" />
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartmentSubElementsAccess" type="xs:boolean" />
@@ -6814,6 +6823,7 @@
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Icq" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IdentityDocument" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="InvoiceReglamentAccepted" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />

@@ -4,74 +4,74 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о субъекте электронного документооборота
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃСѓР±СЉРµРєС‚Рµ СЌР»РµРєС‚СЂРѕРЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р°
     /// </summary>
     [DataContract]
     public class SubjectInfo
     {
         /// <summary>
-        /// Тип организации
+        /// РўРёРї РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public OrganizationType OrganizationType { get; set; }
 
         /// <summary>
-        /// Признак, указывающий что субъект - юридическое лицо
+        /// РџСЂРёР·РЅР°Рє, СѓРєР°Р·С‹РІР°СЋС‰РёР№ С‡С‚Рѕ СЃСѓР±СЉРµРєС‚ - СЋСЂРёРґРёС‡РµСЃРєРѕРµ Р»РёС†Рѕ
         /// </summary>
         [DataMember]
-        [Obsolete("Для обеспечения обратной совместимости")]
+        [Obsolete("Р”Р»СЏ РѕР±РµСЃРїРµС‡РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕР№ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚Рё")]
         public bool IsJuridical { get; set; }
 
         /// <summary>
-        /// Признак, указывающий что субъект - спецоператор ЭДО
+        /// РџСЂРёР·РЅР°Рє, СѓРєР°Р·С‹РІР°СЋС‰РёР№ С‡С‚Рѕ СЃСѓР±СЉРµРєС‚ - СЃРїРµС†РѕРїРµСЂР°С‚РѕСЂ Р­Р”Рћ
         /// </summary>
         [DataMember]
         public bool IsOperator { get; set; }
 
         /// <summary>
-        /// Сервисный код участника ЭДО
+        /// РЎРµСЂРІРёСЃРЅС‹Р№ РєРѕРґ СѓС‡Р°СЃС‚РЅРёРєР° Р­Р”Рћ
         /// </summary>
         [DataMember]
         public string ServiceCode { get; set; }
 
         /// <summary>
-        /// Сервисный код оператора ЭДО
+        /// РЎРµСЂРІРёСЃРЅС‹Р№ РєРѕРґ РѕРїРµСЂР°С‚РѕСЂР° Р­Р”Рћ
         /// </summary>
         [DataMember]
         public string OperatorServiceCode { get; set; }
 
         /// <summary>
-        /// ИНН организации
+        /// РРќРќ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string Inn { get; set; }
 
         /// <summary>
-        /// КПП организации
+        /// РљРџРџ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string Kpp { get; set; }
 
         /// <summary>
-        /// Наименование организации
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Имя (для ИП)
+        /// РРјСЏ (РґР»СЏ РРџ)
         /// </summary>
         [DataMember]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Фамилия (для ИП)
+        /// Р¤Р°РјРёР»РёСЏ (РґР»СЏ РРџ)
         /// </summary>
         [DataMember]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Отчество (для ИП)
+        /// РћС‚С‡РµСЃС‚РІРѕ (РґР»СЏ РРџ)
         /// </summary>
         [DataMember]
         public string MiddleName { get; set; }

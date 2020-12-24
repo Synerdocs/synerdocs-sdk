@@ -3,19 +3,19 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Результат поиска черновиков
+    /// Р РµР·СѓР»СЊС‚Р°С‚ РїРѕРёСЃРєР° С‡РµСЂРЅРѕРІРёРєРѕРІ
     /// </summary>
     [DataContract]
     public class DraftMessageSearchResult
     {
         /// <summary>
-        /// Общее количество записей по результатам поиска
+        /// РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№ РїРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°Рј РїРѕРёСЃРєР°
         /// </summary>
         [DataMember]
         public int TotalCount { get; set; }
 
         /// <summary>
-        /// Найденные черновики
+        /// РќР°Р№РґРµРЅРЅС‹Рµ С‡РµСЂРЅРѕРІРёРєРё
         /// </summary>
         [DataMember]
         public DraftMessage[] Items { get; set; }

@@ -4,60 +4,60 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Статус документооборота счета-фактуры
+    /// РЎС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
     /// </summary>
     [DataContract]
     public class InvoiceDocumentFlowStatus : DocumentFlowStatus
     {
         /// <summary>
-        /// Статус документооборота продавца
+        /// РЎС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° РїСЂРѕРґР°РІС†Р°
         /// </summary>
         [DataMember]
         public InvoiceFlowStatus SellerFlow { get; set; }
 
         /// <summary>
-        /// Статус документооборота покупателя
+        /// РЎС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° РїРѕРєСѓРїР°С‚РµР»СЏ
         /// </summary>
         [DataMember]
         public InvoiceFlowStatus BuyerFlow { get; set; }
 
         /// <summary>
-        /// Номер документа
+        /// РќРѕРјРµСЂ РґРѕРєСѓРјРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public string Number { get; set; }
 
         /// <summary>
-        /// Дата документа
+        /// Р”Р°С‚Р° РґРѕРєСѓРјРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// Всего к оплате
+        /// Р’СЃРµРіРѕ Рє РѕРїР»Р°С‚Рµ
         /// </summary>
         [DataMember]
         public decimal Total { get; set; }
 
         /// <summary>
-        /// Статус изменений счета-фактуры
+        /// РЎС‚Р°С‚СѓСЃ РёР·РјРµРЅРµРЅРёР№ СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public InvoiceModificationStatus ModificationStatus { get; set; }
 
         /// <summary>
-        /// Флаг "документооборот завершен"
+        /// Р¤Р»Р°Рі "РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚ Р·Р°РІРµСЂС€РµРЅ"
         /// </summary>
         [DataMember]
         public bool IsFinished { get; set; }
 
         /// <summary>
-        /// Возвращает статут документооборота в виде строки
+        /// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚Р°С‚СѓС‚ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° РІ РІРёРґРµ СЃС‚СЂРѕРєРё
         /// </summary>
-        /// <returns>Строка содержащая статус документооборота счета-фактуры</returns>
+        /// <returns>РЎС‚СЂРѕРєР° СЃРѕРґРµСЂР¶Р°С‰Р°СЏ СЃС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹</returns>
         public override string ToString()
         {
-            return string.Format("Статус документооборота продавца: {0}, статус документооборота покупателя: {1}", SellerFlow, BuyerFlow);
+            return string.Format("РЎС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° РїСЂРѕРґР°РІС†Р°: {0}, СЃС‚Р°С‚СѓСЃ РґРѕРєСѓРјРµРЅС‚РѕРѕР±РѕСЂРѕС‚Р° РїРѕРєСѓРїР°С‚РµР»СЏ: {1}", SellerFlow, BuyerFlow);
         }
     }
 }

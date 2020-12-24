@@ -4,61 +4,61 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о контрагенте
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Рµ
     /// </summary>
     [DataContract]
     public class Contact
     {
         /// <summary>
-        /// ИД контрагента
+        /// РР” РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public int ContragentId { get; set; }
 
         /// <summary>
-        /// Наименование контрагента
+        /// РќР°РёРјРµРЅРѕРІР°РЅРёРµ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public string ContragentName { get; set; }
 
         /// <summary>
-        /// ИНН контрагента
+        /// РРќРќ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public string ContragentInn { get; set; }
 
         /// <summary>
-        /// КПП контрагента
+        /// РљРџРџ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public string ContragentKpp { get; set; }
 
         /// <summary>
-        /// Комментарий
+        /// РљРѕРјРјРµРЅС‚Р°СЂРёР№
         /// </summary>
         [DataMember]
         public string Comment { get; set; }
 
         /// <summary>
-        /// Дата последнего изменения контакта
+        /// Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ РєРѕРЅС‚Р°РєС‚Р°
         /// </summary>
         [DataMember]
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// Статус контрагента
+        /// РЎС‚Р°С‚СѓСЃ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
         /// </summary>
         [DataMember]
         public ContactStatus ContactStatus { get; set; }
 
         /// <summary>
-        /// Код оператора ЭДО
+        /// РљРѕРґ РѕРїРµСЂР°С‚РѕСЂР° Р­Р”Рћ
         /// </summary>
         [DataMember]
         public string OperatorCode { get; set; }
 
         /// <summary>
-        /// Статус организации как абонента EDI
+        /// РЎС‚Р°С‚СѓСЃ РѕСЂРіР°РЅРёР·Р°С†РёРё РєР°Рє Р°Р±РѕРЅРµРЅС‚Р° EDI
         /// </summary>
         [DataMember]
         public EnumValue EdiSubscriberStatus { get; set; }

@@ -4,73 +4,73 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Информация о счете-фактуре
+    /// РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃС‡РµС‚Рµ-С„Р°РєС‚СѓСЂРµ
     /// </summary>
     [DataContract]
     public class InvoiceInfo
     {
         /// <summary>
-        /// Название счета-фактуры в формате "Счет-фактура №... от __.__.____ г."
+        /// РќР°Р·РІР°РЅРёРµ СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹ РІ С„РѕСЂРјР°С‚Рµ "РЎС‡РµС‚-С„Р°РєС‚СѓСЂР° в„–... РѕС‚ __.__.____ Рі."
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Номер счета-фактуры
+        /// РќРѕРјРµСЂ СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public string Number { get; set; }
 
         /// <summary>
-        /// Дата счета-фактуры
+        /// Р”Р°С‚Р° СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// Номер исправления счета-фактуры
+        /// РќРѕРјРµСЂ РёСЃРїСЂР°РІР»РµРЅРёСЏ СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public string ChangesNumber { get; set; }
 
         /// <summary>
-        /// Дата исправления счета-фактуры
+        /// Р”Р°С‚Р° РёСЃРїСЂР°РІР»РµРЅРёСЏ СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public DateTime? ChangesDate { get; set; }
 
         /// <summary>
-        /// Номер корректировки счета-фактуры
+        /// РќРѕРјРµСЂ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРё СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public string CorrectionNumber { get; set; }
 
         /// <summary>
-        /// Дата корректировки счета-фактуры
+        /// Р”Р°С‚Р° РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРё СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public DateTime? CorrectionDate { get; set; }
 
         /// <summary>
-        /// Номер исправления корректировки счета-фактуры
+        /// РќРѕРјРµСЂ РёСЃРїСЂР°РІР»РµРЅРёСЏ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРё СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public string ChangeCorrectionNumber { get; set; }
 
         /// <summary>
-        /// Дата исправления корректировки счета-фактуры
+        /// Р”Р°С‚Р° РёСЃРїСЂР°РІР»РµРЅРёСЏ РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРё СЃС‡РµС‚Р°-С„Р°РєС‚СѓСЂС‹
         /// </summary>
         [DataMember]
         public DateTime? ChangeCorrectionDate { get; set; }
 
         /// <summary>
-        /// Сумма без НДС
+        /// РЎСѓРјРјР° Р±РµР· РќР”РЎ
         /// </summary>
         [DataMember]
         public decimal? CoastSum { get; set; }
 
         /// <summary>
-        /// Сумма НДС
+        /// РЎСѓРјРјР° РќР”РЎ
         /// </summary>
         [DataMember]
         public decimal? SumNds { get; set; }

@@ -16,7 +16,7 @@ using Midway.ObjectModel.Exceptions;
 using Midway.ObjectModel.Extensions;
 using Midway.ServiceClient;
 
-/* 
+/*
  * Консольное приложение (Консольный клиент) как пример кода демонстрирует возможности*:
  * [+] авторизация по логину паролю
  * [+] авторизация по сертификату
@@ -37,12 +37,12 @@ using Midway.ServiceClient;
  * [+-] загрузка, сохранение документа и документооборота на диск
  * [+] отображение подписи входящего документа
  * [-] работа с контактами
- * 
+ *
  * *пояснения:
  * [+] - сценарий использования есть полностью в коде консольного клиента
  * [-] - сценария использования нет в коде консольного клиента, но такая возможность есть
  * [+-] - сценария использования только частично есть в коде консольного клиента
- * 
+ *
  * НД - неформализованный документ (любой произвольный файл)
  * СД - служебный документ \ сервисный документ - неосновной документ документооборота, например УОУ
  * ИОД - извщение о доставке (в рамках документооборота СФ)
@@ -385,7 +385,7 @@ namespace Midway.ConsoleClient
         }
 
         /// <summary>
-        /// Выбрать контрагента (например получателя) из списка доступных для обмена или 
+        /// Выбрать контрагента (например получателя) из списка доступных для обмена или
         /// указать вручную - например: указав ящик контрагента.
         /// </summary>
         /// <returns></returns>
@@ -1681,7 +1681,7 @@ namespace Midway.ConsoleClient
         /// </summary>
         private void ChooseAndSetContextCertificate()
         {
-            var certificate = ChooseCertificateFromCertificateStores(excludeRegisteredCertificates: false); 
+            var certificate = ChooseCertificateFromCertificateStores(excludeRegisteredCertificates: false);
             _context.Certificate = certificate;
             Console.Out.WriteLine("Выбран сертификат {0}", certificate.Subject);
         }
@@ -1930,7 +1930,7 @@ namespace Midway.ConsoleClient
             else if (documentType.IsInvoice())
                 ProcessInvoice(message, documentInfo);
 
-            // СФ: подтверждение о дате отправки/приема 
+            // СФ: подтверждение о дате отправки/приема
             else if (documentType == DocumentType.ServiceInvoiceConfirmation)
                 ProcessServiceInvoiceConfirmation(message, documentInfo);
 
@@ -4135,7 +4135,7 @@ namespace Midway.ConsoleClient
         {
             var documentId = UserInput.ReadParameter("Id документа");
             var response = _context.ServiceClient.PrintDocument(
-                GetCurrentCredentials(), 
+                GetCurrentCredentials(),
                 new DocumentPrintingRequest {DocumentId = documentId });
             if (response == null)
             {
@@ -4242,7 +4242,7 @@ namespace Midway.ConsoleClient
                    FillField(organizationRegistrationData.StateRegistrationCert, "Введите дату внесения записи об ИП в ЕГРИП");
             }
 
-            //TODO synerman: хорошо бы здесь проверку сделать на существование абонента в сервисе. Пока не позволяет это сделать невозможность аутентификации приложения 
+            //TODO synerman: хорошо бы здесь проверку сделать на существование абонента в сервисе. Пока не позволяет это сделать невозможность аутентификации приложения
             //            var existingOrganizations =
             //                _context.ServiceClient.GetOrganizationListByInnKpp(organizationRegistrationData.Inn, organizationRegistrationData.Kpp);
             //            var operatorInfo = _context.ServiceClient.GetSpecialOperatorInfo();
@@ -4298,7 +4298,7 @@ namespace Midway.ConsoleClient
                 do
                 {
                     var promoCode = UserInput.ReadParameter("Введите промокод");
-                    //TODO synerman: Пока не позволяет это сделать невозможность аутентификации приложения 
+                    //TODO synerman: Пока не позволяет это сделать невозможность аутентификации приложения
                     //                    try
                     //                    {
                     //                        _context.ServiceClient.GetPromoCodeByName(promoCode);
@@ -4956,7 +4956,8 @@ namespace Midway.ConsoleClient
             catch (ServerException ex) when (ex.Code.In(
                 ServiceErrorCode.SimpleSignatureDisabled,
                 ServiceErrorCode.SimpleSignatureRegulationNotAccepted,
-                ServiceErrorCode.SimpleSignatureSnilsNotSpecified))
+                ServiceErrorCode.SimpleSignatureSnilsNotSpecified,
+                ServiceErrorCode.SimpleSignatureIdentityDocumentNotSpecified))
             {
                 UserInput.Error(ex.Message);
             }

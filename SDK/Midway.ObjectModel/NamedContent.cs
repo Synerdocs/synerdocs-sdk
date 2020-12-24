@@ -3,19 +3,19 @@ using System.Runtime.Serialization;
 namespace Midway.ObjectModel
 {
     /// <summary>
-    /// Массив данных с именем. Используется для передачи содержимого файла с именем.
+    /// РњР°СЃСЃРёРІ РґР°РЅРЅС‹С… СЃ РёРјРµРЅРµРј. РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРµСЂРµРґР°С‡Рё СЃРѕРґРµСЂР¶РёРјРѕРіРѕ С„Р°Р№Р»Р° СЃ РёРјРµРЅРµРј.
     /// </summary>
     [DataContract]
     public class NamedContent
     {
         /// <summary>
-        /// Название
+        /// РќР°Р·РІР°РЅРёРµ
         /// </summary>
         [DataMember]
         public string Name { get; set; }
 
         /// <summary>
-        /// Соджержимое
+        /// РЎРѕРґР¶РµСЂР¶РёРјРѕРµ
         /// </summary>
         [DataMember]
         public byte[] Content { get; set; }
