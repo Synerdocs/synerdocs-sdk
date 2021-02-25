@@ -179,7 +179,7 @@ namespace Midway.ObjectModel
         NotifyByViber = 23,
 
         /// <summary>
-        /// Возможность заверять простую ЭП грузополучателя (ТрН). 
+        /// Возможность заверять простую ЭП грузополучателя (ТрН).
         /// </summary>
         [EnumMember]
         [Description("Возможность заверять простую ЭП грузополучателя (ТрН)")]
@@ -195,5 +195,19 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Возможность отправки документов в разрешенные организации")]
         SendingToWhitelistedOrganization = 26,
+
+        /// <summary>
+        /// Признак первого входа пользователя.
+        /// </summary>
+        [EnumMember]
+        [Description("Первый вход")]
+        FirstLogon = 27,
+
+        /// <summary>
+        /// Признак первой отправки документа пользователем.
+        /// </summary>
+        [EnumMember]
+        [Description("Первая отправка документов")]
+        FirstDocumentSending = 28,
     }
 }

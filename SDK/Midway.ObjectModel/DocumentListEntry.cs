@@ -153,7 +153,7 @@ namespace Midway.ObjectModel
         [DataMember]
         [Obsolete("Используйте '" + nameof(DocumentTypeInfo) + "'.")]
         public string UntypedKind { get; set; }
-        
+
         /// <summary>
         /// Флаг "Необходимость подтверждения факта приема документа".
         /// </summary>
@@ -164,7 +164,14 @@ namespace Midway.ObjectModel
         /// Доступные операции над документом в виде битовой маски.
         /// </summary>
         [DataMember]
+        [Obsolete("Битовая маска содержит не полный список операций, используйте '" + nameof(AvailableOperationsV2) + "'.")]
         public int AvailableOperations { get; set; }
+
+        /// <summary>
+        /// Доступные операции над документом в виде строковых значений <see cref="DocumentOperationCodes"/>.
+        /// </summary>
+        [DataMember]
+        public List<string> AvailableOperationsV2 { get; set; }
 
         /// <summary>
         /// Текстовое описание полного текущего статуса документооборота относительно абонента.

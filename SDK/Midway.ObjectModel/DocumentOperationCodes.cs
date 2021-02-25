@@ -9,7 +9,7 @@ namespace Midway.ObjectModel
     /// </summary>
     [Flags]
     [DataContract]
-    public enum DocumentOperationCodes
+    public enum DocumentOperationCodes : long
     {
         /// <summary>
         /// Нет доступных операций.
@@ -220,5 +220,33 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Подписать экспедитором Транспортной накладной")]
         SignByExpeditor = 1 << 28, //268435456.
+
+        /// <summary>
+        /// Подписать документ в качестве грузоотправителя (ТрН).
+        /// </summary>
+        [EnumMember]
+        [Description("Подписать документ в качестве грузоотправителя")]
+        SignByConsignor = 1 << 29, // 536870912.
+
+        /// <summary>
+        /// Принять груз грузополучателем (ТрН).
+        /// </summary>
+        [EnumMember]
+        [Description("Принять груз грузополучателем")]
+        AcceptCargoByConsignee = 1 << 30, // 1073741824.
+
+        /// <summary>
+        /// Подписать перевозчиком получение груза (ТрН).
+        /// </summary>
+        [EnumMember]
+        [Description("Подписать перевозчиком получение груза")]
+        SignCargoReceptionByCarrier = 1 << 31, // 2147483648.
+
+        /// <summary>
+        /// Подписать перевозчиком доставку груза (ТрН).
+        /// </summary>
+        [EnumMember]
+        [Description("Подписать перевозчиком доставку груза")]
+        SignCargoDeliveryByCarrier = 1 << 32, // 4294967296.
     }
 }

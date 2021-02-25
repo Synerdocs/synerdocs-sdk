@@ -1,535 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Utility" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Utility" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ArrayOfGoodsTransportWaybillCargoDeliveredTitleFormatVersion">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GoodsTransportWaybillCargoDeliveredTitleFormatVersion" type="tns:GoodsTransportWaybillCargoDeliveredTitleFormatVersion" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGoodsTransportWaybillCargoDeliveredTitleFormatVersion" nillable="true" type="tns:ArrayOfGoodsTransportWaybillCargoDeliveredTitleFormatVersion" />
-  <xs:simpleType name="GoodsTransportWaybillCargoDeliveredTitleFormatVersion">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="V100" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="GoodsTransportWaybillCargoDeliveredTitleFormatVersion" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitleFormatVersion" />
-  <xs:complexType name="ArrayOfGoodsTransportWaybillCargoReceivedTitleFormatVersion">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GoodsTransportWaybillCargoReceivedTitleFormatVersion" type="tns:GoodsTransportWaybillCargoReceivedTitleFormatVersion" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGoodsTransportWaybillCargoReceivedTitleFormatVersion" nillable="true" type="tns:ArrayOfGoodsTransportWaybillCargoReceivedTitleFormatVersion" />
-  <xs:simpleType name="GoodsTransportWaybillCargoReceivedTitleFormatVersion">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="V100" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="GoodsTransportWaybillCargoReceivedTitleFormatVersion" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitleFormatVersion" />
-  <xs:complexType name="ArrayOfGoodsTransportWaybillConsigneeTitleFormatVersion">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GoodsTransportWaybillConsigneeTitleFormatVersion" type="tns:GoodsTransportWaybillConsigneeTitleFormatVersion" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGoodsTransportWaybillConsigneeTitleFormatVersion" nillable="true" type="tns:ArrayOfGoodsTransportWaybillConsigneeTitleFormatVersion" />
-  <xs:simpleType name="GoodsTransportWaybillConsigneeTitleFormatVersion">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="V100" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="GoodsTransportWaybillConsigneeTitleFormatVersion" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitleFormatVersion" />
-  <xs:complexType name="ArrayOfGoodsTransportWaybillConsignorTitleFormatVersion">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GoodsTransportWaybillConsignorTitleFormatVersion" type="tns:GoodsTransportWaybillConsignorTitleFormatVersion" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGoodsTransportWaybillConsignorTitleFormatVersion" nillable="true" type="tns:ArrayOfGoodsTransportWaybillConsignorTitleFormatVersion" />
-  <xs:simpleType name="GoodsTransportWaybillConsignorTitleFormatVersion">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="V100" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="GoodsTransportWaybillConsignorTitleFormatVersion" nillable="true" type="tns:GoodsTransportWaybillConsignorTitleFormatVersion" />
-  <xs:complexType name="GoodsTransportWaybillConsignorTitleParsingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q1:ParsingRequest">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsignorTitleParsingRequest" nillable="true" type="tns:GoodsTransportWaybillConsignorTitleParsingRequest" />
-  <xs:complexType name="GoodsTransportWaybillConsignorTitleParsingResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q2:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GoodsTransportWaybillConsignorTitle" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsignorTitleParsingResponse" nillable="true" type="tns:GoodsTransportWaybillConsignorTitleParsingResponse" />
-  <xs:complexType name="GoodsTransportWaybillConsignorTitle">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:GoodsTransportWaybillTitleBase">
-        <xs:sequence>
-          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Consignee" nillable="true" type="q3:CounterpartyBase" />
-          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Consignor" nillable="true" type="q4:CounterpartyBase" />
-          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Customer" nillable="true" type="q5:CounterpartyBase" />
-          <xs:element minOccurs="0" name="DocumentFamily" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="GoodsSection" nillable="true" type="tns:ConsignorGoodsSection" />
-          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OrderNumberDate" nillable="true" type="q6:NumberDate" />
-          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Payer" nillable="true" type="q7:CounterpartyBase" />
-          <xs:element minOccurs="0" name="TransportSection" nillable="true" type="tns:ConsignorTransportSection" />
-          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="WaybillNumberDate" nillable="true" type="q8:NumberDate" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsignorTitle" nillable="true" type="tns:GoodsTransportWaybillConsignorTitle" />
-  <xs:complexType name="GoodsTransportWaybillTitleBase">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" name="FormatVersion" nillable="true" type="q9:EnumValue" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillTitleBase" nillable="true" type="tns:GoodsTransportWaybillTitleBase" />
-  <xs:complexType name="ConsignorGoodsSection">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="GoodsTable" nillable="true" type="tns:GoodsTable" />
-      <xs:element minOccurs="0" name="Requisites" nillable="true" type="tns:GoodsSectionRequisites" />
-      <xs:element minOccurs="0" name="SigningInfo" nillable="true" type="tns:GoodsSectionSigningInfo" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ConsignorGoodsSection" nillable="true" type="tns:ConsignorGoodsSection" />
-  <xs:complexType name="GoodsTable">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfGoodsItem" />
-      <xs:element minOccurs="0" name="ItemsTotal" nillable="true" type="tns:GoodsItemsTotal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GoodsTable" nillable="true" type="tns:GoodsTable" />
-  <xs:complexType name="ArrayOfGoodsItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GoodsItem" nillable="true" type="tns:GoodsItem" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGoodsItem" nillable="true" type="tns:ArrayOfGoodsItem" />
-  <xs:complexType name="GoodsItem">
-    <xs:sequence>
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AdditionalData" nillable="true" type="q10:InfoFieldFull" />
-      <xs:element minOccurs="0" name="Amount" nillable="true" type="tns:PositionAmount" />
-      <xs:element minOccurs="0" name="AreaCount" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Article" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Density" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PackageType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Price" nillable="true" type="tns:PositionAmount" />
-      <xs:element minOccurs="0" name="PriceListNumber" nillable="true" type="xs:string" />
-      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="QualityCertificate" nillable="true" type="q11:NumberDate" />
-      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Quantity" nillable="true" type="q12:Quantity" />
-      <xs:element minOccurs="0" name="RowNumber" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="SectionNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StockKeepingUnit" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Temperature" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Volume" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GoodsItem" nillable="true" type="tns:GoodsItem" />
-  <xs:complexType name="PositionAmount">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Excise" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Vat" nillable="true" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="PositionAmount" nillable="true" type="tns:PositionAmount" />
-  <xs:complexType name="GoodsItemsTotal">
-    <xs:sequence>
-      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AdditionalData" nillable="true" type="q13:InfoFieldFull" />
-      <xs:element minOccurs="0" name="AreaCount" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="CargoName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ExtraCharge" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="InventoryOrTransportationCosts" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="TotalAmount" nillable="true" type="tns:PositionAmount" />
-      <xs:element minOccurs="0" name="Volume" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GoodsItemsTotal" nillable="true" type="tns:GoodsItemsTotal" />
-  <xs:complexType name="GoodsSectionRequisites">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AreaCountText" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AttachmentCount" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FormsNumbers" nillable="true" type="xs:string" />
-      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GrossWeight" nillable="true" type="q14:Quantity" />
-      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="NetWeight" nillable="true" type="q15:Quantity" />
-      <xs:element minOccurs="0" name="PositionCountText" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SequentialNumberCountText" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SheetCount" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="TotalSoldFor" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GoodsSectionRequisites" nillable="true" type="tns:GoodsSectionRequisites" />
-  <xs:complexType name="GoodsSectionSigningInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CargoReceivedBy" nillable="true" type="tns:OperationAuthority" />
-      <xs:element minOccurs="0" name="CargoReleaseApprovedBy" nillable="true" type="tns:OperationAuthority" />
-      <xs:element minOccurs="0" name="CargoReleasedBy" nillable="true" type="tns:OperationAuthority" />
-      <xs:element minOccurs="0" name="SignedAt" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="СhiefAccountant" nillable="true" type="tns:OperationAuthority" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GoodsSectionSigningInfo" nillable="true" type="tns:GoodsSectionSigningInfo" />
-  <xs:complexType name="OperationAuthority">
-    <xs:sequence>
-      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FullName" nillable="true" type="q16:FullName" />
-      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Procuration" nillable="true" type="tns:Procuration" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OperationAuthority" nillable="true" type="tns:OperationAuthority" />
-  <xs:complexType name="Procuration">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="IssuedBy" nillable="true" type="xs:string" />
-      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="NumberDate" nillable="true" type="q17:NumberDate" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Procuration" nillable="true" type="tns:Procuration" />
-  <xs:complexType name="ConsignorTransportSection">
-    <xs:sequence>
-      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Acts" nillable="true" type="q18:ArrayOfShippingDocument" />
-      <xs:element minOccurs="0" name="Cargo" nillable="true" type="tns:CargoSection" />
-      <xs:element minOccurs="0" name="CargoDelivery" nillable="true" type="tns:CargoTransferOperation" />
-      <xs:element minOccurs="0" name="CargoReception" nillable="true" type="tns:CargoTransferOperation" />
-      <xs:element minOccurs="0" name="CarriageType" nillable="true" type="xs:string" />
-      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Carrier" nillable="true" type="q19:CounterpartyBase" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Customer" nillable="true" type="q20:CounterpartyBase" />
-      <xs:element minOccurs="0" name="DeliveryDeadline" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Driver" nillable="true" type="tns:Driver" />
-      <xs:element minOccurs="0" name="HazardousCargo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LoadingOperation" nillable="true" type="tns:CargoLoadingOperation" />
-      <xs:element minOccurs="0" name="LoadingPlace" nillable="true" type="tns:LoadingLocation" />
-      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Payer" nillable="true" type="q21:CounterpartyBase" />
-      <xs:element minOccurs="0" name="Route" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Trailers" nillable="true" type="tns:ArrayOfTransportVehicle" />
-      <xs:element minOccurs="0" name="TransportServices" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UnloadingOperation" nillable="true" type="tns:CargoLoadingOperation" />
-      <xs:element minOccurs="0" name="UnloadingPlace" nillable="true" type="tns:LoadingLocation" />
-      <xs:element minOccurs="0" name="Vehicle" nillable="true" type="tns:TransportVehicle" />
-      <xs:element minOccurs="0" name="VehicleRegistration" nillable="true" type="tns:RegistrationInfo" />
-      <xs:element minOccurs="0" name="WaybillNumber" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ConsignorTransportSection" nillable="true" type="tns:ConsignorTransportSection" />
-  <xs:complexType name="CargoSection">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfCargoItem" />
-      <xs:element minOccurs="0" name="TotalGrossWeight" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="TotalRideCount" nillable="true" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CargoSection" nillable="true" type="tns:CargoSection" />
-  <xs:complexType name="ArrayOfCargoItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CargoItem" nillable="true" type="tns:CargoItem" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCargoItem" nillable="true" type="tns:ArrayOfCargoItem" />
-  <xs:complexType name="CargoItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AreaCount" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="AreaCountText" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Class" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ContainerNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GrossWeight" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="PackageType" nillable="true" type="xs:string" />
-      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ShippingDocuments" nillable="true" type="q22:ArrayOfShippingDocument" />
-      <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="WeightDefinitionMethod" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CargoItem" nillable="true" type="tns:CargoItem" />
-  <xs:complexType name="CargoTransferOperation">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AreaCount" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DeliveredBy" nillable="true" type="tns:OperationAuthority" />
-      <xs:element minOccurs="0" name="GrossWeight" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ReceivedBy" nillable="true" type="tns:OperationAuthority" />
-      <xs:element minOccurs="0" name="Seal" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CargoTransferOperation" nillable="true" type="tns:CargoTransferOperation" />
-  <xs:complexType name="Driver">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DrivingLicenseNumber" nillable="true" type="xs:string" />
-      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FullName" nillable="true" type="q23:FullName" />
-      <xs:element minOccurs="0" name="LicenseCard" nillable="true" type="tns:LicenseCard" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Driver" nillable="true" type="tns:Driver" />
-  <xs:complexType name="LicenseCard">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Requisites" nillable="true" type="tns:RegistrationInfo" />
-      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="LicenseCard" nillable="true" type="tns:LicenseCard" />
-  <xs:complexType name="RegistrationInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Series" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RegistrationInfo" nillable="true" type="tns:RegistrationInfo" />
-  <xs:complexType name="CargoLoadingOperation">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AdditionalOperation" nillable="true" type="tns:AdditionalOperation" />
-      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Authority" nillable="true" type="q24:FullName" />
-      <xs:element minOccurs="0" name="BucketCapacity" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CarryingCapacity" nillable="true" type="xs:string" />
-      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Contractor" nillable="true" type="q25:CounterpartyBase" />
-      <xs:element minOccurs="0" name="Device" nillable="true" type="xs:string" />
-      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Duration" nillable="true" type="q26:DateTimeRange" />
-      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Method" nillable="true" type="q27:NameCodeObject" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CargoLoadingOperation" nillable="true" type="tns:CargoLoadingOperation" />
-  <xs:complexType name="AdditionalOperation">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Count" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Duration" nillable="true" type="ser:duration" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="AdditionalOperation" nillable="true" type="tns:AdditionalOperation" />
-  <xs:complexType name="LoadingLocation">
-    <xs:sequence>
-      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Address" nillable="true" type="q28:Address" />
-      <xs:element minOccurs="0" name="Counterparty" nillable="true" type="tns:LoadingLocationCounterpartyBase" />
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="LoadingLocation" nillable="true" type="tns:LoadingLocation" />
-  <xs:complexType name="LoadingLocationCounterpartyBase">
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" />
+  <xs:complexType name="EnumValuesRequest">
     <xs:sequence />
   </xs:complexType>
-  <xs:element name="LoadingLocationCounterpartyBase" nillable="true" type="tns:LoadingLocationCounterpartyBase" />
-  <xs:complexType name="LegalEntityLoadingLocationCounterparty">
+  <xs:element name="EnumValuesRequest" nillable="true" type="tns:EnumValuesRequest" />
+  <xs:complexType name="AllEnumValuesRequest">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:LoadingLocationCounterpartyBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
-          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Representative" nillable="true" type="q29:CounterpartyRepresentative" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="LegalEntityLoadingLocationCounterparty" nillable="true" type="tns:LegalEntityLoadingLocationCounterparty" />
-  <xs:complexType name="IndividualEntrepreneurLoadingLocationCounterparty">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:LoadingLocationCounterpartyBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
-          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FullName" nillable="true" type="q30:FullName" />
-          <xs:element minOccurs="0" name="Inn" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="StateRegistrationCert" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="IndividualEntrepreneurLoadingLocationCounterparty" nillable="true" type="tns:IndividualEntrepreneurLoadingLocationCounterparty" />
-  <xs:complexType name="ArrayOfTransportVehicle">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransportVehicle" nillable="true" type="tns:TransportVehicle" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTransportVehicle" nillable="true" type="tns:ArrayOfTransportVehicle" />
-  <xs:complexType name="TransportVehicle">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GarageNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TransportVehicle" nillable="true" type="tns:TransportVehicle" />
-  <xs:complexType name="GoodsTransportWaybillConsigneeTitleParsingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q31="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q31:ParsingRequest">
+      <xs:extension base="tns:EnumValuesRequest">
         <xs:sequence />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsigneeTitleParsingRequest" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitleParsingRequest" />
-  <xs:complexType name="GoodsTransportWaybillConsigneeTitleParsingResponse">
+  <xs:element name="AllEnumValuesRequest" nillable="true" type="tns:AllEnumValuesRequest" />
+  <xs:complexType name="FullEnumValuesRequest">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q32="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q32:OperationResponse">
+      <xs:extension base="tns:EnumValuesRequest">
         <xs:sequence>
-          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitle" />
+          <xs:element minOccurs="0" name="WithActivityStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithAddressLocationTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithAddressTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithApplicationGroupTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithCertificateIssueRequestTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithCertificateIssueStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithCertificateValidationStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithCircumstancesOfProducings" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithCloudProviderTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithCompositeFilterOperatorTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithContactAuthTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithContactStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithContentFormats" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDivergenceDocumentTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentDeliveryStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentFlowParticipantRoles" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentFlowResultModes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentFlowTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentMultiDeliveryStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentMultiSignStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentOperationCodes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentPurposes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentRevocationStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentSignStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentTagTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDocumentTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithDraftMessageSendModes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithEdiSubscriberStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithEmployeeFilterFieldNameLists" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithEnhancedSignCreateStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithEnhancedSignFailedReasons" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithEntityTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithExecutedFunctions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithFilterOperatorTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithFlowTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithFormatControlValidationStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithFundsTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGenders" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGoodsAcceptanceResultTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGoodsMarkingStates" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGoodsTransportWaybillCargoDeliveredTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGoodsTransportWaybillCargoReceivedTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGoodsTransportWaybillConsigneeTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGoodsTransportWaybillConsignorTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithGoodsTransportWaybillStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithIdentityDocumentTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithInvoiceFlowStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithInvoiceModificationStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithMessageStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithOperationStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithOrganizationByCriterias" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithOrganizationStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithOrganizationTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithPaymentTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithRecipientFlowStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithRegistrationResponseCodes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithSenderFlowStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithSettingTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithSignQualificationTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithSignatureMarks" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithSignerTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithSimpleSignatureAvailabilityStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithSubjectPersonTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTextValueTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTitleTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillCargoDeliveredTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillCargoReceivedTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillCarrierTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillConsigneeTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillConsignorTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillCopyTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillDeliveryPlaceChangeTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillDriverOrVehicleChangeTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillExpeditorTitleFormatVersions" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillInterchangeParticipantTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithTransportWaybillStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithValidationMessageCategories" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithValidationMessageStatuses" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithValidationResultFormats" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithVatAmountTypes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WithVatRates" type="xs:boolean" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsigneeTitleParsingResponse" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitleParsingResponse" />
-  <xs:complexType name="GoodsTransportWaybillConsigneeTitle">
+  <xs:element name="FullEnumValuesRequest" nillable="true" type="tns:FullEnumValuesRequest" />
+  <xs:complexType name="SpecifiedEnumValuesRequest">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:GoodsTransportWaybillReplyTitleBase">
+      <xs:extension base="tns:EnumValuesRequest">
         <xs:sequence>
-          <xs:element minOccurs="0" name="GoodsSection" nillable="true" type="tns:ConsigneeGoodsSection" />
-          <xs:element minOccurs="0" name="TransportSection" nillable="true" type="tns:ConsigneeTransportSection" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ActivityStatuses" nillable="true" type="q1:ArrayOfActivityStatus" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AddressLocationTypes" nillable="true" type="q2:ArrayOfAddressLocationType" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AddressTypes" nillable="true" type="q3:ArrayOfAddressType" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ApplicationGroupTypes" nillable="true" type="q4:ArrayOfApplicationGroupType" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CertificateIssueRequestTypes" nillable="true" type="q5:ArrayOfCertificateIssueRequestType" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CertificateIssueStatuses" nillable="true" type="q6:ArrayOfCertificateIssueStatus" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CertificateValidationStatuses" nillable="true" type="q7:ArrayOfCertificateValidationStatus" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CircumstancesOfProducings" nillable="true" type="q8:ArrayOfCircumstancesOfProducing" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CloudProviderTypes" nillable="true" type="q9:ArrayOfCloudProviderType" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="CompositeFilterOperatorTypes" nillable="true" type="q10:ArrayOfCompositeFilterOperatorType" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ContactAuthTypes" nillable="true" type="q11:ArrayOfContactAuthType" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ContactStatuses" nillable="true" type="q12:ArrayOfContactStatus" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ContentFormats" nillable="true" type="q13:ArrayOfContentFormat" />
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DivergenceDocumentTypes" nillable="true" type="q14:ArrayOfDivergenceDocumentType" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentDeliveryStatuses" nillable="true" type="q15:ArrayOfDocumentDeliveryStatus" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentFlowParticipantRoles" nillable="true" type="q16:ArrayOfDocumentFlowParticipantRole" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentFlowResultModes" nillable="true" type="q17:ArrayOfDocumentFlowResultMode" />
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentFlowTypes" nillable="true" type="q18:ArrayOfDocumentFlowType" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentMultiDeliveryStatuses" nillable="true" type="q19:ArrayOfDocumentMultiDeliveryStatus" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentMultiSignStatuses" nillable="true" type="q20:ArrayOfDocumentMultiSignStatus" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentOperationCodes" nillable="true" type="q21:ArrayOfDocumentOperationCodes" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentPurposes" nillable="true" type="q22:ArrayOfDocumentPurpose" />
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentRevocationStatuses" nillable="true" type="q23:ArrayOfDocumentRevocationStatus" />
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentSignStatuses" nillable="true" type="q24:ArrayOfDocumentSignStatus" />
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentTagTypes" nillable="true" type="q25:ArrayOfDocumentTagType" />
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentTypes" nillable="true" type="q26:ArrayOfDocumentType" />
+          <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DraftMessageSendModes" nillable="true" type="q27:ArrayOfDraftMessageSendMode" />
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EdiSubscriberStatuses" nillable="true" type="q28:ArrayOfEdiSubscriberStatus" />
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EmployeeFilterFieldNameLists" nillable="true" type="q29:ArrayOfEmployeeFilterFieldNameList" />
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EnhancedSignCreateStatuses" nillable="true" type="q30:ArrayOfEnhancedSignCreateStatus" />
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EnhancedSignFailedReasons" nillable="true" type="q31:ArrayOfEnhancedSignFailedReason" />
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="EntityTypes" nillable="true" type="q32:ArrayOfEntityType" />
+          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ExecutedFunctions" nillable="true" type="q33:ArrayOfExecutedFunction" />
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="FilterOperatorTypes" nillable="true" type="q34:ArrayOfFilterOperatorType" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FlowTypes" nillable="true" type="q35:ArrayOfFlowType" />
+          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FormatControlValidationStatuses" nillable="true" type="q36:ArrayOfFormatControlValidationStatus" />
+          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FundsTypes" nillable="true" type="q37:ArrayOfFundsType" />
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Genders" nillable="true" type="q38:ArrayOfGender" />
+          <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsAcceptanceResultTypes" nillable="true" type="q39:ArrayOfGoodsAcceptanceResultType" />
+          <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsMarkingStates" nillable="true" type="q40:ArrayOfGoodsMarkingState" />
+          <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" minOccurs="0" name="GoodsTransportWaybillCargoDeliveredTitleFormatVersions" nillable="true" type="q41:ArrayOfGoodsTransportWaybillCargoDeliveredTitleFormatVersion" />
+          <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" minOccurs="0" name="GoodsTransportWaybillCargoReceivedTitleFormatVersions" nillable="true" type="q42:ArrayOfGoodsTransportWaybillCargoReceivedTitleFormatVersion" />
+          <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" minOccurs="0" name="GoodsTransportWaybillConsigneeTitleFormatVersions" nillable="true" type="q43:ArrayOfGoodsTransportWaybillConsigneeTitleFormatVersion" />
+          <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" minOccurs="0" name="GoodsTransportWaybillConsignorTitleFormatVersions" nillable="true" type="q44:ArrayOfGoodsTransportWaybillConsignorTitleFormatVersion" />
+          <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsTransportWaybillStatuses" nillable="true" type="q45:ArrayOfGoodsTransportWaybillStatus" />
+          <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="IdentityDocumentTypes" nillable="true" type="q46:ArrayOfIdentityDocumentType" />
+          <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InvoiceFlowStatuses" nillable="true" type="q47:ArrayOfInvoiceFlowStatus" />
+          <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InvoiceModificationStatuses" nillable="true" type="q48:ArrayOfInvoiceModificationStatus" />
+          <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="MessageStatuses" nillable="true" type="q49:ArrayOfMessageStatus" />
+          <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OperationStatuses" nillable="true" type="q50:ArrayOfOperationStatus" />
+          <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OrganizationByCriterias" nillable="true" type="q51:ArrayOfOrganizationByCriteria" />
+          <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OrganizationStatuses" nillable="true" type="q52:ArrayOfOrganizationStatus" />
+          <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OrganizationTypes" nillable="true" type="q53:ArrayOfOrganizationType" />
+          <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="PaymentTypes" nillable="true" type="q54:ArrayOfPaymentType" />
+          <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RecipientFlowStatuses" nillable="true" type="q55:ArrayOfRecipientFlowStatus" />
+          <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RegistrationResponseCodes" nillable="true" type="q56:ArrayOfRegistrationResponseCode" />
+          <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SenderFlowStatuses" nillable="true" type="q57:ArrayOfSenderFlowStatus" />
+          <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SettingTypes" nillable="true" type="q58:ArrayOfSettingType" />
+          <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SignQualificationTypes" nillable="true" type="q59:ArrayOfSignQualificationType" />
+          <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SignatureMarks" nillable="true" type="q60:ArrayOfSignatureMark" />
+          <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SignerTypes" nillable="true" type="q61:ArrayOfSignerType" />
+          <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SimpleSignatureAvailabilityStatuses" nillable="true" type="q62:ArrayOfSimpleSignatureAvailabilityStatus" />
+          <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SubjectPersonTypes" nillable="true" type="q63:ArrayOfSubjectPersonType" />
+          <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="TextValueTypes" nillable="true" type="q64:ArrayOfTextValueType" />
+          <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TitleTypes" nillable="true" type="q65:ArrayOfTitleType" />
+          <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCargoDeliveredTitleFormatVersions" nillable="true" type="q66:ArrayOfTransportWaybillCargoDeliveredTitleFormatVersion" />
+          <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCargoReceivedTitleFormatVersions" nillable="true" type="q67:ArrayOfTransportWaybillCargoReceivedTitleFormatVersion" />
+          <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCarrierTitleFormatVersions" nillable="true" type="q68:ArrayOfTransportWaybillCarrierTitleFormatVersion" />
+          <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillConsigneeTitleFormatVersions" nillable="true" type="q69:ArrayOfTransportWaybillConsigneeTitleFormatVersion" />
+          <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillConsignorTitleFormatVersions" nillable="true" type="q70:ArrayOfTransportWaybillConsignorTitleFormatVersion" />
+          <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCopyTypes" nillable="true" type="q71:ArrayOfTransportWaybillCopyType" />
+          <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillDeliveryPlaceChangeTitleFormatVersions" nillable="true" type="q72:ArrayOfTransportWaybillDeliveryPlaceChangeTitleFormatVersion" />
+          <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillDriverOrVehicleChangeTitleFormatVersions" nillable="true" type="q73:ArrayOfTransportWaybillDriverOrVehicleChangeTitleFormatVersion" />
+          <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillExpeditorTitleFormatVersions" nillable="true" type="q74:ArrayOfTransportWaybillExpeditorTitleFormatVersion" />
+          <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillInterchangeParticipantTypes" nillable="true" type="q75:ArrayOfTransportWaybillInterchangeParticipantType" />
+          <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillStatuses" nillable="true" type="q76:ArrayOfTransportWaybillStatus" />
+          <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ValidationMessageCategories" nillable="true" type="q77:ArrayOfValidationMessageCategory" />
+          <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ValidationMessageStatuses" nillable="true" type="q78:ArrayOfValidationMessageStatus" />
+          <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ValidationResultFormats" nillable="true" type="q79:ArrayOfValidationResultFormat" />
+          <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="VatAmountTypes" nillable="true" type="q80:ArrayOfVatAmountType" />
+          <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="VatRates" nillable="true" type="q81:ArrayOfVatRate" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsigneeTitle" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitle" />
-  <xs:complexType name="GoodsTransportWaybillReplyTitleBase">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:GoodsTransportWaybillTitleBase">
-        <xs:sequence>
-          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ConsignorTitleIdentification" nillable="true" type="q33:FileIdentification" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillReplyTitleBase" nillable="true" type="tns:GoodsTransportWaybillReplyTitleBase" />
-  <xs:complexType name="ConsigneeGoodsSection">
+  <xs:element name="SpecifiedEnumValuesRequest" nillable="true" type="tns:SpecifiedEnumValuesRequest" />
+  <xs:complexType name="EnumValuesResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Signer" nillable="true" type="tns:OperationAuthority" />
+      <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ActivityStatuses" nillable="true" type="q82:ArrayOfEnumValue" />
+      <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AddressLocationTypes" nillable="true" type="q83:ArrayOfEnumValue" />
+      <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="AddressTypes" nillable="true" type="q84:ArrayOfEnumValue" />
+      <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ApplicationGroupTypes" nillable="true" type="q85:ArrayOfEnumValue" />
+      <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CertificateIssueRequestTypes" nillable="true" type="q86:ArrayOfEnumValue" />
+      <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CertificateIssueStatuses" nillable="true" type="q87:ArrayOfEnumValue" />
+      <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CertificateValidationStatuses" nillable="true" type="q88:ArrayOfEnumValue" />
+      <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CircumstancesOfProducings" nillable="true" type="q89:ArrayOfEnumValue" />
+      <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CloudProviderTypes" nillable="true" type="q90:ArrayOfEnumValue" />
+      <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="CompositeFilterOperatorTypes" nillable="true" type="q91:ArrayOfEnumValue" />
+      <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ContactAuthTypes" nillable="true" type="q92:ArrayOfEnumValue" />
+      <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ContactStatuses" nillable="true" type="q93:ArrayOfEnumValue" />
+      <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ContentFormats" nillable="true" type="q94:ArrayOfEnumValue" />
+      <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DivergenceDocumentTypes" nillable="true" type="q95:ArrayOfEnumValue" />
+      <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentDeliveryStatuses" nillable="true" type="q96:ArrayOfEnumValue" />
+      <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentFlowParticipantRoles" nillable="true" type="q97:ArrayOfEnumValue" />
+      <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentFlowResultModes" nillable="true" type="q98:ArrayOfEnumValue" />
+      <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentFlowTypes" nillable="true" type="q99:ArrayOfEnumValue" />
+      <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentMultiDeliveryStatuses" nillable="true" type="q100:ArrayOfEnumValue" />
+      <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentMultiSignStatuses" nillable="true" type="q101:ArrayOfEnumValue" />
+      <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentOperationCodes" nillable="true" type="q102:ArrayOfEnumValue" />
+      <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentPurposes" nillable="true" type="q103:ArrayOfEnumValue" />
+      <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentRevocationStatuses" nillable="true" type="q104:ArrayOfEnumValue" />
+      <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentSignStatuses" nillable="true" type="q105:ArrayOfEnumValue" />
+      <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentTagTypes" nillable="true" type="q106:ArrayOfEnumValue" />
+      <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DocumentTypes" nillable="true" type="q107:ArrayOfEnumValue" />
+      <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="DraftMessageSendModes" nillable="true" type="q108:ArrayOfEnumValue" />
+      <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EdiSubscriberStatuses" nillable="true" type="q109:ArrayOfEnumValue" />
+      <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EmployeeFilterFieldNameLists" nillable="true" type="q110:ArrayOfEnumValue" />
+      <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EnhancedSignCreateStatuses" nillable="true" type="q111:ArrayOfEnumValue" />
+      <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EnhancedSignFailedReasons" nillable="true" type="q112:ArrayOfEnumValue" />
+      <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="EntityTypes" nillable="true" type="q113:ArrayOfEnumValue" />
+      <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ExecutedFunctions" nillable="true" type="q114:ArrayOfEnumValue" />
+      <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FilterOperatorTypes" nillable="true" type="q115:ArrayOfEnumValue" />
+      <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FlowTypes" nillable="true" type="q116:ArrayOfEnumValue" />
+      <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FormatControlValidationStatuses" nillable="true" type="q117:ArrayOfEnumValue" />
+      <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="FundsTypes" nillable="true" type="q118:ArrayOfEnumValue" />
+      <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Genders" nillable="true" type="q119:ArrayOfEnumValue" />
+      <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsAcceptanceResultTypes" nillable="true" type="q120:ArrayOfEnumValue" />
+      <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsMarkingStates" nillable="true" type="q121:ArrayOfEnumValue" />
+      <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsTransportWaybillCargoDeliveredTitleFormatVersions" nillable="true" type="q122:ArrayOfEnumValue" />
+      <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsTransportWaybillCargoReceivedTitleFormatVersions" nillable="true" type="q123:ArrayOfEnumValue" />
+      <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsTransportWaybillConsigneeTitleFormatVersions" nillable="true" type="q124:ArrayOfEnumValue" />
+      <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsTransportWaybillConsignorTitleFormatVersions" nillable="true" type="q125:ArrayOfEnumValue" />
+      <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="GoodsTransportWaybillStatuses" nillable="true" type="q126:ArrayOfEnumValue" />
+      <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="IdentityDocumentTypes" nillable="true" type="q127:ArrayOfEnumValue" />
+      <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InvoiceFlowStatuses" nillable="true" type="q128:ArrayOfEnumValue" />
+      <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InvoiceModificationStatuses" nillable="true" type="q129:ArrayOfEnumValue" />
+      <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="MessageStatuses" nillable="true" type="q130:ArrayOfEnumValue" />
+      <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OperationStatuses" nillable="true" type="q131:ArrayOfEnumValue" />
+      <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OrganizationByCriterias" nillable="true" type="q132:ArrayOfEnumValue" />
+      <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OrganizationStatuses" nillable="true" type="q133:ArrayOfEnumValue" />
+      <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OrganizationTypes" nillable="true" type="q134:ArrayOfEnumValue" />
+      <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="PaymentTypes" nillable="true" type="q135:ArrayOfEnumValue" />
+      <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RecipientFlowStatuses" nillable="true" type="q136:ArrayOfEnumValue" />
+      <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="RegistrationResponseCodes" nillable="true" type="q137:ArrayOfEnumValue" />
+      <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SenderFlowStatuses" nillable="true" type="q138:ArrayOfEnumValue" />
+      <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SettingTypes" nillable="true" type="q139:ArrayOfEnumValue" />
+      <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SignQualificationTypes" nillable="true" type="q140:ArrayOfEnumValue" />
+      <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SignatureMarks" nillable="true" type="q141:ArrayOfEnumValue" />
+      <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SignerTypes" nillable="true" type="q142:ArrayOfEnumValue" />
+      <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SimpleSignatureAvailabilityStatuses" nillable="true" type="q143:ArrayOfEnumValue" />
+      <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SubjectPersonTypes" nillable="true" type="q144:ArrayOfEnumValue" />
+      <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TextValueTypes" nillable="true" type="q145:ArrayOfEnumValue" />
+      <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TitleTypes" nillable="true" type="q146:ArrayOfEnumValue" />
+      <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCargoDeliveredTitleFormatVersions" nillable="true" type="q147:ArrayOfEnumValue" />
+      <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCargoReceivedTitleFormatVersions" nillable="true" type="q148:ArrayOfEnumValue" />
+      <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCarrierTitleFormatVersions" nillable="true" type="q149:ArrayOfEnumValue" />
+      <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillConsigneeTitleFormatVersions" nillable="true" type="q150:ArrayOfEnumValue" />
+      <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillConsignorTitleFormatVersions" nillable="true" type="q151:ArrayOfEnumValue" />
+      <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillCopyTypes" nillable="true" type="q152:ArrayOfEnumValue" />
+      <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillDeliveryPlaceChangeTitleFormatVersions" nillable="true" type="q153:ArrayOfEnumValue" />
+      <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillDriverOrVehicleChangeTitleFormatVersions" nillable="true" type="q154:ArrayOfEnumValue" />
+      <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillExpeditorTitleFormatVersions" nillable="true" type="q155:ArrayOfEnumValue" />
+      <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillInterchangeParticipantTypes" nillable="true" type="q156:ArrayOfEnumValue" />
+      <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransportWaybillStatuses" nillable="true" type="q157:ArrayOfEnumValue" />
+      <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ValidationMessageCategories" nillable="true" type="q158:ArrayOfEnumValue" />
+      <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ValidationMessageStatuses" nillable="true" type="q159:ArrayOfEnumValue" />
+      <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ValidationResultFormats" nillable="true" type="q160:ArrayOfEnumValue" />
+      <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="VatAmountTypes" nillable="true" type="q161:ArrayOfEnumValue" />
+      <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="VatRates" nillable="true" type="q162:ArrayOfEnumValue" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ConsigneeGoodsSection" nillable="true" type="tns:ConsigneeGoodsSection" />
-  <xs:complexType name="ConsigneeTransportSection">
-    <xs:sequence>
-      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Acts" nillable="true" type="q34:ArrayOfShippingDocument" />
-      <xs:element minOccurs="0" name="CargoDelivery" nillable="true" type="tns:CargoTransferOperation" />
-      <xs:element minOccurs="0" name="UnloadingOperation" nillable="true" type="tns:CargoLoadingOperation" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ConsigneeTransportSection" nillable="true" type="tns:ConsigneeTransportSection" />
-  <xs:complexType name="GoodsTransportWaybillCargoReceivedParsingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q35="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q35:ParsingRequest">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoReceivedParsingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedParsingRequest" />
-  <xs:complexType name="GoodsTransportWaybillCargoReceivedTitleParsingResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q36="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q36:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitle" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoReceivedTitleParsingResponse" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitleParsingResponse" />
-  <xs:complexType name="GoodsTransportWaybillCargoReceivedTitle">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:GoodsTransportWaybillReplyTitleBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="ReceiptionFacts" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ReceivedBy" nillable="true" type="tns:OperationAuthority" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoReceivedTitle" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitle" />
-  <xs:complexType name="GoodsTransportWaybillCargoDeliveredParsingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q37="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q37:ParsingRequest">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoDeliveredParsingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredParsingRequest" />
-  <xs:complexType name="GoodsTransportWaybillCargoDeliveredTitleParsingResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q38="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q38:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitle" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoDeliveredTitleParsingResponse" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitleParsingResponse" />
-  <xs:complexType name="GoodsTransportWaybillCargoDeliveredTitle">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:GoodsTransportWaybillReplyTitleBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="DeliveredBy" nillable="true" type="tns:OperationAuthority" />
-          <xs:element minOccurs="0" name="DeliveryFacts" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoDeliveredTitle" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitle" />
-  <xs:complexType name="GoodsTransportWaybillConsignorTitleGeneratingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q39="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q39:OperationRequest">
-        <xs:sequence>
-          <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillConsignorTitle" />
-          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsignorTitleGeneratingRequest" nillable="true" type="tns:GoodsTransportWaybillConsignorTitleGeneratingRequest" />
-  <xs:complexType name="GoodsTransportWaybillGenerationOptions">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ConsigeeBoxId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ConsignorBoxId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ValidateContent" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillGenerationOptions" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
-  <xs:complexType name="GoodsTransportWaybillConsigneeTitleGeneratingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q40="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q40:OperationRequest">
-        <xs:sequence>
-          <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitle" />
-          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
-          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillConsigneeTitleGeneratingRequest" nillable="true" type="tns:GoodsTransportWaybillConsigneeTitleGeneratingRequest" />
-  <xs:complexType name="GoodsTransportWaybillCargoReceivedTitleGeneratingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q41="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q41:OperationRequest">
-        <xs:sequence>
-          <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitle" />
-          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
-          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoReceivedTitleGeneratingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoReceivedTitleGeneratingRequest" />
-  <xs:complexType name="GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q42="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q42:OperationRequest">
-        <xs:sequence>
-          <xs:element name="Model" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitle" />
-          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GoodsTransportWaybillGenerationOptions" />
-          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest" nillable="true" type="tns:GoodsTransportWaybillCargoDeliveredTitleGeneratingRequest" />
+  <xs:element name="EnumValuesResponse" nillable="true" type="tns:EnumValuesResponse" />
 </xs:schema>

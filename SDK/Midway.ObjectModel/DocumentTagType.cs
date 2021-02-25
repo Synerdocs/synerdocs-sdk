@@ -120,5 +120,33 @@ namespace Midway.ObjectModel
         [EnumMember]
         [Description("Подписан экспедитором")]
         SignedByExpeditor = 16,
+
+        /// <summary>
+        /// Подписан грузоотправителем.
+        /// </summary>
+        [EnumMember]
+        [Description("Подписан грузоотправителем")]
+        SignedByConsignor = 17,
+
+        /// <summary>
+        /// Груз принят грузополучателем.
+        /// </summary>
+        [EnumMember]
+        [Description("Груз принят грузополучателем")]
+        CargoAcceptedByConsignee = 18,
+
+        /// <summary>
+        /// Получение груза подписано перевозчиком.
+        /// </summary>
+        [EnumMember]
+        [Description("Получение груза подписано перевозчиком")]
+        CargoReceptionSignedByCarrier = 19,
+
+        /// <summary>
+        /// Доставка груза подписана перевозчиком.
+        /// </summary>
+        [EnumMember]
+        [Description("Доставка груза подписана перевозчиком")]
+        CargoDeliverySignedByCarrier = 20,
     }
 }

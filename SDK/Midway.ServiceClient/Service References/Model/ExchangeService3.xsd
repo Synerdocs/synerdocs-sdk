@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:complexType name="ArrayOfOrganizationPromoCode">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationPromoCode" nillable="true" type="tns:OrganizationPromoCode" />
@@ -4228,6 +4228,11 @@
   </xs:complexType>
   <xs:element name="ArrayOfDocumentOperationCodes" nillable="true" type="tns:ArrayOfDocumentOperationCodes" />
   <xs:simpleType name="DocumentOperationCodes">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="long" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
     <xs:list>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -4441,6 +4446,34 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:enumeration>
+          <xs:enumeration value="SignByConsignor">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">536870912</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AcceptCargoByConsignee">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1073741824</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SignCargoReceptionByCarrier">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2147483648</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SignCargoDeliveryByCarrier">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
         </xs:restriction>
       </xs:simpleType>
     </xs:list>
@@ -4507,6 +4540,41 @@
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GoodsMarking">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GoodsTraceability">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Loading">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unloading">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Assurance">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">17</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
@@ -4661,6 +4729,34 @@
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SignedByConsignor">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">17</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CargoAcceptedByConsignee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">18</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CargoReceptionSignedByCarrier">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">19</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CargoDeliverySignedByCarrier">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
@@ -5439,6 +5535,8 @@
       <xs:enumeration value="ConsigneeSimpleSignatureAssurance" />
       <xs:enumeration value="SimpleSignatureFeature" />
       <xs:enumeration value="SendingToWhitelistedOrganization" />
+      <xs:enumeration value="FirstLogon" />
+      <xs:enumeration value="FirstDocumentSending" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="SettingType" nillable="true" type="tns:SettingType" />
@@ -6366,6 +6464,7 @@
   <xs:complexType name="FullDocumentInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="AvailableOperations" type="xs:int" />
+      <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AvailableOperationsV2" nillable="true" type="q25:ArrayOfstring" />
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CountRelatedDocuments" type="xs:int" />
       <xs:element minOccurs="0" name="Document" nillable="true" type="tns:Document" />
@@ -6396,7 +6495,7 @@
   <xs:complexType name="DocumentFlowStatusDescription">
     <xs:sequence>
       <xs:element minOccurs="0" name="AdditionalStatus" nillable="true" type="xs:string" />
-      <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalStatuses" nillable="true" type="q25:ArrayOfstring" />
+      <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalStatuses" nillable="true" type="q26:ArrayOfstring" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -6541,10 +6640,10 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="BoxFrom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BoxTo" nillable="true" type="xs:string" />
-      <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContragentBoxIds" nillable="true" type="q26:ArrayOfstring" />
+      <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContragentBoxIds" nillable="true" type="q27:ArrayOfstring" />
       <xs:element minOccurs="0" name="DocumentDateFrom" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DocumentDateTo" nillable="true" type="xs:dateTime" />
-      <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentNumbers" nillable="true" type="q27:ArrayOfstring" />
+      <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentNumbers" nillable="true" type="q28:ArrayOfstring" />
       <xs:element minOccurs="0" name="DocumentRevocationStatuses" nillable="true" type="tns:ArrayOfDocumentRevocationStatus" />
       <xs:element minOccurs="0" name="DocumentSignStatuses" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
       <xs:element minOccurs="0" name="DocumentTypeEnums" nillable="true" type="tns:ArrayOfEnumValue" />
@@ -6576,6 +6675,7 @@
   <xs:complexType name="DocumentListEntry">
     <xs:sequence>
       <xs:element minOccurs="0" name="AvailableOperations" type="xs:int" />
+      <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AvailableOperationsV2" nillable="true" type="q29:ArrayOfstring" />
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DocumentFlowStatusDescription" nillable="true" type="tns:DocumentFlowStatusDescription" />
@@ -6863,8 +6963,8 @@
   <xs:element name="RegisterModel" nillable="true" type="tns:RegisterModel" />
   <xs:complexType name="RegisterResult">
     <xs:sequence>
-      <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q28:ArrayOfstring" />
-      <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q29:ArrayOfstring" />
+      <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMembers" nillable="true" type="q30:ArrayOfstring" />
+      <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q31:ArrayOfstring" />
       <xs:element minOccurs="0" name="RegisterModel" nillable="true" type="tns:RegisterModel" />
       <xs:element minOccurs="0" name="Success" type="xs:boolean" />
     </xs:sequence>
@@ -6942,6 +7042,7 @@
   <xs:complexType name="DocumentEntryItem">
     <xs:sequence>
       <xs:element minOccurs="0" name="AvailableOperations" type="xs:int" />
+      <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AvailableOperationsV2" nillable="true" type="q32:ArrayOfstring" />
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CustomField" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
@@ -7075,15 +7176,15 @@
       <xs:element minOccurs="0" name="BoxId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DocumentDateFrom" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DocumentDateTo" nillable="true" type="xs:dateTime" />
-      <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentNumbers" nillable="true" type="q30:ArrayOfstring" />
+      <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocumentNumbers" nillable="true" type="q33:ArrayOfstring" />
       <xs:element minOccurs="0" name="DocumentSignStatuses" nillable="true" type="tns:ArrayOfDocumentSignStatus" />
       <xs:element minOccurs="0" name="ExcludeUnavailable" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="First" type="xs:int" />
       <xs:element minOccurs="0" name="From" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Max" type="xs:int" />
-      <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q31:ArrayOfstring" />
-      <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q32:ArrayOfstring" />
-      <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q33:ArrayOfstring" />
+      <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientDepartmentIds" nillable="true" type="q34:ArrayOfstring" />
+      <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecipientUserLogins" nillable="true" type="q35:ArrayOfstring" />
+      <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SenderDepartmentIds" nillable="true" type="q36:ArrayOfstring" />
       <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

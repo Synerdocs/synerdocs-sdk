@@ -16,6 +16,8 @@ namespace Midway.ServiceClient.Model {
     public interface IExchangeService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListServiceErrorFaul" +
+            "tContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.OrganizationPromoCode[] GetOrganizationPromoCodeList(string authToken, string boxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeList", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationPromoCodeListResponse")]
@@ -24,6 +26,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.OrganizationPromoCode[] EndGetOrganizationPromoCodeList(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByName", ReplyAction="http://synerdocs.ru/IExchangeService/GetPromoCodeByNameResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetPromoCodeByNameServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationPromoCode))]
         Midway.ObjectModel.PromoCode GetPromoCodeByName(string authToken, string promoCodeName);
         
@@ -33,6 +37,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.PromoCode EndGetPromoCodeByName(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteOrganizationPromoCode(string authToken, string boxId, string organizationPromoCodeId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationPromoCodeResponse")]
@@ -41,6 +47,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteOrganizationPromoCode(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckCertificateList", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CheckCertificateListServiceErrorFaultContrac" +
+            "tFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.CertificateCheckInfo[] CheckCertificateList(string[] thumbprints);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckCertificateList", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificateListResponse")]
@@ -49,6 +57,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.CertificateCheckInfo[] EndCheckCertificateList(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentServiceEr" +
+            "rorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateStatementOfInvoiceReglament(string authToken, string boxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateStatementOfInvoiceReglamentResponse")]
@@ -57,6 +67,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateStatementOfInvoiceReglament(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SendStatementOfInvoiceReglamentServiceErrorF" +
+            "aultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
@@ -70,6 +82,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
             "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentServic" +
+            "eErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         bool CheckNeedToStatementOfInvoiceReglament(string authToken, string boxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglament", ReplyAction="http://synerdocs.ru/IExchangeService/CheckNeedToStatementOfInvoiceReglamentRespon" +
@@ -79,6 +93,8 @@ namespace Midway.ServiceClient.Model {
         bool EndCheckNeedToStatementOfInvoiceReglament(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerServiceErrorFaultC" +
+            "ontractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -93,6 +109,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferSeller EndParseGeneralTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
@@ -106,6 +124,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferBuyer EndParseGeneralTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferSellerServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -120,6 +140,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.WorksTransferSeller EndParseWorksTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseWorksTransferBuyerServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
@@ -133,6 +155,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.WorksTransferBuyer EndParseWorksTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferSellerServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
@@ -147,6 +171,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GoodsTransferSeller EndParseGoodsTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransferBuyerServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -161,6 +187,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerResponse" +
             "")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionSellerServiceE" +
+            "rrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -176,6 +204,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferCorrectionSeller EndParseGeneralTransferCorrectionSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferCorrectionBuyerServiceEr" +
+            "rorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
@@ -189,6 +219,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferCorrectionBuyer EndParseGeneralTransferCorrectionBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferSellerV2ServiceErrorFaul" +
+            "tContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -205,6 +237,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse EndParseGeneralTransferSellerV2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGeneralTransferBuyerV2ServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -219,6 +253,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse EndParseGeneralTransferBuyerV2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsignorTitleServiceEr" +
+            "rorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -243,6 +279,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleRespo" +
             "nse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoReceivedTitleServi" +
+            "ceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -260,6 +298,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleResp" +
             "onse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCargoDeliveredTitleServ" +
+            "iceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -276,6 +316,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.TransportWaybillCargoDeliveredTitleParsingResponse EndParseTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillConsigneeTitleServiceEr" +
+            "rorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -291,6 +333,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.TransportWaybillConsigneeTitleParsingResponse EndParseTransportWaybillConsigneeTitle(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillCarrierTitleServiceErro" +
+            "rFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
@@ -305,6 +349,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
             "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
             "eResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDeliveryPlaceChangeTitl" +
+            "eServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
@@ -331,6 +377,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDriverOrVehicleChangeTi" +
             "tle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDriverOrVehicleChangeTi" +
             "tleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillDriverOrVehicleChangeTi" +
+            "tleServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
@@ -345,6 +393,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.TransportWaybillDriverOrVehicleChangeTitleParsingResponse EndParseTransportWaybillDriverOrVehicleChangeTitle(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillExpeditorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseTransportWaybillExpeditorTitleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseTransportWaybillExpeditorTitleServiceEr" +
+            "rorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
@@ -364,6 +414,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.TransportWaybillExpeditorTitleParsingResponse EndParseTransportWaybillExpeditorTitle(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferSellerServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -378,6 +430,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferSellerServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
@@ -392,6 +446,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerServiceErrorFau" +
+            "ltContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -406,6 +462,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferSellerV2ServiceErrorF" +
+            "aultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -423,6 +481,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSeller", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerRespo" +
             "nse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionSellerServi" +
+            "ceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -438,6 +498,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferCorrectionSeller(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateWorksTransferBuyerServiceErrorFaultC" +
+            "ontractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.PaymentBillingDocument))]
@@ -451,6 +513,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateWorksTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransferBuyerServiceErrorFaultC" +
+            "ontractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -464,6 +528,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateGoodsTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerServiceErrorFaul" +
+            "tContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
@@ -477,6 +543,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.GeneratedContent EndGenerateGeneralTransferBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferBuyerV2ServiceErrorFa" +
+            "ultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
@@ -491,6 +559,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerRespon" +
             "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGeneralTransferCorrectionBuyerServic" +
+            "eErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
@@ -506,6 +576,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleRespon" +
             "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsignorTitleServic" +
+            "eErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -531,6 +603,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleRe" +
             "sponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoReceivedTitleSe" +
+            "rviceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -547,6 +621,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleR" +
             "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCargoDeliveredTitleS" +
+            "erviceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -563,6 +639,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleRespon" +
             "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillConsigneeTitleServic" +
+            "eErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -579,6 +657,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleResponse" +
             "")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillCarrierTitleServiceE" +
+            "rrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
@@ -595,6 +675,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
             "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
             "itleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDeliveryPlaceChangeT" +
+            "itleServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
@@ -620,6 +702,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDriverOrVehicleChang" +
             "eTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDriverOrVehicleChang" +
             "eTitleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillDriverOrVehicleChang" +
+            "eTitleServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntitySigner))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurSigner))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualSigner))]
@@ -636,6 +720,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillExpeditorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillExpeditorTitleRespon" +
             "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTransportWaybillExpeditorTitleServic" +
+            "eErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualCounterparty))]
@@ -655,6 +741,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentGenerationResponse EndGenerateTransportWaybillExpeditorTitle(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent DownloadPdfDocument(string authToken, string boxId, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DownloadPdfDocument", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadPdfDocumentResponse")]
@@ -663,6 +751,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndDownloadPdfDocument(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RegisterSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterSubscriberResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/RegisterSubscriberServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
@@ -674,6 +764,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.RegistrationResponse EndRegisterSubscriber(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriber", ReplyAction="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CreateNonActiveSubscriberServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.NonActiveSubscriberCreationResponse CreateNonActiveSubscriber(string authToken, Midway.ObjectModel.NonActiveSubscriberCreationRequest request);
@@ -684,6 +776,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NonActiveSubscriberCreationResponse EndCreateNonActiveSubscriber(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetCertificateSubjectInfoServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.QualifiedX509Name GetCertificateSubjectInfo(byte[] certificate);
@@ -694,6 +788,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.QualifiedX509Name EndGetCertificateSubjectInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunction", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentExecutedFunctionServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.EnumValue GetDocumentExecutedFunction(string authToken, string boxId, string documentId);
@@ -704,6 +800,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.EnumValue EndGetDocumentExecutedFunction(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestServiceErrorFau" +
+            "ltContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequest(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestCreationRequest request);
@@ -715,6 +813,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFile", ReplyAction="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileRespons" +
             "e")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CreateCertificateIssueRequestFromFileService" +
+            "ErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.CertificateIssueRequestCreationResponse CreateCertificateIssueRequestFromFile(string authToken, string boxId, Midway.ObjectModel.CertificateIssueRequestFromFileCreationRequest request);
@@ -726,6 +826,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.CertificateIssueRequestCreationResponse EndCreateCertificateIssueRequestFromFile(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueShortInfoServiceErrorFaul" +
+            "tContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.CertificateIssueInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -737,6 +839,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.CertificateIssueShortInfo EndGetCertificateIssueShortInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetCertificateIssueInfoServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.CertificateIssueInfo GetCertificateIssueInfo(string authToken, string boxId, string certificateIssueRequestId, Midway.ObjectModel.CertificateIssueInfoGettingSettings settings);
@@ -747,6 +851,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.CertificateIssueInfo EndGetCertificateIssueInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCode", ReplyAction="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCodeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCodeServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.IssuedCertificateQrCode ReissueCertificateQrCode(string authToken, string boxId, Midway.ObjectModel.ReissueCertificateQrCodeRequest reissueCertificateQrCodeRequest);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCode", ReplyAction="http://synerdocs.ru/IExchangeService/ReissueCertificateQrCodeResponse")]
@@ -755,6 +861,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.IssuedCertificateQrCode EndReissueCertificateQrCode(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailability", ReplyAction="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CheckSimpleSignatureAvailabilityServiceError" +
+            "FaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentId))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureAvailabilityCheckingDocumentContent))]
@@ -768,6 +876,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SimpleSignatureAvailabilityCheckingResponse EndCheckSimpleSignatureAvailability(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulationResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulationServiceErrorF" +
+            "aultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse AcceptSimpleSignatureRegulation(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRegulationAcceptingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulation", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptSimpleSignatureRegulationResponse")]
@@ -776,6 +886,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SimpleSignatureRegulationAcceptingResponse EndAcceptSimpleSignatureRegulation(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisites", ReplyAction="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisitesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisitesServiceError" +
+            "FaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse PreviewSimpleSignatureRequisites(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SimpleSignatureRequisitesPreviewingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisites", ReplyAction="http://synerdocs.ru/IExchangeService/PreviewSimpleSignatureRequisitesResponse")]
@@ -784,6 +896,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SimpleSignatureRequisitesPreviewingResponse EndPreviewSimpleSignatureRequisites(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CreateSimpleSignatureServiceErrorFaultContra" +
+            "ctFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureCreationDocumentId))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.SimpleSignatureCreationDocumentData))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
@@ -796,6 +910,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SimpleSignatureCreationResponse EndCreateSimpleSignature(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateUserAndEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/CreateUserAndEmployeeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CreateUserAndEmployeeServiceErrorFaultContra" +
+            "ctFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
@@ -808,6 +924,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.UserAndEmployeeCreationResponse EndCreateUserAndEmployee(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeServiceErrorFaultContractFault" +
+            "", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteEmployee(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeResponse")]
@@ -816,6 +934,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteEmployee(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUser", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUserResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUserServiceErrorFaultContra" +
+            "ctFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteEmployeeAndUser(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUser", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeAndUserResponse")]
@@ -824,6 +944,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteEmployeeAndUser(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificateServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, string employeeId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteEmployeeCertificateResponse")]
@@ -832,6 +954,7 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteEmployeeCertificate(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetSetting", ReplyAction="http://synerdocs.ru/IExchangeService/GetSettingResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetSettingServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.SettingGettingResponse GetSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingGettingRequest request);
@@ -842,6 +965,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SettingGettingResponse EndGetSetting(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateSetting", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateSettingResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/UpdateSettingServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.SettingUpdatingResponse UpdateSetting(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.SettingUpdatingRequest request);
@@ -852,6 +976,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SettingUpdatingResponse EndUpdateSetting(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetEmployee", ReplyAction="http://synerdocs.ru/IExchangeService/GetEmployeeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetEmployeeServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeProfileGettingRequest))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
@@ -865,6 +990,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Employee EndGetEmployee(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SearchEmployees", ReplyAction="http://synerdocs.ru/IExchangeService/SearchEmployeesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SearchEmployeesServiceErrorFaultContractFaul" +
+            "t", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.EmployeeSearchResponse SearchEmployees(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeSearchSettings request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SearchEmployees", ReplyAction="http://synerdocs.ru/IExchangeService/SearchEmployeesResponse")]
@@ -874,6 +1001,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthority", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthorityResponse" +
             "")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthorityServiceE" +
+            "rrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.AdministratorAuthorityUpdatingResponse UpdateEmployeeAdministratorAuthority(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.EmployeeAdministratorAuthorityUpdatingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthority", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeAdministratorAuthorityResponse" +
@@ -883,6 +1012,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.AdministratorAuthorityUpdatingResponse EndUpdateEmployeeAdministratorAuthority(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfo", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/UpdateEmployeePersonalInfoServiceErrorFaultC" +
+            "ontractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeePersonalInfoUpdatingRequest))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.UserCreationData))]
         Midway.ObjectModel.PersonalInfoUpdatingResponse UpdateEmployeePersonalInfo(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PersonalInfoUpdatingRequest request);
@@ -893,6 +1024,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.PersonalInfoUpdatingResponse EndUpdateEmployeePersonalInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/UpdateEmployeeCertificateServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeCertificateUpdatingRequest))]
         Midway.ObjectModel.CertificateUpdatingResponse UpdateEmployeeCertificate(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.CertificateUpdatingRequest request);
         
@@ -902,6 +1035,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.CertificateUpdatingResponse EndUpdateEmployeeCertificate(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdatePassword", ReplyAction="http://synerdocs.ru/IExchangeService/UpdatePasswordResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/UpdatePasswordServiceErrorFaultContractFault" +
+            "", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.PasswordUpdatingResponse UpdatePassword(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.PasswordUpdatingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdatePassword", ReplyAction="http://synerdocs.ru/IExchangeService/UpdatePasswordResponse")]
@@ -910,6 +1045,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.PasswordUpdatingResponse EndUpdatePassword(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/MoveDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDraftMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/MoveDraftMessageServiceErrorFaultContractFau" +
+            "lt", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void MoveDraftMessage(string authToken, string boxId, string draftMessageId, string employeeId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/MoveDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDraftMessageResponse")]
@@ -918,6 +1055,8 @@ namespace Midway.ServiceClient.Model {
         void EndMoveDraftMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/MoveDraftMessageV2", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDraftMessageV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/MoveDraftMessageV2ServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DraftMessageUserMovingSettings))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DraftMessageEmployeeMovingSettings))]
         void MoveDraftMessageV2(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DraftMessageMovingSettings settings);
@@ -928,6 +1067,7 @@ namespace Midway.ServiceClient.Model {
         void EndMoveDraftMessageV2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetEnumValues", ReplyAction="http://synerdocs.ru/IExchangeService/GetEnumValuesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetEnumValuesServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.Utility.AllEnumValuesRequest))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.Utility.FullEnumValuesRequest))]
@@ -940,6 +1080,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Utility.EnumValuesResponse EndGetEnumValues(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/PrintDocument", ReplyAction="http://synerdocs.ru/IExchangeService/PrintDocumentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/PrintDocumentServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.DocumentPrintingResponse PrintDocument(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentPrintingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/PrintDocument", ReplyAction="http://synerdocs.ru/IExchangeService/PrintDocumentResponse")]
@@ -948,6 +1089,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentPrintingResponse EndPrintDocument(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentTypeVersions", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentTypeVersionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentTypeVersionsServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.DocumentTypeVersionsGettingResponse GetDocumentTypeVersions(Midway.ObjectModel.DocumentTypeVersionsGettingRequest request);
@@ -958,6 +1101,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentTypeVersionsGettingResponse EndGetDocumentTypeVersions(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SearchProviderIdentificationCenters", ReplyAction="http://synerdocs.ru/IExchangeService/SearchProviderIdentificationCentersResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SearchProviderIdentificationCentersServiceEr" +
+            "rorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.ProviderIdentificationCentersSearchingResponse SearchProviderIdentificationCenters(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.ProviderIdentificationCentersSearchingRequest request);
@@ -969,6 +1114,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsignorTitleResp" +
             "onse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsignorTitleServ" +
+            "iceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
@@ -993,6 +1140,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsigneeTitleResp" +
             "onse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillConsigneeTitleServ" +
+            "iceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
@@ -1016,6 +1165,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" +
             "", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" +
             "Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoReceivedTitle" +
+            "ServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
@@ -1033,6 +1184,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitl" +
             "e", ReplyAction="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitl" +
             "eResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ParseGoodsTransportWaybillCargoDeliveredTitl" +
+            "eServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
@@ -1049,6 +1202,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsignorTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsignorTitleR" +
             "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsignorTitleS" +
+            "erviceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.EmployeeOperationCredentials))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.LegalEntityCounterparty))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.IndividualEntrepreneurCounterparty))]
@@ -1073,6 +1228,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsigneeTitle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsigneeTitleR" +
             "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillConsigneeTitleS" +
+            "erviceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
@@ -1095,6 +1252,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoReceivedTi" +
             "tle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoReceivedTi" +
             "tleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoReceivedTi" +
+            "tleServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
@@ -1113,6 +1272,8 @@ namespace Midway.ServiceClient.Model {
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoDeliveredT" +
             "itle", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoDeliveredT" +
             "itleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateGoodsTransportWaybillCargoDeliveredT" +
+            "itleServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentShortInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.NamedNumberDate))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ShippingDocument))]
@@ -1129,6 +1290,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentGenerationResponse EndGenerateGoodsTransportWaybillCargoDeliveredTitle(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartments", ReplyAction="http://synerdocs.ru/IExchangeService/GetAvailableDepartmentsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartmentsServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.AvailableDepartmentsResponse GetAvailableDepartments(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.AvailableDepartmentsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetAvailableDepartments", ReplyAction="http://synerdocs.ru/IExchangeService/GetAvailableDepartmentsResponse")]
@@ -1137,6 +1300,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.AvailableDepartmentsResponse EndGetAvailableDepartments(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingState", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingStateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentGoodsMarkingStateServiceErrorFaul" +
+            "tContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.DocumentGoodsMarkingStateResponse GetDocumentGoodsMarkingState(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentGoodsMarkingStateRequest request);
@@ -1147,6 +1312,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentGoodsMarkingStateResponse EndGetDocumentGoodsMarkingState(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AuthenticateServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string Authenticate(string login, string password, string applicationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/Authenticate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateResponse")]
@@ -1155,6 +1321,8 @@ namespace Midway.ServiceClient.Model {
         string EndAuthenticate(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string AuthenticateWithCertificate(string certHash, string applicationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateResponse")]
@@ -1164,6 +1332,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPassword", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPasswordRespon" +
             "se")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPasswordServic" +
+            "eErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string AuthenticateWithCertificateAndPassword(string thumbprint, string password, string applicationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPassword", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificateAndPasswordRespon" +
@@ -1173,6 +1343,8 @@ namespace Midway.ServiceClient.Model {
         string EndAuthenticateWithCertificateAndPassword(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2ServiceErrorFaul" +
+            "tContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         byte[] AuthenticateWithCertificate2(string certHash, string applicationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithCertificate2Response")]
@@ -1181,6 +1353,8 @@ namespace Midway.ServiceClient.Model {
         byte[] EndAuthenticateWithCertificate2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AuthenticateWithIdentityToken", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithIdentityTokenResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AuthenticateWithIdentityTokenServiceErrorFau" +
+            "ltContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string AuthenticateWithIdentityToken(string identityToken, string applicationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AuthenticateWithIdentityToken", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithIdentityTokenResponse")]
@@ -1189,6 +1363,8 @@ namespace Midway.ServiceClient.Model {
         string EndAuthenticateWithIdentityToken(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AuthenticateWithAccessToken", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithAccessTokenResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AuthenticateWithAccessTokenServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string AuthenticateWithAccessToken(string accessToken, string applicationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AuthenticateWithAccessToken", ReplyAction="http://synerdocs.ru/IExchangeService/AuthenticateWithAccessTokenResponse")]
@@ -1197,6 +1373,7 @@ namespace Midway.ServiceClient.Model {
         string EndAuthenticateWithAccessToken(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetMessages", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessagesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetMessagesServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.MessageInfo[] GetMessages(string authToken, string afterMessageId, string fromBox, string toBox);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetMessages", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessagesResponse")]
@@ -1205,6 +1382,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.MessageInfo[] EndGetMessages(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetMessage", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetMessageServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.Message GetMessage(string authToken, string boxId, string messageId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetMessage", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessageResponse")]
@@ -1213,6 +1391,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Message EndGetMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptions", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptionsServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.Message GetMessageWithLoadOptions(string authToken, string boxId, string messageId, Midway.ObjectModel.MessageRequestParams requestParams);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptions", ReplyAction="http://synerdocs.ru/IExchangeService/GetMessageWithLoadOptionsResponse")]
@@ -1221,6 +1401,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Message EndGetMessageWithLoadOptions(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SendMessageServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SentMessage SendMessage(string authToken, Midway.ObjectModel.Message message);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendMessageResponse")]
@@ -1229,6 +1410,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SentMessage EndSendMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/CreateDraftMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CreateDraftMessageServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string CreateDraftMessage(string authToken, Midway.ObjectModel.DraftMessage draftMessage);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CreateDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/CreateDraftMessageResponse")]
@@ -1237,6 +1420,8 @@ namespace Midway.ServiceClient.Model {
         string EndCreateDraftMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/UpdateDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateDraftMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/UpdateDraftMessageServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void UpdateDraftMessage(string authToken, Midway.ObjectModel.DraftMessage draftMessage);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/UpdateDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/UpdateDraftMessageResponse")]
@@ -1245,6 +1430,8 @@ namespace Midway.ServiceClient.Model {
         void EndUpdateDraftMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteDraftMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteDraftMessageServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteDraftMessage(string authToken, string messageId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteDraftMessageResponse")]
@@ -1253,6 +1440,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteDraftMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDraftMessageServiceErrorFaultContractFaul" +
+            "t", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.DraftMessage GetDraftMessage(string authToken, string messageId, bool getContent, bool getCard);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDraftMessage", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftMessageResponse")]
@@ -1261,6 +1450,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DraftMessage EndGetDraftMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDraftMessageList", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftMessageListResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDraftMessageListServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.DraftMessageSearchResult GetDraftMessageList(string authToken, string boxId, Midway.ObjectModel.Common.FetchingSettings settings);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDraftMessageList", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftMessageListResponse")]
@@ -1269,6 +1460,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DraftMessageSearchResult EndGetDraftMessageList(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDraftMessageCount", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftMessageCountResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDraftMessageCountServiceErrorFaultContrac" +
+            "tFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         int GetDraftMessageCount(string authToken, string boxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDraftMessageCount", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftMessageCountResponse")]
@@ -1277,6 +1470,8 @@ namespace Midway.ServiceClient.Model {
         int EndGetDraftMessageCount(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentContent", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentContentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentContentServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         byte[] GetDraftDocumentContent(string authToken, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentContent", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentContentResponse")]
@@ -1285,6 +1480,8 @@ namespace Midway.ServiceClient.Model {
         byte[] EndGetDraftDocumentContent(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentCard", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentCardResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentCardServiceErrorFaultContrac" +
+            "tFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         byte[] GetDraftDocumentCard(string authToken, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDraftDocumentCard", ReplyAction="http://synerdocs.ru/IExchangeService/GetDraftDocumentCardResponse")]
@@ -1293,6 +1490,8 @@ namespace Midway.ServiceClient.Model {
         byte[] EndGetDraftDocumentCard(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceipt", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptServiceErrorFaultContr" +
+            "actFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateInvoiceReceipt(string authToken, string boxId, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceipt", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptResponse")]
@@ -1301,6 +1500,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateInvoiceReceipt(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2ServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateInvoiceReceiptV2(string authToken, string boxId, string documentId, string certThumbprint);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceReceiptV2Response")]
@@ -1309,6 +1510,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateInvoiceReceiptV2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequest", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestServiceErrorF" +
+            "aultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateInvoiceAmendmentRequest(string authToken, string boxId, string documentId, string text);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequest", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestResponse")]
@@ -1317,6 +1520,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateInvoiceAmendmentRequest(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2ServiceErro" +
+            "rFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateInvoiceAmendmentRequestV2(string authToken, string boxId, string documentId, string certThumbprint, string text);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateInvoiceAmendmentRequestV2Response")]
@@ -1325,6 +1530,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateInvoiceAmendmentRequestV2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmation", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationServiceErrorFaul" +
+            "tContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateDeliveryConfirmation(string authToken, string boxId, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmation", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationResponse")]
@@ -1333,6 +1540,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateDeliveryConfirmation(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2ServiceErrorFa" +
+            "ultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateDeliveryConfirmationV2(string authToken, string boxId, string documentId, string certThumbprint);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateDeliveryConfirmationV2Response")]
@@ -1341,6 +1550,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateDeliveryConfirmationV2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequest", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateAmendmentRequest(string authToken, string boxId, string documentId, string text);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequest", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestResponse")]
@@ -1349,6 +1560,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateAmendmentRequest(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2ServiceErrorFaultC" +
+            "ontractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateAmendmentRequestV2(string authToken, string boxId, string documentId, string certThumbprint, string text);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateAmendmentRequestV2Response")]
@@ -1357,6 +1570,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateAmendmentRequestV2(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTitleBuyerResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateTitleBuyerServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateTitleBuyer(string authToken, string boxId, string documentId, Midway.ObjectModel.TitleBuyer text, Midway.ObjectModel.SignerInfo signerInfo);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateTitleBuyer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateTitleBuyerResponse")]
@@ -1365,6 +1580,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateTitleBuyer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GenerateRevocationOffer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateRevocationOfferResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GenerateRevocationOfferServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent GenerateRevocationOffer(string authToken, string boxId, string documentId, string comment, Midway.ObjectModel.SignerInfo signerInfo);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GenerateRevocationOffer", ReplyAction="http://synerdocs.ru/IExchangeService/GenerateRevocationOfferResponse")]
@@ -1373,6 +1590,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndGenerateRevocationOffer(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentContent", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentContentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentContentServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         byte[] GetDocumentContent(string authToken, string boxId, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentContent", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentContentResponse")]
@@ -1381,6 +1600,8 @@ namespace Midway.ServiceClient.Model {
         byte[] EndGetDocumentContent(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetFullDocumentInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetFullDocumentInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetFullDocumentInfoServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfoRequestParams))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.FlowDocumentInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ServiceDocument))]
@@ -1397,6 +1618,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.FullDocumentInfo EndGetFullDocumentInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentList", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentListResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentListServiceErrorFaultContractFaul" +
+            "t", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentEntryOptions))]
         Midway.ObjectModel.DocumentList GetDocumentList(string authToken, Midway.ObjectModel.DocumentListOptions options);
         
@@ -1406,6 +1629,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentList EndGetDocumentList(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxId", ReplyAction="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxIdServiceErrorFaultContrac" +
+            "tFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.InnKppName GetInnKppNameByBoxId(string token, string boxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxId", ReplyAction="http://synerdocs.ru/IExchangeService/GetInnKppNameByBoxIdResponse")]
@@ -1414,6 +1639,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.InnKppName EndGetInnKppNameByBoxId(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SearchContacts", ReplyAction="http://synerdocs.ru/IExchangeService/SearchContactsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SearchContactsServiceErrorFaultContractFault" +
+            "", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.ContactSearchResult SearchContacts(string authToken, Midway.ObjectModel.ContactSearchOptions contactSearchOptions);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SearchContacts", ReplyAction="http://synerdocs.ru/IExchangeService/SearchContactsResponse")]
@@ -1422,6 +1649,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.ContactSearchResult EndSearchContacts(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetContact", ReplyAction="http://synerdocs.ru/IExchangeService/GetContactResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetContactServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.Contact GetContact(string authToken, int organizationId, int contragentId);
@@ -1432,6 +1660,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Contact EndGetContact(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AcceptAuthorization", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptAuthorizationResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AcceptAuthorizationServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.ContactStatus AcceptAuthorization(string authToken, int organizationId, int contragentId, string comment);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AcceptAuthorization", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptAuthorizationResponse")]
@@ -1440,6 +1670,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.ContactStatus EndAcceptAuthorization(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RejectAuthorization", ReplyAction="http://synerdocs.ru/IExchangeService/RejectAuthorizationResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/RejectAuthorizationServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.ContactStatus RejectAuthorization(string authToken, int organizationId, int contragentId, string comment);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/RejectAuthorization", ReplyAction="http://synerdocs.ru/IExchangeService/RejectAuthorizationResponse")]
@@ -1448,6 +1680,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.ContactStatus EndRejectAuthorization(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/SendAuthRequestResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SendAuthRequestServiceErrorFaultContractFaul" +
+            "t", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void SendAuthRequest(string authToken, int organizationId, int contragentId, string comment);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/SendAuthRequestResponse")]
@@ -1456,6 +1690,8 @@ namespace Midway.ServiceClient.Model {
         void EndSendAuthRequest(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CancelAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CancelAuthRequestResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CancelAuthRequestServiceErrorFaultContractFa" +
+            "ult", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void CancelAuthRequest(string authToken, int organizationId, int contragentId, string comment);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CancelAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/CancelAuthRequestResponse")]
@@ -1464,6 +1700,8 @@ namespace Midway.ServiceClient.Model {
         void EndCancelAuthRequest(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AcceptAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptAuthRequestResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AcceptAuthRequestServiceErrorFaultContractFa" +
+            "ult", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void AcceptAuthRequest(string authToken, int organizationId, int contragentId, string comment);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AcceptAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptAuthRequestResponse")]
@@ -1472,6 +1710,8 @@ namespace Midway.ServiceClient.Model {
         void EndAcceptAuthRequest(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RejectAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/RejectAuthRequestResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/RejectAuthRequestServiceErrorFaultContractFa" +
+            "ult", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void RejectAuthRequest(string authToken, int organizationId, int contragentId, string comment);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/RejectAuthRequest", ReplyAction="http://synerdocs.ru/IExchangeService/RejectAuthRequestResponse")]
@@ -1480,6 +1720,7 @@ namespace Midway.ServiceClient.Model {
         void EndRejectAuthRequest(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteContact", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteContactResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteContactServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteContact(string authToken, int organizationId, int contragentId, string comment);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteContact", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteContactResponse")]
@@ -1488,6 +1729,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteContact(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKpp", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKppResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetOrganizationByInnKppServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
@@ -1499,6 +1742,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Organization EndGetOrganizationByInnKpp(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationBy", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationByResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetOrganizationByServiceErrorFaultContractFa" +
+            "ult", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.OrganizationAddress))]
@@ -1510,6 +1755,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Organization EndGetOrganizationBy(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetErrorText", ReplyAction="http://synerdocs.ru/IExchangeService/GetErrorTextResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetErrorTextServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string GetErrorText(Midway.ObjectModel.Exceptions.ServiceErrorCode code);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetErrorText", ReplyAction="http://synerdocs.ru/IExchangeService/GetErrorTextResponse")]
@@ -1518,6 +1764,7 @@ namespace Midway.ServiceClient.Model {
         string EndGetErrorText(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetBoxes", ReplyAction="http://synerdocs.ru/IExchangeService/GetBoxesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetBoxesServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.BoxInfo[] GetBoxes(string authToken);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetBoxes", ReplyAction="http://synerdocs.ru/IExchangeService/GetBoxesResponse")]
@@ -1526,6 +1773,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.BoxInfo[] EndGetBoxes(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetSubjectInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetSubjectInfoServiceErrorFaultContractFault" +
+            "", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SubjectInfo GetSubjectInfo(string authToken, string subjectBoxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetSubjectInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetSubjectInfoResponse")]
@@ -1534,6 +1783,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SubjectInfo EndGetSubjectInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfoServiceErrorFaultContr" +
+            "actFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SubjectInfo GetSpecialOperatorInfo(string authToken);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetSpecialOperatorInfoResponse")]
@@ -1542,6 +1793,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SubjectInfo EndGetSpecialOperatorInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElement", ReplyAction="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElementResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElementServiceErrorF" +
+            "aultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string AddOrganizationStructureElement(string authToken, Midway.ObjectModel.OrganizationStructureElement element);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElement", ReplyAction="http://synerdocs.ru/IExchangeService/AddOrganizationStructureElementResponse")]
@@ -1550,6 +1803,8 @@ namespace Midway.ServiceClient.Model {
         string EndAddOrganizationStructureElement(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElement", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElementResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElementServiceErr" +
+            "orFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteOrganizationStructureElement(string authToken, string organizationId, string elementId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElement", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteOrganizationStructureElementResponse")]
@@ -1558,6 +1813,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteOrganizationStructureElement(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElement", ReplyAction="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElementResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElementServiceErr" +
+            "orFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void ModifyOrganizationStructureElement(string authToken, Midway.ObjectModel.OrganizationStructureElement element);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElement", ReplyAction="http://synerdocs.ru/IExchangeService/ModifyOrganizationStructureElementResponse")]
@@ -1566,6 +1823,8 @@ namespace Midway.ServiceClient.Model {
         void EndModifyOrganizationStructureElement(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructure", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructureResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructureServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.OrganizationStructureElement[] GetOrganizationStructure(string authToken, string boxId, string organizationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructure", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructureResponse")]
@@ -1575,6 +1834,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElement", ReplyAction="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElementRespons" +
             "e")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElementService" +
+            "ErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         bool OrganizationStructureHasSingleElement(string authToken, string organizationId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElement", ReplyAction="http://synerdocs.ru/IExchangeService/OrganizationStructureHasSingleElementRespons" +
@@ -1585,6 +1846,8 @@ namespace Midway.ServiceClient.Model {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildren", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildrenRespo" +
             "nse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildrenServi" +
+            "ceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.OrganizationStructureElement[] GetOrganizationStructureElementChildren(string authToken, string organizationId, string orgStructureElementId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildren", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationStructureElementChildrenRespo" +
@@ -1594,6 +1857,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.OrganizationStructureElement[] EndGetOrganizationStructureElementChildren(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetVersion", ReplyAction="http://synerdocs.ru/IExchangeService/GetVersionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetVersionServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string GetVersion();
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetVersion", ReplyAction="http://synerdocs.ru/IExchangeService/GetVersionResponse")]
@@ -1602,6 +1866,8 @@ namespace Midway.ServiceClient.Model {
         string EndGetVersion(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CanSendInvoice", ReplyAction="http://synerdocs.ru/IExchangeService/CanSendInvoiceResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CanSendInvoiceServiceErrorFaultContractFault" +
+            "", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         bool CanSendInvoice(string authToken, string certHash);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CanSendInvoice", ReplyAction="http://synerdocs.ru/IExchangeService/CanSendInvoiceResponse")]
@@ -1610,6 +1876,8 @@ namespace Midway.ServiceClient.Model {
         bool EndCanSendInvoice(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificateServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.CertificateValidationResult CheckQualifiedCertificate(byte[] certificate);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/CheckQualifiedCertificateResponse")]
@@ -1618,6 +1886,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.CertificateValidationResult EndCheckQualifiedCertificate(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetBoxCertificates", ReplyAction="http://synerdocs.ru/IExchangeService/GetBoxCertificatesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetBoxCertificatesServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.BoxCertificate[] GetBoxCertificates(string authToken);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetBoxCertificates", ReplyAction="http://synerdocs.ru/IExchangeService/GetBoxCertificatesResponse")]
@@ -1626,6 +1896,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.BoxCertificate[] EndGetBoxCertificates(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetRequiredNotices", ReplyAction="http://synerdocs.ru/IExchangeService/GetRequiredNoticesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetRequiredNoticesServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.ServiceNotice[] GetRequiredNotices(string authToken, string boxId, string certThumbprint);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetRequiredNotices", ReplyAction="http://synerdocs.ru/IExchangeService/GetRequiredNoticesResponse")]
@@ -1634,6 +1906,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.ServiceNotice[] EndGetRequiredNotices(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetEnhancedSign", ReplyAction="http://synerdocs.ru/IExchangeService/GetEnhancedSignResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetEnhancedSignServiceErrorFaultContractFaul" +
+            "t", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.EnhancedSign GetEnhancedSign(string authToken, string boxId, byte[] sign);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetEnhancedSign", ReplyAction="http://synerdocs.ru/IExchangeService/GetEnhancedSignResponse")]
@@ -1642,6 +1916,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.EnhancedSign EndGetEnhancedSign(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetEnhancedSignById", ReplyAction="http://synerdocs.ru/IExchangeService/GetEnhancedSignByIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetEnhancedSignByIdServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.EnhancedSign GetEnhancedSignById(string authToken, string boxId, string signId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetEnhancedSignById", ReplyAction="http://synerdocs.ru/IExchangeService/GetEnhancedSignByIdResponse")]
@@ -1650,6 +1926,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.EnhancedSign EndGetEnhancedSignById(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchive", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchiveResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchiveServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.NamedContent DownloadDocumentFlowArchive(string authToken, string boxId, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchive", ReplyAction="http://synerdocs.ru/IExchangeService/DownloadDocumentFlowArchiveResponse")]
@@ -1658,6 +1936,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.NamedContent EndDownloadDocumentFlowArchive(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKpp", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKppResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKppServiceErrorFault" +
+            "ContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.Organization[] GetOrganizationListByInnKpp(string authToken, string inn, string kpp);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKpp", ReplyAction="http://synerdocs.ru/IExchangeService/GetOrganizationListByInnKppResponse")]
@@ -1666,6 +1946,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.Organization[] EndGetOrganizationListByInnKpp(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CheckCertificates", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificatesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CheckCertificatesServiceErrorFaultContractFa" +
+            "ult", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string[] CheckCertificates(string[] thumbprints);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/CheckCertificates", ReplyAction="http://synerdocs.ru/IExchangeService/CheckCertificatesResponse")]
@@ -1674,6 +1956,7 @@ namespace Midway.ServiceClient.Model {
         string[] EndCheckCertificates(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetUserInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetUserInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetUserInfoServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.User GetUserInfo(string authToken, string boxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetUserInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetUserInfoResponse")]
@@ -1682,6 +1965,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.User EndGetUserInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/Register", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/RegisterServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.RegisterResult Register(Midway.ObjectModel.RegisterModel registerModel, byte[] certificate);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/Register", ReplyAction="http://synerdocs.ru/IExchangeService/RegisterResponse")]
@@ -1690,6 +1974,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.RegisterResult EndRegister(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AcceptRegulation", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptRegulationResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AcceptRegulationServiceErrorFaultContractFau" +
+            "lt", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         bool AcceptRegulation(string authToken, string boxId, [System.ServiceModel.MessageParameterAttribute(Name="acceptRegulation")] bool acceptRegulation1);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AcceptRegulation", ReplyAction="http://synerdocs.ru/IExchangeService/AcceptRegulationResponse")]
@@ -1698,6 +1984,8 @@ namespace Midway.ServiceClient.Model {
         bool EndAcceptRegulation(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/HasQualifiedCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/HasQualifiedCertificateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/HasQualifiedCertificateServiceErrorFaultCont" +
+            "ractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         bool HasQualifiedCertificate(string authToken, string contragentBoxId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/HasQualifiedCertificate", ReplyAction="http://synerdocs.ru/IExchangeService/HasQualifiedCertificateResponse")]
@@ -1706,6 +1994,8 @@ namespace Midway.ServiceClient.Model {
         bool EndHasQualifiedCertificate(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendUnsignedMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendUnsignedMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SendUnsignedMessageServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SentMessage SendUnsignedMessage(string authToken, Midway.ObjectModel.UnsignedMessage message);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendUnsignedMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendUnsignedMessageResponse")]
@@ -1714,6 +2004,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SentMessage EndSendUnsignedMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendForwardMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendForwardMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SendForwardMessageServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SentMessage SendForwardMessage(string authToken, Midway.ObjectModel.ForwardMessage message);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendForwardMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendForwardMessageResponse")]
@@ -1722,6 +2014,7 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SentMessage EndSendForwardMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SignDocument", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SignDocumentServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         void SignDocument(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.Sign sign);
@@ -1732,6 +2025,8 @@ namespace Midway.ServiceClient.Model {
         void EndSignDocument(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignature", ReplyAction="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignatureResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SignDocumentWithSimpleSignatureServiceErrorF" +
+            "aultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         void SignDocumentWithSimpleSignature(string authToken, Midway.ObjectModel.FlowType flowType, Midway.ObjectModel.SimpleSignature signature);
@@ -1742,6 +2037,7 @@ namespace Midway.ServiceClient.Model {
         void EndSignDocumentWithSimpleSignature(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/RejectSign", ReplyAction="http://synerdocs.ru/IExchangeService/RejectSignResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/RejectSignServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void RejectSign(string authToken, Midway.ObjectModel.FlowType flowType, [System.ServiceModel.MessageParameterAttribute(Name="rejectSign")] Midway.ObjectModel.RejectSign rejectSign1);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/RejectSign", ReplyAction="http://synerdocs.ru/IExchangeService/RejectSignResponse")]
@@ -1750,6 +2046,8 @@ namespace Midway.ServiceClient.Model {
         void EndRejectSign(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentEntries", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentEntriesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentEntriesServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.DocumentEntryList GetDocumentEntries(string authToken, Midway.ObjectModel.DocumentEntryOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentEntries", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentEntriesResponse")]
@@ -1758,6 +2056,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentEntryList EndGetDocumentEntries(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfoServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.FlowDocumentInfo GetFlowDocumentInfo(string authToken, string boxId, string documentId, Midway.ObjectModel.FlowDocumentInfoRequestParams requestParams);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfo", ReplyAction="http://synerdocs.ru/IExchangeService/GetFlowDocumentInfoResponse")]
@@ -1766,6 +2066,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.FlowDocumentInfo EndGetFlowDocumentInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/SendInternalMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendInternalMessageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/SendInternalMessageServiceErrorFaultContract" +
+            "Fault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.SentMessage SendInternalMessage(string authToken, Midway.ObjectModel.InternalMessage message);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/SendInternalMessage", ReplyAction="http://synerdocs.ru/IExchangeService/SendInternalMessageResponse")]
@@ -1774,6 +2076,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.SentMessage EndSendInternalMessage(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetInternalDocuments", ReplyAction="http://synerdocs.ru/IExchangeService/GetInternalDocumentsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetInternalDocumentsServiceErrorFaultContrac" +
+            "tFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.DocumentEntryList GetInternalDocuments(string authToken, Midway.ObjectModel.InternalListOptions options);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetInternalDocuments", ReplyAction="http://synerdocs.ru/IExchangeService/GetInternalDocumentsResponse")]
@@ -1782,6 +2086,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentEntryList EndGetInternalDocuments(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartment", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartmentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartmentServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         bool MoveDocumentToDepartment(string authToken, string boxId, string documentId, string departmentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartment", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDocumentToDepartmentResponse")]
@@ -1790,6 +2096,8 @@ namespace Midway.ServiceClient.Model {
         bool EndMoveDocumentToDepartment(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartment", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartmentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartmentServiceErrorFaultCo" +
+            "ntractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         string[] MoveDocumentsToDepartment(string authToken, string boxId, string[] documentIds, string departmentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartment", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDocumentsToDepartmentResponse")]
@@ -1798,6 +2106,7 @@ namespace Midway.ServiceClient.Model {
         string[] EndMoveDocumentsToDepartment(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/MoveDocument", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDocumentResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/MoveDocumentServiceErrorFaultContractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.DocumentMovingResponse MoveDocument(Midway.ObjectModel.EmployeeOperationCredentials credentials, Midway.ObjectModel.DocumentMovingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/MoveDocument", ReplyAction="http://synerdocs.ru/IExchangeService/MoveDocumentResponse")]
@@ -1806,6 +2115,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentMovingResponse EndMoveDocument(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDepartmentEmployees", ReplyAction="http://synerdocs.ru/IExchangeService/GetDepartmentEmployeesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDepartmentEmployeesServiceErrorFaultContr" +
+            "actFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.User[] GetDepartmentEmployees(string authToken, string boxId, string departmentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDepartmentEmployees", ReplyAction="http://synerdocs.ru/IExchangeService/GetDepartmentEmployeesResponse")]
@@ -1814,6 +2125,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.User[] EndGetDepartmentEmployees(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/CreateDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/CreateDocumentTagResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/CreateDocumentTagServiceErrorFaultContractFa" +
+            "ult", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         string CreateDocumentTag(string authToken, Midway.ObjectModel.DocumentTag documentTag);
@@ -1824,6 +2137,8 @@ namespace Midway.ServiceClient.Model {
         string EndCreateDocumentTag(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/DeleteDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteDocumentTagResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/DeleteDocumentTagServiceErrorFaultContractFa" +
+            "ult", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void DeleteDocumentTag(string authToken, string documentTagId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/DeleteDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/DeleteDocumentTagResponse")]
@@ -1832,6 +2147,8 @@ namespace Midway.ServiceClient.Model {
         void EndDeleteDocumentTag(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentTag", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentTagResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentTagServiceErrorFaultContractFault" +
+            "", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.DocumentTypeEnum))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Midway.ObjectModel.ContentFormatEnum))]
         Midway.ObjectModel.DocumentTag GetDocumentTag(string authToken, string documentTagId);
@@ -1842,6 +2159,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentTag EndGetDocumentTag(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/GetDocumentTagList", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentTagListResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/GetDocumentTagListServiceErrorFaultContractF" +
+            "ault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         Midway.ObjectModel.DocumentTag[] GetDocumentTagList(string authToken, string boxId, string documentId);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/GetDocumentTagList", ReplyAction="http://synerdocs.ru/IExchangeService/GetDocumentTagListResponse")]
@@ -1850,6 +2169,8 @@ namespace Midway.ServiceClient.Model {
         Midway.ObjectModel.DocumentTag[] EndGetDocumentTagList(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCodeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Midway.ObjectModel.Exceptions.ServiceErrorFaultContract), Action="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCodeServiceErrorFaultCon" +
+            "tractFault", Name="ServiceErrorFaultContract", Namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions")]
         void AddOrganizationPromoCode(string authToken, string boxId, string promoCodeName);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCode", ReplyAction="http://synerdocs.ru/IExchangeService/AddOrganizationPromoCodeResponse")]

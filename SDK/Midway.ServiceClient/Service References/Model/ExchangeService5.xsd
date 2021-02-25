@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://synerdocs.ru" elementFormDefault="qualified" targetNamespace="http://synerdocs.ru" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Utility" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Utility" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GoodsTransportWaybill" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" />
   <xs:element name="GetOrganizationPromoCodeList">
     <xs:complexType>
       <xs:sequence>

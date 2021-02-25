@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
@@ -71,6 +71,41 @@ namespace Midway.ObjectModel
         /// </summary>
         [EnumMember]
         [Description("Передача")]
-        Transfer = 12
+        Transfer = 12,
+
+        /// <summary>
+        /// Маркировка товаров.
+        /// </summary>
+        [EnumMember]
+        [Description("Маркировка товара")]
+        GoodsMarking = 13,
+
+        /// <summary>
+        /// Прослеживаемость товара.
+        /// </summary>
+        [EnumMember]
+        [Description("Прослеживаемость товара")]
+        GoodsTraceability = 14,
+
+        /// <summary>
+        /// Погрузка.
+        /// </summary>
+        [EnumMember]
+        [Description("Погрузка")]
+        Loading = 15,
+
+        /// <summary>
+        /// Разгрузка.
+        /// </summary>
+        [EnumMember]
+        [Description("Разгрузка")]
+        Unloading = 16,
+
+        /// <summary>
+        /// Заверение.
+        /// </summary>
+        [EnumMember]
+        [Description("Заверение")]
+        Assurance = 17,
     }
 }
