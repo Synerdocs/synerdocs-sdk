@@ -2,82 +2,36 @@
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System" />
-  <xs:complexType name="ArrayOfOrganizationPromoCode">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationPromoCode" nillable="true" type="tns:OrganizationPromoCode" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrganizationPromoCode" nillable="true" type="tns:ArrayOfOrganizationPromoCode" />
-  <xs:complexType name="OrganizationPromoCode">
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" />
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="EmployeeOperationCredentials">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:PromoCode">
+      <xs:extension base="tns:UserOperationCredentials">
         <xs:sequence>
-          <xs:element minOccurs="0" name="OrganizationPromoCodeId" nillable="true" type="xs:string" />
+          <xs:element name="BoxAddress" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="OrganizationPromoCode" nillable="true" type="tns:OrganizationPromoCode" />
-  <xs:complexType name="PromoCode">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="IsValidityNotLimited" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
-    </xs:sequence>
+  <xs:element name="EmployeeOperationCredentials" nillable="true" type="tns:EmployeeOperationCredentials" />
+  <xs:complexType name="UserOperationCredentials">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationCredentials">
+        <xs:sequence>
+          <xs:element name="AuthToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="PromoCode" nillable="true" type="tns:PromoCode" />
-  <xs:complexType name="ArrayOfCertificateCheckInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CertificateCheckInfo" nillable="true" type="tns:CertificateCheckInfo" />
-    </xs:sequence>
+  <xs:element name="UserOperationCredentials" nillable="true" type="tns:UserOperationCredentials" />
+  <xs:complexType name="OperationCredentials">
+    <xs:sequence />
   </xs:complexType>
-  <xs:element name="ArrayOfCertificateCheckInfo" nillable="true" type="tns:ArrayOfCertificateCheckInfo" />
-  <xs:complexType name="CertificateCheckInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CloudAbonentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CryptoProviderType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IsCloud" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Thumbprint" nillable="true" type="xs:string" />
-    </xs:sequence>
+  <xs:element name="OperationCredentials" nillable="true" type="tns:OperationCredentials" />
+  <xs:complexType name="OperationRequest">
+    <xs:sequence />
   </xs:complexType>
-  <xs:element name="CertificateCheckInfo" nillable="true" type="tns:CertificateCheckInfo" />
-  <xs:complexType name="NamedContent">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="NamedContent" nillable="true" type="tns:NamedContent" />
-  <xs:complexType name="MessageOfStatement">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FromBoxId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Sign" nillable="true" type="tns:Sign" />
-      <xs:element minOccurs="0" name="Statement" nillable="true" type="tns:Document" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MessageOfStatement" nillable="true" type="tns:MessageOfStatement" />
-  <xs:complexType name="Sign">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Raw" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="SignatureMark" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Sign" nillable="true" type="tns:Sign" />
+  <xs:element name="OperationRequest" nillable="true" type="tns:OperationRequest" />
   <xs:complexType name="EnumValue">
     <xs:sequence>
       <xs:element minOccurs="0" name="Code" type="xs:int" />
@@ -419,6 +373,247 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="DocumentType" nillable="true" type="tns:DocumentType" />
+  <xs:complexType name="FileIdentification">
+    <xs:sequence>
+      <xs:element name="FileId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Signatures" nillable="true" type="q1:ArrayOfbase64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileIdentification" nillable="true" type="tns:FileIdentification" />
+  <xs:complexType name="FullName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullName" nillable="true" type="tns:FullName" />
+  <xs:complexType name="NumberDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NumberDate" nillable="true" type="tns:NumberDate" />
+  <xs:complexType name="DocumentGenerationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeneratedContent" nillable="true" type="tns:GeneratedContent" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentGenerationResponse" nillable="true" type="tns:DocumentGenerationResponse" />
+  <xs:complexType name="OperationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationResponse" nillable="true" type="tns:OperationResponse" />
+  <xs:complexType name="ModelValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfModelValidationResult" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfModelValidationMessage" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
+  <xs:complexType name="ArrayOfModelValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelValidationResult" nillable="true" type="tns:ArrayOfModelValidationResult" />
+  <xs:complexType name="ArrayOfModelValidationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelValidationMessage" nillable="true" type="tns:ArrayOfModelValidationMessage" />
+  <xs:complexType name="ModelValidationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
+  <xs:complexType name="GeneratedContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NamedContent" nillable="true" type="tns:NamedContent" />
+      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ContentValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeneratedContent" nillable="true" type="tns:GeneratedContent" />
+  <xs:complexType name="NamedContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NamedContent" nillable="true" type="tns:NamedContent" />
+  <xs:complexType name="ContentValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FormatControlErrors" nillable="true" type="tns:ArrayOfValidationError" />
+      <xs:element minOccurs="0" name="GeneralStatus" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="XsdErrors" nillable="true" type="tns:ArrayOfValidationError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContentValidationResult" nillable="true" type="tns:ContentValidationResult" />
+  <xs:complexType name="ArrayOfValidationError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationError" nillable="true" type="tns:ValidationError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValidationError" nillable="true" type="tns:ArrayOfValidationError" />
+  <xs:complexType name="ValidationError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorType" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Field" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationError" nillable="true" type="tns:ValidationError" />
+  <xs:complexType name="AvailableDepartmentsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AvailableDepartmentsRequest" nillable="true" type="tns:AvailableDepartmentsRequest" />
+  <xs:complexType name="AvailableDepartmentsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AvailableDepartments" nillable="true" type="tns:ArrayOfDepartment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AvailableDepartmentsResponse" nillable="true" type="tns:AvailableDepartmentsResponse" />
+  <xs:complexType name="ArrayOfDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
+  <xs:complexType name="Department">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DepartmentShortInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="DepartmentShortInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepartmentShortInfo" nillable="true" type="tns:DepartmentShortInfo" />
+  <xs:complexType name="DocumentGoodsMarkingStateRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationRequest">
+        <xs:sequence>
+          <xs:element name="DocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentGoodsMarkingStateRequest" nillable="true" type="tns:DocumentGoodsMarkingStateRequest" />
+  <xs:complexType name="DocumentGoodsMarkingStateResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OperationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OccurredAt" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="tns:EnumValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentGoodsMarkingStateResponse" nillable="true" type="tns:DocumentGoodsMarkingStateResponse" />
+  <xs:complexType name="ArrayOfOrganizationPromoCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationPromoCode" nillable="true" type="tns:OrganizationPromoCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganizationPromoCode" nillable="true" type="tns:ArrayOfOrganizationPromoCode" />
+  <xs:complexType name="OrganizationPromoCode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PromoCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrganizationPromoCodeId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrganizationPromoCode" nillable="true" type="tns:OrganizationPromoCode" />
+  <xs:complexType name="PromoCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsValidityNotLimited" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PromoCode" nillable="true" type="tns:PromoCode" />
+  <xs:complexType name="ArrayOfCertificateCheckInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CertificateCheckInfo" nillable="true" type="tns:CertificateCheckInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCertificateCheckInfo" nillable="true" type="tns:ArrayOfCertificateCheckInfo" />
+  <xs:complexType name="CertificateCheckInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CloudAbonentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CryptoProviderType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCloud" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Thumbprint" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CertificateCheckInfo" nillable="true" type="tns:CertificateCheckInfo" />
+  <xs:complexType name="MessageOfStatement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FromBoxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sign" nillable="true" type="tns:Sign" />
+      <xs:element minOccurs="0" name="Statement" nillable="true" type="tns:Document" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageOfStatement" nillable="true" type="tns:MessageOfStatement" />
+  <xs:complexType name="Sign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromDepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Raw" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SignatureMark" nillable="true" type="tns:EnumValue" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Sign" nillable="true" type="tns:Sign" />
   <xs:complexType name="Document">
     <xs:sequence>
       <xs:element minOccurs="0" name="Card" nillable="true" type="xs:base64Binary" />
@@ -443,7 +638,7 @@
       <xs:element minOccurs="0" name="NoticeRequired" type="xs:boolean" />
       <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ParentDocumentId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RelatedDocumentIds" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RelatedDocumentIds" nillable="true" type="q2:ArrayOfstring" />
       <xs:element minOccurs="0" name="RootDocumentId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SendOnlyToDocumentFlowParticipants" nillable="true" type="xs:boolean" />
       <xs:element minOccurs="0" name="SentDate" nillable="true" type="xs:dateTime" />
@@ -541,7 +736,7 @@
   <xs:complexType name="SentMessage">
     <xs:sequence>
       <xs:element minOccurs="0" name="DocumentIds" nillable="true" type="tns:ArrayOfLocalServerId" />
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Log" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Log" nillable="true" type="q3:ArrayOfstring" />
       <xs:element minOccurs="0" name="MessageId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="SignIds" nillable="true" type="tns:ArrayOfLocalServerId" />
@@ -704,14 +899,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ContragentContactInfo" nillable="true" type="tns:ContragentContactInfo" />
-  <xs:complexType name="FullName">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="FullName" nillable="true" type="tns:FullName" />
   <xs:complexType name="CurrencyInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Currency" nillable="true" type="tns:NameCodeObject" />
@@ -855,13 +1042,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfNumberDate" nillable="true" type="tns:ArrayOfNumberDate" />
-  <xs:complexType name="NumberDate">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="NumberDate" nillable="true" type="tns:NumberDate" />
   <xs:complexType name="ParticipantsServiceInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="RecipientServiceCode" nillable="true" type="xs:string" />
@@ -1018,7 +1198,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Signatures" nillable="true" type="q3:ArrayOfbase64Binary" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Signatures" nillable="true" type="q4:ArrayOfbase64Binary" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SellerTitleIdentification" nillable="true" type="tns:SellerTitleIdentification" />
@@ -1316,38 +1496,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GeneralTransferCorrectionBuyer" nillable="true" type="tns:GeneralTransferCorrectionBuyer" />
-  <xs:complexType name="UserOperationCredentials">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:OperationCredentials">
-        <xs:sequence>
-          <xs:element name="AuthToken" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="UserOperationCredentials" nillable="true" type="tns:UserOperationCredentials" />
-  <xs:complexType name="OperationCredentials">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="OperationCredentials" nillable="true" type="tns:OperationCredentials" />
-  <xs:complexType name="EmployeeOperationCredentials">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:UserOperationCredentials">
-        <xs:sequence>
-          <xs:element name="BoxAddress" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="EmployeeOperationCredentials" nillable="true" type="tns:EmployeeOperationCredentials" />
-  <xs:complexType name="GeneralTransferSellerV2ParsingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:ParsingRequest">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GeneralTransferSellerV2ParsingRequest" nillable="true" type="tns:GeneralTransferSellerV2ParsingRequest" />
   <xs:complexType name="ParsingRequest">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationRequest">
@@ -1358,10 +1506,14 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ParsingRequest" nillable="true" type="tns:ParsingRequest" />
-  <xs:complexType name="OperationRequest">
-    <xs:sequence />
+  <xs:complexType name="GeneralTransferSellerV2ParsingRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParsingRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="OperationRequest" nillable="true" type="tns:OperationRequest" />
+  <xs:element name="GeneralTransferSellerV2ParsingRequest" nillable="true" type="tns:GeneralTransferSellerV2ParsingRequest" />
   <xs:complexType name="GeneralTransferSellerV2ParsingResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationResponse">
@@ -1372,42 +1524,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="GeneralTransferSellerV2ParsingResponse" nillable="true" type="tns:GeneralTransferSellerV2ParsingResponse" />
-  <xs:complexType name="OperationResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ModelValidationResult" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OperationResponse" nillable="true" type="tns:OperationResponse" />
-  <xs:complexType name="ModelValidationResult">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfModelValidationResult" />
-      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfModelValidationMessage" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
-  <xs:complexType name="ArrayOfModelValidationResult">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationResult" nillable="true" type="tns:ModelValidationResult" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelValidationResult" nillable="true" type="tns:ArrayOfModelValidationResult" />
-  <xs:complexType name="ArrayOfModelValidationMessage">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelValidationMessage" nillable="true" type="tns:ArrayOfModelValidationMessage" />
-  <xs:complexType name="ModelValidationMessage">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelValidationMessage" nillable="true" type="tns:ModelValidationMessage" />
   <xs:complexType name="GeneralTransferSellerV2">
     <xs:sequence>
       <xs:element minOccurs="0" name="ApprovedAdditionalInfoFieldStructure" nillable="true" type="xs:string" />
@@ -1516,8 +1632,8 @@
   <xs:element name="ArrayOfProductIdentificationInfo" nillable="true" type="tns:ArrayOfProductIdentificationInfo" />
   <xs:complexType name="ProductIdentificationInfo">
     <xs:sequence>
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CheckMarks" nillable="true" type="q4:ArrayOfstring" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SecondaryPackageIds" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CheckMarks" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SecondaryPackageIds" nillable="true" type="q6:ArrayOfstring" />
       <xs:element minOccurs="0" name="TransportPackageId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -1608,7 +1724,7 @@
       <xs:element minOccurs="0" name="Bailor" nillable="true" type="tns:Person" />
       <xs:element minOccurs="0" name="BasisDocuments" nillable="true" type="tns:ArrayOfBasisDocument" />
       <xs:element minOccurs="0" name="Carrier" nillable="true" type="tns:Contragent" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="DateTimeRange" nillable="true" type="q6:DateTimeRange" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="DateTimeRange" nillable="true" type="q7:DateTimeRange" />
       <xs:element minOccurs="0" name="InfoField" nillable="true" type="tns:InfoFieldFull" />
       <xs:element minOccurs="0" name="LadingBills" nillable="true" type="tns:ArrayOfNumberDate" />
       <xs:element minOccurs="0" name="OperationType" nillable="true" type="xs:string" />
@@ -1852,7 +1968,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Acts" nillable="true" type="tns:ArrayOfShippingDocument" />
       <xs:element minOccurs="0" name="DriverSchedules" nillable="true" type="tns:ArrayOfCarrierDriverSchedule" />
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Routes" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Routes" nillable="true" type="q8:ArrayOfstring" />
       <xs:element minOccurs="0" name="SpecialPermission" nillable="true" type="tns:ShippingDocument" />
     </xs:sequence>
   </xs:complexType>
@@ -1892,7 +2008,7 @@
       <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
       <xs:element minOccurs="0" name="AuthorizedSignatureBy" nillable="true" type="tns:SignerBase" />
       <xs:element minOccurs="0" name="CargoState" nillable="true" type="tns:CargoState" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Duration" nillable="true" type="q8:DateTimeRange" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="Duration" nillable="true" type="q9:DateTimeRange" />
       <xs:element minOccurs="0" name="HandledAt" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
@@ -1977,7 +2093,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Cargo" nillable="true" type="tns:Cargo" />
       <xs:element minOccurs="0" name="CargoArea" nillable="true" type="tns:CargoArea" />
-      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HazardousSubstances" nillable="true" type="q9:ArrayOfstring" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HazardousSubstances" nillable="true" type="q10:ArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CargoDescription" nillable="true" type="tns:CargoDescription" />
@@ -2113,7 +2229,7 @@
   <xs:complexType name="CarrierStorageDuration">
     <xs:sequence>
       <xs:element minOccurs="0" name="TimeSpan" nillable="true" type="tns:Quantity" />
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="TimeWindow" nillable="true" type="q10:DateTimeRange" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Common" minOccurs="0" name="TimeWindow" nillable="true" type="q11:DateTimeRange" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CarrierStorageDuration" nillable="true" type="tns:CarrierStorageDuration" />
@@ -2183,7 +2299,7 @@
       <xs:element minOccurs="0" name="DeclaredAmount" nillable="true" type="tns:DeclaredAmount" />
       <xs:element minOccurs="0" name="LegalInstructions" nillable="true" type="tns:ArrayOfLegalInstruction" />
       <xs:element minOccurs="0" name="ReloadingProhibited" nillable="true" type="xs:boolean" />
-      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SealingDevices" nillable="true" type="q11:ArrayOfstring" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SealingDevices" nillable="true" type="q12:ArrayOfstring" />
       <xs:element minOccurs="0" name="Vehicles" nillable="true" type="tns:ArrayOfVehicle" />
     </xs:sequence>
   </xs:complexType>
@@ -2303,13 +2419,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TransportWaybillReplyTitleBase" nillable="true" type="tns:TransportWaybillReplyTitleBase" />
-  <xs:complexType name="FileIdentification">
-    <xs:sequence>
-      <xs:element name="FileId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Signatures" nillable="true" type="q12:ArrayOfbase64Binary" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="FileIdentification" nillable="true" type="tns:FileIdentification" />
   <xs:complexType name="DriverCargoOperation">
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
@@ -2555,35 +2664,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DocumentGenerationOptions" nillable="true" type="tns:DocumentGenerationOptions" />
-  <xs:complexType name="GeneratedContent">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="NamedContent" nillable="true" type="tns:NamedContent" />
-      <xs:element minOccurs="0" name="ValidationResult" nillable="true" type="tns:ContentValidationResult" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GeneratedContent" nillable="true" type="tns:GeneratedContent" />
-  <xs:complexType name="ContentValidationResult">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FormatControlErrors" nillable="true" type="tns:ArrayOfValidationError" />
-      <xs:element minOccurs="0" name="GeneralStatus" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="XsdErrors" nillable="true" type="tns:ArrayOfValidationError" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ContentValidationResult" nillable="true" type="tns:ContentValidationResult" />
-  <xs:complexType name="ArrayOfValidationError">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationError" nillable="true" type="tns:ValidationError" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfValidationError" nillable="true" type="tns:ArrayOfValidationError" />
-  <xs:complexType name="ValidationError">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ErrorType" nillable="true" type="tns:EnumValue" />
-      <xs:element minOccurs="0" name="Field" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ValidationError" nillable="true" type="tns:ValidationError" />
   <xs:complexType name="GeneralTransferSellerV2GeneratingRequest">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationRequest">
@@ -2595,16 +2675,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="GeneralTransferSellerV2GeneratingRequest" nillable="true" type="tns:GeneralTransferSellerV2GeneratingRequest" />
-  <xs:complexType name="DocumentGenerationResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="GeneratedContent" nillable="true" type="tns:GeneratedContent" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DocumentGenerationResponse" nillable="true" type="tns:DocumentGenerationResponse" />
   <xs:complexType name="GeneralTransferBuyerV2GeneratingRequest">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:OperationRequest">
@@ -2749,17 +2819,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DepartmentRegistrationData" nillable="true" type="tns:DepartmentRegistrationData" />
-  <xs:complexType name="DepartmentShortInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Kpp" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DepartmentShortInfo" nillable="true" type="tns:DepartmentShortInfo" />
   <xs:complexType name="OrganizationRegistrationData">
     <xs:sequence>
       <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfOrganizationAddress" />
@@ -2900,17 +2959,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AccessToDepartment" nillable="true" type="tns:AccessToDepartment" />
-  <xs:complexType name="Department">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DepartmentShortInfo">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
-          <xs:element minOccurs="0" name="OrganizationBoxId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Department" nillable="true" type="tns:Department" />
   <xs:complexType name="Certificate">
     <xs:sequence>
       <xs:element minOccurs="0" name="CertificateId" type="xs:int" />
@@ -6104,54 +6152,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProviderIdentificationCenter" nillable="true" type="tns:ProviderIdentificationCenter" />
-  <xs:complexType name="AvailableDepartmentsRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:OperationRequest">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="AvailableDepartmentsRequest" nillable="true" type="tns:AvailableDepartmentsRequest" />
-  <xs:complexType name="AvailableDepartmentsResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AvailableDepartments" nillable="true" type="tns:ArrayOfDepartment" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="AvailableDepartmentsResponse" nillable="true" type="tns:AvailableDepartmentsResponse" />
-  <xs:complexType name="ArrayOfDepartment">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
-  <xs:complexType name="DocumentGoodsMarkingStateRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:OperationRequest">
-        <xs:sequence>
-          <xs:element name="DocumentId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DocumentGoodsMarkingStateRequest" nillable="true" type="tns:DocumentGoodsMarkingStateRequest" />
-  <xs:complexType name="DocumentGoodsMarkingStateResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OccurredAt" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="State" nillable="true" type="tns:EnumValue" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DocumentGoodsMarkingStateResponse" nillable="true" type="tns:DocumentGoodsMarkingStateResponse" />
   <xs:complexType name="ArrayOfMessageInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />

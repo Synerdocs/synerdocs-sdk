@@ -100,11 +100,11 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.ContactSearchResult.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentEntryList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentGenerationResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentGoodsMarkingStateResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentList.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentMovingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentPrintingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
-    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionGettingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionsGettingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessageSearchResult.datasource" />
@@ -118,6 +118,8 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferBuyerV2ParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionBuyer.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionSeller.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionV3.GeneralTransferCorrectionBuyerTitleV3ParsingResponse.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferCorrectionV3.GeneralTransferCorrectionSellerTitleV3ParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferSeller.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneralTransferSellerV2ParsingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.GeneratedContent.datasource" />
@@ -211,6 +213,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Model\ExchangeService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Model\ExchangeService91.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Model\Reference.svcmap">
