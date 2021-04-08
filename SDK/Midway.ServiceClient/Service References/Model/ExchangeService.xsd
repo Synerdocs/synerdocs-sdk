@@ -77,7 +77,7 @@
     <xs:sequence>
       <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="BasisDocuments" nillable="true" type="q24:ArrayOfBasisDocument" />
       <xs:element minOccurs="0" name="CostChangesInfo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DateSendingApproval" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateSendingApproval" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="OperationDescription" nillable="true" type="xs:string" />
       <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransferDocuments" nillable="true" type="q25:ArrayOfBasisDocument" />
     </xs:sequence>
@@ -104,6 +104,7 @@
       <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InfoTexts" nillable="true" type="q27:ArrayOfNameCodeObject" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="ProductAdditionalInfo" nillable="true" type="tns:ProductAdditionalInfo" />
     </xs:sequence>
   </xs:complexType>

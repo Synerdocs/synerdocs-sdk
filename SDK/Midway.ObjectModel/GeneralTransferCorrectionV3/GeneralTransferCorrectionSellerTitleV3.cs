@@ -6,7 +6,7 @@ namespace Midway.ObjectModel.GeneralTransferCorrectionV3
 {
     /// <summary>
     /// Универсальный корректировочный документ (КСФ, КСФ + ДИС (титул продавца/исполнителя),
-    /// ДИС (титул продавца/исполнителя)) версии 3 по приказу ММВ-7-15/189.
+    /// ДИС (титул продавца/исполнителя)) версии 3 по приказу ЕД-7-26/736.
     /// </summary>
     [DataContract]
     public class GeneralTransferCorrectionSellerTitleV3

@@ -13,8 +13,8 @@ namespace Midway.ObjectModel.GeneralTransferCorrectionV3
         /// <summary>
         /// Дата направления на согласование.
         /// </summary>
-        [DataMember]
-        public DateTime DateSendingApproval { get; set; }
+        [DataMember(IsRequired = false)]
+        public DateTime? DateSendingApproval { get; set; }
 
         /// <summary>
         /// Содержание операции.

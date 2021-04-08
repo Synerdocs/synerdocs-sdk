@@ -4,7 +4,7 @@ namespace Midway.ObjectModel.GeneralTransferCorrectionV3
 {
     /// <summary>
     /// Запрос на генерацию титула продавца УКД.
-    /// Формат УКД, утвержденный ММВ-7-15/189.
+    /// Формат УКД, утвержденный ЕД-7-26/736.
     /// </summary>
     [DataContract]
     public class GeneralTransferCorrectionSellerTitleV3GeneratingRequest : OperationRequest

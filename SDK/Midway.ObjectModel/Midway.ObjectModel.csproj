@@ -106,6 +106,7 @@
     <Compile Include="DocumentTypeVersionsGettingRequest.cs" />
     <Compile Include="DocumentTypeVersionsGettingResponse.cs" />
     <Compile Include="ExtendedOperationDescription.cs" />
+    <Compile Include="ForeignCounterpartyV2.cs" />
     <Compile Include="FundsType.cs" />
     <Compile Include="GeneralTransferAreaV2.cs" />
     <Compile Include="GeneralTransferBuyerV2.cs" />

@@ -29,10 +29,16 @@ namespace Midway.ObjectModel.GeneralTransferCorrectionV3
         public GeneralTransferCorrectionItemChange Change { get; set; }
 
         /// <summary>
-        /// Порядковый номер товара.
+        /// Номер строки.
         /// </summary>
         [DataMember(IsRequired = false)]
         public int Number { get; set; }
+
+        /// <summary>
+        /// Порядковый номер товара.
+        /// </summary>
+        [DataMember(IsRequired = false)]
+        public int? OrderNumber { get; set; }
 
         /// <summary>
         /// Наименование.

@@ -105,6 +105,7 @@
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentMovingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentPrintingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTag.datasource" />
+    <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionGettingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DocumentTypeVersionsGettingResponse.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessage.datasource" />
     <None Include="Properties\DataSources\Midway.ObjectModel.DraftMessageSearchResult.datasource" />
@@ -215,7 +216,7 @@
     <None Include="Service References\Model\ExchangeService8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Model\ExchangeService91.xsd">
+    <None Include="Service References\Model\ExchangeService9.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Model\Reference.svcmap">

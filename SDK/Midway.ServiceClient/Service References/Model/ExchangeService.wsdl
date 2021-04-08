@@ -6665,7 +6665,7 @@
       <soap:address location="http://localhost:5001/ExchangeService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBindingSecure_IExchangeService" binding="tns:BasicHttpBindingSecure_IExchangeService">
-      <soap:address location="https://w1036w10.comp.npo:5003/ExchangeService.svc" />
+      <soap:address location="https://w1071w10.comp.npo:5003/ExchangeService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

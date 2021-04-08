@@ -2175,6 +2175,18 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ForeignCounterparty" nillable="true" type="tns:ForeignCounterparty" />
+  <xs:complexType name="ForeignCounterpartyV2">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CounterpartyBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LegalEntityId" nillable="true" type="xs:string" />
+          <xs:element name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ForeignCounterpartyV2" nillable="true" type="tns:ForeignCounterpartyV2" />
   <xs:complexType name="ArrayOfCarriagePayment">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CarriagePayment" nillable="true" type="tns:CarriagePayment" />

@@ -1,4 +1,4 @@
-﻿using System.Runtime.Serialization;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
@@ -10,6 +10,7 @@ namespace Midway.ObjectModel
     [KnownType(typeof(IndividualEntrepreneurCounterparty))]
     [KnownType(typeof(IndividualCounterparty))]
     [KnownType(typeof(ForeignCounterparty))]
+    [KnownType(typeof(ForeignCounterpartyV2))]
     public class CounterpartyBase
     {
         /// <summary>
