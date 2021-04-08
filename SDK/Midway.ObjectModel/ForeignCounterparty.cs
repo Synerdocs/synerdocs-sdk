@@ -1,9 +1,11 @@
-﻿using System.Runtime.Serialization;
+using System.Runtime.Serialization;
 
 namespace Midway.ObjectModel
 {
     /// <summary>
     /// Иностранный контрагент.
+    /// Для работы с титулом продавца УКД по приказу ЕД-7-26/736 рекомендуется использовать
+    /// <see cref="ForeignCounterpartyV2"/>.
     /// </summary>
     [DataContract]
     public class ForeignCounterparty : CounterpartyBase

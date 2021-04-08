@@ -555,6 +555,15 @@ namespace Midway.ServiceClient
             return CheckAutorizedInvoke(() => client.GetFullDocumentInfo(Token, boxId, documentId, requestParams));
         }
 
+        /// <summary>
+        /// Получить информацию о версиях типа документа.
+        /// </summary>
+        /// <returns></returns>
+        public DocumentTypeVersionsGettingResponse GetDocumentTypeVersions(DocumentTypeVersionsGettingRequest requestParams)
+        {
+            return CheckAutorizedInvoke(() => client.GetDocumentTypeVersions(requestParams));
+        }
+
         public IAsyncResult BeginGetFullDocumentInfo(string boxId, string documentId, FullDocumentInfoRequestParams requestParams, AsyncCallback asyncCallback)
         {
             return client.BeginGetFullDocumentInfo(Token, boxId, documentId, requestParams, asyncCallback, null);

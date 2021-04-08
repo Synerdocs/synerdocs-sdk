@@ -180,6 +180,10 @@ namespace Midway.ConsoleClient
                         Tuple.Create<Action, string>(GetDocumentFlow, "Загрузить документ c вхождениями")
                     },
                     {
+                        "get-doc-type-version",
+                        Tuple.Create<Action, string>(GetDocumentTypeVersions, "Получить версию типа документа")
+                    },
+                    {
                         "get-draft-list",
                         Tuple.Create<Action, string>(GetDraftMessageList, "Список черновиков")
                     },
@@ -236,6 +240,12 @@ namespace Midway.ConsoleClient
                         Tuple.Create<Action, string>(
                             GetDocumentTag,
                             "Показать информацию по дополнительному статусу(тэгу)")
+                    },
+                    {
+                        "get-doc-tag-list",
+                        Tuple.Create<Action, string>(
+                            GetDocumentTagList,
+                            "Показать список дополнительных статусов(тегов)")
                     },
                     {
                         "add-promocode",
@@ -1127,6 +1137,36 @@ namespace Midway.ConsoleClient
             Console.Out.Write("Загружен ");
             PrintDocumentInfo(fullDocumentInfo);
             SaveDocumentInfo(fullDocumentInfo);
+        }
+
+        private void GetDocumentTypeVersions()
+        {
+            var documentId = UserInput.ReadParameter("Id документа");
+            var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, documentId);
+            if (documentInfo == null)
+            {
+                UserInput.Error($"Не найден документ с ID: {documentId}");
+                return;
+            }
+
+            var document = documentInfo.Document;
+            var documentTypeVersionsInfo = _context.ServiceClient.GetDocumentTypeVersions(new DocumentTypeVersionsGettingRequest
+            {
+                DocumentType = document.DocumentTypeEnum
+            });
+            if (documentTypeVersionsInfo == null || documentTypeVersionsInfo.Status.Code != (int)OperationStatus.Success)
+            {
+                UserInput.Error("Не получилось получить версии типа документа");
+                return;
+            }
+
+            var documentType = document.DocumentTypeInfo;
+            Console.Out.WriteLine("Тип документа: {0}\r\nОписание: {1}\r\nВерсия: {2}",
+                documentType.DocumentType.Name,
+                documentType.DocumentType.Description,
+                documentType.VersionNumber);
+
+            PrintDocumentTypeVersionsInfo(documentTypeVersionsInfo);
         }
 
         private EnumValue GetDocumentExecutedFunction(DocumentType documentType, string documentId)
@@ -2044,6 +2084,17 @@ namespace Midway.ConsoleClient
                             (DocumentType)relatedDocument.DocumentTypeEnum.Code);
                 }
             }
+        }
+
+        private void PrintDocumentTypeVersionsInfo(DocumentTypeVersionsGettingResponse documentTypeVersionsInfo)
+        {
+            Console.Out.WriteLine("Всего версий типа документа: {0}", documentTypeVersionsInfo.DocumentTypeVersions.Count);
+            foreach (var documentTypeVersion in documentTypeVersionsInfo.DocumentTypeVersions)
+                Console.Out.WriteLine("\tВерсия: {0} \tОснование: {1} \tАктуальность: с {2} по {3}",
+                    documentTypeVersion.VersionNumber,
+                    documentTypeVersion.Name,
+                    documentTypeVersion.ValidFrom,
+                    documentTypeVersion.ValidTo);
         }
 
         private void PrintDocumentFlow(FlowDocumentInfo flowDocumentInfo)
@@ -3913,6 +3964,46 @@ namespace Midway.ConsoleClient
             PrintProperty("Дата создания", documentTag.CreateDate);
         }
 
+        private void GetDocumentTagList()
+        {
+            var boxId = _context.CurrentBox;
+
+            var documentId = UserInput.ReadParameter("Id документа");
+            var documentInfo = _context.ServiceClient.GetFullDocumentInfo(_context.CurrentBox, documentId);
+            if (documentInfo == null)
+            {
+                UserInput.Error("Неправильный идентификатор документа");
+                return;
+            }
+
+            DocumentTag[] documentTagsList;
+
+            try
+            {
+                documentTagsList = _context.ServiceClient.GetDocumentTagList(boxId, documentId);
+            }
+            catch (ServerException ex)
+            {
+                if (ex.Code != ServiceErrorCode.UnexpectedError)
+                {
+                    UserInput.Error(ex.Message);
+                    return;
+                }
+                throw;
+            }
+
+            if (documentTagsList != null)
+            {
+                foreach (var documentTag in documentTagsList)
+                {
+                    Console.Out.WriteLine("Id: {0}\tТип тега: {1}\tКомментарий: {2}\tДата создания: {3}",
+                        documentTag.Id,
+                        documentTag.TagType,
+                        documentTag.Comment,
+                        documentTag.CreateDate);
+                }
+            }
+        }
         /// <summary>
         /// Отправить ПОА.
         /// </summary>
