@@ -1,190 +1,559 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GeneralTransferCorrectionV3" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.GeneralTransferCorrectionV3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" />
-  <xs:complexType name="GeneralTransferCorrectionBuyerTitleV3ParsingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q1:ParsingRequest">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionBuyerTitleV3ParsingRequest" nillable="true" type="tns:GeneralTransferCorrectionBuyerTitleV3ParsingRequest" />
-  <xs:complexType name="GeneralTransferCorrectionBuyerTitleV3ParsingResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q2:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GeneralTransferCorrectionBuyerTitleV3" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionBuyerTitleV3ParsingResponse" nillable="true" type="tns:GeneralTransferCorrectionBuyerTitleV3ParsingResponse" />
-  <xs:complexType name="GeneralTransferCorrectionBuyerTitleV3">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Midway.ObjectModel.Exceptions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5001/ExchangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ServiceErrorFaultContract">
     <xs:sequence>
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ApprovalInfo" nillable="true" type="q3:ApprovalInfo" />
-      <xs:element name="CreatedAt" type="xs:dateTime" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Drafter" nillable="true" type="q4:Drafter" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" name="ExecutedFunction" nillable="true" type="q5:EnumValue" />
-      <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InfoField" nillable="true" type="q6:InfoFieldFull" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SellerTitleIdentification" nillable="true" type="q7:SellerTitleIdentification" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="SellerTitleShortInfo" nillable="true" type="q8:DocumentShortInfo" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ServiceInfo" nillable="true" type="q9:ParticipantsServiceInfo" />
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Signers" nillable="true" type="q10:ArrayOfSigner" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionBuyerTitleV3" nillable="true" type="tns:GeneralTransferCorrectionBuyerTitleV3" />
-  <xs:complexType name="GeneralTransferCorrectionSellerTitleV3ParsingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q11:ParsingRequest">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionSellerTitleV3ParsingRequest" nillable="true" type="tns:GeneralTransferCorrectionSellerTitleV3ParsingRequest" />
-  <xs:complexType name="GeneralTransferCorrectionSellerTitleV3ParsingResponse">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q12:OperationResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:GeneralTransferCorrectionSellerTitleV3" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionSellerTitleV3ParsingResponse" nillable="true" type="tns:GeneralTransferCorrectionSellerTitleV3ParsingResponse" />
-  <xs:complexType name="GeneralTransferCorrectionSellerTitleV3">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ApprovalArea" nillable="true" type="tns:ApprovalFactData" />
-      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Buyer" nillable="true" type="q13:CounterpartyBase" />
-      <xs:element name="CreatedDate" type="xs:dateTime" />
-      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Currency" nillable="true" type="q14:CurrencyInfo" />
-      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Drafter" nillable="true" type="q15:Drafter" />
-      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ExecutedFunction" nillable="true" type="q16:EnumValue" />
-      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Factor" nillable="true" type="q17:Factor" />
-      <xs:element name="FileId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GeneralTransferCorrectionArea" nillable="true" type="tns:GeneralTransferCorrectionAreaV3" />
-      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InfoField" nillable="true" type="q18:InfoFieldFull" />
-      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="OriginalDocuments" nillable="true" type="q19:ArrayOfDocumentShortInfo" />
-      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Seller" nillable="true" type="q20:CounterpartyBase" />
-      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ServiceInfo" nillable="true" type="q21:ParticipantsServiceInfo" />
-      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ShortInfo" nillable="true" type="q22:DocumentShortInfo" />
-      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Signers" nillable="true" type="q23:ArrayOfSigner" />
-      <xs:element minOccurs="0" name="StateContractId" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionSellerTitleV3" nillable="true" type="tns:GeneralTransferCorrectionSellerTitleV3" />
-  <xs:complexType name="ApprovalFactData">
-    <xs:sequence>
-      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="BasisDocuments" nillable="true" type="q24:ArrayOfBasisDocument" />
-      <xs:element minOccurs="0" name="CostChangesInfo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DateSendingApproval" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="OperationDescription" nillable="true" type="xs:string" />
-      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="TransferDocuments" nillable="true" type="q25:ArrayOfBasisDocument" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ApprovalFactData" nillable="true" type="tns:ApprovalFactData" />
-  <xs:complexType name="GeneralTransferCorrectionAreaV3">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="GeneralTransferCorrectionItems" nillable="true" type="tns:ArrayOfGeneralTransferCorrectionItemV3" />
-      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="Total" nillable="true" type="q26:GeneralTransferCorrectionTotal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionAreaV3" nillable="true" type="tns:GeneralTransferCorrectionAreaV3" />
-  <xs:complexType name="ArrayOfGeneralTransferCorrectionItemV3">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GeneralTransferCorrectionItemV3" nillable="true" type="tns:GeneralTransferCorrectionItemV3" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGeneralTransferCorrectionItemV3" nillable="true" type="tns:ArrayOfGeneralTransferCorrectionItemV3" />
-  <xs:complexType name="GeneralTransferCorrectionItemV3">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="After" nillable="true" type="tns:GeneralTransferCorrectionItemData" />
-      <xs:element minOccurs="0" name="Before" nillable="true" type="tns:GeneralTransferCorrectionItemData" />
-      <xs:element minOccurs="0" name="Change" nillable="true" type="tns:GeneralTransferCorrectionItemChange" />
-      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="InfoTexts" nillable="true" type="q27:ArrayOfNameCodeObject" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Number" type="xs:int" />
-      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="ProductAdditionalInfo" nillable="true" type="tns:ProductAdditionalInfo" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionItemV3" nillable="true" type="tns:GeneralTransferCorrectionItemV3" />
-  <xs:complexType name="GeneralTransferCorrectionItemData">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Excise" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
-      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="ProductIdentificationInfos" nillable="true" type="q28:ArrayOfProductIdentificationInfo" />
-      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="UnitMeasure" nillable="true" type="q29:NameCodeObject" />
-      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="VatAmount" nillable="true" type="q30:VatAmount" />
-      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" minOccurs="0" name="VatRate" nillable="true" type="q31:EnumValue" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionItemData" nillable="true" type="tns:GeneralTransferCorrectionItemData" />
-  <xs:complexType name="GeneralTransferCorrectionItemChange">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ExciseDifference" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="ProductCostWithVatChange" nillable="true" type="tns:DecimalChange" />
-      <xs:element minOccurs="0" name="ProductCostWithoutVatChange" nillable="true" type="tns:DecimalChange" />
-      <xs:element minOccurs="0" name="QuantityChange" nillable="true" type="tns:DecimalChange" />
-      <xs:element minOccurs="0" name="TraceabilityChanges" nillable="true" type="tns:ArrayOfProductTraceabilityInfoChange" />
-      <xs:element minOccurs="0" name="VatDifference" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionItemChange" nillable="true" type="tns:GeneralTransferCorrectionItemChange" />
-  <xs:complexType name="DecimalChange">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AfterChange" type="xs:decimal" />
-      <xs:element minOccurs="0" name="BeforeChange" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Difference" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DecimalChange" nillable="true" type="tns:DecimalChange" />
-  <xs:complexType name="ArrayOfProductTraceabilityInfoChange">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductTraceabilityInfoChange" nillable="true" type="tns:ProductTraceabilityInfoChange" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProductTraceabilityInfoChange" nillable="true" type="tns:ArrayOfProductTraceabilityInfoChange" />
-  <xs:complexType name="ProductTraceabilityInfoChange">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BatchNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="QuantityChange" nillable="true" type="tns:DecimalChange" />
-      <xs:element minOccurs="0" name="UnitQuantityAccountingCode" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ProductTraceabilityInfoChange" nillable="true" type="tns:ProductTraceabilityInfoChange" />
-  <xs:complexType name="ProductAdditionalInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Article" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Characteristic" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="KindCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Field" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ProductAdditionalInfo" nillable="true" type="tns:ProductAdditionalInfo" />
-  <xs:complexType name="GeneralTransferCorrectionSellerTitleV3GeneratingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q32="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q32:OperationRequest">
-        <xs:sequence>
-          <xs:element name="Model" nillable="true" type="tns:GeneralTransferCorrectionSellerTitleV3" />
-          <xs:element minOccurs="0" name="Options" nillable="true" type="q32:DocumentGenerationOptions" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionSellerTitleV3GeneratingRequest" nillable="true" type="tns:GeneralTransferCorrectionSellerTitleV3GeneratingRequest" />
-  <xs:complexType name="GeneralTransferCorrectionBuyerTitleV3GeneratingRequest">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q33="http://schemas.datacontract.org/2004/07/Midway.ObjectModel" base="q33:OperationRequest">
-        <xs:sequence>
-          <xs:element name="Model" nillable="true" type="tns:GeneralTransferCorrectionBuyerTitleV3" />
-          <xs:element minOccurs="0" name="Options" nillable="true" type="q33:DocumentGenerationOptions" />
-          <xs:element name="ParentDocumentId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GeneralTransferCorrectionBuyerTitleV3GeneratingRequest" nillable="true" type="tns:GeneralTransferCorrectionBuyerTitleV3GeneratingRequest" />
+  <xs:element name="ServiceErrorFaultContract" nillable="true" type="tns:ServiceErrorFaultContract" />
+  <xs:simpleType name="ServiceErrorCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UnexpectedError" />
+      <xs:enumeration value="NotFilledRequiredField" />
+      <xs:enumeration value="MessageDoesNotContainReference" />
+      <xs:enumeration value="InvalidFormatField" />
+      <xs:enumeration value="InvalidDestinationAddress" />
+      <xs:enumeration value="Unauthorized" />
+      <xs:enumeration value="InvalidDocumentReference" />
+      <xs:enumeration value="InvalidCardContent" />
+      <xs:enumeration value="NoDataFound" />
+      <xs:enumeration value="BoxAccessError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContragentIsNotAuthorized">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactListError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactIsNotAuthorized">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">41</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactIsAlreadyAuthorized">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">42</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactAuthIsAlreadyRequested">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">43</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactHasRejectedAuth">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">44</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactAuthRequestNotFound">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">45</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OrganizationMustBeActive">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">46</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactAuthIsRejected">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">47</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AccessDeniedError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FeatureDisabled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SqlException">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidCMS">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">51</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SignDoesNotContainCertificate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">52</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SignIsNotValid">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">53</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CertificatePeriodIsNotValid">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">54</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CertificateIsNotTrusted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">55</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CertificateIsRevoked">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">56</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CertificateHasNotValidAttributesAndExtensions">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">58</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EnhancedSignNotFound">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">59</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CertificateRevocationStatusUnavailable">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">60</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DepartmentDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">61</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ParentDepartmentDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">62</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DepartmentHasChild">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">63</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DepartmentDoesNotExist">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DepartmentCyclicDependency">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IncorrectParentDepartment">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">66</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DepartmentIsHead">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PermissionAlreadyDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">71</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PermissionDoesNotExist">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">72</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DuplicateUser">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">80</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UserDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">81</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DuplicateCertificate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">83</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DuplicateBindToOrganization">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">84</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CertificateNotFound">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">85</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CertificateParsingFailed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">86</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DuplicateOrganization">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">87</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DraftMessageError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">101</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidDocumentFormat">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidDocumentContent">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1002</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidFileName">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1003</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DownloadDocumentFlowArchiveFailed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1004</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentContentAccessDenied">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1005</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidDocumentType">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1006</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentExchangeIsDenied">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1007</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WorkflowViolation">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RelationNotAllowed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SignAlreadyExists">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidSourceAddress">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4002</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CyclicParentReferences">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4003</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentNotFound">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4004</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AuthorizeContragentError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UnknowDocumentFlowError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6000</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OperationIsNotAvailable">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SendToSelfIsNotAllowed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6002</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SendFromOtherIsNotAllowed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6003</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ForwardIsNotAvailable">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6004</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentDoesNotRequireSigning">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6005</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentWasAlreadySigned">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6006</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SignWasAlreadyRejected">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6007</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SendToRoamingIsNotAllowed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6008</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidRecipientUser">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6009</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentConversionError">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureInvalid">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidSimpleSignatureFormat">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8002</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidSimpleSignatureAttributes">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8003</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidSimpleSignatureDocument">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8004</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureDisabled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8005</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureRegulationNotAccepted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8006</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureRegulationAlreadyAccepted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8007</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureSnilsNotSpecified">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8008</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureDocumentTypeNotAllowed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8009</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureRegulationOrganizationIsNotActive">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8010</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignaturePhoneNotSpecified">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8011</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SimpleSignatureIdentityDocumentNotSpecified">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8012</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceErrorCode" nillable="true" type="tns:ServiceErrorCode" />
 </xs:schema>
