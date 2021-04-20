@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="EnhancedSign" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Midway.ObjectModel.EnhancedSign, Midway.ObjectModel, Version=2.56.0.0, Culture=neutral, PublicKeyToken=5b99fede12d9a0f3</TypeInfo>
+   <TypeInfo>Midway.ObjectModel.EnhancedSign, Midway.ObjectModel, Version=2.56.1.0, Culture=neutral, PublicKeyToken=5b99fede12d9a0f3</TypeInfo>
 </GenericObjectDataSource>

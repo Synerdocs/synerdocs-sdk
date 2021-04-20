@@ -860,6 +860,16 @@ namespace Midway.ServiceClient
         }
 
         /// <summary>
+        /// Возвращает zip-архив со всей цепочкой документооборота без информационной квитанции.
+        /// </summary>
+        /// <param name="boxId">Ящик организации.</param>
+        /// <param name="documentId">ИД документа.</param>
+        public NamedContent DownloadDocumentFlowArchiveWithoutInformationReceipt(string boxId, string documentId)
+        {
+            return CheckAutorizedInvoke(() => client.DownloadDocumentFlowArchiveWithoutInformationReceipt(Token, boxId, documentId));
+        }
+
+        /// <summary>
         /// Получить все организации по указанному ИНН (+ КПП).
         /// В случае поиска ИП, ФЛ или организации со списком филиалов - КПП не указывается.
         /// </summary>
